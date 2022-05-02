@@ -1,6 +1,6 @@
 # Mighty Persona Bond Forge Patch Mod
 
-![](https://github.com/Daria40K/Mighty-Persona-Bond-Forge-Patch-Mod/blob/main/About/Preview.png)
+![](https://github.com/Daria40K/Mighty-Persona-Bond-Forge-Patch-Mod/blob/main/About/preview.png)
 
 ## Required Mods
 - [Persona Bond Forge](https://steamcommunity.com/workshop/filedetails/?id=2178003816) (Steam)
