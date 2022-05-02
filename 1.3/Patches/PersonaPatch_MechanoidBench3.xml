@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Mechanoid Bench 3
+
+    Gun_MechaMinigun = mecha minigun
+    Gun_MechaSniperRifle = mecha sniper rifle
+    Gun_MechaShotgun = mecha shotgun
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Mechanoid Bench 3</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <thingDef Name="MB3Base_Bond" Abstract="True" ParentName="BaseWeapon_Bladelink">
+                            <techLevel>Spacer</techLevel>
+                            <smeltable>true</smeltable>
+                            <inspectorTabs>
+                                <li>ITab_Art</li>
+                            </inspectorTabs>
+                            <thingCategories>
+                                <li>WeaponsRanged</li>
+                            </thingCategories>
+                            <generateCommonality>0</generateCommonality>
+                            <comps>
+                                <li Class="CompProperties_Art">
+                                    <nameMaker>NamerArtWeaponGun</nameMaker>
+                                    <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+                                    <minQualityForArtistic>Excellent</minQualityForArtistic>
+                                </li>
+                                <li>
+                                    <compClass>CompQuality</compClass>
+                                </li>
+                            </comps>
+                        </thingDef>
+
+                        <!-- Gun_MechaMinigun -->
+                        <ThingDef ParentName="MB3Base_Bond">
+                            <defName>Gun_MechaMinigun_Bond</defName>
+                            <label>persona mecha minigun</label>
+                            <description>A charged-shot multi-barrel machine gun. Improved with mechanoid component, it is much lighter than the existing minigun. Pulse-charge technology charges each shot with unstable energy as it leaves the barrel. Released on impact, the charged energy greatly increases the damage done.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/MechaMinigun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.2</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <statBases>
+                                <Mass>5</Mass>
+                                <MarketValue>3000</MarketValue>
+                                <AccuracyTouch>0.220</AccuracyTouch>
+                                <AccuracyShort>0.330</AccuracyShort>
+                                <AccuracyMedium>0.330</AccuracyMedium>
+                                <AccuracyLong>0.220</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                                <li>SpacerGun</li>
+                                <li>GunHeavy</li>
+                            </weaponTags>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.15</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_MechaMinigun_Bond</defaultProjectile>
+                                    <warmupTime>1.955</warmupTime>
+                                    <range>30.9</range>
+                                    <burstShotCount>25</burstShotCount>
+                                    <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>10</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrels</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.870</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_MechaMinigun_Bond</defName>
+                            <label>mecha minigun bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Charge_Small</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.35</armorPenetrationBase>
+                                <speed>80</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_Gun_MechaMinigun_Bond</defName>
+                            <label>bond mecha minigun</label>
+                            <description>Bond an mecha minigun.</description>
+                            <jobString>Bonding a mecha minigun.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>MechanoidBench_Research_MechaWeapon</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_MechaMinigun</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_MechaMinigun</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_MechaMinigun_Bond>1</Gun_MechaMinigun_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- Gun_MechaSniperRifle -->
+                        <ThingDef ParentName="MB3Base_Bond">
+                            <defName>Gun_MechaSniperRifle_Bond</defName>
+                            <label>persona mecha sniper rifle</label>
+                            <description>A charged-shot sniper rifle. Improved with mechanoid component, it is much lighter than the existing sniper rifle. Pulse-charge technology charges each shot with unstable energy as it leaves the barrel. Released on impact, the charged energy greatly increases the damage done.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/MechaSniperRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <statBases>
+                                <Mass>2</Mass>
+                                <MarketValue>2000</MarketValue>
+                                <AccuracyTouch>0.550</AccuracyTouch>
+                                <AccuracyShort>0.770</AccuracyShort>
+                                <AccuracyMedium>0.946</AccuracyMedium>
+                                <AccuracyLong>0.968</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_MechaSniperRifle_Bond</defaultProjectile>
+                                    <warmupTime>2.550</warmupTime>
+                                    <range>44.9</range>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>10</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                                <li>SpacerGun</li>
+                                <li>SniperRifle</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_MechaSniperRifle_Bond</defName>
+                            <label>mecha sniper rifle bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/ChargeLanceShot</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1.5</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>28</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <armorPenetrationBase>0.45</armorPenetrationBase>
+                                <speed>110</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_Gun_MechaSniperRifle_Bond</defName>
+                            <label>bond mecha sniper rifle</label>
+                            <description>Bond an mecha sniper rifle.</description>
+                            <jobString>Bonding a mecha sniper rifle.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>MechanoidBench_Research_MechaWeapon</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_MechaSniperRifle</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_MechaSniperRifle</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_MechaSniperRifle_Bond>1</Gun_MechaSniperRifle_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- Gun_MechaShotgun -->
+                        <ThingDef ParentName="MB3Base_Bond">
+                            <defName>Gun_MechaShotgun_Bond</defName>
+                            <label>persona mecha shotgun</label>
+                            <description>A charged-shot shotgun. Improved with mechanoid component, it is much lighter than the existing shotgun. Pulse-charge technology charges each shot with unstable energy as it leaves the barrel. Released on impact, the charged energy greatly increases the damage done.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/MechaShotgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.1</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Shotgun</soundInteract>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>2.25</Mass>
+                                <MarketValue>2000</MarketValue>
+                                <AccuracyTouch>0.660</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.850</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_ChargeShotgun_Bond</defaultProjectile>
+                                    <warmupTime>0.850</warmupTime>
+                                    <range>12.9</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>12</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_ChargeShotgun_Bond</defName>
+                            <label>mecha shotgun blast</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_ChargeShotgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>22</damageAmountBase>
+                                <stoppingPower>5</stoppingPower>
+                                <armorPenetrationBase>0.5</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_Gun_MechaShotgun_Bond</defName>
+                            <label>bond mecha shotgun</label>
+                            <description>Bond an mecha shotgun.</description>
+                            <jobString>Bonding a mecha shotgun.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>MechanoidBench_Research_MechaWeapon</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_MechaShotgun</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_MechaShotgun</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_MechaShotgun_Bond>1</Gun_MechaShotgun_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

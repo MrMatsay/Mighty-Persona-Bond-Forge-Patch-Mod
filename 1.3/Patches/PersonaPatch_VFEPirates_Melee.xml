@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Vanilla Factions Expanded - Pirates
+
+    VFEP_WarcasketMeleeWeapon_CombatKnife_Bond = persona warcasket combat knife
+    VFEP_WarcasketMeleeWeapon_Broadsword_Bond = persona warcasket broadsword
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Factions Expanded - Pirates</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- Melee -->
+                        <!-- Melee Base -->
+                        <ThingDef Name="VFEP_BaseMeleeWeapon_Warcasket_Bond" ParentName="BaseWeapon_Bladelink" Abstract="True">
+                            <graphicData>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <techLevel>Industrial</techLevel>
+                            <weaponTags Inherit="False">
+                                <li>Bladelink</li>
+                                <li>WarcasketMelee</li>
+                            </weaponTags>
+                            <thingSetMakerTags>
+                                <li>Warcasket</li>
+                            </thingSetMakerTags>
+                            <tradeTags>
+                                <li>VFEP_WarcasketWeapon</li>
+                            </tradeTags>
+                            <relicChance>0</relicChance>
+                            <comps>
+                                <li>
+                                    <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+                                </li>
+                            </comps>
+                            <modExtensions>
+                                <li Class="HeavyWeapons.HeavyWeapon">
+                                    <isHeavy>true</isHeavy>
+                                    <supportedTraits>
+                                        <li>VFEP_WarcasketTrait</li>
+                                    </supportedTraits>
+                                    <disableOptionLabelKey>VFEP.RequiresWarcasket</disableOptionLabelKey>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <!-- VFEP_WarcasketMeleeWeapon_CombatKnife_Bond -->
+                        <ThingDef ParentName="VFEP_BaseMeleeWeapon_Warcasket_Bond">
+                            <defName>VFEP_WarcasketMeleeWeapon_CombatKnife_Bond</defName>
+                            <label>persona warcasket combat knife</label>
+                            <description>An upscaled version of the combat knife designed for use by a warcasket. It is only still called a knife due to size comparison to a warcasket, but it is capable of cleaving a man in half and is just as large. The preferred weapon for the faster moving warcaskets that prioritize lightly armored, isolated targets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <thingClass>VFECore.ThingWithFloorGraphic</thingClass>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketCombatKnife</texPath>
+                                <drawSize>1.7</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>870</MarketValue>
+                                <Mass>10</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <costList>
+                                <Steel>140</Steel>
+                            </costList>
+                            <weaponTags>
+                                <li>WarcasketMelee</li>
+                                <li>WarcasketVeteran</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>26.40</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                    <armorPenetration>0.374</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>blade</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>26.40</power>
+                                    <cooldownTime>2.040</cooldownTime>
+                                    <armorPenetration>0.374</armorPenetration>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketCombatKnife_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_VFEP_WarcasketMeleeWeapon_CombatKnife_Bond</defName>
+                            <label>bond warcasket combat knife</label>
+                            <description>Bond an warcasket combat knife.</description>
+                            <jobString>Bonding a warcasket combat knife.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>VFEP_Warcaskets</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>VFEP_WarcasketMeleeWeapon_CombatKnife</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>VFEP_WarcasketMeleeWeapon_CombatKnife</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <VFEP_WarcasketMeleeWeapon_CombatKnife_Bond>1</VFEP_WarcasketMeleeWeapon_CombatKnife_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- VFEP_WarcasketMeleeWeapon_Broadsword_Bond -->
+                        <ThingDef ParentName="VFEP_BaseMeleeWeapon_Warcasket_Bond">
+                            <defName>VFEP_WarcasketMeleeWeapon_Broadsword_Bond</defName>
+                            <label>persona warcasket broadsword</label>
+                            <description>A very unique melee weapon exclusively made for warcaskets. It combines massive weight and a cutting force that gives it no equal in melee combat. While it was intended for use against other warcaskets, it works just as well against smaller targets that would normally be considered armored.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <thingClass>VFECore.ThingWithFloorGraphic</thingClass>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketBroadsword</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.7</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>1460</MarketValue>
+                                <Mass>30</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-35</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>28.60</power>
+                                    <cooldownTime>2.210</cooldownTime>
+                                    <armorPenetration>0.495</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>blade</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>39.60</power>
+                                    <cooldownTime>2.380</cooldownTime>
+                                    <armorPenetration>0.550</armorPenetration>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketBroadsword_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_VFEP_WarcasketMeleeWeapon_Broadsword_Bond</defName>
+                            <label>bond warcasket broadsword</label>
+                            <description>Bond an warcasket broadsword.</description>
+                            <jobString>Bonding a warcasket broadsword.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>VFEP_Warcaskets</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>VFEP_WarcasketMeleeWeapon_Broadsword</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>VFEP_WarcasketMeleeWeapon_Broadsword</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <VFEP_WarcasketMeleeWeapon_Broadsword_Bond>1</VFEP_WarcasketMeleeWeapon_Broadsword_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

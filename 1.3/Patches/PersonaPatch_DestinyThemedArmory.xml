@@ -1,0 +1,611 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Destiny Themed Armory
+
+    SC_Guardian = XM-1 “Guardian”
+    SC_Umbra = A-55 “Umbra”
+    Ace = AOS-1 “Ace”
+
+    PChargeBlade = Prestige Charge Blade
+    ChargeBlade = Charge Blade
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Destiny Themed Armory</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="BaseRangedWeapon_DestinyThemedArmoryBond" ParentName="BaseWeapon_Bladelink" Abstract="True">
+                            <techLevel>Spacer</techLevel>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef Name="BaseMeleeWeapon_DestinyThemedArmoryBond" ParentName="BaseWeapon_Bladelink" Abstract="True">
+                            <soundInteract>Interact_MonoSword</soundInteract>
+                            <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+                            <comps>
+                                <li>
+                                    <compClass>CompQuality</compClass>
+                                </li>
+                                <li Class="CompProperties_Art">
+                                    <nameMaker>NamerArtWeaponMelee</nameMaker>
+                                    <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+                                    <minQualityForArtistic>Excellent</minQualityForArtistic>
+                                </li>
+                                <li Class="CompProperties_Biocodable"/>
+                            </comps>
+                            <weaponTags Inherit="False">
+                                <li>Bladelink</li>
+                                <li>UltratechMelee</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>Melee</li>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <thingSetMakerTags>
+                                <li>RewardStandardMidFreq</li>
+                            </thingSetMakerTags>
+                        </ThingDef>
+
+                        <!-- Ranged -->
+                        <!-- SC_Guardian -->
+                        <ThingDef ParentName="BaseRangedWeapon_DestinyThemedArmoryBond">
+                            <defName>SC_Guardian_Bond</defName>
+                            <label>persona XM-1 “Guardian”</label>
+                            <description>An Improvement on standard charge munitions. The XM-1 utilizes advanced mass acceleration technology and an enhanced plasma containment system for increased performance and damage potential.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>GUN3</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>4.6</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.704</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_SC_Bond</defaultProjectile>
+                                    <warmupTime>0.850</warmupTime>
+                                    <range>27.9</range>
+                                    <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+                                    <burstShotCount>3</burstShotCount>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <soundCast>Shot_HeavySMG</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_SC_Bond</defName>
+                            <label>accelerated shot</label>
+                            <graphicData>
+                                <texPath>Bullet_SC</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>20</damageAmountBase>
+                                <armorPenetrationBase>0.35</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SC_Guardian_Bond</defName>
+                            <label>bond XM-1 “Guardian”</label>
+                            <description>Bond an XM-1 “Guardian”.</description>
+                            <jobString>Bonding a XM-1 “Guardian”.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>destiny_weapons</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SC_Guardian</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SC_Guardian</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SC_Guardian_Bond>1</SC_Guardian_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SC_Umbra -->
+                        <ThingDef ParentName="BaseRangedWeapon_DestinyThemedArmoryBond">
+                            <defName>SC_Umbra_Bond</defName>
+                            <label>persona A-55 “Umbra”</label>
+                            <description>A charge Battle Rifle utilizing the same advancements as the XM-1. The A-55 is designed to fire in shorter bursts for increased accuracy and stopping power at longer ranges.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <drawSize>1.1</drawSize>
+                                <texPath>GUN2</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <statBases>
+                                <Mass>4.8</Mass>
+                                <AccuracyTouch>0.550</AccuracyTouch>
+                                <AccuracyShort>0.759</AccuracyShort>
+                                <AccuracyMedium>0.825</AccuracyMedium>
+                                <AccuracyLong>0.858</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.573</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BR_SC_Bond</defaultProjectile>
+                                    <warmupTime>1.020</warmupTime>
+                                    <range>30.9</range>
+                                    <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                    <burstShotCount>2</burstShotCount>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <soundCast>Shot_AssaultRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_BR_SC_Bond</defName>
+                            <label>accelerated shot</label>
+                            <graphicData>
+                                <texPath>Bullet_SC</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>24</damageAmountBase>
+                                <armorPenetrationBase>0.5</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SC_Umbra_Bond</defName>
+                            <label>bond A-55 “Umbra”</label>
+                            <description>Bond an A-55 “Umbra”.</description>
+                            <jobString>Bonding a A-55 “Umbra”.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>destiny_weapons</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SC_Umbra</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SC_Umbra</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SC_Umbra_Bond>1</SC_Umbra_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- Ace -->
+                        <ThingDef ParentName="BaseRangedWeapon_DestinyThemedArmoryBond">
+                            <defName>Ace_Bond</defName>
+                            <label>persona AOS-1 “Ace”</label>
+                            <description>An advanced charge revolver, this ‘hand cannon’ is designed to fire rifle caliber munitions. Popular in CQC situations for it’s stopping power and comparatively low profile.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <drawSize>0.75</drawSize>
+                                <texPath>GUN1</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Revolver</soundInteract>
+                            <statBases>
+                                <Mass>1.9</Mass>
+                                <AccuracyTouch>0.726</AccuracyTouch>
+                                <AccuracyShort>0.792</AccuracyShort>
+                                <AccuracyMedium>0.814</AccuracyMedium>
+                                <AccuracyLong>0.726</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.360</RangedWeapon_Cooldown>
+                                <MarketValue>900</MarketValue>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <soundCast>Shot_Revolver</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_SCTWO_Bond</defaultProjectile>
+                                    <warmupTime>0.383</warmupTime>
+                                    <range>26.9</range>
+                                    <burstShotCount>1</burstShotCount>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_SCTWO_Bond</defName>
+                            <label>accelerated shot</label>
+                            <graphicData>
+                                <texPath>Bullet_SC</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1.5</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>20</damageAmountBase>
+                                <armorPenetrationBase>0.41</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_Ace_Bond</defName>
+                            <label>bond AOS-1 “Ace”</label>
+                            <description>Bond an AOS-1 “Ace”.</description>
+                            <jobString>Bonding a AOS-1 “Ace”.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>destiny_weapons</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Ace</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Ace</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Ace_Bond>1</Ace_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- Melee -->
+                        <!-- PChargeBlade -->
+                        <ThingDef ParentName="BaseMeleeWeapon_DestinyThemedArmoryBond">
+                            <defName>PChargeBlade_Bond</defName>
+                            <label>persona Prestige Charge Blade</label>
+                            <description>A large melee weapon, designed to be wielded with two hands. Micro plasma emitters along the length of the blade sheath the weapon in superhot plasma, contained by a magnetic field generator in the hilt, giving the weapon almost unparalleled penetration and cutting power. (This time in Gold)\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <statBases>
+                                <MarketValue>2000</MarketValue>
+                                <Mass>2</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <relicChance>4</relicChance>
+                            <graphicData>
+                                <drawSize>1.35</drawSize>
+                                <texPath>SWORD2</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>16.50</power>
+                                    <cooldownTime>1.360</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>33</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                    <armorPenetration>0.990</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>33</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                    <armorPenetration>0.990</armorPenetration>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PChargeBlade_Bond</defName>
+                            <label>bond Prestige Charge Blade</label>
+                            <description>Bond an Prestige Charge Blade.</description>
+                            <jobString>Bonding a Prestige Charge Blade.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>destiny_weapons</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PChargeBlade</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PChargeBlade</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PChargeBlade_Bond>1</PChargeBlade_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- ChargeBlade -->
+                        <ThingDef ParentName="BaseMeleeWeapon_DestinyThemedArmoryBond">
+                            <defName>ChargeBlade_Bond</defName>
+                            <label>persona Charge Blade</label>
+                            <description>A large melee weapon, designed to be wielded with two hands. Micro plasma emitters along the length of the blade sheath the weapon in superhot plasma, contained by a magnetic field generator in the hilt, giving the weapon almost unparalleled penetration and cutting power.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <statBases>
+                                <MarketValue>2000</MarketValue>
+                                <Mass>2</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <relicChance>3</relicChance>
+                            <graphicData>
+                                <drawSize>1.35</drawSize>
+                                <texPath>SWORD1</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>15.40</power>
+                                    <cooldownTime>1.360</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>28.60</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                    <armorPenetration>0.990</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>28.60</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                    <armorPenetration>0.990</armorPenetration>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_ChargeBlade_Bond</defName>
+                            <label>bond Charge Blade</label>
+                            <description>Bond an Charge Blade.</description>
+                            <jobString>Bonding a Charge Blade.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>destiny_weapons</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>ChargeBlade</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>ChargeBlade</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <ChargeBlade_Bond>1</ChargeBlade_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

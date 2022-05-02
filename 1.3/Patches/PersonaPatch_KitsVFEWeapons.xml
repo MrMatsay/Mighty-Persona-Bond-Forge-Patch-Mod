@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Kit's VFE Weapons
+-->
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Kit's VFE Weapons</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs</xpath>
+					<value>
+						<!-- ===== Meele ===== -->
+						<ThingDef Name="PersonaPatch_KitsVFEWeapons_BaseMelee" Abstract="True" ParentName="BaseWeapon_Bladelink">
+							<techLevel>Ultra</techLevel>
+							<smeltable>true</smeltable>
+							<burnableByRecipe>true</burnableByRecipe>
+							<thingCategories>
+								<li>WeaponsMeleeCrypto</li>
+							</thingCategories>
+							<inspectorTabs>
+								<li>ITab_Art</li>
+							</inspectorTabs>
+							<comps>
+								<li>
+									<compClass>CompQuality</compClass>
+								</li>
+								<li Class="CompProperties_Art">
+									<nameMaker>NamerArtWeaponMelee</nameMaker>
+									<descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+									<minQualityForArtistic>Excellent</minQualityForArtistic>
+								</li>
+							</comps>
+							<weaponTags Inherit="False">
+								<li>Bladelink</li>
+							</weaponTags>
+							<tradeability>Buyable</tradeability>
+						</ThingDef>
+
+						<!-- KIT_CryptoHammer_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsVFEWeapons_BaseMelee">
+							<defName>KIT_CryptoHammer_Bond</defName>
+							<label>persona crypto hammer</label>
+							<description>A two-handed, high-tech hammer of unknown origin with an icy cold alloy head. Crypto weapons are laced with what appears to be a cryogenic coating along their head, targets struck by them without proper insulation may feel themselves crippled by hypothermia.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponMelee/KIT_CryptoHammer</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<techLevel>Ultra</techLevel>
+							<statBases>
+								<Mass>3.5</Mass>
+								<MarketValue>1450</MarketValue>
+							</statBases>
+							<relicChance>2</relicChance>
+							<tools>
+								<li>
+									<label>handle</label>
+									<capacities>
+										<li>Poke</li>
+									</capacities>
+									<power>15</power>
+									<cooldownTime>2.38</cooldownTime>
+								</li>
+								<li>
+									<label>head</label>
+									<capacities>
+										<li>VFEV_Cut</li>
+									</capacities>
+									<power>44</power>
+									<armorPenetration>0.385</armorPenetration>
+									<cooldownTime>2.89</cooldownTime>
+								</li>
+							</tools>
+							<generateCommonality>0.0</generateCommonality>
+							<weaponTags>
+								<li>CryptoHeavyMelee</li>
+							</weaponTags>
+							<modExtensions>
+								<li Class="VFECore.ThingDefExtension">
+									<usableWithShields>false</usableWithShields>
+								</li>
+							</modExtensions>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_KIT_CryptoHammer_Bond</defName>
+							<label>bond crypto hammer</label>
+							<description>Bond an crypto hammer.</description>
+							<jobString>Bonding a crypto hammer.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>KIT_CryptoHammer</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>KIT_CryptoHammer</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<KIT_CryptoHammer_Bond>1</KIT_CryptoHammer_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- KIT_CryptoKnife_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsVFEWeapons_BaseMelee">
+							<defName>KIT_CryptoKnife_Bond</defName>
+							<label>persona crypto knife</label>
+							<description>An easily swung, high-tech knife of unknown origin with an icy cold alloy blade. Crypto weapons are laced with what appears to be a cryogenic coating along their blade, targets struck by them without proper insulation may feel themselves crippled by hypothermia.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponMelee/KIT_CryptoKnife</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<techLevel>Ultra</techLevel>
+							<statBases>
+								<Mass>2</Mass>
+								<MarketValue>1120</MarketValue>
+							</statBases>
+							<tools>
+								<li>
+									<label>handle</label>
+									<capacities>
+										<li>Poke</li>
+									</capacities>
+									<power>7</power>
+									<cooldownTime>1.36</cooldownTime>
+								</li>
+								<li>
+									<label>blade</label>
+									<capacities>
+										<li>VFEV_Cut</li>
+									</capacities>
+									<power>12</power>
+									<armorPenetration>0.385</armorPenetration>
+									<cooldownTime>1.36</cooldownTime>
+								</li>
+							</tools>
+							<generateCommonality>0.0</generateCommonality>
+							<weaponTags>
+								<li>CryptoHeavyMelee</li>
+							</weaponTags>
+							<modExtensions>
+								<li Class="VFECore.ThingDefExtension">
+									<usableWithShields>false</usableWithShields>
+								</li>
+							</modExtensions>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_KIT_CryptoKnife_Bond</defName>
+							<label>bond crypto knife</label>
+							<description>Bond an crypto knife.</description>
+							<jobString>Bonding a crypto knife.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>KIT_CryptoKnife</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>KIT_CryptoKnife</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<KIT_CryptoKnife_Bond>1</KIT_CryptoKnife_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- KIT_CryptoSpear_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsVFEWeapons_BaseMelee">
+							<defName>KIT_CryptoSpear_Bond</defName>
+							<label>persona crypto spear</label>
+							<description>A two-handed, high-tech spear of unknown origin with an icy cold alloy edge. Crypto weapons are laced with what appears to be a cryogenic coating along their edge, targets struck by them without proper insulation may feel themselves crippled by hypothermia.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponMelee/KIT_CryptoSpear</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<statBases>
+								<Mass>3</Mass>
+								<MarketValue>1240</MarketValue>
+							</statBases>
+							<relicChance>2</relicChance>
+							<tools>
+								<li>
+									<label>handle</label>
+									<capacities>
+										<li>Poke</li>
+									</capacities>
+									<power>15</power>
+									<cooldownTime>2.89</cooldownTime>
+								</li>
+								<li>
+									<label>edge</label>
+									<capacities>
+										<li>VFEV_Cut</li>
+									</capacities>
+									<power>40</power>
+									<armorPenetration>0.385</armorPenetration>
+									<cooldownTime>2.635</cooldownTime>
+								</li>
+							</tools>
+							<generateCommonality>0.0</generateCommonality>
+							<weaponTags>
+								<li>CryptoHeavyMelee</li>
+								<li>Spear</li>
+							</weaponTags>
+							<modExtensions>
+								<li Class="VFECore.ThingDefExtension">
+									<usableWithShields>false</usableWithShields>
+								</li>
+							</modExtensions>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_KIT_CryptoSpear_Bond</defName>
+							<label>bond crypto spear</label>
+							<description>Bond an crypto spear.</description>
+							<jobString>Bonding a crypto spear.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>KIT_CryptoSpear</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>KIT_CryptoSpear</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<KIT_CryptoSpear_Bond>1</KIT_CryptoSpear_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- KIT_CryptoSword_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsVFEWeapons_BaseMelee">
+							<defName>KIT_CryptoSword_Bond</defName>
+							<label>persona crypto sword</label>
+							<description>A two-handed, high-tech sword of unknown origin with an icy cold alloy blade. Crypto weapons are laced with what appears to be a cryogenic coating along their blade, targets struck by them without proper insulation may feel themselves crippled by hypothermia.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponMelee/KIT_CryptoSword</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<statBases>
+								<Mass>3.5</Mass>
+								<MarketValue>1450</MarketValue>
+							</statBases>
+							<relicChance>2</relicChance>
+							<tools>
+								<li>
+									<label>handle</label>
+									<capacities>
+										<li>Poke</li>
+									</capacities>
+									<power>13</power>
+									<cooldownTime>2.38</cooldownTime>
+								</li>
+								<li>
+									<label>edge</label>
+									<capacities>
+										<li>VFEV_Cut</li>
+									</capacities>
+									<power>31</power>
+									<armorPenetration>0.385</armorPenetration>
+									<cooldownTime>2.04</cooldownTime>
+								</li>
+							</tools>
+							<generateCommonality>0.0</generateCommonality>
+							<tradeability>Buyable</tradeability>
+							<weaponTags>
+								<li>CryptoHeavyMelee</li>
+								<li>LongSword</li>
+							</weaponTags>
+							<modExtensions>
+								<li Class="VFECore.ThingDefExtension">
+									<usableWithShields>false</usableWithShields>
+								</li>
+							</modExtensions>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_KIT_CryptoSword_Bond</defName>
+							<label>bond crypto sword</label>
+							<description>Bond an crypto sword.</description>
+							<jobString>Bonding a crypto sword.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>KIT_CryptoSword</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>KIT_CryptoSword</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<KIT_CryptoSword_Bond>1</KIT_CryptoSword_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- ===== Ranged ===== -->
+						<ThingDef Name="PersonaPatch_KitsVFEWeapons_BaseRange" Abstract="True" ParentName="BaseWeapon_Bladelink">
+							<techLevel>Ultra</techLevel>
+							<thingSetMakerTags>
+								<li>RewardStandardLowFreq</li>
+								<li>RewardStandardQualitySuper</li>
+							</thingSetMakerTags>
+							<weaponTags Inherit="False">
+								<li>RangedBladelink</li>
+								<li>UltratechGun</li>
+							</weaponTags>
+							<tradeability>Sellable</tradeability>
+							<comps>
+								<li Class="CompProperties_Art">
+									<nameMaker>NamerArtWeaponMelee</nameMaker>
+									<descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+									<minQualityForArtistic>Excellent</minQualityForArtistic>
+								</li>
+							</comps>
+						</ThingDef>
+
+						<!-- KIT_Gun_PlasmaPistol_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsVFEWeapons_BaseRange">
+							<defName>KIT_Gun_PlasmaPistol_Bond</defName>
+							<label>persona plasma pistol</label>
+							<description>A pistol capable of shooting metal-cored beams covered in plasma and held in place by an energy field. Shots fired from this pistol burn everything they hit, but due to how unstable they are, it’s very difficult to fire it accurately over long distances.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/KIT_PlasmaPistol</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<soundInteract>VFE_Interact_PlasmaWeapon</soundInteract>
+							<weaponClasses>
+								<li>RangedLight</li>
+							</weaponClasses>
+							<statBases>
+								<MarketValue>2300</MarketValue>
+								<Mass>2</Mass>
+								<AccuracyTouch>0.924</AccuracyTouch>
+								<AccuracyShort>0.891</AccuracyShort>
+								<AccuracyMedium>0.605</AccuracyMedium>
+								<AccuracyLong>0.385</AccuracyLong>
+								<RangedWeapon_Cooldown>2.0825</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_PlasmaPistol_Bond</defaultProjectile>
+									<warmupTime>1.2325</warmupTime>
+									<range>12.9</range>
+									<ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+									<burstShotCount>1</burstShotCount>
+									<soundCast>VFE_PlasmaShot_Cutter</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_PlasmaPistol_Bond</defName>
+							<label>plasma pistol shot</label>
+							<graphicData>
+								<texPath>Things/Item/Weapons/Plasma_Beam</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Flame</damageDef>
+								<damageAmountBase>13</damageAmountBase>
+								<speed>90</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_KIT_Gun_PlasmaPistol_Bond</defName>
+							<label>bond plasma pistol</label>
+							<description>Bond an plasma pistol.</description>
+							<jobString>Bonding a plasma pistol.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>KIT_Gun_PlasmaPistol</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>KIT_Gun_PlasmaPistol</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<KIT_Gun_PlasmaPistol_Bond>1</KIT_Gun_PlasmaPistol_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- KIT_Gun_PlasmaRifle_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsVFEWeapons_BaseRange">
+							<defName>KIT_Gun_PlasmaRifle_Bond</defName>
+							<label>persona plasma rifle</label>
+							<description>A long range rifle using metal-cored pellets covered in superheated gas, held in place by an energy field. These bolts are excellent at stopping larger targets, capable of knocking most human-sized enemies to the ground.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/KIT_PlasmaRifle</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<soundInteract>VFE_Interact_PlasmaWeapon</soundInteract>
+							<weaponClasses>
+								<li>LongShots</li>
+							</weaponClasses>
+							<statBases>
+								<MarketValue>2500</MarketValue>
+								<Mass>4</Mass>
+								<AccuracyTouch>0.484</AccuracyTouch>
+								<AccuracyShort>0.594</AccuracyShort>
+								<AccuracyMedium>0.605</AccuracyMedium>
+								<AccuracyLong>0.627</AccuracyLong>
+								<RangedWeapon_Cooldown>1.955</RangedWeapon_Cooldown>
+							</statBases>
+							<weaponTags>
+								<li>AssaultRifle</li>
+							</weaponTags>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_PlasmaRifle_Bond</defaultProjectile>
+									<warmupTime>1.19</warmupTime>
+									<range>24.9</range>
+									<ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+									<burstShotCount>1</burstShotCount>
+									<soundCast>VFE_PlasmaShot_Piercer</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_PlasmaRifle_Bond</defName>
+							<label>plasma rifle shot</label>
+							<graphicData>
+								<texPath>Things/Item/Weapons/Plasma_Nail</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Flame</damageDef>
+								<damageAmountBase>35</damageAmountBase>
+								<speed>90</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_KIT_Gun_PlasmaRifle_Bond</defName>
+							<label>bond plasma rifle</label>
+							<description>Bond an plasma rifle.</description>
+							<jobString>Bonding a plasma rifle.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>KIT_Gun_PlasmaRifle</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>KIT_Gun_PlasmaRifle</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<KIT_Gun_PlasmaRifle_Bond>1</KIT_Gun_PlasmaRifle_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- KIT_Gun_PlasmaSMG_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsVFEWeapons_BaseRange">
+							<defName>KIT_Gun_PlasmaSMG_Bond</defName>
+							<label>persona plasma SMG</label>
+							<description>A close-quarters SMG firing shards of molten metal, kept in this state thanks to superheated gas wrapped around their cores. Shots fired from this SMG burn everything they hit, but due to how unstable they are, it’s very difficult to fire it accurately over long distances.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/KIT_PlasmaSMG</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<soundInteract>VFE_Interact_PlasmaWeapon</soundInteract>
+							<weaponClasses>
+								<li>RangedLight</li>
+								<li>ShortShots</li>
+							</weaponClasses>
+							<statBases>
+								<MarketValue>2300</MarketValue>
+								<Mass>4</Mass>
+								<AccuracyTouch>0.374</AccuracyTouch>
+								<AccuracyShort>0.484</AccuracyShort>
+								<AccuracyMedium>0.517</AccuracyMedium>
+								<AccuracyLong>0.517</AccuracyLong>
+								<RangedWeapon_Cooldown>1.53</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_PlasmaSMG_Bond</defaultProjectile>
+									<warmupTime>1.02</warmupTime>
+									<range>12.9</range>
+									<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+									<burstShotCount>16</burstShotCount>
+									<soundCast>VFE_PlasmaShot_Scattergun</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_PlasmaSMG_Bond</defName>
+							<label>plasma SMG shot</label>
+							<graphicData>
+								<texPath>Things/Item/Weapons/Plasma_Beam</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Flame</damageDef>
+								<damageAmountBase>1</damageAmountBase>
+								<speed>75</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_KIT_Gun_PlasmaSMG_Bond</defName>
+							<label>bond plasma SMG</label>
+							<description>Bond an plasma SMG.</description>
+							<jobString>Bonding a plasma SMG.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>KIT_Gun_PlasmaSMG</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>KIT_Gun_PlasmaSMG</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<KIT_Gun_PlasmaSMG_Bond>1</KIT_Gun_PlasmaSMG_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- KIT_Gun_PlasmaSniper_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsVFEWeapons_BaseRange">
+							<defName>KIT_Gun_PlasmaSniper_Bond</defName>
+							<label>persona plasma sniper</label>
+							<description>A long range sniper rifle using metal-cored pellets covered in superheated gas, held in place by an energy field. Shots fired from this pistol burn everything they hit, but due to how unstable they are, it’s very difficult to fire it accurately over long distances.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/KIT_PlasmaSniper</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>1.34</drawSize>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<soundInteract>VFE_Interact_PlasmaWeapon</soundInteract>
+							<weaponClasses>
+								<li>RangedHeavy</li>
+								<li>LongShots</li>
+							</weaponClasses>
+							<statBases>
+								<MarketValue>2500</MarketValue>
+								<Mass>6</Mass>
+								<AccuracyTouch>0.33</AccuracyTouch>
+								<AccuracyShort>0.495</AccuracyShort>
+								<AccuracyMedium>0.825</AccuracyMedium>
+								<AccuracyLong>1.012</AccuracyLong>
+								<RangedWeapon_Cooldown>3.23</RangedWeapon_Cooldown>
+							</statBases>
+							<equippedAngleOffset>45</equippedAngleOffset>
+							<equippedStatOffsets>
+								<MoveSpeed>-0.25</MoveSpeed>
+							</equippedStatOffsets>
+							<weaponTags>
+								<li>SniperRifle</li>
+							</weaponTags>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_PlasmaSniper_Bond</defaultProjectile>
+									<warmupTime>3.91</warmupTime>
+									<range>42.9</range>
+									<ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+									<burstShotCount>1</burstShotCount>
+									<soundCast>VFE_PlasmaShot_Beam</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>13</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_PlasmaSniper_Bond</defName>
+							<label>plasma sniper shot</label>
+							<graphicData>
+								<texPath>Things/Item/Weapons/Plasma_Nail</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Flame</damageDef>
+								<damageAmountBase>48</damageAmountBase>
+								<armorPenetrationBase>0.8</armorPenetrationBase>
+								<speed>90</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_KIT_Gun_PlasmaSniper_Bond</defName>
+							<label>bond plasma sniper</label>
+							<description>Bond an plasma sniper.</description>
+							<jobString>Bonding a plasma sniper.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>KIT_Gun_PlasmaSniper</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>KIT_Gun_PlasmaSniper</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<KIT_Gun_PlasmaSniper_Bond>1</KIT_Gun_PlasmaSniper_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

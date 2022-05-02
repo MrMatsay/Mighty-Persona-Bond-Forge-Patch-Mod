@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Science Never Stops: Ambition of the Cosmic
+
+    SNS_Pistol_GenIII_Bond
+    SNS_Rifle_GenIII_Bond
+    SNS_Shotgun_GenIII_Bond
+    SNS_Sniper_GenIII_Bond
+    SNS_EterniumLance_Bond
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Science Never Stops: Ambition of the Cosmic</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- SNS_Pistol_GenIII_Bond -->
+                        <ThingDef ParentName="BaseBullet" Name="SNS_Pistol_Gen3_Projectile">
+                            <defName>SNS_Pistol_GenIII_Bullet_Bond</defName>
+                            <label>eternal pistol projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen3/Bullet_Pistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <flyOverhead>false</flyOverhead>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>30</damageAmountBase>
+                                <armorPenetrationBase>24.5</armorPenetrationBase>
+                                <speed>200</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>SNS_Pistol_GenIII_Bond</defName>
+                            <label>persona eternal pistol</label>
+                            <description>A grand pistol that fires small amounts of Eternium at terrifying rates. Its power is unrivaled by any other pistol.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen3/Pistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Revolver</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>1000</MaxHitPoints>
+                                <Mass>0.3</Mass>
+                                <Flammability>0.0</Flammability>
+                                <AccuracyTouch>1.078</AccuracyTouch>
+                                <AccuracyShort>1.045</AccuracyShort>
+                                <AccuracyMedium>0.88</AccuracyMedium>
+                                <AccuracyLong>0.77</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.1275</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0</DeteriorationRate>
+                                <Beauty>50</Beauty>
+                            </statBases>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_Pistol_GenIII_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>0.0425</warmupTime>
+                                    <range>45</range>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>8</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <techLevel>Archotech</techLevel>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>SNS_Pistol_GenIII_Bond</defName>
+                            <label>bond eternal pistol</label>
+                            <description>Bond an eternal pistol.</description>
+                            <jobString>Bonding a eternal pistol.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>SNS_Research_VI_weaponry</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SNS_Pistol_GenIII</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SNS_Pistol_GenIII</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SNS_Pistol_GenIII_Bond>1</SNS_Pistol_GenIII_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SNS_Rifle_GenIII_Bond -->
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>SNS_Rifle_GenIII_Bullet</defName>
+                            <label>eternal rifle projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen3/Bullet_Rifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>20</damageAmountBase>
+                                <armorPenetrationBase>24</armorPenetrationBase>
+                                <speed>140</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>SNS_Rifle_GenIII_Bond</defName>
+                            <label>persona eternal rifle</label>
+                            <description>A fully automatic rifle that propels a small amount of Eternium at terrifying velocities, and does not produce any recoil whatsoever. Its projectiles are the weakest of eternal weapons, but its firerate is more than enough to compensate.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen3/Rifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>1200</MaxHitPoints>
+                                <Mass>0.6</Mass>
+                                <Flammability>0.0</Flammability>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>1.045</AccuracyShort>
+                                <AccuracyMedium>0.957</AccuracyMedium>
+                                <AccuracyLong>0.825</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.2975</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0</DeteriorationRate>
+                                <Beauty>50</Beauty>
+                            </statBases>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                            </weaponTags>
+
+
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_Rifle_GenIII_Bullet</defaultProjectile>
+                                    <warmupTime>0.2125</warmupTime>
+                                    <range>70</range>
+                                    <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                    <burstShotCount>12</burstShotCount>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>10</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <techLevel>Archotech</techLevel>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SNS_Rifle_GenIII_Bond</defName>
+                            <label>bond eternal rifle</label>
+                            <description>Bond an eternal rifle.</description>
+                            <jobString>Bonding a eternal rifle.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>SNS_Research_VI_weaponry</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SNS_Rifle_GenIII</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SNS_Rifle_GenIII</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SNS_Rifle_GenIII_Bond>1</SNS_Rifle_GenIII_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SNS_Shotgun_GenIII_Bond -->
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>SNS_Shotgun_GenIII_Bullet</defName>
+                            <label>eternal shotgun projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen3/Bullet_Shotgun_Clump</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>230</damageAmountBase>
+                                <armorPenetrationBase>50</armorPenetrationBase>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>SNS_Shotgun_GenIII_Bond</defName>
+                            <label>persona eternal shotgun</label>
+                            <description>An arcane shotgun that fires a devastating clump of Eternium projectiles that excel at effectively erasing armor. While its range is the worst of the eternal weapons (as to be expected from a shotgun), its power and armor-shattering properties are more than enough compensation.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen3/Shotgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>1500</MaxHitPoints>
+                                <WorkToMake>13500</WorkToMake>
+                                <Mass>1.0</Mass>
+                                <Flammability>0.0</Flammability>
+                                <AccuracyTouch>1.067</AccuracyTouch>
+                                <AccuracyShort>1.045</AccuracyShort>
+                                <AccuracyMedium>0.528</AccuracyMedium>
+                                <AccuracyLong>0.11</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.085
+                                </RangedWeapon_Cooldown>
+                                <DeteriorationRate>0</DeteriorationRate>
+                                <Beauty>50</Beauty>
+                            </statBases>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_Shotgun_GenIII_Bullet</defaultProjectile>
+                                    <warmupTime>0.17</warmupTime>
+                                    <range>30</range>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>Guntail_Medium</soundCastTail>
+                                    <muzzleFlashScale>13</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <techLevel>Archotech</techLevel>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SNS_Shotgun_GenIII_Bond</defName>
+                            <label>bond eternal shotgun</label>
+                            <description>Bond an eternal shotgun.</description>
+                            <jobString>Bonding a eternal shotgun.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>SNS_Research_VI_weaponry</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SNS_Shotgun_GenIII</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SNS_Shotgun_GenIII</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SNS_Shotgun_GenIII_Bond>1</SNS_Shotgun_GenIII_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SNS_Sniper_GenIII_Bond -->
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>SNS_Sniper_GenIII_Bullet_Bond</defName>
+                            <label>eternal sniper projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen3/Bullet_Sniper</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>138</damageAmountBase>
+                                <armorPenetrationBase>25</armorPenetrationBase>
+                                <speed>250</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>SNS_Sniper_GenIII_Bond</defName>
+                            <label>persona eternal sniper</label>
+                            <description>An arcane sniper rifle made of Eternium and Cosmic Alloy. It fires pure low-energy Eternium projectiles that often obliterates whatever it hits, able to go through entire bodies top to bottom and still have enough energy left to dent the floor beneath. Even grazing blows are highly dangerous. The rifle can be used at all ranges, though its accuracy is unrivaled at the longest ranges.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen3/Sniper</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>2000</MaxHitPoints>
+                                <Mass>1.0</Mass>
+                                <Flammability>0.0</Flammability>
+                                <AccuracyTouch>0.88</AccuracyTouch>
+                                <AccuracyShort>0.99</AccuracyShort>
+                                <AccuracyMedium>1.045</AccuracyMedium>
+                                <AccuracyLong>1.1</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0</DeteriorationRate>
+                                <Beauty>50</Beauty>
+                            </statBases>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_Sniper_GenIII_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>1.0625</warmupTime>
+                                    <range>120</range>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>13</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <techLevel>Archotech</techLevel>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SNS_Sniper_GenIII_Bond</defName>
+                            <label>bond eternal sniper</label>
+                            <description>Bond an eternal sniper.</description>
+                            <jobString>Bonding a eternal sniper.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>SNS_Research_VI_weaponry</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SNS_Sniper_GenIII</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SNS_Sniper_GenIII</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SNS_Sniper_GenIII_Bond>1</SNS_Sniper_GenIII_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SNS_EterniumLance_Bond -->
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>SNS_Omega_Bullet_Bond</defName>
+                            <label>EXARCH projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen3/Bullet_EXARCH</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>BombSuper</damageDef>
+                                <damageAmountBase>288</damageAmountBase>
+                                <explosionRadius>2</explosionRadius>
+                                <speed>250</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>SNS_EterniumLance_Bond</defName>
+                            <label>persona The EXARCH</label>
+                            <description>A weapon made of pure Eternium, this superweapon fires deadly Eternium at an incredibly rapid speed. Just like its precessor, its projectile will make short work of anything in its way, and something that suvives one shot probably won't survive the next.\n\nLike the Cosmic Lance, it excels at long and close range but may be harder to use at medium range.\n\nIt is so dangerous that it should not be used anywhere near something valuable, since it can easily destroy entire colonies by itself.\n\nExtreme care should be taken with the EXARCH since it can wipe out its user if said user shoots at a target that gets too close.\n\nNo, seriously. EXARCH projectiles will literally kill a CHARON suit user in two shots depending on suit quality.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen3/EterniumLance/EterniumLance</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <useHitPoints>false</useHitPoints>
+                            <statBases>
+                                <WorkToMake>90000</WorkToMake>
+                                <Mass>15.0</Mass>
+                                <Flammability>0.0</Flammability>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>0.99</AccuracyShort>
+                                <AccuracyMedium>0.88</AccuracyMedium>
+                                <AccuracyLong>1.045</AccuracyLong>
+                                <RangedWeapon_Cooldown>0</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0.00</DeteriorationRate>
+                                <Beauty>150</Beauty>
+                            </statBases>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_Omega_Bullet_Bond</defaultProjectile>
+
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+
+                                    <forcedMissRadius>0.1</forcedMissRadius>
+                                    <warmupTime>0.425</warmupTime>
+                                    <range>120</range>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>50</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <techLevel>Archotech</techLevel>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SNS_EterniumLance_Bond</defName>
+                            <label>bond The EXARCH</label>
+                            <description>Bond an The EXARCH.</description>
+                            <jobString>Bonding a The EXARCH.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>SNS_Research_VI_weaponry</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SNS_EterniumLance</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SNS_EterniumLance</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SNS_EterniumLance_Bond>1</SNS_EterniumLance_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    The 13th Vendemiaire
+
+    The 13th Vendemiaire
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>The 13th Vendemiaire</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>HRK_13thVendemiaire_Bond</defName>
+                            <label>persona The 13th Vendemiaire</label>
+                            <description>The 13th Vendemiaire, or in its original technical name, the Mk IV Submunition Projector, is an unsubtle archotech weapon meant for extremely close range ship-boarding actions. In simple terms, it fires a barrage of charged flechettes from a pre-loaded canister affixed to the front of the weapon. When triggered, the flechettes are agitated within the canister and directed outwards, rapidly decomposing into highly unstable pulse charges. This rapid process also limits its range to mere meters, as they lose energy and lethality quickly over distance. Nevertheless, they are devastating in the knife-fight ranges they are employed in, and have sometimes been repurposed against drop-pod assaults and infestations. Brave (or foolish) volunteers would surround the entry point and greet the intruders with a hail of munitions. They would then scoot away after the first volley to begin the cumbersome reloading process of replacing the now spent canister.\n\nComparisons to ancient muzzle-loaded guns with grapeshot soon followed, thus the Mk IV was christened with its informal desition.\n\n"Give em the ol' whiff o' grapeshot, yer highness. They won't like that. Oh no they wouldn't," - Guardsman "Chungus" Angus, 5432\n\n"Its literally can't kill anything beyond sneezing range. Everything within it though..." Ramone Griffith, unknown.\n\n"Rimworld problems require Rimworld solutions," Greengrow Combat Industries, sales tagline circa 5390\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/HRK_13thVendemiaire</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <techLevel>Spacer</techLevel>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <statBases>
+                                <Mass>8.5</Mass>
+                                <AccuracyTouch>0.440</AccuracyTouch>
+                                <AccuracyShort>0.484</AccuracyShort>
+                                <AccuracyMedium>0.330</AccuracyMedium>
+                                <AccuracyLong>0.231</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.870</RangedWeapon_Cooldown>
+                                <WorkToMake>50000</WorkToMake>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>HRK_Bullet_13thVendemiaire_Bond</defaultProjectile>
+                                    <warmupTime>0.850</warmupTime>
+                                    <range>35</range>
+                                    <soundCast>HRK_Shot_13thVendemiaire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>HRK_Bullet_13thVendemiaire_Bond</defName>
+                            <label>The 13th Vendemiaire charged blast</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Charge_Small</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>0.8</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>10</damageAmountBase>
+                                <armorPenetrationBase>0.35</armorPenetrationBase>
+                                <stoppingPower>1</stoppingPower>
+                                <speed>60</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_HRK_13thVendemiaire_Bond</defName>
+                            <label>bond The 13th Vendemiaire</label>
+                            <description>Bond an The 13th Vendemiaire.</description>
+                            <jobString>Bonding a The 13th Vendemiaire.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisites>
+                                <li>ChargedShot</li>
+                            </researchPrerequisites>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>HRK_13thVendemiaire</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>HRK_13thVendemiaire</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <HRK_13thVendemiaire_Bond>1</HRK_13thVendemiaire_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

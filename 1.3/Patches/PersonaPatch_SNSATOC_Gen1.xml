@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Science Never Stops: Ambition of the Cosmic
+
+    SNS_Pistol_GenI_Bond
+    SNS_Rifle_GenI_Bond
+    SNS_Shotgun_GenI_Bond
+    SNS_Sniper_GenI_Bond
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Science Never Stops: Ambition of the Cosmic</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- SNS_Pistol_GenI_Bond -->
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>SNS_Pistol_GenI_Bullet_Bond</defName>
+                            <label>stellar pistol projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen1/Bullet_Pistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <flyOverhead>false</flyOverhead>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>14</damageAmountBase>
+                                <armorPenetrationBase>0.65</armorPenetrationBase>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>SNS_Pistol_GenI_Bond</defName>
+                            <label>persona stellar pistol</label>
+                            <description>An advanced pistol that shoots shoots plasma out of its barrel at high velocities. Its recoil is negligible and its accuracy is good compared to other pistols.\n\nThe stellar pistol is heavily used by ultra-rich Glitterworld military personnel, and is a common infantry weapon for Cosmic Empires.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen1/Pistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Revolver</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>125</MaxHitPoints>
+                                <Mass>0.3</Mass>
+                                <Flammability>0.0</Flammability>
+                                <AccuracyTouch>1.001</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.66</AccuracyMedium>
+                                <AccuracyLong>0.44</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.34</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0</DeteriorationRate>
+                                <Beauty>5</Beauty>
+                            </statBases>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_Pistol_GenI_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>0.128</warmupTime>
+                                    <range>30</range>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>8</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <techLevel>Ultra</techLevel>
+                            <thingSetMakerTags>
+                                <li>RewardStandardMidFreq</li>
+                            </thingSetMakerTags>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SNS_Pistol_GenI_Bond</defName>
+                            <label>bond stellar pistol</label>
+                            <description>Bond an stellar pistol.</description>
+                            <jobString>Bonding a stellar pistol.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>SNS_Research_II_wep</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SNS_Pistol_GenI</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SNS_Pistol_GenI</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SNS_Pistol_GenI_Bond>1</SNS_Pistol_GenI_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SNS_Rifle_GenI_Bond -->
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>SNS_Rifle_GenI_Bullet_Bond</defName>
+                            <label>stellar rifle projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen1/Bullet_Rifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>9</damageAmountBase>
+                                <armorPenetrationBase>0.35</armorPenetrationBase>
+                                <speed>80</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>SNS_Rifle_GenI_Bond</defName>
+                            <label>persona stellar rifle</label>
+                            <description>A fully automatic rifle that propels plasma at high velocities, without producing any recoil whatsoever. Its plasma is the weakest of Stellar weapons, but its firerate is more than enough to compensate.\n\nThe Stellar rifle is heavily used by ultra-rich Glitterworld military personnel, and is a common infantry weapon for Cosmic Empires.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen1/Rifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>200</MaxHitPoints>
+                                <Mass>0.6</Mass>
+                                <Flammability>0.0</Flammability>
+                                <AccuracyTouch>0.88</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>0.77</AccuracyMedium>
+                                <AccuracyLong>0.605</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.893</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0</DeteriorationRate>
+                                <Beauty>5</Beauty>
+                            </statBases>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_Rifle_GenI_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>0.35</warmupTime>
+                                    <range>40</range>
+                                    <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                    <burstShotCount>4</burstShotCount>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>10</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <techLevel>Ultra</techLevel>
+                            <thingSetMakerTags>
+                                <li>RewardStandardMidFreq</li>
+                            </thingSetMakerTags>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SNS_Rifle_GenI_Bond</defName>
+                            <label>bond stellar rifle</label>
+                            <description>Bond an stellar rifle.</description>
+                            <jobString>Bonding a stellar rifle.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>SNS_Research_II_wep</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SNS_Rifle_GenI</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SNS_Rifle_GenI</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SNS_Rifle_GenI_Bond>1</SNS_Rifle_GenI_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SNS_Shotgun_GenI_Bond -->
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>SNS_Shotgun_GenI_Bullet_Bond</defName>
+                            <label>stellar shotgun projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen1/Bullet_Shotgun_Clump</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>92</damageAmountBase>
+                                <armorPenetrationBase>1.25</armorPenetrationBase>
+                                <speed>50</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>SNS_Shotgun_GenI_Bond</defName>
+                            <label>persona stellar shotgun</label>
+                            <description>A highly advanced shotgun that fires a devastating clump of high-energy plasma projectiles that excel at destroying armor. While its range is unarguably terrible (as to be expected from a shotgun), its power and armor-shattering properties are more than enough compensation.\n\nThe stellar shotgun is heavily used by ultra-rich Glitterworld military personnel, and is a common infantry weapon for Cosmic Empires, especially in urban environments.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen1/Shotgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>250</MaxHitPoints>
+                                <Mass>1.0</Mass>
+                                <Flammability>0.0</Flammability>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>0.99</AccuracyShort>
+                                <AccuracyMedium>0.44</AccuracyMedium>
+                                <AccuracyLong>0.055</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.2125</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0</DeteriorationRate>
+                                <Beauty>5</Beauty>
+                            </statBases>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_Shotgun_GenI_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>0.425</warmupTime>
+                                    <range>15</range>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>Guntail_Medium</soundCastTail>
+                                    <muzzleFlashScale>13</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <techLevel>Ultra</techLevel>
+                            <thingSetMakerTags>
+                                <li>RewardStandardMidFreq</li>
+                            </thingSetMakerTags>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SNS_Shotgun_GenI_Bond</defName>
+                            <label>bond stellar shotgun</label>
+                            <description>Bond an stellar shotgun.</description>
+                            <jobString>Bonding a stellar shotgun.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>SNS_Research_II_wep</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SNS_Shotgun_GenI</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SNS_Shotgun_GenI</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SNS_Shotgun_GenI_Bond>1</SNS_Shotgun_GenI_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SNS_Sniper_GenI_Bond -->
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>SNS_Sniper_GenI_Bullet_Bond</defName>
+                            <label>stellar sniper projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen1/Bullet_Sniper</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>69</damageAmountBase>
+                                <armorPenetrationBase>1</armorPenetrationBase>
+                                <speed>150</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>SNS_Sniper_GenI_Bond</defName>
+                            <label>persona stellar sniper</label>
+                            <description>A highly advanced sniper that fires devastating high-energy plasma projectiles powerful enough to blow off limbs with singular shots, and still have enough energy left to blow off another. While it takes a while to charge and aim, it often can get the job done in just one shot.\n\nThe Stellar sniper is heavily used by ultra-rich Glitterworld military personnel, and is commonly used by low-class military snipers for Cosmic Empires.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen1/Sniper</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>300</MaxHitPoints>
+                                <Mass>1.0</Mass>
+                                <Flammability>0.0</Flammability>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>0.968</AccuracyMedium>
+                                <AccuracyLong>0.99</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0</DeteriorationRate>
+                                <Beauty>5</Beauty>
+                            </statBases>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_Sniper_GenI_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>1.7</warmupTime>
+                                    <range>80</range>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>13</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <techLevel>Ultra</techLevel>
+                            <thingSetMakerTags>
+                                <li>RewardStandardMidFreq</li>
+                            </thingSetMakerTags>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SNS_Sniper_GenI_Bond</defName>
+                            <label>bond stellar sniper</label>
+                            <description>Bond an stellar sniper.</description>
+                            <jobString>Bonding a stellar sniper.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>SNS_Research_II_wep</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SNS_Sniper_GenI</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SNS_Sniper_GenI</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SNS_Sniper_GenI_Bond>1</SNS_Sniper_GenI_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

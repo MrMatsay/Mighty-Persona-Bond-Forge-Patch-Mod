@@ -1,0 +1,1275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Kit's XR-Tech Weapons
+-->
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Kit's XR-Tech Weapons</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs</xpath>
+					<value>
+						<!-- ===== Ranged ===== -->
+						<ThingDef Name="PersonaPatch_KitsXRTech_BaseRange" Abstract="True" ParentName="BaseWeapon_Bladelink">
+							<techLevel>Spacer</techLevel>
+							<thingSetMakerTags>
+								<li>RewardStandardLowFreq</li>
+								<li>RewardStandardQualitySuper</li>
+							</thingSetMakerTags>
+							<weaponTags Inherit="False">
+								<li>SpacerGun</li>
+								<li>XRGun</li>
+								<li>RangedBladelink</li>
+							</weaponTags>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>2</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<!-- XR_Gun_Pistol_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsXRTech_BaseRange">
+							<defName>XR_Gun_Pistol_Bond</defName>
+							<label>persona XR pistol</label>
+							<description>XR-Tech pistol, product of advanced mechanical engineering and rigorous combat evaluations.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/WeaponRanged/XRPistol</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<uiIconScale>1.5</uiIconScale>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<weaponClasses>
+								<li>RangedLight</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>1.1</Mass>
+								<AccuracyTouch>0.88</AccuracyTouch>
+								<AccuracyShort>0.77</AccuracyShort>
+								<AccuracyMedium>0.44</AccuracyMedium>
+								<AccuracyLong>0.33</AccuracyLong>
+								<RangedWeapon_Cooldown>0.595</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_XRPistol_Bond</defaultProjectile>
+									<warmupTime>0.255</warmupTime>
+									<range>25.9</range>
+									<soundCast>Shot_XRLight</soundCast>
+									<soundCastTail>GunTail_Light</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_XRPistol_Bond</defName>
+							<label>XR pistol shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/XRMedium</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>13</damageAmountBase>
+								<speed>55</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_XR_Gun_Pistol_Bond</defName>
+							<label>bond XR pistol</label>
+							<description>Bond an XR pistol.</description>
+							<jobString>Bonding a XR pistol.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<researchPrerequisite>XR_Arsenal</researchPrerequisite>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>XR_Gun_Pistol</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>XR_Gun_Pistol</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<XR_Gun_Pistol_Bond>1</XR_Gun_Pistol_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- XR_Gun_AssaultRifle_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsXRTech_BaseRange">
+							<defName>XR_Gun_AssaultRifle_Bond</defName>
+							<label>persona XR assault rifle</label>
+							<description>XR-Tech assault rifle, product of advanced mechanical engineering and rigorous combat evaluations.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/WeaponRanged/XRAssaultRifle</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<weaponClasses>
+								<li>RangedHeavy</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>3.4</Mass>
+								<AccuracyTouch>0.66</AccuracyTouch>
+								<AccuracyShort>0.77</AccuracyShort>
+								<AccuracyMedium>0.715</AccuracyMedium>
+								<AccuracyLong>0.605</AccuracyLong>
+								<RangedWeapon_Cooldown>1.19</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_XRAssaultRifle_Bond</defaultProjectile>
+									<warmupTime>0.85</warmupTime>
+									<range>30.9</range>
+									<burstShotCount>3</burstShotCount>
+									<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+									<soundCast>Shot_XRMedium</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<weaponTags>
+								<li>AssaultRifle</li>
+							</weaponTags>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_XRAssaultRifle_Bond</defName>
+							<label>XR assault rifle shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/XRMedium</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>14</damageAmountBase>
+								<speed>70</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_XR_Gun_AssaultRifle_Bond</defName>
+							<label>bond XR assault rifle</label>
+							<description>Bond an XR assault rifle.</description>
+							<jobString>Bonding a XR assault rifle.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<researchPrerequisite>XR_Arsenal</researchPrerequisite>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>XR_Gun_AssaultRifle</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>XR_Gun_AssaultRifle</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<XR_Gun_AssaultRifle_Bond>1</XR_Gun_AssaultRifle_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- XR_Gun_BattleRifle_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsXRTech_BaseRange">
+							<defName>XR_Gun_BattleRifle_Bond</defName>
+							<label>persona XR battle rifle</label>
+							<description>XR-Tech battle rifle, product of advanced mechanical engineering and rigorous combat evaluations.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/WeaponRanged/XRBattleRifle</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<weaponClasses>
+								<li>RangedHeavy</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>3.4</Mass>
+								<AccuracyTouch>0.605</AccuracyTouch>
+								<AccuracyShort>0.715</AccuracyShort>
+								<AccuracyMedium>0.825</AccuracyMedium>
+								<AccuracyLong>0.66</AccuracyLong>
+								<RangedWeapon_Cooldown>1.105</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_XRBattleRifle_Bond</defaultProjectile>
+									<warmupTime>1.02</warmupTime>
+									<range>33.9</range>
+									<burstShotCount>2</burstShotCount>
+									<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+									<soundCast>Shot_XRMedium</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<weaponTags>
+								<li>AssaultRifle</li>
+							</weaponTags>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_XRBattleRifle_Bond</defName>
+							<label>XR battle rifle shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/XRMedium</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>15</damageAmountBase>
+								<speed>60</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_XR_Gun_BattleRifle_Bond</defName>
+							<label>bond XR battle rifle</label>
+							<description>Bond an XR battle rifle.</description>
+							<jobString>Bonding a XR battle rifle.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<researchPrerequisite>XR_Arsenal</researchPrerequisite>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>XR_Gun_BattleRifle</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>XR_Gun_BattleRifle</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<XR_Gun_BattleRifle_Bond>1</XR_Gun_BattleRifle_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- XR_Gun_BullpupRifle_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsXRTech_BaseRange">
+							<defName>XR_Gun_BullpupRifle_Bond</defName>
+							<label>persona XR bullpup rifle</label>
+							<description>XR-Tech bullpup rifle, product of advanced mechanical engineering and rigorous combat evaluations.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/WeaponRanged/XRBullpupRifle</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<weaponClasses>
+								<li>RangedHeavy</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>2.9</Mass>
+								<AccuracyTouch>0.66</AccuracyTouch>
+								<AccuracyShort>0.77</AccuracyShort>
+								<AccuracyMedium>0.715</AccuracyMedium>
+								<AccuracyLong>0.605</AccuracyLong>
+								<RangedWeapon_Cooldown>1.955</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_XRBullpupRifle_Bond</defaultProjectile>
+									<warmupTime>0.0425</warmupTime>
+									<range>30.9</range>
+									<burstShotCount>3</burstShotCount>
+									<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+									<soundCast>Shot_XRMedium</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_XRBullpupRifle_Bond</defName>
+							<label>XR bullpup rifle shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/XRMedium</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>20</damageAmountBase>
+								<stoppingPower>1.5</stoppingPower>
+								<speed>80</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_XR_Gun_BullpupRifle_Bond</defName>
+							<label>bond XR bullpup rifle</label>
+							<description>Bond an XR bullpup rifle.</description>
+							<jobString>Bonding a XR bullpup rifle.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<researchPrerequisite>XR_Arsenal</researchPrerequisite>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>XR_Gun_BullpupRifle</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>XR_Gun_BullpupRifle</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<XR_Gun_BullpupRifle_Bond>1</XR_Gun_BullpupRifle_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- XR_Gun_Carbine_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsXRTech_BaseRange">
+							<defName>XR_Gun_Carbine_Bond</defName>
+							<label>persona XR carbine</label>
+							<description>XR-Tech carbine, product of advanced mechanical engineering and rigorous combat evaluations.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/WeaponRanged/XRCarbine</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<weaponClasses>
+								<li>RangedHeavy</li>
+								<li>LongShots</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>2.9</Mass>
+								<AccuracyTouch>0.66</AccuracyTouch>
+								<AccuracyShort>0.88</AccuracyShort>
+								<AccuracyMedium>0.825</AccuracyMedium>
+								<AccuracyLong>0.495</AccuracyLong>
+								<RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_XRCarbine_Bond</defaultProjectile>
+									<warmupTime>0.68</warmupTime>
+									<range>22.9</range>
+									<burstShotCount>3</burstShotCount>
+									<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+									<soundCast>Shot_XRMedium</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_XRCarbine_Bond</defName>
+							<label>XR carbine shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/XRMedium</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>14</damageAmountBase>
+								<speed>70</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_XR_Gun_Carbine_Bond</defName>
+							<label>bond XR carbine</label>
+							<description>Bond an XR carbine.</description>
+							<jobString>Bonding a XR carbine.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<researchPrerequisite>XR_Arsenal</researchPrerequisite>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>XR_Gun_Carbine</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>XR_Gun_Carbine</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<XR_Gun_Carbine_Bond>1</XR_Gun_Carbine_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- XR_Gun_SniperRifle_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsXRTech_BaseRange">
+							<defName>XR_Gun_SniperRifle_Bond</defName>
+							<label>persona XR sniper rifle</label>
+							<description>XR-Tech sniper rifle, product of advanced mechanical engineering and rigorous combat evaluations.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/WeaponRanged/XRSniperRifle</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>1.14</drawSize>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<comps>
+								<li>
+									<compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+								</li>
+							</comps>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<weaponClasses>
+								<li>RangedHeavy</li>
+								<li>LongShots</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>3.9</Mass>
+								<AccuracyTouch>0.55</AccuracyTouch>
+								<AccuracyShort>0.77</AccuracyShort>
+								<AccuracyMedium>0.946</AccuracyMedium>
+								<AccuracyLong>0.968</AccuracyLong>
+								<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+							</statBases>
+							<equippedAngleOffset>45</equippedAngleOffset>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_XRSniperRifle_Bond</defaultProjectile>
+									<warmupTime>2.975</warmupTime>
+									<range>44.9</range>
+									<soundCast>Shot_XRHeavy</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<weaponTags>
+								<li>SniperRifle</li>
+							</weaponTags>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_XRSniperRifle_Bond</defName>
+							<label>XR sniper rifle shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/XRHeavy</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>30</damageAmountBase>
+								<stoppingPower>1.5</stoppingPower>
+								<speed>100</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_XR_Gun_SniperRifle_Bond</defName>
+							<label>bond XR sniper rifle</label>
+							<description>Bond an XR sniper rifle.</description>
+							<jobString>Bonding a XR sniper rifle.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<researchPrerequisite>XR_Arsenal</researchPrerequisite>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>XR_Gun_SniperRifle</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>XR_Gun_SniperRifle</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<XR_Gun_SniperRifle_Bond>1</XR_Gun_SniperRifle_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- XR_Gun_LightSMG_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsXRTech_BaseRange">
+							<defName>XR_Gun_LightSMG_Bond</defName>
+							<label>persona XR light SMG</label>
+							<description>XR-Tech light SMG, product of advanced mechanical engineering and rigorous combat evaluations.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/WeaponRanged/XRLightSMG</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<weaponClasses>
+								<li>RangedLight</li>
+								<li>ShortShots</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>2.6</Mass>
+								<AccuracyTouch>0.99</AccuracyTouch>
+								<AccuracyShort>0.715</AccuracyShort>
+								<AccuracyMedium>0.385</AccuracyMedium>
+								<AccuracyLong>0.165</AccuracyLong>
+								<RangedWeapon_Cooldown>0.935</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_XRLightSMG_Bond</defaultProjectile>
+									<warmupTime>0.425</warmupTime>
+									<range>19.9</range>
+									<burstShotCount>6</burstShotCount>
+									<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+									<soundCast>Shot_XRLight</soundCast>
+									<soundCastTail>GunTail_Light</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_XRLightSMG_Bond</defName>
+							<label>XR light SMG shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/XRMedium</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>7</damageAmountBase>
+								<speed>55</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_XR_Gun_LightSMG_Bond</defName>
+							<label>bond XR light SMG</label>
+							<description>Bond an XR light SMG.</description>
+							<jobString>Bonding a XR light SMG.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<researchPrerequisite>XR_Arsenal</researchPrerequisite>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>XR_Gun_LightSMG</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>XR_Gun_LightSMG</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<XR_Gun_LightSMG_Bond>1</XR_Gun_LightSMG_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- XR_Gun_SMG_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsXRTech_BaseRange">
+							<defName>XR_Gun_SMG_Bond</defName>
+							<label>persona XR SMG</label>
+							<description>XR-Tech SMG, product of advanced mechanical engineering and rigorous combat evaluations.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/WeaponRanged/XRSMG</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<weaponClasses>
+								<li>ShortShots</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>2.9</Mass>
+								<AccuracyTouch>0.99</AccuracyTouch>
+								<AccuracyShort>0.715</AccuracyShort>
+								<AccuracyMedium>0.385</AccuracyMedium>
+								<AccuracyLong>0.165</AccuracyLong>
+								<RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_XRSMG_Bond</defaultProjectile>
+									<warmupTime>0.51</warmupTime>
+									<range>21.9</range>
+									<burstShotCount>3</burstShotCount>
+									<ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+									<soundCast>Shot_XRLight</soundCast>
+									<soundCastTail>GunTail_Light</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_XRSMG_Bond</defName>
+							<label>XR SMG shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/XRMedium</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>11</damageAmountBase>
+								<speed>52</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_XR_Gun_SMG_Bond</defName>
+							<label>bond XR SMG</label>
+							<description>Bond an XR SMG.</description>
+							<jobString>Bonding a XR SMG.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<researchPrerequisite>XR_Arsenal</researchPrerequisite>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>XR_Gun_SMG</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>XR_Gun_SMG</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<XR_Gun_SMG_Bond>1</XR_Gun_SMG_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- XR_Gun_HeavySMG_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsXRTech_BaseRange">
+							<defName>XR_Gun_HeavySMG_Bond</defName>
+							<label>persona XR heavy SMG</label>
+							<description>XR-Tech heavy SMG, product of advanced mechanical engineering and rigorous combat evaluations.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/WeaponRanged/XRHeavySMG</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<weaponClasses>
+								<li>RangedHeavy</li>
+								<li>ShortShots</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>3.4</Mass>
+								<AccuracyTouch>0.935</AccuracyTouch>
+								<AccuracyShort>0.715</AccuracyShort>
+								<AccuracyMedium>0.385</AccuracyMedium>
+								<AccuracyLong>0.22</AccuracyLong>
+								<RangedWeapon_Cooldown>1.1475</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_XRHeavySMG_Bond</defaultProjectile>
+									<warmupTime>0.765</warmupTime>
+									<range>22.9</range>
+									<burstShotCount>3</burstShotCount>
+									<ticksBetweenBurstShots>11</ticksBetweenBurstShots>
+									<soundCast>Shot_XRHeavy</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_XRHeavySMG_Bond</defName>
+							<label>XR heavy SMG shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/XRMedium</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>15</damageAmountBase>
+								<speed>48</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_XR_Gun_HeavySMG_Bond</defName>
+							<label>bond XR heavy SMG</label>
+							<description>Bond an XR heavy SMG.</description>
+							<jobString>Bonding a XR heavy SMG.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<researchPrerequisite>XR_Arsenal</researchPrerequisite>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>XR_Gun_HeavySMG</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>XR_Gun_HeavySMG</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<XR_Gun_HeavySMG_Bond>1</XR_Gun_HeavySMG_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- XR_Gun_LMG_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsXRTech_BaseRange">
+							<defName>XR_Gun_LMG_Bond</defName>
+							<label>persona XR LMG</label>
+							<description>XR-Tech LMG, product of advanced mechanical engineering and rigorous combat evaluations.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/WeaponRanged/XRLMG</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<weaponClasses>
+								<li>RangedHeavy</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>8.4</Mass>
+								<AccuracyTouch>0.44</AccuracyTouch>
+								<AccuracyShort>0.528</AccuracyShort>
+								<AccuracyMedium>0.385</AccuracyMedium>
+								<AccuracyLong>0.286</AccuracyLong>
+								<RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_XRLMG_Bond</defaultProjectile>
+									<warmupTime>1.53</warmupTime>
+									<range>25.9</range>
+									<burstShotCount>6</burstShotCount>
+									<ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+									<soundCast>Shot_XRMedium</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_XRLMG_Bond</defName>
+							<label>XR LMG shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/XRHeavy</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>14</damageAmountBase>
+								<stoppingPower>1</stoppingPower>
+								<speed>46</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_XR_Gun_LMG_Bond</defName>
+							<label>bond XR LMG</label>
+							<description>Bond an XR LMG.</description>
+							<jobString>Bonding a XR LMG.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<researchPrerequisite>XR_Arsenal</researchPrerequisite>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>XR_Gun_LMG</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>XR_Gun_LMG</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<XR_Gun_LMG_Bond>1</XR_Gun_LMG_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- XR_Gun_Shotgun_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsXRTech_BaseRange">
+							<defName>XR_Gun_Shotgun_Bond</defName>
+							<label>persona XR shotgun</label>
+							<description>XR-Tech shotgun, product of advanced mechanical engineering and rigorous combat evaluations.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/WeaponRanged/XRShotgun</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<weaponClasses>
+								<li>ShortShots</li>
+								<li>RangedHeavy</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>3.3</Mass>
+								<AccuracyTouch>0.88</AccuracyTouch>
+								<AccuracyShort>0.957</AccuracyShort>
+								<AccuracyMedium>0.847</AccuracyMedium>
+								<AccuracyLong>0.704</AccuracyLong>
+								<RangedWeapon_Cooldown>0.8075</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_XRShotgun_Bond</defaultProjectile>
+									<warmupTime>0.765</warmupTime>
+									<range>15.9</range>
+									<soundCast>Shot_XRHeavy</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_XRShotgun_Bond</defName>
+							<label>XR shotgun blast</label>
+							<graphicData>
+								<texPath>Things/Projectile/XRLight</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>22</damageAmountBase>
+								<stoppingPower>3</stoppingPower>
+								<speed>60</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_XR_Gun_Shotgun_Bond</defName>
+							<label>bond XR shotgun</label>
+							<description>Bond an XR shotgun.</description>
+							<jobString>Bonding a XR shotgun.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<researchPrerequisite>XR_Arsenal</researchPrerequisite>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>XR_Gun_Shotgun</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>XR_Gun_Shotgun</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<XR_Gun_Shotgun_Bond>1</XR_Gun_Shotgun_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- XR_Gun_Minigun_Bond -->
+						<ThingDef ParentName="PersonaPatch_KitsXRTech_BaseRange">
+							<defName>XR_Gun_Minigun_Bond</defName>
+							<label>persona XR Minigun</label>
+							<description>XR-Tech minigun, product of advanced mechanical engineering and rigorous combat evaluations.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/WeaponRanged/XRMinigun</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>1.22</drawSize>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<comps>
+								<li>
+									<compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+								</li>
+							</comps>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<weaponClasses>
+								<li>ShortShots</li>
+								<li>RangedHeavy</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>8.4</Mass>
+								<AccuracyTouch>0.165</AccuracyTouch>
+								<AccuracyShort>0.275</AccuracyShort>
+								<AccuracyMedium>0.275</AccuracyMedium>
+								<AccuracyLong>0.198</AccuracyLong>
+								<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+							</statBases>
+							<weaponTags>
+								<li>GunHeavy</li>
+							</weaponTags>
+							<equippedStatOffsets>
+								<MoveSpeed>-0.25</MoveSpeed>
+							</equippedStatOffsets>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_XRMinigun_Bond</defaultProjectile>
+									<warmupTime>2.125</warmupTime>
+									<range>30.9</range>
+									<burstShotCount>25</burstShotCount>
+									<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+									<soundCast>Shot_XRMedium</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>Bullet_XRMinigun_Bond</defName>
+							<label>XR minigun shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/XRMedium</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>13</damageAmountBase>
+								<speed>70</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_XR_Gun_Minigun_Bond</defName>
+							<label>bond XR Minigun</label>
+							<description>Bond an XR Minigun.</description>
+							<jobString>Bonding a XR Minigun.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<researchPrerequisite>XR_Arsenal</researchPrerequisite>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>XR_Gun_Minigun</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>XR_Gun_Minigun</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<XR_Gun_Minigun_Bond>1</XR_Gun_Minigun_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

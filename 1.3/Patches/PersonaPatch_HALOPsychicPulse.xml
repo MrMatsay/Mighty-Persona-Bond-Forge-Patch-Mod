@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	HALO: Rimworld Psychic Pulse Armory (Continued)
+-->
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>HALO: Rimworld Psychic Pulse Armory (Continued)</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs</xpath>
+					<value>
+						<!-- ===== Meele ===== -->
+						<ThingDef Name="PersonaPatch_HALOPsychicPulse_BaseMelee" Abstract="True" ParentName="BaseWeapon_Bladelink">
+							<techLevel>Archotech</techLevel>
+							<smeltable>true</smeltable>
+							<thingCategories>
+								<li>WeaponsMelee</li>
+							</thingCategories>
+							<inspectorTabs>
+								<li>ITab_Art</li>
+							</inspectorTabs>
+							<tradeTags>
+								<li>Artifact</li>
+							</tradeTags>
+							<weaponTags Inherit="False">
+								<li>ArchotechMelee</li>
+								<li>HRPPAGun</li>
+								<li>Bladelink</li>
+							</weaponTags>
+							<thingSetMakerTags>
+								<li>RewardSpecial</li>
+							</thingSetMakerTags>
+							<comps>
+								<li>
+									<compClass>CompQuality</compClass>
+								</li>
+								<li Class="CompProperties_Art">
+									<nameMaker>NamerArtWeaponMelee</nameMaker>
+									<descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+									<minQualityForArtistic>Excellent</minQualityForArtistic>
+								</li>
+							</comps>
+						</ThingDef>
+
+						<!-- HRPPA_PsychicPulseBlade_Bond -->
+						<ThingDef ParentName="PersonaPatch_HALOPsychicPulse_BaseMelee">
+							<defName>HRPPA_PsychicPulseBlade_Bond</defName>
+							<label>persona psychic pulse blade</label>
+							<description>An ancient pulse blade of unkown design, driving the target insane and disorients it.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponsMelee/HRPPW_blade</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<inspectorTabs>
+								<li>ITab_Art</li>
+							</inspectorTabs>
+							<statBases>
+								<MarketValue>1450</MarketValue>
+								<Mass>1.6</Mass>
+							</statBases>
+							<equippedAngleOffset>-75</equippedAngleOffset>
+							<tools>
+								<li>
+									<label>handle</label>
+									<capacities>
+										<li>HRPPA_MeleePulse</li>
+									</capacities>
+									<power>11</power>
+									<cooldownTime>1.7</cooldownTime>
+								</li>
+								<li>
+									<label>point</label>
+									<capacities>
+										<li>HRPPA_MeleePulse</li>
+									</capacities>
+									<power>11</power>
+									<cooldownTime>2.21</cooldownTime>
+								</li>
+								<li>
+									<label>edge</label>
+									<capacities>
+										<li>HRPPA_MeleePulse</li>
+									</capacities>
+									<power>11</power>
+									<cooldownTime>2.21</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_HRPPA_PsychicPulseBlade_Bond</defName>
+							<label>bond psychic pulse blade</label>
+							<description>Bond an psychic pulse blade.</description>
+							<jobString>Bonding a psychic pulse blade.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>HRPPA_PsychicPulseBlade</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>HRPPA_PsychicPulseBlade</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<HRPPA_PsychicPulseBlade_Bond>1</HRPPA_PsychicPulseBlade_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- ===== Ranged ===== -->
+						<ThingDef Name="PersonaPatch_HALOPsychicPulse_BaseRanged" ParentName="BaseWeapon_Bladelink" Abstract="True">
+							<techLevel>Archotech</techLevel>
+							<thingCategories>
+								<li>HRPPA_WeaponsRanged</li>
+							</thingCategories>
+							<weaponTags Inherit="False">
+								<li>ArchotechWeapons</li>
+								<li>HRPPAGun</li>
+								<li>RangedBladelink</li>
+							</weaponTags>
+							<tradeTags>
+								<li>Artifact</li>
+							</tradeTags>
+							<thingSetMakerTags>
+								<li>RewardSpecial</li>
+							</thingSetMakerTags>
+						</ThingDef>
+
+						<!-- HRPPA_PsychicPulseCannon_Bond -->
+						<ThingDef ParentName="PersonaPatch_HALOPsychicPulse_BaseRanged">
+							<defName>HRPPA_PsychicPulseCannon_Bond</defName>
+							<label>persona psychic pulse cannon</label>
+							<description>An ancient handgun of unkown design, firing a psychic pulse that disorients and downs the target or drive them insane.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponsRanged/HRPPW_pistol</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_Autopistol</soundInteract>
+							<statBases>
+								<MarketValue>900</MarketValue>
+								<Mass>1.4</Mass>
+								<AccuracyTouch>0.935</AccuracyTouch>
+								<AccuracyShort>0.803</AccuracyShort>
+								<AccuracyMedium>0.484</AccuracyMedium>
+								<AccuracyLong>0.319</AccuracyLong>
+								<RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>HRPPA_Bullet_PsychicPulseCannon_Bond</defaultProjectile>
+									<warmupTime>0.68</warmupTime>
+									<range>22.9</range>
+									<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+									<burstShotCount>3</burstShotCount>
+									<soundCast>HRPPA_Shot_PsychicPulseCannon</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>12</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>grip</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef Class="HRPPA.ThingDef_PsychicPulse" ParentName="BaseBullet">
+							<defName>HRPPA_Bullet_PsychicPulseCannon_Bond</defName>
+							<thingClass>HRPPA.Projectile_PsychicPulse</thingClass>
+							<baseline>0.10</baseline>
+							<insanityChance>0.05</insanityChance>
+							<HediffToAdd>HRPPA_PsychicShock</HediffToAdd>
+							<label>charge shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/HRPPW_PsychicPulse_Small</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<flyOverhead>false</flyOverhead>
+								<damageDef>HRPPA_RangedPulse</damageDef>
+								<damageAmountBase>0</damageAmountBase>
+								<armorPenetrationBase>0</armorPenetrationBase>
+								<speed>55</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_HRPPA_PsychicPulseCannon_Bond</defName>
+							<label>bond psychic pulse cannon</label>
+							<description>Bond an psychic pulse cannon.</description>
+							<jobString>Bonding a psychic pulse cannon.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>HRPPA_PsychicPulseCannon</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>HRPPA_PsychicPulseCannon</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<HRPPA_PsychicPulseCannon_Bond>1</HRPPA_PsychicPulseCannon_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- HRPPA_PsychicPulseRepeater_Bond -->
+						<ThingDef ParentName="PersonaPatch_HALOPsychicPulse_BaseRanged">
+							<defName>HRPPA_PsychicPulseRepeater_Bond</defName>
+							<label>persona psychic pulse repeater</label>
+							<description>An ancient rifle of unkown design, firing multiple psychic pulses that disorients and downs the target or drive them insane.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponsRanged/HRRPW_repeater</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<statBases>
+								<MarketValue>1200</MarketValue>
+								<Mass>2.6</Mass>
+								<AccuracyTouch>0.99</AccuracyTouch>
+								<AccuracyShort>0.726</AccuracyShort>
+								<AccuracyMedium>0.495</AccuracyMedium>
+								<AccuracyLong>0.385</AccuracyLong>
+								<RangedWeapon_Cooldown>1.19</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>HRPPA_Bullet_PsychicPulseRepeater_Bond</defaultProjectile>
+									<warmupTime>0.85</warmupTime>
+									<range>26.9</range>
+									<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+									<burstShotCount>4</burstShotCount>
+									<soundCast>HRPPA_Shot_PsychicPulseRepeater</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>grip</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef Class="HRPPA.ThingDef_PsychicPulse" ParentName="BaseBullet">
+							<defName>HRPPA_Bullet_PsychicPulseRepeater_Bond</defName>
+							<thingClass>HRPPA.Projectile_PsychicPulse</thingClass>
+							<baseline>0.18</baseline>
+							<insanityChance>0.05</insanityChance>
+							<HediffToAdd>HRPPA_PsychicShock</HediffToAdd>
+							<label>charge shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/HRPPW_PsychicPulse_Small</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>HRPPA_RangedPulse</damageDef>
+								<damageAmountBase>0</damageAmountBase>
+								<armorPenetrationBase>0</armorPenetrationBase>
+								<speed>70</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_HRPPA_PsychicPulseRepeater_Bond</defName>
+							<label>bond psychic pulse repeater</label>
+							<description>Bond an psychic pulse repeater.</description>
+							<jobString>Bonding a psychic pulse repeater.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>HRPPA_PsychicPulseRepeater</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>HRPPA_PsychicPulseRepeater</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<HRPPA_PsychicPulseRepeater_Bond>1</HRPPA_PsychicPulseRepeater_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- HRPPA_PsychicPulseSpinner_Bond -->
+						<ThingDef ParentName="PersonaPatch_HALOPsychicPulse_BaseRanged">
+							<defName>HRPPA_PsychicPulseSpinner_Bond</defName>
+							<label>persona psychic pulse spinner</label>
+							<description>An ancient rapid fire rifle of unkown design, firing multiple psychic pulses in a short time that disorients and downs the target or drive them insane.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponsRanged/HRPPW_lmg</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<statBases>
+								<MarketValue>2800</MarketValue>
+								<Mass>3.8</Mass>
+								<AccuracyTouch>0.935</AccuracyTouch>
+								<AccuracyShort>0.704</AccuracyShort>
+								<AccuracyMedium>0.605</AccuracyMedium>
+								<AccuracyLong>0.495</AccuracyLong>
+								<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+							</statBases>
+							<equippedAngleOffset>45</equippedAngleOffset>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>HRPPA_Bullet_PsychicPulseSpinner_Bond</defaultProjectile>
+									<warmupTime>0.85</warmupTime>
+									<range>19.9</range>
+									<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+									<burstShotCount>6</burstShotCount>
+									<soundCast>HRPPA_Shot_PsychicPulseSpinner</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>12</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>grip</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef Class="HRPPA.ThingDef_PsychicPulse" ParentName="BaseBullet">
+							<defName>HRPPA_Bullet_PsychicPulseSpinner_Bond</defName>
+							<thingClass>HRPPA.Projectile_PsychicPulse</thingClass>
+							<baseline>0.09</baseline>
+							<insanityChance>0.05</insanityChance>
+							<HediffToAdd>HRPPA_PsychicShock</HediffToAdd>
+							<label>charge shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/HRPPW_PsychicPulse_Small</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>HRPPA_RangedPulse</damageDef>
+								<damageAmountBase>0</damageAmountBase>
+								<armorPenetrationBase>0</armorPenetrationBase>
+								<speed>60</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_HRPPA_PsychicPulseSpinner_Bond</defName>
+							<label>bond psychic pulse spinner</label>
+							<description>Bond an psychic pulse spinner.</description>
+							<jobString>Bonding a psychic pulse spinner.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>HRPPA_PsychicPulseSpinner</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>HRPPA_PsychicPulseSpinner</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<HRPPA_PsychicPulseSpinner_Bond>1</HRPPA_PsychicPulseSpinner_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- HRPPA_PsychicPulseScatter_Bond -->
+						<ThingDef ParentName="PersonaPatch_HALOPsychicPulse_BaseRanged">
+							<defName>HRPPA_PsychicPulseScatter_Bond</defName>
+							<label>persona psychic pulse scatter</label>
+							<description>An ancient shotgun of unkown design, firing multiple, small psychic pulses in one shot that disorients and downs the target or drive them insane.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponsRanged/HRPPW_scatter</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<statBases>
+								<MarketValue>1550</MarketValue>
+								<Mass>4.4</Mass>
+								<AccuracyTouch>0.88</AccuracyTouch>
+								<AccuracyShort>0.957</AccuracyShort>
+								<AccuracyMedium>0.605</AccuracyMedium>
+								<AccuracyLong>0.495</AccuracyLong>
+								<RangedWeapon_Cooldown>1.19</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>HRPPA_Bullet_PsychicPulseShotgun_Bond</defaultProjectile>
+									<warmupTime>0.85
+									</warmupTime>
+									<range>20.9</range>
+									<soundCast>HRPPA_Shot_PsychicPulseScatter</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>grip</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef Class="HRPPA.ThingDef_PsychicPulse" ParentName="BaseBullet">
+							<defName>HRPPA_Bullet_PsychicPulseShotgun_Bond</defName>
+							<thingClass>HRPPA.Projectile_PsychicPulse</thingClass>
+							<baseline>0.26</baseline>
+							<insanityChance>0.25</insanityChance>
+							<HediffToAdd>HRPPA_PsychicShock</HediffToAdd>
+							<label>charge shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/HRPPW_PsychicPulse_Shotgun</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>HRPPA_RangedPulse</damageDef>
+								<damageAmountBase>0</damageAmountBase>
+								<armorPenetrationBase>0</armorPenetrationBase>
+								<speed>70</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_HRPPA_PsychicPulseScatter_Bond</defName>
+							<label>bond psychic pulse scatter</label>
+							<description>Bond an psychic pulse scatter.</description>
+							<jobString>Bonding a psychic pulse scatter.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>HRPPA_PsychicPulseScatter</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>HRPPA_PsychicPulseScatter</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<HRPPA_PsychicPulseScatter_Bond>1</HRPPA_PsychicPulseScatter_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- HRPPA_PsychicPulseReacher_Bond -->
+						<ThingDef ParentName="PersonaPatch_HALOPsychicPulse_BaseRanged">
+							<defName>HRPPA_PsychicPulseReacher_Bond</defName>
+							<label>persona psychic pulse reacher</label>
+							<description>An ancient sniper of unkown design, firing a fast psychic pulse that disorients and downs the target or drive them insane.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponsRanged/HRPPW_reacher</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeLance</soundInteract>
+							<statBases>
+								<MarketValue>1950</MarketValue>
+								<Mass>4.8</Mass>
+								<AccuracyTouch>0.495</AccuracyTouch>
+								<AccuracyShort>0.77</AccuracyShort>
+								<AccuracyMedium>0.968</AccuracyMedium>
+								<AccuracyLong>0.99</AccuracyLong>
+								<RangedWeapon_Cooldown>2.125</RangedWeapon_Cooldown>
+							</statBases>
+							<equippedAngleOffset>45</equippedAngleOffset>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>HRPPA_Bullet_PsychicPulseReacher_Bond</defaultProjectile>
+									<warmupTime>2.72</warmupTime>
+									<range>40.9</range>
+									<soundCast>HRPPA_Shot_PsychicPulseReacher</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>grip</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef Class="HRPPA.ThingDef_PsychicPulse" ParentName="BaseBullet">
+							<defName>HRPPA_Bullet_PsychicPulseReacher_Bond</defName>
+							<thingClass>HRPPA.Projectile_PsychicPulse</thingClass>
+							<baseline>0.30</baseline>
+							<insanityChance>0.12</insanityChance>
+							<HediffToAdd>HRPPA_PsychicShock</HediffToAdd>
+							<label>charge shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/HRPPW_PsychicPulse_Small</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>HRPPA_RangedPulse</damageDef>
+								<damageAmountBase>0</damageAmountBase>
+								<armorPenetrationBase>0</armorPenetrationBase>
+								<speed>115</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_HRPPA_PsychicPulseReacher_Bond</defName>
+							<label>bond psychic pulse reacher</label>
+							<description>Bond an psychic pulse reacher.</description>
+							<jobString>Bonding a psychic pulse reacher.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>HRPPA_PsychicPulseReacher</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>HRPPA_PsychicPulseReacher</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<HRPPA_PsychicPulseReacher_Bond>1</HRPPA_PsychicPulseReacher_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+
+						<!-- HRPPA_PsychicPulseLancer_Bond -->
+						<ThingDef ParentName="PersonaPatch_HALOPsychicPulse_BaseRanged">
+							<defName>HRPPA_PsychicPulseLancer_Bond</defName>
+							<label>persona psychic pulse lancer</label>
+							<description>An ancient lancer of unkown design, firing a fast psychic pulse lance that disorients and downs the target or drive them insane.\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponsRanged/HRPPW_lancer</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeLance</soundInteract>
+							<statBases>
+								<MarketValue>3600</MarketValue>
+								<Mass>5.2</Mass>
+								<AccuracyTouch>0.66</AccuracyTouch>
+								<AccuracyShort>0.858</AccuracyShort>
+								<AccuracyMedium>0.935</AccuracyMedium>
+								<AccuracyLong>0.77</AccuracyLong>
+								<RangedWeapon_Cooldown>3.825</RangedWeapon_Cooldown>
+							</statBases>
+							<equippedAngleOffset>45</equippedAngleOffset>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>HRPPA_Bullet_PsychicPulseLancer_Bond</defaultProjectile>
+									<warmupTime>3.57</warmupTime>
+									<range>47.9</range>
+									<soundCast>HRPPA_Shot_PsychicPulseLancer</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>grip</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>handel</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef Class="HRPPA.ThingDef_PsychicPulse" ParentName="BaseBullet">
+							<defName>HRPPA_Bullet_PsychicPulseLancer_Bond</defName>
+							<thingClass>HRPPA.Projectile_PsychicPulse</thingClass>
+							<baseline>0.50</baseline>
+							<insanityChance>0.28</insanityChance>
+							<HediffToAdd>HRPPA_PsychicShock</HediffToAdd>
+							<label>charge shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/HRPPW_PsychicPulse_LanceShot</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>HRPPA_RangedPulse</damageDef>
+								<damageAmountBase>0</damageAmountBase>
+								<armorPenetrationBase>0</armorPenetrationBase>
+								<speed>130</speed>
+							</projectile>
+						</ThingDef>
+
+						<RecipeDef>
+							<defName>Make_HRPPA_PsychicPulseLancer_Bond</defName>
+							<label>bond psychic pulse lancer</label>
+							<description>Bond an psychic pulse lancer.</description>
+							<jobString>Bonding a psychic pulse lancer.</jobString>
+							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+							<effectWorking>Cook</effectWorking>
+							<soundWorking>Recipe_Machining</soundWorking>
+							<workAmount>200000</workAmount>
+							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+							<ingredients>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>HRPPA_PsychicPulseLancer</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+								<li>
+									<filter>
+										<thingDefs>
+											<li>BondingCore</li>
+										</thingDefs>
+									</filter>
+									<count>1</count>
+								</li>
+							</ingredients>
+							<fixedIngredientFilter>
+								<thingDefs>
+									<li>HRPPA_PsychicPulseLancer</li>
+									<li>BondingCore</li>
+								</thingDefs>
+							</fixedIngredientFilter>
+							<products>
+								<HRPPA_PsychicPulseLancer_Bond>1</HRPPA_PsychicPulseLancer_Bond>
+							</products>
+							<skillRequirements>
+								<Intellectual>15</Intellectual>
+							</skillRequirements>
+							<workSkill>Intellectual</workSkill>
+							<recipeUsers>
+								<li>BondingBench</li>
+							</recipeUsers>
+						</RecipeDef>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

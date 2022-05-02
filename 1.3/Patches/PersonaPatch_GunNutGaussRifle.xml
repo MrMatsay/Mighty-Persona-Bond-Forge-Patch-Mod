@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    [HRK] Gun Nut - "Item 62" Gauss Rifle
+
+    Item 62 Mk.I
+    Item 62 Mk.II
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>[HRK] Gun Nut - "Item 62" Gauss Rifle</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="BaseRangedWeapon_GunNutGaussRifleBond" ParentName="BaseWeapon_Bladelink" Abstract="True">
+                            <thingCategories Inherit="False">
+                                <li>HRK_Category_GunNut</li>
+                            </thingCategories>
+                            <thingSetMakerTags>
+                                <li>RewardStandardMidFreq</li>
+                            </thingSetMakerTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                                <li>SpacerGun</li>
+                                <li>Coilgun</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <!-- persona Item 62 Mk.I -->
+                        <ThingDef ParentName="BaseRangedWeapon_GunNutGaussRifleBond">
+                            <defName>HRK_STALKER_Gauss_Bond</defName>
+                            <label>persona Item 62 Mk.I</label>
+                            <description>The Gauss Rifle (Gauss Gun in Shadow of Chernobyl), officially known as Item 62 or Project 62, is a weapon created by researchers and weapon smiths within the Zone. It is featured in S.T.A.L.K.E.R.: Shadow of Chernobyl and S.T.A.L.K.E.R.: Call of Pripyat. A special prototype variant of the weapon, the EM1 Rifle, only appears in S.T.A.L.K.E.R.: Clear Sky.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Things/Weapons/HRK_STALKER_Gauss</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.0</drawSize>
+                            </graphicData>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <soundInteract>HRK_Interact_STALKER_Gauss</soundInteract>
+                            <statBases>
+                                <Mass>5</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.704</AccuracyShort>
+                                <AccuracyMedium>0.770</AccuracyMedium>
+                                <AccuracyLong>0.550</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>HRK_Bullet_STALKER_Gauss_Bond</defaultProjectile>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <burstShotCount>2</burstShotCount>
+                                    <warmupTime>1.700</warmupTime>
+                                    <range>31</range>
+                                    <soundCast>HRK_Shot_STALKER_Gauss</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>HRK_Bullet_STALKER_Gauss_Bond</defName>
+                            <label>Item 62 blast</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/ChargeLanceShot</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>39</damageAmountBase>
+                                <stoppingPower>1</stoppingPower>
+                                <armorPenetrationBase>1</armorPenetrationBase>
+                                <speed>80</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_HRK_STALKER_Gauss_Bond</defName>
+                            <label>bond Item 62 Mk.I</label>
+                            <description>Bond an Item 62 Mk.I.</description>
+                            <jobString>Bonding a Item 62 Mk.I.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>HRK_Research_GunNut_STALKER_Gauss</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>HRK_STALKER_Gauss</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>HRK_STALKER_Gauss</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <HRK_STALKER_Gauss_Bond>1</HRK_STALKER_Gauss_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- persona Item 62 Mk.II -->
+                        <ThingDef ParentName="BaseRangedWeapon_GunNutGaussRifleBond">
+                            <defName>HRK_STALKER_Gauss_Sniper_Bond</defName>
+                            <label>persona Item 62 Mk.II</label>
+                            <description>The Gauss Rifle (Gauss Gun in Shadow of Chernobyl), officially known as Item 62 or Project 62, is a weapon created by researchers and weapon smiths within the Zone. It is featured in S.T.A.L.K.E.R.: Shadow of Chernobyl and S.T.A.L.K.E.R.: Call of Pripyat. A special prototype variant of the weapon, the EM1 Rifle, only appears in S.T.A.L.K.E.R.: Clear Sky.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Things/Weapons/HRK_STALKER_Gauss_Sniper</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.0</drawSize>
+                            </graphicData>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <soundInteract>HRK_Interact_STALKER_Gauss</soundInteract>
+                            <statBases>
+                                <Mass>11.6</Mass>
+                                <AccuracyTouch>0.40</AccuracyTouch>
+                                <AccuracyShort>0.65</AccuracyShort>
+                                <AccuracyMedium>0.86</AccuracyMedium>
+                                <AccuracyLong>0.88</AccuracyLong>
+                                <RangedWeapon_Cooldown>3.50</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>HRK_Bullet_STALKER_Gauss_Sniper_Bond</defaultProjectile>
+                                    <warmupTime>3.0</warmupTime>
+                                    <range>45</range>
+                                    <soundCast>HRK_Shot_STALKER_Gauss</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>HRK_Bullet_STALKER_Gauss_Sniper_Bond</defName>
+                            <label>Item 62 blast</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/ChargeLanceShot</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>55</damageAmountBase>
+                                <stoppingPower>3</stoppingPower>
+                                <armorPenetrationBase>1</armorPenetrationBase>
+                                <speed>80</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_HRK_STALKER_Gauss_Sniper_Bond</defName>
+                            <label>bond Item 62 Mk.II</label>
+                            <description>Bond an Item 62 Mk.II.</description>
+                            <jobString>Bonding a Item 62 Mk.II.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>HRK_Research_GunNut_STALKER_Gauss</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>HRK_STALKER_Gauss_Sniper</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>HRK_STALKER_Gauss_Sniper</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <HRK_STALKER_Gauss_Sniper_Bond>1</HRK_STALKER_Gauss_Sniper_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

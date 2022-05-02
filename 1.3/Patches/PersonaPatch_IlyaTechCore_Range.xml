@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Ilya Tech - Core =====
+
+    SU_Morgante_Bond = persona Morgante Revolver
+    SU_Laviano_Bond = persona Laviano SMG
+    SU_Laurino_Bond = persona Laurino MG
+    SU_Schwalbe_Bond = persona Schwalbe AR
+    SU_Gavino_Bond = persona Gavino Auto-Shotgun
+    SU_Federica_Bond = persona Federica Marksman Rifle
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Ilya Tech - Core</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- ===== Range ===== -->
+                        <ThingDef Name="IlyaTechCoreBaseRange" Abstract="True" ParentName="BaseWeapon_Bladelink">
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                            </weaponTags>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <thingCategories>
+                                <li>SU_Ranged</li>
+                            </thingCategories>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <thingSetMakerTags>
+                                <li>RewardStandardLowFreq</li>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <!-- SU_Morgante_Bond -->
+                        <ThingDef ParentName="IlyaTechCoreBaseRange">
+                            <defName>SU_Morgante_Bond</defName>
+                            <label>persona Morgante Revolver</label>
+                            <description>A heavy caliber tactical revolver, developed by Ilya Tech to provide it's user a close combat light weight yet powerful weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/SU_Morgante</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>0.8</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>800</MarketValue>
+                                <Mass>5</Mass>
+                                <AccuracyTouch>1.100</AccuracyTouch>
+                                <AccuracyShort>1.045</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.330</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.360</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SU_Morgante</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Morgante_Bond</defaultProjectile>
+                                    <warmupTime>1.275</warmupTime>
+                                    <range>22</range>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>Shot_Morgante</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_Morgante_Bond</defName>
+                            <label>morgante shot</label>
+                            <graphicData>
+                                <texPath>Things/Bullets/SU_MorganteBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.5</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>13</damageAmountBase>
+                                <armorPenetrationBase>0.75</armorPenetrationBase>
+                                <speed>75</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SU_Morgante_Bond</defName>
+                            <label>bond Morgante Revolver</label>
+                            <description>Bond an Morgante Revolver.</description>
+                            <jobString>Bonding a Morgante Revolver.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>IlyaTech</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SU_Morgante</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SU_Morgante</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SU_Morgante_Bond>1</SU_Morgante_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SU_Laviano_Bond -->
+                        <ThingDef ParentName="IlyaTechCoreBaseRange">
+                            <defName>SU_Laviano_Bond</defName>
+                            <label>persona Laviano SMG</label>
+                            <description>A tactical SMG/AR hybrid of acceptable caliber , developed by Ilya Tech to provide it's user a mid range combat firpower, Agile yet powerful weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/SU_Laviano</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>1175</MarketValue>
+                                <Mass>8</Mass>
+                                <AccuracyTouch>0.110</AccuracyTouch>
+                                <AccuracyShort>0.550</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.660</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.785</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SU_Laviano</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Laviano_Bond</defaultProjectile>
+                                    <warmupTime>1.275</warmupTime>
+                                    <range>30</range>
+                                    <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                    <burstShotCount>3</burstShotCount>
+                                    <soundCast>Shot_Laviano</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_Laviano_Bond</defName>
+                            <label>laviano shot</label>
+                            <graphicData>
+                                <texPath>Things/Bullets/SU_LavianoBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>14</damageAmountBase>
+                                <armorPenetrationBase>0.95</armorPenetrationBase>
+                                <speed>75</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SU_Laviano_Bond</defName>
+                            <label>bond Laviano SMG</label>
+                            <description>Bond an Laviano SMG.</description>
+                            <jobString>Bonding a Laviano SMG.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>IlyaTech</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SU_Laviano</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SU_Laviano</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SU_Laviano_Bond>1</SU_Laviano_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SU_Laurino_Bond -->
+                        <ThingDef ParentName="IlyaTechCoreBaseRange">
+                            <defName>SU_Laurino_Bond</defName>
+                            <label>persona Laurino MG</label>
+                            <description>A tactical Machine Gun with high caliber AP rounds , developed by Ilya Tech to provide it's user a mid-long range combat supression firpower, quite heavy yet still a powerful weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/SU_Laurino</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>1575</MarketValue>
+                                <Mass>12</Mass>
+                                <AccuracyTouch>1.45</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>0.880</AccuracyMedium>
+                                <AccuracyLong>0.330</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.125</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SU_Laurino</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Laurino_Bond</defaultProjectile>
+                                    <warmupTime>1.275</warmupTime>
+                                    <range>38</range>
+                                    <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                    <burstShotCount>8</burstShotCount>
+                                    <soundCast>Shot_Laurino</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_Laurino_Bond</defName>
+                            <label>laurino shot</label>
+                            <graphicData>
+                                <texPath>Things/Bullets/SU_LaurinoBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>15</damageAmountBase>
+                                <armorPenetrationBase>1.2</armorPenetrationBase>
+                                <speed>80</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SU_Laurino_Bond</defName>
+                            <label>bond Laurino MG</label>
+                            <description>Bond an Laurino MG.</description>
+                            <jobString>Bonding a Laurino MG.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>IlyaTech</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SU_Laurino</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SU_Laurino</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SU_Laurino_Bond>1</SU_Laurino_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SU_Schwalbe_Bond -->
+                        <ThingDef ParentName="IlyaTechCoreBaseRange">
+                            <defName>SU_Schwalbe_Bond</defName>
+                            <label>persona Schwalbe AR</label>
+                            <description>A Assault Rifle based on the gjallarhorn empire's original Schwalbe Bolter Rifle capable of trading rounds to your enemies, it's decent range makes it a perfect combat weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/SU_Schwalbe</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>1375</MarketValue>
+                                <Mass>7</Mass>
+                                <AccuracyTouch>0.110</AccuracyTouch>
+                                <AccuracyShort>0.550</AccuracyShort>
+                                <AccuracyMedium>1.045</AccuracyMedium>
+                                <AccuracyLong>0.880</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.870</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SU_Schwalbe</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Schwalbe_Bond</defaultProjectile>
+                                    <warmupTime>1.275</warmupTime>
+                                    <range>35</range>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <burstShotCount>3</burstShotCount>
+                                    <soundCast>Shot_Schwalbe</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_Schwalbe_Bond</defName>
+                            <label>schwalbe shot</label>
+                            <graphicData>
+                                <texPath>Things/Bullets/SU_LavianoBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.2</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.95</armorPenetrationBase>
+                                <speed>85</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SU_Schwalbe_Bond</defName>
+                            <label>bond Schwalbe AR</label>
+                            <description>Bond an Schwalbe AR.</description>
+                            <jobString>Bonding a Schwalbe AR.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>IlyaTech</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SU_Schwalbe</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SU_Schwalbe</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SU_Schwalbe_Bond>1</SU_Schwalbe_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SU_Gavino_Bond -->
+                        <ThingDef ParentName="IlyaTechCoreBaseRange">
+                            <defName>SU_Gavino_Bond</defName>
+                            <label>persona Gavino Auto-Shotgun</label>
+                            <description>The gavino auto shotgun is a strong close range weapon designed by ilya tech to spray and pray on your enemies with shotgun shells.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/SU_Gavino</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>1225</MarketValue>
+                                <Mass>7</Mass>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>0.770</AccuracyShort>
+                                <AccuracyMedium>0.330</AccuracyMedium>
+                                <AccuracyLong>0.011</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SU_Schwalbe</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Gavino_Bond</defaultProjectile>
+                                    <warmupTime>1.020</warmupTime>
+                                    <range>12</range>
+                                    <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+                                    <burstShotCount>6</burstShotCount>
+                                    <soundCast>Shot_Schwalbe</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_Gavino_Bond</defName>
+                            <label>gavino shot</label>
+                            <graphicData>
+                                <texPath>Things/Bullets/SU_GavinoBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.2</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>2</damageAmountBase>
+                                <armorPenetrationBase>1.2</armorPenetrationBase>
+                                <speed>85</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SU_Gavino_Bond</defName>
+                            <label>bond Gavino Auto-Shotgun</label>
+                            <description>Bond an Gavino Auto-Shotgun.</description>
+                            <jobString>Bonding a Gavino Auto-Shotgun.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>IlyaTech</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SU_Gavino</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SU_Gavino</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SU_Gavino_Bond>1</SU_Gavino_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SU_Federica_Bond -->
+                        <ThingDef ParentName="IlyaTechCoreBaseRange">
+                            <defName>SU_Federica_Bond</defName>
+                            <label>persona Federica Marksman Rifle</label>
+                            <description>The elegant Federican Marksman Rifle, armed with high caliber AP rounds , developed by Ilya Tech to provide it's user a long range combat superiority, heavy yet still an elegant weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/SU_Federica</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <statBases>
+                                <MarketValue>1875</MarketValue>
+                                <Mass>20</Mass>
+                                <AccuracyTouch>0.110</AccuracyTouch>
+                                <AccuracyShort>0.770</AccuracyShort>
+                                <AccuracyMedium>1.980</AccuracyMedium>
+                                <AccuracyLong>1.100</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.550</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SU_Laurino</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Federica_Bond</defaultProjectile>
+                                    <warmupTime>1.700</warmupTime>
+                                    <range>50</range>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>Shot_Federica</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_Federica_Bond</defName>
+                            <label>federica shot</label>
+                            <graphicData>
+                                <texPath>Things/Bullets/SU_FedericaBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.2</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>31</damageAmountBase>
+                                <armorPenetrationBase>1.8</armorPenetrationBase>
+                                <speed>85</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SU_Federica_Bond</defName>
+                            <label>bond Federica Marksman Rifle</label>
+                            <description>Bond an Federica Marksman Rifle.</description>
+                            <jobString>Bonding a Federica Marksman Rifle.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>IlyaTech</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SU_Federica</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SU_Federica</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SU_Federica_Bond>1</SU_Federica_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
