@@ -41,3 +41,4 @@
 - Vanilla Weapons Expanded - Coilguns
 - Xenite Industries: Mechanite District
 - [TMC] GlitterGats
+- Metal Rim Rising

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Metal Rim Rising
+
+    Duelist Objectifier
+    Duelist Objectifier (JUMP)
+    Maverick Blade
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Metal Rim Rising</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- ===== Melee ===== -->
+                        <ThingDef Name="MetalRimRisingBaseMelee" Abstract="True" ParentName="BaseWeapon_Bladelink">
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags Inherit="False">
+                                <li>Bladelink</li>
+                                <li>SpacerMeleeAdvanced</li>
+                            </weaponTags>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <statBases>
+                                <Mass>1.5</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <!-- MeleeWeapon_MGR_Katana_Bond -->
+                        <ThingDef ParentName="MetalRimRisingBaseMelee">
+                            <defName>MeleeWeapon_MGR_Katana_Bond</defName>
+                            <label>persona Duelist Objectifier</label>
+                            <description>A highly experimental and unstable High-Frequency Blade that excels against armored targes, able to bypass even the toughest of plating after a short charge up time.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponMelee/mgr-katana</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1,1)</drawSize>
+                            </graphicData>
+                            <size>(1,1)</size>
+                            <generateCommonality>0.0</generateCommonality>
+                            <relicChance>2</relicChance>
+                            <equippedAngleOffset>-40</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.20</power>
+                                    <cooldownTime>0.638</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>16.50</power>
+                                    <cooldownTime>0.638</cooldownTime>
+                                    <armorPenetration>1.133</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>38.50</power>
+                                    <cooldownTime>0.638</cooldownTime>
+                                    <armorPenetration>1.133</armorPenetration>
+                                </li>
+                            </tools>
+                            <allowedArchonexusCount>1</allowedArchonexusCount>
+                            <comps>
+                                <li Class="MGRRimworld.MGRComps.CompProperties_ItemAddAbility">
+                                    <hediff>DuelistObjectifierPower</hediff>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_MeleeWeapon_MGR_Katana_Bond</defName>
+                            <label>bond Duelist Objectifier</label>
+                            <description>Bond an Duelist Objectifier.</description>
+                            <jobString>Bonding a Duelist Objectifier.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>BigSteel</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>MeleeWeapon_MGR_Katana</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>MeleeWeapon_MGR_Katana</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <MeleeWeapon_MGR_Katana_Bond>1</MeleeWeapon_MGR_Katana_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- MeleeWeapon_MGR_Katana_Jump_Bond -->
+                        <ThingDef ParentName="MetalRimRisingBaseMelee">
+                            <defName>MeleeWeapon_MGR_Katana_Jump_Bond</defName>
+                            <label>persona Duelist Objectifier (JUMP)</label>
+                            <description>A highly experimental and unstable High-Frequency Blade that excels against armored targes, able to bypass even the toughest of plating after a short charge up time.\n\nThis variant comes with a jump ability and counts as a ranged weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponMelee/mgr-katana</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1,1)</drawSize>
+                            </graphicData>
+                            <size>(1,1)</size>
+                            <generateCommonality>0.0</generateCommonality>
+                            <relicChance>2</relicChance>
+                            <equippedAngleOffset>-40</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.20</power>
+                                    <cooldownTime>0.638</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>16.50</power>
+                                    <cooldownTime>0.638</cooldownTime>
+                                    <armorPenetration>1.133</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>38.50</power>
+                                    <cooldownTime>0.638</cooldownTime>
+                                    <armorPenetration>1.133</armorPenetration>
+                                </li>
+                            </tools>
+                            <allowedArchonexusCount>1</allowedArchonexusCount>
+                            <verbs>
+                                <li>
+                                    <label>true damage ability</label>
+                                    <verbClass>MGRRimworld.Effect_TrueDamage</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <commandIcon>UI/sword-slice</commandIcon>
+                                    <range>15</range>
+                                    <requireLineOfSight>true</requireLineOfSight>
+                                    <warmupTime>1.5</warmupTime>
+                                    <noiseRadius>5</noiseRadius>
+                                    <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+                                    <soundCast>ThrowGrenade</soundCast>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <defaultProjectile>Projectile_BaseAbility</defaultProjectile>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="MGRRimworld.MGRComps.CompProperties_ItemAddAbility">
+                                    <hediff>DuelistObjectifierPower</hediff>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_MeleeWeapon_MGR_Katana_Jump_Bond</defName>
+                            <label>bond Duelist Objectifier (JUMP)</label>
+                            <description>Bond an Duelist Objectifier (JUMP).</description>
+                            <jobString>Bonding a Duelist Objectifier (JUMP).</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>BigSteel</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>MeleeWeapon_MGR_Katana_Jump</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>MeleeWeapon_MGR_Katana_Jump</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <MeleeWeapon_MGR_Katana_Jump_Bond>1</MeleeWeapon_MGR_Katana_Jump_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- MGR_RaidenSword_Bond -->
+                        <ThingDef ParentName="MetalRimRisingBaseMelee">
+                            <defName>MGR_RaidenSword_Bond</defName>
+                            <label>persona Maverick Blade</label>
+                            <description>A standard-issue High-Frequency Blade that is intended for security personnel. Designed for speed without sacrificing power, the blade enhances the wielder's move speed with providing excellent damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponMelee/raiden-sword</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1,1)</drawSize>
+                            </graphicData>
+                            <size>(1,1)</size>
+                            <generateCommonality>0.0</generateCommonality>
+                            <equippedStatOffsets>
+                                <MoveSpeed>1.5</MoveSpeed>
+                                <MeleeHitChance>-0.1</MeleeHitChance>
+                                <MeleeDodgeChance>1.5</MeleeDodgeChance>
+                            </equippedStatOffsets>
+                            <relicChance>2</relicChance>
+                            <equippedAngleOffset>-30</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>8.80</power>
+                                    <cooldownTime>0.850</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>13.20</power>
+                                    <cooldownTime>0.850</cooldownTime>
+                                    <armorPenetration>0.869</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>33.00</power>
+                                    <cooldownTime>0.850</cooldownTime>
+                                    <armorPenetration>0.869</armorPenetration>
+                                </li>
+                            </tools>
+                            <allowedArchonexusCount>1</allowedArchonexusCount>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_MGR_RaidenSword_Bond</defName>
+                            <label>bond Maverick Blade</label>
+                            <description>Bond an Maverick Blade.</description>
+                            <jobString>Bonding a Maverick Blade.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>BigSteel</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>MGR_RaidenSword</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>MGR_RaidenSword</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <MGR_RaidenSword_Bond>1</MGR_RaidenSword_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
