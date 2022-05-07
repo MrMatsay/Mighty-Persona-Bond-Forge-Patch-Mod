@@ -42,3 +42,4 @@
 - Xenite Industries: Mechanite District
 - [TMC] GlitterGats
 - Metal Rim Rising
+- VWE Coilguns - Unnoficial Gauss Sniper
