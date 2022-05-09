@@ -43,3 +43,4 @@
 - [TMC] GlitterGats
 - Metal Rim Rising
 - VWE Coilguns - Unnoficial Gauss Sniper
+- KEP Blast-Charge Weaponry (Continued)
