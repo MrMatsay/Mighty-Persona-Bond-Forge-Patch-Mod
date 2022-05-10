@@ -1,0 +1,1246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== RimVali: Far From Avalon =====
+
+    == Range
+    AvaliPistol_Bond = persona Illuminate Pistol
+    AvaliSMG_Bond = persona Illuminate SMG
+    AvaliMinigun_Bond = persona Illuminate minigun
+    AvaliRifle_Bond = persona Illuminate Rifle
+    AvaliSniperRifle_Bond = persona Illuminate Sniper Rifle
+    AvaliShotgun_Bond = persona Illuminate Shotgun
+
+    == Melee
+    AvaliScythe_Bond = persona Avali Scythe
+    AvaliAxe_Bond = persona Avali Axe
+    AvaliKnife_Bond = persona Avali knife
+    AvaliSpear_Bond = persona Avali Spear
+    AvaliViroblade_Bond = persona Avali Viroblade
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>RimVali: Far From Avalon</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- Base guns -->
+                        <ThingDef Name="AvaliMakeableGun_Bond" Abstract="True" ParentName="BaseWeapon_Bladelink">
+                            <techLevel>Industrial</techLevel>
+                            <smeltable>true</smeltable>
+                            <thingCategories>
+                                <li>WeaponsRanged</li>
+                            </thingCategories>
+                            <inspectorTabs>
+                                <li>ITab_Art</li>
+                            </inspectorTabs>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                            </weaponTags>
+                            <statBases>
+                                <Flammability>0.5</Flammability>
+                            </statBases>
+                            <comps>
+                                <li Class="CompProperties_Art">
+                                    <nameMaker>NamerArtWeaponGun</nameMaker>
+                                    <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+                                    <minQualityForArtistic>Excellent</minQualityForArtistic>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <ThingDef Name="AvaliGunWithQuality" Abstract="True" ParentName="AvaliGun">
+                            <comps>
+                                <li>
+                                    <compClass>CompQuality</compClass>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <!-- AvaliPistol_Bond -->
+                        <ThingDef ParentName="AvaliMakeableGun_Bond">
+                            <defName>AvaliPistol_Bond</defName>
+                            <label>persona Illuminate Pistol</label>
+                            <description>A common Illuminate pattern pistol. Unlike its Terran counterparts this weapon uses coil-based acceleration. Whilst It has more accuracy and a shorter travel time than a Terran auto pistol, it hits with less power when compared to one.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Guns/Pistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Interact_Autopistol</soundInteract>
+                            <weaponTags>
+                                <li>AvaliWeapons</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>1.5</Mass>
+                                <AccuracyTouch>0.957</AccuracyTouch>
+                                <AccuracyShort>1.012</AccuracyShort>
+                                <AccuracyMedium>0.847</AccuracyMedium>
+                                <AccuracyLong>0.605</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.020</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>AvaliPistolBullet_Bond</defaultProjectile>
+                                    <warmupTime>0.255</warmupTime>
+                                    <range>29.9</range>
+                                    <soundCast>Shot_Autopistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                    <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>AvaliPistolBullet_Bond</defName>
+                            <label>Avali Bullet</label>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Guns/Bullet/SmallBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>9</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>150</speed>
+                                <armorPenetrationBase>0.185</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_AvaliPistol_Bond</defName>
+                            <label>bond Illuminate Pistol</label>
+                            <description>Bond an Illuminate Pistol.</description>
+                            <jobString>Bonding a Illuminate Pistol.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>AvaliBasicWeapons</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AvaliPistol</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>AvaliPistol</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <AvaliPistol_Bond>1</AvaliPistol_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- AvaliSMG_Bond -->
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>AvaliSMG_Bond</defName>
+                            <label>persona Illuminate SMG</label>
+                            <description>A coil-based Illuminate SMG. Whilst it does theoretically have a better service range compared to its Terran counterparts, this weapon is best used for medium to short ranged engagements. Besides this fact, it still has two qualities that make it reliable—its accuracy and travel time.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Guns/SMG</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <statBases>
+                                <Mass>4.5</Mass>
+                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyShort>0.946</AccuracyShort>
+                                <AccuracyMedium>0.792</AccuracyMedium>
+                                <AccuracyLong>0.572</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.148</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>AvaliSMGBullet_Bond</defaultProjectile>
+                                    <warmupTime>0.595</warmupTime>
+                                    <range>30.4</range>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <burstShotCount>2</burstShotCount>
+                                    <soundCast>Shot_HeavySMG</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                                <li>AvaliWeapons</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>AvaliSMGBullet_Bond</defName>
+                            <label>Avali SMG bullet</label>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Guns/Bullet/SmallBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>18</damageAmountBase>
+                                <speed>150</speed>
+                                <armorPenetrationBase>0.32</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_AvaliSMG_Bond</defName>
+                            <label>bond Illuminate SMG</label>
+                            <description>Bond an Illuminate SMG.</description>
+                            <jobString>Bonding a Illuminate SMG.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>AvaliAdvancedGuns</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AvaliSMG</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>AvaliSMG</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <AvaliSMG_Bond>1</AvaliSMG_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- AvaliMinigun_Bond -->
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>AvaliMinigun_Bond</defName>
+                            <label>persona Illuminate minigun</label>
+                            <description>An Illuminate pattern Minigun. When compared to other Illuminate weapons, it quickly becomes both different in design and function. Trading in accuracy for sheer overwhelming force and using classic chemical cartridges for propulsion instead of coil-based acceleration.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Guns/Vali_Illuminate_Minigun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <statBases>
+                                <Mass>6.5</Mass>
+                                <MarketValue>1445</MarketValue>
+                                <AccuracyTouch>0.396</AccuracyTouch>
+                                <AccuracyShort>0.473</AccuracyShort>
+                                <AccuracyMedium>0.429</AccuracyMedium>
+                                <AccuracyLong>0.220</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>AvaliMinigunBullet_Bond</defaultProjectile>
+                                    <warmupTime>1.530</warmupTime>
+                                    <range>35</range>
+                                    <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                                    <burstShotCount>22</burstShotCount>
+                                    <soundCast>Shot_HeavySMG</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                                <li>AvaliWeapons</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>AvaliMinigunBullet_Bond</defName>
+                            <label>Avali minigun bullet</label>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Guns/Bullet/SmallBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>8</damageAmountBase>
+                                <speed>88</speed>
+                                <armorPenetrationBase>0.47</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_AvaliMinigun_Bond</defName>
+                            <label>bond Illuminate minigun</label>
+                            <description>Bond an Illuminate minigun.</description>
+                            <jobString>Bonding a Illuminate minigun.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>AvaliAdvancedGuns</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AvaliMinigun</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>AvaliMinigun</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <AvaliMinigun_Bond>1</AvaliMinigun_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- AvaliRifle_Bond -->
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>AvaliRifle_Bond</defName>
+                            <label>persona Illuminate Rifle</label>
+                            <description>A common Illuminate pattern rifle. Praised by both soldiers and hunters for its reliability, it is practically standard issue for any weaponized operation. Its high range and very short travel time makes it perfect for picking off distant enemies.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Guns/Rifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.759</AccuracyTouch>
+                                <AccuracyShort>0.891</AccuracyShort>
+                                <AccuracyMedium>1.012</AccuracyMedium>
+                                <AccuracyLong>0.946</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.233</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>AvaliRifleBullet_Bond</defaultProjectile>
+                                    <warmupTime>1.360</warmupTime>
+                                    <range>38.5</range>
+                                    <soundCast>Shot_Autopistol</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                                <li>AvaliWeapons</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>AvaliRifleBullet_Bond</defName>
+                            <label>Avali Rifle bullet</label>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Guns/Bullet/RifleBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>14</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>177</speed>
+                                <armorPenetrationBase>0.42</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_AvaliRifle_Bond</defName>
+                            <label>bond Illuminate Rifle</label>
+                            <description>Bond an Illuminate Rifle.</description>
+                            <jobString>Bonding a Illuminate Rifle.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>AvaliAdvancedGuns</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AvaliRifle</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>AvaliRifle</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <AvaliRifle_Bond>1</AvaliRifle_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- AvaliSniperRifle_Bond -->
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>AvaliSniperRifle_Bond</defName>
+                            <label>persona Illuminate Sniper Rifle</label>
+                            <description>A high-powered Illuminate pattern sniper rifle. This sophisticated weapon optimizes the use of Helium-cooling to keep its powerful and plentiful coils from overheating in it’s user’s talons. With its long range and powerful bullet, it is highly loved by Illuminate snipers for picking off high-value targets with.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Guns/SniperRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <statBases>
+                                <Mass>6.5</Mass>
+                                <AccuracyTouch>0.660</AccuracyTouch>
+                                <AccuracyShort>0.902</AccuracyShort>
+                                <AccuracyMedium>0.968</AccuracyMedium>
+                                <AccuracyLong>1.023</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.465</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>AvaliSniperBullet_Bond</defaultProjectile>
+                                    <warmupTime>1.573</warmupTime>
+                                    <range>48</range>
+                                    <soundCast>Shot_SniperRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                                <li>AvaliWeapons</li>
+                                <li>AvaliSniper</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>AvaliSniperBullet_Bond</defName>
+                            <label>Avali Sniper Rifle bullet</label>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Guns/Bullet/SniperBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>36</damageAmountBase>
+                                <speed>183</speed>
+                                <stoppingPower>2</stoppingPower>
+                                <armorPenetrationBase>0.54</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_AvaliSniperRifle_Bond</defName>
+                            <label>bond Illuminate Sniper Rifle</label>
+                            <description>Bond an Illuminate Sniper Rifle.</description>
+                            <jobString>Bonding a Illuminate Sniper Rifle.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>AvaliAdvancedGuns</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AvaliSniperRifle</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>AvaliSniperRifle</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <AvaliSniperRifle_Bond>1</AvaliSniperRifle_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- AvaliShotgun_Bond -->
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>AvaliShotgun_Bond</defName>
+                            <label>persona Illuminate Shotgun</label>
+                            <description>An Illuminate Pattern shotgun. Together with its advanced coil technology and a simple choke at the end, it fires a highly concentrated wad of pellets towards its enemies. Whilst longer range than its Terran counterparts, it has to trade in short range usability to make this possible.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Guns/Shotgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Shotgun</soundInteract>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <statBases>
+                                <Mass>5.0</Mass>
+                                <AccuracyTouch>0.748</AccuracyTouch>
+                                <AccuracyShort>0.869</AccuracyShort>
+                                <AccuracyMedium>0.902</AccuracyMedium>
+                                <AccuracyLong>0.715</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.403</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>AvaliShotgunBullet_Bond</defaultProjectile>
+                                    <warmupTime>1.615</warmupTime>
+                                    <range>24</range>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>Shot_Shotgun</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags Inherit="False">
+                                <li>RangedBladelink</li>
+                                <li>AvaliWeapons</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>AvaliShotgunBullet_Bond</defName>
+                            <label>Avali Shotgun bullet</label>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Guns/Bullet/ShotgunBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <stoppingPower>3</stoppingPower>
+                                <damageAmountBase>26</damageAmountBase>
+                                <speed>150</speed>
+                                <armorPenetrationBase>0.33</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_AvaliShotgun_Bond</defName>
+                            <label>bond Illuminate Shotgun</label>
+                            <description>Bond an Illuminate Shotgun.</description>
+                            <jobString>Bonding a Illuminate Shotgun.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>AvaliAdvancedGuns</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AvaliShotgun</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>AvaliShotgun</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <AvaliShotgun_Bond>1</AvaliShotgun_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- ===== Melee ===== -->
+                        <ThingDef Name="AvaliMeleeWeapon_Bond" Abstract="True" ParentName="BaseWeapon_Bladelink">
+                            <comps>
+                                <li>
+                                    <compClass>CompQuality</compClass>
+                                </li>
+                                <li Class="CompProperties_Art">
+                                    <nameMaker>NamerArtWeaponMelee</nameMaker>
+                                    <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+                                    <minQualityForArtistic>Excellent</minQualityForArtistic>
+                                </li>
+                            </comps>
+                            <techLevel>Spacer</techLevel>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <stuffCategories>
+                                <li>Metallic</li>
+                            </stuffCategories>
+                            <weaponTags Inherit="False">
+                                <li>Bladelink</li>
+                                <li>AvaliWeapons</li>
+                                <li>AvaliMelee</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <!-- AvaliScythe_Bond -->
+                        <ThingDef ParentName="AvaliMeleeWeapon_Bond">
+                            <defName>AvaliScythe_Bond</defName>
+                            <label>persona Avali Scythe</label>
+                            <description>A high-tech Avali scythe. Unlike most Ferrogel weapons, this one’s blade isn’t actually supposed to break in the target. Despite this it still has an advanced printer in the blade’s base to replace it when it gets dull. Whilst its viability for actual combat is questionable, being attacked by this weapon is still going to deal great damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Melee/Scythe</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.2</uiIconScale>
+                            <statBases>
+                                <WorkToMake>3000</WorkToMake>
+                                <Mass>0.6</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>Avali Scythe Handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Avali Scythe Blade</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>11.00</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_AvaliScythe_Bond</defName>
+                            <label>bond Avali Scythe</label>
+                            <description>Bond an Avali Scythe.</description>
+                            <jobString>Bonding a Avali Scythe.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>AvaliAdvancedMelee</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AvaliScythe</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>AvaliScythe</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <AvaliScythe_Bond>1</AvaliScythe_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- AvaliAxe_Bond -->
+                        <ThingDef ParentName="AvaliMeleeWeapon_Bond">
+                            <defName>AvaliAxe_Bond</defName>
+                            <label>persona Avali Axe</label>
+                            <description>A dangerous Avali battle axe. Truly meant for combat, this weapon uses vibrations to cut into the skin of the enemy, after multiple hits the blade will break off and stick in its target’s flesh before rapidly being reconstructed by the printer in its head. It is renowned for its brutality and the surprising force an Avali can strike down with it.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Melee/Axe</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.2</uiIconScale>
+                            <statBases>
+                                <WorkToMake>1400</WorkToMake>
+                                <Mass>0.6</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>Avali axe Handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>4.40</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Avali Axe Blade</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>5.72</power>
+                                    <cooldownTime>0.850</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_AvaliAxe_Bond</defName>
+                            <label>bond Avali Axe</label>
+                            <description>Bond an Avali Axe.</description>
+                            <jobString>Bonding a Avali Axe.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>AvaliAdvancedMelee</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AvaliAxe</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>AvaliAxe</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <AvaliAxe_Bond>1</AvaliAxe_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- AvaliKnife_Bond -->
+                        <ThingDef ParentName="AvaliMeleeWeapon_Bond">
+                            <defName>AvaliKnife_Bond</defName>
+                            <label>persona Avali knife</label>
+                            <description>A small Avali survival knife. Whilst primarily used together with its vibrating blade as a tool to cut food and small objects with, it is still a dangerous hold-out weapon, able to use its vibrating blade to cut through an enemy with ease and being able to reprint the blade when it shatters in the enemy or simply gets too dull with just the same amount of ease.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Melee/Knife</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.2</uiIconScale>
+                            <statBases>
+                                <WorkToMake>1400</WorkToMake>
+                                <Mass>0.6</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>Avali knife Handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>1.10</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Avali Knife Blade</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>2.42</power>
+                                    <cooldownTime>0.170</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_AvaliKnife_Bond</defName>
+                            <label>bond Avali knife</label>
+                            <description>Bond an Avali knife.</description>
+                            <jobString>Bonding a Avali knife.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>AvaliBasicWeapons</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AvaliKnife</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>AvaliKnife</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <AvaliKnife_Bond>1</AvaliKnife_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- AvaliSpear_Bond -->
+                        <ThingDef ParentName="AvaliMeleeWeapon_Bond">
+                            <defName>AvaliSpear_Bond</defName>
+                            <label>persona Avali Spear</label>
+                            <description>An elegant and long Avali spear. Being popular for both the low amount of training required and the large amount of ferrogel able to be stored in it to reprint its head with. It is perhaps the most viable weapon to train beginners with but is also dangerous in the talons of masters with its sharp and explicitly fragile head.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Melee/Spear</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.2</uiIconScale>
+                            <statBases>
+                                <WorkToMake>1400</WorkToMake>
+                                <Mass>0.6</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>Avali Spear Handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>2.20</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Avali Spear Blade</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>14.30</power>
+                                    <cooldownTime>4.250</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_AvaliSpear_Bond</defName>
+                            <label>bond Avali Spear</label>
+                            <description>Bond an Avali Spear.</description>
+                            <jobString>Bonding a Avali Spear.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>AvaliBasicWeapons</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AvaliSpear</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>AvaliSpear</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <AvaliSpear_Bond>1</AvaliSpear_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- AvaliViroblade_Bond -->
+                        <ThingDef ParentName="AvaliMeleeWeapon_Bond">
+                            <defName>AvaliViroblade_Bond</defName>
+                            <label>persona Avali Viroblade</label>
+                            <description>The renowned and highly iconic Avali sword. Perhaps it is the vibrating blade and the song-like hum it creates that makes it so popular. Or perhaps it is the splintering ferrogel blade instead, creating many deadly injuries. Whatever the reason may be, this blade has a legendary reputation and a bodycount to support it.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>avali/Things/Weapons/Melee/Viroblade</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.2</uiIconScale>
+                            <statBases>
+                                <WorkToMake>1400</WorkToMake>
+                                <Mass>0.6</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>Avali Viroblade Handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>3.30</power>
+                                    <cooldownTime>2.550</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Avali Viroblade guard</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>2.20</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Avali Viroblade</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>27.50</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_AvaliViroblade_Bond</defName>
+                            <label>bond Avali Viroblade</label>
+                            <description>Bond an Avali Viroblade.</description>
+                            <jobString>Bonding a Avali Viroblade.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>AvaliAdvancedMelee</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AvaliViroblade</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>AvaliViroblade</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <AvaliViroblade_Bond>1</AvaliViroblade_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
