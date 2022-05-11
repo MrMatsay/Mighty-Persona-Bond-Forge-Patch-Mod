@@ -45,3 +45,4 @@
 - VWE Coilguns - Unnoficial Gauss Sniper
 - KEP Blast-Charge Weaponry (Continued)
 - RimVali: Far From Avalon
+- [M.W]Resonant Munitions
