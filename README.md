@@ -48,3 +48,4 @@
 - [M.W]Resonant Munitions
 - Charged Melee Weaponry
 - Cybernetic Storm
+- Star Wars - Fully Functional Lightsabers (Continued)

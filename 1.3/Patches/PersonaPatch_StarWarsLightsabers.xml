@@ -1,0 +1,1395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Star Wars - Fully Functional Lightsabers (Continued)
+
+    SWSaber_Lightsaber_Bond = persona lightsaber (prototype)
+    SWSaber_DookuSaber_Bond = persona lightsaber (curved hilt)
+    SWSaber_KyloSaber_Bond = persona lightsaber (cross hilt)
+    SWSaber_Doublesaber_Bond = persona lightsaber (double)
+    SWSaber_ObiSaber_Bond = persona lightsaber (old style hilt)
+    SWSaber_ElectrumSaber_Bond = persona lightsaber (electrum hilt)
+    SWSaber_Ahsokasaber_Bond = persona lightsaber (Ahsoka Tano)
+    SWSaber_Inquis_Bond = persona double lightsaber (Inquisitor)
+    SWSaber_JGuard_Bond = persona Honor Guard Saberstaff
+    SWSaber_Quigon_Bond = persona lightsaber (Qui-Gon Jinn)
+    SWSaber_Darksaber_Bond = persona lightsaber (Darksaber)
+    SWSaber_Yodasaber_Bond = persona lightsaber (Yoda)
+    SWSaber_MaceSaber_Bond = persona lightsaber (Mace Windu)
+    SWSaber_SaberPike_Bond = persona lightsaber pike
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Star Wars - Fully Functional Lightsabers (Continued)</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="MPBFPM_BaseLightsaber" ParentName="MPBFPM_BaseMeleeWeapon" Abstract="True">
+                            <tickerType>Normal</tickerType>
+                            <soundInteract>Standard_Pickup</soundInteract>
+                            <tradeability>Sellable</tradeability>
+                            <statBases>
+                                <MarketValue>3000</MarketValue>
+                                <MaxHitPoints>80</MaxHitPoints>
+                                <Mass>1.8</Mass>
+                                <DeteriorationRate>0.025</DeteriorationRate>
+                            </statBases>
+                            <stuffCategories>
+                                <li>Metallic</li>
+                            </stuffCategories>
+                            <comps>
+                                <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+                                    <eastOffset>(0.31,0,0)</eastOffset>
+                                    <westOffset>(-0.31,0,0)</westOffset>
+                                </li>
+                                <li Class="CompExtraSounds.CompProperties_ExtraSounds">
+                                    <compClass>CompExtraSounds.CompExtraSounds</compClass>
+                                    <soundMiss>PJ_LightsaberSwing</soundMiss>
+                                    <soundHitPawn>PJ_LightsaberFleshHit</soundHitPawn>
+                                    <soundHitBuilding>PJ_LightsaberHit</soundHitBuilding>
+                                </li>
+                                <li Class="SWSaber.CompProperties_CrystalSlotLoadable">
+                                    <compClass>SWSaber.CompCrystalSlotLoadable</compClass>
+                                    <slots>
+                                        <li>PJ_KyberCrystalSlot</li>
+                                    </slots>
+                                </li>
+                                <li Class="CompDeflector.CompProperties_Deflector">
+                                    <compClass>SWSaber.CompLightsaberDeflection</compClass>
+                                    <baseDeflectChance>0.99</baseDeflectChance>
+                                    <useManipulationInCalc>true</useManipulationInCalc>
+                                    <useSkillInCalc>true</useSkillInCalc>
+                                    <deflectSound>PJ_LightsaberDeflect</deflectSound>
+                                    <deflectSkill>Melee</deflectSkill>
+                                    <deflectRatePerSkillPoint>0.015</deflectRatePerSkillPoint>
+                                    <canReflect>true</canReflect>
+                                    <reflectSkill>Melee</reflectSkill>
+                                    <reflectRatePerSkillPoint>3</reflectRatePerSkillPoint>
+                                    <DeflectVerb Class="VerbProperties">
+                                        <verbClass>Verb_Shoot</verbClass>
+                                        <hasStandardCommand>true</hasStandardCommand>
+                                        <defaultProjectile>PJ_BulletDeflected_Bond</defaultProjectile>
+                                        <warmupTime>0</warmupTime>
+                                        <range>24</range>
+                                        <muzzleFlashScale>9</muzzleFlashScale>
+                                    </DeflectVerb>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <ThingDef Name="MPBFPM_LightsaberT1" ParentName="MPBFPM_BaseLightsaber" Abstract="True">
+                            <tools>
+                                <li>
+                                    <label>hilt</label>
+                                    <chanceFactor>0.05</chanceFactor>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>8.80</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>lightsaber-tip</label>
+                                    <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                                    <chanceFactor>0.5</chanceFactor>
+                                    <capacities>
+                                        <li>PJ_SaberStab</li>
+                                    </capacities>
+                                    <power>22.00</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>lightsaber-edge</label>
+                                    <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                                    <capacities>
+                                        <li>PJ_SaberCut</li>
+                                    </capacities>
+                                    <power>28.60</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef Name="MPBFPM_LightsaberT2" ParentName="MPBFPM_BaseLightsaber" Abstract="True">
+                            <tools>
+                                <li>
+                                    <label>hilt</label>
+                                    <chanceFactor>0.05</chanceFactor>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>8.80</power>
+                                    <cooldownTime>1.913</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>lightsaber-tip</label>
+                                    <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                                    <chanceFactor>0.5</chanceFactor>
+                                    <capacities>
+                                        <li>PJ_SaberStab</li>
+                                    </capacities>
+                                    <power>22.00</power>
+                                    <cooldownTime>1.913</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>lightsaber-edge</label>
+                                    <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                                    <capacities>
+                                        <li>PJ_SaberCut</li>
+                                    </capacities>
+                                    <power>28.60</power>
+                                    <cooldownTime>1.913</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                        <!-- ============================================================== -->
+                        <ThingDef>
+                            <defName>PJ_BulletDeflected_Bond</defName>
+                            <category>Projectile</category>
+                            <tickerType>Normal</tickerType>
+                            <altitudeLayer>Projectile</altitudeLayer>
+                            <thingClass>Bullet</thingClass>
+                            <useHitPoints>False</useHitPoints>
+                            <neverMultiSelect>True</neverMultiSelect>
+                            <label>improvised turret bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>Transparent</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>12</damageAmountBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- SWSaber_Lightsaber_Bond -->
+                        <ThingDef ParentName="MPBFPM_LightsaberT1">
+                            <defName>SWSaber_Lightsaber_Bond</defName>
+                            <label>persona lightsaber (prototype)</label>
+                            <description>An elegant weapon, from a more civilized age - or so it is claimed.\n A basic, simple lightsaber design.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/LightsaberHilt</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                                <drawSize>2.5</drawSize>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <equippedAngleOffset>-80</equippedAngleOffset>
+                            <comps>
+                                <li Class="SWSaber.CompProperties_LightsaberActivatableEffect">
+                                    <compClass>SWSaber.CompLightsaberActivatableEffect</compClass>
+                                    <altitudeLayer>MoteOverhead</altitudeLayer>
+                                    <ActivateLabel>Activate</ActivateLabel>
+                                    <uiIconPathActivate>UI/Lightsaber/ActivateSaber</uiIconPathActivate>
+                                    <DeactivateLabel>Deactivate</DeactivateLabel>
+                                    <uiIconPathDeactivate>UI/Lightsaber/DeactivateSaber</uiIconPathDeactivate>
+                                    <activateSound>PJ_LightsaberActivate</activateSound>
+                                    <sustainerSound>PJ_LightsaberHum</sustainerSound>
+                                    <deactivateSound>PJ_LightsaberDeactivate</deactivateSound>
+                                    <gizmosOnEquip>true</gizmosOnEquip>
+                                    <graphicData>
+                                        <texPath>Weapons/LightsaberBlade</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <shaderType>CutoutComplex</shaderType>
+                                    </graphicData>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SWSaber_Lightsaber_Bond</defName>
+                            <label>bond lightsaber (prototype)</label>
+                            <description>Bond an lightsaber (prototype).</description>
+                            <jobString>Bonding a lightsaber (prototype).</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SWSaber_Lightsaber</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SWSaber_Lightsaber</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SWSaber_Lightsaber_Bond>1</SWSaber_Lightsaber_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SWSaber_DookuSaber_Bond -->
+                        <ThingDef ParentName="MPBFPM_LightsaberT1">
+                            <defName>SWSaber_DookuSaber_Bond</defName>
+                            <label>persona lightsaber (curved hilt)</label>
+                            <description>An elegant weapon, for a more civilized age. The iconic weapon and badge of office for force users.\nThis hilt is curved, allowing for an altered angle of attack that can be difficult to defend against.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/DookuHilt</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                                <drawSize>2.5</drawSize>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <costStuffCount>10</costStuffCount>
+                            <equippedAngleOffset>-32</equippedAngleOffset>
+                            <comps>
+                                <li Class="SWSaber.CompProperties_LightsaberActivatableEffect">
+                                    <compClass>SWSaber.CompLightsaberActivatableEffect</compClass>
+                                    <altitudeLayer>MoteOverhead</altitudeLayer>
+                                    <ActivateLabel>Activate</ActivateLabel>
+                                    <uiIconPathActivate>UI/Lightsaber/CurActivate</uiIconPathActivate>
+                                    <DeactivateLabel>Deactivate</DeactivateLabel>
+                                    <uiIconPathDeactivate>UI/Lightsaber/CurDeactivate</uiIconPathDeactivate>
+                                    <activateSound>PJ_LightsaberActivate</activateSound>
+                                    <sustainerSound>PJ_LightsaberHum</sustainerSound>
+                                    <deactivateSound>PJ_LightsaberDeactivate</deactivateSound>
+                                    <gizmosOnEquip>true</gizmosOnEquip>
+                                    <graphicData>
+                                        <texPath>Weapons/LightsaberBlade</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <shaderType>CutoutComplex</shaderType>
+                                    </graphicData>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SWSaber_DookuSaber_Bond</defName>
+                            <label>bond lightsaber (curved hilt)</label>
+                            <description>Bond an lightsaber (curved hilt).</description>
+                            <jobString>Bonding a lightsaber (curved hilt).</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SWSaber_DookuSaber</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SWSaber_DookuSaber</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SWSaber_DookuSaber_Bond>1</SWSaber_DookuSaber_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SWSaber_KyloSaber_Bond -->
+                        <ThingDef ParentName="MPBFPM_LightsaberT1">
+                            <defName>SWSaber_KyloSaber_Bond</defName>
+                            <label>persona lightsaber (cross hilt)</label>
+                            <description>An elegant weapon, for a more civilized age. The iconic weapon and badge of office for force users.\nThis one looks like it uses a cracked primary crystal.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/KyloHilt</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                                <drawSize>2.5</drawSize>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <costStuffCount>10</costStuffCount>
+                            <equippedAngleOffset>-68</equippedAngleOffset>
+                            <comps>
+                                <li Class="SWSaber.CompProperties_LightsaberActivatableEffect">
+                                    <compClass>SWSaber.CompLightsaberActivatableEffect</compClass>
+                                    <altitudeLayer>MoteOverhead</altitudeLayer>
+                                    <ActivateLabel>Activate</ActivateLabel>
+                                    <uiIconPathActivate>UI/Lightsaber/KyloActivate</uiIconPathActivate>
+                                    <DeactivateLabel>Deactivate</DeactivateLabel>
+                                    <uiIconPathDeactivate>UI/Lightsaber/KyloDeactivate</uiIconPathDeactivate>
+                                    <activateSound>PJ_KyloActivate</activateSound>
+                                    <sustainerSound>PJ_KyloHum</sustainerSound>
+                                    <deactivateSound>PJ_KyloDeactivate</deactivateSound>
+                                    <gizmosOnEquip>true</gizmosOnEquip>
+                                    <graphicData>
+                                        <texPath>Weapons/KyloBlade</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <shaderType>CutoutComplex</shaderType>
+                                    </graphicData>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SWSaber_KyloSaber_Bond</defName>
+                            <label>bond lightsaber (cross hilt)</label>
+                            <description>Bond an lightsaber (cross hilt).</description>
+                            <jobString>Bonding a lightsaber (cross hilt).</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SWSaber_KyloSaber</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SWSaber_KyloSaber</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SWSaber_KyloSaber_Bond>1</SWSaber_KyloSaber_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SWSaber_Doublesaber_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseLightsaber">
+                            <defName>SWSaber_Doublesaber_Bond</defName>
+                            <label>persona lightsaber (double)</label>
+                            <description>An elegant weapon, from a more civilized age.\nThis hilt boasts a second emitter, making it an exotic double-bladed saber.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/DoublesaberHilt</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                                <drawSize>2.5</drawSize>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <costStuffCount>10</costStuffCount>
+                            <equippedAngleOffset>-35</equippedAngleOffset>
+                            <comps>
+                                <li Class="SWSaber.CompProperties_LightsaberActivatableEffect">
+                                    <compClass>SWSaber.CompLightsaberActivatableEffect</compClass>
+                                    <altitudeLayer>MoteOverhead</altitudeLayer>
+                                    <ActivateLabel>Activate</ActivateLabel>
+                                    <uiIconPathActivate>UI/Lightsaber/DubActivate</uiIconPathActivate>
+                                    <DeactivateLabel>Deactivate</DeactivateLabel>
+                                    <uiIconPathDeactivate>UI/Lightsaber/DubDeactivate</uiIconPathDeactivate>
+                                    <activateSound>PJ_LightsaberActivate</activateSound>
+                                    <sustainerSound>PJ_LightsaberHum</sustainerSound>
+                                    <deactivateSound>PJ_LightsaberDeactivate</deactivateSound>
+                                    <gizmosOnEquip>true</gizmosOnEquip>
+                                    <graphicData>
+                                        <texPath>Weapons/DoublesaberBlade</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <shaderType>CutoutComplex</shaderType>
+                                    </graphicData>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>backedge</label>
+                                    <capacities>
+                                        <li>PJ_SaberStab</li>
+                                    </capacities>
+                                    <power>28.60</power>
+                                    <cooldownTime>1.913</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>lightsaber-tip</label>
+                                    <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                                    <chanceFactor>0.5</chanceFactor>
+                                    <capacities>
+                                        <li>PJ_SaberCut</li>
+                                    </capacities>
+                                    <power>22.00</power>
+                                    <cooldownTime>1.913</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>lightsaber-edge</label>
+                                    <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                                    <capacities>
+                                        <li>PJ_SaberStab</li>
+                                    </capacities>
+                                    <power>28.60</power>
+                                    <cooldownTime>1.913</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SWSaber_Doublesaber_Bond</defName>
+                            <label>bond lightsaber (double)</label>
+                            <description>Bond an lightsaber (double).</description>
+                            <jobString>Bonding a lightsaber (double).</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SWSaber_Doublesaber</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SWSaber_Doublesaber</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SWSaber_Doublesaber_Bond>1</SWSaber_Doublesaber_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SWSaber_ObiSaber_Bond -->
+                        <ThingDef ParentName="MPBFPM_LightsaberT2">
+                            <defName>SWSaber_ObiSaber_Bond</defName>
+                            <label>persona lightsaber (old style hilt)</label>
+                            <description>An elegant weapon, for a more civilized age. The iconic weapon and badge of office for force users.\nThis is a classical hilt... very familiar in fact...\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/ObiwanHilt</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                                <drawSize>2.5</drawSize>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <costStuffCount>10</costStuffCount>
+                            <equippedAngleOffset>-88</equippedAngleOffset>
+                            <comps>
+                                <li Class="SWSaber.CompProperties_LightsaberActivatableEffect">
+                                    <compClass>SWSaber.CompLightsaberActivatableEffect</compClass>
+                                    <altitudeLayer>MoteOverhead</altitudeLayer>
+                                    <ActivateLabel>Activate</ActivateLabel>
+                                    <uiIconPathActivate>UI/Lightsaber/ObiActivate</uiIconPathActivate>
+                                    <DeactivateLabel>Deactivate</DeactivateLabel>
+                                    <uiIconPathDeactivate>UI/Lightsaber/ObiDeactivate</uiIconPathDeactivate>
+                                    <activateSound>PJ_LightsaberActivate</activateSound>
+                                    <sustainerSound>PJ_LightsaberHum</sustainerSound>
+                                    <deactivateSound>PJ_LightsaberDeactivate</deactivateSound>
+                                    <gizmosOnEquip>true</gizmosOnEquip>
+                                    <graphicData>
+                                        <texPath>Weapons/LightsaberBlade</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <shaderType>CutoutComplex</shaderType>
+                                    </graphicData>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SWSaber_ObiSaber_Bond</defName>
+                            <label>bond lightsaber (old style hilt)</label>
+                            <description>Bond an lightsaber (old style hilt).</description>
+                            <jobString>Bonding a lightsaber (old style hilt).</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SWSaber_ObiSaber</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SWSaber_ObiSaber</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SWSaber_ObiSaber_Bond>1</SWSaber_ObiSaber_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SWSaber_ElectrumSaber_Bond -->
+                        <ThingDef ParentName="MPBFPM_LightsaberT2">
+                            <defName>SWSaber_ElectrumSaber_Bond</defName>
+                            <label>persona lightsaber (electrum hilt)</label>
+                            <description>An elegant weapon, for a more civilized age. The iconic weapon and badge of office for force users.\nThis version looks like it was designed for a person of high office.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/ElectrumHilt</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                                <drawSize>2.5</drawSize>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <costStuffCount>10</costStuffCount>
+                            <equippedAngleOffset>-37</equippedAngleOffset>
+                            <comps>
+                                <li Class="SWSaber.CompProperties_LightsaberActivatableEffect">
+                                    <compClass>SWSaber.CompLightsaberActivatableEffect</compClass>
+                                    <altitudeLayer>MoteOverhead</altitudeLayer>
+                                    <ActivateLabel>Activate</ActivateLabel>
+                                    <uiIconPathActivate>UI/Lightsaber/EleActivate</uiIconPathActivate>
+                                    <DeactivateLabel>Deactivate</DeactivateLabel>
+                                    <uiIconPathDeactivate>UI/Lightsaber/EleDeactivate</uiIconPathDeactivate>
+                                    <activateSound>PJ_LightsaberActivate</activateSound>
+                                    <sustainerSound>PJ_LightsaberHum</sustainerSound>
+                                    <deactivateSound>PJ_LightsaberDeactivate</deactivateSound>
+                                    <gizmosOnEquip>true</gizmosOnEquip>
+                                    <graphicData>
+                                        <texPath>Weapons/LightsaberBlade</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <shaderType>CutoutComplex</shaderType>
+                                    </graphicData>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SWSaber_ElectrumSaber_Bond</defName>
+                            <label>bond lightsaber (electrum hilt)</label>
+                            <description>Bond an lightsaber (electrum hilt).</description>
+                            <jobString>Bonding a lightsaber (electrum hilt).</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SWSaber_ElectrumSaber</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SWSaber_ElectrumSaber</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SWSaber_ElectrumSaber_Bond>1</SWSaber_ElectrumSaber_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SWSaber_Ahsokasaber_Bond -->
+                        <ThingDef ParentName="MPBFPM_LightsaberT1">
+                            <defName>SWSaber_Ahsokasaber_Bond</defName>
+                            <label>persona lightsaber (Ahsoka Tano)</label>
+                            <description>An elegant weapon, from a more civilized age - or so it is claimed.\n A design used by a famous Jedi of the past.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/AhsokaHilt</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                                <drawSize>1.6</drawSize>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <costStuffCount>10</costStuffCount>
+                            <equippedAngleOffset>-78</equippedAngleOffset>
+                            <comps>
+                                <li Class="SWSaber.CompProperties_LightsaberActivatableEffect">
+                                    <compClass>SWSaber.CompLightsaberActivatableEffect</compClass>
+                                    <altitudeLayer>MoteOverhead</altitudeLayer>
+                                    <ActivateLabel>Activate</ActivateLabel>
+                                    <uiIconPathActivate>UI/Lightsaber/ActivateSaber</uiIconPathActivate>
+                                    <DeactivateLabel>Deactivate</DeactivateLabel>
+                                    <uiIconPathDeactivate>UI/Lightsaber/DeactivateSaber</uiIconPathDeactivate>
+                                    <activateSound>PJ_LightsaberActivate</activateSound>
+                                    <sustainerSound>PJ_LightsaberHum</sustainerSound>
+                                    <deactivateSound>PJ_LightsaberDeactivate</deactivateSound>
+                                    <gizmosOnEquip>true</gizmosOnEquip>
+                                    <graphicData>
+                                        <texPath>Weapons/AhsokaHilt_Blade</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <shaderType>CutoutComplex</shaderType>
+                                    </graphicData>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SWSaber_Ahsokasaber_Bond</defName>
+                            <label>bond lightsaber (Ahsoka Tano)</label>
+                            <description>Bond an lightsaber (Ahsoka Tano).</description>
+                            <jobString>Bonding a lightsaber (Ahsoka Tano).</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SWSaber_Ahsokasaber</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SWSaber_Ahsokasaber</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SWSaber_Ahsokasaber_Bond>1</SWSaber_Ahsokasaber_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SWSaber_Inquis_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseLightsaber">
+                            <defName>SWSaber_Inquis_Bond</defName>
+                            <label>persona double lightsaber (Inquisitor)</label>
+                            <description>An elegant weapon, from a more civilized age - or so it is claimed.\n A design used by the Emperor's secret Jedi hunters.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/InquisHilt</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                                <drawSize>2.2</drawSize>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <costStuffCount>10</costStuffCount>
+                            <equippedAngleOffset>-30</equippedAngleOffset>
+                            <comps>
+                                <li Class="SWSaber.CompProperties_LightsaberActivatableEffect">
+                                    <compClass>SWSaber.CompLightsaberActivatableEffect</compClass>
+                                    <altitudeLayer>MoteOverhead</altitudeLayer>
+                                    <ActivateLabel>Activate</ActivateLabel>
+                                    <uiIconPathActivate>UI/Lightsaber/DubActivate</uiIconPathActivate>
+                                    <DeactivateLabel>Deactivate</DeactivateLabel>
+                                    <uiIconPathDeactivate>UI/Lightsaber/DubDeactivate</uiIconPathDeactivate>
+                                    <activateSound>PJ_LightsaberActivate</activateSound>
+                                    <sustainerSound>PJ_LightsaberHum</sustainerSound>
+                                    <deactivateSound>PJ_LightsaberDeactivate</deactivateSound>
+                                    <gizmosOnEquip>true</gizmosOnEquip>
+                                    <graphicData>
+                                        <texPath>Weapons/InquisHilt_Blade</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <shaderType>CutoutComplex</shaderType>
+                                    </graphicData>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>doubleblade</label>
+                                    <capacities>
+                                        <li>PJ_SaberCut</li>
+                                    </capacities>
+                                    <power>26.40</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>lightsaber-tip</label>
+                                    <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                                    <chanceFactor>0.5</chanceFactor>
+                                    <capacities>
+                                        <li>PJ_SaberStab</li>
+                                    </capacities>
+                                    <power>16.50</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>lightsaber-edge</label>
+                                    <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                                    <capacities>
+                                        <li>PJ_SaberCut</li>
+                                    </capacities>
+                                    <power>28.60</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SWSaber_Inquis_Bond</defName>
+                            <label>bond double lightsaber (Inquisitor)</label>
+                            <description>Bond an double lightsaber (Inquisitor).</description>
+                            <jobString>Bonding a double lightsaber (Inquisitor).</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SWSaber_Inquis</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SWSaber_Inquis</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SWSaber_Inquis_Bond>1</SWSaber_Inquis_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SWSaber_JGuard_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseLightsaber">
+                            <defName>SWSaber_JGuard_Bond</defName>
+                            <label>persona Honor Guard Saberstaff</label>
+                            <description>This type of double-bladed saber was wielded by elite Jedi guards, such as those guarding the Council's chambers.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/JGuard_Hilt</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                                <drawSize>2.2</drawSize>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <costStuffCount>10</costStuffCount>
+                            <equippedAngleOffset>-66</equippedAngleOffset>
+                            <comps>
+                                <li Class="SWSaber.CompProperties_LightsaberActivatableEffect">
+                                    <compClass>SWSaber.CompLightsaberActivatableEffect</compClass>
+                                    <altitudeLayer>MoteOverhead</altitudeLayer>
+                                    <ActivateLabel>Activate</ActivateLabel>
+                                    <uiIconPathActivate>UI/Lightsaber/DubActivate</uiIconPathActivate>
+                                    <DeactivateLabel>Deactivate</DeactivateLabel>
+                                    <uiIconPathDeactivate>UI/Lightsaber/DubDeactivate</uiIconPathDeactivate>
+                                    <activateSound>PJ_LightsaberActivate</activateSound>
+                                    <sustainerSound>PJ_LightsaberHum</sustainerSound>
+                                    <deactivateSound>PJ_LightsaberDeactivate</deactivateSound>
+                                    <gizmosOnEquip>true</gizmosOnEquip>
+                                    <graphicData>
+                                        <texPath>Weapons/JGuard_Blade</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <shaderType>CutoutComplex</shaderType>
+                                    </graphicData>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>hilt</label>
+                                    <chanceFactor>0.05</chanceFactor>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.90</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>lightsaber-point</label>
+                                    <capacities>
+                                        <li>PJ_SaberStab</li>
+                                    </capacities>
+                                    <power>29.70</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>lightsaber-edge</label>
+                                    <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+                                    <capacities>
+                                        <li>PJ_SaberCut</li>
+                                    </capacities>
+                                    <power>23.10</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SWSaber_JGuard_Bond</defName>
+                            <label>bond Honor Guard Saberstaff</label>
+                            <description>Bond an Honor Guard Saberstaff.</description>
+                            <jobString>Bonding a Honor Guard Saberstaff.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SWSaber_JGuard</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SWSaber_JGuard</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SWSaber_JGuard_Bond>1</SWSaber_JGuard_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SWSaber_Quigon_Bond -->
+                        <ThingDef ParentName="MPBFPM_LightsaberT1">
+                            <defName>SWSaber_Quigon_Bond</defName>
+                            <label>persona lightsaber (Qui-Gon Jinn)</label>
+                            <description>An elegant weapon, from a more civilized age - or so it is claimed.\n This design was used by a legendary Jedi master.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Quigon_Hilt</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                                <drawSize>2.2</drawSize>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <costStuffCount>10</costStuffCount>
+                            <equippedAngleOffset>-25</equippedAngleOffset>
+                            <comps>
+                                <li Class="SWSaber.CompProperties_LightsaberActivatableEffect">
+                                    <compClass>SWSaber.CompLightsaberActivatableEffect</compClass>
+                                    <altitudeLayer>MoteOverhead</altitudeLayer>
+                                    <ActivateLabel>Activate</ActivateLabel>
+                                    <uiIconPathActivate>UI/Lightsaber/ActivateSaber</uiIconPathActivate>
+                                    <DeactivateLabel>Deactivate</DeactivateLabel>
+                                    <uiIconPathDeactivate>UI/Lightsaber/DeactivateSaber</uiIconPathDeactivate>
+                                    <activateSound>PJ_LightsaberActivate</activateSound>
+                                    <sustainerSound>PJ_LightsaberHum</sustainerSound>
+                                    <deactivateSound>PJ_LightsaberDeactivate</deactivateSound>
+                                    <gizmosOnEquip>true</gizmosOnEquip>
+                                    <graphicData>
+                                        <texPath>Weapons/Quigon_blade</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <shaderType>CutoutComplex</shaderType>
+                                    </graphicData>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SWSaber_Quigon_Bond</defName>
+                            <label>bond lightsaber (Qui-Gon Jinn)</label>
+                            <description>Bond an lightsaber (Qui-Gon Jinn).</description>
+                            <jobString>Bonding a lightsaber (Qui-Gon Jinn).</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SWSaber_Quigon</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SWSaber_Quigon</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SWSaber_Quigon_Bond>1</SWSaber_Quigon_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SWSaber_Darksaber_Bond -->
+                        <ThingDef ParentName="MPBFPM_LightsaberT1">
+                            <defName>SWSaber_Darksaber_Bond</defName>
+                            <label>persona lightsaber (Darksaber)</label>
+                            <description>An elegant weapon, from a more civilized age - or so it is claimed.\n A design based off the legendary Mandalorian Darksaber.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Sabine_Hilt</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                                <drawSize>2.15</drawSize>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <costStuffCount>10</costStuffCount>
+                            <equippedAngleOffset>-30</equippedAngleOffset>
+                            <comps>
+                                <li Class="SWSaber.CompProperties_LightsaberActivatableEffect">
+                                    <compClass>SWSaber.CompLightsaberActivatableEffect</compClass>
+                                    <altitudeLayer>MoteOverhead</altitudeLayer>
+                                    <ActivateLabel>Activate</ActivateLabel>
+                                    <uiIconPathActivate>UI/Lightsaber/ActivateSaber</uiIconPathActivate>
+                                    <DeactivateLabel>Deactivate</DeactivateLabel>
+                                    <uiIconPathDeactivate>UI/Lightsaber/DeactivateSaber</uiIconPathDeactivate>
+                                    <activateSound>PJ_LightsaberActivate</activateSound>
+                                    <sustainerSound>PJ_LightsaberHum</sustainerSound>
+                                    <deactivateSound>PJ_LightsaberDeactivate</deactivateSound>
+                                    <gizmosOnEquip>true</gizmosOnEquip>
+                                    <graphicData>
+                                        <texPath>Weapons/Sabine_Blade</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <shaderType>CutoutComplex</shaderType>
+                                    </graphicData>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SWSaber_Darksaber_Bond</defName>
+                            <label>bond lightsaber (Darksaber)</label>
+                            <description>Bond an lightsaber (Darksaber).</description>
+                            <jobString>Bonding a lightsaber (Darksaber).</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SWSaber_Darksaber</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SWSaber_Darksaber</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SWSaber_Darksaber_Bond>1</SWSaber_Darksaber_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SWSaber_Yodasaber_Bond -->
+                        <ThingDef ParentName="MPBFPM_LightsaberT1">
+                            <defName>SWSaber_Yodasaber_Bond</defName>
+                            <label>persona lightsaber (Yoda)</label>
+                            <description>An elegant weapon, from a more civilized age - or so it is claimed.\n A design based off the legendary Mandalorian Darksaber.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Yoda_hilt</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                                <drawSize>1.9</drawSize>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <costStuffCount>10</costStuffCount>
+                            <equippedAngleOffset>-40</equippedAngleOffset>
+                            <comps>
+                                <li Class="SWSaber.CompProperties_LightsaberActivatableEffect">
+                                    <compClass>SWSaber.CompLightsaberActivatableEffect</compClass>
+                                    <altitudeLayer>MoteOverhead</altitudeLayer>
+                                    <ActivateLabel>Activate</ActivateLabel>
+                                    <uiIconPathActivate>UI/Lightsaber/ActivateSaber</uiIconPathActivate>
+                                    <DeactivateLabel>Deactivate</DeactivateLabel>
+                                    <uiIconPathDeactivate>UI/Lightsaber/DeactivateSaber</uiIconPathDeactivate>
+                                    <activateSound>PJ_LightsaberActivate</activateSound>
+                                    <sustainerSound>PJ_LightsaberHum</sustainerSound>
+                                    <deactivateSound>PJ_LightsaberDeactivate</deactivateSound>
+                                    <gizmosOnEquip>true</gizmosOnEquip>
+                                    <graphicData>
+                                        <texPath>Weapons/Yoda_Blade</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <shaderType>CutoutComplex</shaderType>
+                                    </graphicData>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SWSaber_Yodasaber_Bond</defName>
+                            <label>bond lightsaber (Yoda)</label>
+                            <description>Bond an lightsaber (Yoda).</description>
+                            <jobString>Bonding a lightsaber (Yoda).</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SWSaber_Yodasaber</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SWSaber_Yodasaber</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SWSaber_Yodasaber_Bond>1</SWSaber_Yodasaber_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SWSaber_MaceSaber_Bond -->
+                        <ThingDef ParentName="MPBFPM_LightsaberT1">
+                            <defName>SWSaber_MaceSaber_Bond</defName>
+                            <label>persona lightsaber (Mace Windu)</label>
+                            <description>An elegant weapon, for a more civilized age. The iconic weapon and badge of office for force users.\nThis version was wielded by a mushroom-cloud-layin-mutha'f****, Mutha'f****.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/MaceHilt</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                                <drawSize>2.3</drawSize>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <costStuffCount>10</costStuffCount>
+                            <equippedAngleOffset>-37</equippedAngleOffset>
+                            <comps>
+                                <li Class="SWSaber.CompProperties_LightsaberActivatableEffect">
+                                    <compClass>SWSaber.CompLightsaberActivatableEffect</compClass>
+                                    <altitudeLayer>MoteOverhead</altitudeLayer>
+                                    <ActivateLabel>Activate</ActivateLabel>
+                                    <uiIconPathActivate>UI/Lightsaber/ActivateSaber</uiIconPathActivate>
+                                    <DeactivateLabel>Deactivate</DeactivateLabel>
+                                    <uiIconPathDeactivate>UI/Lightsaber/DeactivateSaber</uiIconPathDeactivate>
+                                    <activateSound>PJ_LightsaberActivate</activateSound>
+                                    <sustainerSound>PJ_LightsaberHum</sustainerSound>
+                                    <deactivateSound>PJ_LightsaberDeactivate</deactivateSound>
+                                    <gizmosOnEquip>true</gizmosOnEquip>
+                                    <graphicData>
+                                        <texPath>Weapons/Mace_blade</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <shaderType>CutoutComplex</shaderType>
+                                    </graphicData>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SWSaber_MaceSaber_Bond</defName>
+                            <label>bond lightsaber (Mace Windu)</label>
+                            <description>Bond an lightsaber (Mace Windu).</description>
+                            <jobString>Bonding a lightsaber (Mace Windu).</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SWSaber_MaceSaber</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SWSaber_MaceSaber</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SWSaber_MaceSaber_Bond>1</SWSaber_MaceSaber_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- SWSaber_SaberPike_Bond -->
+                        <ThingDef ParentName="MPBFPM_LightsaberT1">
+                            <defName>SWSaber_SaberPike_Bond</defName>
+                            <label>persona lightsaber pike</label>
+                            <description>An elegant weapon, for a more civilized age. The iconic weapon and badge of office for force users.\nThis is a pike variant, often favored by Jedi guardsmen.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/PikeHilt</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                                <drawSize>2.4</drawSize>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <costStuffCount>10</costStuffCount>
+                            <equippedAngleOffset>-52</equippedAngleOffset>
+                            <comps>
+                                <li Class="SWSaber.CompProperties_LightsaberActivatableEffect">
+                                    <compClass>SWSaber.CompLightsaberActivatableEffect</compClass>
+                                    <altitudeLayer>MoteOverhead</altitudeLayer>
+                                    <ActivateLabel>Activate</ActivateLabel>
+                                    <uiIconPathActivate>UI/Lightsaber/ActivateSaber</uiIconPathActivate>
+                                    <DeactivateLabel>Deactivate</DeactivateLabel>
+                                    <uiIconPathDeactivate>UI/Lightsaber/DeactivateSaber</uiIconPathDeactivate>
+                                    <activateSound>PJ_LightsaberActivate</activateSound>
+                                    <sustainerSound>PJ_LightsaberHum</sustainerSound>
+                                    <deactivateSound>PJ_LightsaberDeactivate</deactivateSound>
+                                    <gizmosOnEquip>true</gizmosOnEquip>
+                                    <graphicData>
+                                        <texPath>Weapons/PikeHilt_Blade</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <shaderType>CutoutComplex</shaderType>
+                                    </graphicData>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_SWSaber_SaberPike_Bond</defName>
+                            <label>bond lightsaber pike</label>
+                            <description>Bond an lightsaber pike.</description>
+                            <jobString>Bonding a lightsaber pike.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SWSaber_SaberPike</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SWSaber_SaberPike</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SWSaber_SaberPike_Bond>1</SWSaber_SaberPike_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
