@@ -46,3 +46,4 @@
 - KEP Blast-Charge Weaponry (Continued)
 - RimVali: Far From Avalon
 - [M.W]Resonant Munitions
+- Charged Melee Weaponry
