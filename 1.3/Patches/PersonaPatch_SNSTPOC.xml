@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    SNS AOTC: True Pinnacle of Creation
+
+    SNS_TerminusGun_Bond = persona The T.E.R.M.I.N.U.S.
+    SNS_BeholderGun_Bond = persona The B.E.H.O.L.D.E.R.
+    SNS_RecursionMelee_Bond = persona The R.E.C.U.R.S.I.O.N.
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>SNS AOTC: True Pinnacle of Creation</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>                        
+                        <ThingDef ParentName="MPBFPM_BaseGun">
+                            <defName>SNS_TerminusGun_Bond</defName>
+                            <label>persona The T.E.R.M.I.N.U.S.</label>
+                            <description>Acronym: Telepathically-Exterminating Rifle of Mental Incineration via Umbral-loop Suspension\n\nA weapon of pure horror, it uses an energy extremely similar to that associated with psychic phenomina to absolutely obliterate whatever its projectiles touch, while also firing at a rate so high most cannot even comprehend it. None knows what truly happens when somebody dies to a T.E.R.M.I.N.U.S. projectile, but it's believed that it's truly a fate far, far worse than death.\n\nThe T.E.R.M.I.N.U.S is unique in that it does not need line-of-sight to aim, but T.E.R.M.I.N.U.S. projectiles do NOT go over walls, so if you're shooting at something behind a wall you're going to shoot that wall to pieces before you hit your target. Take care when aiming.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen4/Terminus</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <useHitPoints>false</useHitPoints>
+                            <statBases>
+                                <MarketValue>5000000</MarketValue> <!-- It's really only set this high to prevent pawns from randomly spawning with this, not that it should ever happen. -->
+                                <Mass>2.5</Mass>
+                                <Flammability>0.0</Flammability>
+                                <AccuracyTouch>1.100</AccuracyTouch>
+                                <AccuracyShort>1.100</AccuracyShort>
+                                <AccuracyMedium>1.100</AccuracyMedium>
+                                <AccuracyLong>1.100</AccuracyLong>
+                                <RangedWeapon_Cooldown>0</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0</DeteriorationRate>
+                                <Beauty>250</Beauty>
+                            </statBases>
+                            <tradeTags />
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                      <requireLineOfSight>false</requireLineOfSight>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_TerminusGun_Projectile_Bond</defaultProjectile>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                                    <warmupTime>0.009</warmupTime>
+                                    <range>250</range>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>10</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <techLevel>Archotech</techLevel>
+                        </ThingDef>
+
+                        <ThingDef Name="SNS_Projectile_TerminusBullet" ParentName="BaseBullet">
+                            <defName>SNS_TerminusGun_Projectile_Bond</defName>
+                            <label>T.E.R.M.I.N.U.S Projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen4/Bullet_Terminus</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>1100</damageAmountBase>
+                                <speed>500</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef><defName>Make_SNS_TerminusGun_Bond</defName><label>bond persona The T.E.R.M.I.N.U.S.</label><description>Bond an persona The T.E.R.M.I.N.U.S..</description><jobString>Bonding a persona The T.E.R.M.I.N.U.S..</jobString><workSpeedStat>GeneralLaborSpeed</workSpeedStat><effectWorking>Cook</effectWorking><soundWorking>Recipe_Machining</soundWorking><workAmount>200000</workAmount><unfinishedThingDef>UnfinishedComponent</unfinishedThingDef><ingredients><li><filter><thingDefs><li>SNS_TerminusGun</li></thingDefs></filter><count>1</count></li><li><filter><thingDefs><li>BondingCore</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>SNS_TerminusGun</li><li>BondingCore</li></thingDefs></fixedIngredientFilter><products><SNS_TerminusGun_Bond>1</SNS_TerminusGun_Bond></products><skillRequirements><Intellectual>15</Intellectual></skillRequirements><workSkill>Intellectual</workSkill><recipeUsers><li>BondingBench</li></recipeUsers></RecipeDef>
+                    
+                        <!-- SNS_BeholderGun_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseGun">
+                            <defName>SNS_BeholderGun_Bond</defName>
+                            <label>persona The B.E.H.O.L.D.E.R.</label>
+                            <description>Acronym: Baryon-Entropy Hard-driver Omni-Looping Decimator EXARCH Rifle\n\nA weapon charged with Stable Matter, made like its predecessor the EXARCH. The weapon itself is incredibly advanced, able to lob projectiles over walls with great accuracy, just like a mortar.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen4/Beholder</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <useHitPoints>false</useHitPoints>
+                            <statBases>
+                                <WorkToMake>15000</WorkToMake>
+                                <MarketValue>5000000</MarketValue> <!-- It's really only set this high to prevent pawns from randomly spawning with this, not that it should ever happen. -->
+                                <Mass>2.5</Mass>
+                                <Flammability>0.0</Flammability>
+                                <AccuracyTouch>1.100</AccuracyTouch>
+                                <AccuracyShort>1.100</AccuracyShort>
+                                <AccuracyMedium>1.100</AccuracyMedium>
+                                <AccuracyLong>1.100</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.000</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0.00</DeteriorationRate>
+                                <Beauty>250</Beauty>
+                            </statBases>
+                            <tradeTags />
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_Beholder_Bullet_Bond</defaultProjectile>
+                                
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <requireLineOfSight>false</requireLineOfSight>
+                                
+                                    <forcedMissRadius>0.1</forcedMissRadius>
+                                    <warmupTime>0.085</warmupTime>
+                                    <range>250</range>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>30</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <techLevel>Archotech</techLevel>
+                        </ThingDef>
+
+                        <ThingDef Name="SNS_Projectile_BeholderBullet" ParentName="BaseBullet">
+                            <defName>SNS_Beholder_Bullet_Bond</defName>
+                            <label>B.E.H.O.L.D.E.R Projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen4/Bullet_Beholder</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <flyOverhead>true</flyOverhead>
+                                <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+                                <soundExplode>MortarBomb_Explode</soundExplode>
+                                <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+                                <soundAmbient>MortarRound_Ambient</soundAmbient>
+                                <damageDef>BombSuper</damageDef>
+                                <damageAmountBase>6875</damageAmountBase>
+                                <explosionRadius>2</explosionRadius>
+                                <speed>500</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef><defName>Make_SNS_BeholderGun_Bond</defName><label>bond persona The B.E.H.O.L.D.E.R.</label><description>Bond an persona The B.E.H.O.L.D.E.R..</description><jobString>Bonding a persona The B.E.H.O.L.D.E.R..</jobString><workSpeedStat>GeneralLaborSpeed</workSpeedStat><effectWorking>Cook</effectWorking><soundWorking>Recipe_Machining</soundWorking><workAmount>200000</workAmount><unfinishedThingDef>UnfinishedComponent</unfinishedThingDef><ingredients><li><filter><thingDefs><li>SNS_BeholderGun</li></thingDefs></filter><count>1</count></li><li><filter><thingDefs><li>BondingCore</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>SNS_BeholderGun</li><li>BondingCore</li></thingDefs></fixedIngredientFilter><products><SNS_BeholderGun_Bond>1</SNS_BeholderGun_Bond></products><skillRequirements><Intellectual>15</Intellectual></skillRequirements><workSkill>Intellectual</workSkill><recipeUsers><li>BondingBench</li></recipeUsers></RecipeDef>
+
+                        <!-- Melee -->
+                        <!-- SNS_RecursionMelee_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon"> <!-- A -->
+                            <defName>SNS_RecursionMelee_Bond</defName>
+                            <label>persona The R.E.C.U.R.S.I.O.N.</label>
+                            <description>Acronym: Recursion-based Exterminatus Cutting-device Using Recursive-temporal Strikes in Omni-Nullspace\n\nA terrifying weapon that bends the very flow of time, allowing one to strike with extreme speed even without having to put in any additional effort. Reality itself seems to coil around its user, striking with it.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                              <texPath>Things/Item/Equipment/WeaponMelee/SNS/Gen4/RECURSION/RECURSION</texPath>
+                              <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.1</uiIconScale>
+                            <techLevel>Archotech</techLevel>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <statBases>
+                                <MarketValue>5000000</MarketValue> <!-- It's really only set this high to prevent pawns from randomly spawning with this, not that it should ever happen. -->
+                                <Mass>2.5</Mass>
+                                <Beauty>250</Beauty>
+                                <DeteriorationRate>0</DeteriorationRate>
+                                <Flammability>0.0</Flammability>
+                            </statBases>
+                            <useHitPoints>false</useHitPoints>
+                            <thingCategories>
+                              <li>WeaponsMelee</li>
+                            </thingCategories>
+                            <tradeTags />
+                            <burnableByRecipe>true</burnableByRecipe>
+                            <tools>
+                              <li>
+                                <label>temporal blade</label>
+                                <labelUsedInLogging>true</labelUsedInLogging>
+                                <capacities>
+                                  <li>Cut</li>
+                                </capacities>
+                                <power>1100</power>
+                                <cooldownTime>0.009</cooldownTime>
+                              </li>
+                              <li>
+                                <label>temporal blade</label>
+                                <labelUsedInLogging>true</labelUsedInLogging>
+                                <capacities>
+                                  <li>Stab</li>
+                                </capacities>
+                                <power>275</power>
+                                <cooldownTime>0.026</cooldownTime>
+                              </li>
+                            </tools>
+                          </ThingDef>
+
+                          <RecipeDef><defName>Make_SNS_RecursionMelee_Bond</defName><label>bond persona The R.E.C.U.R.S.I.O.N.</label><description>Bond an persona The R.E.C.U.R.S.I.O.N..</description><jobString>Bonding a persona The R.E.C.U.R.S.I.O.N..</jobString><workSpeedStat>GeneralLaborSpeed</workSpeedStat><effectWorking>Cook</effectWorking><soundWorking>Recipe_Machining</soundWorking><workAmount>200000</workAmount><unfinishedThingDef>UnfinishedComponent</unfinishedThingDef><ingredients><li><filter><thingDefs><li>SNS_RecursionMelee</li></thingDefs></filter><count>1</count></li><li><filter><thingDefs><li>BondingCore</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>SNS_RecursionMelee</li><li>BondingCore</li></thingDefs></fixedIngredientFilter><products><SNS_RecursionMelee_Bond>1</SNS_RecursionMelee_Bond></products><skillRequirements><Intellectual>15</Intellectual></skillRequirements><workSkill>Intellectual</workSkill><recipeUsers><li>BondingBench</li></recipeUsers></RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
