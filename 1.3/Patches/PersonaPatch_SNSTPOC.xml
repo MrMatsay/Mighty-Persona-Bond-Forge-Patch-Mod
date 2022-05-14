@@ -17,7 +17,7 @@
             <operations>
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
-                    <value>                        
+                    <value>
                         <ThingDef ParentName="MPBFPM_BaseGun">
                             <defName>SNS_TerminusGun_Bond</defName>
                             <label>persona The T.E.R.M.I.N.U.S.</label>
@@ -29,7 +29,7 @@
                             <soundInteract>Interact_ChargeRifle</soundInteract>
                             <useHitPoints>false</useHitPoints>
                             <statBases>
-                                <MarketValue>5000000</MarketValue> <!-- It's really only set this high to prevent pawns from randomly spawning with this, not that it should ever happen. -->
+                                <MarketValue>5000000</MarketValue>                                <!-- It's really only set this high to prevent pawns from randomly spawning with this, not that it should ever happen. -->
                                 <Mass>2.5</Mass>
                                 <Flammability>0.0</Flammability>
                                 <AccuracyTouch>1.100</AccuracyTouch>
@@ -44,7 +44,7 @@
                             <verbs>
                                 <li>
                                     <verbClass>Verb_Shoot</verbClass>
-                                      <requireLineOfSight>false</requireLineOfSight>
+                                    <requireLineOfSight>false</requireLineOfSight>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>SNS_TerminusGun_Projectile_Bond</defaultProjectile>
                                     <burstShotCount>3</burstShotCount>
@@ -73,8 +73,52 @@
                             </projectile>
                         </ThingDef>
 
-                        <RecipeDef><defName>Make_SNS_TerminusGun_Bond</defName><label>bond persona The T.E.R.M.I.N.U.S.</label><description>Bond an persona The T.E.R.M.I.N.U.S..</description><jobString>Bonding a persona The T.E.R.M.I.N.U.S..</jobString><workSpeedStat>GeneralLaborSpeed</workSpeedStat><effectWorking>Cook</effectWorking><soundWorking>Recipe_Machining</soundWorking><workAmount>200000</workAmount><unfinishedThingDef>UnfinishedComponent</unfinishedThingDef><ingredients><li><filter><thingDefs><li>SNS_TerminusGun</li></thingDefs></filter><count>1</count></li><li><filter><thingDefs><li>BondingCore</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>SNS_TerminusGun</li><li>BondingCore</li></thingDefs></fixedIngredientFilter><products><SNS_TerminusGun_Bond>1</SNS_TerminusGun_Bond></products><skillRequirements><Intellectual>15</Intellectual></skillRequirements><workSkill>Intellectual</workSkill><recipeUsers><li>BondingBench</li></recipeUsers></RecipeDef>
-                    
+                        <RecipeDef>
+                            <defName>Make_SNS_TerminusGun_Bond</defName>
+                            <label>bond persona The T.E.R.M.I.N.U.S.</label>
+                            <description>Bond an persona The T.E.R.M.I.N.U.S..</description>
+                            <jobString>Bonding a persona The T.E.R.M.I.N.U.S..</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SNS_TerminusGun</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SNS_TerminusGun</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SNS_TerminusGun_Bond>1</SNS_TerminusGun_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
                         <!-- SNS_BeholderGun_Bond -->
                         <ThingDef ParentName="MPBFPM_BaseGun">
                             <defName>SNS_BeholderGun_Bond</defName>
@@ -88,7 +132,7 @@
                             <useHitPoints>false</useHitPoints>
                             <statBases>
                                 <WorkToMake>15000</WorkToMake>
-                                <MarketValue>5000000</MarketValue> <!-- It's really only set this high to prevent pawns from randomly spawning with this, not that it should ever happen. -->
+                                <MarketValue>5000000</MarketValue>                                <!-- It's really only set this high to prevent pawns from randomly spawning with this, not that it should ever happen. -->
                                 <Mass>2.5</Mass>
                                 <Flammability>0.0</Flammability>
                                 <AccuracyTouch>1.100</AccuracyTouch>
@@ -105,12 +149,12 @@
                                     <verbClass>Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>SNS_Beholder_Bullet_Bond</defaultProjectile>
-                                
+
                                     <targetParams>
                                         <canTargetLocations>true</canTargetLocations>
                                     </targetParams>
                                     <requireLineOfSight>false</requireLineOfSight>
-                                
+
                                     <forcedMissRadius>0.1</forcedMissRadius>
                                     <warmupTime>0.085</warmupTime>
                                     <range>250</range>
@@ -143,57 +187,142 @@
                             </projectile>
                         </ThingDef>
 
-                        <RecipeDef><defName>Make_SNS_BeholderGun_Bond</defName><label>bond persona The B.E.H.O.L.D.E.R.</label><description>Bond an persona The B.E.H.O.L.D.E.R..</description><jobString>Bonding a persona The B.E.H.O.L.D.E.R..</jobString><workSpeedStat>GeneralLaborSpeed</workSpeedStat><effectWorking>Cook</effectWorking><soundWorking>Recipe_Machining</soundWorking><workAmount>200000</workAmount><unfinishedThingDef>UnfinishedComponent</unfinishedThingDef><ingredients><li><filter><thingDefs><li>SNS_BeholderGun</li></thingDefs></filter><count>1</count></li><li><filter><thingDefs><li>BondingCore</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>SNS_BeholderGun</li><li>BondingCore</li></thingDefs></fixedIngredientFilter><products><SNS_BeholderGun_Bond>1</SNS_BeholderGun_Bond></products><skillRequirements><Intellectual>15</Intellectual></skillRequirements><workSkill>Intellectual</workSkill><recipeUsers><li>BondingBench</li></recipeUsers></RecipeDef>
+                        <RecipeDef>
+                            <defName>Make_SNS_BeholderGun_Bond</defName>
+                            <label>bond persona The B.E.H.O.L.D.E.R.</label>
+                            <description>Bond an persona The B.E.H.O.L.D.E.R..</description>
+                            <jobString>Bonding a persona The B.E.H.O.L.D.E.R..</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SNS_BeholderGun</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SNS_BeholderGun</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SNS_BeholderGun_Bond>1</SNS_BeholderGun_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
 
                         <!-- Melee -->
                         <!-- SNS_RecursionMelee_Bond -->
-                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon"> <!-- A -->
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon">                            <!-- A -->
                             <defName>SNS_RecursionMelee_Bond</defName>
                             <label>persona The R.E.C.U.R.S.I.O.N.</label>
                             <description>Acronym: Recursion-based Exterminatus Cutting-device Using Recursive-temporal Strikes in Omni-Nullspace\n\nA terrifying weapon that bends the very flow of time, allowing one to strike with extreme speed even without having to put in any additional effort. Reality itself seems to coil around its user, striking with it.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <graphicData>
-                              <texPath>Things/Item/Equipment/WeaponMelee/SNS/Gen4/RECURSION/RECURSION</texPath>
-                              <graphicClass>Graphic_Single</graphicClass>
+                                <texPath>Things/Item/Equipment/WeaponMelee/SNS/Gen4/RECURSION/RECURSION</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                             <uiIconScale>1.1</uiIconScale>
                             <techLevel>Archotech</techLevel>
                             <equippedAngleOffset>45</equippedAngleOffset>
                             <statBases>
-                                <MarketValue>5000000</MarketValue> <!-- It's really only set this high to prevent pawns from randomly spawning with this, not that it should ever happen. -->
+                                <MarketValue>5000000</MarketValue>                                <!-- It's really only set this high to prevent pawns from randomly spawning with this, not that it should ever happen. -->
                                 <Mass>2.5</Mass>
                                 <Beauty>250</Beauty>
                                 <DeteriorationRate>0</DeteriorationRate>
                                 <Flammability>0.0</Flammability>
                             </statBases>
                             <useHitPoints>false</useHitPoints>
-                            <thingCategories>
-                              <li>WeaponsMelee</li>
-                            </thingCategories>
                             <tradeTags />
                             <burnableByRecipe>true</burnableByRecipe>
                             <tools>
-                              <li>
-                                <label>temporal blade</label>
-                                <labelUsedInLogging>true</labelUsedInLogging>
-                                <capacities>
-                                  <li>Cut</li>
-                                </capacities>
-                                <power>1100</power>
-                                <cooldownTime>0.009</cooldownTime>
-                              </li>
-                              <li>
-                                <label>temporal blade</label>
-                                <labelUsedInLogging>true</labelUsedInLogging>
-                                <capacities>
-                                  <li>Stab</li>
-                                </capacities>
-                                <power>275</power>
-                                <cooldownTime>0.026</cooldownTime>
-                              </li>
+                                <li>
+                                    <label>temporal blade</label>
+                                    <labelUsedInLogging>true</labelUsedInLogging>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>1100</power>
+                                    <cooldownTime>0.009</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>temporal blade</label>
+                                    <labelUsedInLogging>true</labelUsedInLogging>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>275</power>
+                                    <cooldownTime>0.026</cooldownTime>
+                                </li>
                             </tools>
-                          </ThingDef>
+                        </ThingDef>
 
-                          <RecipeDef><defName>Make_SNS_RecursionMelee_Bond</defName><label>bond persona The R.E.C.U.R.S.I.O.N.</label><description>Bond an persona The R.E.C.U.R.S.I.O.N..</description><jobString>Bonding a persona The R.E.C.U.R.S.I.O.N..</jobString><workSpeedStat>GeneralLaborSpeed</workSpeedStat><effectWorking>Cook</effectWorking><soundWorking>Recipe_Machining</soundWorking><workAmount>200000</workAmount><unfinishedThingDef>UnfinishedComponent</unfinishedThingDef><ingredients><li><filter><thingDefs><li>SNS_RecursionMelee</li></thingDefs></filter><count>1</count></li><li><filter><thingDefs><li>BondingCore</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>SNS_RecursionMelee</li><li>BondingCore</li></thingDefs></fixedIngredientFilter><products><SNS_RecursionMelee_Bond>1</SNS_RecursionMelee_Bond></products><skillRequirements><Intellectual>15</Intellectual></skillRequirements><workSkill>Intellectual</workSkill><recipeUsers><li>BondingBench</li></recipeUsers></RecipeDef>
+                        <RecipeDef>
+                            <defName>Make_SNS_RecursionMelee_Bond</defName>
+                            <label>bond persona The R.E.C.U.R.S.I.O.N.</label>
+                            <description>Bond an persona The R.E.C.U.R.S.I.O.N..</description>
+                            <jobString>Bonding a persona The R.E.C.U.R.S.I.O.N..</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SNS_RecursionMelee</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SNS_RecursionMelee</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SNS_RecursionMelee_Bond>1</SNS_RecursionMelee_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
                     </value>
                 </li>
             </operations>

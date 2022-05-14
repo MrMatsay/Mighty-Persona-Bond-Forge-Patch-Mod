@@ -14,29 +14,40 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <!-- BRW_SmartPistol_Bond -->
-                        <ThingDef ParentName="BaseBullet">
-                            <defName>Bullet_SmartPistol_Bond</defName>
-                            <label>smart pistol bullet</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Small</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                            <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>12</damageAmountBase>
-                                <armorPenetrationBase>0.20</armorPenetrationBase>
-                                <stoppingPower>0.5</stoppingPower>
-                                <speed>55</speed>
-                            </projectile>
-                            <comps>
-                                <li Class="CompHomingBullets.CompProperties_HomingProjectile">
-                                    <homingChance>0.25</homingChance>
-                                    <moteText>Smart shot!</moteText>
+                        <ThingDef Abstract="True" Name="RangedWeaponUltratech" ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <techLevel>Ultra</techLevel>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                                <li>Ultratech</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <thingSetMakerTags>
+                                <li>RewardStandardLowFreq</li>
+                            </thingSetMakerTags>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
                                 </li>
-                            </comps>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
                         </ThingDef>
 
+                        <!-- BRW_SmartPistol_Bond -->
                         <ThingDef ParentName="BaseWeapon_Bladelink">
                             <defName>BRW_SmartPistol_Bond</defName>
                             <label>persona smart pistol</label>
@@ -57,14 +68,6 @@
                                 <AccuracyLong>0.495</AccuracyLong>
                                 <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
                             </statBases>
-                            <techLevel>Ultra</techLevel>
-                            <weaponTags Inherit="False">
-                                <li>RangedBladelink</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                                <li>Ultratech</li>
-                            </weaponClasses>
                             <equippedStatOffsets>
                                 <MentalBreakThreshold>-0.15</MentalBreakThreshold>
                             </equippedStatOffsets>
@@ -81,25 +84,28 @@
                                     <muzzleFlashScale>9</muzzleFlashScale>
                                 </li>
                             </verbs>
-                            <tools>
-                                <li>
-                                    <label>grip</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9</power>
-                                    <cooldownTime>2</cooldownTime>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_SmartPistol_Bond</defName>
+                            <label>smart pistol bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>12</damageAmountBase>
+                                <armorPenetrationBase>0.20</armorPenetrationBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>55</speed>
+                            </projectile>
+                            <comps>
+                                <li Class="CompHomingBullets.CompProperties_HomingProjectile">
+                                    <homingChance>0.25</homingChance>
+                                    <moteText>Smart shot!</moteText>
                                 </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9</power>
-                                    <cooldownTime>2</cooldownTime>
-                                </li>
-                            </tools>
+                            </comps>
                         </ThingDef>
 
                         <RecipeDef>
@@ -150,6 +156,42 @@
                         </RecipeDef>
 
                         <!-- BRW_SmartShotgun_Bond -->
+                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                            <defName>BRW_SmartShotgun_Bond</defName>
+                            <label>persona smart shotgun</label>
+                            <description>A highly advanced shotgun. Contains a subpersona core with intermediate machine learning capabilities for a safe and precise user experience. Shoots a tight-packed spray of pellets made of plasteel which disperse much slower than conventional shotguns, which increases range and destructive capabilities. Some of the pellets have EMP capacitors for shocking enemies made of metal.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>BR_UltraSmart/Ranged/smart_shotgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.25</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.2</uiIconScale>
+                            <soundInteract>Interact_ShotgunSmart</soundInteract>
+                            <statBases>
+                                <MarketValue>3000</MarketValue>
+                                <Mass>4.0</Mass>
+                                <AccuracyTouch>0.88</AccuracyTouch>
+                                <AccuracyShort>0.99</AccuracyShort>
+                                <AccuracyMedium>0.88</AccuracyMedium>
+                                <AccuracyLong>0.77</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.36
+                                </RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_SmartShotgun_Bond</defaultProjectile>
+                                    <warmupTime>0.935
+                                    </warmupTime>
+                                    <range>22</range>
+                                    <soundCast>BRW_SmartShotgun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
                         <ThingDef ParentName="BaseBullet">
                             <defName>Bullet_SmartShotgun_Bond</defName>
                             <label>smart shotgun blast</label>
@@ -177,69 +219,6 @@
                                     <moteText>Smart shot!</moteText>
                                 </li>
                             </comps>
-                        </ThingDef>
-
-                        <ThingDef ParentName="BaseWeapon_Bladelink">
-                            <defName>BRW_SmartShotgun_Bond</defName>
-                            <label>persona smart shotgun</label>
-                            <description>A highly advanced shotgun. Contains a subpersona core with intermediate machine learning capabilities for a safe and precise user experience. Shoots a tight-packed spray of pellets made of plasteel which disperse much slower than conventional shotguns, which increases range and destructive capabilities. Some of the pellets have EMP capacitors for shocking enemies made of metal.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <graphicData>
-                                <texPath>BR_UltraSmart/Ranged/smart_shotgun</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                                <drawSize>1.25</drawSize>
-                            </graphicData>
-                            <uiIconScale>1.2</uiIconScale>
-                            <soundInteract>Interact_ShotgunSmart</soundInteract>
-                            <statBases>
-                                <MarketValue>3000</MarketValue>
-                                <Mass>4.0</Mass>
-                                <AccuracyTouch>0.88</AccuracyTouch>
-                                <AccuracyShort>0.99</AccuracyShort>
-                                <AccuracyMedium>0.88</AccuracyMedium>
-                                <AccuracyLong>0.77</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.36
-                                </RangedWeapon_Cooldown>
-                            </statBases>
-                            <techLevel>Ultra</techLevel>
-                            <weaponTags Inherit="False">
-                                <li>RangedBladelink</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                                <li>Ultratech</li>
-                            </weaponClasses>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_SmartShotgun_Bond</defaultProjectile>
-                                    <warmupTime>0.935
-                                    </warmupTime>
-                                    <range>22</range>
-                                    <soundCast>BRW_SmartShotgun</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <tools>
-                                <li>
-                                    <label>grip</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9</power>
-                                    <cooldownTime>2</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9</power>
-                                    <cooldownTime>2</cooldownTime>
-                                </li>
-                            </tools>
                         </ThingDef>
 
                         <RecipeDef>
@@ -290,28 +269,6 @@
                         </RecipeDef>
 
                         <!-- BRW_SmartSMG_Bond -->
-                        <ThingDef ParentName="BaseBullet">
-                            <defName>Bullet_SmartSMG_Bond</defName>
-                            <label>smart SMG bullet</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Small</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                            <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>10</damageAmountBase>
-                                <armorPenetrationBase>0.20</armorPenetrationBase>
-                                <stoppingPower>0.5</stoppingPower>
-                                <speed>55</speed>
-                            </projectile>
-                            <comps>
-                                <li Class="CompHomingBullets.CompProperties_HomingProjectile">
-                                    <homingChance>0.25</homingChance>
-                                    <moteText>Smart shot!</moteText>
-                                </li>
-                            </comps>
-                        </ThingDef>
-
                         <ThingDef ParentName="BaseWeapon_Bladelink">
                             <defName>BRW_SmartSMG_Bond</defName>
                             <label>persona smart SMG</label>
@@ -332,14 +289,6 @@
                                 <AccuracyLong>0.275</AccuracyLong>
                                 <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
                             </statBases>
-                            <techLevel>Ultra</techLevel>
-                            <weaponTags Inherit="False">
-                                <li>RangedBladelink</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                                <li>Ultratech</li>
-                            </weaponClasses>
                             <equippedStatOffsets>
                                 <MoveSpeed>0.40</MoveSpeed>
                             </equippedStatOffsets>
@@ -357,25 +306,28 @@
                                     <muzzleFlashScale>9</muzzleFlashScale>
                                 </li>
                             </verbs>
-                            <tools>
-                                <li>
-                                    <label>grip</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9</power>
-                                    <cooldownTime>2</cooldownTime>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_SmartSMG_Bond</defName>
+                            <label>smart SMG bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>10</damageAmountBase>
+                                <armorPenetrationBase>0.20</armorPenetrationBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>55</speed>
+                            </projectile>
+                            <comps>
+                                <li Class="CompHomingBullets.CompProperties_HomingProjectile">
+                                    <homingChance>0.25</homingChance>
+                                    <moteText>Smart shot!</moteText>
                                 </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9</power>
-                                    <cooldownTime>2</cooldownTime>
-                                </li>
-                            </tools>
+                            </comps>
                         </ThingDef>
 
                         <RecipeDef>
@@ -426,28 +378,6 @@
                         </RecipeDef>
 
                         <!-- BRW_SmartRifle_Bond -->
-                        <ThingDef ParentName="BaseBullet">
-                            <defName>Bullet_SmartRifle_Bond</defName>
-                            <label>smart rifle bullet</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Small</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                            <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>15</damageAmountBase>
-                                <armorPenetrationBase>0.25</armorPenetrationBase>
-                                <stoppingPower>1.0</stoppingPower>
-                                <speed>55</speed>
-                            </projectile>
-                            <comps>
-                                <li Class="CompHomingBullets.CompProperties_HomingProjectile">
-                                    <homingChance>0.25</homingChance>
-                                    <moteText>Smart shot!</moteText>
-                                </li>
-                            </comps>
-                        </ThingDef>
-
                         <ThingDef ParentName="BaseWeapon_Bladelink">
                             <defName>BRW_SmartRifle_Bond</defName>
                             <label>persona smart rifle</label>
@@ -468,14 +398,6 @@
                                 <AccuracyLong>0.66</AccuracyLong>
                                 <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
                             </statBases>
-                            <techLevel>Ultra</techLevel>
-                            <weaponTags Inherit="False">
-                                <li>RangedBladelink</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                                <li>Ultratech</li>
-                            </weaponClasses>
                             <equippedStatOffsets>
                                 <ShootingAccuracyPawn>2.0</ShootingAccuracyPawn>
                             </equippedStatOffsets>
@@ -493,25 +415,28 @@
                                     <muzzleFlashScale>9</muzzleFlashScale>
                                 </li>
                             </verbs>
-                            <tools>
-                                <li>
-                                    <label>grip</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9</power>
-                                    <cooldownTime>2</cooldownTime>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_SmartRifle_Bond</defName>
+                            <label>smart rifle bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>15</damageAmountBase>
+                                <armorPenetrationBase>0.25</armorPenetrationBase>
+                                <stoppingPower>1.0</stoppingPower>
+                                <speed>55</speed>
+                            </projectile>
+                            <comps>
+                                <li Class="CompHomingBullets.CompProperties_HomingProjectile">
+                                    <homingChance>0.25</homingChance>
+                                    <moteText>Smart shot!</moteText>
                                 </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9</power>
-                                    <cooldownTime>2</cooldownTime>
-                                </li>
-                            </tools>
+                            </comps>
                         </ThingDef>
 
                         <RecipeDef>
@@ -562,28 +487,6 @@
                         </RecipeDef>
 
                         <!-- BRW_SmartLMG_Bond -->
-                        <ThingDef ParentName="BaseBullet">
-                            <defName>Bullet_SmartLMG_Bond</defName>
-                            <label>smart LMG bullet</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Small</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                            <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>11</damageAmountBase>
-                                <armorPenetrationBase>0.20</armorPenetrationBase>
-                                <stoppingPower>1.0</stoppingPower>
-                                <speed>55</speed>
-                            </projectile>
-                            <comps>
-                                <li Class="CompHomingBullets.CompProperties_HomingProjectile">
-                                    <homingChance>0.10</homingChance>
-                                    <moteText>Smart shot!</moteText>
-                                </li>
-                            </comps>
-                        </ThingDef>
-
                         <ThingDef ParentName="BaseWeapon_Bladelink">
                             <defName>BRW_SmartLMG_Bond</defName>
                             <label>persona smart LMG</label>
@@ -604,14 +507,6 @@
                                 <AccuracyLong>0.352</AccuracyLong>
                                 <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
                             </statBases>
-                            <techLevel>Ultra</techLevel>
-                            <weaponTags Inherit="False">
-                                <li>RangedBladelink</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                                <li>Ultratech</li>
-                            </weaponClasses>
                             <verbs>
                                 <li>
                                     <verbClass>Verb_Shoot</verbClass>
@@ -626,25 +521,28 @@
                                     <muzzleFlashScale>9</muzzleFlashScale>
                                 </li>
                             </verbs>
-                            <tools>
-                                <li>
-                                    <label>grip</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9</power>
-                                    <cooldownTime>2</cooldownTime>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_SmartLMG_Bond</defName>
+                            <label>smart LMG bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.20</armorPenetrationBase>
+                                <stoppingPower>1.0</stoppingPower>
+                                <speed>55</speed>
+                            </projectile>
+                            <comps>
+                                <li Class="CompHomingBullets.CompProperties_HomingProjectile">
+                                    <homingChance>0.10</homingChance>
+                                    <moteText>Smart shot!</moteText>
                                 </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9</power>
-                                    <cooldownTime>2</cooldownTime>
-                                </li>
-                            </tools>
+                            </comps>
                         </ThingDef>
 
                         <RecipeDef>
@@ -695,28 +593,6 @@
                         </RecipeDef>
 
                         <!-- BRW_SmartSniper_Bond -->
-                        <ThingDef ParentName="BaseBullet">
-                            <defName>Bullet_SmartSniper_Bond</defName>
-                            <label>smart sniper bullet</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Small</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                            <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>31</damageAmountBase>
-                                <armorPenetrationBase>0.30</armorPenetrationBase>
-                                <stoppingPower>1.5</stoppingPower>
-                                <speed>55</speed>
-                            </projectile>
-                            <comps>
-                                <li Class="CompHomingBullets.CompProperties_HomingProjectile">
-                                    <homingChance>0.25</homingChance>
-                                    <moteText>Smart shot!</moteText>
-                                </li>
-                            </comps>
-                        </ThingDef>
-
                         <ThingDef ParentName="BaseWeapon_Bladelink">
                             <defName>BRW_SmartSniper_Bond</defName>
                             <label>persona smart sniper rifle</label>
@@ -737,14 +613,6 @@
                                 <AccuracyLong>1.10</AccuracyLong>
                                 <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
                             </statBases>
-                            <techLevel>Ultra</techLevel>
-                            <weaponTags Inherit="False">
-                                <li>RangedBladelink</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                                <li>Ultratech</li>
-                            </weaponClasses>
                             <verbs>
                                 <li>
                                     <verbClass>Verb_Shoot</verbClass>
@@ -757,25 +625,28 @@
                                     <muzzleFlashScale>9</muzzleFlashScale>
                                 </li>
                             </verbs>
-                            <tools>
-                                <li>
-                                    <label>grip</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9</power>
-                                    <cooldownTime>2</cooldownTime>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_SmartSniper_Bond</defName>
+                            <label>smart sniper bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>31</damageAmountBase>
+                                <armorPenetrationBase>0.30</armorPenetrationBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>55</speed>
+                            </projectile>
+                            <comps>
+                                <li Class="CompHomingBullets.CompProperties_HomingProjectile">
+                                    <homingChance>0.25</homingChance>
+                                    <moteText>Smart shot!</moteText>
                                 </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9</power>
-                                    <cooldownTime>2</cooldownTime>
-                                </li>
-                            </tools>
+                            </comps>
                         </ThingDef>
 
                         <RecipeDef>
