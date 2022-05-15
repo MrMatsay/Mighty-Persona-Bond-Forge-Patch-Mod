@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Vali's Charged Arsenal - Eltex Series
+
+    V_AnimaHammer_Bond = persona charge eltex warhammer
+    V_AnimaStaff_Bond = persona charge eltex staff
+    V_AnimaMace_Bond = persona charge eltex mace
+    V_AnimaDagger_Bond = persona charge eltex dagger
+    V_AnimaLongSword_Bond = persona charge eltex longsword
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vali's Charged Arsenal - Eltex Series</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- V_AnimaHammer_Bond -->
+                        <ThingDef ParentName="MPBFPM_MeleeWeaponUltratech">
+                            <defName>V_AnimaHammer_Bond</defName>
+                            <label>persona charge eltex warhammer</label>
+                            <description>A heavy spacer-tech psy-focus warhammer. The warhammer is an excelent blunt weapon fused with charge technology providing more armor penetration on each swing while it enhances the weilder's phsycic abilities.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <meleeHitSound>Heavy_Blunt</meleeHitSound>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <equippedAngleOffset>-10</equippedAngleOffset>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>V_ChargedMelee</li>
+                            </weaponTags>
+                            <graphicData>
+                                <texPath>Things/Weapons/V_AnimaHammer</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1.6</drawSize>
+                                <drawOffsetSouth>(0.3,0,0)</drawOffsetSouth>
+                                <drawOffsetNorth>(0.3,0,0)</drawOffsetNorth>
+                                <drawOffsetEast>(0.3,0,0)</drawOffsetEast>
+                                <drawOffsetWest>(0.3,0,0)</drawOffsetWest>
+                            </graphicData>
+                            <tools>
+                                <li>
+                                    <label>hammer handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.20</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>hammer face</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>20.80</power>
+                                    <cooldownTime>2.040</cooldownTime>
+                                    <armorPenetration>0.550</armorPenetration>
+                                </li>
+                            </tools>
+                            <statBases>
+                                <Mass>5</Mass>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <PsychicEntropyMax>12</PsychicEntropyMax>
+                                <PsychicEntropyRecoveryRate>0.20</PsychicEntropyRecoveryRate>
+                                <MeditationFocusGain>0.15</MeditationFocusGain>
+                                <PsychicSensitivity>0.15</PsychicSensitivity>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_V_AnimaHammer_Bond</defName>
+                            <label>bond charge eltex warhammer</label>
+                            <description>Bond an charge eltex warhammer.</description>
+                            <jobString>Bonding a charge eltex warhammer.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>V_AnimaHammer</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>V_AnimaHammer</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <V_AnimaHammer_Bond>1</V_AnimaHammer_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- V_AnimaStaff_Bond -->
+                        <ThingDef ParentName="MPBFPM_MeleeWeaponUltratech">
+                            <defName>V_AnimaStaff_Bond</defName>
+                            <label>persona charge eltex staff</label>
+                            <description>A heavy spacer-tech psy-focus staff. The eltex quarterstaff was made for weilders who prefer light weight and yet powerful weapon that is fused with charge technology providing more armor penetration on each swing while it enhances the weilder's phsycic abilities.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <equippedAngleOffset>-10</equippedAngleOffset>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>V_ChargedMelee</li>
+                            </weaponTags>
+                            <graphicData>
+                                <texPath>Things/Weapons/V_AnimaStaff</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1.4</drawSize>
+                            </graphicData>
+                            <tools>
+                                <li>
+                                    <label>staff top edge</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>14.30</power>
+                                    <cooldownTime>1.360</cooldownTime>
+                                    <armorPenetration>0.440</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>staff bottom edge</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>14.30</power>
+                                    <cooldownTime>1.360</cooldownTime>
+                                    <armorPenetration>0.440</armorPenetration>
+                                </li>
+                            </tools>
+                            <statBases>
+                                <Mass>1</Mass>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <PsychicEntropyMax>10</PsychicEntropyMax>
+                                <PsychicEntropyRecoveryRate>0.20</PsychicEntropyRecoveryRate>
+                                <MeditationFocusGain>0.15</MeditationFocusGain>
+                                <PsychicSensitivity>0.15</PsychicSensitivity>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_V_AnimaStaff_Bond</defName>
+                            <label>bond charge eltex staff</label>
+                            <description>Bond an charge eltex staff.</description>
+                            <jobString>Bonding a charge eltex staff.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>V_AnimaStaff</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>V_AnimaStaff</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <V_AnimaStaff_Bond>1</V_AnimaStaff_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- V_AnimaMace_Bond -->
+                        <ThingDef ParentName="MPBFPM_MeleeWeaponUltratech">
+                            <defName>V_AnimaMace_Bond</defName>
+                            <label>persona charge eltex mace</label>
+                            <description>A heavy spacer-tech psy-focus mace. The mace is designed for paladins to be more of a suiting choice for both light weight and power that is fused with charge technology providing more armor penetration on each swing while it enhances the weilder's phsycic abilities.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <equippedAngleOffset>-10</equippedAngleOffset>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>V_ChargedMelee</li>
+                            </weaponTags>
+                            <graphicData>
+                                <texPath>Things/Weapons/V_AnimaMace</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1.2</drawSize>
+                                <drawOffsetSouth>(0.2,0,0)</drawOffsetSouth>
+                                <drawOffsetNorth>(0.2,0,0)</drawOffsetNorth>
+                                <drawOffsetEast>(0.2,0,0)</drawOffsetEast>
+                                <drawOffsetWest>(0.2,0,0)</drawOffsetWest>
+                            </graphicData>
+                            <tools>
+                                <li>
+                                    <label>mace head</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>28.60</power>
+                                    <cooldownTime>1.360</cooldownTime>
+                                    <armorPenetration>0.605</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>mace handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>11.00</power>
+                                    <cooldownTime>1.190</cooldownTime>
+                                </li>
+                            </tools>
+                            <statBases>
+                                <Mass>3</Mass>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <PsychicEntropyMax>10</PsychicEntropyMax>
+                                <PsychicEntropyRecoveryRate>0.20</PsychicEntropyRecoveryRate>
+                                <MeditationFocusGain>0.15</MeditationFocusGain>
+                                <PsychicSensitivity>0.15</PsychicSensitivity>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_V_AnimaMace_Bond</defName>
+                            <label>bond charge eltex mace</label>
+                            <description>Bond an charge eltex mace.</description>
+                            <jobString>Bonding a charge eltex mace.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>V_AnimaMace</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>V_AnimaMace</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <V_AnimaMace_Bond>1</V_AnimaMace_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- V_AnimaDagger_Bond -->
+                        <ThingDef ParentName="MPBFPM_MeleeWeaponUltratech">
+                            <defName>V_AnimaDagger_Bond</defName>
+                            <label>persona charge eltex dagger</label>
+                            <description>A heavy spacer-tech psy-focus dagger. The dagger is an excelent fast and light weapon made for fast moving weilders that can provide variety of slashes that is fused with charge technology providing more armor penetration on each swing while it enhances the weilder's phsycic abilities.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <equippedAngleOffset>-10</equippedAngleOffset>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>V_ChargedMelee</li>
+                            </weaponTags>
+                            <graphicData>
+                                <texPath>Things/Weapons/V_AnimaDagger</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1.3</drawSize>
+                            </graphicData>
+                            <tools>
+                                <li>
+                                    <label>handle blade</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>9.90</power>
+                                    <cooldownTime>1.360</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>13.20</power>
+                                    <cooldownTime>1.020</cooldownTime>
+                                    <armorPenetration>0.781</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>8.80</power>
+                                    <cooldownTime>0.680</cooldownTime>
+                                    <armorPenetration>0.682</armorPenetration>
+                                </li>
+                            </tools>
+                            <statBases>
+                                <Mass>1</Mass>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <PsychicEntropyMax>8</PsychicEntropyMax>
+                                <PsychicEntropyRecoveryRate>0.10</PsychicEntropyRecoveryRate>
+                                <MeditationFocusGain>0.10</MeditationFocusGain>
+                                <PsychicSensitivity>0.15</PsychicSensitivity>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_V_AnimaDagger_Bond</defName>
+                            <label>bond charge eltex dagger</label>
+                            <description>Bond an charge eltex dagger.</description>
+                            <jobString>Bonding a charge eltex dagger.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>V_AnimaDagger</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>V_AnimaDagger</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <V_AnimaDagger_Bond>1</V_AnimaDagger_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- V_AnimaLongSword_Bond -->
+                        <ThingDef ParentName="MPBFPM_MeleeWeaponUltratech">
+                            <defName>V_AnimaLongSword_Bond</defName>
+                            <label>persona charge eltex longsword</label>
+                            <description>A heavy spacer-tech psy-focus longsword. The longsword is designed to be more of a knightly aesthetic but an excelent weapon fused with charge technology providing more armor penetration on each swing while it enhances the weilder's phsycic abilities.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <equippedAngleOffset>-10</equippedAngleOffset>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>V_ChargedMelee</li>
+                            </weaponTags>
+                            <graphicData>
+                                <texPath>Things/Weapons/V_AnimaLongSword</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1.2</drawSize>
+                                <drawOffsetSouth>(0.2,0,0)</drawOffsetSouth>
+                                <drawOffsetNorth>(0.2,0,0)</drawOffsetNorth>
+                                <drawOffsetEast>(0.2,0,0)</drawOffsetEast>
+                                <drawOffsetWest>(0.2,0,0)</drawOffsetWest>
+                            </graphicData>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.90</power>
+                                    <cooldownTime>1.360</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>22.00</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                    <armorPenetration>0.781</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>19.80</power>
+                                    <cooldownTime>1.360</cooldownTime>
+                                    <armorPenetration>0.682</armorPenetration>
+                                </li>
+                            </tools>
+                            <statBases>
+                                <Mass>2</Mass>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <PsychicEntropyMax>10</PsychicEntropyMax>
+                                <PsychicEntropyRecoveryRate>0.18</PsychicEntropyRecoveryRate>
+                                <MeditationFocusGain>0.15</MeditationFocusGain>
+                                <PsychicSensitivity>0.15</PsychicSensitivity>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_V_AnimaLongSword_Bond</defName>
+                            <label>bond charge eltex longsword</label>
+                            <description>Bond an charge eltex longsword.</description>
+                            <jobString>Bonding a charge eltex longsword.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>V_AnimaLongSword</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>V_AnimaLongSword</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <V_AnimaLongSword_Bond>1</V_AnimaLongSword_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

@@ -46,7 +46,8 @@
 - KEP Blast-Charge Weaponry (Continued)
 - RimVali: Far From Avalon
 - [M.W]Resonant Munitions
-- Charged Melee Weaponry
 - Cybernetic Storm
 - Star Wars - Fully Functional Lightsabers (Continued)
 - SNS AOTC: True Pinnacle of Creation
+- Vali's Charged Arsenal
+- Vali's Charged Arsenal - Eltex Series
