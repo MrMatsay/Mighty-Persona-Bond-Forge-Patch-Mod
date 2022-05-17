@@ -1,0 +1,1829 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	PlanetsidePew (Continued)
+
+    PSPJACKHAMMER_Bond = persona NC05 jackhammer
+    PSPGAUSSSAW_Bond = persona NC6 gauss SAW
+    PSPWARDEN_Bond = persona Warden
+    PSPCYCLONE_Bond = persona AF-4 cyclone
+    PSPMAGSHOT_Bond = persona NC4 mag-shot
+    PSPPHOENIX_Bond = persona NC15 phoenix
+    PSPLASHER_Bond = persona Lasher X2
+    PSPORION_Bond = persona Orion VS54
+    PSPEIDOLON_Bond = persona Eidolon VE33
+    PSPERIDANI_Bond = persona Eridani SX5
+    PSPBEAMER_Bond = persona Beamer VS3
+    PSPLANCER_Bond = persona Lancer VS22
+    PSPMCG_Bond = persona T7 mini-chaingun
+    PSPCARV_Bond = persona T9 CARV
+    PSPAMR_Bond = persona AMR-66
+    PSPARMISTICE_Bond = persona SMG-46 armistice
+    PSPREPEATER_Bond = persona TX1 repeater
+    PSPSTRIKER_Bond = persona T2 Striker
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>PlanetsidePew (Continued)</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- Base -->
+                        <thingDef Name="MPBFPM_BASEPSPGUNS" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <thingCategories>
+                                <li>PSPGUNS</li>
+                            </thingCategories>
+                            <inspectorTabs>
+                                <li>ITab_Art</li>
+                            </inspectorTabs>
+
+                            <smeltable>true</smeltable>
+                            <generateCommonality>0.45</generateCommonality>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>8.800</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>8.800</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </thingDef>
+
+
+                        <!-- ===== PSP_NC ===== -->
+                        <!-- PSPJACKHAMMER_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPJACKHAMMER_Bond</defName>
+                            <label>persona NC05 jackhammer</label>
+                            <description>The legendary NC05 Jackhammer heavy shotgun's stopping power and sustained fire capabilities make it a frightening weapon in close quarters combat.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NC_NC05Jackhammer</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPJACKHAMMERSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPJACKHAMMERBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>15.9</range>
+                                    <burstShotCount>8</burstShotCount>
+                                    <ticksBetweenBurstShots>34</ticksBetweenBurstShots>
+                                    <warmupTime>1.488</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>0.850</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.110</AccuracyLong>
+                                <Mass>6</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>PSPJACKHAMMERBULLET</defName>
+                            <label>NC05 jackhammer pellets</label>
+                            <graphicData>
+                                <texPath>NC_NC05JackhammerBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.15</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPJACKHAMMER_Bond</defName>
+                            <label>bond NC05 jackhammer</label>
+                            <description>Bond an NC05 jackhammer.</description>
+                            <jobString>Bonding a NC05 jackhammer.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPJACKHAMMER</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPJACKHAMMER</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPJACKHAMMER_Bond>1</PSPJACKHAMMER_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- PSPGAUSSSAW_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPGAUSSSAW_Bond</defName>
+                            <label>persona NC6 gauss SAW</label>
+                            <description>The NC6 Gauss SAW's low production cost, reliability, and sheer stopping power lead to wide-spread adoption of the weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NC_NC6GaussSAW</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PSPGAUSSSAWBULLET</defaultProjectile>
+                                    <warmupTime>1.828</warmupTime>
+                                    <range>31.9</range>
+                                    <burstShotCount>10</burstShotCount>
+                                    <ticksBetweenBurstShots>26</ticksBetweenBurstShots>
+                                    <soundCast>PSPSAWSOUNDBODY</soundCast>
+                                    <muzzleFlashScale>7</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.828</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.715</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <Mass>5</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>PSPGAUSSSAWBULLET</defName>
+                            <label>NC6 gauss SAW bullet</label>
+                            <graphicData>
+                                <texPath>NC_NC6GaussSAWBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>18</damageAmountBase>
+                                <armorPenetrationBase>0.20</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPGAUSSSAW_Bond</defName>
+                            <label>bond NC6 gauss SAW</label>
+                            <description>Bond an NC6 gauss SAW.</description>
+                            <jobString>Bonding a NC6 gauss SAW.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPGAUSSSAW</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPGAUSSSAW</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPGAUSSSAW_Bond>1</PSPGAUSSSAW_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- PSPWARDEN_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPWARDEN_Bond</defName>
+                            <label>persona Warden</label>
+                            <description>The accurate Warden semi-automatic battle rifle is effective at stopping infantry far past the typical LMG or carbine.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NC_Warden</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPWARDENSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPWARDENBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>7</muzzleFlashScale>
+                                    <range>42.9</range>
+                                    <warmupTime>0.850</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.063</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.880</AccuracyMedium>
+                                <AccuracyLong>0.825</AccuracyLong>
+                                <Mass>4</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>PSPWARDENBULLET</defName>
+                            <label>Warden bullet</label>
+                            <graphicData>
+                                <texPath>NC_WardenBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>20</damageAmountBase>
+                                <armorPenetrationBase>0.20</armorPenetrationBase>
+                                <speed>60</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPWARDEN_Bond</defName>
+                            <label>bond Warden</label>
+                            <description>Bond an Warden.</description>
+                            <jobString>Bonding a Warden.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPWARDEN</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPWARDEN</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPWARDEN_Bond>1</PSPWARDEN_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- PSPCYCLONE_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPCYCLONE_Bond</defName>
+                            <label>persona AF-4 cyclone</label>
+                            <description>The AF-4 Cyclone is a fully automatic submachine gun that has a higher damage output than most weapons in its class.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NC_AF4Cyclone</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPCYCLONESOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPCYCLONEBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>6</muzzleFlashScale>
+                                    <range>21.9</range>
+                                    <burstShotCount>14</burstShotCount>
+                                    <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                    <warmupTime>1.190</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.488</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.990</AccuracyTouch>
+                                <AccuracyShort>0.880</AccuracyShort>
+                                <AccuracyMedium>0.330</AccuracyMedium>
+                                <AccuracyLong>0.220</AccuracyLong>
+                                <Mass>4</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>PSPCYCLONEBULLET</defName>
+                            <label>AF-4 cyclone bullet</label>
+                            <graphicData>
+                                <texPath>NC_AF4CycloneBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>13</damageAmountBase>
+                                <armorPenetrationBase>0.15</armorPenetrationBase>
+                                <speed>60</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPCYCLONE_Bond</defName>
+                            <label>bond AF-4 cyclone</label>
+                            <description>Bond an AF-4 cyclone.</description>
+                            <jobString>Bonding a AF-4 cyclone.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPCYCLONE</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPCYCLONE</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPCYCLONE_Bond>1</PSPCYCLONE_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- PSPMAGSHOT_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPMAGSHOT_Bond</defName>
+                            <label>persona NC4 mag-shot</label>
+                            <description>The versatile standard-issue NC4 Mag-Shot was the first pistol to utilize Gauss technology.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NC_NC4MagShot</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPMAGSHOTSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPMAGSHOTBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>29.9</range>
+                                    <warmupTime>0.850</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>0.850</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.990</AccuracyTouch>
+                                <AccuracyShort>0.880</AccuracyShort>
+                                <AccuracyMedium>0.660</AccuracyMedium>
+                                <AccuracyLong>0.330</AccuracyLong>
+                                <Mass>2</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>PSPMAGSHOTBULLET</defName>
+                            <label>NC4 mag-shot bullet</label>
+                            <graphicData>
+                                <texPath>NC_NC4MagShotBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>17</damageAmountBase>
+                                <armorPenetrationBase>0.20</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPMAGSHOT_Bond</defName>
+                            <label>bond NC4 mag-shot</label>
+                            <description>Bond an NC4 mag-shot.</description>
+                            <jobString>Bonding a NC4 mag-shot.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPMAGSHOT</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPMAGSHOT</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPMAGSHOT_Bond>1</PSPMAGSHOT_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- PSPPHOENIX_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPPHOENIX_Bond</defName>
+                            <label>persona NC15 phoenix</label>
+                            <description>The powerful NC15 Phoenix uses a camera guided missile that allows the user to adjust its trajectory mid-flight.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NC_NC15Phoenix</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPPHOENIXSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPPHOENIXBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <forcedMissRadius>0.1</forcedMissRadius>
+                                    <muzzleFlashScale>12</muzzleFlashScale>
+                                    <range>44.9</range>
+                                    <warmupTime>1.955</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.550</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>1.045</AccuracyMedium>
+                                <AccuracyLong>1.056</AccuracyLong>
+                                <Mass>6</Mass>
+                            </statBases>
+                            <generateCommonality>0.20</generateCommonality>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                                <li>GunHeavy</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseGrenadeProjectile">
+                            <defName>PSPPHOENIXBULLET</defName>
+                            <label>NC15 phoenix rocket</label>
+                            <graphicData>
+                                <texPath>NC_NC15PhoenixBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>NCBOMB</damageDef>
+                                <soundExplode>PSPPHOENIXEXPLOSION</soundExplode>
+                                <flyOverhead>true</flyOverhead>
+                                <damageAmountBase>33</damageAmountBase>
+                                <armorPenetrationBase>0.15</armorPenetrationBase>
+                                <explosionRadius>2</explosionRadius>
+                                <explosionDelay>0</explosionDelay>
+                                <speed>18</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPPHOENIX_Bond</defName>
+                            <label>bond NC15 phoenix</label>
+                            <description>Bond an NC15 phoenix.</description>
+                            <jobString>Bonding a NC15 phoenix.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPPHOENIX</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPPHOENIX</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPPHOENIX_Bond>1</PSPPHOENIX_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- ===== PSP_VS ===== -->
+                        <!-- PSPLASHER_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPLASHER_Bond</defName>
+                            <label>persona Lasher X2</label>
+                            <description>The experimental Lasher X2 fires volatile orbs of plasma that explode on contact with hard surfaces. Field trials have demonstrated its effectiveness at suppressing fire, flushing out enemies and melting infantry.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>VS_LasherX2</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPLASHERSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPLASHERBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <forcedMissRadius>1</forcedMissRadius>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>32.9</range>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>30</ticksBetweenBurstShots>
+                                    <warmupTime>1.700</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyShort>0.770</AccuracyShort>
+                                <AccuracyMedium>0.550</AccuracyMedium>
+                                <AccuracyLong>0.330</AccuracyLong>
+                                <Mass>6</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseGrenadeProjectile">
+                            <defName>PSPLASHERBULLET</defName>
+                            <label>Lasher X2 orb</label>
+                            <graphicData>
+                                <texPath>VS_LasherX2Bullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <projectile>
+                                <damageDef>VSBOMB</damageDef>
+                                <soundExplode>DispensePaste</soundExplode>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.05</armorPenetrationBase>
+                                <explosionRadius>1.5</explosionRadius>
+                                <explosionDelay>0</explosionDelay>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPLASHER_Bond</defName>
+                            <label>bond Lasher X2</label>
+                            <description>Bond an Lasher X2.</description>
+                            <jobString>Bonding a Lasher X2.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPLASHER</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPLASHER</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPLASHER_Bond>1</PSPLASHER_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- PSPORION_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPORION_Bond</defName>
+                            <label>persona Orion VS54</label>
+                            <description>The Orion VS54's lightweight construction allows for more accurate hip fire and stability when on the move when compared to most weapons in its class.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>VS_OrionVS54</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPORIONSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPORIONBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>33.9</range>
+                                    <burstShotCount>12</burstShotCount>
+                                    <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+                                    <warmupTime>1.190</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.880</AccuracyTouch>
+                                <AccuracyShort>0.880</AccuracyShort>
+                                <AccuracyMedium>0.880</AccuracyMedium>
+                                <AccuracyLong>0.715</AccuracyLong>
+                                <Mass>5</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>PSPORIONBULLET</defName>
+                            <label>Orion VS54 bullet</label>
+                            <graphicData>
+                                <texPath>VS_OrionVS54Bullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>VSENERGYBULLET</damageDef>
+                                <damageAmountBase>5</damageAmountBase>
+                                <armorPenetrationBase>0.10</armorPenetrationBase>
+                                <speed>65</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPORION_Bond</defName>
+                            <label>bond Orion VS54</label>
+                            <description>Bond an Orion VS54.</description>
+                            <jobString>Bonding a Orion VS54.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPORION</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPORION</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPORION_Bond>1</PSPORION_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- PSPEIDOLON_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPEIDOLON_Bond</defName>
+                            <label>persona Eidolon VE33</label>
+                            <description>The heavy-hitting eidolon VE33 features accurate semi-automatic fire capable of dropping distant targets with ease.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>VS_EidolonVE33</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPEIDOLONSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPEIDOLONBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>7</muzzleFlashScale>
+                                    <range>44.9</range>
+                                    <warmupTime>0.850</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>0.850</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.825</AccuracyTouch>
+                                <AccuracyShort>0.880</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.935</AccuracyLong>
+                                <Mass>4</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>PSPEIDOLONBULLET</defName>
+                            <label>Eidolon VE33 bullet</label>
+                            <graphicData>
+                                <texPath>VS_EidolonVE33Bullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>VSENERGYBULLET</damageDef>
+                                <damageAmountBase>15</damageAmountBase>
+                                <armorPenetrationBase>0.15</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPEIDOLON_Bond</defName>
+                            <label>bond Eidolon VE33</label>
+                            <description>Bond an Eidolon VE33.</description>
+                            <jobString>Bonding a Eidolon VE33.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPEIDOLON</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPEIDOLON</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPEIDOLON_Bond>1</PSPEIDOLON_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- PSPERIDANI_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPERIDANI_Bond</defName>
+                            <label>persona Eridani SX5</label>
+                            <description>The eridani SX5 fully automatic submachine gun excels in close quarter combat situations.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>VS_EridaniSX5</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPERIDANISOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPERIDANIBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>7</muzzleFlashScale>
+                                    <range>23.9</range>
+                                    <burstShotCount>16</burstShotCount>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <warmupTime>1.063</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.990</AccuracyTouch>
+                                <AccuracyShort>0.990</AccuracyShort>
+                                <AccuracyMedium>0.770</AccuracyMedium>
+                                <AccuracyLong>0.440</AccuracyLong>
+                                <Mass>4</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>PSPERIDANIBULLET</defName>
+                            <label>Eridani SX5 bullet</label>
+                            <graphicData>
+                                <texPath>VS_EridaniSX5Bullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>VSENERGYBULLET</damageDef>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.05</armorPenetrationBase>
+                                <speed>60</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPERIDANI_Bond</defName>
+                            <label>bond Eridani SX5</label>
+                            <description>Bond an Eridani SX5.</description>
+                            <jobString>Bonding a Eridani SX5.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPERIDANI</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPERIDANI</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPERIDANI_Bond>1</PSPERIDANI_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- PSPBEAMER_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPBEAMER_Bond</defName>
+                            <label>persona Beamer VS3</label>
+                            <description>The Beamer VS3 is the standard sidearm for the Vanu Sovereignty. Its high rate of fire allows the user to eliminate nearby targets quickly.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>VS_BeamerVS3</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <defaultProjectile>PSPBEAMERBULLET</defaultProjectile>
+                                    <soundCast>PSPBEAMERSOUNDBODY</soundCast>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>29.9</range>
+                                    <warmupTime>0.510</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.990</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.825</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.510</RangedWeapon_Cooldown>
+                                <Mass>2</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>PSPBEAMERBULLET</defName>
+                            <label>Beamer VS3 bullet</label>
+                            <graphicData>
+                                <texPath>VS_BeamerVS3Bullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>VSENERGYBULLET</damageDef>
+                                <damageAmountBase>9</damageAmountBase>
+                                <armorPenetrationBase>0.10</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPBEAMER_Bond</defName>
+                            <label>bond Beamer VS3</label>
+                            <description>Bond an Beamer VS3.</description>
+                            <jobString>Bonding a Beamer VS3.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPBEAMER</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPBEAMER</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPBEAMER_Bond>1</PSPBEAMER_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- PSPLANCER_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPLANCER_Bond</defName>
+                            <label>persona Lancer VS22</label>
+                            <description>The Lancer VS22's particle accelerator is capable of firing a focused, high-velocity anti-armor projectile with pinpoint accuracy.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>VS_LancerVS22</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPLANCERSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPLANCERBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <forcedMissRadius>0.1</forcedMissRadius>
+                                    <muzzleFlashScale>12</muzzleFlashScale>
+                                    <range>54.9</range>
+                                    <warmupTime>1.700</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.615</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.935</AccuracyLong>
+                                <Mass>6</Mass>
+                            </statBases>
+                            <generateCommonality>0.25</generateCommonality>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                                <li>GunHeavy</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseGrenadeProjectile">
+                            <defName>PSPLANCERBULLET</defName>
+                            <label>Lancer VS22 beam</label>
+                            <graphicData>
+                                <texPath>VS_LancerVS22Bullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>4</drawSize>-->
+                            </graphicData>
+                            <projectile>
+                                <damageDef>VSBOMB</damageDef>
+                                <soundExplode>DispensePaste</soundExplode>
+                                <damageAmountBase>39</damageAmountBase>
+                                <armorPenetrationBase>0.30</armorPenetrationBase>
+                                <explosionRadius>1.2</explosionRadius>
+                                <explosionDelay>0</explosionDelay>
+                                <speed>110</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPLANCER_Bond</defName>
+                            <label>bond Lancer VS22</label>
+                            <description>Bond an Lancer VS22.</description>
+                            <jobString>Bonding a Lancer VS22.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPLANCER</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPLANCER</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPLANCER_Bond>1</PSPLANCER_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- ===== PSP_TR ===== -->
+                        <!-- PSPMCG_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPMCG_Bond</defName>
+                            <label>persona T7 mini-chaingun</label>
+                            <description>The sound of the menacing T7 MCG firing strikes fear into the heart of its enemies. It is capable of sustained fire that can tear apart entire squads.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>TR_T7MCG</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPMCGSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPMCGBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>23.9</range>
+                                    <burstShotCount>150</burstShotCount>
+                                    <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                                    <warmupTime>1.615</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.615</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.660</AccuracyTouch>
+                                <AccuracyShort>0.495</AccuracyShort>
+                                <AccuracyMedium>0.132</AccuracyMedium>
+                                <AccuracyLong>0.088</AccuracyLong>
+                                <Mass>6</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>PSPMCGBULLET</defName>
+                            <label>T7 mini-chaingun bullet</label>
+                            <graphicData>
+                                <texPath>TR_T7MCGBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>4</damageAmountBase>
+                                <armorPenetrationBase>0.03</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPMCG_Bond</defName>
+                            <label>bond T7 mini-chaingun</label>
+                            <description>Bond an T7 mini-chaingun.</description>
+                            <jobString>Bonding a T7 mini-chaingun.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPMCG</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPMCG</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPMCG_Bond>1</PSPMCG_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- PSPCARV_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPCARV_Bond</defName>
+                            <label>persona T9 CARV</label>
+                            <description>Aptly named, the T9 CARV's rate of fire allows it to cut through whole groups of enemies before needing to reload.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>TR_T9CARV</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPCARVSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPCARVBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>29.9</range>
+                                    <burstShotCount>25</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <warmupTime>1.488</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.825</AccuracyTouch>
+                                <AccuracyShort>0.605</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.220</AccuracyLong>
+                                <Mass>5</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>PSPCARVBULLET</defName>
+                            <label>T9 CARV bullet</label>
+                            <graphicData>
+                                <texPath>TR_T9CARVBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>7</damageAmountBase>
+                                <armorPenetrationBase>0.05</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPCARV_Bond</defName>
+                            <label>bond T9 CARV</label>
+                            <description>Bond an T9 CARV.</description>
+                            <jobString>Bonding a T9 CARV.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPCARV</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPCARV</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPCARV_Bond>1</PSPCARV_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- PSPAMR_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPAMR_Bond</defName>
+                            <label>persona AMR-66</label>
+                            <description>The semi-automatic AMR-66 battle rifle uses powerful cartridges that hold considerable stopping power up to medium range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>TR_AMR66</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPAMRSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPAMRBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>7</muzzleFlashScale>
+                                    <range>39.9</range>
+                                    <warmupTime>0.638</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>0.850</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyShort>0.770</AccuracyShort>
+                                <AccuracyMedium>0.825</AccuracyMedium>
+                                <AccuracyLong>0.770</AccuracyLong>
+                                <Mass>4</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>PSPAMRBULLET</defName>
+                            <label>AMR-66 bullet</label>
+                            <graphicData>
+                                <texPath>TR_AMR66Bullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>13</damageAmountBase>
+                                <armorPenetrationBase>0.10</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPAMR_Bond</defName>
+                            <label>bond AMR-66</label>
+                            <description>Bond an AMR-66.</description>
+                            <jobString>Bonding a AMR-66.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPAMR</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPAMR</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPAMR_Bond>1</PSPAMR_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- PSPARMISTICE_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPARMISTICE_Bond</defName>
+                            <label>persona SMG-46 armistice</label>
+                            <description>The SMG-46 Armistice fully automatic submachine gun features an extremely fast rate of fire.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>TR_SMG46Armistice</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPARMISTICESOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPARMISTICEBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>19.9</range>
+                                    <burstShotCount>24</burstShotCount>
+                                    <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                    <warmupTime>1.020</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.658</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.110</AccuracyMedium>
+                                <AccuracyLong>0.055</AccuracyLong>
+                                <Mass>4</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>PSPARMISTICEBULLET</defName>
+                            <label>SMG-46 Armistice bullet</label>
+                            <graphicData>
+                                <texPath>TR_SMG46ArmisticeBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>6</damageAmountBase>
+                                <armorPenetrationBase>0.05</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPARMISTICE_Bond</defName>
+                            <label>bond SMG-46 armistice</label>
+                            <description>Bond an SMG-46 armistice.</description>
+                            <jobString>Bonding a SMG-46 armistice.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPARMISTICE</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPARMISTICE</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPARMISTICE_Bond>1</PSPARMISTICE_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- PSPREPEATER_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPREPEATER_Bond</defName>
+                            <label>persona TX1 repeater</label>
+                            <description>The reliable TX1 Repeater is the latest iteration of a firearm design that has stretched back for 300 years. Its three round burst fire mode provides considerable stopping power at close range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>TR_TX1Repeater</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPREPEATERSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPREPEATERBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>17.9</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                                    <warmupTime>0.595</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>0.638</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.990</AccuracyTouch>
+                                <AccuracyShort>0.770</AccuracyShort>
+                                <AccuracyMedium>0.220</AccuracyMedium>
+                                <AccuracyLong>0.022</AccuracyLong>
+                                <Mass>2</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>PSPREPEATERBULLET</defName>
+                            <label>TX1 repeater bullet</label>
+                            <graphicData>
+                                <texPath>TR_TX1RepeaterBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.10</armorPenetrationBase>
+                                <speed>65</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPREPEATER_Bond</defName>
+                            <label>bond TX1 repeater</label>
+                            <description>Bond an TX1 repeater.</description>
+                            <jobString>Bonding a TX1 repeater.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPREPEATER</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPREPEATER</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPREPEATER_Bond>1</PSPREPEATER_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- PSPSTRIKER_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPSTRIKER_Bond</defName>
+                            <label>persona T2 Striker</label>
+                            <description>The dumbfire-capable T2 Striker houses a six-round magazine of compact, heat-seeking rockets that will home in when within proximity of enemy aircraft.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>TR_T2Striker</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPSTRIKERSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPSTRIKERBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <forcedMissRadius>1</forcedMissRadius>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <range>39.9</range>
+                                    <burstShotCount>6</burstShotCount>
+                                    <ticksBetweenBurstShots>26</ticksBetweenBurstShots>
+                                    <warmupTime>1.870</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyShort>0.660</AccuracyShort>
+                                <AccuracyMedium>0.440</AccuracyMedium>
+                                <AccuracyLong>0.220</AccuracyLong>
+                                <Mass>5</Mass>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                                <li>GunHeavy</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseGrenadeProjectile">
+                            <defName>PSPSTRIKERBULLET</defName>
+                            <label>T2 striker rocket</label>
+                            <graphicData>
+                                <texPath>TR_T2StrikerBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>TRBOMB</damageDef>
+                                <soundExplode>PSPSTRIKEREXPLOSION</soundExplode>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.10</armorPenetrationBase>
+                                <explosionRadius>1</explosionRadius>
+                                <explosionDelay>0</explosionDelay>
+                                <speed>40</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_PSPSTRIKER_Bond</defName>
+                            <label>bond T2 Striker</label>
+                            <description>Bond an T2 Striker.</description>
+                            <jobString>Bonding a T2 Striker.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>PSPSTRIKER</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>PSPSTRIKER</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <PSPSTRIKER_Bond>1</PSPSTRIKER_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

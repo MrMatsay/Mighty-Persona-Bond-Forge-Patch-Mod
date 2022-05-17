@@ -51,3 +51,4 @@
 - SNS AOTC: True Pinnacle of Creation
 - Vali's Charged Arsenal
 - Vali's Charged Arsenal - Eltex Series
+- PlanetsidePew (Continued)
