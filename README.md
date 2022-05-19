@@ -53,3 +53,4 @@
 - Vali's Charged Arsenal - Eltex Series
 - PlanetsidePew (Continued)
 - [RWY]Advanced Mechanoid Warfare
+- Oddities: Weapons Module

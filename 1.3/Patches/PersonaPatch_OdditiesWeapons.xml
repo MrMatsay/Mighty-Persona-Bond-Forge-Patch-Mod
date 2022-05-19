@@ -1,0 +1,1440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Oddities: Weapons Module
+    
+    == Range
+    OW_Gun_Roulette_Bond = persona roulette
+    OW_Gun_Proboscis_Bond = persona proboscis
+    OW_Gun_Momentum_Bond = persona momentum
+    OW_Gun_Stasis_Bond = persona stasis
+    OW_Gun_Heartstop_Bond = persona heartstop
+    OW_Bow_Tesla_Bond = persona tesla
+
+    == Melee
+    OW_MeleeWeapon_DevilsBargain_Bond = persona devil's bargain
+    OW_MeleeWeapon_Skyslasher_Bond = persona skyslasher
+    OW_MeleeWeapon_Kronos_Bond = persona kronos
+    OW_MeleeWeapon_Cantabile_Bond = persona cantabile
+    OW_MeleeWeapon_Eschatos_Bond = persona eschatos
+    OW_MeleeWeapon_Epiphany_Bond = persona epiphany
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Oddities: Weapons Module</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- Ranged Weapon Base -->
+                        <ThingDef Name="MPBFPM_RangedWeaponOddity" Abstract="True" ParentName="MPBFPM_BaseGunWithQuality">
+                            <techLevel>Ultra</techLevel>
+                            <statBases>
+                                <MaxHitPoints>250</MaxHitPoints>
+                                <MarketValue>2800</MarketValue>
+                                <Mass>2</Mass>
+                            </statBases>
+                            <comps>
+                                <li Class="CompProperties_Art">
+                                    <minQualityForArtistic>Normal</minQualityForArtistic>
+                                </li>
+                            </comps>
+                            <relicChance>4</relicChance>
+                            <smeltable>true</smeltable>
+                            <burnableByRecipe>true</burnableByRecipe>
+                            <weaponTags>
+                                <li>OddityRanged</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>Ranged</li>
+                            </weaponClasses>
+                            <tradeability>Sellable</tradeability>
+                            <thingSetMakerTags Inherit="False">
+                                <li>RewardOddity</li>
+                            </thingSetMakerTags>
+                        </ThingDef>
+
+                        <!-- OW_Gun_Roulette_Bond -->
+                        <ThingDef ParentName="MPBFPM_RangedWeaponOddity">
+                            <defName>OW_Gun_Roulette_Bond</defName>
+                            <label>persona roulette</label>
+                            <description>A highly modified revolver with a fanable hammer. The chamber has an unstable infusion mechanism that imbues its otherwise ordinary bullets with various properties. These will all assist in defeating the enemy, but it can be somewhat unreliable.\n\nRecorded effects include: target ignition, stuns, small explosions, increased damage, motor function impairment, and armor destruction.\n\nIt's also rumored the weapon can cause instant death, but this is unconfirmed.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Oddity_Roulette</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.5</uiIconScale>
+                            <soundInteract>Interact_Revolver</soundInteract>
+                            <techLevel>Industrial</techLevel>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>1.4</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.770</AccuracyShort>
+                                <AccuracyMedium>0.440</AccuracyMedium>
+                                <AccuracyLong>0.330</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.615</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MentalBreakThreshold>-0.1</MentalBreakThreshold>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>OW_Bullet_Roulette_Bond</defaultProjectile>
+                                    <warmupTime>0.255</warmupTime>
+                                    <range>22.3</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                    <soundCast>Shot_Revolver</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="OdditiesWeapons.Oddities_ModExtension_RouletteRNG">
+                                    <instantKillChance>250</instantKillChance>
+                                    <instantKillDamage>9999.9</instantKillDamage>
+                                    <fireSize>0.1</fireSize>
+                                    <stunDuration>1.5</stunDuration>
+                                    <blastRadius>3.4</blastRadius>
+                                    <blastDamage>11</blastDamage>
+                                    <extraDamage>17.0</extraDamage>
+                                    <statusIntensity>0.25</statusIntensity>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>OW_Bullet_Roulette_Bond</defName>
+                            <label>roulette bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>OW_BulletRoulette</damageDef>
+                                <damageAmountBase>11</damageAmountBase>
+                                <stoppingPower>1</stoppingPower>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_OW_Gun_Roulette_Bond</defName>
+                            <label>bond roulette</label>
+                            <description>Bond an roulette.</description>
+                            <jobString>Bonding a roulette.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>OW_OddityRecombinationWeapon</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>OW_Gun_Roulette</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>OW_Gun_Roulette</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <OW_Gun_Roulette_Bond>1</OW_Gun_Roulette_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- OW_Gun_Proboscis_Bond -->
+                        <ThingDef ParentName="MPBFPM_RangedWeaponOddity">
+                            <defName>OW_Gun_Proboscis_Bond</defName>
+                            <label>persona proboscis</label>
+                            <description>An assault rifle with biological components, taken from the remnants of an insectoid found on some far-off world. Shots fired from this rifle store blood from the target. Then, a system of insect-like drones will fly back and forth, mending the shooter's wounds and replacing lost blood with stolen material.\n\nWhile still effective as a weapon versus robotic targets, it is incapable of sucking blood from them.\n\nThanks to a front-mounted claw, this gun is also better than average at melee combat.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Oddity_Proboscis</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <techLevel>Industrial</techLevel>
+                            <statBases>
+                                <Mass>2.8</Mass>
+                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyShort>0.880</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.660</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>0.10</MoveSpeed>
+                                <ToxicSensitivity>-0.5</ToxicSensitivity>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>OW_Bullet_Proboscis_Bond</defaultProjectile>
+                                    <warmupTime>0.595</warmupTime>
+                                    <range>33.2</range>
+                                    <burstShotCount>2</burstShotCount>
+                                    <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                    <soundCast>Shot_AssaultRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>claw</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>15.400</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="OdditiesWeapons.Oddities_ModExtension_LifestealOnHit">
+                                    <healingAmount>2.0</healingAmount>
+                                    <healingAttempts>2</healingAttempts>
+                                </li>
+                                <li Class="OdditiesWeapons.Oddities_ModExtension_ProboscisBloodRestore">
+                                    <bloodAmount>0.03</bloodAmount>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>OW_Bullet_Proboscis_Bond</defName>
+                            <label>lifeleech bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>OW_BulletProboscis</damageDef>
+                                <damageAmountBase>15</damageAmountBase>
+                                <stoppingPower>1</stoppingPower>
+                                <speed>75</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_OW_Gun_Proboscis_Bond</defName>
+                            <label>bond proboscis</label>
+                            <description>Bond an proboscis.</description>
+                            <jobString>Bonding a proboscis.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>OW_OddityRecombinationWeapon</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>OW_Gun_Proboscis</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>OW_Gun_Proboscis</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <OW_Gun_Proboscis_Bond>1</OW_Gun_Proboscis_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- OW_Gun_Momentum_Bond -->
+                        <ThingDef ParentName="MPBFPM_RangedWeaponOddity">
+                            <defName>OW_Gun_Momentum_Bond</defName>
+                            <label>persona momentum</label>
+                            <description>An exceptionally heavy sniper rifle with an on-board targeting AI. While slow and cumbersome to aim, once trained, the AI allows for rapid-fire of precision shots. Its design also minimizes recoil, allowing the user to move quickly after shooting.\n\nEach bullet fired is equipped with a tracker. Upon a successful hit, these bullets will transmit information to the gun, allowing it to dynamically callibrate to hit the target. This will boost aiming speed for some time.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Oddity_Momentum</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <techLevel>Spacer</techLevel>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>6.2</Mass>
+                                <AccuracyTouch>0.495</AccuracyTouch>
+                                <AccuracyShort>0.660</AccuracyShort>
+                                <AccuracyMedium>0.968</AccuracyMedium>
+                                <AccuracyLong>0.990</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.25</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>OW_Bullet_Momentum_Bond</defaultProjectile>
+                                    <warmupTime>3.825</warmupTime>
+                                    <range>44.9</range>
+                                    <soundCast>Shot_SniperRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="OdditiesCore.Oddities_ModExtension_StatusSelfOnHit">
+                                    <hediffName>OW_MomentumRamp</hediffName>
+                                    <hediffAmount>0.15</hediffAmount>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>OW_Bullet_Momentum_Bond</defName>
+                            <label>calibrator bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Big</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>OW_BulletMomentum</damageDef>
+                                <damageAmountBase>22</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>110</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_OW_Gun_Momentum_Bond</defName>
+                            <label>bond momentum</label>
+                            <description>Bond an momentum.</description>
+                            <jobString>Bonding a momentum.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>OW_OddityRecombinationWeapon</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>OW_Gun_Momentum</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>OW_Gun_Momentum</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <OW_Gun_Momentum_Bond>1</OW_Gun_Momentum_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- OW_Gun_Stasis_Bond -->
+                        <ThingDef ParentName="MPBFPM_RangedWeaponOddity">
+                            <defName>OW_Gun_Stasis_Bond</defName>
+                            <label>persona stasis</label>
+                            <description>An unwieldy shotgun designed for the frontline, notable for its unusual design. The bulk of the weapon is dedicated to a gigantic foldable shield, resembling an umbrella. This heavy shield does much to block incoming assaults from bullets, but does little against blunt attacks.\n\nMaking use of the technology the Kronos was designed with, bullets that would be completely deflected the umbrella shield will be locked in time, before promptly being launched back at the enemy.\n\nAlso beyond stylish.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Oddity_Stasis</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Shotgun</soundInteract>
+                            <techLevel>Ultra</techLevel>
+                            <weaponClasses>
+                                <li>Ultratech</li>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>4.8</Mass>
+                                <AccuracyTouch>0.990</AccuracyTouch>
+                                <AccuracyShort>1.045</AccuracyShort>
+                                <AccuracyMedium>0.660</AccuracyMedium>
+                                <AccuracyLong>0.440</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.723</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <ArmorRating_Sharp>0.75</ArmorRating_Sharp>
+                                <ArmorRating_Blunt>0.25</ArmorRating_Blunt>
+                                <MoveSpeed>-0.40</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>OW_Bullet_Stasis_Bond</defaultProjectile>
+                                    <warmupTime>0.638</warmupTime>
+                                    <range>16.4</range>
+                                    <soundCast>Shot_Shotgun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="OdditiesCore.Oddities_ModExtension_RetaliateOnHit">
+                                    <counterMelee>False</counterMelee>
+                                    <counterRanged>True</counterRanged>
+                                    <counterOnDeflect>True</counterOnDeflect>
+                                    <counterExact>True</counterExact>
+                                    <counterType>Bullet</counterType>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>OW_Bullet_Stasis_Bond</defName>
+                            <label>shotgun blast</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>26</damageAmountBase>
+                                <stoppingPower>3</stoppingPower>
+                                <armorPenetrationBase>0.25</armorPenetrationBase>
+                                <speed>64</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_OW_Gun_Stasis_Bond</defName>
+                            <label>bond stasis</label>
+                            <description>Bond an stasis.</description>
+                            <jobString>Bonding a stasis.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>OW_OddityRecombinationWeapon</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>OW_Gun_Stasis</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>OW_Gun_Stasis</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <OW_Gun_Stasis_Bond>1</OW_Gun_Stasis_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- Heartstop -->
+                        <ThingDef ParentName="MPBFPM_RangedWeaponOddity">
+                            <defName>OW_Gun_Heartstop_Bond</defName>
+                            <label>persona heartstop</label>
+                            <description>An advanced marksman's rifle with exceptional accuracy and fire rate, fabricated from several interlocking plates of metal. An assassin's weapon, the Heartstop was designed to pick off targets before they even knew what hit them.\n\nWhen a bullet from the Heartstop connects with a target that has minimal injuries (90% Health or more), the damage will be massively amplified, and the target crippled. This will often kill the target in a single blow. In addition, due to its sturdy make, the Heartstop is a slightly better melee weapon than most other guns.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Oddity_Heartstop</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <techLevel>Spacer</techLevel>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>3.7</Mass>
+                                <AccuracyTouch>0.682</AccuracyTouch>
+                                <AccuracyShort>0.957</AccuracyShort>
+                                <AccuracyMedium>1.023</AccuracyMedium>
+                                <AccuracyLong>0.957</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.190</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MentalBreakThreshold>-0.05</MentalBreakThreshold>
+                                <ShootingAccuracyPawn>2</ShootingAccuracyPawn>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>OW_Bullet_Heartstop_Bond</defaultProjectile>
+                                    <warmupTime>1.105</warmupTime>
+                                    <range>38.2</range>
+                                    <soundCast>Shot_BoltActionRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="OdditiesWeapons.Oddities_ModExtension_HeartstopExecute">
+                                    <hpPercentToTrigger>0.9</hpPercentToTrigger>
+                                    <damageInstances>3</damageInstances>
+                                    <damageAmount>17</damageAmount>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>OW_Bullet_Heartstop_Bond</defName>
+                            <label>bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Big</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>OW_BulletHeartstop</damageDef>
+                                <damageAmountBase>19</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <armorPenetrationBase>0.40</armorPenetrationBase>
+                                <speed>85</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_OW_Gun_Heartstop_Bond</defName>
+                            <label>bond heartstop</label>
+                            <description>Bond an heartstop.</description>
+                            <jobString>Bonding a heartstop.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>OW_OddityRecombinationWeapon</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>OW_Gun_Heartstop</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>OW_Gun_Heartstop</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <OW_Gun_Heartstop_Bond>1</OW_Gun_Heartstop_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- Tesla -->
+                        <ThingDef ParentName="MPBFPM_RangedWeaponOddity">
+                            <defName>OW_Bow_Tesla_Bond</defName>
+                            <label>persona tesla</label>
+                            <description>A crossbow modified with rudimentary electrical generation capabilities, created by an insane medieval inventor who was put to death for the crime of "witchcraft". The artisan bolts of the weapon possess rudimentary batteries within them, capable of holding immense amounts of charge.\n\nWhen a bolt from the Tesla strikes the target, a pulse of electrical energy will shoot from the target, jumping to nearby foes and damaging them. These arcing bolts will also deal EMP damage, disabling mechanoids and shattering shields.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Oddity_Tesla</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.2</uiIconScale>
+                            <soundInteract>Bow_Large</soundInteract>
+                            <techLevel>Medieval</techLevel>
+                            <statBases>
+                                <Mass>2.9</Mass>
+                                <AccuracyTouch>0.825</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>0.660</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.125</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+                                <MoveSpeed>0.1</MoveSpeed>
+                                <GlobalLearningFactor>0.2</GlobalLearningFactor>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>OW_Arrow_Tesla_Bond</defaultProjectile>
+                                    <warmupTime>1.615</warmupTime>
+                                    <range>26.3</range>
+                                    <soundCast>Bow_Large</soundCast>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>limb</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="OdditiesWeapons.Oddities_ModExtension_TeslaArcLightning">
+                                    <searchRadius>6.5</searchRadius>
+                                    <maximumBounces>10</maximumBounces>
+                                    <damageAmount>13.0</damageAmount>
+                                    <empAmount>30.0</empAmount>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseProjectileNeolithic">
+                            <defName>OW_Arrow_Tesla_Bond</defName>
+                            <label>tesla bolt</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Arrow_Small</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>OW_ArrowTesla</damageDef>
+                                <damageAmountBase>26</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <armorPenetrationBase>0.5</armorPenetrationBase>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_OW_Bow_Tesla_Bond</defName>
+                            <label>bond tesla</label>
+                            <description>Bond an tesla.</description>
+                            <jobString>Bonding a tesla.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>OW_OddityRecombinationWeapon</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>OW_Bow_Tesla</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>OW_Bow_Tesla</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <OW_Bow_Tesla_Bond>1</OW_Bow_Tesla_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- Melee Weapon Base -->
+                        <ThingDef Name="MPBFPM_MeleeWeaponOddity" Abstract="True" ParentName="MPBFPM_MeleeWeaponUltratech">
+                            <statBases>
+                                <MaxHitPoints>250</MaxHitPoints>
+                                <MarketValue>2800</MarketValue>
+                            </statBases>
+                            <comps>
+                                <li Class="CompProperties_Art">
+                                    <minQualityForArtistic>Normal</minQualityForArtistic>
+                                </li>
+                            </comps>
+                            <relicChance>4</relicChance>
+                            <weaponTags>
+                                <li>OddityMelee</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>Melee</li>
+                            </weaponClasses>
+                            <tradeability>Sellable</tradeability>
+                            <thingSetMakerTags Inherit="False">
+                                <li>RewardOddity</li>
+                            </thingSetMakerTags>
+                        </ThingDef>
+
+                        <!-- Devil's Bargain -->
+                        <ThingDef ParentName="MPBFPM_MeleeWeaponOddity">
+                            <defName>OW_MeleeWeapon_DevilsBargain_Bond</defName>
+                            <label>persona devil's bargain</label>
+                            <description>A highly cursed sword said to be made by either the devil, or a rather devious archotech intelligence. While it has incredible power, to swing it is to sacrifice one's soul to the devil, and be bound to them for all eternity. Some may view this as a good thing.\n\nRepeated use of the sword will stave off death from the devil's curse. This weapon also infuses the wielder with increased durability upon hitting a foe, and the blade itself can tear down thick armor.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Oddity_Devil</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <statBases>
+                                <Mass>1.90</Mass>
+                            </statBases>
+                            <techLevel>Medieval</techLevel>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>8.80</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>OW_StabDevil</li>
+                                    </capacities>
+                                    <power>28.60</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>OW_CutDevil</li>
+                                    </capacities>
+                                    <power>28.60</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="OdditiesCore.Oddities_ModExtension_StatusSelfOnHit">
+                                    <hediffName>OW_DevilBlood</hediffName>
+                                    <hediffAmount>0.25</hediffAmount>
+                                </li>
+                                <li Class="OdditiesCore.Oddities_ModExtension_StatusTargetOnHit">
+                                    <hediffName>OC_MiscSunder</hediffName>
+                                    <hediffAmount>0.15</hediffAmount>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_OW_MeleeWeapon_DevilsBargain_Bond</defName>
+                            <label>bond devil's bargain</label>
+                            <description>Bond an devil's bargain.</description>
+                            <jobString>Bonding a devil's bargain.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>OW_OddityRecombinationWeapon</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>OW_MeleeWeapon_DevilsBargain</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>OW_MeleeWeapon_DevilsBargain</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <OW_MeleeWeapon_DevilsBargain_Bond>1</OW_MeleeWeapon_DevilsBargain_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- Skyslasher -->
+                        <ThingDef ParentName="MPBFPM_MeleeWeaponOddity">
+                            <defName>OW_MeleeWeapon_Skyslasher_Bond</defName>
+                            <label>persona skyslasher</label>
+                            <description>An ancient blade made of an unknown alloy, with symbols praising some old god or archotech consciousness. It's incredibly light and razor-thin, allowing an experienced user to deliver a flurry of rapid slashes to a target.\n\nWhat's known as "the wind's blessing" bounds itself to the wielder, granting the holder boosted movement speed. This is further increased for a short time on kill.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Oddity_Skyslasher</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <statBases>
+                                <Mass>0.15</Mass>
+                            </statBases>
+                            <techLevel>Medieval</techLevel>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MoveSpeed>2.00</MoveSpeed>
+                                <MeleeDodgeChance>10.0</MeleeDodgeChance>
+                            </equippedStatOffsets>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>3.30</power>
+                                    <cooldownTime>0.680</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>OW_CutSky</li>
+                                    </capacities>
+                                    <power>7.70</power>
+                                    <cooldownTime>0.510</cooldownTime>
+                                    <armorPenetration>0.440</armorPenetration>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_OW_MeleeWeapon_Skyslasher_Bond</defName>
+                            <label>bond skyslasher</label>
+                            <description>Bond an skyslasher.</description>
+                            <jobString>Bonding a skyslasher.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>OW_OddityRecombinationWeapon</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>OW_MeleeWeapon_Skyslasher</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>OW_MeleeWeapon_Skyslasher</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <OW_MeleeWeapon_Skyslasher_Bond>1</OW_MeleeWeapon_Skyslasher_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- Kronos -->
+                        <ThingDef ParentName="MPBFPM_MeleeWeaponOddity">
+                            <defName>OW_MeleeWeapon_Kronos_Bond</defName>
+                            <label>persona kronos</label>
+                            <description>A hefty maul born as a result of experiments with time travel. While the project ultimately failed, some of the gathered knowledge was used to make this weapon, along with the heavy shotgun known as Stasis. Chronological energy floods from the head of the maul, giving this weapon an abnormally high chance to stun the target on hit.\n\nWhen the head impacts a target, it will unleash a burst that temporarily stops the timelines of all nearby targets, not discriminating between friend and foe. Only the user will be unaffected in the radius. This effect has a short cooldown.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Oddity_Kronos</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <statBases>
+                                <Mass>1.5</Mass>
+                            </statBases>
+                            <techLevel>Ultra</techLevel>
+                            <weaponClasses>
+                                <li>MeleeBlunt</li>
+                                <li>Ultratech</li>
+                            </weaponClasses>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MeleeDodgeChance>3.0</MeleeDodgeChance>
+                                <WorkSpeedGlobal>0.2</WorkSpeedGlobal>
+                            </equippedStatOffsets>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>OW_PokeKronos</li>
+                                    </capacities>
+                                    <power>13.20</power>
+                                    <cooldownTime>1.785</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>head</label>
+                                    <capacities>
+                                        <li>OW_BluntKronos</li>
+                                    </capacities>
+                                    <power>27.50</power>
+                                    <cooldownTime>1.785</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="OdditiesWeapons.Oddities_ModExtension_KronosStun">
+                                    <kronosStunTime>10.0</kronosStunTime>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_OW_MeleeWeapon_Kronos_Bond</defName>
+                            <label>bond kronos</label>
+                            <description>Bond an kronos.</description>
+                            <jobString>Bonding a kronos.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>OW_OddityRecombinationWeapon</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>OW_MeleeWeapon_Kronos</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>OW_MeleeWeapon_Kronos</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <OW_MeleeWeapon_Kronos_Bond>1</OW_MeleeWeapon_Kronos_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- Cantabile -->
+                        <ThingDef ParentName="MPBFPM_MeleeWeaponOddity">
+                            <defName>OW_MeleeWeapon_Cantabile_Bond</defName>
+                            <label>persona cantabile</label>
+                            <description>A scythe with a musical flair. The weapon's golden string reverberates through the air with each swing, creating the most beautiful sound. A skilled fighter can play with the beauty of an entire orchestra with enough practice.\n\nThe melody produced by the weapon emboldens nearby allies, boosting their mood and combat prowess. On the other hand, enemies may go mad upon exposure to the song, attacking their allies. If they don't go mad, the song will hinder their combat capabilities.\n\nThe song has no effect against mechanoids, or other robotic units.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Oddity_Cantabile</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <statBases>
+                                <Mass>1.2</Mass>
+                            </statBases>
+                            <techLevel>Medieval</techLevel>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <WorkSpeedGlobal>0.25</WorkSpeedGlobal>
+                                <MoveSpeed>0.25</MoveSpeed>
+                                <MentalBreakThreshold>0.05</MentalBreakThreshold>
+                            </equippedStatOffsets>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.20</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>OW_CutCanta</li>
+                                    </capacities>
+                                    <power>22.00</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="OdditiesWeapons.Oddities_ModExtension_CantabileAura">
+                                    <songRadius>28.3</songRadius>
+                                    <songBerserkChance>40</songBerserkChance>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_OW_MeleeWeapon_Cantabile_Bond</defName>
+                            <label>bond cantabile</label>
+                            <description>Bond an cantabile.</description>
+                            <jobString>Bonding a cantabile.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>OW_OddityRecombinationWeapon</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>OW_MeleeWeapon_Cantabile</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>OW_MeleeWeapon_Cantabile</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <OW_MeleeWeapon_Cantabile_Bond>1</OW_MeleeWeapon_Cantabile_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- Eschatos / Fate (old name) -->
+                        <ThingDef ParentName="MPBFPM_MeleeWeaponOddity">
+                            <defName>OW_MeleeWeapon_Eschatos_Bond</defName>
+                            <label>persona eschatos</label>
+                            <description>A razor-sharp knife used in sacrificial rituals. In the presence of the full moon, the Eschatos would be used to offer up a soul to the gods above. With a single stab, the victim's entire body would become riddled with bloody gashes.\n\nWhen attacking a pawn that has no other entities near it, the mysterious power of the Eschatos will pulsate through the victim's body, dealing severe damage and mending the wielder's wounds. This makes it ideal for assassinating high priority targets, assuming one can catch them alone. The sharp blade easily cuts through armor.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Oddity_Fate</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <statBases>
+                                <Mass>0.6</Mass>
+                            </statBases>
+                            <techLevel>Neolithic</techLevel>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MentalBreakThreshold>-0.10</MentalBreakThreshold>
+                                <SocialImpact>0.30</SocialImpact>
+                            </equippedStatOffsets>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.90</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>blade</label>
+                                    <capacities>
+                                        <li>OW_CutFate</li>
+                                    </capacities>
+                                    <power>16.50</power>
+                                    <cooldownTime>1.360</cooldownTime>
+                                    <armorPenetration>0.605</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>OW_StabFate</li>
+                                    </capacities>
+                                    <power>16.50</power>
+                                    <cooldownTime>1.360</cooldownTime>
+                                    <armorPenetration>0.605</armorPenetration>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="OdditiesWeapons.Oddities_ModExtension_FateIsolatedKill">
+                                    <searchRadius>2.8</searchRadius>
+                                    <damageInstances>6</damageInstances>
+                                    <damageAmount>11</damageAmount>
+                                </li>
+                                <li Class="OdditiesWeapons.Oddities_ModExtension_LifestealOnHit">
+                                    <healingAmount>2.2</healingAmount>
+                                    <healingAttempts>3</healingAttempts>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_OW_MeleeWeapon_Eschatos_Bond</defName>
+                            <label>bond eschatos</label>
+                            <description>Bond an eschatos.</description>
+                            <jobString>Bonding a eschatos.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>OW_OddityRecombinationWeapon</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>OW_MeleeWeapon_Eschatos</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>OW_MeleeWeapon_Eschatos</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <OW_MeleeWeapon_Eschatos_Bond>1</OW_MeleeWeapon_Eschatos_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- Secret Weapon: Epiphany -->
+                        <ThingDef ParentName="MPBFPM_BaseGun">
+                            <defName>OW_MeleeWeapon_Epiphany_Bond</defName>
+                            <label>persona epiphany</label>
+                            <description>Something has gone horribly wrong?\n\n:)\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Archotech</techLevel>
+                            <graphicData>
+                                <texPath>Things/Weapons/Oddity_Epiphany</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>666</MarketValue>
+                                <Mass>0.1</Mass>
+                            </statBases>
+                            <smeltable>true</smeltable>
+                            <burnableByRecipe>true</burnableByRecipe>
+                            <tradeability>None</tradeability>
+                            <thingCategories>
+                                <li>WeaponsMelee</li>
+                            </thingCategories>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>ERR</label>
+                                    <capacities>
+                                        <li>OW_CutEpiphany</li>
+                                    </capacities>
+                                    <power>55</power>
+                                    <cooldownTime>0.425</cooldownTime>
+                                    <armorPenetration>2.200</armorPenetration>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="OdditiesCore.Oddities_ModExtension_StatusSelfOnHit">
+                                    <hediffName>OW_EpiphanyCurse</hediffName>
+                                    <hediffAmount>0.012</hediffAmount>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_OW_MeleeWeapon_Epiphany_Bond</defName>
+                            <label>bond epiphany</label>
+                            <description>Bond an epiphany.</description>
+                            <jobString>Bonding a epiphany.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>OW_OddityRecombinationWeapon</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>OW_MeleeWeapon_Epiphany</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>OW_MeleeWeapon_Epiphany</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <OW_MeleeWeapon_Epiphany_Bond>1</OW_MeleeWeapon_Epiphany_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
