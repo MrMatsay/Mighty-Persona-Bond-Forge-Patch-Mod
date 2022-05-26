@@ -8,6 +8,9 @@
     VFEP_WarcasketGun_Minigun_Bond = persona warcasket minigun
     VFEP_WarcasketGun_GrenadeLauncher_Bond = persona warcasket grenade launcher
     VFEP_WarcasketGun_HeavyFlamer_Bond = persona warcasket heavy flamer
+    VFEP_WarcasketGun_ChargeLance_Bond = persona warcasket charge lance
+    VFEP_WarcasketGun_HandheldCannon_Bond = persona warcasket handheld cannon
+    VFEP_WarcasketGun_ChargeBlaster_Bond = persona warcasket charge blaster
 -->
 <Patch>
     <Operation Class="PatchOperationFindMod">
@@ -831,6 +834,368 @@
                             </fixedIngredientFilter>
                             <products>
                                 <VFEP_WarcasketGun_HeavyFlamer_Bond>1</VFEP_WarcasketGun_HeavyFlamer_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- VFEP_WarcasketGun_ChargeLance_Bond -->
+                        <ThingDef ParentName="VFEP_BaseWarcasketGun_Bond">
+                            <defName>VFEP_WarcasketGun_ChargeLance_Bond</defName>
+                            <label>persona warcasket charge lance</label>
+                            <description>A terror on the battlefield, the charge lance received a massive upgrade for warcasket use. A considerably more powerful energy source gives it superior stopping power, able to fire multiple larger projectiles at a greater range with improved accuracy and penetration.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketChargeLance</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <statBases>
+                                <MarketValue>2250</MarketValue>
+                                <Mass>45</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>0.990</AccuracyMedium>
+                                <AccuracyLong>0.935</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.295</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>WarcasketVeteran</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>VFEP_Bullet_WarcasketChargeLance_Bond</defaultProjectile>
+                                    <warmupTime>1.445</warmupTime>
+                                    <range>39.9</range>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <burstShotCount>3</burstShotCount>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>2.975</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>2.975</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketChargeLance_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>VFEP_Bullet_WarcasketChargeLance_Bond</defName>
+                            <label>warcasket charge lance shot</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/ChargeLanceShot</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1.5</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>55</damageAmountBase>
+                                <stoppingPower>2</stoppingPower>
+                                <armorPenetrationBase>1.0</armorPenetrationBase>
+                                <speed>120</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_VFEP_WarcasketGun_ChargeLance_Bond</defName>
+                            <label>bond warcasket charge lance</label>
+                            <description>Bond an warcasket charge lance.</description>
+                            <jobString>Bonding a warcasket charge lance.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>VFEP_Warcaskets</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>VFEP_WarcasketGun_ChargeLance</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>VFEP_WarcasketGun_ChargeLance</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <VFEP_WarcasketGun_ChargeLance_Bond>1</VFEP_WarcasketGun_ChargeLance_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- VFEP_WarcasketGun_HandheldCannon_Bond -->
+                        <ThingDef ParentName="VFEP_BaseWarcasketGun_Bond">
+                            <defName>VFEP_WarcasketGun_HandheldCannon_Bond</defName>
+                            <label>persona warcasket handheld cannon</label>
+                            <description>Essentially a handheld smoothbore mortar that fires explosives in an arc, able to bypass enemy fortifications. Made by those who wanted to combine ancient naval warfare with modern technology. The accuracy is abysmal but the onboard fabricator ensures that artillery fire can be provided without ever needing a resupply.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketHandheldCannon</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MarketValue>1350</MarketValue>
+                                <Mass>50</Mass>
+                                <AccuracyTouch>1.078</AccuracyTouch>
+                                <AccuracyShort>1.078</AccuracyShort>
+                                <AccuracyMedium>1.078</AccuracyMedium>
+                                <AccuracyLong>1.078</AccuracyLong>
+                                <RangedWeapon_Cooldown>4.505</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>WarcasketVeteran</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>VFEP_Bullet_HandheldCannonCannonball</defaultProjectile>
+                                    <warmupTime>1.870</warmupTime>
+                                    <range>50.9</range>
+                                    <ticksBetweenBurstShots>17</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>VFEP_Shot_Cannon</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>16</muzzleFlashScale>
+                                    <forcedMissRadius>3.9</forcedMissRadius>
+                                    <requireLineOfSight>true</requireLineOfSight>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>2.975</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>2.975</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketHandheldCannon_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_VFEP_WarcasketGun_HandheldCannon_Bond</defName>
+                            <label>bond warcasket handheld cannon</label>
+                            <description>Bond an warcasket handheld cannon.</description>
+                            <jobString>Bonding a warcasket handheld cannon.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>VFEP_Warcaskets</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>VFEP_WarcasketGun_HandheldCannon</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>VFEP_WarcasketGun_HandheldCannon</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <VFEP_WarcasketGun_HandheldCannon_Bond>1</VFEP_WarcasketGun_HandheldCannon_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+
+                        <!-- VFEP_WarcasketGun_ChargeBlaster_Bond -->
+                        <ThingDef ParentName="VFEP_BaseWarcasketGun_Bond">
+                            <defName>VFEP_WarcasketGun_ChargeBlaster_Bond</defName>
+                            <label>persona warcasket charge blaster</label>
+                            <description>Essentially an upscaled charge minigun designed to be used by a warcasket. While firing fewer projectiles in each burst, the ammunition has been improved with explosive payloads. Designed as a support weapon that completely invalidates cover for the unlucky bastards on the receiving end.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketChargeBlaster</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MarketValue>2200</MarketValue>
+                                <Mass>55</Mass>
+                                <AccuracyTouch>0.220</AccuracyTouch>
+                                <AccuracyShort>0.330</AccuracyShort>
+                                <AccuracyMedium>0.330</AccuracyMedium>
+                                <AccuracyLong>0.198</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.720</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>WarcasketHeavy</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>VFEP_Bullet_WarcasketChargeBlaster</defaultProjectile>
+                                    <warmupTime>2.380</warmupTime>
+                                    <range>31.9</range>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <burstShotCount>24</burstShotCount>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.200</power>
+                                    <cooldownTime>3.400</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>13.200</power>
+                                    <cooldownTime>3.400</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketChargeBlaster_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <RecipeDef>
+                            <defName>Make_VFEP_WarcasketGun_ChargeBlaster_Bond</defName>
+                            <label>bond warcasket charge blaster</label>
+                            <description>Bond an warcasket charge blaster.</description>
+                            <jobString>Bonding a warcasket charge blaster.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisite>VFEP_Warcaskets</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>VFEP_WarcasketGun_ChargeBlaster</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>VFEP_WarcasketGun_ChargeBlaster</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <VFEP_WarcasketGun_ChargeBlaster_Bond>1</VFEP_WarcasketGun_ChargeBlaster_Bond>
                             </products>
                             <skillRequirements>
                                 <Intellectual>15</Intellectual>

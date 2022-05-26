@@ -32,7 +32,7 @@
 - Moritz's LegendaryWeapons (Continued)
 - Moyo-From the depth
 - Ratchet & Clank R.Y.N.O.
-- Reinforced Mechanoids: Volume One
+- Reinforced Mechanoids: Tyrikan-Line
 - Science Never Stops: Ambition of the Cosmic
 - The 13th Vendemiaire
 - USCM - Core
