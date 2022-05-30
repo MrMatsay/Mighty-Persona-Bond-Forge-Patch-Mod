@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Ratchet & Clank R.Y.N.O.
+    ===== Ratchet & Clank R.Y.N.O. =====
 
-    HRK_RYNO
+    == Range
+    HRK_RYNO_Bond = persona R.Y.N.O rocket launcher
 -->
 <Patch>
     <Operation Class="PatchOperationFindMod">
@@ -16,26 +17,9 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef ParentName="BaseBullet">
-                            <defName>HRK_Bullet_RYNO_Bond</defName>
-                            <label>R.Y.N.O rocket blast</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/HRK_RYNORocket</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                                <shaderType>TransparentPostLight</shaderType>
-                            </graphicData>
-                            <thingClass>Projectile_Explosive</thingClass>
-                            <projectile>
-                                <damageDef>Bomb</damageDef>
-                                <explosionRadius>1.5</explosionRadius>
-                                <speed>51</speed>
-                                <damageAmountBase>220</damageAmountBase>
-                                <stoppingPower>5</stoppingPower>
-                                <armorPenetrationBase>3</armorPenetrationBase>
-                            </projectile>
-                        </ThingDef>
-
-                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                        <!-- ===== Range ===== -->
+                        <!-- HRK_RYNO_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
                             <defName>HRK_RYNO_Bond</defName>
                             <label>persona R.Y.N.O rocket launcher</label>
                             <description>_\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -85,61 +69,30 @@
                                     <cooldownTime>2.210</cooldownTime>
                                 </li>
                             </tools>
-                            <weaponTags Inherit="False">
+                            <weaponTags>
                                 <li>SpacerGun</li>
                                 <li>GunHeavy</li>
-                                <li>RangedBladelink</li>
                             </weaponTags>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_HRK_RYNO_Bond</defName>
-                            <label>bond R.Y.N.O rocket launcher</label>
-                            <description>Bond an R.Y.N.O rocket launcher.</description>
-                            <jobString>Bonding a R.Y.N.O rocket launcher.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisites>
-                                <li>ChargedShot</li>
-                            </researchPrerequisites>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>HRK_RYNO</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>HRK_RYNO</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <HRK_RYNO_Bond>1</HRK_RYNO_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>HRK_Bullet_RYNO_Bond</defName>
+                            <label>R.Y.N.O rocket blast</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/HRK_RYNORocket</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <explosionRadius>1.5</explosionRadius>
+                                <speed>51</speed>
+                                <damageAmountBase>220</damageAmountBase>
+                                <stoppingPower>5</stoppingPower>
+                                <armorPenetrationBase>3</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
                     </value>
                 </li>
             </operations>

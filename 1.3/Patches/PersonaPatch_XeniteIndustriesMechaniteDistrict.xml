@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Xenite Industries: Mechanite District
+    ===== Xenite Industries: Mechanite District =====
 
-    charged railgun
-    coilgun
-    rail-pistol
-    rail-shotgun
+    == Range
+    MDGun_ChargedRailGun_Bond = persona charged railgun
+    MDGun_CoilGun_Bond = persona coilgun
+    MDGun_RailPistol_Bond = persona rail-pistol
+    MDGun_RailShotgun_Bond = persona rail-shotgun
 -->
 <Patch>
     <Operation Class="PatchOperationFindMod">
@@ -19,25 +20,9 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
+                        <!-- ===== Range ===== -->
                         <!-- MDGun_ChargedRailGun_Bond -->
-                        <ThingDef ParentName="BaseBullet">
-                            <defName>MDBullet_ChargedRailGun_Bond</defName>
-                            <label>charged railgun shot</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/MDchargedRailGun_Projectile</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                                <shaderType>TransparentPostLight</shaderType>
-                                <drawSize>1.75</drawSize>
-                            </graphicData>
-                            <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>44</damageAmountBase>
-                                <stoppingPower>20</stoppingPower>
-                                <speed>200</speed>
-                            </projectile>
-                        </ThingDef>
-
-                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
                             <defName>MDGun_ChargedRailGun_Bond</defName>
                             <label>persona charged railgun</label>
                             <description>A pulse-munition rail-assisted gun. It fires a triple shot at high velocity, charging it with energy as it leaves the acceleration chamber.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -55,8 +40,7 @@
                                 <AccuracyLong>1.045</AccuracyLong>
                                 <RangedWeapon_Cooldown>1.955</RangedWeapon_Cooldown>
                             </statBases>
-                            <weaponTags Inherit="False">
-                                <li>RangedBladelink</li>
+                            <weaponTags>
                                 <li>SpacerGun</li>
                                 <li>RailGun</li>
                             </weaponTags>
@@ -87,72 +71,25 @@
                             </tools>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_MDGun_ChargedRailGun_Bond</defName>
-                            <label>bond charged railgun</label>
-                            <description>Bond an charged railgun.</description>
-                            <jobString>Bonding a charged railgun.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>MDchargedRailGunTech</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>MDGun_ChargedRailGun</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>MDGun_ChargedRailGun</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <MDGun_ChargedRailGun_Bond>1</MDGun_ChargedRailGun_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
-                        <!-- MDGun_CoilGun_Bond -->
                         <ThingDef ParentName="BaseBullet">
-                            <defName>MDBullet_CoilGun_Bond</defName>
-                            <label>coilgun shot</label>
+                            <defName>MDBullet_ChargedRailGun_Bond</defName>
+                            <label>charged railgun shot</label>
                             <graphicData>
-                                <texPath>Things/Projectile/MDRailGun_Projectile</texPath>
+                                <texPath>Things/Projectile/MDchargedRailGun_Projectile</texPath>
                                 <graphicClass>Graphic_Single</graphicClass>
                                 <shaderType>TransparentPostLight</shaderType>
-                                <drawSize>1.5</drawSize>
+                                <drawSize>1.75</drawSize>
                             </graphicData>
                             <projectile>
                                 <damageDef>Bullet</damageDef>
-                                <damageAmountBase>39</damageAmountBase>
-                                <stoppingPower>6</stoppingPower>
-                                <speed>150</speed>
+                                <damageAmountBase>44</damageAmountBase>
+                                <stoppingPower>20</stoppingPower>
+                                <speed>200</speed>
                             </projectile>
                         </ThingDef>
 
-                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                        <!-- MDGun_CoilGun_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
                             <defName>MDGun_CoilGun_Bond</defName>
                             <label>persona coilgun</label>
                             <description>A magnetically driven gun. It fires a double shot at high velocity, as it leaves the acceleration rail.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -170,8 +107,7 @@
                                 <AccuracyLong>0.880</AccuracyLong>
                                 <RangedWeapon_Cooldown>2.125</RangedWeapon_Cooldown>
                             </statBases>
-                            <weaponTags Inherit="False">
-                                <li>RangedBladelink</li>
+                            <weaponTags>
                                 <li>SpacerGun</li>
                                 <li>RailGun</li>
                             </weaponTags>
@@ -202,70 +138,25 @@
                             </tools>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_MDGun_CoilGun_Bond</defName>
-                            <label>bond coilgun</label>
-                            <description>Bond an coilgun.</description>
-                            <jobString>Bonding a coilgun.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>MDrailGunTech</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>MDGun_CoilGun</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>MDGun_CoilGun</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <MDGun_CoilGun_Bond>1</MDGun_CoilGun_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
-                        <!-- MDGun_RailPistol_Bond -->
                         <ThingDef ParentName="BaseBullet">
-                            <defName>MDBullet_RailPistol_Bond</defName>
-                            <label>rail-pistol bullet</label>
+                            <defName>MDBullet_CoilGun_Bond</defName>
+                            <label>coilgun shot</label>
                             <graphicData>
                                 <texPath>Things/Projectile/MDRailGun_Projectile</texPath>
                                 <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1.5</drawSize>
                             </graphicData>
                             <projectile>
                                 <damageDef>Bullet</damageDef>
-                                <damageAmountBase>11</damageAmountBase>
-                                <stoppingPower>5</stoppingPower>
-                                <speed>85</speed>
+                                <damageAmountBase>39</damageAmountBase>
+                                <stoppingPower>6</stoppingPower>
+                                <speed>150</speed>
                             </projectile>
                         </ThingDef>
 
-                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                        <!-- MDGun_RailPistol_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
                             <defName>MDGun_RailPistol_Bond</defName>
                             <label>persona rail-pistol</label>
                             <description>A modified autopistol capable of shoting bullets at a faster rate.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -274,8 +165,7 @@
                                 <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                             <soundInteract>Interact_Autopistol</soundInteract>
-                            <weaponTags Inherit="False">
-                                <li>RangedBladelink</li>
+                            <weaponTags>
                                 <li>RailGun</li>
                             </weaponTags>
                             <statBases>
@@ -319,70 +209,23 @@
                             </tools>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_MDGun_RailPistol_Bond</defName>
-                            <label>bond rail-pistol</label>
-                            <description>Bond an rail-pistol.</description>
-                            <jobString>Bonding a rail-pistol.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>MDrailWeaponMods</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>MDGun_RailPistol</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>MDGun_RailPistol</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <MDGun_RailPistol_Bond>1</MDGun_RailPistol_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
-                        <!-- MDGun_RailShotgun_Bond -->
                         <ThingDef ParentName="BaseBullet">
-                            <defName>MDBullet_RailShotgun_Bond</defName>
-                            <label>rail-shotgun bullet</label>
+                            <defName>MDBullet_RailPistol_Bond</defName>
+                            <label>rail-pistol bullet</label>
                             <graphicData>
-                                <texPath>Things/Projectile/MDBullet_RailShotgun</texPath>
+                                <texPath>Things/Projectile/MDRailGun_Projectile</texPath>
                                 <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                             <projectile>
                                 <damageDef>Bullet</damageDef>
-                                <damageAmountBase>15</damageAmountBase>
+                                <damageAmountBase>11</damageAmountBase>
                                 <stoppingPower>5</stoppingPower>
-                                <speed>75</speed>
+                                <speed>85</speed>
                             </projectile>
                         </ThingDef>
 
-                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                        <!-- MDGun_RailShotgun_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
                             <defName>MDGun_RailShotgun_Bond</defName>
                             <label>persona rail-shotgun</label>
                             <description>A moded shotgun, capable of fast burst shooting. Its slower, but more powerfull.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -399,9 +242,6 @@
                                 <AccuracyLong>0.594</AccuracyLong>
                                 <RangedWeapon_Cooldown>1.318</RangedWeapon_Cooldown>
                             </statBases>
-                            <weaponTags Inherit="False">
-                                <li>RangedBladelink</li>
-                            </weaponTags>
                             <verbs>
                                 <li>
                                     <verbClass>Verb_Shoot</verbClass>
@@ -437,52 +277,20 @@
                             </tools>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_MDGun_RailShotgun_Bond</defName>
-                            <label>bond rail-shotgun</label>
-                            <description>Bond an rail-shotgun.</description>
-                            <jobString>Bonding a rail-shotgun.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>MDrailWeaponMods</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>MDGun_RailShotgun</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>MDGun_RailShotgun</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <MDGun_RailShotgun_Bond>1</MDGun_RailShotgun_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>MDBullet_RailShotgun_Bond</defName>
+                            <label>rail-shotgun bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/MDBullet_RailShotgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>15</damageAmountBase>
+                                <stoppingPower>5</stoppingPower>
+                                <speed>75</speed>
+                            </projectile>
+                        </ThingDef>
                     </value>
                 </li>
             </operations>

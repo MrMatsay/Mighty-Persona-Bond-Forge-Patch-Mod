@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	Vanilla Factions Expanded - Vikings
-
+	===== Vanilla Factions Expanded - Vikings =====
+	
+	== Melee
 	VFEV_CryptoHeavyAxe_Bond = persona heavy crypto axe
 	VFEV_CryptoLightAxe_Bond = persona crypto hatchet
+	
+	== Range
 	VFEV_CryptoHeavyCrossbow_Bond = persona crypto heavy crossbow
 	VFEV_CryptoLightCrossbow_Bond = persona crypto crossbow
 	VFEV_CryptoPistol_Bond = persona crypto pistol
@@ -21,47 +24,29 @@
 				<li Class="PatchOperationAdd">
 					<xpath>/Defs</xpath>
 					<value>
-						<!-- Meele-->
-						<ThingDef Name="VFEVikings_MeeleBase" Abstract="True" ParentName="BaseWeapon_Bladelink">
+						<!-- ===== Meele ===== -->
+						<ThingDef Name="MPBFPM_VFEVikingsMelee" Abstract="True" ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality">
 							<techLevel>Ultra</techLevel>
-							<smeltable>true</smeltable>
-							<burnableByRecipe>true</burnableByRecipe>
 							<thingCategories>
 								<li>WeaponsMeleeCrypto</li>
 							</thingCategories>
-							<inspectorTabs>
-								<li>ITab_Art</li>
-							</inspectorTabs>
-							<weaponTags Inherit="False">
-								<li>Bladelink</li>
-							</weaponTags>
-							<comps>
-								<li>
-									<compClass>CompQuality</compClass>
-								</li>
-								<li Class="CompProperties_Art">
-									<nameMaker>NamerArtWeaponMelee</nameMaker>
-									<descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
-									<minQualityForArtistic>Excellent</minQualityForArtistic>
-								</li>
-							</comps>
+							<graphicData>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
 						</ThingDef>
 
 						<!-- VFEV_CryptoHeavyAxe_Bond -->
-						<ThingDef ParentName="VFEVikings_MeeleBase">
+						<ThingDef ParentName="MPBFPM_VFEVikingsMelee">
 							<defName>VFEV_CryptoHeavyAxe_Bond</defName>
 							<label>persona heavy crypto axe</label>
 							<description>A two-handed, high-tech axe of unknown origin with an icy cold alloy edge. Crypto weapons are laced with what appears to be a cryogenic coating along their blade, targets struck by them without proper insulation may feel themselves crippled by hypothermia.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
 							<graphicData>
 								<texPath>Things/Item/Equipment/WeaponMelee/CryptoHeavyAxe</texPath>
-								<graphicClass>Graphic_Single</graphicClass>
 							</graphicData>
-
 							<statBases>
 								<Mass>3.5</Mass>
 								<MarketValue>1450</MarketValue>
 							</statBases>
-
 							<equippedAngleOffset>-65</equippedAngleOffset>
 							<tools>
 								<li>
@@ -94,60 +79,13 @@
 							</modExtensions>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_VFEV_CryptoHeavyAxe_Bond</defName>
-							<label>bond heavy crypto axe</label>
-							<description>Bond an heavy crypto axe.</description>
-							<jobString>Bonding a heavy crypto axe.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>VFEV_CryptoHeavyAxe</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>VFEV_CryptoHeavyAxe</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<VFEV_CryptoHeavyAxe_Bond>1</VFEV_CryptoHeavyAxe_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- VFEV_CryptoLightAxe_Bond -->
-						<ThingDef ParentName="VFEVikings_MeeleBase">
+						<ThingDef ParentName="MPBFPM_VFEVikingsMelee">
 							<defName>VFEV_CryptoLightAxe_Bond</defName>
 							<label>persona crypto hatchet</label>
 							<description>An easily swung, high-tech hatchet of unknown origin with an icy cold alloy edge. Crypto weapons are laced with what appears to be a cryogenic coating along their blade, targets struck by them without proper insulation may feel themselves crippled by hypothermia.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
 							<graphicData>
 								<texPath>Things/Item/Equipment/WeaponMelee/CryptoLightAxe</texPath>
-								<graphicClass>Graphic_Single</graphicClass>
 							</graphicData>
 							<statBases>
 								<Mass>2.3</Mass>
@@ -190,62 +128,20 @@
 							</modExtensions>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_VFEV_CryptoLightAxe_Bond</defName>
-							<label>bond crypto hatchet</label>
-							<description>Bond an crypto hatchet.</description>
-							<jobString>Bonding a crypto hatchet.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>VFEV_CryptoLightAxe</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>VFEV_CryptoLightAxe</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<VFEV_CryptoLightAxe_Bond>1</VFEV_CryptoLightAxe_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- Range -->
-						<ThingDef Name="VFEVikings_RangeBase" Abstract="True" ParentName="BaseWeapon_Bladelink">
+						<ThingDef Name="VFEVikings_RangeBase" Abstract="True" ParentName="MPBFPM_BaseGunWithQuality">
 							<techLevel>Ultra</techLevel>
 							<thingCategories Inherit="False">
 								<li>WeaponsRangedCrypto</li>
 							</thingCategories>
-							<weaponTags Inherit="False">
-								<li>RangedBladelink</li>
+							<weaponTags>
 								<li>CryptoWeaponAdvanced</li>
 							</weaponTags>
+							<generateCommonality>0.0</generateCommonality>
+							<tradeability>Buyable</tradeability>
+							<graphicData>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
 						</ThingDef>
 
 						<!-- VFEV_CryptoHeavyCrossbow_Bond -->
@@ -255,7 +151,6 @@
 							<description>Less of a crossbow and more of an experimental artillery piece, fires metal-cored bolts wrapped in unstable crypto technology, held in place by an energy field. Targets are both pierced by the bolt, as well as frozen by crypto coating. Due to its weight, it is unable to be fired at close range and will slightly slow down the wielder.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
 							<graphicData>
 								<texPath>Things/Item/Equipment/WeaponRanged/CryptoHeavyCrossbow</texPath>
-								<graphicClass>Graphic_Single</graphicClass>
 							</graphicData>
 							<soundInteract>VFEV_HeavyCryptoGunPickup</soundInteract>
 							<statBases>
@@ -300,11 +195,9 @@
 									<cooldownTime>2.07</cooldownTime>
 								</li>
 							</tools>
-							<generateCommonality>0.0</generateCommonality>
 							<equippedStatOffsets>
 								<MoveSpeed>-0.23</MoveSpeed>
 							</equippedStatOffsets>
-							<tradeability>Buyable</tradeability>
 						</ThingDef>
 
 						<ThingDef ParentName="BaseBullet">
@@ -326,52 +219,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_VFEV_CryptoHeavyCrossbow_Bond</defName>
-							<label>bond crypto heavy crossbow</label>
-							<description>Bond an crypto heavy crossbow.</description>
-							<jobString>Bonding a crypto heavy crossbow.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>VFEV_CryptoHeavyCrossbow</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>VFEV_CryptoHeavyCrossbow</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<VFEV_CryptoHeavyCrossbow_Bond>1</VFEV_CryptoHeavyCrossbow_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- VFEV_CryptoLightCrossbow_Bond -->
 						<ThingDef ParentName="VFEVikings_RangeBase">
 							<defName>VFEV_CryptoLightCrossbow_Bond</defName>
@@ -379,7 +226,6 @@
 							<description>An experimental small crossbow with metal-cored bolts wrapped in unstable crypto technology, held in place by an energy field. Targets are both pierced by the bolt, as well as frozen by crypto coating. Able to be fired single-handedly, extremely rare and powerful.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
 							<graphicData>
 								<texPath>Things/Item/Equipment/WeaponRanged/CryptoCrossbowSidearm</texPath>
-								<graphicClass>Graphic_Single</graphicClass>
 							</graphicData>
 							<soundInteract>VFEV_CryptoGunPickup</soundInteract>
 							<statBases>
@@ -414,8 +260,6 @@
 									<cooldownTime>2.07</cooldownTime>
 								</li>
 							</tools>
-							<generateCommonality>0.0</generateCommonality>
-							<tradeability>Buyable</tradeability>
 							<modExtensions>
 								<li Class="VFECore.ThingDefExtension">
 									<usableWithShields>true</usableWithShields>
@@ -442,52 +286,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_VFEV_CryptoLightCrossbow_Bond</defName>
-							<label>bond crypto crossbow</label>
-							<description>Bond an crypto crossbow.</description>
-							<jobString>Bonding a crypto crossbow.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>VFEV_CryptoLightCrossbow</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>VFEV_CryptoLightCrossbow</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<VFEV_CryptoLightCrossbow_Bond>1</VFEV_CryptoLightCrossbow_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- VFEV_CryptoPistol_Bond -->
 						<ThingDef ParentName="VFEVikings_RangeBase">
 							<defName>VFEV_CryptoPistol_Bond</defName>
@@ -495,7 +293,6 @@
 							<description>An experimental micro pistol with metal-cored projectiles wrapped in unstable crypto technology, held in place by an energy field. Targets are both pierced by the metal core, as well as frozen by crypto coating. Extremely rare and powerful.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
 							<graphicData>
 								<texPath>Things/Item/Equipment/WeaponRanged/CryptoPistol</texPath>
-								<graphicClass>Graphic_Single</graphicClass>
 							</graphicData>
 							<soundInteract>VFEV_CryptoGunPickup</soundInteract>
 							<statBases>
@@ -532,8 +329,6 @@
 									<cooldownTime>1.62</cooldownTime>
 								</li>
 							</tools>
-							<generateCommonality>0.0</generateCommonality>
-							<tradeability>Buyable</tradeability>
 							<modExtensions>
 								<li Class="VFECore.ThingDefExtension">
 									<usableWithShields>true</usableWithShields>
@@ -559,52 +354,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_VFEV_CryptoPistol_Bond</defName>
-							<label>bond crypto pistol</label>
-							<description>Bond an crypto pistol.</description>
-							<jobString>Bonding a crypto pistol.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>VFEV_CryptoPistol</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>VFEV_CryptoPistol</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<VFEV_CryptoPistol_Bond>1</VFEV_CryptoPistol_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- VFEV_CryptoRifle_Bond -->
 						<ThingDef ParentName="VFEVikings_RangeBase">
 							<defName>VFEV_CryptoRifle_Bond</defName>
@@ -612,7 +361,6 @@
 							<description>An experimental rifle with metal-cored projectiles wrapped in unstable crypto technology, held in place by an energy field. Targets are both pierced by the metal core, as well as frozen by crypto coating. Extremely rare and powerful.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
 							<graphicData>
 								<texPath>Things/Item/Equipment/WeaponRanged/CryptoAssaultRifle</texPath>
-								<graphicClass>Graphic_Single</graphicClass>
 							</graphicData>
 							<soundInteract>VFEV_HeavyCryptoGunPickup</soundInteract>
 							<statBases>
@@ -657,8 +405,6 @@
 									<cooldownTime>1.98</cooldownTime>
 								</li>
 							</tools>
-							<generateCommonality>0.0</generateCommonality>
-							<tradeability>Buyable</tradeability>
 						</ThingDef>
 
 						<ThingDef ParentName="BaseBullet">
@@ -680,51 +426,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_VFEV_CryptoRifle_Bond</defName>
-							<label>bond crypto rifle</label>
-							<description>Bond an crypto rifle.</description>
-							<jobString>Bonding a crypto rifle.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>VFEV_CryptoRifle</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>VFEV_CryptoRifle</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<VFEV_CryptoRifle_Bond>1</VFEV_CryptoRifle_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
 					</value>
 				</li>
 			</operations>

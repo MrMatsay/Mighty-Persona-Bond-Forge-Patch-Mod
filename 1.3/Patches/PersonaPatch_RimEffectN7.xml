@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	Rim-Effect: N7
+	===== Rim-Effect: N7 =====
 
+	== Melee
 	REN7_MeleeWeapon_N7Blade_Bond = persona N7 blade
+
+	== Range
 	REN7_Gun_N7BattleRifle_Bond = persona N7 battle rifle
 	REN7_Gun_N7LMG_Bond = persona N7 LMG
 	REN7_Gun_N7Shotgun_Bond = persona N7 shotgun
@@ -24,38 +27,22 @@
 				<li Class="PatchOperationAdd">
 					<xpath>/Defs</xpath>
 					<value>
-						<!-- Meele -->
-						<ThingDef Name="RimEffectN7BaseMeele" Abstract="True" ParentName="BaseWeapon_Bladelink">
+						<!-- ===== Meele ===== -->
+						<ThingDef Name="MPBFPM_N7BaseMeele" Abstract="True" ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality">
 							<techLevel>Ultra</techLevel>
-							<smeltable>true</smeltable>
-							<burnableByRecipe>true</burnableByRecipe>
-							<thingCategories>
-								<li>WeaponsMelee</li>
-							</thingCategories>
 							<inspectorTabs>
 								<li>ITab_Art</li>
 							</inspectorTabs>
-							<weaponTags Inherit='False'>
-								<li>Bladelink</li>
+							<weaponTags>
 								<li>N7Gun</li>
 							</weaponTags>
-							<comps>
-								<li>
-									<compClass>CompQuality</compClass>
-								</li>
-								<li Class="CompProperties_Art">
-									<nameMaker>NamerArtWeaponMelee</nameMaker>
-									<descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
-									<minQualityForArtistic>Excellent</minQualityForArtistic>
-								</li>
-							</comps>
 							<tradeTags>
 								<li>REN7_N7Weaponry</li>
 							</tradeTags>
 						</ThingDef>
 
 						<!-- REN7_MeleeWeapon_N7Blade_Bond -->
-						<ThingDef ParentName="RimEffectN7BaseMeele">
+						<ThingDef ParentName="MPBFPM_N7BaseMeele">
 							<defName>REN7_MeleeWeapon_N7Blade_Bond</defName>
 							<label>persona N7 blade</label>
 							<description>A light monomolecular sword with high attack speed and armor penetration. \n\nThe favored weapon of the fearsome N7 Shadow Infiltrators. These blades are devastating in their hands, as they hide and then strike from the shadows in extreme close range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -104,67 +91,16 @@
 							</modExtensions>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_REN7_MeleeWeapon_N7Blade_Bond</defName>
-							<label>bond N7 blade</label>
-							<description>Bond an N7 blade.</description>
-							<jobString>Bonding a N7 blade.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>REN7_N7Weaponry</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>REN7_MeleeWeapon_N7Blade</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>REN7_MeleeWeapon_N7Blade</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<REN7_MeleeWeapon_N7Blade_Bond>1</REN7_MeleeWeapon_N7Blade_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
-						<!-- Range -->
-						<!-- Range Base-->
-						<ThingDef Name="RimEffectN7BaseRange" Abstract="True" ParentName="BaseWeapon_Bladelink">
+						<!-- ===== Range ===== -->
+						<ThingDef Name="MPBFPM_N7BaseRange" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
 							<techLevel>Ultra</techLevel>
-							<weaponTags Inherit="False">
-								<li>RangedBladelink</li>
-							</weaponTags>
 							<tradeTags>
 								<li>REN7_N7Weaponry</li>
 							</tradeTags>
 						</ThingDef>
 
 						<!-- REN7_Gun_N7BattleRifle -->
-						<ThingDef ParentName="RimEffectN7BaseRange">
+						<ThingDef ParentName="MPBFPM_N7BaseRange">
 							<defName>REN7_Gun_N7BattleRifle_Bond</defName>
 							<label>persona N7 battle rifle</label>
 							<description>A mass accelerator battle rifle. Firing slugs lightened by mass effect fields using precision electromagnetism, its projectiles shatter on impact to increase the damage to the target. \n\nThe Valkyrie is a two-burst assault rifle with extreme range and good accuracy, but longer cooldown between shots. It is highly prized on the black market for it’s balance and effectiveness.\n\nThis weapon has a 11% chance to deal double damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -241,55 +177,8 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_REN7_Gun_N7BattleRifle_Bond</defName>
-							<label>bond N7 battle rifle</label>
-							<description>Bond an N7 battle rifle.</description>
-							<jobString>Bonding a N7 battle rifle.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>REN7_N7Weaponry</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>REN7_Gun_N7BattleRifle</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>REN7_Gun_N7BattleRifle</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<REN7_Gun_N7BattleRifle_Bond>1</REN7_Gun_N7BattleRifle_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- REN7_Gun_N7LMG_Bond -->
-						<ThingDef ParentName="RimEffectN7BaseRange">
+						<ThingDef ParentName="MPBFPM_N7BaseRange">
 							<defName>REN7_Gun_N7LMG_Bond</defName>
 							<label>persona N7 LMG</label>
 							<description>A mass accelerator heavy LMG. Firing slugs lightened by mass effect fields using precision electromagnetism, its projectiles shatter on impact to increase the damage to the target. \n\nThe Typhoon is an incredibly high penetration LMG that also applies a 10% chance to deflect any shot.\n\nThis weapon has a 11% chance to deal double damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -373,55 +262,8 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_REN7_Gun_N7LMG_Bond</defName>
-							<label>bond N7 LMG</label>
-							<description>Bond an N7 LMG.</description>
-							<jobString>Bonding a N7 LMG.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>REN7_N7Weaponry</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>REN7_Gun_N7LMG</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>REN7_Gun_N7LMG</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<REN7_Gun_N7LMG_Bond>1</REN7_Gun_N7LMG_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- REN7_Gun_N7Shotgun_Bond -->
-						<ThingDef ParentName="RimEffectN7BaseRange">
+						<ThingDef ParentName="MPBFPM_N7BaseRange">
 							<defName>REN7_Gun_N7Shotgun_Bond</defName>
 							<label>persona N7 shotgun</label>
 							<description>A mass accelerator heavy shotgun. Firing a spray of pellets lightened by mass effect fields using precision electromagnetism, its projectiles further shatter on impact to increase the damage to the target. \n\nThe Crusader shotgun sacrifices close range damage for the ability to fire at targets much farther away with effectiveness.\n\nThis weapon has a 11% chance to deal double damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -492,55 +334,8 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_REN7_Gun_N7Shotgun_Bond</defName>
-							<label>bond N7 shotgun</label>
-							<description>Bond an N7 shotgun.</description>
-							<jobString>Bonding a N7 shotgun.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>REN7_N7Weaponry</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>REN7_Gun_N7Shotgun</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>REN7_Gun_N7Shotgun</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<REN7_Gun_N7Shotgun_Bond>1</REN7_Gun_N7Shotgun_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- REN7_Gun_N7DMR_Bond -->
-						<ThingDef ParentName="RimEffectN7BaseRange">
+						<ThingDef ParentName="MPBFPM_N7BaseRange">
 							<defName>REN7_Gun_N7DMR_Bond</defName>
 							<label>persona N7 DMR</label>
 							<description>A mass accelerator designated marksman rifle. Firing slugs lightened by mass effect fields using precision electromagnetism, its projectiles shatter on impact to increase the damage to the target. \n\nThe Valiant is a 3 round burst rifle sacrificing some damage for extreme range.\n\nThis weapon has a 11% chance to deal double damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -625,55 +420,8 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_REN7_Gun_N7DMR_Bond</defName>
-							<label>bond N7 DMR</label>
-							<description>Bond an N7 DMR.</description>
-							<jobString>Bonding a N7 DMR.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>REN7_N7Weaponry</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>REN7_Gun_N7DMR</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>REN7_Gun_N7DMR</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<REN7_Gun_N7DMR_Bond>1</REN7_Gun_N7DMR_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- REN7_Gun_N7SMG_Bond -->
-						<ThingDef ParentName="RimEffectN7BaseRange">
+						<ThingDef ParentName="MPBFPM_N7BaseRange">
 							<defName>REN7_Gun_N7SMG_Bond</defName>
 							<label>persona N7 SMG</label>
 							<description>A mass accelerator submachine gun. Firing slugs lightened by mass effect fields using precision electromagnetism, its projectiles shatter on impact to increase the damage to the target. \n\nThe Hurricane rapid-firing 4 burst SMG, one of the fastest-firing weapons ever produced. While some militaries find it to be too inaccurate, the N7 SpecOps soldiers prize it for its overwhelming amount of suppressive fire.\n\nThis weapon has a 11% chance to deal double damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -749,55 +497,8 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_REN7_Gun_N7SMG_Bond</defName>
-							<label>bond N7 SMG</label>
-							<description>Bond an N7 SMG.</description>
-							<jobString>Bonding a N7 SMG.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>REN7_N7Weaponry</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>REN7_Gun_N7SMG</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>REN7_Gun_N7SMG</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<REN7_Gun_N7SMG_Bond>1</REN7_Gun_N7SMG_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- RE_Gun_N7Pistol_Bond -->
-						<ThingDef ParentName="RimEffectN7BaseRange">
+						<ThingDef ParentName="MPBFPM_N7BaseRange">
 							<defName>RE_Gun_N7Pistol_Bond</defName>
 							<label>persona N7 pistol</label>
 							<description>A mass accelerator autopistol. Firing slugs lightened by mass effect fields using precision electromagnetism, its projectiles shatter on impact to increase the damage to the target. \n\nThe Eagle is a fully automatic 3-burst pistol. While it is named after the famed Desert Eagle, its strengths lie not in its single-shot firepower, but in its ability to provide sustained automatic fire.\n\nThis weapon has a 11% chance to deal double damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -853,55 +554,8 @@
 							</modExtensions>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_RE_Gun_N7Pistol_Bond</defName>
-							<label>bond N7 pistol</label>
-							<description>Bond an N7 pistol.</description>
-							<jobString>Bonding a N7 pistol.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>REN7_N7Weaponry</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>RE_Gun_N7Pistol</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>RE_Gun_N7Pistol</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<RE_Gun_N7Pistol_Bond>1</RE_Gun_N7Pistol_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- REN7_Gun_N7AntimaterielRifle_Bond -->
-						<ThingDef ParentName="RimEffectN7BaseRange">
+						<ThingDef ParentName="MPBFPM_N7BaseRange">
 							<defName>REN7_Gun_N7AntimaterielRifle_Bond</defName>
 							<label>persona N7 anti-materiel rifle</label>
 							<description>A mass accelerator anti-materiel rifle. Firing slugs lightened by mass effect fields using precision electromagnetism, its projectiles shatter on impact to increase the damage to the target. \n\nThe Black Widow is a very powerful armor piercing sniper rifle. A modified version of the Alliance Antimateriel Rifle with slightly less damage and shorter cooldown.\n\nThis weapon has a 11% chance to deal double damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -986,55 +640,8 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_REN7_Gun_N7AntimaterielRifle_Bond</defName>
-							<label>bond N7 anti-materiel rifle</label>
-							<description>Bond an N7 anti-materiel rifle.</description>
-							<jobString>Bonding a N7 anti-materiel rifle.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>REN7_N7Weaponry</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>REN7_Gun_N7AntimaterielRifle</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>REN7_Gun_N7AntimaterielRifle</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<REN7_Gun_N7AntimaterielRifle_Bond>1</REN7_Gun_N7AntimaterielRifle_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- REN7_Gun_N7ChainShotgun_Bond -->
-						<ThingDef ParentName="RimEffectN7BaseRange">
+						<ThingDef ParentName="MPBFPM_N7BaseRange">
 							<defName>REN7_Gun_N7ChainShotgun_Bond</defName>
 							<label>persona N7 chain shotgun</label>
 							<description>A mass accelerator light shotgun. Firing spray of pellets lightened by mass effect fields using precision electromagnetism, its projectiles shatter on impact to increase the damage to the target. \n\nThe Piranha is a powerful 2-burst shotgun with low cooldown but extremely short range. Designed for use by weaker soldiers who couldn’t handle the heavy recoil of other shotguns.\n\nThis weapon has a 11% chance to deal double damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -1106,53 +713,6 @@
 								</extraDamages>
 							</projectile>
 						</ThingDef>
-
-						<RecipeDef>
-							<defName>Make_REN7_Gun_N7ChainShotgun_Bond</defName>
-							<label>bond N7 chain shotgun</label>
-							<description>Bond an N7 chain shotgun.</description>
-							<jobString>Bonding a N7 chain shotgun.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>REN7_N7Weaponry</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>REN7_Gun_N7ChainShotgun</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>REN7_Gun_N7ChainShotgun</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<REN7_Gun_N7ChainShotgun_Bond>1</REN7_Gun_N7ChainShotgun_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
 					</value>
 				</li>
 			</operations>

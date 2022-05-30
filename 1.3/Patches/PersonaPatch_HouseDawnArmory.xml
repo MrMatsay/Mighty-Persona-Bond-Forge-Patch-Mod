@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	House Dawn Armory
-
+	===== House Dawn Armory =====
+	
+	== Melee
 	HDA_Longsword_Bond = persona LS-04 Mantis
+	
+	== Range
 	HDA_ChainShotgun_Bond = persona HSG-02 Mammoth
 	HDA_HeavySMG_Bond = persona HSMG-05 Barracuda
 	HDA_Revolver_Bond = persona SR-01 Elephant
@@ -21,8 +24,8 @@
 					<xpath>/Defs</xpath>
 					<value>
 						<!-- ===== Meele ===== -->
-						<!--MANTIS LONGSWORD-->
-						<ThingDef ParentName="BaseWeapon_Bladelink">
+						<!-- MANTIS LONGSWORD -->
+						<ThingDef ParentName="MPBFPM_MeleeWeaponUltratech">
 							<defName>HDA_Longsword_Bond</defName>
 							<label>persona LS-04 Mantis</label>
 							<description>The LS-04 Mantis is an advanced warblade designed and manufactured by House Dawn. This model features a mono-edge blade maintained by nanites. Additionally, the blood channels contain specialized nanites that release anticoagulants into the wound while simultaneously consuming blood and flesh alike to maintain the sword’s energy levels. The Mantis serves as the primary tool of war of the House Dawn Blademasters. It fulfills a utilitarian role in addition to having a near sacred significance.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -33,9 +36,6 @@
 							<weaponClasses>
 								<li>MeleePiercer</li>
 							</weaponClasses>
-							<weaponTags Inherit="False">
-								<li>Bladelink</li>
-							</weaponTags>
 							<statBases>
 								<Mass>3.25</Mass>
 								<MarketValue>1500</MarketValue>
@@ -67,56 +67,9 @@
 							</tools>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_HDA_Longsword_Bond</defName>
-							<label>bond LS-04 Mantis</label>
-							<description>Bond an LS-04 Mantis.</description>
-							<jobString>Bonding a LS-04 Mantis.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>HDA_Longsword</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>HDA_Longsword</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<HDA_Longsword_Bond>1</HDA_Longsword_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- ===== Range ===== -->
 						<!-- HDA_ChainShotgun_Bond -->
-						<ThingDef ParentName="BaseWeapon_Bladelink">
+						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
 							<defName>HDA_ChainShotgun_Bond</defName>
 							<label>persona HSG-02 Mammoth</label>
 							<description>The HSG-02 Mammoth is a belt fed fully automatic slug thrower designed and manufactured by House Dawn. This model fires 25mm depleted uranium slugs. The Mammoth saw extensive use throughout the mechanoid wars, primarily as a counter to the heavy armor plating on Centipedes.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -156,8 +109,7 @@
 									<muzzleFlashScale>12</muzzleFlashScale>
 								</li>
 							</verbs>
-							<weaponTags Inherit="False">
-								<li>RangedBladelink</li>
+							<weaponTags>
 								<li>SpacerGun</li>
 							</weaponTags>
 							<tools>
@@ -197,55 +149,8 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_HDA_ChainShotgun_Bond</defName>
-							<label>bond HSG-02 Mammoth</label>
-							<description>Bond an HSG-02 Mammoth.</description>
-							<jobString>Bonding a HSG-02 Mammoth.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>HDA_ChainShotgun</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>HDA_ChainShotgun</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<HDA_ChainShotgun_Bond>1</HDA_ChainShotgun_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- HDA_HeavySMG_Bond -->
-						<ThingDef ParentName="BaseWeapon_Bladelink">
+						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
 							<defName>HDA_HeavySMG_Bond</defName>
 							<label>persona HSMG-05 Barracuda</label>
 							<description>The HSMG-05 Barracuda fully automatic submachine gun designed and manufactured by House Dawn. This model fires magnetically assisted steel core flechette rounds at a blistering rate. The Barracuda is a general purpose weapon, and has seen use in many wars and operations.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -281,8 +186,7 @@
 									<muzzleFlashScale>6</muzzleFlashScale>
 								</li>
 							</verbs>
-							<weaponTags Inherit="False">
-								<li>RangedBladelink</li>
+							<weaponTags>
 								<li>SpacerGun</li>
 							</weaponTags>
 							<tools>
@@ -321,55 +225,8 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_HDA_HeavySMG_Bond</defName>
-							<label>bond HSMG-05 Barracuda</label>
-							<description>Bond an HSMG-05 Barracuda.</description>
-							<jobString>Bonding a HSMG-05 Barracuda.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>HDA_HeavySMG</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>HDA_HeavySMG</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<HDA_HeavySMG_Bond>1</HDA_HeavySMG_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- HDA_Revolver_Bond -->
-						<ThingDef ParentName="BaseWeapon_Bladelink">
+						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
 							<defName>HDA_Revolver_Bond</defName>
 							<label>persona SR-01 Elephant</label>
 							<description>The SR-01 Elephant is a double action slug throwing revolver designed and manufactured by House Dawn. This model fires 15mm depleted uranium slugs. The Elephant saw extensive use in hive busting operations, where its high armor penetration and small size made it excell in hunting insectoids through narrow tunnels deep underground.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -403,8 +260,7 @@
 									<muzzleFlashScale>12</muzzleFlashScale>
 								</li>
 							</verbs>
-							<weaponTags Inherit="False">
-								<li>RangedBladelink</li>
+							<weaponTags>
 								<li>SpacerGun</li>
 								<li>Revolver</li>
 							</weaponTags>
@@ -437,55 +293,8 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_HDA_Revolver_Bond</defName>
-							<label>bond SR-01 Elephant</label>
-							<description>Bond an SR-01 Elephant.</description>
-							<jobString>Bonding a SR-01 Elephant.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>HDA_Revolver</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>HDA_Revolver</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<HDA_Revolver_Bond>1</HDA_Revolver_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- HDA_RocketLauncher_Bond -->
-						<ThingDef ParentName="BaseWeapon_Bladelink">
+						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
 							<defName>HDA_RocketLauncher_Bond</defName>
 							<label>persona ML-08 Panther</label>
 							<description>The ML-08 Panther is an advanced missile platform designed and manufactured by House Dawn. This model fires two lock-on 30mm antigrain missiles. The Panther saw extensive use in the mechanoid wars, primarily to rapidly and explosively dismantle mechanoid ships and clusters alike. Although this weapon has unlimited uses, it takes time to lock on to targets and an even longer time to reload after firing.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -528,8 +337,7 @@
 									<ai_AvoidFriendlyFireRadius>12</ai_AvoidFriendlyFireRadius>
 								</li>
 							</verbs>
-							<weaponTags Inherit="False">
-								<li>RangedBladelink</li>
+							<weaponTags>
 								<li>SpacerGun</li>
 							</weaponTags>
 							<tools>
@@ -570,52 +378,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_HDA_RocketLauncher_Bond</defName>
-							<label>bond ML-08 Panther</label>
-							<description>Bond an ML-08 Panther.</description>
-							<jobString>Bonding a ML-08 Panther.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>HDA_RocketLauncher</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>HDA_RocketLauncher</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<HDA_RocketLauncher_Bond>1</HDA_RocketLauncher_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
 					</value>
 				</li>
 			</operations>

@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	HALO: Rimworld Psychic Pulse Armory (Continued)
+	===== HALO: Rimworld Psychic Pulse Armory (Continued) =====
+	
+	== Melee
+	HRPPA_PsychicPulseBlade_Bond = persona psychic pulse blade
+	
+	== Range
+	HRPPA_PsychicPulseCannon_Bond = persona psychic pulse cannon
+	HRPPA_PsychicPulseRepeater_Bond = persona psychic pulse repeater
+	HRPPA_PsychicPulseSpinner_Bond = persona psychic pulse spinner
+	HRPPA_PsychicPulseScatter_Bond = persona psychic pulse scatter
+	HRPPA_PsychicPulseReacher_Bond = persona psychic pulse reacher
+	HRPPA_PsychicPulseLancer_Bond = persona psychic pulse lancer
 -->
 <Patch>
 	<Operation Class="PatchOperationFindMod">
@@ -15,40 +26,25 @@
 					<xpath>/Defs</xpath>
 					<value>
 						<!-- ===== Meele ===== -->
-						<ThingDef Name="PersonaPatch_HALOPsychicPulse_BaseMelee" Abstract="True" ParentName="BaseWeapon_Bladelink">
+						<ThingDef Name="MPBFPM_HALOPsychicPulse_BaseMelee" Abstract="True" ParentName="MPBFPM_BaseMeleeWeapon_Quality">
 							<techLevel>Archotech</techLevel>
-							<smeltable>true</smeltable>
-							<thingCategories>
-								<li>WeaponsMelee</li>
-							</thingCategories>
 							<inspectorTabs>
 								<li>ITab_Art</li>
 							</inspectorTabs>
 							<tradeTags>
 								<li>Artifact</li>
 							</tradeTags>
-							<weaponTags Inherit="False">
+							<weaponTags>
 								<li>ArchotechMelee</li>
 								<li>HRPPAGun</li>
-								<li>Bladelink</li>
 							</weaponTags>
 							<thingSetMakerTags>
 								<li>RewardSpecial</li>
 							</thingSetMakerTags>
-							<comps>
-								<li>
-									<compClass>CompQuality</compClass>
-								</li>
-								<li Class="CompProperties_Art">
-									<nameMaker>NamerArtWeaponMelee</nameMaker>
-									<descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
-									<minQualityForArtistic>Excellent</minQualityForArtistic>
-								</li>
-							</comps>
 						</ThingDef>
 
 						<!-- HRPPA_PsychicPulseBlade_Bond -->
-						<ThingDef ParentName="PersonaPatch_HALOPsychicPulse_BaseMelee">
+						<ThingDef ParentName="MPBFPM_HALOPsychicPulse_BaseMelee">
 							<defName>HRPPA_PsychicPulseBlade_Bond</defName>
 							<label>persona psychic pulse blade</label>
 							<description>An ancient pulse blade of unkown design, driving the target insane and disorients it.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -92,62 +88,15 @@
 							</tools>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_HRPPA_PsychicPulseBlade_Bond</defName>
-							<label>bond psychic pulse blade</label>
-							<description>Bond an psychic pulse blade.</description>
-							<jobString>Bonding a psychic pulse blade.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>HRPPA_PsychicPulseBlade</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>HRPPA_PsychicPulseBlade</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<HRPPA_PsychicPulseBlade_Bond>1</HRPPA_PsychicPulseBlade_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- ===== Ranged ===== -->
-						<ThingDef Name="PersonaPatch_HALOPsychicPulse_BaseRanged" ParentName="BaseWeapon_Bladelink" Abstract="True">
+						<ThingDef Name="MPBFPM_HALOPsychicPulse_BaseRangedQuality" ParentName="MPBFPM_BaseGunWithQuality" Abstract="True">
 							<techLevel>Archotech</techLevel>
 							<thingCategories>
 								<li>HRPPA_WeaponsRanged</li>
 							</thingCategories>
-							<weaponTags Inherit="False">
+							<weaponTags>
 								<li>ArchotechWeapons</li>
 								<li>HRPPAGun</li>
-								<li>RangedBladelink</li>
 							</weaponTags>
 							<tradeTags>
 								<li>Artifact</li>
@@ -158,7 +107,7 @@
 						</ThingDef>
 
 						<!-- HRPPA_PsychicPulseCannon_Bond -->
-						<ThingDef ParentName="PersonaPatch_HALOPsychicPulse_BaseRanged">
+						<ThingDef ParentName="MPBFPM_HALOPsychicPulse_BaseRangedQuality">
 							<defName>HRPPA_PsychicPulseCannon_Bond</defName>
 							<label>persona psychic pulse cannon</label>
 							<description>An ancient handgun of unkown design, firing a psychic pulse that disorients and downs the target or drive them insane.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -239,54 +188,8 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_HRPPA_PsychicPulseCannon_Bond</defName>
-							<label>bond psychic pulse cannon</label>
-							<description>Bond an psychic pulse cannon.</description>
-							<jobString>Bonding a psychic pulse cannon.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>HRPPA_PsychicPulseCannon</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>HRPPA_PsychicPulseCannon</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<HRPPA_PsychicPulseCannon_Bond>1</HRPPA_PsychicPulseCannon_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- HRPPA_PsychicPulseRepeater_Bond -->
-						<ThingDef ParentName="PersonaPatch_HALOPsychicPulse_BaseRanged">
+						<ThingDef ParentName="MPBFPM_HALOPsychicPulse_BaseRangedQuality">
 							<defName>HRPPA_PsychicPulseRepeater_Bond</defName>
 							<label>persona psychic pulse repeater</label>
 							<description>An ancient rifle of unkown design, firing multiple psychic pulses that disorients and downs the target or drive them insane.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -366,54 +269,8 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_HRPPA_PsychicPulseRepeater_Bond</defName>
-							<label>bond psychic pulse repeater</label>
-							<description>Bond an psychic pulse repeater.</description>
-							<jobString>Bonding a psychic pulse repeater.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>HRPPA_PsychicPulseRepeater</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>HRPPA_PsychicPulseRepeater</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<HRPPA_PsychicPulseRepeater_Bond>1</HRPPA_PsychicPulseRepeater_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- HRPPA_PsychicPulseSpinner_Bond -->
-						<ThingDef ParentName="PersonaPatch_HALOPsychicPulse_BaseRanged">
+						<ThingDef ParentName="MPBFPM_HALOPsychicPulse_BaseRangedQuality">
 							<defName>HRPPA_PsychicPulseSpinner_Bond</defName>
 							<label>persona psychic pulse spinner</label>
 							<description>An ancient rapid fire rifle of unkown design, firing multiple psychic pulses in a short time that disorients and downs the target or drive them insane.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -494,54 +351,8 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_HRPPA_PsychicPulseSpinner_Bond</defName>
-							<label>bond psychic pulse spinner</label>
-							<description>Bond an psychic pulse spinner.</description>
-							<jobString>Bonding a psychic pulse spinner.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>HRPPA_PsychicPulseSpinner</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>HRPPA_PsychicPulseSpinner</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<HRPPA_PsychicPulseSpinner_Bond>1</HRPPA_PsychicPulseSpinner_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- HRPPA_PsychicPulseScatter_Bond -->
-						<ThingDef ParentName="PersonaPatch_HALOPsychicPulse_BaseRanged">
+						<ThingDef ParentName="MPBFPM_HALOPsychicPulse_BaseRangedQuality">
 							<defName>HRPPA_PsychicPulseScatter_Bond</defName>
 							<label>persona psychic pulse scatter</label>
 							<description>An ancient shotgun of unkown design, firing multiple, small psychic pulses in one shot that disorients and downs the target or drive them insane.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -620,54 +431,8 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_HRPPA_PsychicPulseScatter_Bond</defName>
-							<label>bond psychic pulse scatter</label>
-							<description>Bond an psychic pulse scatter.</description>
-							<jobString>Bonding a psychic pulse scatter.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>HRPPA_PsychicPulseScatter</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>HRPPA_PsychicPulseScatter</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<HRPPA_PsychicPulseScatter_Bond>1</HRPPA_PsychicPulseScatter_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- HRPPA_PsychicPulseReacher_Bond -->
-						<ThingDef ParentName="PersonaPatch_HALOPsychicPulse_BaseRanged">
+						<ThingDef ParentName="MPBFPM_HALOPsychicPulse_BaseRangedQuality">
 							<defName>HRPPA_PsychicPulseReacher_Bond</defName>
 							<label>persona psychic pulse reacher</label>
 							<description>An ancient sniper of unkown design, firing a fast psychic pulse that disorients and downs the target or drive them insane.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -746,54 +511,8 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_HRPPA_PsychicPulseReacher_Bond</defName>
-							<label>bond psychic pulse reacher</label>
-							<description>Bond an psychic pulse reacher.</description>
-							<jobString>Bonding a psychic pulse reacher.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>HRPPA_PsychicPulseReacher</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>HRPPA_PsychicPulseReacher</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<HRPPA_PsychicPulseReacher_Bond>1</HRPPA_PsychicPulseReacher_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- HRPPA_PsychicPulseLancer_Bond -->
-						<ThingDef ParentName="PersonaPatch_HALOPsychicPulse_BaseRanged">
+						<ThingDef ParentName="MPBFPM_HALOPsychicPulse_BaseRangedQuality">
 							<defName>HRPPA_PsychicPulseLancer_Bond</defName>
 							<label>persona psychic pulse lancer</label>
 							<description>An ancient lancer of unkown design, firing a fast psychic pulse lance that disorients and downs the target or drive them insane.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -880,51 +599,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_HRPPA_PsychicPulseLancer_Bond</defName>
-							<label>bond psychic pulse lancer</label>
-							<description>Bond an psychic pulse lancer.</description>
-							<jobString>Bonding a psychic pulse lancer.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>HRPPA_PsychicPulseLancer</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>HRPPA_PsychicPulseLancer</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<HRPPA_PsychicPulseLancer_Bond>1</HRPPA_PsychicPulseLancer_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
 					</value>
 				</li>
 			</operations>

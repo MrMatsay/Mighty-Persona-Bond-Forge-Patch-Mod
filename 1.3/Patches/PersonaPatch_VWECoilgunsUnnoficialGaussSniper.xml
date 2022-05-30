@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	VWE Coilguns - Unnoficial Gauss Sniper
+    ===== VWE Coilguns - Unnoficial Gauss Sniper =====
 
+    == Range
 	VWE_Gun_GaussSniper_Bond = persona gauss sniper
 -->
 <Patch>
@@ -16,9 +17,9 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <!-- Range -->
+                        <!-- ===== Range ===== -->
                         <!-- VWE_Gun_GaussSniper_Bond -->
-                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
                             <defName>VWE_Gun_GaussSniper_Bond</defName>
                             <label>persona gauss sniper</label>
                             <description>A spacer-tech gauss sniper. A series of electromagnetic coils catapult a single shot at hypervelocity, shredding armor and punching through any targets in its path.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -41,14 +42,12 @@
                                 <li>RewardStandardLowFreq</li>
                                 <li>RewardStandardQualitySuper</li>
                             </thingSetMakerTags>
-                            <weaponTags Inherit="False">
-                                <li>RangedBladelink</li>
+                            <weaponTags>
                                 <li>SpacerGun</li>
                                 <li>Coilgun</li>
                             </weaponTags>
                             <verbs>
                                 <li>
-
                                     <verbClass>Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>VWE_Bullet_Gausssniper</defaultProjectile>
@@ -89,7 +88,7 @@
                             </comps>
                         </ThingDef>
 
-                        <VFECore.ExpandableProjectileDef ParentName="BaseBullet">
+                        <VFECore.ExpandableProjectileDef ParentName="MPBFPM_VWECoilgunsBullet">
                             <defName>VWE_Bullet_Gausssniper</defName>
                             <label>gauss sniper sabot</label>
                             <projectile>
@@ -99,93 +98,7 @@
                                 <stoppingPower>1.0</stoppingPower>
                                 <speed>150</speed>
                             </projectile>
-                            <thingClass>VFECore.GaussProjectile</thingClass>
-                            <graphicData>
-                                <texPath>Projectiles/Proj_CoilgunFadeIn</texPath>
-                                <texPathFadeOut>Projectiles/Proj_CoilgunFadeOut</texPathFadeOut>
-                            </graphicData>
-                            <reachMaxRangeAlways>true</reachMaxRangeAlways>
-                            <drawOffscreen>true</drawOffscreen>
-                            <lifeTimeDuration>50</lifeTimeDuration>
-                            <minDistanceToAffect>1.9</minDistanceToAffect>
-                            <widthScaleFactor>0.10</widthScaleFactor>
-                            <heightScaleFactor>1</heightScaleFactor>
-                            <startingPositionOffset>(0,0,-1)</startingPositionOffset>
-                            <totalSizeScale>0.8</totalSizeScale>
-                            <tickFrameRate>2</tickFrameRate>
-                            <finalTickFrameRate>2</finalTickFrameRate>
-                            <tickDamageRate>5</tickDamageRate>
-                            <dealsDamageOnce>true</dealsDamageOnce>
-                            <stopWhenHit>false</stopWhenHit>
-                            <stopWhenHitAt>
-                                <li>MineableSteel</li>
-                                <li>CollapsedRocks</li>
-                                <li>MineableSilver</li>
-                                <li>MineableGold</li>
-                                <li>MineableUranium</li>
-                                <li>MineablePlasteel</li>
-                                <li>MineableJade</li>
-                                <li>MineableComponentsIndustrial</li>
-                                <li>RaisedRocks</li>
-                                <li>Sandstone</li>
-                                <li>SmoothedSandstone</li>
-                                <li>Granite</li>
-                                <li>SmoothedGranite</li>
-                                <li>Limestone</li>
-                                <li>SmoothedLimestone</li>
-                                <li>Slate</li>
-                                <li>SmoothedSlate</li>
-                                <li>Marble</li>
-                                <li>SmoothedMarble</li>
-                            </stopWhenHitAt>
                         </VFECore.ExpandableProjectileDef>
-
-                        <RecipeDef>
-                            <defName>Make_VWE_Gun_GaussSniper_Bond</defName>
-                            <label>bond gauss sniper</label>
-                            <description>Bond an gauss sniper.</description>
-                            <jobString>Bonding a gauss sniper.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>VWE_MassDrivers</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>VWE_Gun_GaussSniper</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>VWE_Gun_GaussSniper</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <VWE_Gun_GaussSniper_Bond>1</VWE_Gun_GaussSniper_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
                     </value>
                 </li>
             </operations>

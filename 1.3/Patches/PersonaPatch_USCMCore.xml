@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	USCM - Core
+	===== USCM - Core =====
 
+	== Range
 	Gun_M4A3_USCM_Bond = persona M4A3 Service Pistol
 	Gun_M4A4_USCM_Bond = persona M4A4 Pistol
 	Gun_88mod4_USCM_Bond = persona 88 Mod 4 Combat Pistol
@@ -24,25 +25,18 @@
 				<li Class="PatchOperationAdd">
 					<xpath>/Defs</xpath>
 					<value>
-						<!-- USCMGun_Bond -->
-						<ThingDef Name="USCMGun_Bond" Abstract="True" ParentName="BaseWeapon_Bladelink">
+						<!-- ===== Range ===== -->
+						<ThingDef Name="USCMGun_Bond" Abstract="True" ParentName="MPBFPM_BaseGunWithQuality">
 							<techLevel>Industrial</techLevel>
-							<smeltable>true</smeltable>
-							<thingCategories>
-								<li>WeaponsRanged</li>
-							</thingCategories>
-							<inspectorTabs>
-								<li>ITab_Art</li>
-							</inspectorTabs>
-							<comps>
-								<li>
-									<compClass>CompQuality</compClass>
-								</li>
-							</comps>
-							<weaponTags Inherit="False">
-								<li>RangedBladelink</li>
+							<graphicData>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<weaponTags>
 								<li>USCMGun</li>
 							</weaponTags>
+							<tradeTags>
+								<li>USCM</li>
+							</tradeTags>
 						</ThingDef>
 
 
@@ -53,7 +47,6 @@
 							<description>The M4A3 is notable for being the standard issue sidearm of the United States Colonial Marine Corps and is standard for USCM Medics and Synthetics.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
 							<graphicData>
 								<texPath>Marines/Weapon/M4A3</texPath>
-								<graphicClass>Graphic_Single</graphicClass>
 							</graphicData>
 							<soundInteract>Interact_Autopistol</soundInteract>
 							<statBases>
@@ -71,9 +64,6 @@
 							<weaponClasses>
 								<li>RangedLight</li>
 							</weaponClasses>
-							<tradeTags>
-								<li>USCM</li>
-							</tradeTags>
 							<verbs>
 								<li>
 									<verbClass>Verb_Shoot</verbClass>
@@ -123,52 +113,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_Gun_M4A3_USCM_Bond</defName>
-							<label>bond M4A3 Service Pistol</label>
-							<description>Bond an M4A3 Service Pistol.</description>
-							<jobString>Bonding a M4A3 Service Pistol.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>Gun_M4A3_USCM</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>Gun_M4A3_USCM</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<Gun_M4A3_USCM_Bond>1</Gun_M4A3_USCM_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- Gun_M4A4_USCM_Bond -->
 						<ThingDef ParentName="USCMGun_Bond">
 							<defName>Gun_M4A4_USCM_Bond</defName>
@@ -176,7 +120,6 @@
 							<description>The M4A4 is an upgrade over the M4A3, trading the 9mm round for a .45 caliber cartridge, granting it increased power at the cost of a slightly smaller magazine capacity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
 							<graphicData>
 								<texPath>Marines/Weapon/M4A4</texPath>
-								<graphicClass>Graphic_Single</graphicClass>
 							</graphicData>
 							<soundInteract>Interact_Autopistol</soundInteract>
 							<statBases>
@@ -191,9 +134,6 @@
 							<weaponTags>
 								<li>USCM_M4A4</li>
 							</weaponTags>
-							<tradeTags>
-								<li>USCM</li>
-							</tradeTags>
 							<verbs>
 								<li>
 									<verbClass>Verb_Shoot</verbClass>
@@ -242,52 +182,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_Gun_M4A4_USCM_Bond</defName>
-							<label>bond M4A4 Pistol</label>
-							<description>Bond an M4A4 Pistol.</description>
-							<jobString>Bonding a M4A4 Pistol.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>Gun_M4A4_USCM</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>Gun_M4A4_USCM</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<Gun_M4A4_USCM_Bond>1</Gun_M4A4_USCM_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- Gun_88mod4_USCM_Bond -->
 						<ThingDef ParentName="USCMGun_Bond">
 							<defName>Gun_88mod4_USCM_Bond</defName>
@@ -295,7 +189,6 @@
 							<description>The 88 Mod 4 Combat Pistol, also known simply as the Combat Pistol, is a 9mm, 18-round, blowback-operated, striker-fired, double action only, semi-automatic, pistol manufactured by Weyland-Yutani. Made completely of nano-bound hard impact plastic and other synthetic materials its low power damages are balanced by a fast fire rate.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
 							<graphicData>
 								<texPath>Marines/Weapon/88MOD4</texPath>
-								<graphicClass>Graphic_Single</graphicClass>
 							</graphicData>
 							<soundInteract>Interact_Autopistol</soundInteract>
 							<statBases>
@@ -310,9 +203,6 @@
 							<weaponTags>
 								<li>USCM_88mod4</li>
 							</weaponTags>
-							<tradeTags>
-								<li>USCM</li>
-							</tradeTags>
 							<verbs>
 								<li>
 									<verbClass>Verb_Shoot</verbClass>
@@ -361,52 +251,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_Gun_88mod4_USCM_Bond</defName>
-							<label>bond 88 Mod 4 Combat Pistol</label>
-							<description>Bond an 88 Mod 4 Combat Pistol.</description>
-							<jobString>Bonding a 88 Mod 4 Combat Pistol.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>Gun_88mod4_USCM</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>Gun_88mod4_USCM</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<Gun_88mod4_USCM_Bond>1</Gun_88mod4_USCM_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- Gun_M37A2_USCM_Bond -->
 						<ThingDef ParentName="USCMGun_Bond">
 							<defName>Gun_M37A2_USCM_Bond</defName>
@@ -414,7 +258,6 @@
 							<description>The M37A2 Pump Shotgun, also known as the M37A2 Combat Shotgun, is a pump-action combat shotgun manufactured by Armat Battlefield Systems. The M37A2 is a simple and effective pump-action shotgun; its "classic" pump-action allows extremely powerful shells to be fired reliably. The M37A2 is employed by the United States Colonial Marine Corps and Weyland-Yutani PMCs.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
 							<graphicData>
 								<texPath>Marines/Weapon/M37A2</texPath>
-								<graphicClass>Graphic_Single</graphicClass>
 							</graphicData>
 							<soundInteract>Interact_Shotgun</soundInteract>
 							<statBases>
@@ -429,9 +272,6 @@
 							<weaponTags>
 								<li>USCM_M37A2</li>
 							</weaponTags>
-							<tradeTags>
-								<li>USCM</li>
-							</tradeTags>
 							<equippedStatOffsets>
 								<MoveSpeed>-0.10</MoveSpeed>
 								<WorkSpeedGlobal>-0.1</WorkSpeedGlobal>
@@ -486,52 +326,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_Gun_M37A2_USCM_Bond</defName>
-							<label>bond M37A2 Pump Shotgun</label>
-							<description>Bond an M37A2 Pump Shotgun.</description>
-							<jobString>Bonding a M37A2 Pump Shotgun.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>Gun_M37A2_USCM</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>Gun_M37A2_USCM</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<Gun_M37A2_USCM_Bond>1</Gun_M37A2_USCM_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- Gun_M41A_USCM_Bond -->
 						<ThingDef ParentName="USCMGun_Bond">
 							<defName>Gun_M41A_USCM_Bond</defName>
@@ -539,7 +333,6 @@
 							<description>The M41A Pulse Rifle is a pulse-action, air-cooled, selective fire assault rifle chambered for 10×24mm Caseless ammunition manufactured by Armat Battlefield Systems. It is mainly employed by the United States Colonial Marine Corps and the United States Army as their primary infantry weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
 							<graphicData>
 								<texPath>Marines/Weapon/M41A</texPath>
-								<graphicClass>Graphic_Single</graphicClass>
 							</graphicData>
 							<soundInteract>Interact_AssaultRifle</soundInteract>
 							<statBases>
@@ -555,9 +348,6 @@
 								<li>USCMAdvancedGun</li>
 								<li>USCM_M41A</li>
 							</weaponTags>
-							<tradeTags>
-								<li>USCM</li>
-							</tradeTags>
 							<equippedStatOffsets>
 								<MoveSpeed>-0.10</MoveSpeed>
 								<WorkSpeedGlobal>-0.1</WorkSpeedGlobal>
@@ -611,52 +401,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_Gun_M41A_USCM_Bond</defName>
-							<label>bond M41A Pulse Rifle</label>
-							<description>Bond an M41A Pulse Rifle.</description>
-							<jobString>Bonding a M41A Pulse Rifle.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>Gun_M41A_USCM</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>Gun_M41A_USCM</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<Gun_M41A_USCM_Bond>1</Gun_M41A_USCM_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- Gun_M42A_USCM_Bond -->
 						<ThingDef ParentName="USCMGun_Bond">
 							<defName>Gun_M42A_USCM_Bond</defName>
@@ -664,7 +408,6 @@
 							<description>The M42A Scope Rifle is an American-made semi-automatic sniper rifle chambered for 10mm M252 HEAP ammunition. It is employed as the primary sniper weapon of the United States Colonial Marine Corps.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
 							<graphicData>
 								<texPath>Marines/Weapon/M42A</texPath>
-								<graphicClass>Graphic_Single</graphicClass>
 							</graphicData>
 							<soundInteract>Interact_Rifle</soundInteract>
 							<statBases>
@@ -680,9 +423,6 @@
 								<li>USCMAdvancedGun</li>
 								<li>USCM_M42A</li>
 							</weaponTags>
-							<tradeTags>
-								<li>USCM</li>
-							</tradeTags>
 							<equippedStatOffsets>
 								<MoveSpeed>-0.10</MoveSpeed>
 								<WorkSpeedGlobal>-0.1</WorkSpeedGlobal>
@@ -734,53 +474,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_Gun_M42A_USCM_Bond</defName>
-							<label>bond M42A Sniper Rifle</label>
-							<description>Bond an M42A Sniper Rifle.</description>
-							<jobString>Bonding a M42A Sniper Rifle.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>Gun_M42A_USCM</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>Gun_M42A_USCM</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<Gun_M42A_USCM_Bond>1</Gun_M42A_USCM_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
-
 						<!-- Gun_M56_USCM_Bond -->
 						<ThingDef ParentName="USCMGun_Bond">
 							<defName>Gun_M56_USCM_Bond</defName>
@@ -788,7 +481,6 @@
 							<description>The M56 Smartgun is a man-portable heavy machine gun with automatic targeting capabilities chambered for 10×28mm Caseless ammunition. It is notably employed by the United States Colonial Marine Corps. It hurts like hell.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
 							<graphicData>
 								<texPath>Marines/Weapon/M56</texPath>
-								<graphicClass>Graphic_Single</graphicClass>
 							</graphicData>
 							<soundInteract>Interact_AssaultRifle</soundInteract>
 							<statBases>
@@ -804,9 +496,6 @@
 								<li>USCMAdvancedGun</li>
 								<li>USCM_M56</li>
 							</weaponTags>
-							<tradeTags>
-								<li>USCM</li>
-							</tradeTags>
 							<equippedStatOffsets>
 								<MoveSpeed>-0.30</MoveSpeed>
 								<WorkSpeedGlobal>-0.5</WorkSpeedGlobal>
@@ -861,52 +550,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_Gun_M56_USCM_Bond</defName>
-							<label>bond M56 Smartgun</label>
-							<description>Bond an M56 Smartgun.</description>
-							<jobString>Bonding a M56 Smartgun.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>Gun_M56_USCM</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>Gun_M56_USCM</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<Gun_M56_USCM_Bond>1</Gun_M56_USCM_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- Gun_M240_USCM_Bond -->
 						<ThingDef ParentName="USCMGun_Bond">
 							<defName>Gun_M240_USCM_Bond</defName>
@@ -914,7 +557,6 @@
 							<description>The M240 Incinerator Unit, also known as the M240 Flamethrower (or M240 Flame Thrower) and colloquially as the "Bake-a-Flake", is a carbine-style flamethrower employed by the United States Colonial Marine Corps. The M240 is undoubtedly one of the most fearsome weapons in the Marine inventory, and has proven especially useful in close combat against soft targets. It is also ideal for use against fortifications.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
 							<graphicData>
 								<texPath>Marines/Weapon/M240</texPath>
-								<graphicClass>Graphic_Single</graphicClass>
 							</graphicData>
 							<soundInteract>Interact_ChargeLance</soundInteract>
 							<statBases>
@@ -930,9 +572,6 @@
 								<li>USCMGun_BondHeavy</li>
 								<li>USCM_M240</li>
 							</weaponTags>
-							<tradeTags>
-								<li>USCM</li>
-							</tradeTags>
 							<equippedStatOffsets>
 								<MoveSpeed>-0.20</MoveSpeed>
 								<WorkSpeedGlobal>-0.4</WorkSpeedGlobal>
@@ -991,52 +630,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_Gun_M240_USCM_Bond</defName>
-							<label>bond M240 Incinerator Unit</label>
-							<description>Bond an M240 Incinerator Unit.</description>
-							<jobString>Bonding a M240 Incinerator Unit.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>Gun_M240_USCM</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>Gun_M240_USCM</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<Gun_M240_USCM_Bond>1</Gun_M240_USCM_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- Gun_M5_USCM_Bond -->
 						<ThingDef ParentName="USCMGun_Bond">
 							<defName>Gun_M5_USCM_Bond</defName>
@@ -1044,7 +637,6 @@
 							<description>The M5 Rocket Propelled Grenade (RPG) is a portable, shoulder-fired, reloadable, semi-automatic unguided anti-armor rocket-propelled grenade launcher used by United States Colonial Marine Corps as their standard issue RPG. Able to load up to 4 rockets, the M5 RPG is the favorite anti-infantry toy of the USCM.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
 							<graphicData>
 								<texPath>Marines/Weapon/M5</texPath>
-								<graphicClass>Graphic_Single</graphicClass>
 							</graphicData>
 							<soundInteract>Interact_ChargeLance</soundInteract>
 							<statBases>
@@ -1060,9 +652,6 @@
 								<li>USCMGun_BondHeavy</li>
 								<li>USCM_M5</li>
 							</weaponTags>
-							<tradeTags>
-								<li>USCM</li>
-							</tradeTags>
 							<equippedStatOffsets>
 								<MoveSpeed>-0.30</MoveSpeed>
 								<WorkSpeedGlobal>-0.7</WorkSpeedGlobal>
@@ -1115,52 +704,6 @@
 								<speed>60</speed>
 							</projectile>
 						</ThingDef>
-
-						<RecipeDef>
-							<defName>Make_Gun_M5_USCM_Bond</defName>
-							<label>bond M5 Rocket Propelled Grenade</label>
-							<description>Bond an M5 Rocket Propelled Grenade.</description>
-							<jobString>Bonding a M5 Rocket Propelled Grenade.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>Gun_M5_USCM</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>Gun_M5_USCM</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<Gun_M5_USCM_Bond>1</Gun_M5_USCM_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
 					</value>
 				</li>
 			</operations>

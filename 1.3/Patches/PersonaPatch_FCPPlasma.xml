@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    FCP Plasma Weapons Pack!
+    ===== FCP Plasma Weapons Pack! =====
+
+    == Range
+    FCP_Gun_Plasma_Pistol_Bond = persona Plasma Pistol
+    FCP_Gun_Plasma_Defender_Bond = persona Plasma Defender
+    FCP_Gun_Plasma_Rifle_Bond = persona Plasma Rifle
+    FCP_Gun_Q35_Matter_Modulator_Bond = persona Q-35 Matter Modulator
+    FCP_Gun_Multiplas_Rifle_Bond = persona Multiplas Rifle
+    FCP_Gun_Plasma_Caster_Bond = persona Plasma Caster
 -->
 <Patch>
     <Operation Class="PatchOperationFindMod">
@@ -14,8 +22,9 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
+                        <!-- ===== Range ===== -->
                         <!-- FCP_Gun_Plasma_Pistol_Bond -->
-                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
                             <defName>FCP_Gun_Plasma_Pistol_Bond</defName>
                             <label>persona Plasma Pistol</label>
                             <description>A downscaled version of the plasma rifle. The plasma pistol has five tributary energy arcs connected to a central cathode, and the cathode functions as a point of focus, or the barrel. The energy is projected forward and forms a plasma pinch; though rather slow, the pinch carries high levels of both thermal and kinetic energy, inflicting massive damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -77,55 +86,8 @@
                             </modExtensions>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_FCP_Gun_Plasma_Pistol_Bond</defName>
-                            <label>bond Plasma Pistol</label>
-                            <description>Bond an Plasma Pistol.</description>
-                            <jobString>Bonding a Plasma Pistol.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>ChargedShot</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>FCP_Gun_Plasma_Pistol</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>FCP_Gun_Plasma_Pistol</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <FCP_Gun_Plasma_Pistol_Bond>1</FCP_Gun_Plasma_Pistol_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- FCP_Gun_Plasma_Defender_Bond -->
-                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
                             <defName>FCP_Gun_Plasma_Defender_Bond</defName>
                             <label>persona Plasma Defender</label>
                             <description>An Austrian-made energy pistol, the plasma defender fires superheated bolts of green plasma. Despite its small frame, its projectiles deal significant damage and are able to penetrate most armors with ease. It does more damage, is more accurate and fires faster compared to the standard plasma pistol. However, it’s an exceptionally rare and expensive weapon usually reserved as a sidearm for high-ranking officers in high-tech groups such as the Enclave.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -187,55 +149,8 @@
                             </modExtensions>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_FCP_Gun_Plasma_Defender_Bond</defName>
-                            <label>bond Plasma Defender</label>
-                            <description>Bond an Plasma Defender.</description>
-                            <jobString>Bonding a Plasma Defender.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>ChargedShot</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>FCP_Gun_Plasma_Defender</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>FCP_Gun_Plasma_Defender</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <FCP_Gun_Plasma_Defender_Bond>1</FCP_Gun_Plasma_Defender_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- FCP_Gun_Plasma_Rifle_Bond -->
-                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
                             <defName>FCP_Gun_Plasma_Rifle_Bond</defName>
                             <label>persona Plasma Rifle</label>
                             <description>The plasma rifle fires superheated bolts of plasma capable of reducing its target to a pile of goo. It is a rare and nowadays poorly understood weapon which demands proper care and maintenance. Its “projectiles” are significantly more dangerous than those of a lase rifle but move somewhat slow however, making it a weapon best suited for experienced soldiers.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -299,55 +214,8 @@
                             </modExtensions>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_FCP_Gun_Plasma_Rifle_Bond</defName>
-                            <label>bond Plasma Rifle</label>
-                            <description>Bond an Plasma Rifle.</description>
-                            <jobString>Bonding a Plasma Rifle.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>ChargedShot</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>FCP_Gun_Plasma_Rifle</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>FCP_Gun_Plasma_Rifle</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <FCP_Gun_Plasma_Rifle_Bond>1</FCP_Gun_Plasma_Rifle_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- FCP_Gun_Q35_Matter_Modulator_Bond -->
-                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
                             <defName>FCP_Gun_Q35_Matter_Modulator_Bond</defName>
                             <label>persona Q-35 Matter Modulator</label>
                             <description>Also known as the V.35 Quantum plasma modulation matter injection rifle, the Q-35 matter modulator was created by REPCONN Aerospace engineers as part of the Quantum Plasma Modulation Matter Injection Rifle project, The prototype, whose three previous versions (V.32, V.33, V.34) had failed,[1] was created by a team of engineers under the leadership of Senior Staff Engineer Xuan Duong, using design specifications stolen from Poseidon Energy for the canceled plasma rifle initiative, Project SEMELE, in conjunction with designs from their own plasma engine, the failed quantum matter modulator of the Z43-521P rocket. Poseidon data allowed the REPCONN team to rectify issues with matter inversion by using a polarized quantum spin, simultaneously solving the issues with matter conversion in the Heisenberg compensation field, enabling the creation of the first prototype of a new line of plasma weapon With the data from the SEMELE project, REPCONN was finally able to create a functional prototype. While prototype materials make it unsuitable for prolonged field use, the Q-35 has a longer refire rate on average, but a more consistent delay between shots, an increase in active bolt charge time, increased accuracy and a 30% increase in bolt energy.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -411,55 +279,8 @@
                             </modExtensions>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_FCP_Gun_Q35_Matter_Modulator_Bond</defName>
-                            <label>bond Q-35 Matter Modulator</label>
-                            <description>Bond an Q-35 Matter Modulator.</description>
-                            <jobString>Bonding a Q-35 Matter Modulator.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>ChargedShot</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>FCP_Gun_Q35_Matter_Modulator</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>FCP_Gun_Q35_Matter_Modulator</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <FCP_Gun_Q35_Matter_Modulator_Bond>1</FCP_Gun_Q35_Matter_Modulator_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- FCP_Gun_Multiplas_Rifle_Bond -->
-                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
                             <defName>FCP_Gun_Multiplas_Rifle_Bond</defName>
                             <label>persona Multiplas Rifle</label>
                             <description>Effectively a plasma shotgun, the multiplas rifle is easily distinguishable by its three plasma barrels at the rifle's tip, which fire three very destructive rounds of plasma. Like less advanced shotguns, the multiplas rifle is best suited for combat over short ranges.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -523,55 +344,8 @@
                             </modExtensions>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_FCP_Gun_Multiplas_Rifle_Bond</defName>
-                            <label>bond Multiplas Rifle</label>
-                            <description>Bond an Multiplas Rifle.</description>
-                            <jobString>Bonding a Multiplas Rifle.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>ChargedShot</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>FCP_Gun_Multiplas_Rifle</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>FCP_Gun_Multiplas_Rifle</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <FCP_Gun_Multiplas_Rifle_Bond>1</FCP_Gun_Multiplas_Rifle_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- FCP_Gun_Plasma_Caster_Bond -->
-                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
                             <defName>FCP_Gun_Plasma_Caster_Bond</defName>
                             <label>persona Plasma Caster</label>
                             <description>The plasma caster functions very similar to its rifle-based counterpart. It was first developed as an industrial tool but was soon after downscaled and adapted as a weapon, it’s still very heavy though. Compared to the plasma rifle, it fires both faster and harder-hitting, but is significantly less accurate.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -636,54 +410,6 @@
                             </modExtensions>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_FCP_Gun_Plasma_Caster_Bond</defName>
-                            <label>bond Plasma Caster</label>
-                            <description>Bond an Plasma Caster.</description>
-                            <jobString>Bonding a Plasma Caster.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>ChargedShot</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>FCP_Gun_Plasma_Caster</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>FCP_Gun_Plasma_Caster</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <FCP_Gun_Plasma_Caster_Bond>1</FCP_Gun_Plasma_Caster_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
-
                         <!-- Bullet -->
                         <ThingDef ParentName="BaseBullet">
                             <defName>Bullet_Plasma_Bond</defName>
@@ -699,7 +425,6 @@
                                 <speed>55</speed>
                             </projectile>
                         </ThingDef>
-
                     </value>
                 </li>
             </operations>

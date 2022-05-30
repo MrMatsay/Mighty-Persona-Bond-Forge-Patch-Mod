@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Moyo-From the depth
+    ===== Moyo-From the depth =====
+
+    == Melee
+    Moyo_Wrench_Bond = persona moyo wrench
+    Moyo_Knife_Bond = persona moyo diving knife
+    Moyo_Piledriver_Bond = persona moyo piledriver
+    Moyo_Spear_Bond = persona moyo battleaxe
+    Moyo_PowerFist_Bond = persona moyo powerfist
+    Moyo_GDSpear_Bond = persona moyo royal battleaxe
+    Moyo_GDPowerFist_Bond = persona moyo royal powerfist
+
+    == Range
+    Moyo_Pistol_Bond = persona moyo nail gun
+    Moyo_ChargeRifle_Bond = persona moyo charge rifle
+    Moyo_PrecisionRifle_Bond = persona moyo precision rifle
+    Moyo_ChargeSMG_Bond = persona moyo charge SMG
+    Moyo_BoltCaster_Bond = persona moyo balista
+    Moyo_AutoCannon_Bond = persona moyo autocannon
+    Moyo_HeavyChargeRifle_Bond = persona moyo royal charge rifle
+    Moyo_HeavyAutoCannon_Bond = persona moyo royal autocannon
+    Moyo_HeavyBoltCaster_Bond = persona moyo royal balista
+    Moyo_CryoBlaster_Bond = persona moyo cryoblaster
 -->
 <Patch>
     <Operation Class="PatchOperationFindMod">
@@ -14,67 +35,19 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <!-- Melee Base -->
-                        <ThingDef Name="MoyoBaseMelee_Bond" Abstract="true" ParentName="BaseWeapon_Bladelink">
+                        <!-- ===== Melee ===== -->
+                        <ThingDef Name="MPBFPM_MoyoBaseMelee" Abstract="true" ParentName="MPBFPM_BaseMeleeWeapon_Quality">
                             <techLevel>Spacer</techLevel>
-                            <smeltable>true</smeltable>
-                            <burnableByRecipe>true</burnableByRecipe>
                             <thingCategories Inherit="False">
                                 <li>Moyo_WeaponsMelee</li>
                             </thingCategories>
-                            <weaponTags Inherit="False">
-                                <li>RangedBladelink</li>
-                            </weaponTags>
                             <inspectorTabs>
                                 <li>ITab_Art</li>
                             </inspectorTabs>
-                            <comps>
-                                <li>
-                                    <compClass>CompQuality</compClass>
-                                </li>
-                                <li Class="CompProperties_Art">
-                                    <nameMaker>NamerArtWeaponMelee</nameMaker>
-                                    <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
-                                    <minQualityForArtistic>Excellent</minQualityForArtistic>
-                                </li>
-                            </comps>
                         </ThingDef>
 
-                        <!-- Range Base -->
-                        <ThingDef Name="MoyoBaseGun_Bond" Abstract="true" ParentName="BaseWeapon_Bladelink">
-                            <techLevel>Spacer</techLevel>
-                            <soundInteract>Moyo_WeaponInteractLight</soundInteract>
-                            <thingCategories Inherit="False">
-                                <li>Moyo_WeaponsRanged</li>
-                            </thingCategories>
-                            <weaponTags Inherit="False">
-                                <li>RangedBladelink</li>
-                                <li>Moyo_TagToSell</li>
-                            </weaponTags>
-                            <tools>
-                                <li>
-                                    <label>grip</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.450</power>
-                                    <cooldownTime>1.800</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.450</power>
-                                    <cooldownTime>1.800</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
-
-                        <!-- ===== Melee ===== -->
                         <!-- Moyo_Wrench_Bond -->
-                        <ThingDef ParentName="MoyoBaseMelee_Bond">
+                        <ThingDef ParentName="MPBFPM_MoyoBaseMelee">
                             <defName>Moyo_Wrench_Bond</defName>
                             <label>persona moyo wrench</label>
                             <description>A tool for bending metal and tightening bolts. Or bashing in heads, if you need to.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -115,55 +88,8 @@
                             </equippedStatOffsets>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_Wrench_Bond</defName>
-                            <label>bond moyo wrench</label>
-                            <description>Bond an moyo wrench.</description>
-                            <jobString>Bonding a moyo wrench.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>Machining</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_Wrench</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_Wrench</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_Wrench_Bond>1</Moyo_Wrench_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
-                        <!-- 모요 나이프 -->
-                        <ThingDef ParentName="MoyoBaseMelee_Bond">
+                        <!-- Moyo_Knife_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseMelee">
                             <defName>Moyo_Knife_Bond</defName>
                             <label>persona moyo diving knife</label>
                             <techLevel>Industrial</techLevel>
@@ -209,55 +135,8 @@
                             </tools>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_Knife_Bond</defName>
-                            <label>bond moyo diving knife</label>
-                            <description>Bond an moyo diving knife.</description>
-                            <jobString>Bonding a moyo diving knife.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>Machining</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_Knife</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_Knife</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_Knife_Bond>1</Moyo_Knife_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
-                        <!-- 모요 볼트드라이버 -->
-                        <ThingDef ParentName="MoyoBaseMelee_Bond">
+                        <!-- Moyo_Piledriver_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseMelee">
                             <defName>Moyo_Piledriver_Bond</defName>
                             <label>persona moyo piledriver</label>
                             <techLevel>Spacer</techLevel>
@@ -298,58 +177,8 @@
                             </equippedStatOffsets>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_Piledriver_Bond</defName>
-                            <label>bond moyo piledriver</label>
-                            <description>Bond an moyo piledriver.</description>
-                            <jobString>Bonding a moyo piledriver.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisites>
-                                <li>LongBlades</li>
-                                <li>GasOperation</li>
-                            </researchPrerequisites>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_Piledriver</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_Piledriver</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_Piledriver_Bond>1</Moyo_Piledriver_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- Moyo_Spear_Bond -->
-                        <ThingDef ParentName="MoyoBaseGun_Bond">
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
                             <defName>Moyo_Spear_Bond</defName>
                             <label>persona moyo battleaxe</label>
                             <description>Heavy battleaxe prototype forged with abysteel. Has a cryogenic blade intended to minimize bleeding from cuts. well, so said the development team. Its a weapon that can split open a diving suit helmet, bloodloss will be the least concern.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -396,55 +225,8 @@
                             </tools>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_Spear_Bond</defName>
-                            <label>bond moyo battleaxe</label>
-                            <description>Bond an moyo battleaxe.</description>
-                            <jobString>Bonding a moyo battleaxe.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>MoyoCryoBlaster</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_Spear</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_Spear</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_Spear_Bond>1</Moyo_Spear_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- Moyo_PowerFist_Bond -->
-                        <ThingDef ParentName="MoyoBaseMelee_Bond">
+                        <ThingDef ParentName="MPBFPM_MoyoBaseMelee">
                             <defName>Moyo_PowerFist_Bond</defName>
                             <label>persona moyo powerfist</label>
                             <techLevel>Spacer</techLevel>
@@ -487,55 +269,8 @@
                             </equippedStatOffsets>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_PowerFist_Bond</defName>
-                            <label>bond moyo powerfist</label>
-                            <description>Bond an moyo powerfist.</description>
-                            <jobString>Bonding a moyo powerfist.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>DeepSeaProtection</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_PowerFist</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_PowerFist</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_PowerFist_Bond>1</Moyo_PowerFist_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- Moyo_GDSpear_Bond -->
-                        <ThingDef ParentName="MoyoBaseGun_Bond">
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
                             <defName>Moyo_GDSpear_Bond</defName>
                             <label>persona moyo royal battleaxe</label>
                             <description>Heavy battleaxe used by the royal guard. It has been refined for ease of use and equipped with advanced cryogenic blade\n\nA modified version of the prototype battleaxe, the white body and the royal guard’s symbol etched upon it are the blades of the elders.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -583,55 +318,8 @@
                             </tools>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_GDSpear_Bond</defName>
-                            <label>bond moyo royal battleaxe</label>
-                            <description>Bond an moyo royal battleaxe.</description>
-                            <jobString>Bonding a moyo royal battleaxe.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>GuardianModule</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_GDSpear</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_GDSpear</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_GDSpear_Bond>1</Moyo_GDSpear_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- Moyo_GDPowerFist_Bond -->
-                        <ThingDef ParentName="MoyoBaseMelee_Bond">
+                        <ThingDef ParentName="MPBFPM_MoyoBaseMelee">
                             <defName>Moyo_GDPowerFist_Bond</defName>
                             <label>persona moyo royal powerfist</label>
                             <techLevel>Spacer</techLevel>
@@ -674,56 +362,39 @@
                             </equippedStatOffsets>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_GDPowerFist_Bond</defName>
-                            <label>bond moyo royal powerfist</label>
-                            <description>Bond an moyo royal powerfist.</description>
-                            <jobString>Bonding a moyo royal powerfist.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>GuardianModule</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_GDPowerFist</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_GDPowerFist</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_GDPowerFist_Bond>1</Moyo_GDPowerFist_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- ===== Range ===== -->
+                        <ThingDef Name="MPBFPM_MoyoBaseGun" Abstract="true" ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <techLevel>Spacer</techLevel>
+                            <soundInteract>Moyo_WeaponInteractLight</soundInteract>
+                            <thingCategories Inherit="False">
+                                <li>Moyo_WeaponsRanged</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>Moyo_TagToSell</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.450</power>
+                                    <cooldownTime>1.800</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.450</power>
+                                    <cooldownTime>1.800</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
                         <!-- Moyo_Pistol_Bond -->
-                        <ThingDef ParentName="MoyoBaseGun_Bond">
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
                             <defName>Moyo_Pistol_Bond</defName>
                             <label>persona moyo nail gun</label>
                             <description>A common contruction tool of the Lighthouse. It has strong firing mechanism to make it reliable in most places. which also makes it fantastic as a improvised weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -736,7 +407,6 @@
                             <soundInteract>moyo_smallWeaponInteract</soundInteract>
                             <weaponTags>
                                 <li>MoyoBasicGun</li>
-                                <li>Gun</li>
                             </weaponTags>
                             <statBases>
                                 <Mass>1.2</Mass>
@@ -774,55 +444,8 @@
                             </projectile>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_Pistol_Bond</defName>
-                            <label>bond moyo nail gun</label>
-                            <description>Bond an moyo nail gun.</description>
-                            <jobString>Bonding a moyo nail gun.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>GasOperation</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_Pistol</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_Pistol</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_Pistol_Bond>1</Moyo_Pistol_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- Moyo_ChargeRifle_Bond -->
-                        <ThingDef ParentName="MoyoBaseGun_Bond">
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
                             <defName>Moyo_ChargeRifle_Bond</defName>
                             <label>persona moyo charge rifle</label>
                             <description>Moyo assult rifle that shows much similarities with a traditional charge rifle. The charged bolt and accelerated through the barrel and fired. Each bolt is designed to minimize energy loss over distance.\n\nThe lighthouse uses traditional charge rifles as well, but once the new rifles proved its efficiency, the moyo charge rifles became the standard.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -880,54 +503,8 @@
                             </projectile>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_ChargeRifle_Bond</defName>
-                            <label>bond moyo charge rifle</label>
-                            <description>Bond an moyo charge rifle.</description>
-                            <jobString>Bonding a moyo charge rifle.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_ChargeRifle</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_ChargeRifle</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_ChargeRifle_Bond>1</Moyo_ChargeRifle_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- Moyo_PrecisionRifle_Bond -->
-                        <ThingDef ParentName="MoyoBaseGun_Bond">
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
                             <defName>Moyo_PrecisionRifle_Bond</defName>
                             <label>persona moyo precision rifle</label>
                             <description>Moyo sniper rifle that shows much similarities with a traditional charge rifle. The firerate is low, but each shot boasts an impressive range and accuracy.\n\nAn experimental model made with the development of bolt caster technology, they where seldom used in the confines of the lighthouse, but will prove to be an effective weapon in the open surface of the rim.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -985,54 +562,8 @@
                             </projectile>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_PrecisionRifle_Bond</defName>
-                            <label>bond moyo precision rifle</label>
-                            <description>Bond an moyo precision rifle.</description>
-                            <jobString>Bonding a moyo precision rifle.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_PrecisionRifle</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_PrecisionRifle</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_PrecisionRifle_Bond>1</Moyo_PrecisionRifle_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- Moyo_ChargeSMG_Bond -->
-                        <ThingDef ParentName="MoyoBaseGun_Bond">
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
                             <defName>Moyo_ChargeSMG_Bond</defName>
                             <label>persona moyo charge SMG</label>
                             <description>Small moyo submachine gun. Light and easy to use, these were the most commonly used weapons in the lighthouse.\n\nBefore, most firearms where locked in the armories, but in the civil war, firearms both new and old quickly spread to all levels of the lighthouse.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -1057,7 +588,6 @@
                             <weaponTags>
                                 <li>Moyo_SpacerGun</li>
                                 <li>Moyo_SpacerLightGun</li>
-                                <li>Gun</li>
                             </weaponTags>
                             <verbs>
                                 <li>
@@ -1092,54 +622,8 @@
                             </projectile>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_ChargeSMG_Bond</defName>
-                            <label>bond moyo charge SMG</label>
-                            <description>Bond an moyo charge SMG.</description>
-                            <jobString>Bonding a moyo charge SMG.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_ChargeSMG</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_ChargeSMG</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_ChargeSMG_Bond>1</Moyo_ChargeSMG_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- Moyo_BoltCaster_Bond -->
-                        <ThingDef ParentName="MoyoBaseGun_Bond">
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
                             <defName>Moyo_BoltCaster_Bond</defName>
                             <label>persona moyo balista</label>
                             <description>Large boltcaster made to fight off the leviathans that threaten the lighthouse. The weapon accelerates overcharged energy bolts through the barrel and fires them. On impact, the bolts release the stored energy in a violent explosion.\n\nBoltcaster weapons were developed when traditional charge weapons proved less effective underwater. This boltcaster is the first charge bolt weapon, and every subsequent moyo firearm can be traced back to it..\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -1202,55 +686,8 @@
                             </projectile>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_BoltCaster_Bond</defName>
-                            <label>bond moyo balista</label>
-                            <description>Bond an moyo balista.</description>
-                            <jobString>Bonding a moyo balista.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>MoyoChargedBolt</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_BoltCaster</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_BoltCaster</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_BoltCaster_Bond>1</Moyo_BoltCaster_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- Moyo_AutoCannon_Bond -->
-                        <ThingDef ParentName="MoyoBaseGun_Bond">
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
                             <defName>Moyo_AutoCannon_Bond</defName>
                             <label>persona moyo autocannon</label>
                             <description>Large boltcaster with a high rate of fire. The bolts fired from this weapon is effective on both armored and unarmored targets.n\nAs the battles in the lighthouse grew more complex, more weapons where developed to deal with the changing situation. This weapon in particular seems to have been inspired by a surface weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -1312,55 +749,8 @@
                             </projectile>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_AutoCannon_Bond</defName>
-                            <label>bond moyo autocannon</label>
-                            <description>Bond an moyo autocannon.</description>
-                            <jobString>Bonding a moyo autocannon.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>MoyoChargedBolt</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_AutoCannon</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_AutoCannon</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_AutoCannon_Bond>1</Moyo_AutoCannon_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- Moyo_HeavyChargeRifle_Bond -->
-                        <ThingDef ParentName="MoyoBaseGun_Bond">
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
                             <defName>Moyo_HeavyChargeRifle_Bond</defName>
                             <label>persona moyo royal charge rifle</label>
                             <description>Heavy rifle used by the royal guard. A model focusing almost entirely on firepower, this model is supiror to the original charge rifle in nearly every way save weight and ease of use.\n\nThe first weapon chosen as the armament of the royal guard, the white body etched with the symbol of the royal guard are the spears of the elders.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -1407,55 +797,8 @@
                             </thingSetMakerTags>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_HeavyChargeRifle_Bond</defName>
-                            <label>bond moyo royal charge rifle</label>
-                            <description>Bond an moyo royal charge rifle.</description>
-                            <jobString>Bonding a moyo royal charge rifle.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>GuardianModule</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_HeavyChargeRifle</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_HeavyChargeRifle</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_HeavyChargeRifle_Bond>1</Moyo_HeavyChargeRifle_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- Moyo_HeavyAutoCannon_Bond -->
-                        <ThingDef ParentName="MoyoBaseGun_Bond">
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
                             <defName>Moyo_HeavyAutoCannon_Bond</defName>
                             <label>persona moyo royal autocannon</label>
                             <description>Heavy autocannon used by the royal guard. The bolts fired from this weapon is effective on both armored and unarmored targets.\n\nOne of the armaments of the royal guard, the white body etched with the symbol of the royal guard are the hammers of the elders.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -1506,55 +849,8 @@
                             </thingSetMakerTags>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_HeavyAutoCannon_Bond</defName>
-                            <label>bond moyo royal autocannon</label>
-                            <description>Bond an moyo royal autocannon.</description>
-                            <jobString>Bonding a moyo royal autocannon.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>GuardianModule</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_HeavyAutoCannon</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_HeavyAutoCannon</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_HeavyAutoCannon_Bond>1</Moyo_HeavyAutoCannon_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- Moyo_HeavyBoltCaster_Bond -->
-                        <ThingDef ParentName="MoyoBaseGun_Bond">
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
                             <defName>Moyo_HeavyBoltCaster_Bond</defName>
                             <label>persona moyo royal balista</label>
                             <description>Heavy boltcaster used by the royal guard. Compared to the original, it can fire chargebolts faster, more accurately over longer distance.\n\nThe symbolic weapon approved to be a part of royal arsenal, the white body etched with the symbol of the royal guard are the mace of the elders.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -1598,55 +894,8 @@
                             </thingSetMakerTags>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_HeavyBoltCaster_Bond</defName>
-                            <label>bond moyo royal balista</label>
-                            <description>Bond an moyo royal balista.</description>
-                            <jobString>Bonding a moyo royal balista.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>GuardianModule</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_HeavyBoltCaster</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_HeavyBoltCaster</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_HeavyBoltCaster_Bond>1</Moyo_HeavyBoltCaster_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- Moyo_CryoBlaster_Bond -->
-                        <ThingDef ParentName="MoyoBaseGun_Bond">
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
                             <defName>Moyo_CryoBlaster_Bond</defName>
                             <label>persona moyo cryoblaster</label>
                             <description>Weapon developed for riot control. Fires cryogenic material that quickly freezes on its victims and causes severe frostbite.\n\nCyrogenic weapons where developed with intent to reduce bleeding during suppression and capture targets with relatively less injuries.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -1711,52 +960,6 @@
                             </projectile>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_Moyo_CryoBlaster_Bond</defName>
-                            <label>bond moyo cryoblaster</label>
-                            <description>Bond an moyo cryoblaster.</description>
-                            <jobString>Bonding a moyo cryoblaster.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>MoyoCryoBlaster</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>Moyo_CryoBlaster</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>Moyo_CryoBlaster</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <Moyo_CryoBlaster_Bond>1</Moyo_CryoBlaster_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
                     </value>
                 </li>
             </operations>

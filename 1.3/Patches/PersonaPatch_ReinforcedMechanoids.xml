@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	Reinforced Mechanoids: Tyrikan-Line
-
+	===== Reinforced Mechanoids: Tyrikan-Line =====
+	
+	== Range
 	RM_Gun_ReinforcedInfernoCannon_Bond = persona reinforced inferno cannon
 	RM_Gun_ReinforcedChargeLance_Bond = persona reinforced charge lance
 	RM_ReinforcedTeslaCoil_Bond = persona reinforced tesla coil
@@ -24,9 +25,9 @@
 				<li Class="PatchOperationAdd">
 					<xpath>/Defs</xpath>
 					<value>
-						<!-- Range -->
+						<!-- ===== Range ===== -->
 						<!-- RM_Gun_ReinforcedInfernoCannon_Bond -->
-						<ThingDef ParentName="BaseWeapon_Bladelink">
+						<ThingDef ParentName="MPBFPM_BaseGunWithQuality">
 							<defName>RM_Gun_ReinforcedInfernoCannon_Bond</defName>
 							<label>persona reinforced inferno cannon</label>
 							<description>A reinforced incendiary-shot mini-artillery device. It fires three large incendiary warheads per burst using an internal rotating chamber.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -36,10 +37,6 @@
 								<drawSize>1.2</drawSize>
 							</graphicData>
 							<destroyOnDrop>true</destroyOnDrop>
-							<weaponTags Inherit="False">
-								<li>RangedBladelink</li>
-								
-							</weaponTags>
 							<techLevel>Spacer</techLevel>
 							<generateCommonality>0.5</generateCommonality>
 							<tradeability>None</tradeability>
@@ -98,7 +95,7 @@
 								<damageDef>RM_Flame_Bond</damageDef>
 								<!-- Use default damage from explosion def -->
 								<speed>45</speed>
-								<explosionRadius>2.4</explosionRadius >
+								<explosionRadius>2.4</explosionRadius>
 								<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
 								<preExplosionSpawnChance>0.27</preExplosionSpawnChance>
 								<ai_IsIncendiary>true</ai_IsIncendiary>
@@ -128,55 +125,8 @@
 							<canUseDeflectMetalEffect>false</canUseDeflectMetalEffect>
 						</DamageDef>
 
-						<RecipeDef>
-							<defName>Make_RM_Gun_ReinforcedInfernoCannon_Bond</defName>
-							<label>bond reinforced inferno cannon</label>
-							<description>Bond an reinforced inferno cannon.</description>
-							<jobString>Bonding a reinforced inferno cannon.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>RM_Gun_ReinforcedInfernoCannon</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>RM_Gun_ReinforcedInfernoCannon</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<RM_Gun_ReinforcedInfernoCannon_Bond>1</RM_Gun_ReinforcedInfernoCannon_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
-						<!-- ================================ Lance Weapons ====================== -->
-						<ThingDef ParentName="BaseWeapon_Bladelink">
+						<!-- RM_Gun_ReinforcedChargeLance_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseGunWithQuality">
 							<defName>RM_Gun_ReinforcedChargeLance_Bond</defName>
 							<label>persona reinforced charge lance</label>
 							<description>A reinforced, pulse-charged rail-assisted lance weapon used by mechanoids. It fires three high-velocity rounds in quick succession as a burst, charged with unstable energy as each shot leaves the acceleration rail.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -198,9 +148,6 @@
 								<AccuracyLong>0.715</AccuracyLong>
 								<RangedWeapon_Cooldown>2.635</RangedWeapon_Cooldown>
 							</statBases>
-							<weaponTags Inherit="False">
-								<li>RangedBladelink</li>
-							</weaponTags>
 							<weaponClasses>
 								<li>RangedHeavy</li>
 								<li>LongShots</li>
@@ -253,55 +200,8 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_RM_Gun_ReinforcedChargeLance_Bond</defName>
-							<label>bond reinforced charge lance</label>
-							<description>Bond an reinforced charge lance.</description>
-							<jobString>Bonding a reinforced charge lance.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>RM_Gun_ReinforcedChargeLance</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>RM_Gun_ReinforcedChargeLance</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<RM_Gun_ReinforcedChargeLance_Bond>1</RM_Gun_ReinforcedChargeLance_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
-						<!-- ================================ Coil Weapons ====================== -->
-						<ThingDef ParentName="BaseWeapon_Bladelink">
+						<!-- RM_ReinforcedTeslaCoil_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseGunWithQuality">
 							<defName>RM_ReinforcedTeslaCoil_Bond</defName>
 							<label>persona reinforced tesla coil</label>
 							<description>A medium-range reinforced tesla-coil weapon used by mechanoids. It fires lighting projectiles, stunning and burning their target before jumping to the next, able to damage multiple targets with each shot. Extremely dangerous and best avoided.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -323,10 +223,6 @@
 								<Mass>18</Mass>
 								<Flammability>0</Flammability>
 							</statBases>
-							<weaponTags Inherit="False">
-								<li>RangedBladelink</li>
-								
-							</weaponTags>
 							<weaponClasses>
 								<li>RangedHeavy</li>
 							</weaponClasses>
@@ -386,54 +282,7 @@
 							</modExtensions>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_RM_ReinforcedTeslaCoil_Bond</defName>
-							<label>bond  reinforced tesla coil</label>
-							<description>Bond an  reinforced tesla coil.</description>
-							<jobString>Bonding a  reinforced tesla coil.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>RM_ReinforcedTeslaCoil</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>RM_ReinforcedTeslaCoil</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<RM_ReinforcedTeslaCoil_Bond>1</RM_ReinforcedTeslaCoil_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
-						<!-- ================================ Charge Weapons ====================== -->
+						<!-- RM_Gun_ChargeSidearm_Bond -->
 						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
 							<defName>RM_Gun_ChargeSidearm_Bond</defName>
 							<label>persona charge sidearm</label>
@@ -512,53 +361,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_RM_Gun_ChargeSidearm_Bond</defName>
-							<label>bond charge sidearm</label>
-							<description>Bond an charge sidearm.</description>
-							<jobString>Bonding a charge sidearm.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>RM_Gun_ChargeSidearm</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>RM_Gun_ChargeSidearm</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<RM_Gun_ChargeSidearm_Bond>1</RM_Gun_ChargeSidearm_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- RM_Gun_ReinforcedChargeLMG_Bond -->
 						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
 							<defName>RM_Gun_ReinforcedChargeLMG_Bond</defName>
@@ -629,53 +431,6 @@
 							</projectile>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_RM_Gun_ReinforcedChargeLMG_Bond</defName>
-							<label>bond reinforced charge lmg</label>
-							<description>Bond an reinforced charge lmg.</description>
-							<jobString>Bonding a reinforced charge lmg.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>RM_Gun_ReinforcedChargeLMG</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>RM_Gun_ReinforcedChargeLMG</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<RM_Gun_ReinforcedChargeLMG_Bond>1</RM_Gun_ReinforcedChargeLMG_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- RM_Gun_ChargeLanceRevolver_Bond -->
 						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
 							<defName>RM_Gun_ChargeLanceRevolver_Bond</defName>
@@ -741,53 +496,6 @@
 								<speed>100</speed>
 							</projectile>
 						</ThingDef>
-
-						<RecipeDef>
-							<defName>Make_RM_Gun_ChargeLanceRevolver_Bond</defName>
-							<label>bond charge lance revolver</label>
-							<description>Bond an charge lance revolver.</description>
-							<jobString>Bonding a charge lance revolver.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>RM_Gun_ChargeLanceRevolver</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>RM_Gun_ChargeLanceRevolver</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<RM_Gun_ChargeLanceRevolver_Bond>1</RM_Gun_ChargeLanceRevolver_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
 
 						<!-- RM_Gun_ChargeLanceRifle_Bond -->
 						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
@@ -859,53 +567,6 @@
 								<speed>120</speed>
 							</projectile>
 						</ThingDef>
-
-						<RecipeDef>
-							<defName>Make_RM_Gun_ChargeLanceRifle_Bond</defName>
-							<label>bond charge lance rifle</label>
-							<description>Bond an charge lance rifle.</description>
-							<jobString>Bonding a charge lance rifle.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>RM_Gun_ChargeLanceRifle</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>RM_Gun_ChargeLanceRifle</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<RM_Gun_ChargeLanceRifle_Bond>1</RM_Gun_ChargeLanceRifle_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
 
 						<!-- RM_Gun_ReinforcedCoilPistol_Bond -->
 						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
@@ -993,53 +654,6 @@
 							</modExtensions>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_RM_Gun_ReinforcedCoilPistol_Bond</defName>
-							<label>bond reinforced coil pistol</label>
-							<description>Bond an reinforced coil pistol.</description>
-							<jobString>Bonding a reinforced coil pistol.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>RM_CoilShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>RM_Gun_ReinforcedCoilPistol</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>RM_Gun_ReinforcedCoilPistol</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<RM_Gun_ReinforcedCoilPistol_Bond>1</RM_Gun_ReinforcedCoilPistol_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
 						<!-- RM_ReinforcedCoilRifle_Bond -->
 						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
 							<defName>RM_ReinforcedCoilRifle_Bond</defName>
@@ -1126,52 +740,6 @@
 							</modExtensions>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_RM_ReinforcedCoilRifle_Bond</defName>
-							<label>bond reinforced coil rifle</label>
-							<description>Bond an reinforced coil rifle.</description>
-							<jobString>Bonding a reinforced coil rifle.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>RM_CoilShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>RM_ReinforcedCoilRifle</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>RM_ReinforcedCoilRifle</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<RM_ReinforcedCoilRifle_Bond>1</RM_ReinforcedCoilRifle_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
 					</value>
 				</li>
 			</operations>

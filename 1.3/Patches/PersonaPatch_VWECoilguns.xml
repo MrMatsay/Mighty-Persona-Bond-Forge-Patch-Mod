@@ -1,0 +1,295 @@
+<!--
+	===== Vanilla Weapons Expanded - Coilguns =====
+	
+	== Range
+	VWE_Gun_GaussRifle_Bond = persona gauss rifle
+	VWE_Gun_GaussMagnum_Bond = persona gauss magnum
+	VWE_Gun_GaussLance_Bond = persona gauss lance
+-->
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Weapons Expanded - Coilguns</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs</xpath>
+					<value>
+						<!-- ===== Range ===== -->
+						<ThingDef Name="MPBFPM_VWECoilgunsRange" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
+							<techLevel>Spacer</techLevel>
+							<weaponTags>
+								<li>SpacerGun</li>
+								<li>Coilgun</li>
+							</weaponTags>
+							<thingSetMakerTags>
+								<li>RewardStandardLowFreq</li>
+								<li>RewardStandardQualitySuper</li>
+							</thingSetMakerTags>
+							<graphicData>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+						</ThingDef>
+
+						<VFECore.ExpandableProjectileDef Name="MPBFPM_VWECoilgunsBullet" Abstract="True" ParentName="BaseBullet">
+							<thingClass>VFECore.GaussProjectile</thingClass>
+							<graphicData>
+								<texPath>Projectiles/Proj_CoilgunFadeIn</texPath>
+								<texPathFadeOut>Projectiles/Proj_CoilgunFadeOut</texPathFadeOut>
+							</graphicData>
+							<reachMaxRangeAlways>true</reachMaxRangeAlways>
+							<minDistanceToAffect>1.9</minDistanceToAffect>
+							<drawOffscreen>true</drawOffscreen>
+							<lifeTimeDuration>50</lifeTimeDuration>
+							<widthScaleFactor>0.10</widthScaleFactor>
+							<heightScaleFactor>1</heightScaleFactor>
+							<startingPositionOffset>(0,0,-1)</startingPositionOffset>
+							<totalSizeScale>0.8</totalSizeScale>
+							<tickFrameRate>2</tickFrameRate>
+							<finalTickFrameRate>2</finalTickFrameRate>
+							<tickDamageRate>5</tickDamageRate>
+							<dealsDamageOnce>true</dealsDamageOnce>
+							<stopWhenHit>false</stopWhenHit>
+							<stopWhenHitAt>
+								<li>MineableSteel</li>
+								<li>CollapsedRocks</li>
+								<li>MineableSilver</li>
+								<li>MineableGold</li>
+								<li>MineableUranium</li>
+								<li>MineablePlasteel</li>
+								<li>MineableJade</li>
+								<li>MineableComponentsIndustrial</li>
+								<li>RaisedRocks</li>
+								<li>Sandstone</li>
+								<li>SmoothedSandstone</li>
+								<li>Granite</li>
+								<li>SmoothedGranite</li>
+								<li>Limestone</li>
+								<li>SmoothedLimestone</li>
+								<li>Slate</li>
+								<li>SmoothedSlate</li>
+								<li>Marble</li>
+								<li>SmoothedMarble</li>
+							</stopWhenHitAt>
+						</VFECore.ExpandableProjectileDef>
+
+						<!-- VWE_Gun_GaussRifle_Bond -->
+						<ThingDef ParentName="MPBFPM_VWECoilgunsRange">
+							<defName>VWE_Gun_GaussRifle_Bond</defName>
+							<label>persona gauss rifle</label>
+							<description>A spacer-tech gauss rifle. A set of coils accelerate ferromagnetic sabots up to breakneck speeds, penetrating armor and piercing through multiple targets alike. These weapons are popular among frontline infantry fighting in mechanoid wars.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/GaussRifle</texPath>
+							</graphicData>
+							<soundInteract>VWE_Interact_GaussRifle</soundInteract>
+							<statBases>
+								<Mass>5</Mass>
+								<AccuracyTouch>0.605</AccuracyTouch>
+								<AccuracyShort>0.704</AccuracyShort>
+								<AccuracyMedium>0.770</AccuracyMedium>
+								<AccuracyLong>0.550</AccuracyLong>
+								<RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>VWE_Bullet_GaussRifle_Bond</defaultProjectile>
+									<warmupTime>1.700</warmupTime>
+									<range>30.9</range>
+									<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+									<burstShotCount>3</burstShotCount>
+									<soundCast>VWE_Shot_GaussRifle</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+									<targetParams>
+										<canTargetLocations>true</canTargetLocations>
+										<canTargetPawns>true</canTargetPawns>
+										<canTargetBuildings>true</canTargetBuildings>
+									</targetParams>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+							<comps>
+							</comps>
+						</ThingDef>
+
+						<VFECore.ExpandableProjectileDef ParentName="MPBFPM_VWECoilgunsBullet">
+							<defName>VWE_Bullet_GaussRifle_Bond</defName>
+							<label>gauss rifle sabot</label>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>13</damageAmountBase>
+								<armorPenetrationBase>0.50</armorPenetrationBase>
+								<stoppingPower>1</stoppingPower>
+								<speed>150</speed>
+							</projectile>
+						</VFECore.ExpandableProjectileDef>
+
+						<!-- VWE_Gun_GaussMagnum_Bond -->
+						<ThingDef ParentName="MPBFPM_VWECoilgunsRange">
+							<defName>VWE_Gun_GaussMagnum_Bond</defName>
+							<label>persona gauss magnum</label>
+							<description>A spacer-tech gauss pistol. An array of coils accelerate sabot projectiles from a revolving drum, penetrating armor and piercing through targets in its path. It charges quicker than most coilguns at the cost of decreased damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/GaussMagnum</texPath>
+							</graphicData>
+							<soundInteract>VWE_Interact_GaussMagnum</soundInteract>
+							<statBases>
+								<Mass>1.6</Mass>
+								<AccuracyTouch>0.770</AccuracyTouch>
+								<AccuracyShort>0.880</AccuracyShort>
+								<AccuracyMedium>0.550</AccuracyMedium>
+								<AccuracyLong>0.385</AccuracyLong>
+								<RangedWeapon_Cooldown>1.360</RangedWeapon_Cooldown>
+							</statBases>
+							<generateCommonality>0.1</generateCommonality>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>VWE_Bullet_GaussMagnum_Bond</defaultProjectile>
+									<warmupTime>0.425</warmupTime>
+									<range>25.9</range>
+									<soundCast>VWE_Shot_GaussMagnum</soundCast>
+									<soundCastTail>GunTail_Light</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+									<targetParams>
+										<canTargetLocations>true</canTargetLocations>
+										<canTargetPawns>true</canTargetPawns>
+										<canTargetBuildings>true</canTargetBuildings>
+									</targetParams>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>grip</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+							<comps>
+							</comps>
+						</ThingDef>
+
+						<VFECore.ExpandableProjectileDef ParentName="MPBFPM_VWECoilgunsBullet">
+							<defName>VWE_Bullet_GaussMagnum_Bond</defName>
+							<label>gauss magnum sabot</label>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>15</damageAmountBase>
+								<armorPenetrationBase>0.50</armorPenetrationBase>
+								<stoppingPower>1</stoppingPower>
+								<speed>150</speed>
+							</projectile>
+						</VFECore.ExpandableProjectileDef>
+
+						<!-- VWE_Gun_GaussLance_Bond -->
+						<ThingDef ParentName="MPBFPM_VWECoilgunsRange">
+							<defName>VWE_Gun_GaussLance_Bond</defName>
+							<label>persona gauss lance</label>
+							<description>A spacer-tech gauss lance. A series of electromagnetic coils catapult a single shot at hypervelocity, shredding armor and punching through any targets in its path. It is fired from the hip, utilizing an onboard computer to track and adjust to distant targets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/GaussLance</texPath>
+								<drawSize>1</drawSize>
+							</graphicData>
+							<soundInteract>VWE_Interact_GaussRifle</soundInteract>
+							<statBases>
+								<Mass>11.6</Mass>
+								<AccuracyTouch>0.440</AccuracyTouch>
+								<AccuracyShort>0.715</AccuracyShort>
+								<AccuracyMedium>0.946</AccuracyMedium>
+								<AccuracyLong>0.968</AccuracyLong>
+								<RangedWeapon_Cooldown>2.975</RangedWeapon_Cooldown>
+							</statBases>
+							<equippedStatOffsets>
+								<MoveSpeed>-0.08</MoveSpeed>
+							</equippedStatOffsets>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>VWE_Bullet_GaussLance_Bond</defaultProjectile>
+									<warmupTime>4.675</warmupTime>
+									<range>44.9</range>
+									<soundCast>VWE_Shot_GaussLance</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>14</muzzleFlashScale>
+									<targetParams>
+										<canTargetLocations>true</canTargetLocations>
+										<canTargetPawns>true</canTargetPawns>
+										<canTargetBuildings>true</canTargetBuildings>
+									</targetParams>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>12</power>
+									<cooldownTime>2.34</cooldownTime>
+								</li>
+							</tools>
+							<equippedAngleOffset>53</equippedAngleOffset>
+							<comps>
+								<li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+									<eastOffset>(0,0,-0.18)</eastOffset>
+									<westOffset>(0,0,-0.18)</westOffset>
+									<southOffset>(0,0,-0.18)</southOffset>
+									<northOffset>(0,0,-0.18)</northOffset>
+								</li>
+							</comps>
+						</ThingDef>
+
+						<VFECore.ExpandableProjectileDef ParentName="MPBFPM_VWECoilgunsBullet">
+							<defName>VWE_Bullet_GaussLance_Bond</defName>
+							<label>gauss lance sabot</label>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>44</damageAmountBase>
+								<armorPenetrationBase>0.70</armorPenetrationBase>
+								<stoppingPower>1.5</stoppingPower>
+								<speed>150</speed>
+							</projectile>
+						</VFECore.ExpandableProjectileDef>
+					</value>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

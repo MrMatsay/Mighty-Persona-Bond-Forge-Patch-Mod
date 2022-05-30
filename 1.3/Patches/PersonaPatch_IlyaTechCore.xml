@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
     ===== Ilya Tech - Core =====
 
+    == Melee
+    SU_Katalina_Bond = persona Katalina Tactical Blade
+    SU_Sevika_Bond = persona Sevika Combat Knife
+
+    == Range
     SU_Morgante_Bond = persona Morgante Revolver
     SU_Laviano_Bond = persona Laviano SMG
     SU_Laurino_Bond = persona Laurino MG
@@ -23,12 +28,112 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <!-- ===== Range ===== -->
-                        <ThingDef Name="IlyaTechCoreBaseRange" Abstract="True" ParentName="BaseWeapon_Bladelink">
+                        <!-- ===== Melee ===== -->
+                        <ThingDef Name="IlyaTechCoreBaseMelee" Abstract="True" ParentName="MPBFPM_MeleeWeaponUltratech">
                             <techLevel>Spacer</techLevel>
-                            <weaponTags Inherit="False">
-                                <li>RangedBladelink</li>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <soundInteract>Interact_MonoSword</soundInteract>
+                            <meleeHitSound>Heavy_Melee</meleeHitSound>
+                            <equippedAngleOffset>-10</equippedAngleOffset>
+                        </ThingDef>
+
+                        <!-- SU_Katalina_Bond -->
+                        <ThingDef ParentName="IlyaTechCoreBaseMelee">
+                            <defName>SU_Katalina_Bond</defName>
+                            <label>persona Katalina Tactical Blade</label>
+                            <description>The Katalina is a light weight agile yet sharp blade that can cut some armor and is developed by Ilya Tech to provide it's user fast combos of slashes.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else</description>
+                            <weaponTags>
+                                <li>SU_TacticalSword</li>
                             </weaponTags>
+                            <graphicData>
+                                <texPath>Things/Weapons/SU_Katalina</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>8.80</power>
+                                    <cooldownTime>1.360</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>16.50</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                    <armorPenetration>0.990</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>13.20</power>
+                                    <cooldownTime>1.190</cooldownTime>
+                                    <armorPenetration>0.770</armorPenetration>
+                                </li>
+                            </tools>
+                            <statBases>
+                                <Mass>2</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <!-- SU_Sevika_Bond -->
+                        <ThingDef ParentName="IlyaTechCoreBaseMelee">
+                            <defName>SU_Sevika_Bond</defName>
+                            <label>persona Sevika Combat Knife</label>
+                            <description>The Sevika is a light weight military grade combat knife developed by Ilya Tech, dont play with it!.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else</description>
+                            <weaponTags>
+                                <li>SU_TacticalKnife</li>
+                            </weaponTags>
+                            <graphicData>
+                                <texPath>Things/Weapons/SU_Sevika</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>8.80</power>
+                                    <cooldownTime>1.360</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>11.00</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                    <armorPenetration>0.990</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>8.80</power>
+                                    <cooldownTime>1.190</cooldownTime>
+                                    <armorPenetration>0.770</armorPenetration>
+                                </li>
+                            </tools>
+                            <statBases>
+                                <Mass>1</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <!-- ===== Range ===== -->
+                        <ThingDef Name="IlyaTechCoreBaseRange" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <techLevel>Spacer</techLevel>
                             <soundInteract>Interact_Rifle</soundInteract>
                             <thingCategories>
                                 <li>SU_Ranged</li>
@@ -106,53 +211,6 @@
                             </projectile>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_SU_Morgante_Bond</defName>
-                            <label>bond Morgante Revolver</label>
-                            <description>Bond an Morgante Revolver.</description>
-                            <jobString>Bonding a Morgante Revolver.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>IlyaTech</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>SU_Morgante</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>SU_Morgante</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <SU_Morgante_Bond>1</SU_Morgante_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- SU_Laviano_Bond -->
                         <ThingDef ParentName="IlyaTechCoreBaseRange">
                             <defName>SU_Laviano_Bond</defName>
@@ -206,53 +264,6 @@
                                 <speed>75</speed>
                             </projectile>
                         </ThingDef>
-
-                        <RecipeDef>
-                            <defName>Make_SU_Laviano_Bond</defName>
-                            <label>bond Laviano SMG</label>
-                            <description>Bond an Laviano SMG.</description>
-                            <jobString>Bonding a Laviano SMG.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>IlyaTech</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>SU_Laviano</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>SU_Laviano</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <SU_Laviano_Bond>1</SU_Laviano_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
 
                         <!-- SU_Laurino_Bond -->
                         <ThingDef ParentName="IlyaTechCoreBaseRange">
@@ -308,53 +319,6 @@
                             </projectile>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_SU_Laurino_Bond</defName>
-                            <label>bond Laurino MG</label>
-                            <description>Bond an Laurino MG.</description>
-                            <jobString>Bonding a Laurino MG.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>IlyaTech</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>SU_Laurino</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>SU_Laurino</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <SU_Laurino_Bond>1</SU_Laurino_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- SU_Schwalbe_Bond -->
                         <ThingDef ParentName="IlyaTechCoreBaseRange">
                             <defName>SU_Schwalbe_Bond</defName>
@@ -409,53 +373,6 @@
                             </projectile>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_SU_Schwalbe_Bond</defName>
-                            <label>bond Schwalbe AR</label>
-                            <description>Bond an Schwalbe AR.</description>
-                            <jobString>Bonding a Schwalbe AR.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>IlyaTech</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>SU_Schwalbe</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>SU_Schwalbe</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <SU_Schwalbe_Bond>1</SU_Schwalbe_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- SU_Gavino_Bond -->
                         <ThingDef ParentName="IlyaTechCoreBaseRange">
                             <defName>SU_Gavino_Bond</defName>
@@ -509,53 +426,6 @@
                                 <speed>85</speed>
                             </projectile>
                         </ThingDef>
-
-                        <RecipeDef>
-                            <defName>Make_SU_Gavino_Bond</defName>
-                            <label>bond Gavino Auto-Shotgun</label>
-                            <description>Bond an Gavino Auto-Shotgun.</description>
-                            <jobString>Bonding a Gavino Auto-Shotgun.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>IlyaTech</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>SU_Gavino</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>SU_Gavino</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <SU_Gavino_Bond>1</SU_Gavino_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
 
                         <!-- SU_Federica_Bond -->
                         <ThingDef ParentName="IlyaTechCoreBaseRange">
@@ -612,53 +482,6 @@
                             </projectile>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_SU_Federica_Bond</defName>
-                            <label>bond Federica Marksman Rifle</label>
-                            <description>Bond an Federica Marksman Rifle.</description>
-                            <jobString>Bonding a Federica Marksman Rifle.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>IlyaTech</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>SU_Federica</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>SU_Federica</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <SU_Federica_Bond>1</SU_Federica_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
-
                         <!-- SU_Usov_Bond -->
                         <ThingDef ParentName="IlyaTechCoreBaseRange">
                             <defName>SU_Usov_Bond</defName>
@@ -712,53 +535,6 @@
                                 <speed>75</speed>
                             </projectile>
                         </ThingDef>
-
-                        <RecipeDef>
-                            <defName>Make_SU_Usov_Bond</defName>
-                            <label>bond Usov Deagle</label>
-                            <description>Bond an Usov Deagle.</description>
-                            <jobString>Bonding a Usov Deagle.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>IlyaTech</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>SU_Usov</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>SU_Usov</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <SU_Usov_Bond>1</SU_Usov_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
 
                         <!-- SU_Natasha_Bond -->
                         <ThingDef ParentName="IlyaTechCoreBaseRange">
@@ -817,52 +593,6 @@
                             </projectile>
                         </ThingDef>
 
-                        <RecipeDef>
-                            <defName>Make_SU_Natasha_Bond</defName>
-                            <label>bond Natasha Javelin</label>
-                            <description>Bond an Natasha Javelin.</description>
-                            <jobString>Bonding a Natasha Javelin.</jobString>
-                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-                            <effectWorking>Cook</effectWorking>
-                            <soundWorking>Recipe_Machining</soundWorking>
-                            <workAmount>200000</workAmount>
-                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-                            <researchPrerequisite>IlyaTech</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>SU_Natasha</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BondingCore</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>SU_Natasha</li>
-                                    <li>BondingCore</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <SU_Natasha_Bond>1</SU_Natasha_Bond>
-                            </products>
-                            <skillRequirements>
-                                <Intellectual>15</Intellectual>
-                            </skillRequirements>
-                            <workSkill>Intellectual</workSkill>
-                            <recipeUsers>
-                                <li>BondingBench</li>
-                            </recipeUsers>
-                        </RecipeDef>
                     </value>
                 </li>
             </operations>

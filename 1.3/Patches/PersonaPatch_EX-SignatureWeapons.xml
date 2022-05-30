@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-	Eccentric Extras - Signature Weapons
-
+<!-- ===== Eccentric Extras - Signature Weapons =====
+	
+	== Melee
 	Eccentric_Monoscythe_Hanna_Bond = persona Hanna's Monoscythe
+	
+	== Range
 	Eccentric_Gun_S8B_Toni_Bond = persona Toni's S8 burst pistol
 -->
 <Patch>
@@ -14,13 +16,38 @@
 		<match Class="PatchOperationSequence">
 			<success>Always</success>
 			<operations>
+				<!-- ========== Eccentric Tech - Foxy's Armory 2.0 ========== -->
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>Eccentric Tech - Foxy's Armory 2.0</li>
+					</mods>
+
+					<nomatch Class="PatchOperationSequence">
+						<success>Always</success>
+						<operations>
+							<li Class="PatchOperationAdd">
+								<success>Always</success>
+								<xpath>/Defs</xpath>
+								<value>
+									<ThingDef Name="MPBFPM_BaseEccentricGun" ParentName="MPBFPM_BaseHumanMakeableGun" Abstract="True">
+										<techLevel>Spacer</techLevel>
+										<weaponTags>
+											<li>EccentricGun</li>
+										</weaponTags>
+										<tradeability>Sellable</tradeability>
+									</ThingDef>
+								</value>
+							</li>
+						</operations>
+					</nomatch>
+				</li>
 
 				<li Class="PatchOperationAdd">
 					<xpath>/Defs</xpath>
 					<value>
-						<!-- Melee -->
+						<!-- ===== Melee ===== -->
 						<!-- Eccentric_Monoscythe_Hanna_Bond -->
-						<ThingDef ParentName="BaseWeapon_Bladelink">
+						<ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp">
 							<defName>Eccentric_Monoscythe_Hanna_Bond</defName>
 							<label>persona Hanna's Monoscythe</label>
 							<techLevel>Spacer</techLevel>
@@ -36,8 +63,7 @@
 								<DeteriorationRate>8</DeteriorationRate>
 								<Beauty>0</Beauty>
 							</statBases>
-							<weaponTags Inherit="False">
-								<li>Bladelink</li>
+							<weaponTags>
 								<li>EccentricMelee</li>
 							</weaponTags>
 							<equippedAngleOffset>-30</equippedAngleOffset>
@@ -79,56 +105,9 @@
 							</tools>
 						</ThingDef>
 
-						<RecipeDef>
-							<defName>Make_Eccentric_Monoscythe_Hanna_Bond</defName>
-							<label>bond Hanna's Monoscythe</label>
-							<description>Bond an Hanna's Monoscythe.</description>
-							<jobString>Bonding a Hanna's Monoscythe.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>Eccentric_HighDensityHex</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>Eccentric_Monoscythe_Hanna</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>Eccentric_Monoscythe_Hanna</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<Eccentric_Monoscythe_Hanna_Bond>1</Eccentric_Monoscythe_Hanna_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
-
-						<!-- Range -->
+						<!-- ===== Range ===== -->
 						<!-- Eccentric_Gun_S8B_Toni_Bond -->
-						<ThingDef ParentName="Persona_BaseEccentricGun_Bond">
+						<ThingDef ParentName="MPBFPM_BaseEccentricGun">
 							<defName>Eccentric_Gun_S8B_Toni_Bond</defName>
 							<label>persona Toni's S8 burst pistol</label>
 							<description>This S8 charge pistol has been customized by Toni and modified for burst fire.\n\nFiring 6x18mm charge cartridges from an extended magazine, it is heavier and less accurate than the standard S8 but is capable of far greater damage at close range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -147,7 +126,7 @@
 							</statBases>
 
 							<techLevel>Spacer</techLevel>
-							<weaponTags Inherit="False">
+							<weaponTags>
 								<li>EccentricSidearm</li>
 							</weaponTags>
 
@@ -185,53 +164,6 @@
 								</li>
 							</tools>
 						</ThingDef>
-
-						<RecipeDef>
-							<defName>Make_Eccentric_Gun_S8B_Toni_Bond</defName>
-							<label>bond Toni's S8 burst pistol</label>
-							<description>Bond an Toni's S8 burst pistol.</description>
-							<jobString>Bonding a Toni's S8 burst pistol.</jobString>
-							<workSpeedStat>GeneralLaborSpeed</workSpeedStat>
-							<effectWorking>Cook</effectWorking>
-							<soundWorking>Recipe_Machining</soundWorking>
-							<workAmount>200000</workAmount>
-							<unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
-							<researchPrerequisite>Eccentric_MiniCharge</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>Eccentric_Gun_S8B_Toni</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>BondingCore</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>Eccentric_Gun_S8B_Toni</li>
-									<li>BondingCore</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<Eccentric_Gun_S8B_Toni_Bond>1</Eccentric_Gun_S8B_Toni_Bond>
-							</products>
-							<skillRequirements>
-								<Intellectual>15</Intellectual>
-							</skillRequirements>
-							<workSkill>Intellectual</workSkill>
-							<recipeUsers>
-								<li>BondingBench</li>
-							</recipeUsers>
-						</RecipeDef>
 					</value>
 				</li>
 			</operations>
