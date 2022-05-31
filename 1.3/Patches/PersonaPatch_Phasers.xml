@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Phasers =====
+
+    == Range
+    Lambda_Gun_PhaserRifleLow_Bond = persona Phaser Rifle
+    Lambda_Gun_PhaserRifleHigh_Bond = persona Phaser Rifle (Modified)
+    Lambda_Gun_PhaserRifleHighScatter_Bond = persona Phaser Rifle (Scatter)
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Phasers</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- ===== Range ===== -->
+                        <ThingDef Name="MPBFPM_PhasersGunBase" ParentName="MPBFPM_BaseHumanMakeableGun" Abstract="True">
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <weaponTags>
+                                <li>PhaserGun</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <!-- Lambda_Gun_PhaserRifleLow_Bond -->
+                        <ThingDef ParentName="MPBFPM_PhasersGunBase">
+                            <defName>Lambda_Gun_PhaserRifleLow_Bond</defName>
+                            <label>persona Phaser Rifle</label>
+                            <description>A low energy, standard issue rifle using Phaser technology. It accelerates a beam of particles using a focused laser, in a spred which are normally not particularly lethal. A hit by this beam will 'just' cause significant burns and a lot of pain, as if stung by hundreds of needles and a burning smack in the centre.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/Phaser/PhaserRifleLow</texPath>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>1000</MarketValue>
+                                <Mass>3.7</Mass>
+                                <AccuracyTouch>0.825</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>0.990</AccuracyMedium>
+                                <AccuracyLong>0.935</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.255</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Lambda_Bullet_PhaserLow_Bond</defaultProjectile>
+                                    <warmupTime>1.275</warmupTime>
+                                    <range>39.9</range>
+                                    <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>Lambda_PhaserShot</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>7.700</power>
+                                    <cooldownTime>1.275</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Lambda_Bullet_PhaserLow_Bond</defName>
+                            <label>low energy phaser beam</label>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/Phaser/PhaserShotLowLong</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1.5</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Lambda_PhaserBeamLow</damageDef>
+                                <damageAmountBase>4</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Lambda_Gun_PhaserRifleHigh_Bond -->
+                        <ThingDef ParentName="MPBFPM_PhasersGunBase">
+                            <defName>Lambda_Gun_PhaserRifleHigh_Bond</defName>
+                            <label>persona Phaser Rifle (Modified)</label>
+                            <description>A rifle using Phaser technology with invasive and illegal modifications, due to the modifications will the focused beam pierce through the target and often even disintegrate parts of it. It only stings once, but afterward you might be missing an arm.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/Phaser/PhaserRifleHigh</texPath>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>2500</MarketValue>
+                                <Mass>3.8</Mass>
+                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>1.045</AccuracyMedium>
+                                <AccuracyLong>0.935</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Lambda_Bullet_PhaserHigh_Bond</defaultProjectile>
+                                    <warmupTime>1.785</warmupTime>
+                                    <range>33.9</range>
+                                    <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>Lambda_PhaserShot</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>12</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>7.700</power>
+                                    <cooldownTime>1.275</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Lambda_Bullet_PhaserHigh_Bond</defName>
+                            <label>high energy phaser beam</label>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/Phaser/PhaserShotHigh</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1.5</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Lambda_PhaserBeamHigh</damageDef>
+                                <damageAmountBase>28</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>150</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Lambda_Gun_PhaserRifleHighScatter_Bond -->
+                        <ThingDef ParentName="MPBFPM_PhasersGunBase">
+                            <defName>Lambda_Gun_PhaserRifleHighScatter_Bond</defName>
+                            <label>persona Phaser Rifle (Scatter)</label>
+                            <description>Three modified Phaser Rifles, strapped together with special scatter muzzles. Due to the modifications will the focused beam pierce through the target and often even disintegrate parts of it. It only stings once, but afterward you might be missing an arm. It also needs to be calibrated before each shot, poor shooting skill will result in high scatter.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/Phaser/PhaserRifleScatter</texPath>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>8500</MarketValue>
+                                <Mass>13.8</Mass>
+                                <AccuracyTouch>0.660</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.825</AccuracyMedium>
+                                <AccuracyLong>0.715</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.510</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.15</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Lambda_Bullet_PhaserHighSplit_Bond</defaultProjectile>
+                                    <warmupTime>1.955</warmupTime>
+                                    <range>25.9</range>
+                                    <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                                    <burstShotCount>9</burstShotCount>
+                                    <soundCast>Lambda_PhaserShot</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>10</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel side</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>5.500</power>
+                                    <cooldownTime>1.360</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Lambda_Bullet_PhaserHighSplit_Bond</defName>
+                            <label>split high energy phaser beam</label>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/Phaser/PhaserShotHigh</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>0.7</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Lambda_PhaserBeamHigh</damageDef>
+                                <damageAmountBase>6</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>140</speed>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

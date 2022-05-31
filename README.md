@@ -54,3 +54,5 @@
 - PlanetsidePew (Continued)
 - [RWY]Advanced Mechanoid Warfare
 - Oddities: Weapons Module
+- Vanilla Weapons Expanded - Laser
+- Phasers
