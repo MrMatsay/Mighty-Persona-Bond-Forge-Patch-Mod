@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== UncraftableExoticWeapons =====
+
+    == Range
+    Gun_XM8_Prototype_Bond = persona xm8 prototype
+    Gun_NU43_Humiliator_Bond = persona nu43 humiliator
+    Gun_A34_Harvester_Bond = persona a34 harvester
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>UncraftableExoticWeapons</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- ===== Range ===== -->
+                        <ThingDef Abstract="True" Name="MPBFPM_UncraftableRareBaseGun" ParentName="MPBFPM_BaseGun">
+                            <techLevel>Industrial</techLevel>
+                            <category>Item</category>
+                            <drawerType>MapMeshOnly</drawerType>
+                            <drawGUIOverlay>true</drawGUIOverlay>
+                            <altitudeLayer>Item</altitudeLayer>
+                            <alwaysHaulable>true</alwaysHaulable>
+                            <tickerType>Never</tickerType>
+                            <equipmentType>Primary</equipmentType>
+                            <useHitPoints>true</useHitPoints>
+                            <pathCost>14</pathCost>
+                            <selectable>true</selectable>
+                            <statBases>
+                                <MaxHitPoints>100</MaxHitPoints>
+                                <Flammability>1.0</Flammability>
+                                <DeteriorationRate>2</DeteriorationRate>
+                                <Beauty>-3</Beauty>
+                                <SellPriceFactor>0.20</SellPriceFactor>
+                            </statBases>
+                            <comps>
+                                <li Class="CompProperties_Forbiddable"/>
+                                <li>
+                                    <compClass>CompEquippable</compClass>
+                                </li>
+                                <li Class="CompProperties_Styleable"></li>
+                            </comps>
+                            <graphicData>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9</power>
+                                    <cooldownTime>2</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9</power>
+                                    <cooldownTime>2</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <!-- Gun_XM8_Prototype_Bond -->
+                        <ThingDef ParentName="MPBFPM_UncraftableRareBaseGun">
+                            <defName>Gun_XM8_Prototype_Bond</defName>
+                            <label>persona xm8 prototype</label>
+                            <description>An experimental assault rifle from 3,500 years ago. More accuracy and damage, but slower rate of fire compared to regular assault rifles.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/XM8</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <tradeTags>
+                                <li>ExoticMisc</li>
+                            </tradeTags>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <statBases>
+                                <Mass>4.0</Mass>
+                                <MarketValue>600</MarketValue>
+                                <AccuracyTouch>0.660</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.825</AccuracyMedium>
+                                <AccuracyLong>0.605</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.040</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_XM8_Prototype_Bond</defaultProjectile>
+                                    <warmupTime>0.850</warmupTime>
+                                    <range>30.9</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
+                                    <soundCast>Shot_AssaultRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_XM8_Prototype_Bond</defName>
+                            <label>xm8 prototype bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>13</damageAmountBase>
+                                <speed>75</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Gun_NU43_Humiliator_Bond -->
+                        <ThingDef ParentName="MPBFPM_UncraftableRareBaseGun">
+                            <defName>Gun_NU43_Humiliator_Bond</defName>
+                            <label>persona nu43 humiliator</label>
+                            <description>This weapon was designed to disrupt riots by force disarming rioters. Has the side effect of also removing clothes.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/NU43</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <thingSetMakerTags>
+                                <li>RewardStandardLowFreq</li>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <statBases>
+                                <Mass>2.0</Mass>
+                                <MarketValue>500</MarketValue>
+                                <AccuracyTouch>0.660</AccuracyTouch>
+                                <AccuracyShort>0.605</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.220</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_NU43_Humiliator_Bond</defaultProjectile>
+                                    <warmupTime>1.020</warmupTime>
+                                    <range>21.9</range>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_NU43_Humiliator_Bond</defName>
+                            <label>nu43 humiliator bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>5</damageAmountBase>
+                                <speed>45</speed>
+                            </projectile>
+                            <thingClass>UEW_UncraftableExoticWeapons.NU43_HumiliatorBullet</thingClass>
+                        </ThingDef>
+
+                        <!-- Gun_A34_Harvester_Bond -->
+                        <ThingDef ParentName="MPBFPM_UncraftableRareBaseGun">
+                            <defName>Gun_A34_Harvester_Bond</defName>
+                            <label>persona a34 harvester</label>
+                            <description>The creation of a twisted mind. On hit has a percentage chance to remove a random organ.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/A34</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <thingSetMakerTags>
+                                <li>RewardStandardLowFreq</li>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <statBases>
+                                <Mass>2.0</Mass>
+                                <MarketValue>650</MarketValue>
+                                <AccuracyTouch>0.660</AccuracyTouch>
+                                <AccuracyShort>0.550</AccuracyShort>
+                                <AccuracyMedium>0.330</AccuracyMedium>
+                                <AccuracyLong>0.220</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_A34_Harvester_Bond</defaultProjectile>
+                                    <warmupTime>1.020</warmupTime>
+                                    <range>24.9</range>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_A34_Harvester_Bond</defName>
+                            <label>a34 harvester bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>5</damageAmountBase>
+                                <speed>45</speed>
+                            </projectile>
+                            <thingClass>UEW_UncraftableExoticWeapons.A34_HarvesterBullet</thingClass>
+                            <modExtensions>
+                                <li Class="UEW_UncraftableExoticWeapons.ModExtension_A34_HarvesterBullet">
+                                    <addHediffChance>1.00</addHediffChance>
+                                    <hediffToAdd>MissingBodyPart</hediffToAdd>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
