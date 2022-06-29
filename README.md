@@ -56,3 +56,7 @@
 - Oddities: Weapons Module
 - Vanilla Weapons Expanded - Laser
 - Phasers
+- Planetside arena weapons
+- UncraftableExoticWeapons
+- Australden's Fusion Weapons Pack Remastered
+- The Cosmic Odyssey - Core
