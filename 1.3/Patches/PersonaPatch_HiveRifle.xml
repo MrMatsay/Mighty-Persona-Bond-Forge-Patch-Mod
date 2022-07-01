@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Hive Rifle =====
+
+    == Range
+    Hive_Rifle_Bond = persona Hive
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Hive Rifle</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- ===== Range ===== -->
+                        <ThingDef Name="MPBFPM_BasehHiveGun" Abstract="True" ParentName="MPBFPM_BaseGun">
+                            <techLevel>Ultra</techLevel>
+                            <smeltable>false</smeltable>
+                            <statBases>
+                                <Flammability>1</Flammability>
+                            </statBases>
+                        </ThingDef>
+
+                        <!-- Hive_Rifle_Bond -->
+                        <ThingDef ParentName="MPBFPM_BasehHiveGun">
+                            <defName>Hive_Rifle_Bond</defName>
+                            <label>persona Hive</label>
+                            <description>A living, conscious organic weapon. it's biology is somehow similar to that of a insectoid, with a signs of extremely advanced genetic manipulation, beyond what any know Glitterworld could be capable of, and a few extra unidentified organs of unknown purpose. Origins of this weapon are shrouded in mystery, but prehaps in this case, Ignorance is a bliss.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/HiveRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.1</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>4</Mass>
+                                <MarketValue>3000</MarketValue>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.825</AccuracyMedium>
+                                <AccuracyLong>0.605</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.32</RangedWeapon_Cooldown>
+                            </statBases>
+                            <thingSetMakerTags>
+                                <li>RewardStandardMidFreq</li>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <tradeability>Sellable</tradeability>
+                            <weaponTags>
+                                <li>HiveGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_HiveRifle_Bond</defaultProjectile>
+                                    <warmupTime>2.55</warmupTime>
+                                    <range>33.9</range>
+                                    <soundCast>PFsound</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon"/>
+                            </comps>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_HiveRifle_Bond</defName>
+                            <label>hive blast</label>
+                            <graphicData>
+                                <texPath>Things/hivebullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.2</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Hive_Rifle_Damage</damageDef>
+                                <damageAmountBase>16</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

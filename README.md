@@ -60,3 +60,7 @@
 - UncraftableExoticWeapons
 - Australden's Fusion Weapons Pack Remastered
 - The Cosmic Odyssey - Core
+- Hive Rifle
+- Primaris warcasket armour and weaponry
+- Ultratech Weapons Plus
+- Warcaskets: Adeptus Astartes
