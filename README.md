@@ -60,7 +60,9 @@
 - UncraftableExoticWeapons
 - Australden's Fusion Weapons Pack Remastered
 - The Cosmic Odyssey - Core
+- The Cosmic Odyssey - Urban Combat
 - Hive Rifle
 - Primaris warcasket armour and weaponry
 - Ultratech Weapons Plus
 - Warcaskets: Adeptus Astartes
+- Civilization Beyond Earth Armor Sets
