@@ -66,3 +66,6 @@
 - Ultratech Weapons Plus
 - Warcaskets: Adeptus Astartes
 - Civilization Beyond Earth Armor Sets
+- Plasma Weaponry (Continued)
+- Pulse Weaponry
+- Xcom Advent weapons
