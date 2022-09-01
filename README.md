@@ -76,3 +76,7 @@
 - Vanilla XCOM Plasma Weapons
 - Vanilla XCOM Magnetic Weapons
 - HALO - UNSC Faction
+- Vanilla XCOM Chosen Weapons
+- AQ - Weapons Advanced
+- PlanetSide Endeavor Weapons
+- Vanilla XCOM Weapons

@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== PlanetSide Endeavor Weapons =====
+
+    == Range
+    NS_7_ENDEAVOR_PDW_Bond = persona NS-7”Endeavor”PDW
+    NS_11_ENDEAVOR_AR_Bond = persona NS-11”Endeavor”AR
+    NS_11_Endeavor_Carbin_Bond = persona NS-11”Endeavor”Carbin
+    NS_15_ENDEAVOR_LMG_Bond = persona NS-15”Endeavor”LMG
+    NS_357_Endeavor_Underboss_Bond = persona NS-357”Endeavor”Underboss
+    NS_Firebug_Bond = persona NS Firebug
+    NS_Icebreaker_Bond = persona NS Icebreaker
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>PlanetSide Endeavor Weapons</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="MPBFPM_BaseHumanMakeableGun_Planetside" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <techLevel>Spacer</techLevel>
+                            <thingCategories>
+                                <li>Planetside</li>
+                            </thingCategories>
+                        </ThingDef>
+
+                        <!-- NS_7_ENDEAVOR_PDW_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun_Planetside">
+                            <defName>NS_7_ENDEAVOR_PDW_Bond</defName>
+                            <label>persona NS-7”Endeavor”PDW</label>
+                            <description>This compact personal defense weapon is a favorite among space-faring civilians and security details alike .\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NSEndeavor/NS-7EndeavorPDW_512</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>150</MaxHitPoints>
+                                <Mass>3.2</Mass>
+                                <AccuracyTouch>0.88</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.44</AccuracyMedium>
+                                <AccuracyLong>0.33</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.1</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <ShootingAccuracyPawn>0.2</ShootingAccuracyPawn>
+                            </equippedStatOffsets>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Endeavor_PDW_Bond</defaultProjectile>
+                                    <warmupTime>0.255</warmupTime>
+                                    <range>24</range>
+                                    <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                                    <burstShotCount>6</burstShotCount>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Bullet_Endeavor_PDW_Bond</defName>
+                            <label>Bullet Endeavor PDW</label>
+                            <projectile>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.28</armorPenetrationBase>
+                                <speed>80</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/Charge_Small</texPath>
+                                </graphicData>
+                        </ThingDef>
+
+                        <!-- NS_11_ENDEAVOR_AR_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun_Planetside">
+                            <defName>NS_11_ENDEAVOR_AR_Bond</defName>
+                            <label>persona NS-11”Endeavor”AR</label>
+                            <description>Designed to remain operable in the vacuum of space, this assault rifle can easily engage targets at moderate range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NSEndeavor/NS-11EndeavorAR_512</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>150</MaxHitPoints>
+                                <Mass>5.8</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>0.825</AccuracyMedium>
+                                <AccuracyLong>0.66</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.65</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <ShootingAccuracyPawn>0.3</ShootingAccuracyPawn>
+                            </equippedStatOffsets>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Endeavor_AR_Bond</defaultProjectile>
+                                    <warmupTime>1.275</warmupTime>
+                                    <range>35</range>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <burstShotCount>3</burstShotCount>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Bullet_Endeavor_AR_Bond</defName>
+                            <label>Bullet Endeavor AR</label>
+                            <projectile>
+                                <damageAmountBase>15</damageAmountBase>
+                                <armorPenetrationBase>0.32</armorPenetrationBase>
+                                <speed>80</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/Charge_Small</texPath>
+                                </graphicData>
+                        </ThingDef>
+
+                        <!-- NS_11_Endeavor_Carbin_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun_Planetside">
+                            <defName>NS_11_Endeavor_Carbin_Bond</defName>
+                            <label>persona NS-11”Endeavor”Carbin</label>
+                            <description>This all-rounder carbine has proven its worth defending off-planet mining colonies.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NSEndeavor/NS-11EndeavorCarbin_512</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>150</MaxHitPoints>
+                                <Mass>4.8</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.88</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.33</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.65</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Endeavor_Carbin_Bond</defaultProjectile>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>28</range>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <burstShotCount>5</burstShotCount>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Bullet_Endeavor_Carbin_Bond</defName>
+                            <label>Bullet Endeavor Carbin</label>
+                            <projectile>
+                                <damageAmountBase>13</damageAmountBase>
+                                <armorPenetrationBase>0.30</armorPenetrationBase>
+                                <speed>80</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/Charge_Small</texPath>
+                                </graphicData>
+                        </ThingDef>
+
+                        <!-- NS_15_ENDEAVOR_LMG_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun_Planetside">
+                            <defName>NS_15_ENDEAVOR_LMG_Bond</defName>
+                            <label>persona NS-15”Endeavor”LMG</label>
+                            <description>With a high-capacity battery , this photon machinegun has proven to be an effective insurance policy during trade-route negotiations off-world .\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NSEndeavor/NS-15EndeavorLMG_512</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>150</MaxHitPoints>
+                                <Mass>9.2</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.77</AccuracyMedium>
+                                <AccuracyLong>0.605</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.2</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <ShootingAccuracyPawn>0.2</ShootingAccuracyPawn>
+                            </equippedStatOffsets>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Endeavor_LMG_Bond</defaultProjectile>
+                                    <warmupTime>1.53</warmupTime>
+                                    <range>32</range>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <burstShotCount>5</burstShotCount>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Bullet_Endeavor_LMG_Bond</defName>
+                            <label>Bullet Endeavor LMG</label>
+                            <projectile>
+                                <damageAmountBase>15</damageAmountBase>
+                                <armorPenetrationBase>0.35</armorPenetrationBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>90</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/Charge_Small</texPath>
+                                </graphicData>
+                        </ThingDef>
+
+                        <!-- NS_357_Endeavor_Underboss_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun_Planetside">
+                            <defName>NS_357_Endeavor_Underboss_Bond</defName>
+                            <label>persona NS-357”Endeavor”Underboss</label>
+                            <description>There is no stun setting on this powerful photon sidearm , and is an intimidating asset both on-world and off.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NSEndeavor/NS-357EndeavorUnderboss_512</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            
+                            <soundInteract>Interact_Revolver</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>150</MaxHitPoints>
+                                <Mass>1.9</Mass>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>0.99</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.55</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <ShootingAccuracyPawn>0.1</ShootingAccuracyPawn>
+                            </equippedStatOffsets>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_357_Endeavor_Bond</defaultProjectile>
+                                    <warmupTime>0.255</warmupTime>
+                                    <range>22</range>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Bullet_357_Endeavor_Bond</defName>
+                            <label>Bullet 357 Endeavor</label>
+                            <projectile>
+                                <damageAmountBase>20</damageAmountBase>
+                                <armorPenetrationBase>0.30</armorPenetrationBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>70</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                                </graphicData>
+                        </ThingDef>
+
+                        <!-- NS_Firebug_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun_Planetside">
+                            <defName>NS_Firebug_Bond</defName>
+                            <label>persona NS Firebug</label>
+                            <description>Originally developed for exploration on Esamir as a companion tool to the NS Icebreaker, the Firebug has recently gained popularity among soldiers looking for a more dramatic option in close-quarters combat.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NSEndeavor/NSFirebug_512</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            
+                            <statBases>
+                                <MaxHitPoints>150</MaxHitPoints>
+                                <Mass>2</Mass>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <ConstructionSpeed>0.5</ConstructionSpeed>
+                                <ConstructSuccessChance>0.25</ConstructSuccessChance>
+                                <ButcheryMechanoidSpeed>0.75</ButcheryMechanoidSpeed>
+                                <ButcheryMechanoidEfficiency>0.35</ButcheryMechanoidEfficiency>
+                            </equippedStatOffsets>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <weaponClasses>
+                                <li>Melee</li>
+                            </weaponClasses>
+                            <tools>
+                                <li>
+                                    <label>head</label>
+                                    <labelUsedInLogging>false</labelUsedInLogging>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>17.6</power>
+                                    <cooldownTime>1.19</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <!-- NS_Icebreaker_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun_Planetside">
+                            <defName>NS_Icebreaker_Bond</defName>
+                            <label>persona NS Icebreaker</label>
+                            <description>.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NSEndeavor/NSIcebreaker_512</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <techLevel>Industrial</techLevel>
+                            <statBases>
+                                <MaxHitPoints>150</MaxHitPoints>
+                                <Mass>3</Mass>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MiningSpeed>0.33</MiningSpeed>
+                                <PlantWorkSpeed>0.50</PlantWorkSpeed>
+                            </equippedStatOffsets>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <weaponClasses>
+                                <li>Melee</li>
+                            </weaponClasses>
+                            <tools>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <armorPenetration>0.385</armorPenetration>
+                                    <cooldownTime>0.68</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
