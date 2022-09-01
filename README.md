@@ -69,3 +69,10 @@
 - Plasma Weaponry (Continued)
 - Pulse Weaponry
 - Xcom Advent weapons
+- Planetside NSX weapons
+- Rail Weapons Revived [1.1->1.3]
+- Laser Weapons Revived [1.1->1.3]
+- Vanilla XCOM Laser Weapons
+- Vanilla XCOM Plasma Weapons
+- Vanilla XCOM Magnetic Weapons
+- HALO - UNSC Faction
