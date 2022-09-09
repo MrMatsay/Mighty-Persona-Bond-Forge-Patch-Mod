@@ -607,6 +607,169 @@
 								<speed>50</speed>
 							</projectile>
 						</ThingDef>
+
+						<!-- Eccentric_Gun_M5CAW_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseEccentricGun">
+                            <defName>Eccentric_Gun_M5CAW_Bond</defName>
+                            <label>persona CAW5 HEDP</label>
+                            <tickerType>Normal</tickerType>
+                            <description>The Mark 5 Charged Assault Weapon (High Explosive Dual-Purpose) is a heavy weapon used by Eccentric security personnel in extremely dangerous environments on industrialized worlds.\n\nUtilizing similar technology to the electrothermal ignition charges used in charge rifles, the CAW5 fires a powerful missile with a tandem conventional and charged plasma warhead that is effective against both light armored vehicles and structures.\n\nCompared to conventional rocket launchers, the CAW5 is faster, more accurate, and harder-hitting, but with a smaller blast radius and higher per-unit cost.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Eccentric/Weapons/CAW5</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <statBases>
+                                <Mass>8</Mass>
+                                <RangedWeapon_Cooldown>4.95</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>EccentricGun</li>
+                                <li>EccentricLauncher</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_ShootOneUse</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_EccentricChargedRocket_Bond</defaultProjectile>
+                                    <forcedMissRadius>0.9</forcedMissRadius>
+                                    <warmupTime>3.825</warmupTime>
+                                    <ai_AvoidFriendlyFireRadius>6</ai_AvoidFriendlyFireRadius>
+                                    <range>40.9</range>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>InfernoCannon_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <onlyManualCast>true</onlyManualCast>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="CompProperties_Explosive">
+                                    <explosiveRadius>5.8</explosiveRadius>
+                                    <explosiveDamageType>Bomb</explosiveDamageType>
+                                    <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.87</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_EccentricChargedRocket_Bond</defName>
+                            <label>charged assault projectile</label>
+                            <thingClass>EccentricProjectiles.Projectile_ExplosiveWithEffects</thingClass>
+                            <graphicData>
+                                <texPath>Things/Eccentric/Projectile/CAW5Projectile</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <damageAmountBase>72</damageAmountBase>
+                                <explosionRadius>4.8</explosionRadius>
+                                <speed>60</speed>
+                                <shadowSize>1.0</shadowSize>
+                                <arcHeightFactor>0.5</arcHeightFactor>
+                            </projectile>
+                            <modExtensions>
+                                <li Class="EccentricProjectiles.ModExtension_ProjectileEffects">
+                                    <effects>
+                                        <li>Eccentric_PulseRocketTrail</li>
+                                    </effects>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+						<!-- Eccentric_Gun_E21AMR_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseEccentricGun">
+                            <defName>Eccentric_Gun_E21AMR_Bond</defName>
+                            <label>persona E21 anti-material rifle</label>
+                            <description>The E21 is a heavy anti-material rifle firing 12x72mm high-caliber charge rounds with deadly precision. Designed and built by Fiona 'Foxy' Knight of Angel's Rest, the E21 was created in response to an increase in incursions of heavily armored belligerent forces.\n\nThe E21 is exceptionally heavy and slow-firing, intended for taking out heavily armored Spacer or Mechanoid threats.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Eccentric/Weapons/E21</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <statBases>
+                                <Mass>14.8</Mass>
+                                <AccuracyTouch>0.33</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.99</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.97</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>EccentricRifle</li>
+                                <li>EccentricSniperRifle</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_EccentricAntiMaterialCharge_Bond</defaultProjectile>
+                                    <warmupTime>3.57</warmupTime>
+                                    <range>44.9</range>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <comps/>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>11.0</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Bullet_EccentricAntiMaterialCharge_Bond</defName>
+                            <label>charge shot</label>
+                            <thingClass>EccentricProjectiles.Projectile_WithEffects</thingClass>
+                            <graphicData>
+                                <texPath>Things/Eccentric/Projectile/ChargeProjectile_Large</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>60</damageAmountBase>
+                                <stoppingPower>2.0</stoppingPower>
+                                <speed>130</speed>
+                            </projectile>
+                            <modExtensions>
+                                <li Class="EccentricProjectiles.ModExtension_ProjectileEffects">
+                                    <effects>
+                                        <li>Eccentric_HeavyPulseTrail</li>
+                                        <li>Eccentric_ChargeMuzzleFlashLarge</li>
+                                    </effects>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
 					</value>
 				</li>
 			</operations>
