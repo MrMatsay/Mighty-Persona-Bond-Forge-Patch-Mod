@@ -80,3 +80,4 @@
 - AQ - Weapons Advanced
 - PlanetSide Endeavor Weapons
 - Vanilla XCOM Weapons
+- Vanilla Weapons Expanded
