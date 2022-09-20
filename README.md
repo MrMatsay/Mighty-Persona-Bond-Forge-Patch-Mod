@@ -81,3 +81,5 @@
 - PlanetSide Endeavor Weapons
 - Vanilla XCOM Weapons
 - Vanilla Weapons Expanded
+- Rim-Effect: Core
+- Rim-Effect: Extended Cut
