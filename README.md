@@ -83,3 +83,5 @@
 - Vanilla Weapons Expanded
 - Rim-Effect: Core
 - Rim-Effect: Extended Cut
+- XAR-21
+- Zwergy's Spacer Weaponry (Continued)
