@@ -46,7 +46,7 @@
                                 <li>
                                     <verbClass>Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>VWE_Bullet_Gausssniper</defaultProjectile>
+                                    <defaultProjectile>VWE_Bullet_Gausssniper_Bond</defaultProjectile>
                                     <soundAiming>coilgun_charge</soundAiming>
                                     <warmupTime>0.765</warmupTime>
                                     <range>44.9</range>
@@ -85,7 +85,7 @@
                         </ThingDef>
 
                         <VFECore.ExpandableProjectileDef ParentName="MPBFPM_VWECoilgunsBullet">
-                            <defName>VWE_Bullet_Gausssniper</defName>
+                            <defName>VWE_Bullet_Gausssniper_Bond</defName>
                             <label>gauss sniper sabot</label>
                             <projectile>
                                 <damageDef>Bullet</damageDef>
@@ -96,6 +96,22 @@
                             </projectile>
                         </VFECore.ExpandableProjectileDef>
                     </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_VWECoilgunsUnnoficialGaussSniper</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- VWE_Gun_GaussSniper_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VWE_Gun_GaussSniper_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VWE_Bullet_Gausssniper_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
                 </li>
             </operations>
         </match>

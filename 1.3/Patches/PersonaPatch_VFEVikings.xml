@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-	===== Vanilla Factions Expanded - Vikings =====
-	
-	== Melee
+<!-- ===== Vanilla Factions Expanded - Vikings ===== == Melee
 	VFEV_CryptoHeavyAxe_Bond = persona heavy crypto axe
-	VFEV_CryptoLightAxe_Bond = persona crypto hatchet
-	
-	== Range
+	VFEV_CryptoLightAxe_Bond = persona crypto hatchet == Range
 	VFEV_CryptoHeavyCrossbow_Bond = persona crypto heavy crossbow
 	VFEV_CryptoLightCrossbow_Bond = persona crypto crossbow
 	VFEV_CryptoPistol_Bond = persona crypto pistol
@@ -129,7 +124,7 @@
 						</ThingDef>
 
 						<!-- Range -->
-						<ThingDef Name="VFEVikings_RangeBase" Abstract="True" ParentName="MPBFPM_BaseGunWithQuality">
+						<ThingDef Name="MPBFPM_VFEVikingsRange" Abstract="True" ParentName="MPBFPM_BaseGunWithQuality">
 							<techLevel>Ultra</techLevel>
 							<thingCategories Inherit="False">
 								<li>WeaponsRangedCrypto</li>
@@ -145,7 +140,7 @@
 						</ThingDef>
 
 						<!-- VFEV_CryptoHeavyCrossbow_Bond -->
-						<ThingDef ParentName="VFEVikings_RangeBase">
+						<ThingDef ParentName="MPBFPM_VFEVikingsRange">
 							<defName>VFEV_CryptoHeavyCrossbow_Bond</defName>
 							<label>persona crypto heavy crossbow</label>
 							<description>Less of a crossbow and more of an experimental artillery piece, fires metal-cored bolts wrapped in unstable crypto technology, held in place by an energy field. Targets are both pierced by the bolt, as well as frozen by crypto coating. Due to its weight, it is unable to be fired at close range and will slightly slow down the wielder.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -219,7 +214,7 @@
 						</ThingDef>
 
 						<!-- VFEV_CryptoLightCrossbow_Bond -->
-						<ThingDef ParentName="VFEVikings_RangeBase">
+						<ThingDef ParentName="MPBFPM_VFEVikingsRange">
 							<defName>VFEV_CryptoLightCrossbow_Bond</defName>
 							<label>persona crypto crossbow</label>
 							<description>An experimental small crossbow with metal-cored bolts wrapped in unstable crypto technology, held in place by an energy field. Targets are both pierced by the bolt, as well as frozen by crypto coating. Able to be fired single-handedly, extremely rare and powerful.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -285,7 +280,7 @@
 						</ThingDef>
 
 						<!-- VFEV_CryptoPistol_Bond -->
-						<ThingDef ParentName="VFEVikings_RangeBase">
+						<ThingDef ParentName="MPBFPM_VFEVikingsRange">
 							<defName>VFEV_CryptoPistol_Bond</defName>
 							<label>persona crypto pistol</label>
 							<description>An experimental micro pistol with metal-cored projectiles wrapped in unstable crypto technology, held in place by an energy field. Targets are both pierced by the metal core, as well as frozen by crypto coating. Extremely rare and powerful.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -352,7 +347,7 @@
 						</ThingDef>
 
 						<!-- VFEV_CryptoRifle_Bond -->
-						<ThingDef ParentName="VFEVikings_RangeBase">
+						<ThingDef ParentName="MPBFPM_VFEVikingsRange">
 							<defName>VFEV_CryptoRifle_Bond</defName>
 							<label>persona crypto rifle</label>
 							<description>An experimental rifle with metal-cored projectiles wrapped in unstable crypto technology, held in place by an energy field. Targets are both pierced by the metal core, as well as frozen by crypto coating. Extremely rare and powerful.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -421,8 +416,60 @@
 								<stoppingPower>0.7</stoppingPower>
 							</projectile>
 						</ThingDef>
-
 					</value>
+				</li>
+
+				<li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+					<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+					<key>Daria40K_MightyPersonaBondForgePatch_VanillaFactionsExpandedVikings</key>
+					<defaultValue>true</defaultValue>
+					<caseFalse>
+						<!-- VFEV_CryptoHeavyAxe_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="VFEV_CryptoHeavyAxe_Bond"]</xpath>
+						</Operation>
+
+						<!-- VFEV_CryptoLightAxe_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="VFEV_CryptoLightAxe_Bond"]</xpath>
+						</Operation>
+
+						<!-- VFEV_CryptoHeavyCrossbow_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="VFEV_CryptoHeavyCrossbow_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="VFEV_HeavyCryptoBolt_Bond"]</xpath>
+						</Operation>
+
+						<!-- VFEV_CryptoLightCrossbow_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="VFEV_CryptoLightCrossbow_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="VFEV_CryptoBolt_Bond"]</xpath>
+						</Operation>
+
+						<!-- VFEV_CryptoPistol_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="VFEV_CryptoPistol_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="VFEV_CryptoPistolBullet_Bond"]</xpath>
+						</Operation>
+
+						<!-- VFEV_CryptoRifle_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="VFEV_CryptoRifle_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="VFEV_CryptoRifleBullet_Bond"]</xpath>
+						</Operation>
+					</caseFalse>
 				</li>
 			</operations>
 		</match>

@@ -20,13 +20,13 @@
                     <xpath>/Defs</xpath>
                     <value>
                         <!-- ===== Range ===== -->
-                        <thingDef Name="MB3Base_Bond" Abstract="True" ParentName="MPBFPM_BaseMakeableGun">
+                        <thingDef Name="MPBFPM_MechanoidBench3" Abstract="True" ParentName="MPBFPM_BaseMakeableGun">
                             <techLevel>Spacer</techLevel>
                             <generateCommonality>0</generateCommonality>
                         </thingDef>
 
                         <!-- Gun_MechaMinigun -->
-                        <ThingDef ParentName="MB3Base_Bond">
+                        <ThingDef ParentName="MPBFPM_MechanoidBench3">
                             <defName>Gun_MechaMinigun_Bond</defName>
                             <label>persona mecha minigun</label>
                             <description>A charged-shot multi-barrel machine gun. Improved with mechanoid component, it is much lighter than the existing minigun. Pulse-charge technology charges each shot with unstable energy as it leaves the barrel. Released on impact, the charged energy greatly increases the damage done.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -93,7 +93,7 @@
                         </ThingDef>
 
                         <!-- Gun_MechaSniperRifle -->
-                        <ThingDef ParentName="MB3Base_Bond">
+                        <ThingDef ParentName="MPBFPM_MechanoidBench3">
                             <defName>Gun_MechaSniperRifle_Bond</defName>
                             <label>persona mecha sniper rifle</label>
                             <description>A charged-shot sniper rifle. Improved with mechanoid component, it is much lighter than the existing sniper rifle. Pulse-charge technology charges each shot with unstable energy as it leaves the barrel. Released on impact, the charged energy greatly increases the damage done.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -166,7 +166,7 @@
                         </ThingDef>
 
                         <!-- Gun_MechaShotgun -->
-                        <ThingDef ParentName="MB3Base_Bond">
+                        <ThingDef ParentName="MPBFPM_MechanoidBench3">
                             <defName>Gun_MechaShotgun_Bond</defName>
                             <label>persona mecha shotgun</label>
                             <description>A charged-shot shotgun. Improved with mechanoid component, it is much lighter than the existing shotgun. Pulse-charge technology charges each shot with unstable energy as it leaves the barrel. Released on impact, the charged energy greatly increases the damage done.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -235,6 +235,40 @@
                             </projectile>
                         </ThingDef>
                     </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_MechanoidBench3</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Gun_MechaMinigun_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_MechaMinigun_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_MechaMinigun_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Gun_MechaSniperRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_MechaSniperRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_MechaSniperRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Gun_MechaShotgun_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_MechaShotgun_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_ChargeShotgun_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
                 </li>
             </operations>
         </match>

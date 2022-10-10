@@ -25,7 +25,7 @@
                     <xpath>/Defs</xpath>
                     <value>
                         <!-- ===== Melee ===== -->
-                        <ThingDef Name="MeleeLegendary_Bond" Abstract="True" ParentName="MPBFPM_BaseMeleeWeapon_Quality">
+                        <ThingDef Name="MPBFPM_MoritzsLegendaryMelee" Abstract="True" ParentName="MPBFPM_BaseMeleeWeapon_Quality">
                             <statBases>
                                 <MaxHitPoints>200</MaxHitPoints>
                                 <Flammability>0.5</Flammability>
@@ -50,7 +50,7 @@
                         </ThingDef>
 
                         <!-- Legendary_EnergySword_Bond -->
-                        <ThingDef ParentName="MeleeLegendary_Bond">
+                        <ThingDef ParentName="MPBFPM_MoritzsLegendaryMelee">
                             <defName>Legendary_EnergySword_Bond</defName>
                             <label>persona Lightbringer</label>
                             <description>Plasma based sword used by the Sentinels.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -120,7 +120,7 @@
                         </ThingDef>
 
                         <!-- ===== Ranged ===== -->
-                        <ThingDef Name="RangedLegendary_Bond" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
+                        <ThingDef Name="MPBFPM_MoritzsLegendaryRanged" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
                             <weaponTags>
                                 <li>SpacerGun</li>
                             </weaponTags>
@@ -148,7 +148,7 @@
                         </ThingDef>
 
                         <!-- Legendary_Rifle_Bond -->
-                        <ThingDef ParentName="RangedLegendary_Bond">
+                        <ThingDef ParentName="MPBFPM_MoritzsLegendaryRanged">
                             <defName>Legendary_Rifle_Bond</defName>
                             <label>persona Glotunus</label>
                             <description>Charged-shot energy/projectile sniper rifle used by the Sentinels.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -223,7 +223,7 @@
                         </ThingDef>
 
                         <!-- Legendary_Zeaus_Bond -->
-                        <ThingDef ParentName="RangedLegendary_Bond">
+                        <ThingDef ParentName="MPBFPM_MoritzsLegendaryRanged">
                             <defName>Legendary_Zeaus_Bond</defName>
                             <label>persona Zeaus</label>
                             <description>Charged-shot energy/projectile rifle standard rifle of the Sentinels.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -291,7 +291,7 @@
                         </ThingDef>
 
                         <!-- Legendary_Diablo_Bond -->
-                        <ThingDef ParentName="RangedLegendary_Bond">
+                        <ThingDef ParentName="MPBFPM_MoritzsLegendaryRanged">
                             <defName>Legendary_Diablo_Bond</defName>
                             <label>persona Diablo</label>
                             <description>Plasma-shot plasma/projectile shotgun used by the Sentinels.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -362,7 +362,7 @@
                         </ThingDef>
 
                         <!-- Legendary_wl4u_Bond -->
-                        <ThingDef ParentName="RangedLegendary_Bond">
+                        <ThingDef ParentName="MPBFPM_MoritzsLegendaryRanged">
                             <defName>Legendary_wl4u_Bond</defName>
                             <label>persona WL-4u</label>
                             <description>A high tech gun standard weapon of the Sentinels.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -414,7 +414,7 @@
                         </ThingDef>
 
                         <!-- Legendary_SAP_Bond -->
-                        <ThingDef ParentName="RangedLegendary_Bond">
+                        <ThingDef ParentName="MPBFPM_MoritzsLegendaryRanged">
                             <defName>Legendary_SAP_Bond</defName>
                             <label>persona spray n´Prey</label>
                             <description>Charged-shot energy/projectile multi-barrel weapon used by the Sentinels.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -484,6 +484,59 @@
                             </projectile>
                         </ThingDef>
                     </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_MoritzsLegendaryWeaponsContinued</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Legendary_EnergySword_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Legendary_EnergySword_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Legendary_Rifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Legendary_Rifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_LegendaryRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Legendary_Zeaus_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Legendary_Zeaus_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Zeaus_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Legendary_Diablo_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Legendary_Diablo_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_LegendaryShotgun_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Legendary_wl4u_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Legendary_wl4u_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Legendary_SAP_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Legendary_SAP_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_LegendaryMini_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
                 </li>
             </operations>
         </match>

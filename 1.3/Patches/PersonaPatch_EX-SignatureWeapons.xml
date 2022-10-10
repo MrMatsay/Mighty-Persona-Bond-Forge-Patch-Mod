@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- ===== Eccentric Extras - Signature Weapons =====
-	
-	== Melee
-	Eccentric_Monoscythe_Hanna_Bond = persona Hanna's Monoscythe
-	
-	== Range
+<!-- ===== Eccentric Extras - Signature Weapons ===== == Melee
+	Eccentric_Monoscythe_Hanna_Bond = persona Hanna's Monoscythe == Range
 	Eccentric_Gun_S8B_Toni_Bond = persona Toni's S8 burst pistol
 -->
 <Patch>
@@ -165,6 +161,23 @@
 							</tools>
 						</ThingDef>
 					</value>
+				</li>
+
+				<li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+					<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+					<key>Daria40K_MightyPersonaBondForgePatch_EccentricExtrasSignatureWeapons</key>
+					<defaultValue>true</defaultValue>
+					<caseFalse>
+						<!-- Eccentric_Monoscythe_Hanna_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Eccentric_Monoscythe_Hanna_Bond"]</xpath>
+						</Operation>
+
+						<!-- Eccentric_Gun_S8B_Toni_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Eccentric_Gun_S8B_Toni_Bond"]</xpath>
+						</Operation>
+					</caseFalse>
 				</li>
 			</operations>
 		</match>

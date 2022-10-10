@@ -105,7 +105,7 @@
                                 <li>
                                     <verbClass>Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>SNS_Rifle_GenIII_Bullet</defaultProjectile>
+                                    <defaultProjectile>SNS_Rifle_GenIII_Bullet_Bond</defaultProjectile>
                                     <warmupTime>0.2125</warmupTime>
                                     <range>70</range>
                                     <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
@@ -118,7 +118,7 @@
                         </ThingDef>
 
                         <ThingDef ParentName="MPBFPM_BaseBullet">
-                            <defName>SNS_Rifle_GenIII_Bullet</defName>
+                            <defName>SNS_Rifle_GenIII_Bullet_Bond</defName>
                             <label>eternal rifle projectile</label>
                             <graphicData>
                                 <texPath>Things/Projectile/SNS/Gen3/Bullet_Rifle</texPath>
@@ -154,7 +154,7 @@
                                 <li>
                                     <verbClass>Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>SNS_Shotgun_GenIII_Bullet</defaultProjectile>
+                                    <defaultProjectile>SNS_Shotgun_GenIII_Bullet_Bond</defaultProjectile>
                                     <warmupTime>0.17</warmupTime>
                                     <range>30</range>
                                     <soundCast>ChargeLance_Fire</soundCast>
@@ -165,7 +165,7 @@
                         </ThingDef>
 
                         <ThingDef ParentName="MPBFPM_BaseBullet">
-                            <defName>SNS_Shotgun_GenIII_Bullet</defName>
+                            <defName>SNS_Shotgun_GenIII_Bullet_Bond</defName>
                             <label>eternal shotgun projectile</label>
                             <graphicData>
                                 <texPath>Things/Projectile/SNS/Gen3/Bullet_Shotgun_Clump</texPath>
@@ -276,6 +276,58 @@
                             </projectile>
                         </ThingDef>
                     </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_ScienceNeverStopsAmbitionoftheCosmic</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- SNS_Pistol_GenIII_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Pistol_GenIII_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Pistol_GenIII_Bullet_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- SNS_Rifle_GenIII_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Rifle_GenIII_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Rifle_GenIII_Bullet_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- SNS_Shotgun_GenIII_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Shotgun_GenIII_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Shotgun_GenIII_Bullet_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- SNS_Sniper_GenIII_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Sniper_GenIII_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Sniper_GenIII_Bullet_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- SNS_EterniumLance_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_EterniumLance_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Omega_Bullet_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
                 </li>
             </operations>
         </match>

@@ -20,7 +20,7 @@
                     <xpath>/Defs</xpath>
                     <value>
                         <!-- ===== Melee ===== -->
-                        <ThingDef Name="MetalRimRisingBaseMelee" Abstract="True" ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality">
+                        <ThingDef Name="MPBFPM_MetalRimRisingMelee" Abstract="True" ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality">
                             <techLevel>Spacer</techLevel>
                             <weaponTags>
                                 <li>SpacerMeleeAdvanced</li>
@@ -31,7 +31,7 @@
                         </ThingDef>
 
                         <!-- MeleeWeapon_MGR_Katana_Bond -->
-                        <ThingDef ParentName="MetalRimRisingBaseMelee">
+                        <ThingDef ParentName="MPBFPM_MetalRimRisingMelee">
                             <defName>MeleeWeapon_MGR_Katana_Bond</defName>
                             <label>persona Duelist Objectifier</label>
                             <description>A highly experimental and unstable High-Frequency Blade that excels against armored targes, able to bypass even the toughest of plating after a short charge up time.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -80,7 +80,7 @@
                         </ThingDef>
 
                         <!-- MeleeWeapon_MGR_Katana_Jump_Bond -->
-                        <ThingDef ParentName="MetalRimRisingBaseMelee">
+                        <ThingDef ParentName="MPBFPM_MetalRimRisingMelee">
                             <defName>MeleeWeapon_MGR_Katana_Jump_Bond</defName>
                             <label>persona Duelist Objectifier (JUMP)</label>
                             <description>A highly experimental and unstable High-Frequency Blade that excels against armored targes, able to bypass even the toughest of plating after a short charge up time.\n\nThis variant comes with a jump ability and counts as a ranged weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -147,7 +147,7 @@
                         </ThingDef>
 
                         <!-- MGR_RaidenSword_Bond -->
-                        <ThingDef ParentName="MetalRimRisingBaseMelee">
+                        <ThingDef ParentName="MPBFPM_MetalRimRisingMelee">
                             <defName>MGR_RaidenSword_Bond</defName>
                             <label>persona Maverick Blade</label>
                             <description>A standard-issue High-Frequency Blade that is intended for security personnel. Designed for speed without sacrificing power, the blade enhances the wielder's move speed with providing excellent damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -195,6 +195,28 @@
                             <allowedArchonexusCount>1</allowedArchonexusCount>
                         </ThingDef>
                     </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_MetalRimRising</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- MeleeWeapon_MGR_Katana_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="MeleeWeapon_MGR_Katana_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- MeleeWeapon_MGR_Katana_Jump_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="MeleeWeapon_MGR_Katana_Jump_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- MGR_RaidenSword_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="MGR_RaidenSword_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
                 </li>
             </operations>
         </match>

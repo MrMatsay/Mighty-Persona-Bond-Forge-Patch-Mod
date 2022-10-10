@@ -23,7 +23,7 @@
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs</xpath>
                     <value>
-                        <ThingDef Name="BaseRangedWeapon_DestinyThemedArmoryBond" ParentName="MPBFPM_BaseHumanMakeableGun" Abstract="True">
+                        <ThingDef Name="MPBFPM_DestinyThemedArmoryRange" ParentName="MPBFPM_BaseHumanMakeableGun" Abstract="True">
                             <techLevel>Spacer</techLevel>
                             <tools>
                                 <li>
@@ -49,7 +49,7 @@
                             </weaponTags>
                         </ThingDef>
 
-                        <ThingDef Name="BaseMeleeWeapon_DestinyThemedArmoryBond" ParentName="MPBFPM_MeleeWeaponUltratech" Abstract="True">
+                        <ThingDef Name="MPBFPM_DestinyThemedArmoryMelee" ParentName="MPBFPM_MeleeWeaponUltratech" Abstract="True">
                             <soundInteract>Interact_MonoSword</soundInteract>
                             <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
                             <weaponClasses>
@@ -60,7 +60,7 @@
 
                         <!-- Ranged -->
                         <!-- SC_Guardian -->
-                        <ThingDef ParentName="BaseRangedWeapon_DestinyThemedArmoryBond">
+                        <ThingDef ParentName="MPBFPM_DestinyThemedArmoryRange">
                             <defName>SC_Guardian_Bond</defName>
                             <label>persona XM-1 “Guardian”</label>
                             <description>An Improvement on standard charge munitions. The XM-1 utilizes advanced mass acceleration technology and an enhanced plasma containment system for increased performance and damage potential.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -127,7 +127,7 @@
                         </ThingDef>
 
                         <!-- SC_Umbra -->
-                        <ThingDef ParentName="BaseRangedWeapon_DestinyThemedArmoryBond">
+                        <ThingDef ParentName="MPBFPM_DestinyThemedArmoryRange">
                             <defName>SC_Umbra_Bond</defName>
                             <label>persona A-55 “Umbra”</label>
                             <description>A charge Battle Rifle utilizing the same advancements as the XM-1. The A-55 is designed to fire in shorter bursts for increased accuracy and stopping power at longer ranges.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -195,7 +195,7 @@
                         </ThingDef>
 
                         <!-- Ace -->
-                        <ThingDef ParentName="BaseRangedWeapon_DestinyThemedArmoryBond">
+                        <ThingDef ParentName="MPBFPM_DestinyThemedArmoryRange">
                             <defName>Ace_Bond</defName>
                             <label>persona AOS-1 “Ace”</label>
                             <description>An advanced charge revolver, this ‘hand cannon’ is designed to fire rifle caliber munitions. Popular in CQC situations for it’s stopping power and comparatively low profile.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -258,7 +258,7 @@
 
                         <!-- Melee -->
                         <!-- PChargeBlade -->
-                        <ThingDef ParentName="BaseMeleeWeapon_DestinyThemedArmoryBond">
+                        <ThingDef ParentName="MPBFPM_DestinyThemedArmoryMelee">
                             <defName>PChargeBlade_Bond</defName>
                             <label>persona Prestige Charge Blade</label>
                             <description>A large melee weapon, designed to be wielded with two hands. Micro plasma emitters along the length of the blade sheath the weapon in superhot plasma, contained by a magnetic field generator in the hilt, giving the weapon almost unparalleled penetration and cutting power. (This time in Gold)\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -303,7 +303,7 @@
                         </ThingDef>
 
                         <!-- ChargeBlade -->
-                        <ThingDef ParentName="BaseMeleeWeapon_DestinyThemedArmoryBond">
+                        <ThingDef ParentName="MPBFPM_DestinyThemedArmoryMelee">
                             <defName>ChargeBlade_Bond</defName>
                             <label>persona Charge Blade</label>
                             <description>A large melee weapon, designed to be wielded with two hands. Micro plasma emitters along the length of the blade sheath the weapon in superhot plasma, contained by a magnetic field generator in the hilt, giving the weapon almost unparalleled penetration and cutting power.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -347,6 +347,50 @@
                             </tools>
                         </ThingDef>
                     </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_DestinyThemedArmory</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- SC_Guardian_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SC_Guardian_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_SC_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- SC_Umbra_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SC_Umbra_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_BR_SC_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Ace_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Ace_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_SCTWO_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PChargeBlade_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PChargeBlade_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- ChargeBlade_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="ChargeBlade_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
                 </li>
             </operations>
         </match>

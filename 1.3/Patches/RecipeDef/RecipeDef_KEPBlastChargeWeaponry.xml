@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-	===== KEP Blast-Charge Weaponry (Continued) =====
+<!-- ===== KEP Blast-Charge Weaponry (Continued) =====
 
     == Range
     Gun_LasAssault_Bond = persona Blast-Charge Rifle
@@ -213,6 +212,33 @@
                             </recipeUsers>
                         </RecipeDef>
                     </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_KEPBlastChargeWeaponryContinued</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Gun_LasAssault_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/RecipeDef[defName="Make_Gun_LasAssault_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Gun_LasSniper_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/RecipeDef[defName="Make_Gun_LasSniper_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Gun_LasShotgun_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/RecipeDef[defName="Make_Gun_LasShotgun_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Gun_BlastPistol_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/RecipeDef[defName="Make_Gun_BlastPistol_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
                 </li>
             </operations>
         </match>

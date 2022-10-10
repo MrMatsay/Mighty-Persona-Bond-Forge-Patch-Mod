@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-	===== KEP Blast-Charge Weaponry (Continued) =====
+<!-- ===== KEP Blast-Charge Weaponry (Continued) =====
 
     == Range
     Gun_LasAssault_Bond = persona Blast-Charge Rifle
@@ -21,7 +20,7 @@
                     <xpath>/Defs</xpath>
                     <value>
                         <!-- ===== Range ===== -->
-                        <ThingDef Name="KEPBlastBaseRange" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
+                        <ThingDef Name="MPBFPM_KEPBlastRange" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
                             <techLevel>Spacer</techLevel>
                             <weaponTags>
                                 <li>KEP</li>
@@ -30,7 +29,7 @@
                         </ThingDef>
 
                         <!-- Gun_LasAssault_Bond -->
-                        <ThingDef ParentName="KEPBlastBaseRange">
+                        <ThingDef ParentName="MPBFPM_KEPBlastRange">
                             <defName>Gun_LasAssault_Bond</defName>
                             <label>persona Blast-Charge Rifle</label>
                             <description>A relatively old laser rifle design, made on Rimworlds. Its big interactive screen and unique laser guiding systems allow it to be more accurate than most weapons. Relatively lower damage considering charge weaponry beats it damage-wise.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -99,7 +98,7 @@
                         </ThingDef>
 
                         <!-- Gun_LasSniper_Bond -->
-                        <ThingDef ParentName="KEPBlastBaseRange">
+                        <ThingDef ParentName="MPBFPM_KEPBlastRange">
                             <defName>Gun_LasSniper_Bond</defName>
                             <label>persona Blast-Charge Sniper Rifle</label>
                             <description>A relatively old laser sniper rifle design, made on Rimworlds. Its big interactive screen and unique laser guiding systems allow it to be way more accurate than most weapons. It is really slow-firing compared to other weapons but it makes it worth it with its damage out-come and excellent armor-piercing qualities.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -171,7 +170,7 @@
                         </ThingDef>
 
                         <!-- Gun_LasShotgun_Bond -->
-                        <ThingDef ParentName="KEPBlastBaseRange">
+                        <ThingDef ParentName="MPBFPM_KEPBlastRange">
                             <defName>Gun_LasShotgun_Bond</defName>
                             <label>persona Blast-Charge Shotgun</label>
                             <description>A relatively old laser shotgun design, made on Rimworlds. Its interactive screen and unique laser guiding systems allow it to be more accurate than most weapons. Relatively lower range considering charge weaponry beats it range-wise. Makes up for it with above-average armor-piercing.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -241,7 +240,7 @@
                         </ThingDef>
 
                         <!-- Gun_BlastPistol_Bond -->
-                        <ThingDef ParentName="KEPBlastBaseRange">
+                        <ThingDef ParentName="MPBFPM_KEPBlastRange">
                             <defName>Gun_BlastPistol_Bond</defName>
                             <label>persona Blast-Charge Pistol</label>
                             <description>A relatively old laser handgun design, made in Rimworlds. Its interactive screen and unique laser guiding systems allow it to be more accurate than most weapons. Relatively lower damage considering charge weaponry beats it damage-wise.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -311,6 +310,49 @@
                             </projectile>
                         </ThingDef>
                     </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_KEPBlastChargeWeaponryContinued</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Gun_LasAssault_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_LasAssault_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_LazorAssault_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Gun_LasSniper_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_LasSniper_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_LazorSniperbullet_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Gun_LasShotgun_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_LasShotgun_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_LazorShotgun_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Gun_BlastPistol_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_BlastPistol_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Laser_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
                 </li>
             </operations>
         </match>

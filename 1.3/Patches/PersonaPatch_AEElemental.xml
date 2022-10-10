@@ -20,7 +20,7 @@
 					<value>
 						<!-- ===== Range ===== -->
 						<!-- Range Base -->
-						<ThingDef Name="Persona_AEElementalGunBase" ParentName="MPBFPM_BaseHumanMakeableGun" Abstract="True">
+						<ThingDef Name="MPBFPM_AEElementalGunBase" ParentName="MPBFPM_BaseHumanMakeableGun" Abstract="True">
 							<techLevel>Ultra</techLevel>
 							<weaponTags>
 								<li>HALCYZOM_Weapon</li>
@@ -50,7 +50,7 @@
 						</ThingDef>
 
 						<!-- HALCYZOM_Cryoblaster_Bond -->
-						<ThingDef ParentName="Persona_AEElementalGunBase">
+						<ThingDef ParentName="MPBFPM_AEElementalGunBase">
 							<defName>HALCYZOM_Cryoblaster_Bond</defName>
 							<label>persona HZ Cryoblaster</label>
 							<description>A somewhat heavy, unwieldy handheld cannon that launches canisters of highly compressed cryogas that explode on impact, instantly cooling the air to subzero temperatures and causing hypothermia as well as frostbite on unprotected targets. It is deployed sparsely on Urbworlds and Glitterworlds as an extreme means of controlling angry crowds due to its "non-lethal" but still quite painful nature.
@@ -108,7 +108,7 @@
 						</ThingDef>
 
 						<!-- HALCYZOM_Plasmabolter_Bond -->
-						<ThingDef ParentName="Persona_AEElementalGunBase">
+						<ThingDef ParentName="MPBFPM_AEElementalGunBase">
 							<defName>HALCYZOM_Plasmabolter_Bond</defName>
 							<thingClass>VanillaWeaponsExpandedLaser.LaserGun</thingClass>
 							<label>persona HZ Plasmabolter</label>
@@ -177,7 +177,7 @@
 						</ThingDef>
 
 						<!-- HALCYZOM_Homicide_Applicator_Bond -->
-						<ThingDef ParentName="Persona_AEElementalGunBase">
+						<ThingDef ParentName="MPBFPM_AEElementalGunBase">
 							<defName>HALCYZOM_Homicide_Applicator_Bond</defName>
 							<label>persona HZ Homicide Applicator</label>
 							<description>Unbeknownst to many perusers of HALCYZOM technology, they started out as an agricultural engineering firm, developing farming tools and implements, with a great focus on frontier developments on newly colonised rimworlds and midworlds. One of their first unique developments was a multi-function pesticide, herbicide, fungicide combo to deter the growth of blights and make crops more reliable, as well as a specialised tool to launch the poison great distances, to ease the workload of farmers and ranchers.
@@ -246,7 +246,7 @@
 						</ThingDef>
 
 						<!-- HALCYZOM_Problem_Dissolver_Bond -->
-						<ThingDef ParentName="Persona_AEElementalGunBase">
+						<ThingDef ParentName="MPBFPM_AEElementalGunBase">
 							<!-- CORROSIVE GUN -->
 							<defName>HALCYZOM_Problem_Dissolver_Bond</defName>
 							<label>persona HZ Problem Dissolver</label>
@@ -314,7 +314,7 @@
 						</ThingDef>
 
 						<!-- HALCYZOM_Sonic_Shredder_Bond -->
-						<ThingDef ParentName="Persona_AEElementalGunBase">
+						<ThingDef ParentName="MPBFPM_AEElementalGunBase">
 							<!-- Sonic GUN -->
 							<defName>HALCYZOM_Sonic_Shredder_Bond</defName>
 							<label>persona HZ Sonic Shredder</label>
@@ -382,6 +382,54 @@
 						</ThingDef>
 
 					</value>
+				</li>
+
+				<li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+					<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+					<key>Daria40K_MightyPersonaBondForgePatch_AltherianExportElementalWeaponry</key>
+					<defaultValue>true</defaultValue>
+					<caseFalse>
+						<!-- HALCYZOM_Cryoblaster_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HALCYZOM_Cryoblaster_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HZ_Cryogas_Bond"]</xpath>
+						</Operation>
+
+						<!-- HALCYZOM_Plasmabolter_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HALCYZOM_Plasmabolter_Bond"]</xpath>
+						</Operation>
+
+						<!-- HALCYZOM_Homicide_Applicator_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HALCYZOM_Homicide_Applicator_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HZ_ToxicBlob_Bond"]</xpath>
+						</Operation>
+
+						<!-- HALCYZOM_Problem_Dissolver_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HALCYZOM_Problem_Dissolver_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HZ_CorrosiveBlob_Bond"]</xpath>
+						</Operation>
+
+						<!-- HALCYZOM_Sonic_Shredder_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HALCYZOM_Sonic_Shredder_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HZ_SonicBullet_Bond"]</xpath>
+						</Operation>
+					</caseFalse>
 				</li>
 			</operations>
 		</match>

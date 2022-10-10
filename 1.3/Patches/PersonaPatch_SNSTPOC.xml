@@ -32,7 +32,7 @@
                             <soundInteract>Interact_ChargeRifle</soundInteract>
                             <useHitPoints>false</useHitPoints>
                             <statBases>
-                                <MarketValue>5000000</MarketValue><!-- It's really only set this high to prevent pawns from randomly spawning with this, not that it should ever happen. -->
+                                <MarketValue>5000000</MarketValue>                                <!-- It's really only set this high to prevent pawns from randomly spawning with this, not that it should ever happen. -->
                                 <Mass>2.5</Mass>
                                 <Flammability>0.0</Flammability>
                                 <AccuracyTouch>1.100</AccuracyTouch>
@@ -87,7 +87,7 @@
                             <soundInteract>Interact_Rifle</soundInteract>
                             <useHitPoints>false</useHitPoints>
                             <statBases>
-                                <MarketValue>5000000</MarketValue><!-- It's really only set this high to prevent pawns from randomly spawning with this, not that it should ever happen. -->
+                                <MarketValue>5000000</MarketValue>                                <!-- It's really only set this high to prevent pawns from randomly spawning with this, not that it should ever happen. -->
                                 <Mass>2.5</Mass>
                                 <Flammability>0.0</Flammability>
                                 <AccuracyTouch>1.100</AccuracyTouch>
@@ -153,7 +153,7 @@
                             <techLevel>Archotech</techLevel>
                             <equippedAngleOffset>45</equippedAngleOffset>
                             <statBases>
-                                <MarketValue>5000000</MarketValue><!-- It's really only set this high to prevent pawns from randomly spawning with this, not that it should ever happen. -->
+                                <MarketValue>5000000</MarketValue>                                <!-- It's really only set this high to prevent pawns from randomly spawning with this, not that it should ever happen. -->
                                 <Mass>2.5</Mass>
                                 <Beauty>250</Beauty>
                                 <DeteriorationRate>0</DeteriorationRate>
@@ -183,6 +183,36 @@
                             </tools>
                         </ThingDef>
                     </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_SNSAOTCTruePinnacleofCreation</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- SNS_TerminusGun_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_TerminusGun_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_TerminusGun_Projectile_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- SNS_BeholderGun_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_BeholderGun_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Beholder_Bullet_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- SNS_RecursionMelee_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_RecursionMelee_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
                 </li>
             </operations>
         </match>

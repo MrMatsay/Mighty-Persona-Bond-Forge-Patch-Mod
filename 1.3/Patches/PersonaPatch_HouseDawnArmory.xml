@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-	===== House Dawn Armory =====
-	
-	== Melee
-	HDA_Longsword_Bond = persona LS-04 Mantis
-	
-	== Range
+<!-- ===== House Dawn Armory ===== == Melee
+	HDA_Longsword_Bond = persona LS-04 Mantis == Range
 	HDA_ChainShotgun_Bond = persona HSG-02 Mammoth
 	HDA_HeavySMG_Bond = persona HSMG-05 Barracuda
 	HDA_Revolver_Bond = persona SR-01 Elephant
@@ -372,8 +367,55 @@
 								<explosionEffect>GiantExplosion</explosionEffect>
 							</projectile>
 						</ThingDef>
-
 					</value>
+				</li>
+
+				<li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+					<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+					<key>Daria40K_MightyPersonaBondForgePatch_HouseDawnArmory</key>
+					<defaultValue>true</defaultValue>
+					<caseFalse>
+						<!-- HDA_Longsword_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HDA_Longsword_Bond"]</xpath>
+						</Operation>
+
+						<!-- HDA_ChainShotgun_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HDA_ChainShotgun_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_HDA_ChainShotgun_Bond"]</xpath>
+						</Operation>
+
+						<!-- HDA_HeavySMG_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HDA_HeavySMG_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_HDA_HeavySMG_Bond"]</xpath>
+						</Operation>
+
+						<!-- HDA_Revolver_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HDA_Revolver_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_HDA_Revolver_Bond"]</xpath>
+						</Operation>
+
+						<!-- HDA_RocketLauncher_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HDA_RocketLauncher_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_HDA_RocketLauncher_Bond"]</xpath>
+						</Operation>
+					</caseFalse>
 				</li>
 			</operations>
 		</match>

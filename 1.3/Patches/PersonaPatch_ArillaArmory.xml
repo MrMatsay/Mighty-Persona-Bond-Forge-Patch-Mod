@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    ===== Arilla Armory =====
+    ===== Arilla Tech =====
 
     == Range
     Gun_ArillaAR_Bond = persona arilla assaultrifle
@@ -24,7 +24,7 @@
                     <xpath>/Defs</xpath>
                     <value>
                         <!-- ===== Range ===== -->
-                        <ThingDef Name="ArillaArmoryBaseRange" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
+                        <ThingDef Name="MPBFPM_ArillaArmoryBaseRange" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
                             <techLevel>Spacer</techLevel>
                             <weaponTags>
                                 <li>SpacerGun</li>
@@ -33,7 +33,7 @@
                         </ThingDef>
 
                         <!-- Gun_ArillaAR_Bond -->
-                        <ThingDef ParentName="ArillaArmoryBaseRange">
+                        <ThingDef ParentName="MPBFPM_ArillaArmoryBaseRange">
                             <defName>Gun_ArillaAR_Bond</defName>
                             <label>persona arilla assaultrifle</label>
                             <description>An all-rounder plasma assault rifle, designed for short-medium range engagements. Fires a burst of five plasma rounds towards its target.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -99,7 +99,7 @@
                         </ThingDef>
 
                         <!-- Gun_ArillaMarksman_Bond -->
-                        <ThingDef ParentName="ArillaArmoryBaseRange">
+                        <ThingDef ParentName="MPBFPM_ArillaArmoryBaseRange">
                             <defName>Gun_ArillaMarksman_Bond</defName>
                             <label>persona arilla marksmanrifle</label>
                             <description>A heavy plasma-marksmanrifle that's used in medium to high range exchanges. Fires eight heavy shots of plasma rounds towards its target after a timed charge up.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -169,7 +169,7 @@
                         </ThingDef>
 
                         <!-- Gun_ArillaSMG_Bond -->
-                        <ThingDef ParentName="ArillaArmoryBaseRange">
+                        <ThingDef ParentName="MPBFPM_ArillaArmoryBaseRange">
                             <defName>Gun_ArillaSMG_Bond</defName>
                             <label>persona arilla smg</label>
                             <description>A rapid plasma-submachine gun with high firerate, great in close ranged combat. Unleashes a volley of rapid plasma rounds towards its target.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -235,7 +235,7 @@
                         </ThingDef>
 
                         <!-- Gun_ArillaSniper_Bond -->
-                        <ThingDef ParentName="ArillaArmoryBaseRange">
+                        <ThingDef ParentName="MPBFPM_ArillaArmoryBaseRange">
                             <defName>Gun_ArillaSniper_Bond</defName>
                             <label>persona arilla sniperrifle</label>
                             <description>A plasma sniper rifle that excels at far range combat, aswell as penetrating most metals. Shoots a singular light speed charged plasma round. Superior weapon and damage, but horrible charge times that punishes the user for using it in close to medium range combat.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -307,7 +307,7 @@
 
                         <!-- ===== Melee ===== -->
                         <!-- MeleeWeapon_ArillaSword_Bond -->
-                        <ThingDef ParentName="BaseWeapon_Bladelink">
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality">
                             <defName>MeleeWeapon_ArillaSword_Bond</defName>
                             <label>persona arilla sword</label>
                             <description>A one-handed plasma sword, designed for melee engagements. Powerful enough to cut through most metals..\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -316,8 +316,7 @@
                                 <texPath>Things/Item/Equipment/WeaponMelee/ArillaSword</texPath>
                                 <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
-                            <weaponTags Inherit="False">
-                                <li>Bladelink</li>
+                            <weaponTags>
                                 <li>LongSword</li>
                             </weaponTags>
                             <statBases>
@@ -352,6 +351,54 @@
                             </tools>
                         </ThingDef>
                     </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_ArillaTech</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Gun_ArillaAR_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_ArillaAR_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Arillaarround_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Gun_ArillaMarksman_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_ArillaMarksman_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Arillammround_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Gun_ArillaSMG_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_ArillaSMG_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Arillasmground_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Gun_ArillaSniper_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_ArillaSniper_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Arillasniper_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- MeleeWeapon_ArillaSword_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="MeleeWeapon_ArillaSword_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
                 </li>
             </operations>
         </match>
