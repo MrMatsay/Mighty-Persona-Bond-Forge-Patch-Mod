@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ===== [TMC] GlitterGats ===== == Range
+	TMC_IHG_ThirdLaw_Bond = persona Third Law Revolver
+	TMC_IDMR_Slip_Bond = persona Slipstream DMR
+	TMC_ILMG_Wardrum_Bond = persona Wardrum Machine Gun
+	TMC_IAR_Spirit_Bond = persona 308 Spirit AR
+	TMC_ISR_StarGaze_Bond = persona StarGaze Sniper
+-->
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>[TMC] GlitterGats</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs</xpath>
+					<value>
+						<!-- ===== Range ===== -->
+						<ThingDef Name="MPBFPM_GlitterGats_RangeBase" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
+							<weaponTags>
+								<li>SpacerGun</li>
+							</weaponTags>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9.900</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9.900</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<!-- TMC_IHG_ThirdLaw_Bond -->
+						<ThingDef ParentName="MPBFPM_GlitterGats_RangeBase">
+							<defName>TMC_IHG_ThirdLaw_Bond</defName>
+							<label>persona Third Law Revolver</label>
+							<description>A revival of the .44 magnum revolver re-introduced in updated specs chambered in 6x24 Charged. Featuring a recoil reducing barrel for faster follow up shots.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>TMC_ThirdLaw</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_Rifle</soundInteract>
+							<statBases>
+								<Mass>1.3</Mass>
+								<AccuracyTouch>0.913</AccuracyTouch>
+								<AccuracyShort>0.88</AccuracyShort>
+								<AccuracyMedium>0.44</AccuracyMedium>
+								<AccuracyLong>0.33</AccuracyLong>
+								<RangedWeapon_Cooldown>0.680</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_44MAG_Bond</defaultProjectile>
+									<warmupTime>0.213</warmupTime>
+									<range>25</range>
+									<soundCast>Shot_Deagle</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>Bullet_44MAG_Bond</defName>
+							<label>6x24 Charged bullet</label>
+							<graphicData>
+								<texPath>Things/Projectile/Bullet_Small</texPath>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>14</damageAmountBase>
+								<speed>75</speed>
+							</projectile>
+						</ThingDef>
+
+						<!-- TMC_IDMR_Slip_Bond -->
+						<ThingDef ParentName="MPBFPM_GlitterGats_RangeBase">
+							<defName>TMC_IDMR_Slip_Bond</defName>
+							<label>persona Slipstream DMR</label>
+							<description>An advance DMR chambered in .338 Lapua, The platform has been fitted with a proven designed stock for the extra ergonomics. Due to its design the Slipstream DMR is difficult to produce.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>TMC_Slipstream</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_Rifle</soundInteract>
+							<statBases>
+								<Mass>3.8</Mass>
+								<AccuracyTouch>0.66</AccuracyTouch>
+								<AccuracyShort>0.77</AccuracyShort>
+								<AccuracyMedium>1.078</AccuracyMedium>
+								<AccuracyLong>0.99</AccuracyLong>
+								<RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_Socom308TMC_Bond</defaultProjectile>
+									<warmupTime>0.340</warmupTime>
+									<range>48</range>
+									<soundCast>Shot_M1A</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>12</muzzleFlashScale>
+								</li>
+							</verbs>
+						</ThingDef>
+
+						<!-- TMC_ILMG_Wardrum_Bond -->
+						<ThingDef ParentName="MPBFPM_GlitterGats_RangeBase">
+							<defName>TMC_ILMG_Wardrum_Bond</defName>
+							<label>persona Wardrum Machine Gun</label>
+							<description>General purpose machinegun used for suppression and area control. cheaper to make to be feilded in greater numbers and has a firerate at 650 for accurate bursts. slightly heavier than midworld machineguns.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>TMC_Wardrum</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_Rifle</soundInteract>
+							<statBases>
+								<Mass>9</Mass>
+								<AccuracyTouch>0.495</AccuracyTouch>
+								<AccuracyShort>0.594</AccuracyShort>
+								<AccuracyMedium>0.473</AccuracyMedium>
+								<AccuracyLong>0.385</AccuracyLong>
+								<RangedWeapon_Cooldown>1.318</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_Socom308TMC_Bond</defaultProjectile>
+									<warmupTime>1.190</warmupTime>
+									<range>29.5</range>
+									<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+									<burstShotCount>8</burstShotCount>
+									<soundCast>Shot_ChargeRifle</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>10</muzzleFlashScale>
+								</li>
+							</verbs>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>Bullet_Socom308TMC_Bond</defName>
+							<label>.338 bullet</label>
+							<graphicData>
+								<texPath>Things/Projectile/Bullet_Small</texPath>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>20</damageAmountBase>
+								<speed>80</speed>
+							</projectile>
+						</ThingDef>
+
+						<!-- TMC_IAR_Spirit_Bond -->
+						<ThingDef ParentName="MPBFPM_GlitterGats_RangeBase">
+							<defName>TMC_IAR_Spirit_Bond</defName>
+							<label>persona 308 Spirit AR</label>
+							<description>Multi-purpose Assault rifle chambered in .338, Features a balanced recoil system for controlled fire. Its considerable more expensive then mid-world rifles and advance blueprints make it hard to produce.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>TMC_Spirit</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_Rifle</soundInteract>
+							<statBases>
+								<Mass>3.5</Mass>
+								<AccuracyTouch>0.682</AccuracyTouch>
+								<AccuracyShort>0.836</AccuracyShort>
+								<AccuracyMedium>0.770</AccuracyMedium>
+								<AccuracyLong>0.605</AccuracyLong>
+								<RangedWeapon_Cooldown>1.530</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_Socom308TMC_Bond</defaultProjectile>
+									<warmupTime>1.360</warmupTime>
+									<range>35.5</range>
+									<ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+									<burstShotCount>4</burstShotCount>
+									<soundCast>Shot_ChargeRifle</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+						</ThingDef>
+
+						<!-- TMC_ISR_StarGaze_Bond -->
+						<ThingDef ParentName="MPBFPM_GlitterGats_RangeBase">
+							<defName>TMC_ISR_StarGaze_Bond</defName>
+							<label>persona StarGaze Sniper</label>
+							<description>Lightweight anti-materail 14.5x114mm rifle. very accurate and longest range rifle however its expensive to make.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>TMC_StarGaze</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_Rifle</soundInteract>
+							<statBases>
+								<Mass>4.3</Mass>
+								<AccuracyTouch>0.495</AccuracyTouch>
+								<AccuracyShort>0.825</AccuracyShort>
+								<AccuracyMedium>1.089</AccuracyMedium>
+								<AccuracyLong>1.045</AccuracyLong>
+								<RangedWeapon_Cooldown>2.295</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_50BMG_Bond</defaultProjectile>
+									<warmupTime>3.400</warmupTime>
+									<range>67.5</range>
+									<soundCast>Shot_M1A</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>10</muzzleFlashScale>
+								</li>
+							</verbs>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>Bullet_50BMG_Bond</defName>
+							<label>14.5x114mm bullet</label>
+							<graphicData>
+								<texPath>Things/Projectile/Bullet_Small</texPath>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>33</damageAmountBase>
+								<speed>80</speed>
+							</projectile>
+						</ThingDef>
+					</value>
+				</li>
+
+				<li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+					<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+					<key>Daria40K_MightyPersonaBondForgePatch_GlitterGats</key>
+					<defaultValue>true</defaultValue>
+					<caseFalse>
+						<!-- TMC_IHG_ThirdLaw_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="TMC_IHG_ThirdLaw_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_44MAG_Bond"]</xpath>
+						</Operation>
+
+						<!-- TMC_IDMR_Slip_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="TMC_IDMR_Slip_Bond"]</xpath>
+						</Operation>
+
+						<!-- TMC_ILMG_Wardrum_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="TMC_ILMG_Wardrum_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_Socom308TMC_Bond"]</xpath>
+						</Operation>
+
+						<!-- TMC_IAR_Spirit_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="TMC_IAR_Spirit_Bond"]</xpath>
+						</Operation>
+
+						<!-- TMC_ISR_StarGaze_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="TMC_ISR_StarGaze_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_50BMG_Bond"]</xpath>
+						</Operation>
+					</caseFalse>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

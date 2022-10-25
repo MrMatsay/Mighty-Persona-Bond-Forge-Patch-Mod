@@ -1,0 +1,791 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Vanilla XCOM Magnetic Weapons =====
+
+    == Range
+    XCOM_Gun_MagRifle_Bond = persona magnetic rifle
+    XCOM_Gun_MagPistol_Bond = persona magnetic pistol
+    XCOM_Gun_MagShotgun_Bond = persona shard gun
+    XCOM_Gun_MagSniperRifle_Bond = persona gauss rifle
+    XCOM_Gun_MagCannon_Bond = persona mag cannon
+    XCOM_Gun_MagBullpup_Bond = persona Kal-15 bullpup
+    XCOM_Gun_MagVektor_Bond = persona temnotic rifle
+    XCOM_Gun_MagAutopistol_Bond = persona mag autopistol
+    XCOM_Gun_MagHeavyAutocannon_Bond = persona helix rail-cannon
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla XCOM Magnetic Weapons</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- XCOM Mag Rifle -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_MagRifle_Bond</defName>
+                            <label>persona magnetic rifle</label>
+                            <description>Magnetized projectile tech has enabled us to create rifle-style slugthrowers. They represent a substantial improvement in power relative to conventional assault rifles.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Mag_Rifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.2</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_MagRifle_Bond</defaultProjectile>
+                                    <soundCast>Mag_Rifle</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <range>22.9</range>
+                                    <warmupTime>1.062</warmupTime>
+                                    <burstShotCount>5</burstShotCount>
+                                    <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <Mass>5.5</Mass>
+                                <AccuracyTouch>0.638</AccuracyTouch>
+                                <AccuracyShort>0.748</AccuracyShort>
+                                <AccuracyMedium>0.572</AccuracyMedium>
+                                <AccuracyLong>0.462</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.475</RangedWeapon_Cooldown>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_MagRifle_Bond</defName>
+                            <label>magnetic rifle shot</label>
+                            <graphicData>
+                                <texPath>Bullet_Mag_Small</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>12</damageAmountBase>
+                                <armorPenetrationBase>0.30</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM Mag Pistol -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_MagPistol_Bond</defName>
+                            <label>persona magnetic pistol</label>
+                            <description>Based on the advances in magnetic weapons, this pistol boasts a substantial improvement in power over a conventional pistol.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Mag_Pistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_MagPistol_Bond</defaultProjectile>
+                                    <soundCast>Mag_Pistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <range>22.9</range>
+                                    <warmupTime>1.02</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <Mass>3</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.858</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.44</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.98</RangedWeapon_Cooldown>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_MagPistol_Bond</defName>
+                            <label>magnetic pistol shot</label>
+                            <graphicData>
+                                <texPath>Bullet_Mag_Small</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>20</damageAmountBase>
+                                <armorPenetrationBase>0.35</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM Mag Shotgun -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_MagShotgun_Bond</defName>
+                            <label>persona shard gun</label>
+                            <description>Magnetic weapons technology will let us synthesize alloy fragments into a spray-style projectile, and our soldiers can use it to dramatic effect: the closer the better.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Mag_Shotgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.1</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_MagShotgun_Bond</defaultProjectile>
+                                    <soundCast>Mag_Shotgun</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <range>23.9</range>
+                                    <warmupTime>1.062</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <Mass>4</Mass>
+                                <AccuracyTouch>1.012</AccuracyTouch>
+                                <AccuracyShort>0.946</AccuracyShort>
+                                <AccuracyMedium>0.693</AccuracyMedium>
+                                <AccuracyLong>0.484</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.98</RangedWeapon_Cooldown>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_MagShotgun_Bond</defName>
+                            <label>shard gun shot</label>
+                            <graphicData>
+                                <texPath>Bullet_Mag_Shotgun</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>29</damageAmountBase>
+                                <armorPenetrationBase>0.40</armorPenetrationBase>
+                                <stoppingPower>3</stoppingPower>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM Mag Sniper Rifle -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_MagSniperRifle_Bond</defName>
+                            <label>persona gauss rifle</label>
+                            <description>Magnetic weapons technology has particular utility for precision slow-fire weapons like sniper rifles. The gauss rifle will enable our sharpshooters to cause greater damage at extended range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Mag_SniperRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.3</drawSize>
+                                <drawOffsetSouth>(0.0, 0.0, -0.05)</drawOffsetSouth>
+                                <drawOffsetWest>(-0.25, 0.0, 0.05)</drawOffsetWest>
+                                <drawOffsetEast>(0.25, 0.0, 0.05)</drawOffsetEast>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_MagSniperRifle_Bond</defaultProjectile>
+                                    <soundCast>Mag_SniperRifle</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <warmupTime>2.763</warmupTime>
+                                    <range>41.9</range>
+                                </li>
+                            </verbs>
+                            <equippedAngleOffset>40</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.2</MoveSpeed>                                <!-- drawback -->
+                            </equippedStatOffsets>
+                            <statBases>
+                                <Mass>8.5</Mass>
+                                <AccuracyTouch>0.528</AccuracyTouch>
+                                <AccuracyShort>0.748</AccuracyShort>
+                                <AccuracyMedium>0.968</AccuracyMedium>
+                                <AccuracyLong>1.012</AccuracyLong>
+                                <RangedWeapon_Cooldown>3.3</RangedWeapon_Cooldown>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.1</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_MagSniperRifle_Bond</defName>
+                            <label>gauss rifle shot</label>
+                            <graphicData>
+                                <texPath>Bullet_Mag_Big</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>44</damageAmountBase>
+                                <armorPenetrationBase>0.55</armorPenetrationBase>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM Mag Cannon -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_MagCannon_Bond</defName>
+                            <label>persona mag cannon</label>
+                            <description>Magnetic weapons tech will let us deploy a rapid fire version of the cannon. Our Grenadiers will be able to lay down a much deadlier volume of fire.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                                <li>GunHeavy</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Mag_Cannon</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.35</drawSize>
+                                <drawOffsetSouth>(0.0, 0.0, -0.05)</drawOffsetSouth>
+                                <drawOffsetWest>(0.0, 0.0, -0.05)</drawOffsetWest>
+                                <drawOffsetEast>(0.0, 0.0, -0.05)</drawOffsetEast>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_MagCannon_Bond</defaultProjectile>
+                                    <soundCast>Mag_Cannon</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <warmupTime>1.615</warmupTime>
+                                    <range>33.9</range>
+                                    <burstShotCount>27</burstShotCount>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <Mass>12</Mass>
+                                <AccuracyTouch>0.231</AccuracyTouch>
+                                <AccuracyShort>0.319</AccuracyShort>
+                                <AccuracyMedium>0.319</AccuracyMedium>
+                                <AccuracyLong>0.22</AccuracyLong>
+                                <RangedWeapon_Cooldown>3.19</RangedWeapon_Cooldown>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>barrels</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <cooldownTime>2.55</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_MagCannon_Bond</defName>
+                            <label>mag cannon shot</label>
+                            <graphicData>
+                                <texPath>Bullet_Mag_Small</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>12</damageAmountBase>
+                                <stoppingPower>0.75</stoppingPower>
+                                <armorPenetrationBase>0.28</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM Mag Bullpup -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_MagBullpup_Bond</defName>
+                            <label>persona Kal-15 bullpup</label>
+                            <description>The introduction of a magnetic accelerator to the original bullpup rifle provides an even more lethal punch to an already dangerous close-quarters weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Mag_Bullpup</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_MagBullpup_Bond</defaultProjectile>
+                                    <soundCast>Mag_Bullpup</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <warmupTime>1.275</warmupTime>
+                                    <range>26.9</range>
+                                    <burstShotCount>5</burstShotCount>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <Mass>5</Mass>
+                                <AccuracyTouch>1.012</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.44</AccuracyMedium>
+                                <AccuracyLong>0.275</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.43</RangedWeapon_Cooldown>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_MagBullpup_Bond</defName>
+                            <label>Kal-15 bullpup shot</label>
+                            <graphicData>
+                                <texPath>Bullet_Mag_Small</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>11</damageAmountBase>
+                                <speed>70</speed>
+                                <stoppingPower>2</stoppingPower>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM Mag Vektor -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_MagVektor_Bond</defName>
+                            <label>persona temnotic rifle</label>
+                            <description>Modifying the existing Vektor rifle frame to allow for the integration of a magnetic accelerator, the weapon is now capable of firing ferromagnetic projectiles that can be mass produced with relative ease. Damage output has been significantly improved as a result.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                                <li>SniperRifle</li>
+                            </weaponTags>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Mag_Vektor</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.3</drawSize>
+                                <drawOffsetSouth>(0.0, 0.0, -0.05)</drawOffsetSouth>
+                                <drawOffsetWest>(-0.2, 0.0, 0.05)</drawOffsetWest>
+                                <drawOffsetEast>(0.2, 0.0, 0.05)</drawOffsetEast>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_MagVektor_Bond</defaultProjectile>
+                                    <soundCast>Mag_Vektor</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <range>23.9</range>
+                                    <warmupTime>1.105</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <Mass>5</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.792</AccuracyShort>
+                                <AccuracyMedium>0.968</AccuracyMedium>
+                                <AccuracyLong>0.946</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.75</RangedWeapon_Cooldown>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_MagVektor_Bond</defName>
+                            <label>temnotic rifle shot</label>
+                            <graphicData>
+                                <texPath>Bullet_Mag_Small</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>30</damageAmountBase>
+                                <stoppingPower>1.25</stoppingPower>
+                                <speed>90</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM Mag Autopistol -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_MagAutopistol_Bond</defName>
+                            <label>persona mag autopistol</label>
+                            <description>The introduction of a magnetic projectile accelerator into the automatic pistol would seem to be at odds with the weapon's original design, but it proves to be a powerful yet stable option.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Mag_Autopistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_MagAutopistol_Bond</defaultProjectile>
+                                    <soundCast>Mag_Autopistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <warmupTime>0.68</warmupTime>
+                                    <range>24.9</range>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <Mass>3</Mass>
+                                <AccuracyTouch>0.924</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.44</AccuracyMedium>
+                                <AccuracyLong>0.22</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.76</RangedWeapon_Cooldown>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_MagAutopistol_Bond</defName>
+                            <label>mag autopistol shot</label>
+                            <graphicData>
+                                <texPath>Bullet_Mag_Small</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>9</damageAmountBase>
+                                <stoppingPower>0.65</stoppingPower>
+                                <speed>75</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- SPARK Helix Rail-Cannon -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_MagHeavyAutocannon_Bond</defName>
+                            <label>persona helix rail-cannon</label>
+                            <description>A powerful but physically-heavy cannon designed specifically for use by SPARK units.\nAdditional plating provides increased durability and damage output, negating long term wear caused by intense field deployments.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Mag_Autocannon</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.5</drawSize>
+                                <drawOffsetSouth>(0, 0, -0.1)</drawOffsetSouth>
+                                <drawOffsetWest>(-0.05, 0, -0.1)</drawOffsetWest>
+                                <drawOffsetEast>(0.05, 0, -0.1)</drawOffsetEast>
+                                <drawOffsetNorth>(0.1, 0, 0)</drawOffsetNorth>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>15</Mass>
+                                <AccuracyTouch>0.825</AccuracyTouch>
+                                <AccuracyShort>0.638</AccuracyShort>
+                                <AccuracyMedium>0.418</AccuracyMedium>
+                                <AccuracyLong>0.275</AccuracyLong>
+                                <RangedWeapon_Cooldown>3.3</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.75</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_MagHeavyAutocannon_Bond</defaultProjectile>
+                                    <warmupTime>1.87</warmupTime>
+                                    <range>25.9</range>
+                                    <burstShotCount>8</burstShotCount>
+                                    <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                    <soundCast>Mag_HeavyAutocannon</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>12</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <techLevel>Spacer</techLevel>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <cooldownTime>3.4</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <cooldownTime>3.4</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_MagHeavyAutocannon_Bond</defName>
+                            <label>helix rail-cannon bullet</label>
+                            <graphicData>
+                                <texPath>Bullet_Mag_Big</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>16</damageAmountBase>
+                                <stoppingPower>2</stoppingPower>
+                                <speed>75</speed>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_VanillaXCOMMagneticWeapons</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- XCOM_Gun_MagRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_MagRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_MagRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_MagPistol_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_MagPistol_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_MagPistol_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_MagShotgun_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_MagShotgun_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_MagShotgun_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_MagSniperRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_MagSniperRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_MagSniperRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_MagCannon_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_MagCannon_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_MagCannon_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_MagBullpup_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_MagBullpup_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_MagBullpup_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_MagVektor_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_MagVektor_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_MagVektor_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_MagAutopistol_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_MagAutopistol_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_MagAutopistol_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_MagHeavyAutocannon_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_MagHeavyAutocannon_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_MagHeavyAutocannon_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

@@ -1,0 +1,1133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== PlanetsidePew (Continued) =====
+
+    == Range
+    PSPJACKHAMMER_Bond = persona NC05 jackhammer
+    PSPGAUSSSAW_Bond = persona NC6 gauss SAW
+    PSPWARDEN_Bond = persona Warden
+    PSPCYCLONE_Bond = persona AF-4 cyclone
+    PSPMAGSHOT_Bond = persona NC4 mag-shot
+    PSPPHOENIX_Bond = persona NC15 phoenix
+    PSPLASHER_Bond = persona Lasher X2
+    PSPORION_Bond = persona Orion VS54
+    PSPEIDOLON_Bond = persona Eidolon VE33
+    PSPERIDANI_Bond = persona Eridani SX5
+    PSPBEAMER_Bond = persona Beamer VS3
+    PSPLANCER_Bond = persona Lancer VS22
+    PSPMCG_Bond = persona T7 mini-chaingun
+    PSPCARV_Bond = persona T9 CARV
+    PSPAMR_Bond = persona AMR-66
+    PSPARMISTICE_Bond = persona SMG-46 armistice
+    PSPREPEATER_Bond = persona TX1 repeater
+    PSPSTRIKER_Bond = persona T2 Striker
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>PlanetsidePew (Continued)</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- ===== Range ===== -->
+                        <ThingDef Name="MPBFPM_BASEPSPGUNS" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <thingCategories>
+                                <li>PSPGUNS</li>
+                            </thingCategories>
+                            <generateCommonality>0.45</generateCommonality>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>8.800</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>8.800</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <!-- ===== PSP_NC ===== -->
+                        <!-- PSPJACKHAMMER_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPJACKHAMMER_Bond</defName>
+                            <label>persona NC05 jackhammer</label>
+                            <description>The legendary NC05 Jackhammer heavy shotgun's stopping power and sustained fire capabilities make it a frightening weapon in close quarters combat.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NC_NC05Jackhammer</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPJACKHAMMERSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPJACKHAMMERBULLET_Bond</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>15.9</range>
+                                    <burstShotCount>8</burstShotCount>
+                                    <ticksBetweenBurstShots>34</ticksBetweenBurstShots>
+                                    <warmupTime>1.488</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>0.850</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.110</AccuracyLong>
+                                <Mass>6</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>PSPJACKHAMMERBULLET_Bond</defName>
+                            <label>NC05 jackhammer pellets</label>
+                            <graphicData>
+                                <texPath>NC_NC05JackhammerBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.15</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- PSPGAUSSSAW_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPGAUSSSAW_Bond</defName>
+                            <label>persona NC6 gauss SAW</label>
+                            <description>The NC6 Gauss SAW's low production cost, reliability, and sheer stopping power lead to wide-spread adoption of the weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NC_NC6GaussSAW</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PSPGAUSSSAWBULLET_Bond</defaultProjectile>
+                                    <warmupTime>1.828</warmupTime>
+                                    <range>31.9</range>
+                                    <burstShotCount>10</burstShotCount>
+                                    <ticksBetweenBurstShots>26</ticksBetweenBurstShots>
+                                    <soundCast>PSPSAWSOUNDBODY</soundCast>
+                                    <muzzleFlashScale>7</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.828</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.715</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <Mass>5</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>PSPGAUSSSAWBULLET_Bond</defName>
+                            <label>NC6 gauss SAW bullet</label>
+                            <graphicData>
+                                <texPath>NC_NC6GaussSAWBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>18</damageAmountBase>
+                                <armorPenetrationBase>0.20</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- PSPWARDEN_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPWARDEN_Bond</defName>
+                            <label>persona Warden</label>
+                            <description>The accurate Warden semi-automatic battle rifle is effective at stopping infantry far past the typical LMG or carbine.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NC_Warden</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPWARDENSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPWARDENBULLET_Bond</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>7</muzzleFlashScale>
+                                    <range>42.9</range>
+                                    <warmupTime>0.850</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.063</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.880</AccuracyMedium>
+                                <AccuracyLong>0.825</AccuracyLong>
+                                <Mass>4</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>PSPWARDENBULLET_Bond</defName>
+                            <label>Warden bullet</label>
+                            <graphicData>
+                                <texPath>NC_WardenBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>20</damageAmountBase>
+                                <armorPenetrationBase>0.20</armorPenetrationBase>
+                                <speed>60</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- PSPCYCLONE_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPCYCLONE_Bond</defName>
+                            <label>persona AF-4 cyclone</label>
+                            <description>The AF-4 Cyclone is a fully automatic submachine gun that has a higher damage output than most weapons in its class.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NC_AF4Cyclone</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPCYCLONESOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPCYCLONEBULLET_Bond</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>6</muzzleFlashScale>
+                                    <range>21.9</range>
+                                    <burstShotCount>14</burstShotCount>
+                                    <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                    <warmupTime>1.190</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.488</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.990</AccuracyTouch>
+                                <AccuracyShort>0.880</AccuracyShort>
+                                <AccuracyMedium>0.330</AccuracyMedium>
+                                <AccuracyLong>0.220</AccuracyLong>
+                                <Mass>4</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>PSPCYCLONEBULLET_Bond</defName>
+                            <label>AF-4 cyclone bullet</label>
+                            <graphicData>
+                                <texPath>NC_AF4CycloneBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>13</damageAmountBase>
+                                <armorPenetrationBase>0.15</armorPenetrationBase>
+                                <speed>60</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- PSPMAGSHOT_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPMAGSHOT_Bond</defName>
+                            <label>persona NC4 mag-shot</label>
+                            <description>The versatile standard-issue NC4 Mag-Shot was the first pistol to utilize Gauss technology.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NC_NC4MagShot</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPMAGSHOTSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPMAGSHOTBULLET_Bond</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>29.9</range>
+                                    <warmupTime>0.850</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>0.850</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.990</AccuracyTouch>
+                                <AccuracyShort>0.880</AccuracyShort>
+                                <AccuracyMedium>0.660</AccuracyMedium>
+                                <AccuracyLong>0.330</AccuracyLong>
+                                <Mass>2</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>PSPMAGSHOTBULLET_Bond</defName>
+                            <label>NC4 mag-shot bullet</label>
+                            <graphicData>
+                                <texPath>NC_NC4MagShotBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>17</damageAmountBase>
+                                <armorPenetrationBase>0.20</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- PSPPHOENIX_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPPHOENIX_Bond</defName>
+                            <label>persona NC15 phoenix</label>
+                            <description>The powerful NC15 Phoenix uses a camera guided missile that allows the user to adjust its trajectory mid-flight.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>NC_NC15Phoenix</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPPHOENIXSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPPHOENIXBULLET</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <forcedMissRadius>0.1</forcedMissRadius>
+                                    <muzzleFlashScale>12</muzzleFlashScale>
+                                    <range>44.9</range>
+                                    <warmupTime>1.955</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.550</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>1.045</AccuracyMedium>
+                                <AccuracyLong>1.056</AccuracyLong>
+                                <Mass>6</Mass>
+                            </statBases>
+                            <generateCommonality>0.20</generateCommonality>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                                <li>GunHeavy</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseGrenadeProjectile">
+                            <defName>PSPPHOENIXBULLET</defName>
+                            <label>NC15 phoenix rocket</label>
+                            <graphicData>
+                                <texPath>NC_NC15PhoenixBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>NCBOMB</damageDef>
+                                <soundExplode>PSPPHOENIXEXPLOSION</soundExplode>
+                                <flyOverhead>true</flyOverhead>
+                                <damageAmountBase>33</damageAmountBase>
+                                <armorPenetrationBase>0.15</armorPenetrationBase>
+                                <explosionRadius>2</explosionRadius>
+                                <explosionDelay>0</explosionDelay>
+                                <speed>18</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- ===== PSP_VS ===== -->
+                        <!-- PSPLASHER_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPLASHER_Bond</defName>
+                            <label>persona Lasher X2</label>
+                            <description>The experimental Lasher X2 fires volatile orbs of plasma that explode on contact with hard surfaces. Field trials have demonstrated its effectiveness at suppressing fire, flushing out enemies and melting infantry.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>VS_LasherX2</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPLASHERSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPLASHERBULLET_Bond</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <forcedMissRadius>1</forcedMissRadius>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>32.9</range>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>30</ticksBetweenBurstShots>
+                                    <warmupTime>1.700</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyShort>0.770</AccuracyShort>
+                                <AccuracyMedium>0.550</AccuracyMedium>
+                                <AccuracyLong>0.330</AccuracyLong>
+                                <Mass>6</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseGrenadeProjectile">
+                            <defName>PSPLASHERBULLET_Bond</defName>
+                            <label>Lasher X2 orb</label>
+                            <graphicData>
+                                <texPath>VS_LasherX2Bullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <projectile>
+                                <damageDef>VSBOMB</damageDef>
+                                <soundExplode>DispensePaste</soundExplode>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.05</armorPenetrationBase>
+                                <explosionRadius>1.5</explosionRadius>
+                                <explosionDelay>0</explosionDelay>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- PSPORION_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPORION_Bond</defName>
+                            <label>persona Orion VS54</label>
+                            <description>The Orion VS54's lightweight construction allows for more accurate hip fire and stability when on the move when compared to most weapons in its class.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>VS_OrionVS54</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPORIONSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPORIONBULLET_Bond</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>33.9</range>
+                                    <burstShotCount>12</burstShotCount>
+                                    <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+                                    <warmupTime>1.190</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.880</AccuracyTouch>
+                                <AccuracyShort>0.880</AccuracyShort>
+                                <AccuracyMedium>0.880</AccuracyMedium>
+                                <AccuracyLong>0.715</AccuracyLong>
+                                <Mass>5</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>PSPORIONBULLET_Bond</defName>
+                            <label>Orion VS54 bullet</label>
+                            <graphicData>
+                                <texPath>VS_OrionVS54Bullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>VSENERGYBULLET</damageDef>
+                                <damageAmountBase>5</damageAmountBase>
+                                <armorPenetrationBase>0.10</armorPenetrationBase>
+                                <speed>65</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- PSPEIDOLON_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPEIDOLON_Bond</defName>
+                            <label>persona Eidolon VE33</label>
+                            <description>The heavy-hitting eidolon VE33 features accurate semi-automatic fire capable of dropping distant targets with ease.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>VS_EidolonVE33</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPEIDOLONSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPEIDOLONBULLET_Bond</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>7</muzzleFlashScale>
+                                    <range>44.9</range>
+                                    <warmupTime>0.850</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>0.850</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.825</AccuracyTouch>
+                                <AccuracyShort>0.880</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.935</AccuracyLong>
+                                <Mass>4</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>PSPEIDOLONBULLET_Bond</defName>
+                            <label>Eidolon VE33 bullet</label>
+                            <graphicData>
+                                <texPath>VS_EidolonVE33Bullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>VSENERGYBULLET</damageDef>
+                                <damageAmountBase>15</damageAmountBase>
+                                <armorPenetrationBase>0.15</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- PSPERIDANI_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPERIDANI_Bond</defName>
+                            <label>persona Eridani SX5</label>
+                            <description>The eridani SX5 fully automatic submachine gun excels in close quarter combat situations.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>VS_EridaniSX5</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPERIDANISOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPERIDANIBULLET_Bond</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>7</muzzleFlashScale>
+                                    <range>23.9</range>
+                                    <burstShotCount>16</burstShotCount>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <warmupTime>1.063</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.990</AccuracyTouch>
+                                <AccuracyShort>0.990</AccuracyShort>
+                                <AccuracyMedium>0.770</AccuracyMedium>
+                                <AccuracyLong>0.440</AccuracyLong>
+                                <Mass>4</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>PSPERIDANIBULLET_Bond</defName>
+                            <label>Eridani SX5 bullet</label>
+                            <graphicData>
+                                <texPath>VS_EridaniSX5Bullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>VSENERGYBULLET</damageDef>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.05</armorPenetrationBase>
+                                <speed>60</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- PSPBEAMER_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPBEAMER_Bond</defName>
+                            <label>persona Beamer VS3</label>
+                            <description>The Beamer VS3 is the standard sidearm for the Vanu Sovereignty. Its high rate of fire allows the user to eliminate nearby targets quickly.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>VS_BeamerVS3</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <defaultProjectile>PSPBEAMERBULLET_Bond</defaultProjectile>
+                                    <soundCast>PSPBEAMERSOUNDBODY</soundCast>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>29.9</range>
+                                    <warmupTime>0.510</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.990</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.825</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.510</RangedWeapon_Cooldown>
+                                <Mass>2</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>PSPBEAMERBULLET_Bond</defName>
+                            <label>Beamer VS3 bullet</label>
+                            <graphicData>
+                                <texPath>VS_BeamerVS3Bullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>VSENERGYBULLET</damageDef>
+                                <damageAmountBase>9</damageAmountBase>
+                                <armorPenetrationBase>0.10</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- PSPLANCER_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPLANCER_Bond</defName>
+                            <label>persona Lancer VS22</label>
+                            <description>The Lancer VS22's particle accelerator is capable of firing a focused, high-velocity anti-armor projectile with pinpoint accuracy.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>VS_LancerVS22</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPLANCERSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPLANCERBULLET_Bond</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <forcedMissRadius>0.1</forcedMissRadius>
+                                    <muzzleFlashScale>12</muzzleFlashScale>
+                                    <range>54.9</range>
+                                    <warmupTime>1.700</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.615</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.935</AccuracyLong>
+                                <Mass>6</Mass>
+                            </statBases>
+                            <generateCommonality>0.25</generateCommonality>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                                <li>GunHeavy</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseGrenadeProjectile">
+                            <defName>PSPLANCERBULLET_Bond</defName>
+                            <label>Lancer VS22 beam</label>
+                            <graphicData>
+                                <texPath>VS_LancerVS22Bullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>4</drawSize>-->
+                            </graphicData>
+                            <projectile>
+                                <damageDef>VSBOMB</damageDef>
+                                <soundExplode>DispensePaste</soundExplode>
+                                <damageAmountBase>39</damageAmountBase>
+                                <armorPenetrationBase>0.30</armorPenetrationBase>
+                                <explosionRadius>1.2</explosionRadius>
+                                <explosionDelay>0</explosionDelay>
+                                <speed>110</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- ===== PSP_TR ===== -->
+                        <!-- PSPMCG_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPMCG_Bond</defName>
+                            <label>persona T7 mini-chaingun</label>
+                            <description>The sound of the menacing T7 MCG firing strikes fear into the heart of its enemies. It is capable of sustained fire that can tear apart entire squads.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>TR_T7MCG</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPMCGSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPMCGBULLET_Bond</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>23.9</range>
+                                    <burstShotCount>150</burstShotCount>
+                                    <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                                    <warmupTime>1.615</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.615</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.660</AccuracyTouch>
+                                <AccuracyShort>0.495</AccuracyShort>
+                                <AccuracyMedium>0.132</AccuracyMedium>
+                                <AccuracyLong>0.088</AccuracyLong>
+                                <Mass>6</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>PSPMCGBULLET_Bond</defName>
+                            <label>T7 mini-chaingun bullet</label>
+                            <graphicData>
+                                <texPath>TR_T7MCGBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>4</damageAmountBase>
+                                <armorPenetrationBase>0.03</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- PSPCARV_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPCARV_Bond</defName>
+                            <label>persona T9 CARV</label>
+                            <description>Aptly named, the T9 CARV's rate of fire allows it to cut through whole groups of enemies before needing to reload.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>TR_T9CARV</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPCARVSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPCARVBULLET_Bond</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>29.9</range>
+                                    <burstShotCount>25</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <warmupTime>1.488</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.825</AccuracyTouch>
+                                <AccuracyShort>0.605</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.220</AccuracyLong>
+                                <Mass>5</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>PSPCARVBULLET_Bond</defName>
+                            <label>T9 CARV bullet</label>
+                            <graphicData>
+                                <texPath>TR_T9CARVBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>7</damageAmountBase>
+                                <armorPenetrationBase>0.05</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- PSPAMR_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPAMR_Bond</defName>
+                            <label>persona AMR-66</label>
+                            <description>The semi-automatic AMR-66 battle rifle uses powerful cartridges that hold considerable stopping power up to medium range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>TR_AMR66</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPAMRSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPAMRBULLET_Bond</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>7</muzzleFlashScale>
+                                    <range>39.9</range>
+                                    <warmupTime>0.638</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>0.850</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyShort>0.770</AccuracyShort>
+                                <AccuracyMedium>0.825</AccuracyMedium>
+                                <AccuracyLong>0.770</AccuracyLong>
+                                <Mass>4</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>PSPAMRBULLET_Bond</defName>
+                            <label>AMR-66 bullet</label>
+                            <graphicData>
+                                <texPath>TR_AMR66Bullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>13</damageAmountBase>
+                                <armorPenetrationBase>0.10</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- PSPARMISTICE_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPARMISTICE_Bond</defName>
+                            <label>persona SMG-46 armistice</label>
+                            <description>The SMG-46 Armistice fully automatic submachine gun features an extremely fast rate of fire.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>TR_SMG46Armistice</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPARMISTICESOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPARMISTICEBULLET_Bond</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>19.9</range>
+                                    <burstShotCount>24</burstShotCount>
+                                    <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                    <warmupTime>1.020</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.658</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.110</AccuracyMedium>
+                                <AccuracyLong>0.055</AccuracyLong>
+                                <Mass>4</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>PSPARMISTICEBULLET_Bond</defName>
+                            <label>SMG-46 Armistice bullet</label>
+                            <graphicData>
+                                <texPath>TR_SMG46ArmisticeBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>6</damageAmountBase>
+                                <armorPenetrationBase>0.05</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- PSPREPEATER_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPREPEATER_Bond</defName>
+                            <label>persona TX1 repeater</label>
+                            <description>The reliable TX1 Repeater is the latest iteration of a firearm design that has stretched back for 300 years. Its three round burst fire mode provides considerable stopping power at close range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>TR_TX1Repeater</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPREPEATERSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPREPEATERBULLET_Bond</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                    <range>17.9</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                                    <warmupTime>0.595</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>0.638</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.990</AccuracyTouch>
+                                <AccuracyShort>0.770</AccuracyShort>
+                                <AccuracyMedium>0.220</AccuracyMedium>
+                                <AccuracyLong>0.022</AccuracyLong>
+                                <Mass>2</Mass>
+                            </statBases>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>PSPREPEATERBULLET_Bond</defName>
+                            <label>TX1 repeater bullet</label>
+                            <graphicData>
+                                <texPath>TR_TX1RepeaterBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.10</armorPenetrationBase>
+                                <speed>65</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- PSPSTRIKER_Bond -->
+                        <ThingDef ParentName="MPBFPM_BASEPSPGUNS">
+                            <defName>PSPSTRIKER_Bond</defName>
+                            <label>persona T2 Striker</label>
+                            <description>The dumbfire-capable T2 Striker houses a six-round magazine of compact, heat-seeking rockets that will home in when within proximity of enemy aircraft.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>TR_T2Striker</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <!--<drawSize>2</drawSize>-->
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <soundCast>PSPSTRIKERSOUNDBODY</soundCast>
+                                    <defaultProjectile>PSPSTRIKERBULLET_Bond</defaultProjectile>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <forcedMissRadius>1</forcedMissRadius>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <range>39.9</range>
+                                    <burstShotCount>6</burstShotCount>
+                                    <ticksBetweenBurstShots>26</ticksBetweenBurstShots>
+                                    <warmupTime>1.870</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyShort>0.660</AccuracyShort>
+                                <AccuracyMedium>0.440</AccuracyMedium>
+                                <AccuracyLong>0.220</AccuracyLong>
+                                <Mass>5</Mass>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                                <li>GunHeavy</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseGrenadeProjectile">
+                            <defName>PSPSTRIKERBULLET_Bond</defName>
+                            <label>T2 striker rocket</label>
+                            <graphicData>
+                                <texPath>TR_T2StrikerBullet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>TRBOMB</damageDef>
+                                <soundExplode>PSPSTRIKEREXPLOSION</soundExplode>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.10</armorPenetrationBase>
+                                <explosionRadius>1</explosionRadius>
+                                <explosionDelay>0</explosionDelay>
+                                <speed>40</speed>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_PlanetsidePewContinued</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- PSPJACKHAMMER_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPJACKHAMMER_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPJACKHAMMERBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPGAUSSSAW_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPGAUSSSAW_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPGAUSSSAWBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPWARDEN_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPWARDEN_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPWARDENBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPCYCLONE_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPCYCLONE_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPCYCLONEBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPMAGSHOT_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPMAGSHOT_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPMAGSHOTBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPPHOENIX_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPPHOENIX_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPPHOENIXBULLET"]</xpath>
+                        </Operation>
+
+                        <!-- PSPLASHER_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPLASHER_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPLASHERBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPORION_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPORION_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPORIONBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPEIDOLON_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPEIDOLON_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPEIDOLONBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPERIDANI_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPERIDANI_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPERIDANIBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPBEAMER_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPBEAMER_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPBEAMERBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPLANCER_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPLANCER_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPLANCERBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPMCG_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPMCG_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPMCGBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPCARV_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPCARV_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPCARVBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPAMR_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPAMR_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPAMRBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPARMISTICE_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPARMISTICE_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPARMISTICEBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPREPEATER_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPREPEATER_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPREPEATERBULLET_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- PSPSTRIKER_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPSTRIKER_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PSPSTRIKERBULLET_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

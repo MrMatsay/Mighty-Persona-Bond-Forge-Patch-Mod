@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Ratchet & Clank R.Y.N.O. =====
+
+    == Range
+    HRK_RYNO_Bond = persona R.Y.N.O rocket launcher
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Ratchet &amp; Clank R.Y.N.O.</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- ===== Range ===== -->
+                        <!-- HRK_RYNO_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>HRK_RYNO_Bond</defName>
+                            <label>persona R.Y.N.O rocket launcher</label>
+                            <description>_\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Things/Weapons/HRK_RYNO</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.0</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <WorkToMake>85000</WorkToMake>
+                                <Mass>10.1</Mass>
+                                <AccuracyTouch>0.385</AccuracyTouch>
+                                <AccuracyShort>0.385</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.385</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.040</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <forcedMissRadius>1</forcedMissRadius>
+                                    <defaultProjectile>HRK_Bullet_RYNO_Bond</defaultProjectile>
+                                    <warmupTime>2.975</warmupTime>
+                                    <ai_AvoidFriendlyFireRadius>6</ai_AvoidFriendlyFireRadius>
+                                    <range>40</range>
+                                    <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                                    <burstShotCount>9</burstShotCount>
+                                    <soundCast>HRK_Shot_RYNO</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <onlyManualCast>false</onlyManualCast>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <muzzleFlashScale>15</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.870</power>
+                                    <cooldownTime>2.210</cooldownTime>
+                                </li>
+                            </tools>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                                <li>GunHeavy</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>HRK_Bullet_RYNO_Bond</defName>
+                            <label>R.Y.N.O rocket blast</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/HRK_RYNORocket</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <explosionRadius>1.5</explosionRadius>
+                                <speed>51</speed>
+                                <damageAmountBase>220</damageAmountBase>
+                                <stoppingPower>5</stoppingPower>
+                                <armorPenetrationBase>3</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_RatchetClankRYNO</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- HRK_RYNO_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="HRK_RYNO_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="HRK_Bullet_RYNO_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

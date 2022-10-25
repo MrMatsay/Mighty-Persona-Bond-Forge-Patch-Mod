@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ===== KEP Blast-Charge Weaponry (Continued) =====
+
+    == Range
+    Gun_LasAssault_Bond = persona Blast-Charge Rifle
+    Gun_LasSniper_Bond = persona Blast-Charge Sniper Rifle
+    Gun_LasShotgun_Bond = persona Blast-Charge Shotgun
+    Gun_BlastPistol_Bond = persona Blast-Charge Pistol
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>KEP Blast-Charge Weaponry (Continued)</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- ===== Range ===== -->
+                        <ThingDef Name="MPBFPM_KEPBlastRange" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>KEP</li>
+                            </weaponTags>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                        </ThingDef>
+
+                        <!-- Gun_LasAssault_Bond -->
+                        <ThingDef ParentName="MPBFPM_KEPBlastRange">
+                            <defName>Gun_LasAssault_Bond</defName>
+                            <label>persona Blast-Charge Rifle</label>
+                            <description>A relatively old laser rifle design, made on Rimworlds. Its big interactive screen and unique laser guiding systems allow it to be more accurate than most weapons. Relatively lower damage considering charge weaponry beats it damage-wise.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/BlasRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>3</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>1.045</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.825</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_LazorAssault_Bond</defaultProjectile>
+                                    <warmupTime>0.680</warmupTime>
+                                    <range>31</range>
+                                    <burstShotCount>2</burstShotCount>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>11</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>Barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>0.680</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>0.850</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_LazorAssault_Bond</defName>
+                            <label>charge shot</label>
+                            <graphicData>
+                                <texPath>Projectile/KEP_Laser</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>15</damageAmountBase>
+                                <armorPenetrationBase>0.21</armorPenetrationBase>
+                                <speed>68</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Gun_LasSniper_Bond -->
+                        <ThingDef ParentName="MPBFPM_KEPBlastRange">
+                            <defName>Gun_LasSniper_Bond</defName>
+                            <label>persona Blast-Charge Sniper Rifle</label>
+                            <description>A relatively old laser sniper rifle design, made on Rimworlds. Its big interactive screen and unique laser guiding systems allow it to be way more accurate than most weapons. It is really slow-firing compared to other weapons but it makes it worth it with its damage out-come and excellent armor-piercing qualities.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Blasniper</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <weaponTags>
+                                <li>SniperRifle</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>4</Mass>
+                                <AccuracyTouch>0.660</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.957</AccuracyMedium>
+                                <AccuracyLong>0.990</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.550</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedAngleOffset>15</equippedAngleOffset>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_LazorSniperbullet_Bond</defaultProjectile>
+                                    <warmupTime>2.550</warmupTime>
+                                    <range>45</range>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>11</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>18.700</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>18.700</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_LazorSniperbullet_Bond</defName>
+                            <label>Lazer Sniper shot</label>
+                            <graphicData>
+                                <texPath>Projectile/KEP_Laser</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>35</damageAmountBase>
+                                <armorPenetrationBase>0.42</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Gun_LasShotgun_Bond -->
+                        <ThingDef ParentName="MPBFPM_KEPBlastRange">
+                            <defName>Gun_LasShotgun_Bond</defName>
+                            <label>persona Blast-Charge Shotgun</label>
+                            <description>A relatively old laser shotgun design, made on Rimworlds. Its interactive screen and unique laser guiding systems allow it to be more accurate than most weapons. Relatively lower range considering charge weaponry beats it range-wise. Makes up for it with above-average armor-piercing.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/BlasBoomstick</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>3</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>1.045</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.825</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.935</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_LazorShotgun_Bond</defaultProjectile>
+                                    <warmupTime>0.850</warmupTime>
+                                    <range>17</range>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>11</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>Barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>0.680</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>0.850</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_LazorShotgun_Bond</defName>
+                            <label>Laser Shotgun Pellet</label>
+                            <graphicData>
+                                <texPath>Projectile/KEP_Laser</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>23</damageAmountBase>
+                                <armorPenetrationBase>0.24</armorPenetrationBase>
+                                <speed>58</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Gun_BlastPistol_Bond -->
+                        <ThingDef ParentName="MPBFPM_KEPBlastRange">
+                            <defName>Gun_BlastPistol_Bond</defName>
+                            <label>persona Blast-Charge Pistol</label>
+                            <description>A relatively old laser handgun design, made in Rimworlds. Its interactive screen and unique laser guiding systems allow it to be more accurate than most weapons. Relatively lower damage considering charge weaponry beats it damage-wise.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Blasgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>1.5</Mass>
+                                <AccuracyTouch>1.155</AccuracyTouch>
+                                <AccuracyShort>1.199</AccuracyShort>
+                                <AccuracyMedium>0.638</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.020</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Laser_Bond</defaultProjectile>
+                                    <warmupTime>0.425</warmupTime>
+                                    <range>26</range>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>13</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_Laser_Bond</defName>
+                            <label>Small Blast Charge</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <flyOverhead>false</flyOverhead>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>14</damageAmountBase>
+                                <stoppingPower>1</stoppingPower>
+                                <speed>50</speed>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_KEPBlastChargeWeaponryContinued</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Gun_LasAssault_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_LasAssault_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_LazorAssault_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Gun_LasSniper_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_LasSniper_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_LazorSniperbullet_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Gun_LasShotgun_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_LasShotgun_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_LazorShotgun_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Gun_BlastPistol_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_BlastPistol_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Laser_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

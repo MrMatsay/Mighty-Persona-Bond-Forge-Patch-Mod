@@ -1,0 +1,1082 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Vanilla XCOM Weapons =====
+
+    == Range
+    XCOM_Gun_CVRifle_Bond = persona conventional assault rifle
+    XCOM_Gun_CVSniperRifle_Bond = persona conventional sniper rifle
+    XCOM_Gun_CVShotgun_Bond = persona conventional shotgun
+    XCOM_Gun_CVCannon_Bond = persona conventional cannon
+    XCOM_Gun_CVPistol_Bond = persona conventional pistol
+    XCOM_Gun_CVGrenadeLauncher_Bond = persona conventional grenade launcher
+    XCOM_Gun_TemplarPistol_Bond = persona conventional autopistol
+    XCOM_Gun_ArcThrower_Bond = persona arc thrower
+    XCOM_Gun_CVVektorRifle_Bond = persona vektor rifle
+    XCOM_Gun_CVBullpup_Bond = persona Kal-7 bullpup
+    XCOM_Gun_CVHeavyAutocannon_Bond = persona heavy autocannon
+    XCOM_Gun_BoltCaster_Bond = persona bolt caster
+
+    == Melee
+    XCOM_MeleeWeapon_ShardGauntlet_Bond = persona shard gauntlet
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla XCOM Weapons</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- XCOM_Gun_CVRifle_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_CVRifle_Bond</defName>
+                            <label>persona conventional assault rifle</label>
+                            <description>Fully-automatic assault rifle, capable of accurately firing short bursts of high-velocity bullets. An "all-around workhorse" equally effective at both short and medium ranges.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <graphicData>
+                                <texPath>CV_Rifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.1</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_AssaultRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_CVRifle_Bond</defaultProjectile>
+                                    <soundCast>CV_Rifle</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <range>27.9</range>
+                                    <warmupTime>0.85</warmupTime>
+                                    <burstShotCount>5</burstShotCount>
+                                    <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <RangedWeapon_Cooldown>1.98</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.715</AccuracyMedium>
+                                <AccuracyLong>0.605</AccuracyLong>
+                                <Mass>3.5</Mass>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <techLevel>Industrial</techLevel>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_CVRifle_Bond</defName>
+                            <label>conventional assault rifle bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>9</damageAmountBase>
+                                <armorPenetrationBase>0.16</armorPenetrationBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM_Gun_CVSniperRifle_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_CVSniperRifle_Bond</defName>
+                            <label>persona conventional sniper rifle</label>
+                            <description>This is a specialized weapon for medium to long range engagement.\nSharpshooters play an important role. They are able to hit enemies from extremely long-range, and often kill with one shot.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>CV_SniperRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.3</drawSize>
+                                <drawOffsetSouth>(0.0, 0.0, -0.05)</drawOffsetSouth>
+                                <drawOffsetWest>(-0.25, 0.0, 0.05)</drawOffsetWest>
+                                <drawOffsetEast>(0.25, 0.0, 0.05)</drawOffsetEast>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>7</Mass>
+                                <AccuracyTouch>0.495</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.99</AccuracyLong>
+                                <RangedWeapon_Cooldown>3.3</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedAngleOffset>40</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.2</MoveSpeed>                                <!-- drawback -->
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_SniperRifle_Bond</defaultProjectile>
+                                    <warmupTime>2.975</warmupTime>
+                                    <range>40.9</range>
+                                    <soundCast>CV_SniperRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.1</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <weaponTags>
+                                <li>SniperRifle</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_CVSniperRifle_Bond</defName>
+                            <label>conventional sniper rifle bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Big</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>35</damageAmountBase>
+                                <stoppingPower>2</stoppingPower>
+                                <armorPenetrationBase>0.45</armorPenetrationBase>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM_Gun_CVShotgun_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_CVShotgun_Bond</defName>
+                            <label>persona conventional shotgun</label>
+                            <description>Shotguns are extremely effective at close range, but their accuracy drops off quickly at longer range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>CV_Shotgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Shotgun</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.99</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>0.66</AccuracyMedium>
+                                <AccuracyLong>0.44</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.98</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_CVShotgun_Bond</defaultProjectile>
+                                    <warmupTime>0.68</warmupTime>
+                                    <range>17.9</range>
+                                    <soundCast>CV_Shotgun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_CVShotgun_Bond</defName>
+                            <label>conventional shotgun blast</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>22</damageAmountBase>
+                                <stoppingPower>3</stoppingPower>
+                                <armorPenetrationBase>0.15</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM_Gun_CVCannon_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_CVCannon_Bond</defName>
+                            <label>persona conventional cannon</label>
+                            <description>The cannon is an improvised light support weapon, specialized for high volume fire.\n\nCompared to a regular minigun, it has a quicker spin up and recovery time, but sligtly slower fire rate.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>CV_Cannon</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.35</drawSize>
+                                <drawOffsetSouth>(0.0, 0.0, -0.05)</drawOffsetSouth>
+                                <drawOffsetWest>(0.0, 0.0, -0.05)</drawOffsetWest>
+                                <drawOffsetEast>(0.0, 0.0, -0.05)</drawOffsetEast>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>10</Mass>
+                                <AccuracyTouch>0.22</AccuracyTouch>
+                                <AccuracyShort>0.308</AccuracyShort>
+                                <AccuracyMedium>0.308</AccuracyMedium>
+                                <AccuracyLong>0.22</AccuracyLong>
+                                <RangedWeapon_Cooldown>3.08</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Industrial</techLevel>
+                            <weaponTags>
+                                <li>GunHeavy</li>
+                            </weaponTags>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.25</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_CVCannon_Bond</defaultProjectile>
+                                    <warmupTime>1.53</warmupTime>
+                                    <range>32.9</range>
+                                    <burstShotCount>25</burstShotCount>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <soundCast>CV_Cannon</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrels</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <cooldownTime>2.55</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_CVCannon_Bond</defName>
+                            <label>conventional cannon bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>10</damageAmountBase>
+                                <stoppingPower>0.75</stoppingPower>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM_Gun_CVPistol_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_CVPistol_Bond</defName>
+                            <label>persona conventional pistol</label>
+                            <description>The conventional pistol is a sligtly more powerful, but somewhat cumbersome alternative to regular pistols for short range engagements.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>CV_Pistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>0.9</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Revolver</soundInteract>
+                            <statBases>
+                                <Mass>2.5</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.858</AccuracyShort>
+                                <AccuracyMedium>0.55</AccuracyMedium>
+                                <AccuracyLong>0.44</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.2</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SimpleGun</li>
+                                <li>Revolver</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_CV_Pistol_Bond</defaultProjectile>
+                                    <warmupTime>0.425</warmupTime>
+                                    <range>28.9</range>
+                                    <soundCast>CV_Pistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_CV_Pistol_Bond</defName>
+                            <label>coventional pistol bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>15</damageAmountBase>
+                                <stoppingPower>1.25</stoppingPower>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM_Gun_CVGrenadeLauncher_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_CVGrenadeLauncher_Bond</defName>
+                            <label>persona conventional grenade launcher</label>
+                            <description>The grenade launcher has substantially increased range compared to throwing.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>CV_GrenadeLauncher</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <generateCommonality>0.3</generateCommonality>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <RangedWeapon_Cooldown>3.85</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_GrenadeLauncher_Bond</defaultProjectile>
+                                    <warmupTime>2.975</warmupTime>
+                                    <range>23.9</range>
+                                    <forcedMissRadius>2.9</forcedMissRadius>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>CV_GrenadeLauncher</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>7</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>GunHeavy</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>XCOM_Bullet_GrenadeLauncher_Bond</defName>
+                            <label>frag grenade</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Grenade</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <speed>20</speed>
+                                <damageDef>Bomb</damageDef>
+                                <explosionRadius>1.9</explosionRadius>
+                                <preExplosionSpawnThingDef>Filth_RubbleRock</preExplosionSpawnThingDef>
+                                <preExplosionSpawnChance>0.3</preExplosionSpawnChance>
+                                <ai_IsIncendiary>false</ai_IsIncendiary>
+                                <arcHeightFactor>0.8</arcHeightFactor>
+                                <shadowSize>0.6</shadowSize>
+                                <explosionDelay>60</explosionDelay>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM_Gun_TemplarPistol_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_TemplarPistol_Bond</defName>
+                            <label>persona conventional autopistol</label>
+                            <description>The autopistol is a different variant of the standard pistols. It trades some of its base damage and range in favor of firing quick burst shots.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>CV_TemplarPistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.5</uiIconScale>
+                            <soundInteract>Interact_Autopistol</soundInteract>
+                            <statBases>
+                                <Mass>2</Mass>
+                                <AccuracyTouch>0.825</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.165</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.65</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_TemplarPistol_Bond</defaultProjectile>
+                                    <warmupTime>0.637</warmupTime>
+                                    <range>20.9</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <soundCast>CV_TemplarPistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>SimpleGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_TemplarPistol_Bond</defName>
+                            <label>conventional autopistol bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>8</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM_Gun_ArcThrower_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_ArcThrower_Bond</defName>
+                            <label>persona arc thrower</label>
+                            <description>The arc thrower does no damage, but will stun enemies if it hits.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>ArcThrower</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <statBases>
+                                <Mass>2</Mass>
+                                <AccuracyTouch>0.825</AccuracyTouch>
+                                <AccuracyShort>0.66</AccuracyShort>
+                                <AccuracyMedium>0.44</AccuracyMedium>
+                                <AccuracyLong>0.275</AccuracyLong>
+                                <RangedWeapon_Cooldown>5.5</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SimpleGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_ArcThrower_Bond</defaultProjectile>
+                                    <warmupTime>2.55</warmupTime>
+                                    <range>18.9</range>
+                                    <soundCast>Shot_ChargeBlaster</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>XCOM_Bullet_ArcThrower_Bond</defName>
+                            <label>arc thrower beam</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/ChargeLanceShot</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Stun</damageDef>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM_Gun_CVVektorRifle_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_CVVektorRifle_Bond</defName>
+                            <label>persona vektor rifle</label>
+                            <description>The standard issue Vektor rifle is a testament to the efficiency of its old-world design.\n\nIt has relatively low damage compared to the sniper rifle, but it does not suffer from close range penalties.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>CV_VektorRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.3</drawSize>
+                                <drawOffsetSouth>(0.0, 0.0, -0.05)</drawOffsetSouth>
+                                <drawOffsetWest>(-0.2, 0.0, 0.05)</drawOffsetWest>
+                                <drawOffsetEast>(0.2, 0.0, 0.05)</drawOffsetEast>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>4</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.88</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.75</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_VektorRifle_Bond</defaultProjectile>
+                                    <warmupTime>2.55</warmupTime>
+                                    <range>40.9</range>
+                                    <soundCast>CV_VektorRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>SniperRifle</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.1</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_VektorRifle_Bond</defName>
+                            <label>vektor rifle bullet</label>
+                            <projectile>
+                                <damageAmountBase>24</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>90</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_big</texPath>
+                            </graphicData>
+                        </ThingDef>
+
+                        <!-- XCOM_Gun_CVBullpup_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_CVBullpup_Bond</defName>
+                            <label>persona Kal-7 bullpup</label>
+                            <description>Bullpups are extremely effective at close range, but their accuracy drops off quickly at longer range.\n\nAt close range, these weapons provide excellent stopping power, while the stock improves recovery time during extended firing.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>CV_Bullpup</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>4</Mass>
+                                <AccuracyTouch>0.99</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.22</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.375</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_Kal7Bullpup_Bond</defaultProjectile>
+                                    <warmupTime>1.275</warmupTime>
+                                    <range>25.9</range>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <soundCast>CV_Bullpup</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_Kal7Bullpup_Bond</defName>
+                            <label>Kal-7 bullpup bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>9</damageAmountBase>
+                                <speed>60</speed>
+                                <stoppingPower>2</stoppingPower>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM_Gun_CVHeavyAutocannon_Bondn -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_CVHeavyAutocannon_Bond</defName>
+                            <label>persona heavy autocannon</label>
+                            <description>A powerful but physically-heavy cannon designed specifically for use by SPARK units.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>CV_HeavyAutocannon</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.5</drawSize>
+                                <drawOffsetSouth>(0, 0, -0.1)</drawOffsetSouth>
+                                <drawOffsetWest>(-0.05, 0, -0.1)</drawOffsetWest>
+                                <drawOffsetEast>(0.05, 0, -0.1)</drawOffsetEast>
+                                <drawOffsetNorth>(0.1, 0, 0)</drawOffsetNorth>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>12</Mass>
+                                <AccuracyTouch>0.77</AccuracyTouch>
+                                <AccuracyShort>0.605</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.22</AccuracyLong>
+                                <RangedWeapon_Cooldown>3.85</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.75</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_CVHeavyAutocannon_Bond</defaultProjectile>
+                                    <warmupTime>1.7</warmupTime>
+                                    <range>24.9</range>
+                                    <burstShotCount>7</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>CV_HeavyAutocannon</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>12</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <cooldownTime>3.4</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <cooldownTime>3.4</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_CVHeavyAutocannon_Bond</defName>
+                            <label>heavy autocannon bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Big</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>15</damageAmountBase>
+                                <stoppingPower>2</stoppingPower>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM_Gun_BoltCaster_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_BoltCaster_Bond</defName>
+                            <label>persona bolt caster</label>
+                            <description>The bolt caster is deceptively powerful and accurate at longer ranges, but limited by a slow rate of fire. Targeted enemies will be stunned on impact.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>BoltCaster</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.1</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <generateCommonality>0.1</generateCommonality>
+                            <statBases>
+                                <Mass>4</Mass>
+                                <AccuracyTouch>0.55</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.715</AccuracyMedium>
+                                <AccuracyLong>0.66</AccuracyLong>
+                                <RangedWeapon_Cooldown>5.5</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SniperRifle</li>
+                            </weaponTags>
+                            <equippedStatOffsets>
+                                <HuntingStealth>0.40</HuntingStealth>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_BoltCaster_Bond</defaultProjectile>
+                                    <warmupTime>2.55</warmupTime>
+                                    <range>35.9</range>
+                                    <soundCast>CV_BoltCaster</soundCast>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>bolt</label>
+                                    <capacities>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.1</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>limb</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.1</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>XCOM_Bullet_BoltCaster_Bond</defName>
+                            <label>bolt caster bolt</label>
+                            <graphicData>
+                                <texPath>BoltCasterShot</texPath>
+                            </graphicData>
+                            <projectile>
+                                <flyOverhead>false</flyOverhead>
+                                <damageDef>DamagingStun</damageDef>
+                                <damageAmountBase>26</damageAmountBase>
+                                <stoppingPower>10</stoppingPower>                                <!-- hammer time -->
+                                <speed>80</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- XCOM_MeleeWeapon_ShardGauntlet_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality">
+                            <defName>XCOM_MeleeWeapon_ShardGauntlet_Bond</defName>
+                            <label>persona shard gauntlet</label>
+                            <description>By tapping directly into the body, the gauntlet captures the users' latent power and amplifies it to the point that it can be focused and released on command, unleashing a deadly blade of pure Psionic energy.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>ShardGauntlet</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.3</drawSize>
+                                <drawOffsetSouth>(-0.1, 0.0, -0.1)</drawOffsetSouth>
+                                <drawOffsetWest>(-0.1, 0.0, -0.1)</drawOffsetWest>
+                                <drawOffsetEast>(0.1, 0.0, -0.1)</drawOffsetEast>
+                                <drawOffsetNorth>(0.1, 0.0, -0.1)</drawOffsetNorth>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>SpacerMelee</li>
+                                <li>LongSword</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>1.5</Mass>
+                            </statBases>
+                            <equippedAngleOffset>10</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>PsiStab</li>
+                                    </capacities>
+                                    <power>33.0</power>
+                                    <cooldownTime>2.55</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>PsiCut</li>
+                                    </capacities>
+                                    <power>33.0</power>
+                                    <cooldownTime>2.55</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_VanillaXCOMWeapons</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- XCOM_Gun_CVRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_CVRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_CVRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_CVSniperRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_CVSniperRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_CVSniperRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_CVShotgun_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_CVShotgun_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_CVShotgun_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_CVCannon_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_CVCannon_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_CVCannon_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_CVPistol_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_CVPistol_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_CV_Pistol_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_CVGrenadeLauncher_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_CVGrenadeLauncher_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_GrenadeLauncher_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_TemplarPistol_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_TemplarPistol_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_TemplarPistol_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_ArcThrower_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_ArcThrower_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_ArcThrower_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_CVVektorRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_CVVektorRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_VektorRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_CVBullpup_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_CVBullpup_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_Kal7Bullpup_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_CVHeavyAutocannon_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_CVHeavyAutocannon_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_CVHeavyAutocannon_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_BoltCaster_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_BoltCaster_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_BoltCaster_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_MeleeWeapon_ShardGauntlet_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_MeleeWeapon_ShardGauntlet_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Rimsenal - Federation Faction Pack =====
+
+    == Range
+    AD_CrucibleRifle_Bond = persona crucible rifle
+    AD_CruciblePistol_Bond = persona crucible pistol
+    AD_HeatProjector_Bond = persona heat projector
+    AD_CruciblePresicionRifle_Bond = persona crucible precision rifle
+    AD_PlasmaCaliver_Bond = persona plasma caliver
+    AD_CrucibleCarbine_Bond = persona crucible carbine
+    AD_Sentinel_Bond = persona plasma rifle
+    AD_AuxPistol_Bond = persona auxiliary pistol
+
+    == Melee
+    AD_ConcussionBaton_Bond = persona concussion baton
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Rimsenal - Federation Faction Pack</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- ===== Range ===== -->
+                        <ThingDef Name="MPBFPM_BaseADGun" Abstract="True" ParentName="MPBFPM_BaseGun">
+                            <category>Item</category>
+                            <thingClass>ThingWithComps</thingClass>
+                            <equipmentType>Primary</equipmentType>
+                            <pathCost>10</pathCost>
+                            <useHitPoints>True</useHitPoints>
+                            <selectable>True</selectable>
+                            <graphicData>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <drawGUIOverlay>true</drawGUIOverlay>
+                            <statBases>
+                                <SellPriceFactor>0.20</SellPriceFactor>
+                                <MaxHitPoints>100</MaxHitPoints>
+                                <Flammability>1.0</Flammability>
+                                <DeteriorationRate>2</DeteriorationRate>
+                                <Beauty>-10</Beauty>
+                            </statBases>
+                            <altitudeLayer>Item</altitudeLayer>
+                            <alwaysHaulable>True</alwaysHaulable>
+                            <tickerType>Never</tickerType>
+                            <techLevel>Spacer</techLevel>
+                            <thingCategories>
+                                <li>ADWeapons</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>FedGun</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef Name="MPBFPM_BaseFedGun" Abstract="True" ParentName="MPBFPM_BaseGun">
+                            <category>Item</category>
+                            <thingClass>ThingWithComps</thingClass>
+                            <equipmentType>Primary</equipmentType>
+                            <pathCost>10</pathCost>
+                            <useHitPoints>True</useHitPoints>
+                            <selectable>True</selectable>
+                            <graphicData>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <drawGUIOverlay>true</drawGUIOverlay>
+                            <statBases>
+                                <SellPriceFactor>0.20</SellPriceFactor>
+                                <MaxHitPoints>100</MaxHitPoints>
+                                <Flammability>1.0</Flammability>
+                                <DeteriorationRate>2</DeteriorationRate>
+                            </statBases>
+                            <altitudeLayer>Item</altitudeLayer>
+                            <alwaysHaulable>True</alwaysHaulable>
+                            <tickerType>Never</tickerType>
+                            <techLevel>Ultra</techLevel>
+                            <thingCategories>
+                                <li>ADWeapons</li>
+                            </thingCategories>
+                        </ThingDef>
+
+                        <!-- AD_CrucibleRifle_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseADGun">
+                            <defName>AD_CrucibleRifle_Bond</defName>
+                            <label>persona crucible rifle</label>
+                            <description>Tisiphone Enterprise Type-C72 "Warbringer" heat projection rifle.
+                            
+                        A reverse-engineered version of the notorious "Pacificator" rifle, the "Warbringer" crucible rifle fires focused heat energy bolt as it's projectile. While this weapon's fire rates are slower than more common charge rifles, it has higher accuracy and longer range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/A16/Pacificator</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>InteractADWeapons</soundInteract>
+                            <statBases>
+                                <Mass>4.8</Mass>
+                                <AccuracyTouch>0.77</AccuracyTouch>
+                                <AccuracyShort>0.88</AccuracyShort>
+                                <AccuracyMedium>0.902</AccuracyMedium>
+                                <AccuracyLong>0.77</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.083</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Warbringer_Bond</defaultProjectile>
+                                    <warmupTime>1.147</warmupTime>
+                                    <range>32</range>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
+                                    <soundCast>RS_ShotCR</soundCast>
+                                    <muzzleFlashScale>12</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>11.0</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_Warbringer_Bond</defName>
+                            <label>energy bolt</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Cruciblebolt</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Crucible</damageDef>
+                                <damageAmountBase>13</damageAmountBase>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- AD_CruciblePistol_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseADGun">
+                            <defName>AD_CruciblePistol_Bond</defName>
+                            <label>persona crucible pistol</label>
+                            <description>Tisiphone Enterprise Type-C75 "Hellmaker" heat projection pistol.
+                            
+                        Like its original, the "Negotiator" snub-carbine, the "Hellmaker" crucible pistol is a delicate and deadly sidearm. Fires a burst of focused heat bolts, this weapon has a high damage potential.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/A16/Negotiator</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>InteractADWeapons</soundInteract>
+                            <statBases>
+                                <Mass>2.4</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.715</AccuracyMedium>
+                                <AccuracyLong>0.55</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.785</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Hellmaker_Bond</defaultProjectile>
+                                    <warmupTime>0.552</warmupTime>
+                                    <range>25</range>
+                                    <burstShotCount>5</burstShotCount>
+                                    <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
+                                    <soundCast>RS_ShotCP</soundCast>
+                                    <muzzleFlashScale>12</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>8.8</power>
+                                    <cooldownTime>1.36</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>8.8</power>
+                                    <cooldownTime>1.36</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_Hellmaker_Bond</defName>
+                            <label>energy bolt</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Cruciblebolt</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Crucible</damageDef>
+                                <damageAmountBase>11</damageAmountBase>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- AD_HeatProjector_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseADGun">
+                            <defName>AD_HeatProjector_Bond</defName>
+                            <label>persona heat projector</label>
+                            <description>Tisiphone Enterprise Type-H32 "Coercer" incendiary energy projection device.
+                            
+                        The "Coercer" heat projector is a powerful support weapon that fires incendiary energy bolts. The coercer is shorter in range and less accurate than the original arbiter heat cannon but firing a burst of heat bolts at fast rates.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/A16/Arbiter</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <soundInteract>InteractADWeapons</soundInteract>
+                            <statBases>
+                                <Mass>7.5</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.649</AccuracyMedium>
+                                <AccuracyLong>0.539</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.508</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.7</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <forcedMissRadius>1</forcedMissRadius>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Coercer_Bond</defaultProjectile>
+                                    <warmupTime>1.377</warmupTime>
+                                    <range>23</range>
+                                    <burstShotCount>8</burstShotCount>
+                                    <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                                    <soundCast>RS_ShotHC</soundCast>
+                                    <muzzleFlashScale>12</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>11.0</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_Coercer_Bond</defName>
+                            <label>heat bolt</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Pulse</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <speed>100</speed>
+                                <damageDef>Flame</damageDef>
+                                <explosionRadius>0.5</explosionRadius>
+                                <damageAmountBase>6</damageAmountBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- AD_CruciblePresicionRifle_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseADGun">
+                            <defName>AD_CruciblePresicionRifle_Bond</defName>
+                            <label>persona crucible precision rifle</label>
+                            <description>Tisiphone Enterprise Type-C11 "Screamshot" long-range heat projection rifle.
+                            
+                        Reverse-engineered version of the feared federation sniper rifle, the "Screamshot" crucible precision rifle is a deadly long-range weapon. While it has better accuracy and longer range than similar weapons, the screamshot's slow heat exhausting can be a problem.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/A16/Intercessor</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <soundInteract>InteractADWeapons</soundInteract>
+                            <statBases>
+                                <Mass>5.2</Mass>
+                                <AccuracyTouch>0.44</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>1.012</AccuracyMedium>
+                                <AccuracyLong>1.034</AccuracyLong>
+                                <RangedWeapon_Cooldown>3.383</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Screamshot_Bond</defaultProjectile>
+                                    <warmupTime>3.315</warmupTime>
+                                    <range>48</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+                                    <soundCast>RS_ShotCPR</soundCast>
+                                    <muzzleFlashScale>12</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>11.0</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_Screamshot_Bond</defName>
+                            <label>energy bolt</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/CrucibleboltL</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Crucible</damageDef>
+                                <damageAmountBase>21</damageAmountBase>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- AD_PlasmaCaliver_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseADGun">
+                            <defName>AD_PlasmaCaliver_Bond</defName>
+                            <label>persona plasma caliver</label>
+                            <description>Tisiphone Enterprise Type-P55 "Abnegator" plasma discharger.
+                            
+                        Firing a burst of plasma spheres, the "Abnegator" plasma caliver is a portable siege engine. While this weapon shares many aspects of the federation's "Axiom", there is a divergence in the firing mechanism.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/A16/Axiom</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>InteractADWeapons</soundInteract>
+                            <statBases>
+                                <Mass>10</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.88</AccuracyMedium>
+                                <AccuracyLong>0.66</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.975</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-1</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <forcedMissRadius>1.5</forcedMissRadius>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Abnegator_Bond</defaultProjectile>
+                                    <warmupTime>1.87</warmupTime>
+                                    <minRange>3</minRange>
+                                    <range>20</range>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                                    <soundCast>RS_ShotHarmonizer</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>18</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>11.0</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_Abnegator_Bond</defName>
+                            <label>plasma sphere</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Plasma</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <speed>4</speed>
+                                <damageDef>Plasma</damageDef>
+                                <damageAmountBase>13</damageAmountBase>
+                                <explosionRadius>1.9</explosionRadius>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- AD_CrucibleCarbine_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseADGun">
+                            <defName>AD_CrucibleCarbine_Bond</defName>
+                            <label>persona crucible carbine</label>
+                            <description>Arms Dynamics M21 "Tranquilizer" heat projection carbine.
+                        
+                        A heat-based weapon that focuses on close combat.
+                        
+                        Designed to arming human soldiers of the corps, the Tranquilizer is the service weapon of the federation unity guards. While it lacks the firepower of other crucible weapons, the M21 carbine is easy to produce and manage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Fedweapons/CrucibleCarbine</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>InteractADWeapons</soundInteract>
+                            <weaponTags>
+                                <li>FedCarbine</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>4.1</Mass>
+                                <AccuracyTouch>0.88</AccuracyTouch>
+                                <AccuracyShort>0.88</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.44</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.977</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_CrucibleCarbine_Bond</defaultProjectile>
+                                    <warmupTime>0.807</warmupTime>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                    <range>20</range>
+                                    <soundCast>RS_ShotCR</soundCast>
+                                    <muzzleFlashScale>10</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>11.0</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_CrucibleCarbine_Bond</defName>
+                            <label>energy bolt</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Mlaser</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Optic</damageDef>
+                                <damageAmountBase>11</damageAmountBase>
+                                <speed>75</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- AD_Sentinel_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseFedGun">
+                            <defName>AD_Sentinel_Bond</defName>
+                            <label>persona plasma rifle</label>
+                            <weaponTags>
+                                <li>Sentinel</li>
+                            </weaponTags>
+                            <description>Arms Dynamics XM7 "Sentinel" experimental plasma discharger.
+                        
+                        A medium-ranged weapon that fires explosive projectiles. Its plasma projectiles are somewhat faster than other plasma weapons.
+                        
+                        The rare and horrendous weapon even in the Federation standards, "Sentinel" is a portable plasma weapon. It fires small bursts of magnetic spheres that contain metal plasma.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Fedweapons/Sentinel</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>InteractADWeapons</soundInteract>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.1</MoveSpeed>
+                            </equippedStatOffsets>
+                            <statBases>
+                                <Mass>5.6</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.814</AccuracyShort>
+                                <AccuracyMedium>0.957</AccuracyMedium>
+                                <AccuracyLong>0.99</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.125</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <forcedMissRadius>0.5</forcedMissRadius>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Sentinel_Bond</defaultProjectile>
+                                    <warmupTime>1.062</warmupTime>
+                                    <range>26</range>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>RS_ShotCR</soundCast>
+                                    <muzzleFlashScale>12</muzzleFlashScale>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>11.0</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_Sentinel_Bond</defName>
+                            <label>plasma sphere</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Plasma</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Plasma</damageDef>
+                                <explosionRadius>1.5</explosionRadius>
+                                <damageAmountBase>16</damageAmountBase>
+                                <speed>20</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- AD_AuxPistol_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseFedGun">
+                            <defName>AD_AuxPistol_Bond</defName>
+                            <label>persona auxiliary pistol</label>
+                            <weaponTags>
+                                <li>AuxPistol</li>
+                                <li>Shield_Sidearm</li>
+                            </weaponTags>
+                            <description>M-32 auxilliary crucible pistol.
+                        
+                        A crude, mass-produced version of more delicate federation weapons.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Fedweapons/AuxPistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>InteractADWeapons</soundInteract>
+                            <statBases>
+                                <Mass>1.6</Mass>
+                                <AccuracyTouch>0.77</AccuracyTouch>
+                                <AccuracyShort>0.55</AccuracyShort>
+                                <AccuracyMedium>0.33</AccuracyMedium>
+                                <AccuracyLong>0.22</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.53</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_AuxPistol_Bond</defaultProjectile>
+                                    <warmupTime>0.468</warmupTime>
+                                    <range>18</range>
+                                    <burstShotCount>2</burstShotCount>
+                                    <ticksBetweenBurstShots>45</ticksBetweenBurstShots>
+                                    <soundCast>RS_ShotCP</soundCast>
+                                    <muzzleFlashScale>10</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>8.8</power>
+                                    <cooldownTime>1.36</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>8.8</power>
+                                    <cooldownTime>1.36</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_AuxPistol_Bond</defName>
+                            <label>energy bolt</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Laser</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Optic</damageDef>
+                                <damageAmountBase>9</damageAmountBase>
+                                <speed>75</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- ===== Melee ===== -->
+                        <!-- AD_ConcussionBaton_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Blunt_Quality">
+                            <defName>AD_ConcussionBaton_Bond</defName>
+                            <label>persona concussion baton</label>
+                            <description>Standard issue close combat weapon of Federation Peacekeeper Corps, the "Verdict" is simple non lethal weapon in show, but it's not.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/A16/Verdict</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>FedCC</li>
+                            </weaponTags>
+                            <tradeability>Sellable</tradeability>
+                            <statBases>
+                                <Mass>2.6</Mass>
+                                <MarketValue>1380</MarketValue>
+                            </statBases>
+                            <equippedAngleOffset>0</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Poke</li>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <cooldownTime>0.85</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>head</label>
+                                    <labelUsedInLogging>false</labelUsedInLogging>
+                                    <capacities>
+                                        <li>Poke</li>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>18.7</power>
+                                    <cooldownTime>1.275</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Stun</def>
+                                            <amount>14</amount>
+                                            <chance>0.4</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_RimsenalFederationFactionPack</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- AD_CrucibleRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="AD_CrucibleRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Warbringer_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- AD_CruciblePistol_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="AD_CruciblePistol_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Hellmaker_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- AD_HeatProjector_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="AD_HeatProjector_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Coercer_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- AD_CruciblePresicionRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="AD_CruciblePresicionRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Screamshot_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- AD_PlasmaCaliver_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="AD_PlasmaCaliver_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Abnegator_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- AD_CrucibleCarbine_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="AD_CrucibleCarbine_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_CrucibleCarbine_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- AD_Sentinel_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="AD_Sentinel_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Sentinel_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- AD_AuxPistol_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="AD_AuxPistol_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_AuxPistol_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- AD_ConcussionBaton_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="AD_ConcussionBaton_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

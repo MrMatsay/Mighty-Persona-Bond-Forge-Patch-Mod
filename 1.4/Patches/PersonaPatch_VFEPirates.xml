@@ -1,0 +1,1873 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Vanilla Factions Expanded - Pirates =====
+
+    == Melee
+    VFEP_WarcasketMeleeWeapon_CombatKnife_Bond = persona warcasket combat knife
+    VFEP_WarcasketMeleeWeapon_Broadsword_Bond = persona warcasket broadsword
+    VFEP_WarcasketMeleeWeapon_GravityHammer_Bond = persona warcasket gravity hammer
+
+    == Range
+    VFEP_WarcasketGun_Autorifle_Bond = persona warcasket autorifle
+    VFEP_WarcasketGun_UraniumSlugRifle_Bond = persona warcasket uranium slug rifle
+    VFEP_WarcasketGun_Slugthrower_Bond = persona warcasket slugthrower
+    VFEP_WarcasketGun_Minigun_Bond = persona warcasket minigun
+    VFEP_WarcasketGun_GrenadeLauncher_Bond = persona warcasket grenade launcher
+    VFEP_WarcasketGun_HeavyFlamer_Bond = persona warcasket heavy flamer
+    VFEP_WarcasketGun_ChargeLance_Bond = persona warcasket charge lance
+    VFEP_WarcasketGun_HandheldCannon_Bond = persona warcasket handheld cannon
+    VFEP_WarcasketGun_ChargeBlaster_Bond = persona warcasket charge blaster
+    VFEPGun_MiniBlaster_Bond = persona mini-blaster
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Factions Expanded - Pirates</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- ===== Melee ===== -->
+                        <ThingDef Name="MPBFPM_VFEP_BaseMeleeWeapon_Warcasket" ParentName="MPBFPM_BaseMeleeWeapon_Sharp" Abstract="True">
+                            <graphicData>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <techLevel>Industrial</techLevel>
+                            <weaponTags>
+                                <li>WarcasketMelee</li>
+                            </weaponTags>
+                            <thingSetMakerTags>
+                                <li>Warcasket</li>
+                            </thingSetMakerTags>
+                            <tradeTags>
+                                <li>VFEP_WarcasketWeapon</li>
+                            </tradeTags>
+                            <comps>
+                                <li>
+                                    <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+                                </li>
+                            </comps>
+                            <modExtensions>
+                                <li Class="HeavyWeapons.HeavyWeapon">
+                                    <isHeavy>true</isHeavy>
+                                    <supportedTraits>
+                                        <li>VFEP_WarcasketTrait</li>
+                                    </supportedTraits>
+                                    <disableOptionLabelKey>VFEP.RequiresWarcasket</disableOptionLabelKey>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <!-- VFEP_WarcasketMeleeWeapon_CombatKnife_Bond -->
+                        <ThingDef ParentName="MPBFPM_VFEP_BaseMeleeWeapon_Warcasket">
+                            <defName>VFEP_WarcasketMeleeWeapon_CombatKnife_Bond</defName>
+                            <label>persona warcasket combat knife</label>
+                            <description>An upscaled version of the combat knife designed for use by a warcasket. It is only still called a knife due to size comparison to a warcasket, but it is capable of cleaving a man in half and is just as large. The preferred weapon for the faster moving warcaskets that prioritize lightly armored, isolated targets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <thingClass>VFECore.ThingWithFloorGraphic</thingClass>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketCombatKnife</texPath>
+                                <drawSize>1.7</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>870</MarketValue>
+                                <Mass>10</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <weaponTags>
+                                <li>WarcasketVeteran</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>26.40</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                    <armorPenetration>0.374</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>blade</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>26.40</power>
+                                    <cooldownTime>2.040</cooldownTime>
+                                    <armorPenetration>0.374</armorPenetration>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketCombatKnife_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <!-- VFEP_WarcasketMeleeWeapon_Broadsword_Bond -->
+                        <ThingDef ParentName="MPBFPM_VFEP_BaseMeleeWeapon_Warcasket">
+                            <defName>VFEP_WarcasketMeleeWeapon_Broadsword_Bond</defName>
+                            <label>persona warcasket broadsword</label>
+                            <description>A very unique melee weapon exclusively made for warcaskets. It combines massive weight and a cutting force that gives it no equal in melee combat. While it was intended for use against other warcaskets, it works just as well against smaller targets that would normally be considered armored.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <thingClass>VFECore.ThingWithFloorGraphic</thingClass>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketBroadsword</texPath>
+                                <drawSize>1.7</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>1460</MarketValue>
+                                <Mass>30</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-35</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>28.60</power>
+                                    <cooldownTime>2.210</cooldownTime>
+                                    <armorPenetration>0.495</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>blade</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>39.60</power>
+                                    <cooldownTime>2.380</cooldownTime>
+                                    <armorPenetration>0.550</armorPenetration>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketBroadsword_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <!-- VFEP_WarcasketMeleeWeapon_GravityHammer_Bond -->
+                        <ThingDef ParentName="MPBFPM_VFEP_BaseMeleeWeapon_Warcasket">
+                            <defName>VFEP_WarcasketMeleeWeapon_GravityHammer_Bond</defName>
+                            <label>persona warcasket gravity hammer</label>
+                            <description>A monumental piece of anti-personnel technology that can only be properly utilized by the oversized warcaskets. Practically an engine block fitted to the end of a mech’s limb actuator, equipped with multiple pneumatic plates covering miniature repulsor generators designed for riot control. In layman’s terms, a strike from the head will launch the target backwards by several meters.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <thingClass>VFECore.ThingWithFloorGraphic</thingClass>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketGravityHammer</texPath>
+                                <drawSize>1.7</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>3000</MarketValue>
+                                <Mass>50</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-35</equippedAngleOffset>
+                            <weaponTags>
+                                <li>WarcasketVeteran</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>head</label>
+                                    <capacities>
+                                        <li>VFEP_GravityHammerAttack</li>
+                                    </capacities>
+                                    <power>34.10</power>
+                                    <cooldownTime>2.550</cooldownTime>
+                                    <armorPenetration>0.550</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>16.50</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                    <armorPenetration>0.440</armorPenetration>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketGravityHammer_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <!-- VFEP_WarcasketMeleeWeapon_PlasmaSword_Bond -->
+                        <ThingDef ParentName="MPBFPM_VFEP_BaseMeleeWeapon_Warcasket">
+                            <defName>VFEP_WarcasketMeleeWeapon_PlasmaSword_Bond</defName>
+                            <label>persona warcasket plasma sword</label>
+                            <description>A military modification of the Plasmasaw, adapted for use by warcaskets for anti-materiel purposes. The original intention for this bastard sword was for it to be able to extend like a whip while also having a simple straight form, however issues with containing the plasma shelved the idea. Instead, the links are used to change the length of the sword as well as allow easier replacement of damaged sections.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <thingClass>VFECore.ThingWithFloorGraphic</thingClass>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketPlasmaSword</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.7</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>3600</MarketValue>
+                                <Mass>25</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <weaponTags>
+                                <li>WarcasketMelee</li>
+                                <li>WarcasketVeteran</li>
+                            </weaponTags>
+                            <tradeTags>
+                                <li>VFEP_WarcasketWeaponExotic</li>
+                            </tradeTags>
+                            <tools>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>28.60</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                    <armorPenetration>0.165</armorPenetration>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Flame</def>
+                                            <amount>11</amount>
+                                            <chance>0.165</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                                <li>
+                                    <label>blade</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>37.40</power>
+                                    <cooldownTime>2.210</cooldownTime>
+                                    <armorPenetration>0.165</armorPenetration>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Flame</def>
+                                            <amount>11</amount>
+                                            <chance>0.550</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketPlasmaSword_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <!-- ===== Ranged ===== -->
+                        <ThingDef Name="MPBFPM_VFEP_BaseWarcasketGun" ParentName="MPBFPM_BaseGun" Abstract="True">
+                            <thingClass>VFECore.ThingWithFloorGraphic</thingClass>
+                            <graphicData>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.7</drawSize>
+                            </graphicData>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>WarcasketAll</li>
+                            </weaponTags>
+                            <tradeTags>
+                                <li>VFEP_WarcasketWeapon</li>
+                            </tradeTags>
+                            <thingSetMakerTags>
+                                <li>Warcasket</li>
+                            </thingSetMakerTags>
+                            <comps>
+                                <li>
+                                    <compClass>CompOversizedWeapon.CompOversizedWeapon</compClass>
+                                </li>
+                            </comps>
+                            <modExtensions>
+                                <li Class="HeavyWeapons.HeavyWeapon">
+                                    <isHeavy>true</isHeavy>
+                                    <supportedTraits>
+                                        <li>VFEP_WarcasketTrait</li>
+                                    </supportedTraits>
+                                    <disableOptionLabelKey>VFEP.RequiresWarcasket</disableOptionLabelKey>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <!-- VFEP_WarcasketGun_Autorifle_Bond -->
+                        <ThingDef ParentName="MPBFPM_VFEP_BaseWarcasketGun">
+                            <defName>VFEP_WarcasketGun_Autorifle_Bond</defName>
+                            <label>persona warcasket autorifle</label>
+                            <description>A portable version of the autocannon designed for use by a warcasket. Due to a shortened barrel it has a lower range, less penetration and damage compared to the turreted version. However, it is very capable in close quarters combat which makes up for the slight accuracy loss at greater ranges.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketAutorifle</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MarketValue>1250</MarketValue>
+                                <Mass>30</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.704</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.870</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>WarcasketBasic</li>
+                                <li>WarcasketVeteran</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>VFEP_Bullet_WarcasketAutorifle_Bond</defaultProjectile>
+                                    <warmupTime>0.850</warmupTime>
+                                    <range>28.9</range>
+                                    <ticksBetweenBurstShots>17</ticksBetweenBurstShots>
+                                    <burstShotCount>3</burstShotCount>
+                                    <soundCast>Shot_Autocannon</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>persona stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>2.550</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>persona barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>2.550</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketAutorifle_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>VFEP_Bullet_WarcasketAutorifle_Bond</defName>
+                            <label>persona warcasket autorifle bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Big</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>24</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <armorPenetrationBase>0.375</armorPenetrationBase>
+                                <speed>46</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- VFEP_WarcasketGun_UraniumSlugRifle_Bond -->
+                        <ThingDef ParentName="MPBFPM_VFEP_BaseWarcasketGun">
+                            <defName>VFEP_WarcasketGun_UraniumSlugRifle_Bond</defName>
+                            <label>persona warcasket uranium slug rifle</label>
+                            <description>A portable version of the uranium slug cannon designed for use by a warcasket. Due to a shortened barrel it has less penetration, worse recoil and damage compared to the turreted version. However, it lacks the minimum range requirement thanks to a human operator and has better mid-range performance.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketUraniumSlugRifle</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MarketValue>1650</MarketValue>
+                                <Mass>40</Mass>
+                                <AccuracyTouch>0.220</AccuracyTouch>
+                                <AccuracyShort>0.385</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>1.045</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.870</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>WarcasketVeteran</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>VFEP_Bullet_WarcasketUraniumSlugRifle_Bond</defaultProjectile>
+                                    <warmupTime>1.955</warmupTime>
+                                    <range>45.9</range>
+                                    <ticksBetweenBurstShots>17</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>Shot_TurretSniper</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>persona stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>2.975</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>persona barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>2.975</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketUraniumSlugRifle_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>VFEP_Bullet_WarcasketUraniumSlugRifle_Bond</defName>
+                            <label>persona uranium slug</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Big</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>55</damageAmountBase>
+                                <stoppingPower>2</stoppingPower>
+                                <armorPenetrationBase>0.75</armorPenetrationBase>
+                                <speed>120</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- VFEP_WarcasketGun_Slugthrower_Bond -->
+                        <ThingDef ParentName="MPBFPM_VFEP_BaseWarcasketGun">
+                            <defName>VFEP_WarcasketGun_Slugthrower_Bond</defName>
+                            <label>persona warcasket slugthrower</label>
+                            <description>An upscaled version of the pump shotgun designed for use by a warcasket. Each cartridge fired contains 4 pellets larger than slugs from a regular-sized shotgun, giving it better range, armor penetration and much better damage. The recoil is insane though, even for a warcasket’s recoil damping system.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketSlugthrower</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Shotgun</soundInteract>
+                            <statBases>
+                                <MarketValue>1100</MarketValue>
+                                <Mass>25</Mass>
+                                <AccuracyTouch>0.880</AccuracyTouch>
+                                <AccuracyShort>0.957</AccuracyShort>
+                                <AccuracyMedium>0.847</AccuracyMedium>
+                                <AccuracyLong>0.704</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.338</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>WarcasketVeteran</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>VFEP_Bullet_WarcasketSlugthrower_Bond</defaultProjectile>
+                                    <warmupTime>0.765</warmupTime>
+                                    <range>18.9</range>
+                                    <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+                                    <burstShotCount>4</burstShotCount>
+                                    <soundCast>VFEP_Shot_Slugthrower</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>persona stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>persona barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketSlugThrower_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>VFEP_Bullet_WarcasketSlugthrower_Bond</defName>
+                            <label>persona warcasket slugthrower blast</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                                <drawSize>1.5</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>33</damageAmountBase>
+                                <stoppingPower>3</stoppingPower>
+                                <armorPenetrationBase>0.225</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- VFEP_WarcasketGun_Minigun_Bond -->
+                        <ThingDef ParentName="MPBFPM_VFEP_BaseWarcasketGun">
+                            <defName>VFEP_WarcasketGun_Minigun_Bond</defName>
+                            <label>persona warcasket minigun</label>
+                            <description>An upscaled version of the minigun designed for use by a warcasket. It uses larger caliber rounds which are poorly made en masse due to how many rounds need to be manufactured. Thus, it has a slower rate of fire and armor penetration, but who cares because no one wants to be on the receiving end of this amount of dakka.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketMinigun</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MarketValue>2240</MarketValue>
+                                <Mass>45</Mass>
+                                <AccuracyTouch>0.165</AccuracyTouch>
+                                <AccuracyShort>0.275</AccuracyShort>
+                                <AccuracyMedium>0.275</AccuracyMedium>
+                                <AccuracyLong>0.198</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.210</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>WarcasketHeavy</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>VFEP_Bullet_WarcasketMinigun_Bond</defaultProjectile>
+                                    <warmupTime>2.635</warmupTime>
+                                    <range>30.9</range>
+                                    <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                    <burstShotCount>25</burstShotCount>
+                                    <soundCast>VFEP_Shot_Minigun</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>persona stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.200</power>
+                                    <cooldownTime>3.400</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>persona barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>13.200</power>
+                                    <cooldownTime>3.400</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketMinigun_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>VFEP_Bullet_WarcasketMinigun_Bond</defName>
+                            <label>persona warcasket minigun bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Big</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>13</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <armorPenetrationBase>0.12</armorPenetrationBase>
+                                <speed>46</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- VFEP_WarcasketGun_GrenadeLauncher_Bond -->
+                        <ThingDef ParentName="MPBFPM_VFEP_BaseWarcasketGun">
+                            <defName>VFEP_WarcasketGun_GrenadeLauncher_Bond</defName>
+                            <label>persona warcasket grenade launcher</label>
+                            <description>An upscaled version of the grenade launcher designed for use by a warcasket. A straight upgrade, it fires in bursts of 3 and benefits from recoil damping for faster recovery and better range. Like all launchers though, it has a worse miss radius compared to a hand-thrown grenade.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketGrenadeLauncher</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MarketValue>1890</MarketValue>
+                                <Mass>30</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.704</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.550</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>WarcasketHeavy</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Proj_GrenadeFrag</defaultProjectile>
+                                    <warmupTime>1.530</warmupTime>
+                                    <range>30.9</range>
+                                    <forcedMissRadius>2.9</forcedMissRadius>
+                                    <noiseRadius>4</noiseRadius>
+                                    <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+                                    <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                    <burstShotCount>3</burstShotCount>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <soundCast>VFEP_Shot_GrenadeLauncher</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>persona stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>2.550</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>persona barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>2.550</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketGrenadeLauncher_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <!-- VFEP_WarcasketGun_HeavyFlamer_Bond -->
+                        <ThingDef ParentName="MPBFPM_VFEP_BaseWarcasketGun">
+                            <defName>VFEP_WarcasketGun_HeavyFlamer_Bond</defName>
+                            <label>persona warcasket heavy flamer</label>
+                            <description>An upscaled version of the heavy flamer designed for use by a warcasket. Thanks to the twin barrels and larger heat sink, it can spit out two jets of flames while also needing less time to prevent overheating.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketHeavyFlamer</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MarketValue>2450</MarketValue>
+                                <Mass>35</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.704</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <RangedWeapon_Cooldown>6.120</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>WarcasketFlamer</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>VWE_Bullet_WarcasketHeavyFlamer_Bond</defaultProjectile>
+                                    <warmupTime>1.063
+                                    </warmupTime>
+                                    <range>19.9</range>
+                                    <ai_AvoidFriendlyFireRadius>3</ai_AvoidFriendlyFireRadius>
+                                    <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+                                    <burstShotCount>2</burstShotCount>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <soundCast>VFEP_Shot_HeavyFlamer</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>persona stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>2.550</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>persona barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>2.550</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketHeavyFlamer_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <VFECore.ExpandableProjectileDef ParentName="BaseBullet">
+                            <defName>VWE_Bullet_WarcasketHeavyFlamer_Bond</defName>
+                            <label>persona warcasket heavy flamer shot</label>
+                            <thingClass>VFECore.FlamethrowProjectile</thingClass>
+                            <graphicData>
+                                <texPath>Projectile/Proj_WarcasketHeavyFlamer</texPath>
+                                <texPathFadeOut>Projectile/Proj_WarcasketHeavyFlamerFadeOut</texPathFadeOut>
+                                <shaderType>MoteGlow</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Flame</damageDef>
+                                <speed>45</speed>
+                                <damageAmountBase>13</damageAmountBase>
+                            </projectile>
+                            <drawOffscreen>true</drawOffscreen>
+                            <lifeTimeDuration>50</lifeTimeDuration>
+                            <widthScaleFactor>0.85</widthScaleFactor>
+                            <heightScaleFactor>1</heightScaleFactor>
+                            <startingPositionOffset>(0, 0, -1)</startingPositionOffset>
+                            <totalSizeScale>1.15</totalSizeScale>
+                            <tickFrameRate>2</tickFrameRate>
+                            <finalTickFrameRate>5</finalTickFrameRate>
+                            <tickDamageRate>20</tickDamageRate>
+                            <dealsDamageOnce>true</dealsDamageOnce>
+                            <minDistanceToAffect>2</minDistanceToAffect>
+                        </VFECore.ExpandableProjectileDef>
+
+                        <!-- VFEP_WarcasketGun_ChargeLance_Bond -->
+                        <ThingDef ParentName="MPBFPM_VFEP_BaseWarcasketGun">
+                            <defName>VFEP_WarcasketGun_ChargeLance_Bond</defName>
+                            <label>persona warcasket charge lance</label>
+                            <description>A terror on the battlefield, the charge lance received a massive upgrade for warcasket use. A considerably more powerful energy source gives it superior stopping power, able to fire multiple larger projectiles at a greater range with improved accuracy and penetration.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketChargeLance</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <statBases>
+                                <MarketValue>2250</MarketValue>
+                                <Mass>45</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>0.990</AccuracyMedium>
+                                <AccuracyLong>0.935</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.295</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>WarcasketVeteran</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>VFEP_Bullet_WarcasketChargeLance_Bond</defaultProjectile>
+                                    <warmupTime>1.445</warmupTime>
+                                    <range>39.9</range>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <burstShotCount>3</burstShotCount>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>2.975</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>2.975</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketChargeLance_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>VFEP_Bullet_WarcasketChargeLance_Bond</defName>
+                            <label>warcasket charge lance shot</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/ChargeLanceShot</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1.5</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>55</damageAmountBase>
+                                <stoppingPower>2</stoppingPower>
+                                <armorPenetrationBase>1.0</armorPenetrationBase>
+                                <speed>120</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- VFEP_WarcasketGun_HandheldCannon_Bond -->
+                        <ThingDef ParentName="MPBFPM_VFEP_BaseWarcasketGun">
+                            <defName>VFEP_WarcasketGun_HandheldCannon_Bond</defName>
+                            <label>persona warcasket handheld cannon</label>
+                            <description>Essentially a handheld smoothbore mortar that fires explosives in an arc, able to bypass enemy fortifications. Made by those who wanted to combine ancient naval warfare with modern technology. The accuracy is abysmal but the onboard fabricator ensures that artillery fire can be provided without ever needing a resupply.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketHandheldCannon</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MarketValue>1350</MarketValue>
+                                <Mass>50</Mass>
+                                <AccuracyTouch>1.078</AccuracyTouch>
+                                <AccuracyShort>1.078</AccuracyShort>
+                                <AccuracyMedium>1.078</AccuracyMedium>
+                                <AccuracyLong>1.078</AccuracyLong>
+                                <RangedWeapon_Cooldown>4.505</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>WarcasketVeteran</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>VFEP_Bullet_HandheldCannonCannonball</defaultProjectile>
+                                    <warmupTime>1.870</warmupTime>
+                                    <range>50.9</range>
+                                    <ticksBetweenBurstShots>17</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>VFEP_Shot_Cannon</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>16</muzzleFlashScale>
+                                    <forcedMissRadius>3.9</forcedMissRadius>
+                                    <requireLineOfSight>true</requireLineOfSight>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>2.975</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>2.975</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketHandheldCannon_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <!-- VFEP_WarcasketGun_ChargeBlaster_Bond -->
+                        <ThingDef ParentName="MPBFPM_VFEP_BaseWarcasketGun">
+                            <defName>VFEP_WarcasketGun_ChargeBlaster_Bond</defName>
+                            <label>persona warcasket charge blaster</label>
+                            <description>Essentially an upscaled charge minigun designed to be used by a warcasket. While firing fewer projectiles in each burst, the ammunition has been improved with explosive payloads. Designed as a support weapon that completely invalidates cover for the unlucky bastards on the receiving end.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/WarcasketChargeBlaster</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MarketValue>2200</MarketValue>
+                                <Mass>55</Mass>
+                                <AccuracyTouch>0.220</AccuracyTouch>
+                                <AccuracyShort>0.330</AccuracyShort>
+                                <AccuracyMedium>0.330</AccuracyMedium>
+                                <AccuracyLong>0.198</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.720</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>WarcasketHeavy</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>VFEP_Bullet_WarcasketChargeBlaster</defaultProjectile>
+                                    <warmupTime>2.380</warmupTime>
+                                    <range>31.9</range>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <burstShotCount>24</burstShotCount>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.200</power>
+                                    <cooldownTime>3.400</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>13.200</power>
+                                    <cooldownTime>3.400</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="VFECore.FloorGraphicExtension">
+                                    <graphicData>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                        <texPath>Things/Item/WeaponsBoxed/WarcasketChargeBlaster_OnFloor</texPath>
+                                        <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                        <drawSize>1</drawSize>
+                                    </graphicData>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <!-- VFEPGun_MiniBlaster_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseGunWithQuality">
+                            <defName>VFEPGun_MiniBlaster_Bond</defName>
+                            <label>persona mini-blaster</label>
+                            <description>A simple automatic gun made to be mounted on a wardrone.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Pawn/Mechanoid/WarcasketCombatDrone_Gun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>300</MarketValue>
+                                <AccuracyTouch>0.847</AccuracyTouch>
+                                <AccuracyShort>0.770</AccuracyShort>
+                                <AccuracyMedium>0.495</AccuracyMedium>
+                                <AccuracyLong>0.264</AccuracyLong>
+                                <RangedWeapon_Cooldown>4.250</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0</DeteriorationRate>
+                                <Mass>2.5</Mass>
+                                <Flammability>0</Flammability>
+                            </statBases>
+                            <techLevel>Spacer</techLevel>
+                            <tradeability>None</tradeability>
+                            <destroyOnDrop>true</destroyOnDrop>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>7.370</power>
+                                    <cooldownTime>2.210</cooldownTime>
+                                </li>
+                            </tools>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <defaultProjectile>Bullet_MiniTurret_Bond</defaultProjectile>
+                                    <warmupTime>0</warmupTime>
+                                    <range>28.9</range>
+                                    <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>GunShotA</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <consumeFuelPerShot>1</consumeFuelPerShot>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+                                    <southOffset>(0, 0, 0.2)</southOffset>
+                                    <eastOffset>(-0.17, 0, 0.2)</eastOffset>
+                                    <westOffset>(0.17, 0, 0.2)</westOffset>
+                                    <verticalFlipNorth>true</verticalFlipNorth>
+                                </li>
+                            </comps>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_VanillaFactionsExpandedPirates</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- VFEP_WarcasketMeleeWeapon_CombatKnife_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_CombatKnife_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- VFEP_WarcasketMeleeWeapon_Broadsword_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_Broadsword_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- VFEP_WarcasketMeleeWeapon_GravityHammer_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_GravityHammer_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- VFEP_WarcasketMeleeWeapon_PlasmaSword_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_WarcasketMeleeWeapon_PlasmaSword_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- VFEP_WarcasketGun_Autorifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_Autorifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_Bullet_WarcasketAutorifle_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- VFEP_WarcasketGun_UraniumSlugRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_UraniumSlugRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_Bullet_WarcasketUraniumSlugRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- VFEP_WarcasketGun_Slugthrower_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_Slugthrower_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_Bullet_WarcasketSlugthrower_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- VFEP_WarcasketGun_Minigun_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_Minigun_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_Bullet_WarcasketMinigun_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- VFEP_WarcasketGun_GrenadeLauncher_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_GrenadeLauncher_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- VFEP_WarcasketGun_HeavyFlamer_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_HeavyFlamer_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- VFEP_WarcasketGun_ChargeLance_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_ChargeLance_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_Bullet_WarcasketChargeLance_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- VFEP_WarcasketGun_HandheldCannon_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_HandheldCannon_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- VFEP_WarcasketGun_ChargeBlaster_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_ChargeBlaster_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- VFEPGun_MiniBlaster_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VFEPGun_MiniBlaster_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+
+                <!-- ===== Vanilla Weapons Expanded - Coilguns ===== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Vanilla Weapons Expanded - Coilguns</li>
+                    </mods>
+
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <li Class="PatchOperationAdd">
+                                <xpath>/Defs</xpath>
+                                <value>
+                                    <!-- VFEP_WarcasketGun_Railgun_Bond -->
+                                    <ThingDef ParentName="MPBFPM_VFEP_BaseWarcasketGun">
+                                        <defName>VFEP_WarcasketGun_Railgun_Bond</defName>
+                                        <label>persona warcasket railgun</label>
+                                        <description>A terrifying modification of the Gauss Lance with a revolving magazine and three barrels. Quite a long warmup period due to the barrels needing charging before firing in a series, however the slugs are considerably larger, translating as more damaging and better range. The potential for collateral damage is immense and many commanders typically forbid its use outside of guerilla tactics and solo raids.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                                        <techLevel>Spacer</techLevel>
+                                        <graphicData>
+                                            <texPath>Things/Item/Weapons/WarcasketRailgun</texPath>
+                                        </graphicData>
+                                        <soundInteract>VWE_Interact_GaussRifle</soundInteract>
+                                        <statBases>
+                                            <MarketValue>3200</MarketValue>
+                                            <WorkToMake>110000</WorkToMake>
+                                            <Mass>45</Mass>
+                                            <AccuracyTouch>0.440</AccuracyTouch>
+                                            <AccuracyShort>0.715</AccuracyShort>
+                                            <AccuracyMedium>0.946</AccuracyMedium>
+                                            <AccuracyLong>0.968</AccuracyLong>
+                                            <RangedWeapon_Cooldown>2.040</RangedWeapon_Cooldown>
+                                        </statBases>
+                                        <weaponTags>
+                                            <li>WarcasketVeteran</li>
+                                        </weaponTags>
+                                        <verbs>
+                                            <li>
+                                                <verbClass>Verb_Shoot</verbClass>
+                                                <hasStandardCommand>true</hasStandardCommand>
+                                                <defaultProjectile>VWE_Bullet_WarcasketRailgun_Bond</defaultProjectile>
+                                                <warmupTime>4.930</warmupTime>
+                                                <range>59.9</range>
+                                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                                <burstShotCount>3</burstShotCount>
+                                                <soundCast>VWE_Shot_GaussLance</soundCast>
+                                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                                <muzzleFlashScale>14</muzzleFlashScale>
+                                                <targetParams>
+                                                    <canTargetLocations>true</canTargetLocations>
+                                                    <canTargetPawns>true</canTargetPawns>
+                                                    <canTargetBuildings>true</canTargetBuildings>
+                                                </targetParams>
+                                            </li>
+                                        </verbs>
+                                        <tools>
+                                            <li>
+                                                <label>barrel</label>
+                                                <capacities>
+                                                    <li>Blunt</li>
+                                                </capacities>
+                                                <power>12.870</power>
+                                                <cooldownTime>2.210</cooldownTime>
+                                            </li>
+                                        </tools>
+                                        <equippedAngleOffset>-35</equippedAngleOffset>
+                                        <comps>
+                                            <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+                                                <eastOffset>(0,0,-0.18)</eastOffset>
+                                                <westOffset>(0,0,-0.18)</westOffset>
+                                                <southOffset>(0,0,-0.18)</southOffset>
+                                                <northOffset>(0,0,-0.18)</northOffset>
+                                            </li>
+                                        </comps>
+                                        <modExtensions>
+                                            <li Class="VFECore.FloorGraphicExtension">
+                                                <graphicData>
+                                                    <graphicClass>Graphic_Single</graphicClass>
+                                                    <texPath>Things/Item/WeaponsBoxed/WarcasketRailgun_OnFloor</texPath>
+                                                    <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                                    <drawSize>1</drawSize>
+                                                </graphicData>
+                                            </li>
+                                        </modExtensions>
+                                    </ThingDef>
+
+                                    <VFECore.ExpandableProjectileDef ParentName="MPBFPM_VWECoilgunsBullet">
+                                        <defName>VWE_Bullet_WarcasketRailgun_Bond</defName>
+                                        <label>railgun sabot</label>
+                                        <projectile>
+                                            <damageDef>Bullet</damageDef>
+                                            <damageAmountBase>55</damageAmountBase>
+                                            <armorPenetrationBase>0.70</armorPenetrationBase>
+                                            <stoppingPower>2</stoppingPower>
+                                            <speed>150</speed>
+                                        </projectile>
+                                    </VFECore.ExpandableProjectileDef>
+                                </value>
+                            </li>
+
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_VanillaFactionsExpandedPirates</key>
+                                <defaultValue>true</defaultValue>
+                                <caseFalse>
+                                    <!-- VFEP_WarcasketGun_Railgun_Bond -->
+                                    <Operation Class="XmlExtensions.PatchOperationRemove">
+                                        <xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_Railgun_Bond"]</xpath>
+                                    </Operation>
+                                </caseFalse>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ===== Vanilla Weapons Expanded - Non-Lethal ===== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Vanilla Weapons Expanded - Non-Lethal</li>
+                    </mods>
+
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <li Class="PatchOperationAdd">
+                                <xpath>/Defs</xpath>
+                                <value>
+                                    <!-- VFEP_WarcasketGun_TearGasGrenadeLauncher_Bond -->
+                                    <ThingDef ParentName="MPBFPM_VFEP_BaseWarcasketGun">
+                                        <defName>VFEP_WarcasketGun_TearGasGrenadeLauncher_Bond</defName>
+                                        <label>persona warcasket tear gas grenade launcher</label>
+                                        <description>An upscaled version of the Tear Gas Grenade Launcher designed for use by a Warcasket. A straight upgrade, it fires 2 rounds and benefits from more powerful propellant for better range. In order to improve gas dispersal and not have two gas clouds overlap, the weapon was made even less accurate in order to try and spread out the supporting fire.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                                        <graphicData>
+                                            <texPath>Things/Item/Weapons/WarcasketTearGasGrenadeLauncher</texPath>
+                                        </graphicData>
+                                        <soundInteract>Interact_Rifle</soundInteract>
+                                        <statBases>
+                                            <MarketValue>1650</MarketValue>
+                                            <Mass>25</Mass>
+                                            <AccuracyTouch>0.605</AccuracyTouch>
+                                            <AccuracyShort>0.704</AccuracyShort>
+                                            <AccuracyMedium>0.605</AccuracyMedium>
+                                            <AccuracyLong>0.495</AccuracyLong>
+                                            <RangedWeapon_Cooldown>3.400</RangedWeapon_Cooldown>
+                                        </statBases>
+                                        <weaponTags>
+                                            <li>WarcasketHeavy</li>
+                                        </weaponTags>
+                                        <verbs>
+                                            <li>
+                                                <verbClass>Verb_Shoot</verbClass>
+                                                <hasStandardCommand>true</hasStandardCommand>
+                                                <defaultProjectile>VWENL_Projectile_TearGasGrenade</defaultProjectile>
+                                                <warmupTime>2.975</warmupTime>
+                                                <range>29.9</range>
+                                                <forcedMissRadius>3.9</forcedMissRadius>
+                                                <noiseRadius>4</noiseRadius>
+                                                <ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+                                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                                <burstShotCount>2</burstShotCount>
+                                                <targetParams>
+                                                    <canTargetLocations>true</canTargetLocations>
+                                                </targetParams>
+                                                <soundCast>VFEP_Shot_GrenadeLauncher</soundCast>
+                                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                                <muzzleFlashScale>9</muzzleFlashScale>
+                                            </li>
+                                        </verbs>
+                                        <tools>
+                                            <li>
+                                                <label>stock</label>
+                                                <capacities>
+                                                    <li>Blunt</li>
+                                                </capacities>
+                                                <power>12.100</power>
+                                                <cooldownTime>2.550</cooldownTime>
+                                            </li>
+                                            <li>
+                                                <label>barrel</label>
+                                                <capacities>
+                                                    <li>Blunt</li>
+                                                    <li>Poke</li>
+                                                </capacities>
+                                                <power>9.900</power>
+                                                <cooldownTime>2.550</cooldownTime>
+                                            </li>
+                                        </tools>
+                                        <modExtensions>
+                                            <li Class="VFECore.FloorGraphicExtension">
+                                                <graphicData>
+                                                    <graphicClass>Graphic_Single</graphicClass>
+                                                    <texPath>Things/Item/WeaponsBoxed/WarcasketTearGasGrenadeLauncher_OnFloor</texPath>
+                                                    <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                                    <drawSize>1</drawSize>
+                                                </graphicData>
+                                            </li>
+                                        </modExtensions>
+                                    </ThingDef>
+                                </value>
+                            </li>
+
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_VanillaFactionsExpandedPirates</key>
+                                <defaultValue>true</defaultValue>
+                                <caseFalse>
+                                    <!-- VFEP_WarcasketGun_TearGasGrenadeLauncher_Bond -->
+                                    <Operation Class="XmlExtensions.PatchOperationRemove">
+                                        <xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_TearGasGrenadeLauncher_Bond"]</xpath>
+                                    </Operation>
+                                </caseFalse>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ===== Vanilla Weapons Expanded - Quickdraw ===== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Vanilla Weapons Expanded - Quickdraw</li>
+                    </mods>
+
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <li Class="PatchOperationAdd">
+                                <xpath>/Defs</xpath>
+                                <value>
+                                    <!-- VFEP_WarcasketGun_FoldingGun_Bond -->
+                                    <ThingDef ParentName="MPBFPM_VFEP_BaseWarcasketGun">
+                                        <defName>VFEP_WarcasketGun_FoldingGun_Bond</defName>
+                                        <label>persona warcasket folding gun</label>
+                                        <description>A weapon designed to give Warcaskets rapid ranged response in an urban environment, able to be collapsed for ease of storage and transportation. The mediocre damage and accuracy is an acceptable trade-off for this convenience, with an increase in rate of fire and minimal aiming to improve its ‘spray and pray’ functionality.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                                        <graphicData>
+                                            <texPath>Things/Item/Weapons/WarcasketFoldingGun</texPath>
+                                        </graphicData>
+                                        <soundInteract>Interact_Rifle</soundInteract>
+                                        <statBases>
+                                            <MarketValue>1650</MarketValue>
+                                            <Mass>15</Mass>
+                                            <AccuracyTouch>0.715</AccuracyTouch>
+                                            <AccuracyShort>0.748</AccuracyShort>
+                                            <AccuracyMedium>0.770</AccuracyMedium>
+                                            <AccuracyLong>0.660</AccuracyLong>
+                                            <RangedWeapon_Cooldown>2.040</RangedWeapon_Cooldown>
+                                        </statBases>
+                                        <weaponTags>
+                                            <li>WarcasketBasic</li>
+                                            <li>WarcasketVeteran</li>
+                                        </weaponTags>
+                                        <verbs>
+                                            <li>
+                                                <verbClass>Verb_Shoot</verbClass>
+                                                <hasStandardCommand>true</hasStandardCommand>
+                                                <defaultProjectile>VFEP_Bullet_WarcasketFoldingGun_Bond</defaultProjectile>
+                                                <warmupTime>0.043</warmupTime>
+                                                <range>19.9</range>
+                                                <ticksBetweenBurstShots>24</ticksBetweenBurstShots>
+                                                <burstShotCount>6</burstShotCount>
+                                                <soundCast>VWE_Shot_MarksmanRifle</soundCast>
+                                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                                <muzzleFlashScale>9</muzzleFlashScale>
+                                            </li>
+                                        </verbs>
+                                        <tools>
+                                            <li>
+                                                <label>stock</label>
+                                                <capacities>
+                                                    <li>Blunt</li>
+                                                </capacities>
+                                                <power>12.100</power>
+                                                <cooldownTime>2.550</cooldownTime>
+                                            </li>
+                                            <li>
+                                                <label>barrel</label>
+                                                <capacities>
+                                                    <li>Blunt</li>
+                                                    <li>Poke</li>
+                                                </capacities>
+                                                <power>9.900</power>
+                                                <cooldownTime>2.550</cooldownTime>
+                                            </li>
+                                        </tools>
+                                        <modExtensions>
+                                            <li Class="VFECore.FloorGraphicExtension">
+                                                <graphicData>
+                                                    <graphicClass>Graphic_Single</graphicClass>
+                                                    <texPath>Things/Item/WeaponsBoxed/WarcasketFoldingGun_OnFloor</texPath>
+                                                    <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                                    <drawSize>1</drawSize>
+                                                </graphicData>
+                                            </li>
+                                        </modExtensions>
+                                    </ThingDef>
+
+                                    <ThingDef ParentName="MPBFPM_BaseBullet">
+                                        <defName>VFEP_Bullet_WarcasketFoldingGun_Bond</defName>
+                                        <label>warcasket folding gun bullet</label>
+                                        <projectile>
+                                            <damageDef>Bullet</damageDef>
+                                            <damageAmountBase>20</damageAmountBase>
+                                            <stoppingPower>0</stoppingPower>
+                                            <armorPenetrationBase>0.25</armorPenetrationBase>
+                                            <speed>80</speed>
+                                        </projectile>
+                                        <graphicData>
+                                            <texPath>Things/Projectile/Bullet_big</texPath>
+                                        </graphicData>
+                                    </ThingDef>
+                                </value>
+                            </li>
+
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_VanillaFactionsExpandedPirates</key>
+                                <defaultValue>true</defaultValue>
+                                <caseFalse>
+                                    <!-- VFEP_WarcasketGun_FoldingGun_Bond -->
+                                    <Operation Class="XmlExtensions.PatchOperationRemove">
+                                        <xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_FoldingGun_Bond"]</xpath>
+                                    </Operation>
+
+                                    <Operation Class="XmlExtensions.PatchOperationRemove">
+                                        <xpath>Defs/ThingDef[defName="VFEP_Bullet_WarcasketFoldingGun_Bond"]</xpath>
+                                    </Operation>
+                                </caseFalse>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ===== Vanilla Weapons Expanded - Laser ===== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Vanilla Weapons Expanded - Laser</li>
+                    </mods>
+
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <li Class="PatchOperationAdd">
+                                <xpath>/Defs</xpath>
+                                <value>
+                                    <!-- VFEP_WarcasketGun_SalvagedLaserEradicator_Bond -->
+                                    <ThingDef ParentName="MPBFPM_VFEP_BaseWarcasketGun">
+                                        <defName>VFEP_WarcasketGun_SalvagedLaserEradicator_Bond</defName>
+                                        <label>persona warcasket salvaged laser eradicator</label>
+                                        <description>A rather complicated piece of laser technology that was primarily developed as a siege weapon to generate explosions within hardened bunkers. In order to miniaturize an emplacement weapon without needing a massive power unit, the shoulder-mounted laser fires in irregular pulses with a frequency between kHz and MHz. The results are hard to dispute as it can cause a devastating blast, however it has a limited effective range and a long warm-up period to charge the capacitor banks.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                                        <techLevel>Ultra</techLevel>
+                                        <graphicData>
+                                            <texPath>Things/Item/Weapons/WarcasketSalvagedLaserEradicator</texPath>
+                                            <graphicClass>Graphic_Single</graphicClass>
+                                        </graphicData>
+                                        <soundInteract>VWE_Interact_UnstableLaserGun</soundInteract>
+                                        <statBases>
+                                            <MarketValue>4100</MarketValue>
+                                            <WorkToMake>125000</WorkToMake>
+                                            <Mass>40</Mass>
+                                            <AccuracyTouch>0.858</AccuracyTouch>
+                                            <AccuracyShort>0.792</AccuracyShort>
+                                            <AccuracyMedium>0.770</AccuracyMedium>
+                                            <AccuracyLong>0.704</AccuracyLong>
+                                            <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                                        </statBases>
+                                        <weaponTags>
+                                            <li>WarcasketVeteran</li>
+                                        </weaponTags>
+                                        <verbs>
+                                            <li>
+                                                <verbClass>Verb_Shoot</verbClass>
+                                                <hasStandardCommand>true</hasStandardCommand>
+                                                <defaultProjectile>VWEP_Bullet_WarcasketSalvagedLaserEradicator_Bond</defaultProjectile>
+                                                <warmupTime>3.740</warmupTime>
+                                                <range>21.9</range>
+                                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                                <burstShotCount>1</burstShotCount>
+                                                <soundCast>VWE_UnstableLaserShot_Heavy</soundCast>
+                                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                                <muzzleFlashScale>14</muzzleFlashScale>
+                                            </li>
+                                        </verbs>
+                                        <tools>
+                                            <li>
+                                                <label>barrel</label>
+                                                <capacities>
+                                                    <li>Blunt</li>
+                                                </capacities>
+                                                <power>12.870</power>
+                                                <cooldownTime>2.210</cooldownTime>
+                                            </li>
+                                        </tools>
+                                        <comps>
+                                            <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+                                                <eastOffset>(0,0,-0.18)</eastOffset>
+                                                <westOffset>(0,0,-0.18)</westOffset>
+                                                <southOffset>(0,0,-0.18)</southOffset>
+                                                <northOffset>(0,0,-0.18)</northOffset>
+                                            </li>
+                                            <li Class="VanillaWeaponsExpandedLaser.CompProperties_LaserCapacitor">
+                                                <UiIconPath>UI/EnableWarmup/EnableWarmup</UiIconPath>
+                                                <WarmUpReductionPerShot>2</WarmUpReductionPerShot>
+                                                <Overheats>true</Overheats>
+                                                <OverheatDestroys>false</OverheatDestroys>
+                                                <OverheatBlastDamageDef>Burn</OverheatBlastDamageDef>
+                                                <OverheatBlastExtraDamage>8</OverheatBlastExtraDamage>
+                                                <OverheatBlastRadius>2</OverheatBlastRadius>
+                                                <OverheatChance>0.1</OverheatChance>
+                                                <OverheatMoteThrown>HeatGlow</OverheatMoteThrown>
+                                                <OverheatMoteSize>1</OverheatMoteSize>
+                                            </li>
+                                        </comps>
+                                        <modExtensions>
+                                            <li Class="VFECore.FloorGraphicExtension">
+                                                <graphicData>
+                                                    <graphicClass>Graphic_Single</graphicClass>
+                                                    <texPath>Things/Item/WeaponsBoxed/WarcasketSalvagedLaserEradicator_OnFloor</texPath>
+                                                    <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                                    <drawSize>1</drawSize>
+                                                </graphicData>
+                                            </li>
+                                        </modExtensions>
+                                    </ThingDef>
+
+                                    <ThingDef ParentName="VWEL_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                        <defName>VWEP_Bullet_WarcasketSalvagedLaserEradicator_Bond</defName>
+                                        <label>unstable laser shot</label>
+                                        <description>An unstable laser beam.</description>
+                                        <thingClass>VFEPirates.Projectile_LaserEradicator</thingClass>
+                                        <textures>
+                                            <li>Things/Projectile/Shot_SalvagedLaserSniperRifle</li>
+                                        </textures>
+                                        <seam>0.1</seam>
+                                        <causefireChance>0.2</causefireChance>
+                                        <beamWidth>1.5</beamWidth>
+                                        <lifetime>120</lifetime>
+                                        <projectile>
+                                            <damageDef>Bomb</damageDef>
+                                            <explosionRadius>2.9</explosionRadius>
+                                            <damageAmountBase>44</damageAmountBase>
+                                            <armorPenetrationBase>0.5</armorPenetrationBase>
+                                            <stoppingPower>1</stoppingPower>
+                                        </projectile>
+                                    </ThingDef>
+
+                                    <!-- VFEP_WarcasketGun_LaserBlaster_Bond -->
+                                    <ThingDef ParentName="MPBFPM_VFEP_BaseWarcasketGun">
+                                        <defName>VFEP_WarcasketGun_LaserBlaster_Bond</defName>
+                                        <label>persona warcasket laser blaster</label>
+                                        <description>An enlarged laser weapon, combining both modern and antique methods into a compact package. Taking advantage of a greater weight tolerance, this system includes a revolver cylinder using advanced battery cells instead of cartridges. This allows the weapon to fire more powerful shots at a slower warmup reduction, meaning safer sustained fire for the operator.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                                        <techLevel>Ultra</techLevel>
+                                        <graphicData>
+                                            <texPath>Things/Item/Weapons/WarcasketLaserBolter</texPath>
+                                            <graphicClass>Graphic_Single</graphicClass>
+                                        </graphicData>
+                                        <soundInteract>VWE_Interact_LaserGun</soundInteract>
+                                        <statBases>
+                                            <MarketValue>3200</MarketValue>
+                                            <WorkToMake>100000</WorkToMake>
+                                            <Mass>30</Mass>
+                                            <AccuracyTouch>0.770</AccuracyTouch>
+                                            <AccuracyShort>0.913</AccuracyShort>
+                                            <AccuracyMedium>0.946</AccuracyMedium>
+                                            <AccuracyLong>0.792</AccuracyLong>
+                                            <RangedWeapon_Cooldown>0.510</RangedWeapon_Cooldown>
+                                        </statBases>
+                                        <weaponTags>
+                                            <li>WarcasketVeteran</li>
+                                        </weaponTags>
+                                        <verbs>
+                                            <li>
+                                                <verbClass>Verb_Shoot</verbClass>
+                                                <hasStandardCommand>true</hasStandardCommand>
+                                                <defaultProjectile>VWEL_Bullet_LaserRifle_Bond</defaultProjectile>
+                                                <warmupTime>2.210</warmupTime>
+                                                <range>24.9</range>
+                                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                                <burstShotCount>1</burstShotCount>
+                                                <soundCast>VWE_LaserShot_Rifle</soundCast>
+                                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                                <muzzleFlashScale>14</muzzleFlashScale>
+                                            </li>
+                                        </verbs>
+                                        <tools>
+                                            <li>
+                                                <label>barrel</label>
+                                                <capacities>
+                                                    <li>Blunt</li>
+                                                </capacities>
+                                                <power>12.870</power>
+                                                <cooldownTime>2.210</cooldownTime>
+                                            </li>
+                                        </tools>
+                                        <comps>
+                                            <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+                                                <eastOffset>(0,0,-0.18)</eastOffset>
+                                                <westOffset>(0,0,-0.18)</westOffset>
+                                                <southOffset>(0,0,-0.18)</southOffset>
+                                                <northOffset>(0,0,-0.18)</northOffset>
+                                            </li>
+                                            <li Class="VanillaWeaponsExpandedLaser.CompProperties_LaserCapacitor">
+                                                <UiIconPath>UI/EnableWarmup/EnableWarmup</UiIconPath>
+                                                <WarmUpReductionPerShot>0.225</WarmUpReductionPerShot>
+                                                <Overheats>true</Overheats>
+                                                <OverheatDestroys>false</OverheatDestroys>
+                                                <OverheatBlastDamageDef>Burn</OverheatBlastDamageDef>
+                                                <OverheatBlastExtraDamage>3</OverheatBlastExtraDamage>
+                                                <OverheatBlastRadius>1.5</OverheatBlastRadius>
+                                                <OverheatChance>0.05</OverheatChance>
+                                                <OverheatMoteThrown>HeatGlow</OverheatMoteThrown>
+                                                <OverheatMoteSize>0.5</OverheatMoteSize>
+                                            </li>
+                                        </comps>
+                                        <modExtensions>
+                                            <li Class="VFECore.FloorGraphicExtension">
+                                                <graphicData>
+                                                    <graphicClass>Graphic_Single</graphicClass>
+                                                    <texPath>Things/Item/WeaponsBoxed/WarcasketLaserBolter_OnFloor</texPath>
+                                                    <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                                    <drawSize>1</drawSize>
+                                                </graphicData>
+                                            </li>
+                                        </modExtensions>
+                                    </ThingDef>
+                                </value>
+                            </li>
+
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_VanillaFactionsExpandedPirates</key>
+                                <defaultValue>true</defaultValue>
+                                <caseFalse>
+                                    <!-- VFEP_WarcasketGun_SalvagedLaserEradicator_Bond -->
+                                    <Operation Class="XmlExtensions.PatchOperationRemove">
+                                        <xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_SalvagedLaserEradicator_Bond"]</xpath>
+                                    </Operation>
+
+                                    <Operation Class="XmlExtensions.PatchOperationRemove">
+                                        <xpath>Defs/ThingDef[defName="VWEP_Bullet_WarcasketSalvagedLaserEradicator_Bond"]</xpath>
+                                    </Operation>
+
+                                    <!-- VFEP_WarcasketGun_LaserBlaster_Bond -->
+                                    <Operation Class="XmlExtensions.PatchOperationRemove">
+                                        <xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_LaserBlaster_Bond"]</xpath>
+                                    </Operation>
+                                </caseFalse>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+
+                <!-- ===== Vanilla Factions Expanded - Vikings ===== -->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Vanilla Factions Expanded - Vikings</li>
+                    </mods>
+
+                    <match Class="PatchOperationSequence">
+                        <success>Always</success>
+                        <operations>
+                            <li Class="PatchOperationAdd">
+                                <xpath>/Defs</xpath>
+                                <value>
+                                    <!-- VFEP_WarcasketGun_CryptoCannon_Bond -->
+                                    <ThingDef ParentName="MPBFPM_VFEP_BaseWarcasketGun">
+                                        <defName>VFEP_WarcasketGun_CryptoCannon_Bond</defName>
+                                        <label>persona warcasket crypto cannon</label>
+                                        <description>Combines both crypto technology with military flamethrowers for a close range defense weapon. Sacrifices direct damage potential for area denial. Applies variable cold effect to those affected by the stream of supercooled particles, reducing their manipulation and inducing hypothermia. Ideally used with a pair of fast-moving warcaskets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                                        <graphicData>
+                                            <texPath>Things/Item/Weapons/WarcasketCryptoCannon</texPath>
+                                        </graphicData>
+                                        <soundInteract>Interact_Rifle</soundInteract>
+                                        <statBases>
+                                            <MarketValue>3600</MarketValue>
+                                            <Mass>35</Mass>
+                                            <AccuracyTouch>0.715</AccuracyTouch>
+                                            <AccuracyShort>0.792</AccuracyShort>
+                                            <AccuracyMedium>0.924</AccuracyMedium>
+                                            <AccuracyLong>0.770</AccuracyLong>
+                                            <RangedWeapon_Cooldown>2.550</RangedWeapon_Cooldown>
+                                        </statBases>
+                                        <weaponTags>
+                                            <li>WarcasketVeteran</li>
+                                        </weaponTags>
+                                        <tradeTags>
+                                            <li>VFEP_WarcasketWeaponExotic</li>
+                                        </tradeTags>
+                                        <verbs>
+                                            <li>
+                                                <verbClass>Verb_Shoot</verbClass>
+                                                <hasStandardCommand>true</hasStandardCommand>
+                                                <defaultProjectile>VFE_Bullet_CryptoCannon_Bond</defaultProjectile>
+                                                <warmupTime>1.870</warmupTime>
+                                                <range>9.9</range>
+                                                <ticksBetweenBurstShots>17</ticksBetweenBurstShots>
+                                                <burstShotCount>1</burstShotCount>
+                                                <soundCast>VFEP_Shot_HeavyFlamer</soundCast>
+                                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                                <muzzleFlashScale>9</muzzleFlashScale>
+                                            </li>
+                                        </verbs>
+                                        <tools>
+                                            <li>
+                                                <label>stock</label>
+                                                <capacities>
+                                                    <li>Blunt</li>
+                                                </capacities>
+                                                <power>12.100</power>
+                                                <cooldownTime>2.550</cooldownTime>
+                                            </li>
+                                            <li>
+                                                <label>barrel</label>
+                                                <capacities>
+                                                    <li>Blunt</li>
+                                                    <li>Poke</li>
+                                                </capacities>
+                                                <power>9.900</power>
+                                                <cooldownTime>2.550</cooldownTime>
+                                            </li>
+                                        </tools>
+                                        <modExtensions>
+                                            <li Class="VFECore.FloorGraphicExtension">
+                                                <graphicData>
+                                                    <graphicClass>Graphic_Single</graphicClass>
+                                                    <texPath>Things/Item/WeaponsBoxed/WarcasketCryptoCannon_OnFloor</texPath>
+                                                    <onGroundRandomRotateAngle>0</onGroundRandomRotateAngle>
+                                                    <drawSize>1</drawSize>
+                                                </graphicData>
+                                            </li>
+                                        </modExtensions>
+                                    </ThingDef>
+
+                                    <VFECore.ExpandableProjectileDef ParentName="MPBFPM_BaseBullet">
+                                        <defName>VFE_Bullet_CryptoCannon_Bond</defName>
+                                        <label>crypto cannon charge</label>
+                                        <thingClass>VFEPirates.CryptoProjectile</thingClass>
+                                        <graphicData>
+                                            <texPath>Projectile/Proj_WarcasketCryptocannon</texPath>
+                                            <texPathFadeOut>Projectile/Proj_WarcasketCryptocannonFadeOut</texPathFadeOut>
+                                            <shaderType>MoteGlow</shaderType>
+                                        </graphicData>
+                                        <projectile>
+                                            <damageDef>Frostbite</damageDef>
+                                            <speed>45</speed>
+                                            <damageAmountBase>7</damageAmountBase>
+                                            <armorPenetrationBase>0.15</armorPenetrationBase>
+                                            <stoppingPower>1.5</stoppingPower>
+                                        </projectile>
+                                        <drawOffscreen>true</drawOffscreen>
+                                        <lifeTimeDuration>50</lifeTimeDuration>
+                                        <widthScaleFactor>0.65</widthScaleFactor>
+                                        <heightScaleFactor>1</heightScaleFactor>
+                                        <startingPositionOffset>(0, 0, -1)</startingPositionOffset>
+                                        <totalSizeScale>1.15</totalSizeScale>
+                                        <tickFrameRate>2</tickFrameRate>
+                                        <finalTickFrameRate>5</finalTickFrameRate>
+                                        <tickDamageRate>20</tickDamageRate>
+                                        <dealsDamageOnce>true</dealsDamageOnce>
+                                        <minDistanceToAffect>2</minDistanceToAffect>
+                                    </VFECore.ExpandableProjectileDef>
+                                </value>
+                            </li>
+
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_VanillaFactionsExpandedPirates</key>
+                                <defaultValue>true</defaultValue>
+                                <caseFalse>
+                                    <!-- VFEP_WarcasketGun_CryptoCannon_Bond -->
+                                    <Operation Class="XmlExtensions.PatchOperationRemove">
+                                        <xpath>Defs/ThingDef[defName="VFEP_WarcasketGun_CryptoCannon_Bond"]</xpath>
+                                    </Operation>
+
+                                    <Operation Class="XmlExtensions.PatchOperationRemove">
+                                        <xpath>Defs/ThingDef[defName="VFE_Bullet_CryptoCannon_Bond"]</xpath>
+                                    </Operation>
+                                </caseFalse>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

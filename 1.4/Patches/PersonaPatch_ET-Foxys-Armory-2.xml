@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ===== Eccentric Tech - Foxy's Armory 2.0 ===== == Melee
+	Eccentric_Rosethorn_Bond = persona M3 Rosethorn == Range
+	Eccentric_Gun_S8P_Bond = persona S8 charge pistol
+	Eccentric_Gun_P12PDW_Bond = persona P12 charge PDW
+	Eccentric_Gun_E9C_Bond = persona E9C charge carbine
+	Eccentric_Gun_E15CR_Bond = persona E15 charge rifle
+	Eccentric_Gun_E16PR_Bond = persona E16 precision charge rifle
+	Eccentric_Gun_E18DMR_Bond = persona E18 designated marksman rifle
+	Eccentric_Gun_L20C_Bond = persona L20C charge LMG
+	Eccentric_Gun_M1CGL_Bond = persona CGL1 grenade launcher
+-->
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Eccentric Tech - Foxy's Armory 2.0</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs</xpath>
+					<value>
+						<!-- Melee -->
+						<!-- Eccentric_Rosethorn_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality">
+							<defName>Eccentric_Rosethorn_Bond</defName>
+							<label>persona M3 Rosethorn</label>
+							<techLevel>Industrial</techLevel>
+							<tradeability>Sellable</tradeability>
+							<description>This sleek, lightweight, and silver-inlaid blade is the standard issue combat and utility knife for the Eccentric's staff.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Eccentric/Weapons/M3</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<statBases>
+								<Mass>0.4</Mass>
+								<MaxHitPoints>300</MaxHitPoints>
+								<DeteriorationRate>5</DeteriorationRate>
+								<Beauty>0</Beauty>
+							</statBases>
+							<weaponTags>
+								<li>EccentricMelee</li>
+							</weaponTags>
+							<equippedAngleOffset>-65</equippedAngleOffset>
+							<tools>
+								<li>
+									<label>handle</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>8.91</power>
+									<cooldownTime>1.36</cooldownTime>
+								</li>
+								<li>
+									<label>blade</label>
+									<capacities>
+										<li>Cut</li>
+									</capacities>
+									<power>14.52</power>
+									<cooldownTime>1.02</cooldownTime>
+								</li>
+								<li>
+									<label>point</label>
+									<capacities>
+										<li>Stab</li>
+									</capacities>
+									<power>15.73</power>
+									<cooldownTime>1.36</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<!-- Range -->
+						<ThingDef Name="MPBFPM_BaseEccentricGun" ParentName="MPBFPM_BaseHumanMakeableGun" Abstract="True">
+							<techLevel>Spacer</techLevel>
+							<weaponTags>
+								<li>EccentricGun</li>
+							</weaponTags>
+							<tradeability>Sellable</tradeability>
+						</ThingDef>
+
+						<!-- Eccentric_Gun_S8P_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseEccentricGun">
+							<defName>Eccentric_Gun_S8P_Bond</defName>
+							<label>persona S8 charge pistol</label>
+							<description>The S8 charge pistol is the standard-issue sidearm of the Eccentric's staff.\n\nUtilizing the compact 6x18mm charged cartridge, it is heavier than a conventional pistol but far more powerful.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Eccentric/Weapons/S8</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_Autopistol</soundInteract>
+							<statBases>
+								<Mass>1.5</Mass>
+								<AccuracyTouch>0.990</AccuracyTouch>
+								<AccuracyShort>0.770</AccuracyShort>
+								<AccuracyMedium>0.550</AccuracyMedium>
+								<AccuracyLong>0.330</AccuracyLong>
+								<RangedWeapon_Cooldown>0.850</RangedWeapon_Cooldown>
+							</statBases>
+							<weaponTags>
+								<li>EccentricSidearm</li>
+							</weaponTags>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_EccentricLightCharge_Bond</defaultProjectile>
+									<warmupTime>0.298</warmupTime>
+									<range>22.9</range>
+									<soundCast>Shot_ChargeRifle</soundCast>
+									<soundCastTail>GunTail_Light</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>grip</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>8.400</power>
+									<cooldownTime>1.440</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>8.400</power>
+									<cooldownTime>1.440</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<!-- Eccentric_Gun_P12PDW_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseEccentricGun">
+							<defName>Eccentric_Gun_P12PDW_Bond</defName>
+							<label>persona P12 charge PDW</label>
+							<description>The P12 personal defense weapon is a compact but powerful weapon generally issued to The Eccentric's pilots and vehicle drivers, as well as rear-echelon staff in hostile environments.\n\nUtilizing compact 6x18mm charged cartridges, the P12 is short-ranged but capable of fully automatic fire.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Eccentric/Weapons/P12</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<statBases>
+								<Mass>2.8</Mass>
+								<AccuracyTouch>0.990</AccuracyTouch>
+								<AccuracyShort>0.770</AccuracyShort>
+								<AccuracyMedium>0.550</AccuracyMedium>
+								<AccuracyLong>0.330</AccuracyLong>
+								<RangedWeapon_Cooldown>1.020</RangedWeapon_Cooldown>
+							</statBases>
+							<weaponTags>
+								<li>EccentricLightGun</li>
+							</weaponTags>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_EccentricLightCharge_Bond</defaultProjectile>
+									<warmupTime>0.425</warmupTime>
+									<range>19.9</range>
+									<burstShotCount>5</burstShotCount>
+									<ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+									<soundCast>Shot_ChargeRifle</soundCast>
+									<soundCastTail>GunTail_Light</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>grip</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>8.400</power>
+									<cooldownTime>1.440</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>8.400</power>
+									<cooldownTime>1.440</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>Bullet_EccentricLightCharge_Bond</defName>
+							<label>charge shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/Charge_Small</texPath>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<armorPenetrationBase>0.25</armorPenetrationBase>
+								<damageAmountBase>14</damageAmountBase>
+								<speed>70</speed>
+							</projectile>
+						</ThingDef>
+
+						<!-- Eccentric_Gun_E9C_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseEccentricGun">
+							<defName>Eccentric_Gun_E9C_Bond</defName>
+							<label>persona E9C charge carbine</label>
+							<description>The E9C charge carbine is a modified, short-barreled version of the full-sized E15 charge rifle.\n\nEquipped with a holographic sight, the E9C is smaller, lighter, and less bulky than the E15, but is less accurate at long range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Eccentric/Weapons/E9C</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<statBases>
+								<Mass>4.2</Mass>
+								<AccuracyTouch>0.660</AccuracyTouch>
+								<AccuracyShort>0.715</AccuracyShort>
+								<AccuracyMedium>0.550</AccuracyMedium>
+								<AccuracyLong>0.440</AccuracyLong>
+								<RangedWeapon_Cooldown>1.785</RangedWeapon_Cooldown>
+							</statBases>
+							<weaponTags>
+								<li>EccentricRifle</li>
+							</weaponTags>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_ChargeRifle_Bond</defaultProjectile>
+									<warmupTime>0.765</warmupTime>
+									<range>25.9</range>
+									<burstShotCount>3</burstShotCount>
+									<ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+									<soundCast>Shot_ChargeRifle</soundCast>
+									<soundCastTail>GunTail_Light</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9.450</power>
+									<cooldownTime>1.800</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9.450
+									</power>
+									<cooldownTime>1.800</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<!-- Eccentric_Gun_E15CR_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseEccentricGun">
+							<defName>Eccentric_Gun_E15CR_Bond</defName>
+							<label>persona E15 charge rifle</label>
+							<description>The E15 charge rifle is the standard-issue rifle of The Eccentric's security staff.\n\nE15 rifles are a militarized modification of the venerable R-15 charge rifle design. Based off the Aerodyne Spaceways pattern, the E15 features accessory rails, an ambidextrous charging handle and ejector port, and is equipped with a 1.5x magnified day/night combat optic by default.\n\nIt is slightly heavier and takes longer to produce, but has better accuracy than the R-15.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Eccentric/Weapons/E15</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<statBases>
+								<Mass>4.8</Mass>
+								<AccuracyTouch>0.550</AccuracyTouch>
+								<AccuracyShort>0.715</AccuracyShort>
+								<AccuracyMedium>0.660</AccuracyMedium>
+								<AccuracyLong>0.550</AccuracyLong>
+								<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+							</statBases>
+							<weaponTags>
+								<li>EccentricRifle</li>
+							</weaponTags>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_ChargeRifle_Bond</defaultProjectile>
+									<warmupTime>0.85</warmupTime>
+									<range>25.9</range>
+									<burstShotCount>3</burstShotCount>
+									<ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+									<soundCast>Shot_ChargeRifle</soundCast>
+									<soundCastTail>GunTail_Light</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9.45</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9.45</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<!-- Eccentric_Gun_E16PR_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseEccentricGun">
+							<defName>Eccentric_Gun_E16PR_Bond</defName>
+							<label>persona E16 precision charge rifle</label>
+							<description>The E16 is a bolt-action charge rifle that fires powerful 8x35mm charge rounds with deadly precision.\n\nEquipped with a variable-zoom hybrid optic, the E16 is expensive and slow to build, but adds accurate, long-range fire to The Eccentric's arsenal.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Eccentric/Weapons/E16</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<statBases>
+								<Mass>6.4</Mass>
+								<AccuracyTouch>0.440</AccuracyTouch>
+								<AccuracyShort>0.770</AccuracyShort>
+								<AccuracyMedium>0.990</AccuracyMedium>
+								<AccuracyLong>0.880</AccuracyLong>
+								<RangedWeapon_Cooldown>2.295</RangedWeapon_Cooldown>
+							</statBases>
+							<weaponTags>
+								<li>EccentricRifle</li>
+								<li>EccentricSniperRifle</li>
+							</weaponTags>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_EccentricSniperCharge_Bond</defaultProjectile>
+									<warmupTime>2.890</warmupTime>
+									<range>42</range>
+									<soundCast>Shot_ChargeRifle</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9.45</power>
+									<cooldownTime>1.62</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>10.5</power>
+									<cooldownTime>1.71</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>Bullet_EccentricSniperCharge_Bond</defName>
+							<label>charge shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/Charge_Small</texPath>
+								<drawSize>2</drawSize>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>46</damageAmountBase>
+								<stoppingPower>1.5</stoppingPower>
+								<speed>130</speed>
+							</projectile>
+						</ThingDef>
+
+						<!-- Eccentric_Gun_E18DMR_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseEccentricGun">
+							<defName>Eccentric_Gun_E18DMR_Bond</defName>
+							<label>persona E18 designated marksman rifle</label>
+							<description>The E18 is a powerful semi-automatic charge rifle that fires the full-sized 8x35mm charge round.\n\nWith a longer range than the standard E16 charge rifle and a faster rate of fire than the E16 precision rifle, the E18 DMR is a potent support weapon for The Eccentric's security staff.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Eccentric/Weapons/E18</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<statBases>
+								<Mass>6.0</Mass>
+								<AccuracyTouch>0.440</AccuracyTouch>
+								<AccuracyShort>0.825</AccuracyShort>
+								<AccuracyMedium>0.935</AccuracyMedium>
+								<AccuracyLong>0.825</AccuracyLong>
+								<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+							</statBases>
+							<weaponTags>
+								<li>EccentricRifle</li>
+								<li>EccentricSniperRifle</li>
+							</weaponTags>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_EccentricMarksmanCharge_Bond</defaultProjectile>
+									<warmupTime>1.7</warmupTime>
+									<range>33.9</range>
+									<soundCast>Shot_ChargeRifle</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.62</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>10.5</power>
+									<cooldownTime>1.71</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>Bullet_EccentricMarksmanCharge_Bond</defName>
+							<label>charge shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/Charge_Small</texPath>
+								<drawSize>2</drawSize>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>28</damageAmountBase>
+								<stoppingPower>1.25</stoppingPower>
+								<speed>110</speed>
+							</projectile>
+						</ThingDef>
+
+						<!-- Eccentric_Gun_L20C_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseEccentricGun">
+							<defName>Eccentric_Gun_L20C_Bond</defName>
+							<label>persona L20C charge LMG</label>
+							<description>The L20C Barracuda is a more compact variant of the venerable L-20 charge LMG.\n\nIts lighter weight and shorter barrel makes it slightly less stable than the original at long range, but it is better suited for urban environments and by default is equipped with the same magnified optics as the E15 charge rifle\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Eccentric/Weapons/L20C</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<statBases>
+								<Mass>8</Mass>
+								<AccuracyTouch>0.660</AccuracyTouch>
+								<AccuracyShort>0.715</AccuracyShort>
+								<AccuracyMedium>0.605</AccuracyMedium>
+								<AccuracyLong>0.550</AccuracyLong>
+								<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+							</statBases>
+							<equippedStatOffsets>
+								<MoveSpeed>-0.2</MoveSpeed>
+							</equippedStatOffsets>
+							<weaponTags>
+								<li>EccentricHeavyRifle</li>
+							</weaponTags>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_ChargeRifle_Bond</defaultProjectile>
+									<warmupTime>1.7</warmupTime>
+									<range>25.9</range>
+									<burstShotCount>5</burstShotCount>
+									<ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+									<soundCast>Shot_ChargeRifle</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>15</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9.45</power>
+									<cooldownTime>1.62</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>10.5</power>
+									<cooldownTime>1.71</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>Bullet_ChargeRifle_Bond</defName>
+							<label>charge shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/Charge_Small</texPath>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>17</damageAmountBase>
+								<armorPenetrationBase>0.35</armorPenetrationBase>
+								<speed>70</speed>
+							</projectile>
+						</ThingDef>
+
+						<!-- Eccentric_Gun_M1CGL_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseEccentricGun">
+							<defName>Eccentric_Gun_M1CGL_Bond</defName>
+							<label>persona CGL1 grenade launcher</label>
+							<tickerType>Normal</tickerType>
+							<description>Designed by Fiona 'Foxy' Knight of the Eccentric's engineering staff, the CGL1 is a powerful multi-grenade launcher utilizing proprietary 44mm charged grenade rounds.\n\nUtilizing similar technology to the electrothermal ignition charges used in charge rifles, the CGL1 can launch powerful tandem high-explosive and charged plasma projectiles with devastating effect.\n\nProhibitively expensive to produce and arm, these weapons are only issued to Eccentric security staff requiring overwhelming firepower in extremely dangerous environments.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Eccentric/Weapons/CGL1</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<statBases>
+								<Mass>5.0</Mass>
+								<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+							</statBases>
+							<weaponTags>
+								<li>EccentricLauncher</li>
+							</weaponTags>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_EccentricChargedGrenade_Bond</defaultProjectile>
+									<warmupTime>2.125</warmupTime>
+									<range>23.9</range>
+									<forcedMissRadius>1.9</forcedMissRadius>
+									<burstShotCount>1</burstShotCount>
+									<soundCast>Shot_IncendiaryLauncher</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>14</muzzleFlashScale>
+									<targetParams>
+										<canTargetLocations>true</canTargetLocations>
+									</targetParams>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9.45</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9.45</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>Bullet_EccentricChargedGrenade_Bond</defName>
+							<label>charged grenade</label>
+							<graphicData>
+								<texPath>Things/Eccentric/Projectile/CGL1Projectile</texPath>
+								<shaderType>TransparentPostLight</shaderType>
+								<drawSize>1</drawSize>
+							</graphicData>
+							<thingClass>Projectile_Explosive</thingClass>
+							<projectile>
+								<damageDef>Bomb</damageDef>
+								<damageAmountBase>39</damageAmountBase>
+								<explosionRadius>1.8</explosionRadius>
+								<speed>50</speed>
+							</projectile>
+						</ThingDef>
+
+						<!-- Eccentric_Gun_M5CAW_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseEccentricGun">
+							<defName>Eccentric_Gun_M5CAW_Bond</defName>
+							<label>persona CAW5 HEDP</label>
+							<tickerType>Normal</tickerType>
+							<description>The Mark 5 Charged Assault Weapon (High Explosive Dual-Purpose) is a heavy weapon used by Eccentric security personnel in extremely dangerous environments on industrialized worlds.\n\nUtilizing similar technology to the electrothermal ignition charges used in charge rifles, the CAW5 fires a powerful missile with a tandem conventional and charged plasma warhead that is effective against both light armored vehicles and structures.\n\nCompared to conventional rocket launchers, the CAW5 is faster, more accurate, and harder-hitting, but with a smaller blast radius and higher per-unit cost.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Eccentric/Weapons/CAW5</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<statBases>
+								<Mass>8</Mass>
+								<RangedWeapon_Cooldown>4.95</RangedWeapon_Cooldown>
+							</statBases>
+							<weaponTags>
+								<li>EccentricGun</li>
+								<li>EccentricLauncher</li>
+							</weaponTags>
+							<verbs>
+								<li>
+									<verbClass>Verb_ShootOneUse</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_EccentricChargedRocket_Bond</defaultProjectile>
+									<forcedMissRadius>0.9</forcedMissRadius>
+									<warmupTime>3.825</warmupTime>
+									<ai_AvoidFriendlyFireRadius>6</ai_AvoidFriendlyFireRadius>
+									<range>40.9</range>
+									<burstShotCount>1</burstShotCount>
+									<soundCast>InfernoCannon_Fire</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<onlyManualCast>true</onlyManualCast>
+									<targetParams>
+										<canTargetLocations>true</canTargetLocations>
+									</targetParams>
+									<muzzleFlashScale>14</muzzleFlashScale>
+								</li>
+							</verbs>
+							<comps>
+								<li Class="CompProperties_Explosive">
+									<explosiveRadius>5.8</explosiveRadius>
+									<explosiveDamageType>Bomb</explosiveDamageType>
+									<requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+								</li>
+							</comps>
+							<tools>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>12.87</power>
+									<cooldownTime>2.21</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>Bullet_EccentricChargedRocket_Bond</defName>
+							<label>charged assault projectile</label>
+							<thingClass>EccentricProjectiles.Projectile_ExplosiveWithEffects</thingClass>
+							<graphicData>
+								<texPath>Things/Eccentric/Projectile/CAW5Projectile</texPath>
+								<shaderType>TransparentPostLight</shaderType>
+								<drawSize>1</drawSize>
+							</graphicData>
+							<projectile>
+								<damageDef>Bomb</damageDef>
+								<damageAmountBase>72</damageAmountBase>
+								<explosionRadius>4.8</explosionRadius>
+								<speed>60</speed>
+								<shadowSize>1.0</shadowSize>
+								<arcHeightFactor>0.5</arcHeightFactor>
+							</projectile>
+							<modExtensions>
+								<li Class="EccentricProjectiles.ModExtension_ProjectileEffects">
+									<effects>
+										<li>Eccentric_PulseRocketTrail</li>
+									</effects>
+								</li>
+							</modExtensions>
+						</ThingDef>
+
+						<!-- Eccentric_Gun_E21AMR_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseEccentricGun">
+							<defName>Eccentric_Gun_E21AMR_Bond</defName>
+							<label>persona E21 anti-material rifle</label>
+							<description>The E21 is a heavy anti-material rifle firing 12x72mm high-caliber charge rounds with deadly precision. Designed and built by Fiona 'Foxy' Knight of Angel's Rest, the E21 was created in response to an increase in incursions of heavily armored belligerent forces.\n\nThe E21 is exceptionally heavy and slow-firing, intended for taking out heavily armored Spacer or Mechanoid threats.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Eccentric/Weapons/E21</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<equippedAngleOffset>45</equippedAngleOffset>
+							<soundInteract>Interact_ChargeRifle</soundInteract>
+							<statBases>
+								<Mass>14.8</Mass>
+								<AccuracyTouch>0.33</AccuracyTouch>
+								<AccuracyShort>0.715</AccuracyShort>
+								<AccuracyMedium>0.935</AccuracyMedium>
+								<AccuracyLong>0.99</AccuracyLong>
+								<RangedWeapon_Cooldown>2.97</RangedWeapon_Cooldown>
+							</statBases>
+							<weaponTags>
+								<li>EccentricRifle</li>
+								<li>EccentricSniperRifle</li>
+							</weaponTags>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_EccentricAntiMaterialCharge_Bond</defaultProjectile>
+									<warmupTime>3.57</warmupTime>
+									<range>44.9</range>
+									<soundCast>Shot_ChargeRifle</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<comps/>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9.9</power>
+									<cooldownTime>1.53</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>11.0</power>
+									<cooldownTime>1.615</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_Bullet">
+							<defName>Bullet_EccentricAntiMaterialCharge_Bond</defName>
+							<label>charge shot</label>
+							<thingClass>EccentricProjectiles.Projectile_WithEffects</thingClass>
+							<graphicData>
+								<texPath>Things/Eccentric/Projectile/ChargeProjectile_Large</texPath>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<projectile>
+								<damageAmountBase>60</damageAmountBase>
+								<stoppingPower>2.0</stoppingPower>
+								<speed>130</speed>
+							</projectile>
+							<modExtensions>
+								<li Class="EccentricProjectiles.ModExtension_ProjectileEffects">
+									<effects>
+										<li>Eccentric_HeavyPulseTrail</li>
+										<li>Eccentric_ChargeMuzzleFlashLarge</li>
+									</effects>
+								</li>
+							</modExtensions>
+						</ThingDef>
+					</value>
+				</li>
+
+				<li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+					<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+					<key>Daria40K_MightyPersonaBondForgePatch_EccentricTechFoxysArmory2.0</key>
+					<defaultValue>true</defaultValue>
+					<caseFalse>
+						<!-- Eccentric_Rosethorn_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Eccentric_Rosethorn_Bond"]</xpath>
+						</Operation>
+
+						<!-- Eccentric_Gun_S8P_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Eccentric_Gun_S8P_Bond"]</xpath>
+						</Operation>
+
+						<!-- Eccentric_Gun_P12PDW_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Eccentric_Gun_P12PDW_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_EccentricLightCharge_Bond"]</xpath>
+						</Operation>
+
+						<!-- Eccentric_Gun_E9C_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Eccentric_Gun_E9C_Bond"]</xpath>
+						</Operation>
+
+						<!-- Eccentric_Gun_E15CR_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Eccentric_Gun_E15CR_Bond"]</xpath>
+						</Operation>
+
+						<!-- Eccentric_Gun_E16PR_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Eccentric_Gun_E16PR_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_EccentricSniperCharge_Bond"]</xpath>
+						</Operation>
+
+						<!-- Eccentric_Gun_E18DMR_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Eccentric_Gun_E18DMR_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_EccentricMarksmanCharge_Bond"]</xpath>
+						</Operation>
+
+						<!-- Eccentric_Gun_L20C_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Eccentric_Gun_L20C_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_ChargeRifle_Bond"]</xpath>
+						</Operation>
+
+						<!-- Eccentric_Gun_M1CGL_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Eccentric_Gun_M1CGL_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_EccentricChargedGrenade_Bond"]</xpath>
+						</Operation>
+
+						<!-- Eccentric_Gun_M5CAW_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Eccentric_Gun_M5CAW_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_EccentricChargedRocket_Bond"]</xpath>
+						</Operation>
+
+						<!-- Eccentric_Gun_E21AMR_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Eccentric_Gun_E21AMR_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_EccentricAntiMaterialCharge_Bond"]</xpath>
+						</Operation>
+					</caseFalse>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

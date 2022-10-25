@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Moritz's LegendaryWeapons (Continued) =====
+
+    == Melee
+    Legendary_EnergySword_Bond = persona Lightbringer
+
+    == Range
+    Legendary_Rifle_Bond = persona Glotunus
+    Legendary_Zeaus_Bond = persona Zeaus
+    Legendary_Diablo_Bond = persona Diablo
+    Legendary_wl4u_Bond = persona WL-4u
+    Legendary_SAP_Bond = persona spray n´Prey
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Moritz's LegendaryWeapons (Continued)</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- ===== Melee ===== -->
+                        <ThingDef Name="MPBFPM_MoritzsLegendaryMelee" Abstract="True" ParentName="MPBFPM_BaseMeleeWeapon_Quality">
+                            <statBases>
+                                <MaxHitPoints>200</MaxHitPoints>
+                                <Flammability>0.5</Flammability>
+                                <DeteriorationRate>.5</DeteriorationRate>
+                                <Beauty>100</Beauty>
+                                <SellPriceFactor>0.20</SellPriceFactor>
+                            </statBases>
+                            <comps>
+                                <li Class="CompProperties_Forbiddable" />
+                                <li>
+                                    <compClass>CompEquippable</compClass>
+                                </li>
+                            </comps>
+                            <graphicData>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <techLevel>Spacer</techLevel>
+                            <tradeTags>
+                                <li>ExoticMisc</li>
+                            </tradeTags>
+                        </ThingDef>
+
+                        <!-- Legendary_EnergySword_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoritzsLegendaryMelee">
+                            <defName>Legendary_EnergySword_Bond</defName>
+                            <label>persona Lightbringer</label>
+                            <description>Plasma based sword used by the Sentinels.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/RGMeele/EnergySword</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <statBases>
+                                <MarketValue>40000</MarketValue>
+                                <Mass>2</Mass>
+                            </statBases>
+                            <weaponTags>
+                                <li>UltratechMelee</li>
+                            </weaponTags>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>18.70</power>
+                                    <cooldownTime>0.850</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>55.00</power>
+                                    <cooldownTime>1.275</cooldownTime>
+                                    <armorPenetration>0.990</armorPenetration>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>EMP</def>
+                                            <amount>2</amount>
+                                        </li>
+                                        <li>
+                                            <def>Flame</def>
+                                            <amount>8.80</amount>
+                                            <chance>0.690</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>66.00</power>
+                                    <cooldownTime>1.275</cooldownTime>
+                                    <armorPenetration>0.990</armorPenetration>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>EMP</def>
+                                            <amount>2</amount>
+                                        </li>
+                                        <li>
+                                            <def>Flame</def>
+                                            <amount>8.80</amount>
+                                            <chance>0.690</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <!-- ===== Ranged ===== -->
+                        <ThingDef Name="MPBFPM_MoritzsLegendaryRanged" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <statBases>
+                                <MaxHitPoints>200</MaxHitPoints>
+                                <Flammability>0.5</Flammability>
+                                <DeteriorationRate>.5</DeteriorationRate>
+                                <Beauty>100</Beauty>
+                                <SellPriceFactor>0.20</SellPriceFactor>
+                            </statBases>
+                            <comps>
+                                <li Class="CompProperties_Forbiddable" />
+                                <li>
+                                    <compClass>CompEquippable</compClass>
+                                </li>
+                            </comps>
+                            <graphicData>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <techLevel>Spacer</techLevel>
+                            <tradeTags>
+                                <li>ExoticMisc</li>
+                            </tradeTags>
+                        </ThingDef>
+
+                        <!-- Legendary_Rifle_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoritzsLegendaryRanged">
+                            <defName>Legendary_Rifle_Bond</defName>
+                            <label>persona Glotunus</label>
+                            <description>Charged-shot energy/projectile sniper rifle used by the Sentinels.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/RGRanged/Glotunus</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <weaponTags>
+                                <li>SniperRifle</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                            </weaponClasses>
+                            <statBases>
+                                <MarketValue>30000</MarketValue>
+                                <Mass>3.6</Mass>
+                                <AccuracyTouch>0.858</AccuracyTouch>
+                                <AccuracyShort>1.056</AccuracyShort>
+                                <AccuracyMedium>1.100</AccuracyMedium>
+                                <AccuracyLong>1.100</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.530</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_LegendaryRifle_Bond</defaultProjectile>
+                                    <warmupTime>1.275</warmupTime>
+                                    <range>65</range>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_LegendaryRifle_Bond</defName>
+                            <label>persona charge shot</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/ChargeLanceShot</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1.5</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>75</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>120</speed>
+                                <armorPenetrationBase>1.2</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Legendary_Zeaus_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoritzsLegendaryRanged">
+                            <defName>Legendary_Zeaus_Bond</defName>
+                            <label>persona Zeaus</label>
+                            <description>Charged-shot energy/projectile rifle standard rifle of the Sentinels.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/RGRanged/Zeaus</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <statBases>
+                                <MarketValue>30000</MarketValue>
+                                <Mass>3.4</Mass>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>1.100</AccuracyShort>
+                                <AccuracyMedium>1.100</AccuracyMedium>
+                                <AccuracyLong>1.045</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.850</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Zeaus_Bond</defaultProjectile>
+                                    <warmupTime>0.850</warmupTime>
+                                    <range>30</range>
+                                    <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+                                    <burstShotCount>4</burstShotCount>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_Zeaus_Bond</defName>
+                            <label>persona Zeaus shot</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Charge_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>39</damageAmountBase>
+                                <speed>70</speed>
+                                <armorPenetrationBase>0.5</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Legendary_Diablo_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoritzsLegendaryRanged">
+                            <defName>Legendary_Diablo_Bond</defName>
+                            <label>persona Diablo</label>
+                            <description>Plasma-shot plasma/projectile shotgun used by the Sentinels.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/RGRanged/Diablo</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Shotgun</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <statBases>
+                                <MarketValue>30000</MarketValue>
+                                <Mass>2.9</Mass>
+                                <AccuracyTouch>1.100</AccuracyTouch>
+                                <AccuracyShort>1.100</AccuracyShort>
+                                <AccuracyMedium>1.045</AccuracyMedium>
+                                <AccuracyLong>0.825</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_LegendaryShotgun_Bond</defaultProjectile>
+                                    <warmupTime>0.595</warmupTime>
+                                    <range>20</range>
+                                    <soundCast>Shot_Shotgun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.530</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_LegendaryShotgun_Bond</defName>
+                            <label>persona shotgun blast</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>110</damageAmountBase>
+                                <stoppingPower>3</stoppingPower>
+                                <speed>70</speed>
+                                <armorPenetrationBase>0.5</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Legendary_wl4u_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoritzsLegendaryRanged">
+                            <defName>Legendary_wl4u_Bond</defName>
+                            <label>persona WL-4u</label>
+                            <description>A high tech gun standard weapon of the Sentinels.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/RGRanged/WL-4u</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <statBases>
+                                <MarketValue>10000</MarketValue>
+                                <Mass>1.0</Mass>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>1.100</AccuracyShort>
+                                <AccuracyMedium>1.100</AccuracyMedium>
+                                <AccuracyLong>1.045</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.680</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Zeaus_Bond</defaultProjectile>
+                                    <warmupTime>0.255</warmupTime>
+                                    <range>26</range>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>10</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>8.800</power>
+                                    <cooldownTime>1.360</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>8.800</power>
+                                    <cooldownTime>1.360</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <!-- Legendary_SAP_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoritzsLegendaryRanged">
+                            <defName>Legendary_SAP_Bond</defName>
+                            <label>persona spray n´Prey</label>
+                            <description>Charged-shot energy/projectile multi-barrel weapon used by the Sentinels.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/RGRanged/SprayAndPrey</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <weaponTags>
+                                <li>GunHeavy</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <MarketValue>40000</MarketValue>
+                                <Mass>12</Mass>
+                                <AccuracyTouch>0.330</AccuracyTouch>
+                                <AccuracyShort>0.550</AccuracyShort>
+                                <AccuracyMedium>0.550</AccuracyMedium>
+                                <AccuracyLong>0.385</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.3</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_LegendaryMini_Bond</defaultProjectile>
+                                    <warmupTime>2.125</warmupTime>
+                                    <range>50</range>
+                                    <burstShotCount>80</burstShotCount>
+                                    <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>15</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrels</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.200</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_LegendaryMini_Bond</defName>
+                            <label>persona sap bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Charge_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>19</damageAmountBase>
+                                <speed>80</speed>
+                                <armorPenetrationBase>0.2</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_MoritzsLegendaryWeaponsContinued</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Legendary_EnergySword_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Legendary_EnergySword_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Legendary_Rifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Legendary_Rifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_LegendaryRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Legendary_Zeaus_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Legendary_Zeaus_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Zeaus_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Legendary_Diablo_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Legendary_Diablo_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_LegendaryShotgun_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Legendary_wl4u_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Legendary_wl4u_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Legendary_SAP_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Legendary_SAP_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_LegendaryMini_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

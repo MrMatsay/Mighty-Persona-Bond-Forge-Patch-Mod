@@ -1,0 +1,1050 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Moyo-From the depth =====
+
+    == Melee
+    Moyo_Wrench_Bond = persona moyo wrench
+    Moyo_Knife_Bond = persona moyo diving knife
+    Moyo_Piledriver_Bond = persona moyo piledriver
+    Moyo_Spear_Bond = persona moyo battleaxe
+    Moyo_PowerFist_Bond = persona moyo powerfist
+    Moyo_GDSpear_Bond = persona moyo royal battleaxe
+    Moyo_GDPowerFist_Bond = persona moyo royal powerfist
+
+    == Range
+    Moyo_Pistol_Bond = persona moyo nail gun
+    Moyo_ChargeRifle_Bond = persona moyo charge rifle
+    Moyo_PrecisionRifle_Bond = persona moyo precision rifle
+    Moyo_ChargeSMG_Bond = persona moyo charge SMG
+    Moyo_BoltCaster_Bond = persona moyo balista
+    Moyo_AutoCannon_Bond = persona moyo autocannon
+    Moyo_HeavyChargeRifle_Bond = persona moyo royal charge rifle
+    Moyo_HeavyAutoCannon_Bond = persona moyo royal autocannon
+    Moyo_HeavyBoltCaster_Bond = persona moyo royal balista
+    Moyo_CryoBlaster_Bond = persona moyo cryoblaster
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Moyo-From the depth</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- ===== Melee ===== -->
+                        <ThingDef Name="MPBFPM_MoyoBaseMelee" Abstract="true" ParentName="MPBFPM_BaseMeleeWeapon_Quality">
+                            <techLevel>Spacer</techLevel>
+                            <thingCategories Inherit="False">
+                                <li>Moyo_WeaponsMelee</li>
+                            </thingCategories>
+                        </ThingDef>
+
+                        <!-- Moyo_Wrench_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseMelee">
+                            <defName>Moyo_Wrench_Bond</defName>
+                            <label>persona moyo wrench</label>
+                            <description>A tool for bending metal and tightening bolts. Or bashing in heads, if you need to.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoWrench</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.2</uiIconScale>
+                            <equippedAngleOffset>-45</equippedAngleOffset>
+                            <techLevel>Industrial</techLevel>
+                            <statBases>
+                                <Mass>2.25</Mass>
+                            </statBases>
+                            <weaponTags>
+                                <li>Moyo_Melee</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.10</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>head</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>20.02</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                            <equippedStatOffsets>
+                                <ConstructionSpeed>0.1</ConstructionSpeed>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <!-- Moyo_Knife_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseMelee">
+                            <defName>Moyo_Knife_Bond</defName>
+                            <label>persona moyo diving knife</label>
+                            <techLevel>Industrial</techLevel>
+                            <description>A knife is always handy to have, and under the sea is no exception. The sharp and light blade made from plasteel is a favorite among moyo divers.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoKnife</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.5</uiIconScale>
+                            <equippedAngleOffset>-45</equippedAngleOffset>
+                            <weaponTags>
+                                <li>Moyo_Melee</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>0.5</Mass>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.90</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>blade</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>16.50</power>
+                                    <cooldownTime>1.445</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>17.60</power>
+                                    <cooldownTime>1.445</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <!-- Moyo_Piledriver_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseMelee">
+                            <defName>Moyo_Piledriver_Bond</defName>
+                            <label>persona moyo piledriver</label>
+                            <techLevel>Spacer</techLevel>
+                            <description>A mining tool designed to drive metal stakes into stone. The machine is cumbersome and firing a stake takes a long time, but it can easily break rocks and pierce steel.\n\nAs the number of operable mechanoids decreased, the need for moyo miners increased.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoBoltDriver</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.5</uiIconScale>
+                            <equippedAngleOffset>0</equippedAngleOffset>
+                            <weaponTags>
+                                <li>Moyo_Melee</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>4.5</Mass>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>body</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.90</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Stake</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>44.00</power>
+                                    <cooldownTime>5.100</cooldownTime>
+                                </li>
+                            </tools>
+                            <equippedStatOffsets>
+                                <MiningSpeed>0.2</MiningSpeed>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <!-- Moyo_Spear_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
+                            <defName>Moyo_Spear_Bond</defName>
+                            <label>persona moyo battleaxe</label>
+                            <description>Heavy battleaxe prototype forged with abysteel. Has a cryogenic blade intended to minimize bleeding from cuts. well, so said the development team. Its a weapon that can split open a diving suit helmet, bloodloss will be the least concern.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoSpear</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.5</uiIconScale>
+                            <thingCategories Inherit="False">
+                                <li>Moyo_WeaponsRanged</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>Moyo_SpacerMeleeUnique</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>4</Mass>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Poke</li>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>17.60</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>blade</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>33.00</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                    <armorPenetration>0.363</armorPenetration>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Moyo_Cryo</def>
+                                            <amount>7.70</amount>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <!-- Moyo_PowerFist_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseMelee">
+                            <defName>Moyo_PowerFist_Bond</defName>
+                            <label>persona moyo powerfist</label>
+                            <techLevel>Spacer</techLevel>
+                            <description>A mechanical glove that enhances the user’s strength to aid in underwater work. It’s designed to be used in conjunction with the diving suit, but can be used without.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoFist</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.5</uiIconScale>
+                            <equippedAngleOffset>-15</equippedAngleOffset>
+                            <weaponTags>
+                                <li>Moyo_SpacerMelee</li>
+                            </weaponTags>
+                            <statBases>
+                                <MarketValue>1050</MarketValue>
+                                <Mass>2.1</Mass>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>Fist</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>23.10</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Body</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>23.10</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                            <equippedStatOffsets>
+                                <ConstructionSpeed>0.1</ConstructionSpeed>
+                                <CarryingCapacity>20</CarryingCapacity>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <!-- Moyo_GDSpear_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
+                            <defName>Moyo_GDSpear_Bond</defName>
+                            <label>persona moyo royal battleaxe</label>
+                            <description>Heavy battleaxe used by the royal guard. It has been refined for ease of use and equipped with advanced cryogenic blade\n\nA modified version of the prototype battleaxe, the white body and the royal guard’s symbol etched upon it are the blades of the elders.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Royal/MoyoGHalberd</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.5</uiIconScale>
+                            <weaponTags>
+                                <li>Moyo_GuardianMeleeUnique</li>
+                            </weaponTags>
+                            <tradeability>Sellable</tradeability>
+                            <statBases>
+                                <Mass>5.6</Mass>
+                            </statBases>
+                            <thingCategories Inherit="False">
+                                <li>Moyo_WeaponsRanged</li>
+                            </thingCategories>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Poke</li>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>17.60</power>
+                                    <cooldownTime>1.955</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>blade</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>33.00</power>
+                                    <cooldownTime>2.805</cooldownTime>
+                                    <armorPenetration>0.363</armorPenetration>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Moyo_Cryo</def>
+                                            <amount>11.00</amount>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <!-- Moyo_GDPowerFist_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseMelee">
+                            <defName>Moyo_GDPowerFist_Bond</defName>
+                            <label>persona moyo royal powerfist</label>
+                            <techLevel>Spacer</techLevel>
+                            <description>Combat powerfist used by the royal guard. In truth, there is little difference in function compared to an ordinary powerfist.\n\nThe powerfist was chosen as one of the royal guard’s equipment for its versatility. The white shell and the royal guard’s symbol etched upon it are the iron fists of the elders.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Royal/MoyoGFist</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.5</uiIconScale>
+                            <weaponTags>
+                                <li>Moyo_GuardianMelee</li>
+                            </weaponTags>
+                            <tradeability>Sellable</tradeability>
+                            <statBases>
+                                <!-- <MarketValue>1950</MarketValue> -->
+                                <Mass>7.6</Mass>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>Fist</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>30.80</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Body</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>30.80</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                            <equippedStatOffsets>
+                                <ConstructionSpeed>0.1</ConstructionSpeed>
+                                <CarryingCapacity>35</CarryingCapacity>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <!-- ===== Range ===== -->
+                        <ThingDef Name="MPBFPM_MoyoBaseGun" Abstract="true" ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <techLevel>Spacer</techLevel>
+                            <soundInteract>Moyo_WeaponInteractLight</soundInteract>
+                            <thingCategories Inherit="False">
+                                <li>Moyo_WeaponsRanged</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>Moyo_TagToSell</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.450</power>
+                                    <cooldownTime>1.800</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.450</power>
+                                    <cooldownTime>1.800</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <!-- Moyo_Pistol_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
+                            <defName>Moyo_Pistol_Bond</defName>
+                            <label>persona moyo nail gun</label>
+                            <description>A common contruction tool of the Lighthouse. It has strong firing mechanism to make it reliable in most places. which also makes it fantastic as a improvised weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoPistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.5</uiIconScale>
+                            <soundInteract>moyo_smallWeaponInteract</soundInteract>
+                            <weaponTags>
+                                <li>MoyoBasicGun</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>1.2</Mass>
+                                <AccuracyTouch>0.825</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.330</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_MoyoRivet_Bond</defaultProjectile>
+                                    <warmupTime>0.425</warmupTime>
+                                    <range>18.5</range>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_MoyoRivet_Bond</defName>
+                            <label>Moyo rivet</label>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoNail</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>9</damageAmountBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Moyo_ChargeRifle_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
+                            <defName>Moyo_ChargeRifle_Bond</defName>
+                            <label>persona moyo charge rifle</label>
+                            <description>Moyo assult rifle that shows much similarities with a traditional charge rifle. The charged bolt and accelerated through the barrel and fired. Each bolt is designed to minimize energy loss over distance.\n\nThe lighthouse uses traditional charge rifles as well, but once the new rifles proved its efficiency, the moyo charge rifles became the standard.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoAR</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <soundInteract>moyo_smallWeaponInteract</soundInteract>
+                            <statBases>
+                                <Mass>6.5</Mass>
+                                <AccuracyTouch>0.528</AccuracyTouch>
+                                <AccuracyShort>0.671</AccuracyShort>
+                                <AccuracyMedium>0.528</AccuracyMedium>
+                                <AccuracyLong>0.396</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Moyo_SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_MoyoAssaultBolt_Bond</defaultProjectile>
+                                    <warmupTime>1.275</warmupTime>
+                                    <range>26.5</range>
+                                    <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+                                    <burstShotCount>4</burstShotCount>
+                                    <!-- <soundAiming>moyo_smallWeaponCharge</soundAiming> -->
+                                    <soundCast>moyo_defaultFire</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_MoyoAssaultBolt_Bond</defName>
+                            <label>Moyo chargebolt</label>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoSmallBolt</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>15</damageAmountBase>
+                                <armorPenetrationBase>0.38</armorPenetrationBase>
+                                <stoppingPower>1</stoppingPower>
+                                <speed>80</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Moyo_PrecisionRifle_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
+                            <defName>Moyo_PrecisionRifle_Bond</defName>
+                            <label>persona moyo precision rifle</label>
+                            <description>Moyo sniper rifle that shows much similarities with a traditional charge rifle. The firerate is low, but each shot boasts an impressive range and accuracy.\n\nAn experimental model made with the development of bolt caster technology, they where seldom used in the confines of the lighthouse, but will prove to be an effective weapon in the open surface of the rim.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoRF</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <soundInteract>moyo_smallWeaponInteract</soundInteract>
+                            <statBases>
+                                <Mass>6.2</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.902</AccuracyShort>
+                                <AccuracyMedium>1.001</AccuracyMedium>
+                                <AccuracyLong>0.869</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.040</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Moyo_SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_MoyoSniperBolt_Bond</defaultProjectile>
+                                    <warmupTime>1.190</warmupTime>
+                                    <range>35.6</range>
+                                    <!-- <soundAiming>moyo_smallWeaponCharge</soundAiming> -->
+                                    <soundCast>moyo_longFire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_MoyoSniperBolt_Bond</defName>
+                            <label>moyo energy shot</label>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoSmallBolt</texPath>
+                                <drawSize>1.5</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>29</damageAmountBase>
+                                <armorPenetrationBase>0.42</armorPenetrationBase>
+                                <stoppingPower>1.8</stoppingPower>
+                                <speed>120</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Moyo_ChargeSMG_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
+                            <defName>Moyo_ChargeSMG_Bond</defName>
+                            <label>persona moyo charge SMG</label>
+                            <description>Small moyo submachine gun. Light and easy to use, these were the most commonly used weapons in the lighthouse.\n\nBefore, most firearms where locked in the armories, but in the civil war, firearms both new and old quickly spread to all levels of the lighthouse.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoSMG</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <soundInteract>moyo_smallWeaponInteract</soundInteract>
+                            <statBases>
+                                <Mass>3</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.781</AccuracyShort>
+                                <AccuracyMedium>0.506</AccuracyMedium>
+                                <AccuracyLong>0.121</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Moyo_SpacerGun</li>
+                                <li>Moyo_SpacerLightGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_MoyoSMGBolt_Bond</defaultProjectile>
+                                    <warmupTime>1.318</warmupTime>
+                                    <range>18.5</range>
+                                    <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+                                    <burstShotCount>3</burstShotCount>
+                                    <!-- <soundAiming>moyo_smallWeaponCharge</soundAiming> -->
+                                    <soundCast>moyo_lightFire</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>5</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_MoyoSMGBolt_Bond</defName>
+                            <label>moyo chargebolt</label>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoSmallBolt</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>13</damageAmountBase>
+                                <armorPenetrationBase>0.20</armorPenetrationBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Moyo_BoltCaster_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
+                            <defName>Moyo_BoltCaster_Bond</defName>
+                            <label>persona moyo balista</label>
+                            <description>Large boltcaster made to fight off the leviathans that threaten the lighthouse. The weapon accelerates overcharged energy bolts through the barrel and fires them. On impact, the bolts release the stored energy in a violent explosion.\n\nBoltcaster weapons were developed when traditional charge weapons proved less effective underwater. This boltcaster is the first charge bolt weapon, and every subsequent moyo firearm can be traced back to it..\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoBC</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <soundInteract>moyo_mediumWeaponInteract</soundInteract>
+                            <statBases>
+                                <Mass>9.5</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.902</AccuracyShort>
+                                <AccuracyMedium>1.001</AccuracyMedium>
+                                <AccuracyLong>0.858</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.550</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Moyo_SpacerHeavyGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_MoyoChargeBolt_Bond</defaultProjectile>
+                                    <forcedMissRadius>0.01</forcedMissRadius>
+                                    <warmupTime>3.400</warmupTime>
+                                    <range>47.5</range>
+                                    <!-- <soundAiming>moyo_mediumWeaponCharge</soundAiming> -->
+                                    <soundCast>moyo_longFire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.3</MoveSpeed>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_MoyoChargeBolt_Bond</defName>
+                            <label>moyo heavy chargebolt</label>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoBolt</texPath>
+                                <drawSize>1.5</drawSize>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <explosionRadius>1</explosionRadius>
+                                <damageDef>Moyo_ChargeBolt</damageDef>
+                                <damageAmountBase>40</damageAmountBase>
+                                <armorPenetrationBase>0.62</armorPenetrationBase>
+                                <stoppingPower>3</stoppingPower>
+                                <speed>120</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Moyo_AutoCannon_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
+                            <defName>Moyo_AutoCannon_Bond</defName>
+                            <label>persona moyo autocannon</label>
+                            <description>Large boltcaster with a high rate of fire. The bolts fired from this weapon is effective on both armored and unarmored targets.n\nAs the battles in the lighthouse grew more complex, more weapons where developed to deal with the changing situation. This weapon in particular seems to have been inspired by a surface weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoHMG</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <soundInteract>moyo_mediumWeaponInteract</soundInteract>
+                            <statBases>
+                                <Mass>9</Mass>
+                                <AccuracyTouch>0.418</AccuracyTouch>
+                                <AccuracyShort>0.561</AccuracyShort>
+                                <AccuracyMedium>0.407</AccuracyMedium>
+                                <AccuracyLong>0.187</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.295</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Moyo_SpacerHeavyGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_MoyoAutoCannon_Bond</defaultProjectile>
+                                    <ticksBetweenBurstShots>14</ticksBetweenBurstShots>
+                                    <burstShotCount>6</burstShotCount>
+                                    <warmupTime>1.700</warmupTime>
+                                    <range>26.5</range>
+                                    <!-- <soundAiming>moyo_mediumWeaponCharge</soundAiming> -->
+                                    <soundCast>moyo_defaultFire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.1</MoveSpeed>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_MoyoAutoCannon_Bond</defName>
+                            <label>moyo heavy chargebolt</label>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoBolt</texPath>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Moyo_ChargeBolt</damageDef>
+                                <damageAmountBase>23</damageAmountBase>
+                                <armorPenetrationBase>0.25</armorPenetrationBase>
+                                <stoppingPower>2.5</stoppingPower>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Moyo_HeavyChargeRifle_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
+                            <defName>Moyo_HeavyChargeRifle_Bond</defName>
+                            <label>persona moyo royal charge rifle</label>
+                            <description>Heavy rifle used by the royal guard. A model focusing almost entirely on firepower, this model is supiror to the original charge rifle in nearly every way save weight and ease of use.\n\nThe first weapon chosen as the armament of the royal guard, the white body etched with the symbol of the royal guard are the spears of the elders.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <soundInteract>moyo_smallWeaponInteract</soundInteract>
+                            <graphicData>
+                                <texPath>Things/Weapons/Royal/MoyoGAR</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <tradeability>Sellable</tradeability>
+                            <statBases>
+                                <!-- <MarketValue>1870</MarketValue> -->
+                                <Mass>7</Mass>
+                                <AccuracyTouch>0.638</AccuracyTouch>
+                                <AccuracyShort>0.737</AccuracyShort>
+                                <AccuracyMedium>0.638</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.700</RangedWeapon_Cooldown>
+                            </statBases>
+                            <thingCategories Inherit="False">
+                                <li>Moyo_WeaponsRanged</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>Moyo_GuardianGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_MoyoAssaultBolt_Bond</defaultProjectile>
+                                    <warmupTime>0.850</warmupTime>
+                                    <range>28.5</range>
+                                    <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+                                    <burstShotCount>4</burstShotCount>
+                                    <!-- <soundAiming>moyo_smallWeaponCharge</soundAiming> -->
+                                    <soundCast>moyo_defaultFire</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>11</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <!-- Moyo_HeavyAutoCannon_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
+                            <defName>Moyo_HeavyAutoCannon_Bond</defName>
+                            <label>persona moyo royal autocannon</label>
+                            <description>Heavy autocannon used by the royal guard. The bolts fired from this weapon is effective on both armored and unarmored targets.\n\nOne of the armaments of the royal guard, the white body etched with the symbol of the royal guard are the hammers of the elders.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <soundInteract>moyo_mediumWeaponInteract</soundInteract>
+                            <graphicData>
+                                <texPath>Things/Weapons/Royal/MoyoGHMG</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <tradeability>Sellable</tradeability>
+                            <statBases>
+                                <!-- <MarketValue>2250</MarketValue> -->
+                                <Mass>11</Mass>
+                                <AccuracyTouch>0.528</AccuracyTouch>
+                                <AccuracyShort>0.616</AccuracyShort>
+                                <AccuracyMedium>0.484</AccuracyMedium>
+                                <AccuracyLong>0.187</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.955</RangedWeapon_Cooldown>
+                            </statBases>
+                            <thingCategories Inherit="False">
+                                <li>Moyo_WeaponsRanged</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>Moyo_GuardianGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_MoyoAutoCannon_Bond</defaultProjectile>
+                                    <ticksBetweenBurstShots>13</ticksBetweenBurstShots>
+                                    <burstShotCount>6</burstShotCount>
+                                    <warmupTime>1.700</warmupTime>
+                                    <range>30.5</range>
+                                    <!-- <soundAiming>moyo_mediumWeaponCharge</soundAiming> -->
+                                    <soundCast>moyo_defaultFire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>11</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.1</MoveSpeed>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <!-- Moyo_HeavyBoltCaster_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
+                            <defName>Moyo_HeavyBoltCaster_Bond</defName>
+                            <label>persona moyo royal balista</label>
+                            <description>Heavy boltcaster used by the royal guard. Compared to the original, it can fire chargebolts faster, more accurately over longer distance.\n\nThe symbolic weapon approved to be a part of royal arsenal, the white body etched with the symbol of the royal guard are the mace of the elders.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Royal/MoyoGBC</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <soundInteract>moyo_mediumWeaponInteract</soundInteract>
+                            <statBases>
+                                <Mass>11</Mass>
+                                <AccuracyTouch>0.704</AccuracyTouch>
+                                <AccuracyShort>1.001</AccuracyShort>
+                                <AccuracyMedium>1.100</AccuracyMedium>
+                                <AccuracyLong>0.957</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.975</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Moyo_GuardianGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_MoyoChargeBolt_Bond</defaultProjectile>
+                                    <forcedMissRadius>0.01</forcedMissRadius>
+                                    <warmupTime>2.550</warmupTime>
+                                    <range>50.9</range>
+                                    <!-- <soundAiming>moyo_mediumWeaponCharge</soundAiming> -->
+                                    <soundCast>moyo_longFire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.3</MoveSpeed>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <!-- Moyo_CryoBlaster_Bond -->
+                        <ThingDef ParentName="MPBFPM_MoyoBaseGun">
+                            <defName>Moyo_CryoBlaster_Bond</defName>
+                            <label>persona moyo cryoblaster</label>
+                            <description>Weapon developed for riot control. Fires cryogenic material that quickly freezes on its victims and causes severe frostbite.\n\nCyrogenic weapons where developed with intent to reduce bleeding during suppression and capture targets with relatively less injuries.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <soundInteract>Moyo_WeaponInteract</soundInteract>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoCB</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <Mass>9.5</Mass>
+                                <AccuracyTouch>1.001</AccuracyTouch>
+                                <AccuracyShort>0.792</AccuracyShort>
+                                <AccuracyMedium>0.594</AccuracyMedium>
+                                <AccuracyLong>0.132</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.975</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Moyo_SpacerHeavyGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_MoyoCBBlast_Bond</defaultProjectile>
+                                    <forcedMissRadius>1.5</forcedMissRadius>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <burstShotCount>14</burstShotCount>
+                                    <warmupTime>3.400</warmupTime>
+                                    <noiseRadius>4</noiseRadius>
+                                    <range>22.5</range>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <soundCast>MoyoCryoSpray</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>11</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.3</MoveSpeed>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_MoyoCBBlast_Bond</defName>
+                            <label>moyo cryoblast</label>
+                            <graphicData>
+                                <texPath>Things/Weapons/MoyoCBBlast2</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1.5</drawSize>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <explosionRadius>1.4</explosionRadius>
+                                <damageDef>Moyo_Cryo</damageDef>
+                                <damageAmountBase>9</damageAmountBase>
+                                <armorPenetrationBase>0</armorPenetrationBase>
+                                <speed>20</speed>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_MoyoFromthedepth</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Moyo_Wrench_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_Wrench_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_Knife_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_Knife_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_Piledriver_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_Piledriver_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_Spear_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_Spear_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_PowerFist_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_PowerFist_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_GDSpear_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_GDSpear_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_GDPowerFist_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_GDPowerFist_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_Pistol_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_Pistol_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_MoyoRivet_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_ChargeRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_ChargeRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_MoyoAssaultBolt_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_PrecisionRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_PrecisionRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_MoyoSniperBolt_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_ChargeSMG_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_ChargeSMG_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_MoyoSMGBolt_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_BoltCaster_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_BoltCaster_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_MoyoChargeBolt_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_AutoCannon_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_AutoCannon_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_MoyoAutoCannon_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_HeavyChargeRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_HeavyChargeRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_HeavyAutoCannon_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_HeavyAutoCannon_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_HeavyBoltCaster_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_HeavyBoltCaster_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Moyo_CryoBlaster_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Moyo_CryoBlaster_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_MoyoCBBlast_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

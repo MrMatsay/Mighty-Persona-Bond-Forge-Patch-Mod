@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ===== Reinforced Mechanoids: Tyrikan-Line ===== == Range
+	RM_Gun_ReinforcedInfernoCannon_Bond = persona reinforced inferno cannon
+	RM_Gun_ReinforcedChargeLance_Bond = persona reinforced charge lance
+	RM_ReinforcedTeslaCoil_Bond = persona reinforced tesla coil
+	RM_Gun_ChargeSidearm_Bond = persona charge sidearm
+	RM_Gun_ReinforcedChargeLMG_Bond = persona reinforced charge lmg
+	RM_Gun_ChargeLanceRevolver_Bond = persona charge lance revolver
+	RM_Gun_ChargeLanceRifle_Bond = persona charge lance rifle
+	RM_Gun_ReinforcedCoilPistol_Bond = persona reinforced coil pistol
+	RM_ReinforcedCoilRifle_Bond = persona reinforced coil rifle
+-->
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Reinforced Mechanoids: Tyrikan-Line</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs</xpath>
+					<value>
+						<!-- ===== Range ===== -->
+						<!-- RM_Gun_ReinforcedInfernoCannon_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseGunWithQuality">
+							<defName>RM_Gun_ReinforcedInfernoCannon_Bond</defName>
+							<label>persona reinforced inferno cannon</label>
+							<description>A reinforced incendiary-shot mini-artillery device. It fires three large incendiary warheads per burst using an internal rotating chamber.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/MechanoidInfernoCannonMk2</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>1.2</drawSize>
+							</graphicData>
+							<destroyOnDrop>true</destroyOnDrop>
+							<techLevel>Spacer</techLevel>
+							<generateCommonality>0.5</generateCommonality>
+							<tradeability>None</tradeability>
+							<weaponClasses>
+								<li>RangedHeavy</li>
+							</weaponClasses>
+							<statBases>
+								<MarketValue>3800</MarketValue>
+								<Mass>28</Mass>
+								<RangedWeapon_Cooldown>13.940</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>RM_Bullet_InfernoCannon_Bond</defaultProjectile>
+									<forcedMissRadius>3.5</forcedMissRadius>
+									<ai_AvoidFriendlyFireRadius>3</ai_AvoidFriendlyFireRadius>
+									<warmupTime>1.063</warmupTime>
+									<range>29.9</range>
+									<burstShotCount>3</burstShotCount>
+									<ticksBetweenBurstShots>24</ticksBetweenBurstShots>
+									<soundCast>InfernoCannon_Fire</soundCast>
+									<soundCastTail>GunTail_Light</soundCastTail>
+									<muzzleFlashScale>18</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>12.870</power>
+									<cooldownTime>2.210</cooldownTime>
+								</li>
+							</tools>
+							<comps>
+								<li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+								</li>
+							</comps>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>RM_Bullet_InfernoCannon_Bond</defName>
+							<label>inferno cannon shell</label>
+							<graphicData>
+								<texPath>Things/Projectile/LauncherShot</texPath>
+								<shaderType>TransparentPostLight</shaderType>
+								<color>(254,189,58)</color>
+							</graphicData>
+							<thingClass>Projectile_Explosive</thingClass>
+							<projectile>
+								<damageDef>RM_Flame_Bond</damageDef>
+								<!-- Use default damage from explosion def -->
+								<speed>45</speed>
+								<explosionRadius>2.4</explosionRadius>
+								<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+								<preExplosionSpawnChance>0.27</preExplosionSpawnChance>
+								<ai_IsIncendiary>true</ai_IsIncendiary>
+							</projectile>
+						</ThingDef>
+
+						<DamageDef Name="Flame_Bond">
+							<defName>RM_Flame_Bond</defName>
+							<workerClass>DamageWorker_Flame</workerClass>
+							<label>flame</label>
+							<hasForcefulImpact>false</hasForcefulImpact>
+							<makesBlood>false</makesBlood>
+							<canInterruptJobs>false</canInterruptJobs>
+							<externalViolence>true</externalViolence>
+							<deathMessage>{0} has burned to death.</deathMessage>
+							<hediff>Burn</hediff>
+							<armorCategory>Heat</armorCategory>
+							<minDamageToFragment>15</minDamageToFragment>
+							<defaultDamage>11</defaultDamage>
+							<defaultArmorPenetration>0</defaultArmorPenetration>
+							<explosionHeatEnergyPerCell>15</explosionHeatEnergyPerCell>
+							<explosionCellFleck>BlastFlame</explosionCellFleck>
+							<explosionColorCenter>(1, 0.7, 0.7)</explosionColorCenter>
+							<explosionColorEdge>(1, 1, 0.7)</explosionColorEdge>
+							<soundExplosion>Explosion_Flame</soundExplosion>
+							<combatLogRules>Damage_Flame</combatLogRules>
+							<canUseDeflectMetalEffect>false</canUseDeflectMetalEffect>
+						</DamageDef>
+
+						<!-- RM_Gun_ReinforcedChargeLance_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseGunWithQuality">
+							<defName>RM_Gun_ReinforcedChargeLance_Bond</defName>
+							<label>persona reinforced charge lance</label>
+							<description>A reinforced, pulse-charged rail-assisted lance weapon used by mechanoids. It fires three high-velocity rounds in quick succession as a burst, charged with unstable energy as each shot leaves the acceleration rail.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<techLevel>Spacer</techLevel>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/MechanoidHeavyLance</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>1.2</drawSize>
+							</graphicData>
+							<tradeability>None</tradeability>
+							<destroyOnDrop>true</destroyOnDrop>
+							<statBases>
+								<MarketValue>1500</MarketValue>
+								<Mass>20</Mass>
+								<AccuracyTouch>0.605</AccuracyTouch>
+								<AccuracyShort>0.825</AccuracyShort>
+								<AccuracyMedium>0.825</AccuracyMedium>
+								<AccuracyLong>0.715</AccuracyLong>
+								<RangedWeapon_Cooldown>2.635</RangedWeapon_Cooldown>
+							</statBases>
+							<weaponClasses>
+								<li>RangedHeavy</li>
+								<li>LongShots</li>
+							</weaponClasses>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_ChargeLance_Bond</defaultProjectile>
+									<warmupTime>2.125</warmupTime>
+									<range>33.9</range>
+									<minRange>8.9</minRange>
+									<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+									<burstShotCount>3</burstShotCount>
+									<soundCast>ChargeLance_Fire</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<comps>
+								<li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+								</li>
+							</comps>
+							<tools>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>12.870</power>
+									<cooldownTime>2.210</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>Bullet_ChargeLance_Bond</defName>
+							<label>charge lance shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/ChargeLanceShot</texPath>
+								<shaderType>TransparentPostLight</shaderType>
+								<drawSize>1.5</drawSize>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>33</damageAmountBase>
+								<stoppingPower>1.5</stoppingPower>
+								<speed>120</speed>
+							</projectile>
+						</ThingDef>
+
+						<!-- RM_ReinforcedTeslaCoil_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseGunWithQuality">
+							<defName>RM_ReinforcedTeslaCoil_Bond</defName>
+							<label>persona reinforced tesla coil</label>
+							<description>A medium-range reinforced tesla-coil weapon used by mechanoids. It fires lighting projectiles, stunning and burning their target before jumping to the next, able to damage multiple targets with each shot. Extremely dangerous and best avoided.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<techLevel>Spacer</techLevel>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/MechanoidCoilTurret</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>1.5</drawSize>
+							</graphicData>
+							<tradeability>None</tradeability>
+							<statBases>
+								<MarketValue>1400</MarketValue>
+								<AccuracyTouch>0.880</AccuracyTouch>
+								<AccuracyShort>0.935</AccuracyShort>
+								<AccuracyMedium>0.990</AccuracyMedium>
+								<AccuracyLong>1.045</AccuracyLong>
+								<RangedWeapon_Cooldown>4.080</RangedWeapon_Cooldown>
+								<Mass>18</Mass>
+								<Flammability>0</Flammability>
+							</statBases>
+							<weaponClasses>
+								<li>RangedHeavy</li>
+							</weaponClasses>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<defaultProjectile>RM_Bullet_ReinforcedTeslaCoil_Bond</defaultProjectile>
+									<warmupTime>4.250</warmupTime>
+									<range>32.9</range>
+									<minRange>8.9</minRange>
+									<soundCast>Shot_ChargeBlaster</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<comps>
+								<li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+								</li>
+							</comps>
+							<tools>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9.900</power>
+									<cooldownTime>2.210</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>RM_Bullet_ReinforcedTeslaCoil_Bond</defName>
+							<label>lightning bolt</label>
+							<thingClass>VFEMech.TeslaProjectile</thingClass>
+							<graphicData>
+								<texPath>Projectile/Lightning</texPath>
+								<graphicClass>Graphic_Flicker</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Stun</damageDef>
+								<damageAmountBase>3</damageAmountBase>
+								<speed>140</speed>
+							</projectile>
+							<modExtensions>
+								<li Class="VFEMech.TeslaChainingProps">
+									<maxBounceCount>2</maxBounceCount>
+									<damageDef>RM_Flame_Bond</damageDef>
+									<explosionDamageDef>Smoke</explosionDamageDef>
+									<impactRadius>2.9</impactRadius>
+									<targetFriendly>false</targetFriendly>
+									<addFire>false</addFire>
+									<bounceRange>3</bounceRange>
+									<maxLifetime>50</maxLifetime>
+								</li>
+							</modExtensions>
+						</ThingDef>
+
+						<!-- RM_Gun_ChargeSidearm_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+							<defName>RM_Gun_ChargeSidearm_Bond</defName>
+							<label>persona charge sidearm</label>
+							<description>A charged-shot burst-fire sidearm. Pulse-charge technology charges each shot with unstable energy as it leaves the barrel. Released on impact, the charged energy greatly increases the damage done.\n\nDesigned as a sidearm for infantry mechanoids with manipulators similar to human hands. The attached blade gives it superior melee viability.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<techLevel>Spacer</techLevel>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/MechanoidChargeRevolver</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_SMG</soundInteract>
+							<statBases>
+								<Mass>1.8</Mass>
+								<AccuracyTouch>0.770</AccuracyTouch>
+								<AccuracyShort>0.660</AccuracyShort>
+								<AccuracyMedium>0.550</AccuracyMedium>
+								<AccuracyLong>0.385</AccuracyLong>
+								<RangedWeapon_Cooldown>1.615</RangedWeapon_Cooldown>
+							</statBases>
+							<weaponTags>
+								<li>SpacerGun</li>
+							</weaponTags>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>RM_Bullet_ChargeSidearm_Bond</defaultProjectile>
+									<warmupTime>0.425</warmupTime>
+									<range>21.9</range>
+									<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+									<burstShotCount>3</burstShotCount>
+									<soundCast>Shot_ChargeBlaster</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>10</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9.900</power>
+									<cooldownTime>1.700</cooldownTime>
+								</li>
+								<li>
+									<label>blade</label>
+									<capacities>
+										<li>Cut</li>
+										<li>Stab</li>
+										<li>Poke</li>
+									</capacities>
+									<power>7.700</power>
+									<cooldownTime>1.275</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>RM_Bullet_ChargeSidearm_Bond</defName>
+							<label>charge shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/Charge_Small</texPath>
+								<shaderType>TransparentPostLight</shaderType>
+								<drawSize>1.2</drawSize>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>14</damageAmountBase>
+								<armorPenetrationBase>0.35</armorPenetrationBase>
+								<speed>100</speed>
+							</projectile>
+						</ThingDef>
+
+						<!-- RM_Gun_ReinforcedChargeLMG_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+							<defName>RM_Gun_ReinforcedChargeLMG_Bond</defName>
+							<label>persona reinforced charge lmg</label>
+							<description>A reinforced charged-shot light machine gun. Pulse-charge technology charges each shot with unstable energy as it leaves the barrel. Released on impact, the charged energy greatly increases the damage done.\n\nDesigned as a suppression weapon for infantry mechanoids with manipulators similar to human hands. Intended for use in field operations where allied forces are likely to be greatly outnumbered.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<techLevel>Spacer</techLevel>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/MechnoidChargerLMG</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_SMG</soundInteract>
+							<statBases>
+								<Mass>14</Mass>
+								<AccuracyTouch>0.198</AccuracyTouch>
+								<AccuracyShort>0.286</AccuracyShort>
+								<AccuracyMedium>0.286</AccuracyMedium>
+								<AccuracyLong>0.198</AccuracyLong>
+								<RangedWeapon_Cooldown>6.290</RangedWeapon_Cooldown>
+							</statBases>
+							<equippedAngleOffset>45</equippedAngleOffset>
+							<weaponTags>
+								<li>SpacerGun</li>
+							</weaponTags>
+							<equippedStatOffsets>
+								<MoveSpeed>-0.10</MoveSpeed>
+							</equippedStatOffsets>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>RM_Bullet_ReinforcedChargeLMG_Bond</defaultProjectile>
+									<warmupTime>1.063</warmupTime>
+									<range>19.9</range>
+									<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+									<burstShotCount>8</burstShotCount>
+									<soundCast>Shot_ChargeBlaster</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>12.870</power>
+									<cooldownTime>2.210</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>RM_Bullet_ReinforcedChargeLMG_Bond</defName>
+							<label>charge shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/Charge_Small</texPath>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>10</damageAmountBase>
+								<speed>90</speed>
+							</projectile>
+						</ThingDef>
+
+						<!-- RM_Gun_ChargeLanceRevolver_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+							<defName>RM_Gun_ChargeLanceRevolver_Bond</defName>
+							<label>persona charge lance revolver</label>
+							<description>A small pulse-charged rail-assisted lance revolver. It fires a single small projectile at high velocity, charging it with unstable energy as it leaves the acceleration rail.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<techLevel>Spacer</techLevel>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/MechanoidLanceRevolver</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeLance</soundInteract>
+							<statBases>
+								<Mass>2.2</Mass>
+								<AccuracyTouch>0.660</AccuracyTouch>
+								<AccuracyShort>0.715</AccuracyShort>
+								<AccuracyMedium>0.770</AccuracyMedium>
+								<AccuracyLong>0.396</AccuracyLong>
+								<RangedWeapon_Cooldown>1.870</RangedWeapon_Cooldown>
+							</statBases>
+							<weaponTags>
+								<li>SpacerGun</li>
+							</weaponTags>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>RM_Bullet_ChargeLanceRevolver_Bond</defaultProjectile>
+									<warmupTime>0.765</warmupTime>
+									<range>26.9</range>
+									<soundCast>ChargeLance_Fire</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9.900</power>
+									<cooldownTime>1.700</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>RM_Bullet_ChargeLanceRevolver_Bond</defName>
+							<label>charge lance shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/ChargeLanceShot</texPath>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>18</damageAmountBase>
+								<stoppingPower>0.7</stoppingPower>
+								<speed>100</speed>
+							</projectile>
+						</ThingDef>
+
+						<!-- RM_Gun_ChargeLanceRifle_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+							<defName>RM_Gun_ChargeLanceRifle_Bond</defName>
+							<label>persona charge lance rifle</label>
+							<description>An ergonomic pulse-charged rail-assisted lance rifle. It fires a single accurate shot at high velocity, charging it with unstable energy as it leaves the acceleration rail.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<techLevel>Spacer</techLevel>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/MechanoidLanceRifle</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeLance</soundInteract>
+							<equippedAngleOffset>45</equippedAngleOffset>
+							<statBases>
+								<Mass>7</Mass>
+								<AccuracyTouch>0.660</AccuracyTouch>
+								<AccuracyShort>0.880</AccuracyShort>
+								<AccuracyMedium>0.935</AccuracyMedium>
+								<AccuracyLong>0.880</AccuracyLong>
+								<RangedWeapon_Cooldown>2.720</RangedWeapon_Cooldown>
+							</statBases>
+							<weaponTags>
+								<li>SpacerGun</li>
+							</weaponTags>
+							<weaponClasses>
+								<li>RangedHeavy</li>
+							</weaponClasses>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>RM_Bullet_ChargeLanceRifle_Bond</defaultProjectile>
+									<warmupTime>1.870</warmupTime>
+									<range>35.9</range>
+									<soundCast>ChargeLance_Fire</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>9</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9.900</power>
+									<cooldownTime>1.700</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>RM_Bullet_ChargeLanceRifle_Bond</defName>
+							<label>charge lance shot</label>
+							<graphicData>
+								<texPath>Things/Projectile/ChargeLanceShot</texPath>
+								<shaderType>TransparentPostLight</shaderType>
+								<drawSize>1.5</drawSize>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>35</damageAmountBase>
+								<stoppingPower>1.7</stoppingPower>
+								<speed>120</speed>
+							</projectile>
+						</ThingDef>
+
+						<!-- RM_Gun_ReinforcedCoilPistol_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+							<defName>RM_Gun_ReinforcedCoilPistol_Bond</defName>
+							<label>persona reinforced coil pistol</label>
+							<description>A reinforced short-range tesla-coil pistol used by mechanoids. It shoots a burst of lighting projectiles, stunning and lightly burning their target before jumping to the next, capable of causing damage to multiple targets with each shot.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<techLevel>Spacer</techLevel>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/MechanoidCoilPistol</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeLance</soundInteract>
+							<statBases>
+								<Mass>1.6</Mass>
+								<AccuracyTouch>0.770</AccuracyTouch>
+								<AccuracyShort>0.660</AccuracyShort>
+								<AccuracyMedium>0.550</AccuracyMedium>
+								<AccuracyLong>0.385</AccuracyLong>
+								<RangedWeapon_Cooldown>1.615</RangedWeapon_Cooldown>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>RM_Bullet_ReinforcedCoilPistol_Bond</defaultProjectile>
+									<warmupTime>0.425</warmupTime>
+									<range>24.9</range>
+									<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+									<burstShotCount>3</burstShotCount>
+									<soundCast>Shot_ChargeBlaster</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>10</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9.900</power>
+									<cooldownTime>1.700</cooldownTime>
+								</li>
+								<li>
+									<label>blade</label>
+									<capacities>
+										<li>Cut</li>
+										<li>Stab</li>
+										<li>Poke</li>
+									</capacities>
+									<power>7.700</power>
+									<cooldownTime>1.275</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>RM_Bullet_ReinforcedCoilPistol_Bond</defName>
+							<label>lightning bolt</label>
+							<thingClass>VFEMech.TeslaProjectile</thingClass>
+							<graphicData>
+								<texPath>Projectile/Lightning</texPath>
+								<graphicClass>Graphic_Flicker</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Stun</damageDef>
+								<damageAmountBase>3</damageAmountBase>
+								<speed>100</speed>
+							</projectile>
+							<modExtensions>
+								<li Class="VFEMech.TeslaChainingProps">
+									<maxBounceCount>1</maxBounceCount>
+									<damageDef>Flame</damageDef>
+									<explosionDamageDef>Smoke</explosionDamageDef>
+									<impactRadius>0.5</impactRadius>
+									<targetFriendly>false</targetFriendly>
+									<addFire>false</addFire>
+									<bounceRange>2</bounceRange>
+									<maxLifetime>15</maxLifetime>
+								</li>
+							</modExtensions>
+						</ThingDef>
+
+						<!-- RM_ReinforcedCoilRifle_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+							<defName>RM_ReinforcedCoilRifle_Bond</defName>
+							<label>persona reinforced coil rifle</label>
+							<description>A reinforced tesla-coil based rifle used by mechanoids. It shoots lighting projectiles, stunning and burning their target before jumping to the next, capable of causing damage to multiple targets with each shot.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<techLevel>Spacer</techLevel>
+							<graphicData>
+								<texPath>Things/Item/Equipment/WeaponRanged/MechanoidCoilRifle</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+							</graphicData>
+							<soundInteract>Interact_ChargeLance</soundInteract>
+							<statBases>
+								<Mass>5.5</Mass>
+								<AccuracyTouch>0.935</AccuracyTouch>
+								<AccuracyShort>0.935</AccuracyShort>
+								<AccuracyMedium>0.880</AccuracyMedium>
+								<AccuracyLong>0.770</AccuracyLong>
+								<RangedWeapon_Cooldown>2.550</RangedWeapon_Cooldown>
+							</statBases>
+							<equippedAngleOffset>45</equippedAngleOffset>
+							<equippedStatOffsets>
+								<MoveSpeed>-0.15</MoveSpeed>
+							</equippedStatOffsets>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>RM_Bullet_ReinforcedCoilRifle_Bond</defaultProjectile>
+									<warmupTime>0.850</warmupTime>
+									<range>32.9</range>
+									<soundCast>Shot_ChargeBlaster</soundCast>
+									<soundCastTail>GunTail_Medium</soundCastTail>
+									<muzzleFlashScale>13</muzzleFlashScale>
+								</li>
+							</verbs>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9.900</power>
+									<cooldownTime>1.700</cooldownTime>
+								</li>
+								<li>
+									<label>barrel</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>9.900</power>
+									<cooldownTime>1.700</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="BaseBullet">
+							<defName>RM_Bullet_ReinforcedCoilRifle_Bond</defName>
+							<label>lightning bolt</label>
+							<thingClass>VFEMech.TeslaProjectile</thingClass>
+							<graphicData>
+								<texPath>Projectile/Lightning</texPath>
+								<graphicClass>Graphic_Flicker</graphicClass>
+							</graphicData>
+							<projectile>
+								<damageDef>Burn</damageDef>
+								<damageAmountBase>3</damageAmountBase>
+								<speed>110</speed>
+							</projectile>
+							<modExtensions>
+								<li Class="VFEMech.TeslaChainingProps">
+									<maxBounceCount>2</maxBounceCount>
+									<damageDef>RM_Flame_Bond</damageDef>
+									<explosionDamageDef>Smoke</explosionDamageDef>
+									<impactRadius>0.7</impactRadius>
+									<targetFriendly>false</targetFriendly>
+									<addFire>false</addFire>
+									<bounceRange>3</bounceRange>
+									<maxLifetime>25</maxLifetime>
+								</li>
+							</modExtensions>
+						</ThingDef>
+					</value>
+				</li>
+
+				<li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+					<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+					<key>Daria40K_MightyPersonaBondForgePatch_ReinforcedMechanoidsTyrikanLine</key>
+					<defaultValue>true</defaultValue>
+					<caseFalse>
+						<!-- RM_Gun_ReinforcedInfernoCannon_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="RM_Gun_ReinforcedInfernoCannon_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="RM_Bullet_InfernoCannon_Bond"]</xpath>
+						</Operation>
+
+						<!-- RM_Gun_ReinforcedChargeLance_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="RM_Gun_ReinforcedChargeLance_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_ChargeLance_Bond"]</xpath>
+						</Operation>
+
+						<!-- RM_ReinforcedTeslaCoil_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="RM_ReinforcedTeslaCoil_Bond"]</xpath>
+						</Operation>
+
+						<!-- RM_Gun_ChargeSidearm_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="RM_Gun_ChargeSidearm_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="RM_Bullet_ChargeSidearm_Bond"]</xpath>
+						</Operation>
+
+						<!-- RM_Gun_ReinforcedChargeLMG_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="RM_Gun_ReinforcedChargeLMG_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="RM_Bullet_ReinforcedChargeLMG_Bond"]</xpath>
+						</Operation>
+
+						<!-- RM_Gun_ChargeLanceRevolver_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="RM_Gun_ChargeLanceRevolver_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="RM_Bullet_ChargeLanceRevolver_Bond"]</xpath>
+						</Operation>
+
+						<!-- RM_Gun_ChargeLanceRifle_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="RM_Gun_ChargeLanceRifle_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="RM_Bullet_ChargeLanceRifle_Bond"]</xpath>
+						</Operation>
+
+						<!-- RM_Gun_ReinforcedCoilPistol_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="RM_Gun_ReinforcedCoilPistol_Bond"]</xpath>
+						</Operation>
+
+						<!-- RM_ReinforcedCoilRifle_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="RM_ReinforcedCoilRifle_Bond"]</xpath>
+						</Operation>
+					</caseFalse>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

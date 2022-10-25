@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Vanilla XCOM Chosen Weapons =====
+
+    == Range
+    XCOM_Gun_DisruptorRifle_Bond = persona Disruptor rifle
+    XCOM_Gun_ChosenPistol_Bond = persona Darkclaw
+    XCOM_Gun_ChosenShotgun_Bond = persona Arashi
+    XCOM_Gun_ChosenSniperRifle_Bond = persona Darklance
+
+    == Melee
+    XCOM_MeleeWeapon_Katana_Bond = persona Katana
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla XCOM Chosen Weapons</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- XCOM_Gun_DisruptorRifle_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_DisruptorRifle_Bond</defName>
+                            <label>persona Disruptor rifle</label>
+                            <description>As with most who find themselves in the throes of battle, when all else failed, the Warlock would return to the conventional and strike with this relatively nondescript rifle.\n\nDespite an increase in size owning to the Chosen’s physical stature, the weapon itself is deceptively light in weight and delicate in balance.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <descriptionHyperlinks>
+                                <HediffDef>XCOM_Moving</HediffDef>
+                            </descriptionHyperlinks>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Chosen_DisruptorRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.3</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_DisruptorRifle_Bond</defaultProjectile>
+                                    <soundCast>Chosen_Rifle</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <range>24.9</range>
+                                    <warmupTime>1.488</warmupTime>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <Mass>5</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.528</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.2</RangedWeapon_Cooldown>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef Class="FlangoHediffBullets.ThingDef_HediffBullet" ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_DisruptorRifle_Bond</defName>
+                            <label>disruptor rifle shot</label>
+                            <graphicData>
+                                <texPath>Bullet_Chosen_Small</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>13</damageAmountBase>
+                                <armorPenetrationBase>0.35</armorPenetrationBase>
+                                <speed>80</speed>
+                            </projectile>
+
+                            <thingClass>FlangoHediffBullets.Projectile_SelfHediffBullet</thingClass>
+                            <AddHediffChance>1</AddHediffChance>
+                            <AddHediffSeverity>0.15</AddHediffSeverity>
+                            <HediffToAdd>XCOM_Moving</HediffToAdd>
+                        </ThingDef>
+
+                        <!-- XCOM_Gun_ChosenPistol_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_ChosenPistol_Bond</defName>
+                            <label>persona Darkclaw</label>
+                            <description>Although it would almost appear to mimic the design of traditional revolvers found on the Rim, the technology involved here is anything but conventional.\n\nHas very high armor piercing and applies rupture on targets, which increases their incoming damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <descriptionHyperlinks>
+                                <HediffDef>XCOM_Rupture</HediffDef>
+                            </descriptionHyperlinks>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Chosen_Darkclaw</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_Darkclaw_Bond</defaultProjectile>
+                                    <soundCast>Chosen_Pistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <range>22.9</range>
+                                    <warmupTime>0.935</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <Mass>3</Mass>
+                                <AccuracyTouch>0.957</AccuracyTouch>
+                                <AccuracyShort>0.88</AccuracyShort>
+                                <AccuracyMedium>0.616</AccuracyMedium>
+                                <AccuracyLong>0.484</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.76</RangedWeapon_Cooldown>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef Class="FlangoHediffBullets.ThingDef_HediffBullet" ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_Darkclaw_Bond</defName>
+                            <label>darkclaw shot</label>
+                            <graphicData>
+                                <texPath>Bullet_Chosen_Small</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>13</damageAmountBase>
+                                <armorPenetrationBase>0.75</armorPenetrationBase>
+                                <speed>80</speed>
+                            </projectile>
+
+                            <thingClass>FlangoHediffBullets.Projectile_HediffBullet</thingClass>
+                            <AddHediffChance>1</AddHediffChance>
+                            <HediffToAdd>XCOM_Rupture</HediffToAdd>
+                            <AddHediffSeverity>0.15</AddHediffSeverity>
+                        </ThingDef>
+
+                        <!-- XCOM_Gun_ChosenShotgun_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_ChosenShotgun_Bond</defName>
+                            <label>persona Arashi</label>
+                            <description>The shotgun, used primarily as a secondary weapon by the Assassin, is elegant in its simplicity and adherence to a singular purpose. Built upon an advanced composite frame, in close quarters the unique design is nearly unmatched by any other projectile weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <descriptionHyperlinks>
+                                <HediffDef>XCOM_Vampirism</HediffDef>
+                            </descriptionHyperlinks>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Chosen_Arashi</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.1</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_ChosenShotgun_Bond</defaultProjectile>
+                                    <soundCast>Chosen_Shotgun</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <range>23.9</range>
+                                    <warmupTime>1.062</warmupTime>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <Mass>4</Mass>
+                                <AccuracyTouch>1.023</AccuracyTouch>
+                                <AccuracyShort>0.957</AccuracyShort>
+                                <AccuracyMedium>0.726</AccuracyMedium>
+                                <AccuracyLong>0.572</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.98</RangedWeapon_Cooldown>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef Class="FlangoHediffBullets.ThingDef_HediffBullet" ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_ChosenShotgun_Bond</defName>
+                            <label>arashi shot</label>
+                            <graphicData>
+                                <texPath>Bullet_Chosen_Shotgun</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>31</damageAmountBase>
+                                <armorPenetrationBase>0.50</armorPenetrationBase>
+                                <stoppingPower>3</stoppingPower>
+                                <speed>80</speed>
+                            </projectile>
+
+                            <thingClass>FlangoHediffBullets.Projectile_SelfHediffBullet</thingClass>
+                            <AddHediffChance>1</AddHediffChance>
+                            <HediffToAdd>XCOM_Vampirism</HediffToAdd>
+                            <AddHediffSeverity>0.4</AddHediffSeverity>
+                        </ThingDef>
+
+                        <!-- XCOM_Gun_ChosenSniperRifle_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>XCOM_Gun_ChosenSniperRifle_Bond</defName>
+                            <label>persona Darklance</label>
+                            <description>Visually striking for its lean, sleek appearance, this prized rifle is a testament to the true potential in refining a system down to its purest form.\n\nAt its core, the Hunter’s rifle is a magnetic weapon, although with a substantial increase to the kinetic projectiles’ velocity, lightweight body and an advanced targeting system integrated into the rifle’s scope.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <descriptionHyperlinks>
+                                <HediffDef>XCOM_Accuracy</HediffDef>
+                            </descriptionHyperlinks>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Chosen_Darklance</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.3</drawSize>
+                                <drawOffsetSouth>(0.0, 0.0, -0.05)</drawOffsetSouth>
+                                <drawOffsetWest>(-0.25, 0.0, 0.05)</drawOffsetWest>
+                                <drawOffsetEast>(0.25, 0.0, 0.05)</drawOffsetEast>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>XCOM_Bullet_Darklance_Bond</defaultProjectile>
+                                    <soundCast>Chosen_SniperRifle</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <warmupTime>2.125</warmupTime>
+                                    <range>41.9</range>
+                                </li>
+                            </verbs>
+                            <equippedAngleOffset>40</equippedAngleOffset>
+                            <statBases>
+                                <Mass>6</Mass>
+                                <AccuracyTouch>0.55</AccuracyTouch>
+                                <AccuracyShort>0.759</AccuracyShort>
+                                <AccuracyMedium>0.979</AccuracyMedium>
+                                <AccuracyLong>1.023</AccuracyLong>
+                                <RangedWeapon_Cooldown>3.575</RangedWeapon_Cooldown>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.1</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef Class="FlangoHediffBullets.ThingDef_HediffBullet" ParentName="MPBFPM_Bullet">
+                            <defName>XCOM_Bullet_Darklance_Bond</defName>
+                            <label>darklance shot</label>
+                            <graphicData>
+                                <texPath>Bullet_Chosen_Big</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>38</damageAmountBase>
+                                <armorPenetrationBase>0.6</armorPenetrationBase>
+                                <speed>120</speed>
+                            </projectile>
+
+                            <thingClass>FlangoHediffBullets.Projectile_SelfHediffBullet</thingClass>
+                            <AddHediffChance>1</AddHediffChance>
+                            <HediffToAdd>XCOM_Accuracy</HediffToAdd>
+                            <AddHediffSeverity>0.4</AddHediffSeverity>
+                        </ThingDef>
+
+                        <!-- XCOM_MeleeWeapon_Katana_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality">
+                            <defName>XCOM_MeleeWeapon_Katana_Bond</defName>
+                            <label>persona Katana</label>
+                            <description>The prized weapon of the Chosen Assassin, forged by hands not of this earth. It is said to never miss its intended target.\n\nHas very high armor piercing and provides additional melee hit accuracy.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <descriptionHyperlinks>
+                                <HediffDef>XCOM_AntiDodge</HediffDef>
+                            </descriptionHyperlinks>
+                            <graphicData>
+                                <texPath>Chosen_Katana</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.2</drawSize>
+                            </graphicData>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>SpacerMelee</li>
+                                <li>LongSword</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>1.5</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-25</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MeleeHitChance>10</MeleeHitChance>
+                            </equippedStatOffsets>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.1</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>KatanaStab</li>
+                                    </capacities>
+                                    <power>27.5</power>
+                                    <armorPenetration>0.99</armorPenetration>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>KatanaCut</li>
+                                    </capacities>
+                                    <power>27.5</power>
+                                    <armorPenetration>0.77</armorPenetration>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_VanillaXCOMChosenWeapons</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- XCOM_Gun_DisruptorRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_DisruptorRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_DisruptorRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_ChosenPistol_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_ChosenPistol_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_Darkclaw_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_ChosenShotgun_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_ChosenShotgun_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_ChosenShotgun_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_Gun_ChosenSniperRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Gun_ChosenSniperRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_Bullet_Darklance_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- XCOM_MeleeWeapon_Katana_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="XCOM_MeleeWeapon_Katana_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

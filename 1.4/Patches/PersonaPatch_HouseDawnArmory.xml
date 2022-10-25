@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ===== House Dawn Armory ===== == Melee
+	HDA_Longsword_Bond = persona LS-04 Mantis == Range
+	HDA_ChainShotgun_Bond = persona HSG-02 Mammoth
+	HDA_HeavySMG_Bond = persona HSMG-05 Barracuda
+	HDA_Revolver_Bond = persona SR-01 Elephant
+	HDA_RocketLauncher_Bond = persona ML-08 Panther
+-->
+<Patch>
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>House Dawn Armory</li>
+		</mods>
+
+		<match Class="PatchOperationSequence">
+			<success>Always</success>
+			<operations>
+				<li Class="PatchOperationAdd">
+					<xpath>/Defs</xpath>
+					<value>
+						<!-- ===== Meele ===== -->
+						<!-- MANTIS LONGSWORD -->
+						<ThingDef ParentName="MPBFPM_MeleeWeaponUltratech">
+							<defName>HDA_Longsword_Bond</defName>
+							<label>persona LS-04 Mantis</label>
+							<description>The LS-04 Mantis is an advanced warblade designed and manufactured by House Dawn. This model features a mono-edge blade maintained by nanites. Additionally, the blood channels contain specialized nanites that release anticoagulants into the wound while simultaneously consuming blood and flesh alike to maintain the sword’s energy levels. The Mantis serves as the primary tool of war of the House Dawn Blademasters. It fulfills a utilitarian role in addition to having a near sacred significance.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<soundInteract>Interact_MonoSword</soundInteract>
+							<meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+							<equippedAngleOffset>20</equippedAngleOffset>
+							<weaponClasses>
+								<li>MeleePiercer</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>3.25</Mass>
+								<MarketValue>1500</MarketValue>
+							</statBases>
+							<graphicData>
+								<texPath>Things/HouseDawnArmory/Weapons/HDA_Longsword</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>1.5</drawSize>
+							</graphicData>
+							<tools>
+								<li>
+									<label>point</label>
+									<capacities>
+										<li>Stab</li>
+									</capacities>
+									<power>17</power>
+									<cooldownTime>1.19</cooldownTime>
+									<armorPenetration>1.1</armorPenetration>
+								</li>
+								<li>
+									<label>edge</label>
+									<capacities>
+										<li>Cut</li>
+									</capacities>
+									<power>24</power>
+									<cooldownTime>1.02</cooldownTime>
+									<armorPenetration>0.77</armorPenetration>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<!-- ===== Range ===== -->
+						<!-- HDA_ChainShotgun_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+							<defName>HDA_ChainShotgun_Bond</defName>
+							<label>persona HSG-02 Mammoth</label>
+							<description>The HSG-02 Mammoth is a belt fed fully automatic slug thrower designed and manufactured by House Dawn. This model fires 25mm depleted uranium slugs. The Mammoth saw extensive use throughout the mechanoid wars, primarily as a counter to the heavy armor plating on Centipedes.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/HouseDawnArmory/Weapons/HDA_ChainShotgun</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<drawSize>1.5</drawSize>
+								<shaderType>Transparent</shaderType>
+							</graphicData>
+							<soundInteract>Interact_Shotgun</soundInteract>
+							<weaponClasses>
+								<li>RangedHeavy</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>10</Mass>
+								<AccuracyTouch>0.77</AccuracyTouch>
+								<AccuracyShort>0.715
+								</AccuracyShort>
+								<AccuracyMedium>0.495
+								</AccuracyMedium>
+								<AccuracyLong>0.165
+								</AccuracyLong>
+								<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+								<MarketValue>2500</MarketValue>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_HDA_ChainShotgun_Bond</defaultProjectile>
+									<warmupTime>1.275</warmupTime>
+									<range>25</range>
+									<burstShotCount>4</burstShotCount>
+									<ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+									<soundCast>Shot_Autocannon</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>12</muzzleFlashScale>
+								</li>
+							</verbs>
+							<weaponTags>
+								<li>SpacerGun</li>
+							</weaponTags>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>9</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>13</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>Bullet_HDA_ChainShotgun_Bond</defName>
+							<label>Mammoth Slug</label>
+							<graphicData>
+								<texPath>Things/HouseDawnArmory/Projectile/HDA_SlugBig</texPath>
+							</graphicData>
+							<projectile>
+								<damageDef>HDA_Slug</damageDef>
+								<damageAmountBase>22</damageAmountBase>
+								<stoppingPower>4</stoppingPower>
+								<armorPenetrationBase>0.6</armorPenetrationBase>
+								<speed>55</speed>
+							</projectile>
+						</ThingDef>
+
+						<!-- HDA_HeavySMG_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+							<defName>HDA_HeavySMG_Bond</defName>
+							<label>persona HSMG-05 Barracuda</label>
+							<description>The HSMG-05 Barracuda fully automatic submachine gun designed and manufactured by House Dawn. This model fires magnetically assisted steel core flechette rounds at a blistering rate. The Barracuda is a general purpose weapon, and has seen use in many wars and operations.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/HouseDawnArmory/Weapons/HDA_HeavySMG</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>Transparent</shaderType>
+							</graphicData>
+							<soundInteract>Interact_SMG</soundInteract>
+							<weaponClasses>
+								<li>RangedLight</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>5</Mass>
+								<AccuracyTouch>0.66</AccuracyTouch>
+								<AccuracyShort>0.715</AccuracyShort>
+								<AccuracyMedium>0.385</AccuracyMedium>
+								<AccuracyLong>0.165</AccuracyLong>
+								<RangedWeapon_Cooldown>1.530</RangedWeapon_Cooldown>
+								<MarketValue>1250</MarketValue>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_HDA_HeavySMG_Bond</defaultProjectile>
+									<warmupTime>0.680</warmupTime>
+									<range>22.9</range>
+									<burstShotCount>7</burstShotCount>
+									<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+									<soundCast>Shot_MachinePistol</soundCast>
+									<soundCastTail>GunTail_Light</soundCastTail>
+									<muzzleFlashScale>6</muzzleFlashScale>
+								</li>
+							</verbs>
+							<weaponTags>
+								<li>SpacerGun</li>
+							</weaponTags>
+							<tools>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>7</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+								<li>
+									<label>stock</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>8</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>Bullet_HDA_HeavySMG_Bond</defName>
+							<label>Barracuda Bullet</label>
+							<graphicData>
+								<texPath>Things/HouseDawnArmory/Projectile/HDA_Flechette</texPath>
+							</graphicData>
+							<projectile>
+								<damageDef>Bullet</damageDef>
+								<damageAmountBase>9</damageAmountBase>
+								<armorPenetrationBase>0.25</armorPenetrationBase>
+								<speed>70</speed>
+							</projectile>
+						</ThingDef>
+
+						<!-- HDA_Revolver_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+							<defName>HDA_Revolver_Bond</defName>
+							<label>persona SR-01 Elephant</label>
+							<description>The SR-01 Elephant is a double action slug throwing revolver designed and manufactured by House Dawn. This model fires 15mm depleted uranium slugs. The Elephant saw extensive use in hive busting operations, where its high armor penetration and small size made it excell in hunting insectoids through narrow tunnels deep underground.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/HouseDawnArmory/Weapons/HDA_Revolver</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>Transparent</shaderType>
+							</graphicData>
+							<soundInteract>Interact_Shotgun</soundInteract>
+							<weaponClasses>
+								<li>RangedLight</li>
+							</weaponClasses>
+							<statBases>
+								<Mass>2.5</Mass>
+								<AccuracyTouch>0.77</AccuracyTouch>
+								<AccuracyShort>0.88</AccuracyShort>
+								<AccuracyMedium>0.715</AccuracyMedium>
+								<AccuracyLong>0.165</AccuracyLong>
+								<RangedWeapon_Cooldown>1.190</RangedWeapon_Cooldown>
+								<MarketValue>1000</MarketValue>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_HDA_Revolver_Bond</defaultProjectile>
+									<warmupTime>0.340</warmupTime>
+									<range>19.9</range>
+									<soundCast>Shot_Autocannon</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>12</muzzleFlashScale>
+								</li>
+							</verbs>
+							<weaponTags>
+								<li>SpacerGun</li>
+								<li>Revolver</li>
+							</weaponTags>
+							<tools>
+								<li>
+									<label>Grip</label>
+									<capacities>
+										<li>Blunt</li>
+										<li>Poke</li>
+									</capacities>
+									<power>12</power>
+									<cooldownTime>1.8</cooldownTime>
+								</li>
+							</tools>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>Bullet_HDA_Revolver_Bond</defName>
+							<label>Elephant Slug</label>
+							<graphicData>
+								<texPath>Things/HouseDawnArmory/Projectile/HDA_SlugSmall</texPath>
+							</graphicData>
+							<projectile>
+								<damageDef>HDA_Slug</damageDef>
+								<damageAmountBase>17</damageAmountBase>
+								<stoppingPower>4</stoppingPower>
+								<armorPenetrationBase>0.5</armorPenetrationBase>
+								<speed>60</speed>
+							</projectile>
+						</ThingDef>
+
+						<!-- HDA_RocketLauncher_Bond -->
+						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+							<defName>HDA_RocketLauncher_Bond</defName>
+							<label>persona ML-08 Panther</label>
+							<description>The ML-08 Panther is an advanced missile platform designed and manufactured by House Dawn. This model fires two lock-on 30mm antigrain missiles. The Panther saw extensive use in the mechanoid wars, primarily to rapidly and explosively dismantle mechanoid ships and clusters alike. Although this weapon has unlimited uses, it takes time to lock on to targets and an even longer time to reload after firing.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+							<graphicData>
+								<texPath>Things/HouseDawnArmory/Weapons/HDA_RocketLauncher</texPath>
+								<graphicClass>Graphic_Single</graphicClass>
+								<shaderType>Transparent</shaderType>
+								<drawSize>1.5</drawSize>
+							</graphicData>
+							<soundInteract>Interact_Rifle</soundInteract>
+							<weaponClasses>
+								<li>RangedHeavy</li>
+							</weaponClasses>
+
+							<statBases>
+								<Mass>12</Mass>
+								<AccuracyTouch>1</AccuracyTouch>
+								<AccuracyShort>1</AccuracyShort>
+								<AccuracyMedium>1</AccuracyMedium>
+								<AccuracyLong>1</AccuracyLong>
+								<RangedWeapon_Cooldown>10.2</RangedWeapon_Cooldown>
+								<MarketValue>4000</MarketValue>
+							</statBases>
+							<verbs>
+								<li>
+									<verbClass>Verb_Shoot</verbClass>
+									<hasStandardCommand>true</hasStandardCommand>
+									<defaultProjectile>Bullet_HDA_RocketLauncher_Bond</defaultProjectile>
+									<warmupTime>6</warmupTime>
+									<forcedMissRadius>0.1</forcedMissRadius>
+									<burstShotCount>2</burstShotCount>
+									<ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+									<range>41</range>
+									<soundCast>Shot_IncendiaryLauncher</soundCast>
+									<soundCastTail>GunTail_Heavy</soundCastTail>
+									<muzzleFlashScale>20</muzzleFlashScale>
+									<targetParams>
+										<canTargetLocations>true</canTargetLocations>
+									</targetParams>
+									<ai_AvoidFriendlyFireRadius>12</ai_AvoidFriendlyFireRadius>
+								</li>
+							</verbs>
+							<weaponTags>
+								<li>SpacerGun</li>
+							</weaponTags>
+							<tools>
+								<li>
+									<label>Club</label>
+									<capacities>
+										<li>Blunt</li>
+									</capacities>
+									<power>19</power>
+									<cooldownTime>4.5</cooldownTime>
+								</li>
+							</tools>
+							<comps>
+								<li Class="CompProperties_Explosive">
+									<explosiveRadius>12</explosiveRadius>
+									<explosiveDamageType>HDA_PantherMissile</explosiveDamageType>
+									<requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+								</li>
+								<li Class="CompProperties_Biocodable"/>
+							</comps>
+						</ThingDef>
+
+						<ThingDef ParentName="MPBFPM_BaseBullet">
+							<defName>Bullet_HDA_RocketLauncher_Bond</defName>
+							<label>Panther Missile</label>
+							<graphicData>
+								<texPath>Things/HouseDawnArmory/Projectile/HDA_Antigrain</texPath>
+								<shaderType>TransparentPostLight</shaderType>
+							</graphicData>
+							<thingClass>Projectile_Explosive</thingClass>
+							<projectile>
+								<damageDef>HDA_PantherMissile</damageDef>
+								<explosionRadius>8.5</explosionRadius>
+								<speed>35</speed>
+								<explosionDamageFalloff>true</explosionDamageFalloff>
+								<explosionEffect>GiantExplosion</explosionEffect>
+							</projectile>
+						</ThingDef>
+					</value>
+				</li>
+
+				<li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+					<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+					<key>Daria40K_MightyPersonaBondForgePatch_HouseDawnArmory</key>
+					<defaultValue>true</defaultValue>
+					<caseFalse>
+						<!-- HDA_Longsword_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HDA_Longsword_Bond"]</xpath>
+						</Operation>
+
+						<!-- HDA_ChainShotgun_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HDA_ChainShotgun_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_HDA_ChainShotgun_Bond"]</xpath>
+						</Operation>
+
+						<!-- HDA_HeavySMG_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HDA_HeavySMG_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_HDA_HeavySMG_Bond"]</xpath>
+						</Operation>
+
+						<!-- HDA_Revolver_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HDA_Revolver_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_HDA_Revolver_Bond"]</xpath>
+						</Operation>
+
+						<!-- HDA_RocketLauncher_Bond -->
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="HDA_RocketLauncher_Bond"]</xpath>
+						</Operation>
+
+						<Operation Class="XmlExtensions.PatchOperationRemove">
+							<xpath>Defs/ThingDef[defName="Bullet_HDA_RocketLauncher_Bond"]</xpath>
+						</Operation>
+					</caseFalse>
+				</li>
+			</operations>
+		</match>
+	</Operation>
+</Patch>

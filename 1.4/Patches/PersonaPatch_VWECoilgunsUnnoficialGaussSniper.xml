@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== VWE Coilguns - Unnoficial Gauss Sniper =====
+
+    == Range
+	VWE_Gun_GaussSniper_Bond = persona gauss sniper
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>VWE Coilguns - Unnoficial Gauss Sniper</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- ===== Range ===== -->
+                        <!-- VWE_Gun_GaussSniper_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>VWE_Gun_GaussSniper_Bond</defName>
+                            <label>persona gauss sniper</label>
+                            <description>A spacer-tech gauss sniper. A series of electromagnetic coils catapult a single shot at hypervelocity, shredding armor and punching through any targets in its path.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Coilgun_01</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.1</drawSize>
+                            </graphicData>
+                            <soundInteract>VWE_Interact_GaussRifle</soundInteract>
+                            <statBases>
+                                <Mass>7</Mass>
+                                <AccuracyTouch>0.330</AccuracyTouch>
+                                <AccuracyShort>0.605</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>1.045</AccuracyLong>
+                                <RangedWeapon_Cooldown>6.375</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                                <li>Coilgun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>VWE_Bullet_Gausssniper_Bond</defaultProjectile>
+                                    <soundAiming>coilgun_charge</soundAiming>
+                                    <warmupTime>0.765</warmupTime>
+                                    <range>44.9</range>
+                                    <soundCast>coilgun_fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                        <canTargetPawns>true</canTargetPawns>
+                                        <canTargetBuildings>true</canTargetBuildings>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.870</power>
+                                    <cooldownTime>2.210</cooldownTime>
+                                </li>
+                            </tools>
+                            <equippedAngleOffset>53</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.25</MoveSpeed>                                <!-- drawback -->
+                            </equippedStatOffsets>
+                            <comps>
+                                <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+                                    <eastOffset>(0,0,-0.18)</eastOffset>
+                                    <westOffset>(0,0,-0.18)</westOffset>
+                                    <southOffset>(0,0,-0.18)</southOffset>
+                                    <northOffset>(0,0,-0.18)</northOffset>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <VFECore.ExpandableProjectileDef ParentName="MPBFPM_VWECoilgunsBullet">
+                            <defName>VWE_Bullet_Gausssniper_Bond</defName>
+                            <label>gauss sniper sabot</label>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>44</damageAmountBase>
+                                <armorPenetrationBase>0.70</armorPenetrationBase>
+                                <stoppingPower>1.0</stoppingPower>
+                                <speed>150</speed>
+                            </projectile>
+                        </VFECore.ExpandableProjectileDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_VWECoilgunsUnnoficialGaussSniper</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- VWE_Gun_GaussSniper_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VWE_Gun_GaussSniper_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VWE_Bullet_Gausssniper_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

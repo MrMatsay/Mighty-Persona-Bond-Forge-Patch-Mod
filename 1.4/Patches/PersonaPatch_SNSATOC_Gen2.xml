@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Science Never Stops: Ambition of the Cosmic =====
+
+    == Range
+    SNS_Pistol_GenII_Bond = persona cosmic pistol
+    SNS_Rifle_GenII_Bond = persona cosmic rifle
+    SNS_Shotgun_GenII_Bond = persona cosmic shotgun
+    SNS_Sniper_GenII_Bond = persona cosmic sniper
+    SNS_CosmicLance_Bond = persona handheld cosmic lance
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Science Never Stops: Ambition of the Cosmic</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- ===== Range ===== -->
+                        <ThingDef Name="MPBFPM_SNSATOCG2Base" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <techLevel>Archotech</techLevel>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <statBases>
+                                <DeteriorationRate>0</DeteriorationRate>
+                                <Beauty>12</Beauty>
+                                <Flammability>0.0</Flammability>
+                            </statBases>
+                            <graphicData>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                        </ThingDef>
+
+                        <!-- SNS_Pistol_GenII_Bond -->
+                        <ThingDef ParentName="MPBFPM_SNSATOCG2Base">
+                            <defName>SNS_Pistol_GenII_Bond</defName>
+                            <label>persona cosmic pistol</label>
+                            <description>An advanced pistol that shoots low-energy Cosmic Matter at suprising velocities. Neglibible recoil and unexpected accuracy.\n\nThe cosmic pistol can be rarely seen on ultra-rich Glitterworlds by the highest classes of military personnel for its extreme reliability, lethality, and cost. It is also used by higher-class military personnel or special operations units by Cosmic Empire militaries.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen2/Pistol</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Revolver</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>250</MaxHitPoints>
+                                <Mass>0.3</Mass>
+                                <AccuracyTouch>0.95</AccuracyTouch>
+                                <AccuracyShort>0.85</AccuracyShort>
+                                <AccuracyMedium>0.70</AccuracyMedium>
+                                <AccuracyLong>0.60</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.30</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_Pistol_GenII_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>0.10</warmupTime>
+                                    <range>35</range>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>8</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>SNS_Pistol_GenII_Bullet_Bond</defName>
+                            <label>cosmic pistol projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen2/Bullet_Pistol</texPath>
+                            </graphicData>
+                            <projectile>
+                                <flyOverhead>false</flyOverhead>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>16</damageAmountBase>
+                                <armorPenetrationBase>0.9</armorPenetrationBase>
+                                <speed>150</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- SNS_Rifle_GenII_Bond -->
+                        <ThingDef ParentName="MPBFPM_SNSATOCG2Base">
+                            <defName>SNS_Rifle_GenII_Bond</defName>
+                            <label>persona cosmic rifle</label>
+                            <description>A fully automatic rifle that propels low-energy Cosmic Matter at extreme velocities, without producing any recoil whatsoever. Its projectiles are the weakest of cosmic weapons, but its firerate is more than enough to compensate.\n\nThe cosmic rifle can be rarely seen on ultra-rich Glitterworlds by the highest classes of military personnel for its extreme reliability, lethality, and cost. It is also used by higher-class military personnel or special operations units by Cosmic Empire militaries.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen2/Rifle</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>400</MaxHitPoints>
+                                <Mass>0.6</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>0.825</AccuracyMedium>
+                                <AccuracyLong>0.715</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.6375</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_Rifle_GenII_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>0.2125</warmupTime>
+                                    <range>50</range>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <burstShotCount>6</burstShotCount>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>10</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>SNS_Rifle_GenII_Bullet_Bond</defName>
+                            <label>persona ccosmic rifle projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen2/Bullet_Rifle</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>12</damageAmountBase>
+                                <armorPenetrationBase>0.6</armorPenetrationBase>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- SNS_Shotgun_GenII_Bond -->
+                        <ThingDef ParentName="MPBFPM_SNSATOCG2Base">
+                            <defName>SNS_Shotgun_GenII_Bond</defName>
+                            <label>persona cosmic shotgun</label>
+                            <description>An advanced shotgun that fires a devastating clump of high-energy plasma projectiles that excel at obliterating armor. While its range is unarguably terrible (as to be expected from a shotgun), its power and armor-shattering properties are more than enough compensation.\n\nThe cosmic shotgun can be rarely seen on ultra-rich Glitterworlds by the highest classes of military personnel for its extreme reliability, lethality, and cost. It is also used by higher-class military personnel or special operations units by Cosmic Empire militaries.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen2/Shotgun</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>500</MaxHitPoints>
+                                <Mass>1.0</Mass>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>1.045</AccuracyShort>
+                                <AccuracyMedium>0.495</AccuracyMedium>
+                                <AccuracyLong>0.11</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.17</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_Shotgun_GenII_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>0.34</warmupTime>
+                                    <range>20</range>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>Guntail_Medium</soundCastTail>
+                                    <muzzleFlashScale>13</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>SNS_Shotgun_GenII_Bullet_Bond</defName>
+                            <label>cosmic shotgun projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen2/Bullet_Shotgun_Clump</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>138</damageAmountBase>
+                                <armorPenetrationBase>1.5</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- SNS_Sniper_GenII_Bond -->
+                        <ThingDef ParentName="MPBFPM_SNSATOCG2Base">
+                            <defName>SNS_Sniper_GenII_Bond</defName>
+                            <label>persona cosmic sniper</label>
+                            <description>An advanced high-power sniper made from Cosmic Alloy. Will leave a red mist wherever it hits, even if it doesn't kill the target in a single shot. Almost always hits its shots at long ranges. Takes a while to load and shoot, but one shot is all you will ever need.\n\nThe cosmic sniper can be rarely seen on ultra-rich Glitterworlds by the highest classes of military personnel for its extreme reliability, lethality, and cost. It is also used by higher-class military personnel or special operations units by Cosmic Empire militaries.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen2/Sniper</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>600</MaxHitPoints>
+                                <Mass>1.0</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>0.99</AccuracyMedium>
+                                <AccuracyLong>1.045</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.4875</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_Sniper_GenII_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>1.4875</warmupTime>
+                                    <range>100</range>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>13</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef Name="SNS_Projectile_CosmicSniperBullet" ParentName="MPBFPM_BaseBullet">
+                            <defName>SNS_Sniper_GenII_Bullet_Bond</defName>
+                            <label>cosmic sniper projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen2/Bullet_Sniper</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>92
+                                </damageAmountBase>
+                                <armorPenetrationBase>1.25</armorPenetrationBase>
+                                <speed>250</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- SNS_CosmicLance_Bond -->
+                        <ThingDef ParentName="MPBFPM_SNSATOCG2Base">
+                            <defName>SNS_CosmicLance_Bond</defName>
+                            <label>persona handheld cosmic lance</label>
+                            <description>A weapon made of pure Cosmic Alloy, further supercharged with pure Cosmic Matter, the Handheld Cosmic Lance is a miniature version of the Cosmic Lance, a supermassive ship weapon. It charges slowly and takes a long time to cool down between shots, but is able to utterly devastate whatever its projectiles hit. Few things are able to withstand more than a single shot from the Lance.\n\nWhile it excels at long range and extremely close range, it is highly inconsistent at medium ranges. Care should be taken with the Lance since its explosions can accidentially destroy things.\n\nThe full-sized ship weapon Cosmic Lance is both extremely rare and feared for its ability to devastate entire planets with just a few Cosmic Lances firing down from orbit, despite it needing a long time to cool down between shots.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/SNS/Gen2/CosmicLance/CosmicLance</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MaxHitPoints>1400</MaxHitPoints>
+                                <Mass>9</Mass>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>0.88</AccuracyShort>
+                                <AccuracyMedium>0.55</AccuracyMedium>
+                                <AccuracyLong>0.99</AccuracyLong>
+                                <RangedWeapon_Cooldown>8.5</RangedWeapon_Cooldown>
+                                <Beauty>50</Beauty>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>SNS_CosmicLance_Bullet_Bond</defaultProjectile>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <forcedMissRadius>0.2</forcedMissRadius>
+                                    <warmupTime>3.4</warmupTime>
+                                    <range>120</range>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>30</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>SNS_CosmicLance_Bullet_Bond</defName>
+                            <label>Cosmic Lance projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/SNS/Gen2/Bullet_Lance</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>BombSuper</damageDef>
+                                <damageAmountBase>288</damageAmountBase>
+                                <explosionRadius>1</explosionRadius>
+                                <speed>250</speed>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_ScienceNeverStopsAmbitionoftheCosmic</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- SNS_Pistol_GenII_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Pistol_GenII_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Pistol_GenII_Bullet_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- SNS_Rifle_GenII_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Rifle_GenII_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Rifle_GenII_Bullet_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- SNS_Shotgun_GenII_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Shotgun_GenII_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Shotgun_GenII_Bullet_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- SNS_Sniper_GenII_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Sniper_GenII_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_Sniper_GenII_Bullet_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- SNS_CosmicLance_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_CosmicLance_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="SNS_CosmicLance_Bullet_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

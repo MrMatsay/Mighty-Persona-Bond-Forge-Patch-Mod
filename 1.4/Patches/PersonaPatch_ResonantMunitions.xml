@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== [M.W]Resonant Munitions =====
+
+    == Range
+    Gun_GRAVITY_GUN_Bond = persona gravity gun
+    Gun_TAU_CANNON_Bond = persona tau cannon
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>[M.W]Resonant Munitions</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- ===== Range ===== -->
+                        <!-- Gun_GRAVITY_GUN_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>Gun_GRAVITY_GUN_Bond</defName>
+                            <label>persona gravity gun</label>
+                            <description>The Gravity Gun allows the user to pick up objects several times their own weight and fire them sometimes fairly long distance. The Gravity Gun could be used as both a utility tool and offensive weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/GRAVITY_GUN</texPath>
+                                <graphicClass>Graphic_Random</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.0</uiIconScale>
+                            <soundInteract>GRAB_GG</soundInteract>
+                            <statBases>
+                                <Mass>4.2</Mass>
+                                <AccuracyTouch>0.924</AccuracyTouch>
+                                <AccuracyShort>0.924</AccuracyShort>
+                                <AccuracyMedium>0.968</AccuracyMedium>
+                                <AccuracyLong>0.891</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.530</RangedWeapon_Cooldown>
+                            </statBases>
+                            <generateCommonality>0.0</generateCommonality>
+                            <equippedStatOffsets>
+                                <MoveSpeed>+0.15</MoveSpeed>
+                                <WorkSpeedGlobal>+0.10</WorkSpeedGlobal>
+                                <ConstructionSpeed>+0.25</ConstructionSpeed>
+                                <DoorOpenSpeed>+0.15</DoorOpenSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_GG_Bond</defaultProjectile>
+                                    <warmupTime>2.253</warmupTime>
+                                    <range>32.5</range>
+                                    <soundCast>FIRE_GG</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>16</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>resonance inlet</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>flux tube</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.100</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="BaseBullet">
+                            <defName>Bullet_GG_Bond</defName>
+                            <label>flung chair</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/GG_FIRE</texPath>
+                                <graphicClass>Graphic_Flicker</graphicClass>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Blunt</damageDef>
+                                <damageAmountBase>25</damageAmountBase>
+                                <stoppingPower>3.5</stoppingPower>
+                                <speed>47</speed>
+                                <armorPenetrationBase>0.51</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <!-- Gun_TAU_CANNON_Bond -->
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>Gun_TAU_CANNON_Bond</defName>
+                            <label>persona tau cannon</label>
+                            <description>An expiremental automatic particle accelerator. This particular peice used uranium bolts to fire a hazardous beam of energy, blasting through just about any material. This particular design has no credit, no source, on any planet.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/TAU_CANNON</texPath>
+                                <graphicClass>Graphic_Random</graphicClass>
+                            </graphicData>
+                            <soundInteract>GRAB_TC</soundInteract>
+                            <statBases>
+                                <Mass>4.0</Mass>
+                                <AccuracyTouch>0.781</AccuracyTouch>
+                                <AccuracyShort>0.759</AccuracyShort>
+                                <AccuracyMedium>0.880</AccuracyMedium>
+                                <AccuracyLong>0.891</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.360</RangedWeapon_Cooldown>
+                            </statBases>
+                            <generateCommonality>0.0</generateCommonality>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_TC_Bond</defaultProjectile>
+                                    <warmupTime>1.785</warmupTime>
+                                    <range>42.2</range>
+                                    <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
+                                    <burstShotCount>5</burstShotCount>
+                                    <soundCast>FIRE_TC</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.900</power>
+                                    <cooldownTime>1.700</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Bullet_TC_Bond</defName>
+                            <label>uranium bolt</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/TC_FIRE</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>14</damageAmountBase>
+                                <armorPenetrationBase>1.25</armorPenetrationBase>
+                                <speed>115</speed>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_ResonantMunitions</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Gun_GRAVITY_GUN_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_GRAVITY_GUN_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_GG_Bond"]</xpath>
+                        </Operation>
+
+                        <!-- Gun_TAU_CANNON_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_TAU_CANNON_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_TC_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
