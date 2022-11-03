@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== QLU-X祝融 =====
+
+    == Range
+    QLUX_Pulse_Projector_Bond = persona QLUX Pulse Projector
+    QBZ_fivenine_Bond = persona QBZ 59 Assault Rifle
+    QBU_sixsix_Bond = persona QBU 66 Sniper Rifle
+    QBZoneooneXuanMing_Bond = persona QBZ-101 XuanMing Electro-magnetic Rifle
+    PrototypeXiHe_Bond = persona Prototype XiHe flameblaster
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>QLU-X祝融</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef Name="MPBFPM_QLUBase" Abstract="True" ParentName="MPBFPM_BaseMakeableGun">
+                            <graphicData>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_QLUBase">
+                            <defName>QLUX_Pulse_Projector_Bond</defName>
+                            <label>persona QLUX Pulse Projector</label>
+                            <description>Named after Zhu Rong, the god for its devastating power, QLU-X is a powerful pulse projector used by PLA in 2080s.Due to its high accuracy and long range of fire, QLU-X is able to easily suppress enemy battle positions, bunkers and slower targets. It must hold a bead on its target for several seconds while charging, before it releases a devastating tsunami of power. The explosion is capable of melting concrete in its blast radius. The heat of the explosion will ignite anything nearby. It cannot fire at close-up targets to prevent friendly fire.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Things/Weapons/QLUX</texPath>
+                                <drawSize>(1.8,1.8)</drawSize>
+                            </graphicData>
+                            <destroyOnDrop>False</destroyOnDrop>
+                            <statBases>
+                                <MarketValue>4840.0</MarketValue>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>1.1</AccuracyTouch>
+                                <AccuracyShort>0.99</AccuracyShort>
+                                <AccuracyMedium>0.902</AccuracyMedium>
+                                <AccuracyLong>0.88</AccuracyLong>
+                                <RangedWeapon_Cooldown>6.05</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>QLU-X</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Projectile_QLUX_Bond</defaultProjectile>
+                                    <warmupTime>4.25</warmupTime>
+                                    <range>45</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                                    <soundCast>Shot_HellsphereCannonGun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <ai_AvoidFriendlyFireRadius>6</ai_AvoidFriendlyFireRadius>
+                                    <ai_RangedAlawaysShootGroundBelowTarget>true</ai_RangedAlawaysShootGroundBelowTarget>
+                                    <ai_ProjectileLaunchingIgnoresMeleeThreats>true</ai_ProjectileLaunchingIgnoresMeleeThreats>
+                                    <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+                                    <ai_TargetHasRangedAttackScoreOffset>50</ai_TargetHasRangedAttackScoreOffset>
+                                    <minRange>5.9</minRange>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                        <canTargetPawns>true</canTargetPawns>
+                                    </targetParams>
+                                    <aimingLineMote>Mote_HellsphereCannon_Aim</aimingLineMote>
+                                    <aimingChargeMote>Mote_HellsphereCannon_Charge</aimingChargeMote>
+                                    <aimingChargeMoteOffset>1.07</aimingChargeMoteOffset>
+                                    <aimingLineMoteFixedLength>20</aimingLineMoteFixedLength>
+                                    <aimingTargetMote>Mote_HellsphereCannon_Target</aimingTargetMote>
+                                    <beamTargetsGround>true</beamTargetsGround>
+                                    <soundAiming>HellsphereCannon_Aiming</soundAiming>
+                                    <canGoWild>false</canGoWild>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+                                    <!--southOffset>(0,0,-0.2)</southOffset-->
+                                    <southOffset>(0.2,0,-0.2)</southOffset>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>5.5</power>
+                                    <cooldownTime>1.36</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Projectile_QLUX_Bond</defName>
+                            <label>Pulse</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_QLUX</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>(1.5, 3)</drawSize>
+                            </graphicData>
+                            <thingClass>Projectile_HellsphereCannon</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <speed>50</speed>
+                                <explosionRadius>2</explosionRadius>
+                                <screenShakeFactor>1.5</screenShakeFactor>
+                                <damageAmountBase>44</damageAmountBase>
+                                <flyOverhead>true</flyOverhead>
+                                <stoppingPower>4</stoppingPower>
+                                <armorPenetrationBase>4</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_QLUBase">
+                            <defName>QBZ_fivenine_Bond</defName>
+                            <label>persona QBZ 59 Assault Rifle</label>
+                            <description>A charged-shot assault rifle firing high-penetration but low damage bullets at very high rate\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/QBZfivenine</texPath>
+                                <drawSize>(1.3,1.3)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <statBases>
+                                <MarketValue>3300.0</MarketValue>
+                                <Mass>2.2</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.803</AccuracyShort>
+                                <AccuracyMedium>0.759</AccuracyMedium>
+                                <AccuracyLong>0.671</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.99</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_QBZfivenine_Bond</defaultProjectile>
+                                    <warmupTime>0.51</warmupTime>
+                                    <range>32</range>
+                                    <burstShotCount>15</burstShotCount>
+                                    <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Bullet_QBZfivenine_Bond</defName>
+                            <label>Charged assault rifle bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_AssaultRifle</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>9</damageAmountBase>
+                                <armorPenetrationBase>1.5</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_QLUBase">
+                            <defName>QBU_sixsix_Bond</defName>
+                            <label>persona QBU 66 Sniper Rifle</label>
+                            <description>A charged-shot sniper firing high-penetration bullets\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/QBUsixsix</texPath>
+                                <drawSize>(1.3,1.3)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <statBases>
+                                <MarketValue>3410.0</MarketValue>
+                                <Mass>5.2</Mass>
+                                <AccuracyTouch>0.825</AccuracyTouch>
+                                <AccuracyShort>0.913</AccuracyShort>
+                                <AccuracyMedium>0.979</AccuracyMedium>
+                                <AccuracyLong>0.891</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.09</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_QBUsixsix_Bond</defaultProjectile>
+                                    <warmupTime>1.105</warmupTime>
+                                    <range>60</range>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Bullet_QBUsixsix_Bond</defName>
+                            <label>Charged sniper bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_AssaultRifle</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(1.5, 5)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>33</damageAmountBase>
+                                <armorPenetrationBase>2</armorPenetrationBase>
+                                <speed>90</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_QLUBase">
+                            <defName>QBZoneooneXuanMing_Bond</defName>
+                            <label>persona QBZ-101 XuanMing Electro-magnetic Rifle</label>
+                            <description>A powerful rifle originated from a rapid electro-magnetic laucher\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/QBZoneooneXuanMing</texPath>
+                                <drawSize>(1.5,1.5)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <thingSetMakerTags>
+                                <li>RewardStandardQualitySuper</li>
+                            </thingSetMakerTags>
+                            <statBases>
+                                <MarketValue>6710.0</MarketValue>
+                                <Mass>7.2</Mass>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>1.023</AccuracyShort>
+                                <AccuracyMedium>0.99</AccuracyMedium>
+                                <AccuracyLong>1.001</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.32</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_XuanMing_Bond</defaultProjectile>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>60</range>
+                                    <burstShotCount>6</burstShotCount>
+                                    <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Bullet_XuanMing_Bond</defName>
+                            <label>Charged sniper bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_AssaultRifle</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(1.5, 2)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>22</damageAmountBase>
+                                <armorPenetrationBase>5</armorPenetrationBase>
+                                <speed>150</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_QLUBase">
+                            <defName>PrototypeXiHe_Bond</defName>
+                            <label>persona Prototype XiHe flameblaster</label>
+                            <description>A light spacer burst-oriented flamethrower with long range, very efficient against organism\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/PrototypeXiHe</texPath>
+                                <drawSize>(1.3,1.3)</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>3300.0</MarketValue>
+                                <Mass>2.5</Mass>
+                                <AccuracyTouch>0.77</AccuracyTouch>
+                                <AccuracyShort>0.858</AccuracyShort>
+                                <AccuracyMedium>0.825</AccuracyMedium>
+                                <AccuracyLong>0.726</AccuracyLong>
+                                <RangedWeapon_Cooldown>7.7</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_SpewFire</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <warmupTime>0.255</warmupTime>
+                                    <range>27.9</range>
+                                    <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                                    <burstShotCount>20</burstShotCount>
+                                    <soundCast>Shot_MiniFlameblaster</soundCast>
+                                    <muzzleFlashScale>6</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                        <canTargetPawns>true</canTargetPawns>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_QLU</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- QLUX_Pulse_Projector_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="QLUX_Pulse_Projector_Bond"]</xpath>
+                        </Operation>
+                        <!-- Projectile_QLUX_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Projectile_QLUX_Bond"]</xpath>
+                        </Operation>
+                        <!-- QBZ_fivenine_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="QBZ_fivenine_Bond"]</xpath>
+                        </Operation>
+                        <!-- Bullet_QBZfivenine_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_QBZfivenine_Bond"]</xpath>
+                        </Operation>
+                        <!-- QBU_sixsix_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="QBU_sixsix_Bond"]</xpath>
+                        </Operation>
+                        <!-- Bullet_QBUsixsix_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_QBUsixsix_Bond"]</xpath>
+                        </Operation>
+                        <!-- QBZoneooneXuanMing_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="QBZoneooneXuanMing_Bond"]</xpath>
+                        </Operation>
+                        <!-- Bullet_XuanMing_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_XuanMing_Bond"]</xpath>
+                        </Operation>
+                        <!-- PrototypeXiHe_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="PrototypeXiHe_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

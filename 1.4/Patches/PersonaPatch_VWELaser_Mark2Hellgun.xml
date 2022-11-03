@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Vanilla Weapons Expanded - Laser - Mark 2 Gyro-Stabled Hellgun =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Weapons Expanded - Laser - Mark 2 Gyro-Stabled Hellgun</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_BaseGun">
+                            <defName>VWEL_Gun_M2HGLG_Bond</defName>
+                            <thingClass>VanillaWeaponsExpandedLaser.LaserGun</thingClass>
+                            <label>persona Mark 2 Gyro-Stabled Hellgun</label>
+                            <description>A Hellgun, also called a Hot-shot Lasgun, is a pattern of Imperial Lasgun that possesses a more advanced and powerful laser generation system intended to provide more potent laser fire on-target. This makes the Hellgun superior in both range and power output compared to the standard-issue Lasgun. However, the higher power output requires superior quality power cells or the use of a separate backpack power supply, and the more complex inner workings of the weapon require more time and resources to manufacture than the standard Lasgun. This makes it more costly to field and so it is not generally issued to the average soldier of most Astra Militarum regiments. However, Tempestus Scions and other Storm Trooper equivalents, including Cadian Kasrkin and Astra Militarum Grenadiers, are always equipped with a Hellgun as a standard weapon to take full advantage of their superior training and weapons expertise.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/WeaponRanged/Mark_2_GS_Hellgun_40deg</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>VWE_Interact_LaserGun</soundInteract>
+                            <statBases>
+                                <MarketValue>1100.0</MarketValue>
+                                <Mass>5.0</Mass>
+                                <AccuracyTouch>0.946</AccuracyTouch>
+                                <AccuracyShort>0.913</AccuracyShort>
+                                <AccuracyMedium>0.946</AccuracyMedium>
+                                <AccuracyLong>0.682</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.88</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Ultra</techLevel>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                                <li>LaserGun</li>
+                            </weaponTags>
+                            <generateCommonality>0.1</generateCommonality>
+                            <equippedStatOffsets>
+                            </equippedStatOffsets>
+                            <equippedAngleOffset>40</equippedAngleOffset>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <label>Standard</label>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>VWEL_Bullet_M2HGLasRifle_Bond</defaultProjectile>
+                                    <warmupTime>0.85</warmupTime>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <burstShotCount>10</burstShotCount>
+                                    <range>45</range>
+                                    <soundCast>VWE_LaserShot_Rifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>16</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>5.5</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="VWEL_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                            <defName>VWEL_Bullet_M2HGLasRifle_Bond</defName>
+                            <label>las bolt</label>
+                            <description>A focused laser beam.</description>
+                            <textures>
+                                <li>Things/Projectile/Shot_Las</li>
+                            </textures>
+                            <seam>0</seam>
+                            <causefireChance>0.3</causefireChance>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>18</damageAmountBase>
+                                <armorPenetrationBase>0.60</armorPenetrationBase>
+                                <stoppingPower>1.6</stoppingPower>
+                            </projectile>
+                        </ThingDef>
+
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                            <defName>Make_VWEL_Gun_M2HGLG_Bond</defName>
+                            <label>bond Mark 2 Gyro-Stabled Hellgun</label>
+                            <description>Bond an Mark 2 Gyro-Stabled Hellgun.</description>
+                            <jobString>Bonding a Mark 2 Gyro-Stabled Hellgun.</jobString>
+                            <researchPrerequisite>Bound_Research</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>VWEL_Gun_M2HGLG</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>VWEL_Gun_M2HGLG</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <VWEL_Gun_M2HGLG_Bond>1</VWEL_Gun_M2HGLG_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_VanillaWeaponsExpandedLaser_Mark2Hellgun</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VWEL_Gun_M2HGLG_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="VWEL_Bullet_M2HGLasRifle_Bond"]</xpath>
+                        </Operation>
+
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/RecipeDef[defName="Make_VWEL_Gun_M2HGLG_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
