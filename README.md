@@ -11,8 +11,11 @@
 ## Mods Supported
 ### RimWorld 1.4
 - [Call of Duty: Zombies Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2590363477)
+- [Destiny Leviathan Weapons (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2876832012)
+- [Expanded Charge Weaponry](https://steamcommunity.com/sharedfiles/filedetails/?id=2561885396)
 - [Girl's Frontline: Sangvis Ferri Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=1684134687)
 - [Project Fortuna Laser Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2488213632)
+- [Project Fortuna Weapon Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2325528796)
 - [TOT's Advanced Weapon Set](https://steamcommunity.com/sharedfiles/filedetails/?id=2883670795)
 - [Vanilla Weapons Expanded - Laser - M36 Kantrael Pattern Lasgun](https://steamcommunity.com/sharedfiles/filedetails/?id=2879415284)
 - [Vanilla Weapons Expanded - Laser - Mark 2 Gyro-Stabled Hellgun](https://steamcommunity.com/sharedfiles/filedetails/?id=2880060684)
