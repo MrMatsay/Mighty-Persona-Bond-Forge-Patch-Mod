@@ -10,6 +10,7 @@
 
 ## Mods Supported
 ### RimWorld 1.4
+- [Antimatter Annihilation](https://steamcommunity.com/sharedfiles/filedetails/?id=2113692574)
 - [Call of Duty: Zombies Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2590363477)
 - [Destiny Leviathan Weapons (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2876832012)
 - [Expanded Charge Weaponry](https://steamcommunity.com/sharedfiles/filedetails/?id=2561885396)
