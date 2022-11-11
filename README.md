@@ -16,6 +16,7 @@
 - [Girl's Frontline: Sangvis Ferri Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=1684134687)
 - [Project Fortuna Laser Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2488213632)
 - [Project Fortuna Weapon Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2325528796)
+- [Sparkling Worlds - Full Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=1123043922)
 - [TOT's Advanced Weapon Set](https://steamcommunity.com/sharedfiles/filedetails/?id=2883670795)
 - [Vanilla Weapons Expanded - Laser - M36 Kantrael Pattern Lasgun](https://steamcommunity.com/sharedfiles/filedetails/?id=2879415284)
 - [Vanilla Weapons Expanded - Laser - Mark 2 Gyro-Stabled Hellgun](https://steamcommunity.com/sharedfiles/filedetails/?id=2880060684)
