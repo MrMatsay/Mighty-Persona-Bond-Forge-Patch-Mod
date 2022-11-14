@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Junior Marine's Armory =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Junior Marine's Armory</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>Junior_WazerWifle_Bond</defName>
+                            <label>persona Wazer Wifle</label>
+                            <description>Empire-made laser rifle, based on a mechanoid graser gun. In comparison to its mechanoid predecessor, Wazer Wifle does not set the environment on fire, but it more than makes up for it by its boosted accuracy and firing speed. In addition, the superheated beam always sets the enemies on fire.\n\nDue to its insignificat weight, the ease of use, and adorable name, Wazer Wifle is a popular choice among younger fighters on the rim.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Things/Weapons_Junior/WazerWifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>0.7</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <Mass>2</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.99</AccuracyShort>
+                                <AccuracyMedium>0.88</AccuracyMedium>
+                                <AccuracyLong>0.77</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_ShootBeam</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>24.9</range>
+                                    <minRange>2.9</minRange>
+                                    <beamFullWidthRange>6.9</beamFullWidthRange>
+                                    <burstShotCount>5</burstShotCount>
+                                    <beamWidth>6</beamWidth>
+                                    <ticksBetweenBurstShots>22</ticksBetweenBurstShots>
+                                    <beamDamageDef>Beam</beamDamageDef>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <soundCastBeam>BeamGraser_Shooting</soundCastBeam>
+                                    <beamGroundFleckDef>Fleck_BeamBurn</beamGroundFleckDef>
+                                    <beamFleckChancePerTick>0.32</beamFleckChancePerTick>
+                                    <beamMaxDeviation>1.5</beamMaxDeviation>
+                                    <beamCurvature>0.6</beamCurvature>
+                                    <!--beamMoteDef>Mote_GraserBeamBase</beamMoteDef-->
+                                    <beamMoteDef>Mote_WazerBeam</beamMoteDef>
+                                    <beamEndEffecterDef>GraserBeam_End</beamEndEffecterDef>
+                                    <beamChanceToStartFire>0</beamChanceToStartFire>
+                                    <beamChanceToAttachFire>1</beamChanceToAttachFire>
+                                    <beamFireSizeRange>0.55~0.85</beamFireSizeRange>
+                                    <beamLineFleckDef>Fleck_BeamSpark</beamLineFleckDef>
+                                    <beamStartOffset>0.8</beamStartOffset>
+                                    <beamLineFleckChanceCurve>
+                                        <points>
+                                            <li>(0, 0)</li>
+                                            <li>(0.65, 0.4)</li>
+                                            <li>(1, 0.75)</li>
+                                        </points>
+                                    </beamLineFleckChanceCurve>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_MeleeWeaponUltratech">
+                            <defName>Junior_PlasmaKnife_Bond</defName>
+                            <label>persona Plasma Knife</label>
+                            <description>Empire-made shrunken down version of a plasma sword.\n\nDue to its insignificat weight and the ease of use, it is popular among younger fighters on the rim.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <soundInteract>Interact_PlasmaSword</soundInteract>
+                            <meleeHitSound>MeleeHit_PlasmaSword</meleeHitSound>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <graphicData>
+                                <texPath>Things/Weapons_Junior/PlasKnife</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>0.6</drawSize>
+                            </graphicData>
+                            <equippedStatOffsets>
+                                <PsychicSensitivity>0.15</PsychicSensitivity>
+                                <PsychicEntropyRecoveryRate>0.033</PsychicEntropyRecoveryRate>
+                                <MoveSpeed>0.2</MoveSpeed>
+                                <!--SlaveSuppressionOffset MayRequire="Ludeon.RimWorld.Ideology">0.15</SlaveSuppressionOffset-->
+                            </equippedStatOffsets>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>11.0</power>
+                                    <cooldownTime>1.275</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Flame</def>
+                                            <amount>11</amount>
+                                            <chance>0.33</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                                <li>
+                                    <label>blade</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>8.8</power>
+                                    <cooldownTime>1.275</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Flame</def>
+                                            <amount>11</amount>
+                                            <chance>0.33</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_JuniorMarinesArmory</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Junior_WazerWifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Junior_WazerWifle_Bond"]</xpath>
+                        </Operation>
+                        <!-- Junior_PlasmaKnife_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Junior_PlasmaKnife_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

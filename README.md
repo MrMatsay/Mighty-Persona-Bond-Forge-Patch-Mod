@@ -15,6 +15,7 @@
 - [Destiny Leviathan Weapons (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2876832012)
 - [Expanded Charge Weaponry](https://steamcommunity.com/sharedfiles/filedetails/?id=2561885396)
 - [Girl's Frontline: Sangvis Ferri Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=1684134687)
+- [Junior Marine's Armory](https://steamcommunity.com/sharedfiles/filedetails/?id=2888127396)
 - [Project Fortuna Laser Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2488213632)
 - [Project Fortuna Weapon Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2325528796)
 - [Sparkling Worlds - Full Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=1123043922)

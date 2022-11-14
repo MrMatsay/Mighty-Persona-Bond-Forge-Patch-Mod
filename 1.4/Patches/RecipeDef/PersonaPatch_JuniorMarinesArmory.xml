@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Junior Marine's Armory =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Junior Marine's Armory</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- Junior_WazerWifle_Bond -->
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                            <defName>Make_Junior_WazerWifle_Bond</defName>
+                            <label>bond Wazer Wifle</label>
+                            <description>Bond an Wazer Wifle.</description>
+                            <jobString>Bonding a Wazer Wifle.</jobString>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Junior_WazerWifle</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Junior_WazerWifle</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Junior_WazerWifle_Bond>1</Junior_WazerWifle_Bond>
+                            </products>
+                        </RecipeDef>
+
+                        <!-- Junior_PlasmaKnife_Bond -->
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                            <defName>Make_Junior_PlasmaKnife_Bond</defName>
+                            <label>bond Plasma Knife</label>
+                            <description>Bond an Plasma Knife.</description>
+                            <jobString>Bonding a Plasma Knife.</jobString>
+                            <researchPrerequisite>Bound_Research</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Junior_PlasmaKnife</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Junior_PlasmaKnife</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Junior_PlasmaKnife_Bond>1</Junior_PlasmaKnife_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_JuniorMarinesArmory</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Junior_WazerWifle -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/RecipeDef[defName="Make_Junior_WazerWifle"]</xpath>
+                        </Operation>
+
+                        <!-- Junior_PlasmaKnife -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/RecipeDef[defName="Make_Junior_PlasmaKnife"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
