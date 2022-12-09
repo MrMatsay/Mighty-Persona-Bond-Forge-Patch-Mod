@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Unturned's Focus Rifle =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Unturned's Focus Rifle</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>Unturned_Gun_FocusRifle_Bond</defName>
+                            <label>persona focus rifle</label>
+                            <description>Experimental assault rifle chambered in Energy Cells./n/nFirst developed by French Research institute RULA, the Focus Rifle is one of the three successors to the original Focus Prototype developed to counter the zombie apocalypse. However, while the project was successful, the actual models never saw full deployment as mainland France was overrun by the hordes before RULA could properly ship them to French forces./n/nThe literal holographic sight of the rifle calculates the remaining discharges, range and is less obstructive than other laser sights, improving the overall accuracy of the rifle.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>UnturnedFocusRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_ChargeRifle_Bond</defaultProjectile>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <range>25</range>
+                                    <warmupTime>1.062</warmupTime>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                </li>
+                            </verbs>
+                            <statBases>
+                                <Mass>5.5</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.792</AccuracyShort>
+                                <AccuracyMedium>0.726</AccuracyMedium>
+                                <AccuracyLong>0.528</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.913</RangedWeapon_Cooldown>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Unturned_Bullet_FocusRifle_Bond</defName>
+                            <label>focus rifle shot</label>
+                            <graphicData>
+                                <texPath>Bullet_ChargeRifle</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.30</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_UnturnedsFocusRifle</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Unturned_Gun_FocusRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Unturned_Gun_FocusRifle_Bond"]</xpath>
+                        </Operation>
+                        <!-- Unturned_Bullet_FocusRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Unturned_Bullet_FocusRifle_Bond"]</xpath>
+                        </Operation>
+
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
