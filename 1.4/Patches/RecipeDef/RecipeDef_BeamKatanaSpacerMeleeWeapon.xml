@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Beam Katana: Spacer Melee Weapon =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Beam Katana: Spacer Melee Weapon</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- MeleeWeapon_BeamKatana_Bond -->
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                            <defName>Make_MeleeWeapon_BeamKatana_Bond</defName>
+                            <label>bond beam katana</label>
+                            <description>Bond an beam katana.</description>
+                            <jobString>Bonding a beam katana.</jobString>
+                            <researchPrerequisite>Fabrication</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>MeleeWeapon_BeamKatana</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>MeleeWeapon_BeamKatana</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <MeleeWeapon_BeamKatana_Bond>1</MeleeWeapon_BeamKatana_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_BeamKatanaSpacerMeleeWeapon</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- MeleeWeapon_BeamKatana -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/RecipeDef[defName="Make_MeleeWeapon_BeamKatana"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

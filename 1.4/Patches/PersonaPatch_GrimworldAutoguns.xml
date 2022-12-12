@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Grimworld: Autoguns =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Grimworld: Autoguns</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Bullet_AutoGun_Bond</defName>
+                            <label>Autogun Bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>12</damageAmountBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Bullet_Stubround_Bond</defName>
+                            <label>Stub Round</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>15</damageAmountBase>
+                                <stoppingPower>1</stoppingPower>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Bullet_Shotgungrim_Bond</defName>
+                            <label>shotgun blast</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>28</damageAmountBase>
+                                <stoppingPower>4</stoppingPower>
+                                <armorPenetrationBase>0.14</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Bullet_Autopistolgrim_Bond</defName>
+                            <label>Autopistol Round</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>7</damageAmountBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>Gun_Agripinaamkii_Bond</defName>
+                            <label>persona Agripinaa MKII</label>
+                            <description>Autoguns, reluctantly favoured by planetary defence forces and gangers alike for thier ease of manufacturing compared to the more modern lasgun. The Agripinaa MKII is the most widely available model amongst the militarum for those few foes that are resliliant to las-burn.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Agripinaa MKII</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.6</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.792</AccuracyShort>
+                                <AccuracyMedium>0.726</AccuracyMedium>
+                                <AccuracyLong>0.638</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_AutoGun_Bond</defaultProjectile>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>30.9</range>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>Shot_AssaultRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                                <li>AssaultRifle</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>Gun_Agripinaamkiitanker_Bond</defName>
+                            <label>persona Tanker Agripinaa MKII</label>
+                            <description>Autoguns, reluctantly favoured by planetary defence forces and gangers alike for thier ease of manufacturing compared to the more modern lasgun. The Agripinaa MKII is the most widely available model amongst the militarum for those few foes that are resliliant to las-burn. This particular Autogun has been field modified for use by tankers and pilots.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Tanker Agripinaa MKII</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.2</Mass>
+                                <AccuracyTouch>0.77</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.44</AccuracyMedium>
+                                <AccuracyLong>0.33</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_AutoGun_Bond</defaultProjectile>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>30.9</range>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>Shot_AssaultRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                                <li>AssaultRifle</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>Gun_OrlockAutogun_Bond</defName>
+                            <label>persona Orlock Autogun</label>
+                            <description>Autoguns, reluctantly favoured by planetary defence forces and gangers alike for thier ease of manufacturing compared to the more modern lasgun. This pattern was devised in the underbelly of the hiveworld Necromunda by the gunsmiths of the Orlock gang.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Orlock Autogun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.6</Mass>
+                                <AccuracyTouch>0.462</AccuracyTouch>
+                                <AccuracyShort>0.495</AccuracyShort>
+                                <AccuracyMedium>0.396</AccuracyMedium>
+                                <AccuracyLong>0.231</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_AutoGun_Bond</defaultProjectile>
+                                    <warmupTime>1.19</warmupTime>
+                                    <range>30.9</range>
+                                    <burstShotCount>6</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>Shot_AssaultRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                                <li>AssaultRifle</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>Gun_Zarona_Bond</defName>
+                            <label>persona Zarona MKII</label>
+                            <description>Stub Revolvers are one of the oldest and most reliable designs still used by humanity. The Zarona MKII is a classic example of such a design.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <possessionCount>1</possessionCount>
+                            <graphicData>
+                                <texPath>Weapons/Zarona MKII</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Interact_Revolver</soundInteract>
+                            <statBases>
+                                <Mass>1.4</Mass>
+                                <AccuracyTouch>0.77</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.473</AccuracyMedium>
+                                <AccuracyLong>0.275</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.53</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SimpleGun</li>
+                                <li>Revolver</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Stubround_Bond</defaultProjectile>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>25.9</range>
+                                    <soundCast>Shot_Revolver</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>Gun_Hiveworldautopistol_Bond</defName>
+                            <label>persona Hiveworld Autopistol</label>
+                            <description>A favorite of the gangers that roam the passages of the Imperiums hive cities, Autopistols are conventional weapons of simple construction that vary wildly in design. Often as crude and inelegant as the hand that craft them. \n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <drawSize>0.8</drawSize>
+                                <texPath>Weapons/Hiveworld Autopistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>ShortShots</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>2.5</Mass>
+                                <AccuracyTouch>0.44</AccuracyTouch>
+                                <AccuracyShort>0.462</AccuracyShort>
+                                <AccuracyMedium>0.275</AccuracyMedium>
+                                <AccuracyLong>0.165</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Autopistolgrim_Bond</defaultProjectile>
+                                    <warmupTime>0.68</warmupTime>
+                                    <range>19.9</range>
+                                    <burstShotCount>6</burstShotCount>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <soundCast>Shot_MachinePistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>Gun_Heavystubber_Bond</defName>
+                            <label>persona Heavy Stubber</label>
+                            <description>A mainstay support weapon on lower-technology level planets that cannot maintain laser weapons in working order due to technological or resource limitations, and also popular with outlaws and hive gangers, the Heavy Stubber is ideal for fighting off large numbers of enemies or even lightly armoured vehicles. Its high rate of fire makes up for its lack of strength and armour-piercing abilities.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <drawSize>1.2</drawSize>
+                                <texPath>Weapons/Heavy Stubber</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>12</Mass>
+                                <AccuracyTouch>0.11</AccuracyTouch>
+                                <AccuracyShort>0.132</AccuracyShort>
+                                <AccuracyMedium>0.198</AccuracyMedium>
+                                <AccuracyLong>0.154</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.975</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Stubround_Bond</defaultProjectile>
+                                    <warmupTime>1.7</warmupTime>
+                                    <range>27.9</range>
+                                    <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+                                    <burstShotCount>16</burstShotCount>
+                                    <soundCast>Shot_Minigun</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>Gun_MilitarumShotgun_Bond</defName>
+                            <label>persona Militarum Shotgun</label>
+                            <description>An ancient Imperial ballistic weapon, much the same as the Heavy Stubber, which fires solid slugs that burst into submunitions to spread out over a wider area.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <possessionCount>1</possessionCount>
+                            <graphicData>
+                                <drawSize>0.8</drawSize>
+                                <texPath>Weapons/Militarum Shotgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Shotgun</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>ShortShots</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>4</Mass>
+                                <AccuracyTouch>0.88</AccuracyTouch>
+                                <AccuracyShort>0.814</AccuracyShort>
+                                <AccuracyMedium>0.682</AccuracyMedium>
+                                <AccuracyLong>0.55</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Shotgungrim_Bond</defaultProjectile>
+                                    <warmupTime>0.765</warmupTime>
+                                    <range>16</range>
+                                    <soundCast>Shot_Shotgun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>Gun_MilitarumShotgunSawn_Bond</defName>
+                            <label>persona Sawn Off Militarum Shotgun</label>
+                            <description>An ancient Imperial ballistic weapon, much the same as the Heavy Stubber, which fires solid slugs that burst into submunitions to spread out over a wider area. Shotguns are commonly used by criminal lowlifes in the lawless regions of most hive cities, oftentimes cutting length from the barrel for ease of concealment.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <possessionCount>1</possessionCount>
+                            <graphicData>
+                                <drawSize>0.8</drawSize>
+                                <texPath>Weapons/Sawn Off Militarum Shotgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Shotgun</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>ShortShots</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>3.4</Mass>
+                                <AccuracyTouch>0.99</AccuracyTouch>
+                                <AccuracyShort>0.968</AccuracyShort>
+                                <AccuracyMedium>0.462</AccuracyMedium>
+                                <AccuracyLong>0.33</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Shotgungrim_Bond</defaultProjectile>
+                                    <warmupTime>0.765</warmupTime>
+                                    <range>14</range>
+                                    <soundCast>Shot_Shotgun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_GrimworldAutoguns</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Bullet_AutoGun_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_AutoGun_Bond"]</xpath>
+                        </Operation>
+                        <!-- Bullet_Stubround_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Stubround_Bond"]</xpath>
+                        </Operation>
+                        <!-- Bullet_Shotgungrim_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Shotgungrim_Bond"]</xpath>
+                        </Operation>
+                        <!-- Bullet_Autopistolgrim_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Autopistolgrim_Bond"]</xpath>
+                        </Operation>
+                        <!-- Gun_Agripinaamkii_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_Agripinaamkii_Bond"]</xpath>
+                        </Operation>
+                        <!-- Gun_Agripinaamkiitanker_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_Agripinaamkiitanker_Bond"]</xpath>
+                        </Operation>
+                        <!-- Gun_OrlockAutogun_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_OrlockAutogun_Bond"]</xpath>
+                        </Operation>
+                        <!-- Gun_Zarona_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_Zarona_Bond"]</xpath>
+                        </Operation>
+                        <!-- Gun_Hiveworldautopistol_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_Hiveworldautopistol_Bond"]</xpath>
+                        </Operation>
+                        <!-- Gun_Heavystubber_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_Heavystubber_Bond"]</xpath>
+                        </Operation>
+                        <!-- Gun_MilitarumShotgun_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_MilitarumShotgun_Bond"]</xpath>
+                        </Operation>
+                        <!-- Gun_MilitarumShotgunSawn_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_MilitarumShotgunSawn_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

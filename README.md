@@ -11,10 +11,14 @@
 ## Mods Supported
 ### RimWorld 1.4
 - [Antimatter Annihilation](https://steamcommunity.com/sharedfiles/filedetails/?id=2113692574)
+- [Beam Katana: Spacer Melee Weapon](https://steamcommunity.com/sharedfiles/filedetails/?id=2900389764)
 - [Call of Duty: Zombies Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2590363477)
 - [Destiny Leviathan Weapons (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2876832012)
 - [Expanded Charge Weaponry](https://steamcommunity.com/sharedfiles/filedetails/?id=2561885396)
 - [Girl's Frontline: Sangvis Ferri Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=1684134687)
+- [Grimworld: Autoguns](https://steamcommunity.com/sharedfiles/filedetails/?id=2897974516)
+- [Grimworld Lasguns](https://steamcommunity.com/sharedfiles/filedetails/?id=2894628781)
+- [Grimworld: Melee](https://steamcommunity.com/sharedfiles/filedetails/?id=2899647650)
 - [Junior Marine's Armory](https://steamcommunity.com/sharedfiles/filedetails/?id=2888127396)
 - [KEP Weapons - Toxic (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2800013902)
 - [pphhyy's Tox Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2891573871)

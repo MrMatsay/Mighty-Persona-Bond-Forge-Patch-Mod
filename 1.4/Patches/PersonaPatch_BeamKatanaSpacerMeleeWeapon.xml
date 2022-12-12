@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Beam Katana: Spacer Melee Weapon =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Beam Katana: Spacer Melee Weapon</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality">
+                            <defName>MeleeWeapon_BeamKatana_Bond</defName>
+                            <label>persona beam katana</label>
+                            <description>A popular knock off of a Lightsaber from a certain movie series, it's popularity sky-rocketed thanks to being worn by a legendary assassin.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <possessionCount>1</possessionCount>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponMelee/BeamKatana</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.0</uiIconScale>
+                            <techLevel>Spacer</techLevel>
+                            <costStuffCount>50</costStuffCount>
+                            <statBases>
+                                <Mass>0.90</Mass>
+                            </statBases>
+                            <soundInteract>Interact_MonoSword</soundInteract>
+                            <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+                            <equippedAngleOffset>-30</equippedAngleOffset>
+                            <weaponTags>
+                                <li>SpacerMeleeDecent</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>8.8</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>26.4</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                    <armorPenetration>0.99</armorPenetration>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>EMP</def>
+                                            <amount>4</amount>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>30.8</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                    <armorPenetration>1.43</armorPenetration>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_BeamKatanaSpacerMeleeWeapon</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- MeleeWeapon_BeamKatana_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="MeleeWeapon_BeamKatana_Bond"]</xpath>
+                        </Operation>
+
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
