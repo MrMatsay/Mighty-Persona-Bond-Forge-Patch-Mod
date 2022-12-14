@@ -19,6 +19,7 @@
 - [Grimworld: Autoguns](https://steamcommunity.com/sharedfiles/filedetails/?id=2897974516)
 - [Grimworld Lasguns](https://steamcommunity.com/sharedfiles/filedetails/?id=2894628781)
 - [Grimworld: Melee](https://steamcommunity.com/sharedfiles/filedetails/?id=2899647650)
+- [Hellsing ARMS Ultimate](https://steamcommunity.com/sharedfiles/filedetails/?id=2834801420)
 - [Junior Marine's Armory](https://steamcommunity.com/sharedfiles/filedetails/?id=2888127396)
 - [KEP Weapons - Toxic (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2800013902)
 - [pphhyy's Tox Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2891573871)
