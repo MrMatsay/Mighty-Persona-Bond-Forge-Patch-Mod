@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Destiny 2 Weapon Package - Fusion Rifle =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Destiny 2 Weapon Package - Fusion Rifle</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- FR_Jotunn_Bond -->
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                            <defName>Make_FR_Jotunn_Bond</defName>
+                            <label>bond Jötunn</label>
+                            <description>Bond an Jötunn.</description>
+                            <jobString>Bonding a Jötunn.</jobString>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>FR_Jotunn</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>FR_Jotunn</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <FR_Jotunn_Bond>1</FR_Jotunn_Bond>
+                            </products>
+                        </RecipeDef>
+
+                        <!-- FR_Ingredient_Bond -->
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                            <defName>Make_FR_Ingredient_Bond</defName>
+                            <label>bond Main Ingredient</label>
+                            <description>Bond an Main Ingredient.</description>
+                            <jobString>Bonding a Main Ingredient.</jobString>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>FR_Ingredient</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>FR_Ingredient</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <FR_Ingredient_Bond>1</FR_Ingredient_Bond>
+                            </products>
+                        </RecipeDef>
+
+                        <!-- FR_Dynamo_Bond -->
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                            <defName>Make_FR_Dynamo_Bond</defName>
+                            <label>bond Tempered Dynamo</label>
+                            <description>Bond an Tempered Dynamo.</description>
+                            <jobString>Bonding a Tempered Dynamo.</jobString>
+                            <researchPrerequisite>ChargedShot</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>FR_Dynamo</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>FR_Dynamo</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <FR_Dynamo_Bond>1</FR_Dynamo_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_Destiny2WeaponPackageFusionRifle</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- FR_Jotunn -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/RecipeDef[defName="Make_FR_Jotunn"]</xpath>
+                        </Operation>
+                        <!-- FR_Ingredient -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/RecipeDef[defName="Make_FR_Ingredient"]</xpath>
+                        </Operation>
+                        <!-- FR_Dynamo -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/RecipeDef[defName="Make_FR_Dynamo"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
