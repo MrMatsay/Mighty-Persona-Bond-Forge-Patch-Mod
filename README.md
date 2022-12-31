@@ -27,6 +27,7 @@
 - [pphhyy's Tox Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2891573871)
 - [Project Fortuna Laser Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2488213632)
 - [Project Fortuna Weapon Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2325528796)
+- [RimForge](https://steamcommunity.com/sharedfiles/filedetails/?id=2505778174)
 - [Rimsenal - Augmented Vanilla Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=849231601)
 - [Seventh Seraph Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2575381031)
 - [Sparkling Worlds - Full Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=1123043922)
