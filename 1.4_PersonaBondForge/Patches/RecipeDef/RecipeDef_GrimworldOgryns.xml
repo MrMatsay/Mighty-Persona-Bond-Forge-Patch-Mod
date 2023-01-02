@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Grimworld: Ogryns =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Grimworld: Ogryns</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <!-- Gun_Rippergun_Bond -->
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                            <defName>Make_Gun_Rippergun_Bond</defName>
+                            <label>bond Rippergun</label>
+                            <description>Bond an Rippergun.</description>
+                            <jobString>Bonding a Rippergun.</jobString>
+                            <researchPrerequisite>Bound_Research</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_Rippergun</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_Rippergun</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_Rippergun_Bond>1</Gun_Rippergun_Bond>
+                            </products>
+                        </RecipeDef>
+
+                        <!-- MeleeWeapon_PowerMaul_Bond -->
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                            <defName>Make_MeleeWeapon_PowerMaul_Bond</defName>
+                            <label>bond Power Maul</label>
+                            <description>Bond an Power Maul.</description>
+                            <jobString>Bonding a Power Maul.</jobString>
+                            <researchPrerequisite>AdvancedFabrication</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>MeleeWeapon_PowerMaul</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>MeleeWeapon_PowerMaul</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <MeleeWeapon_PowerMaul_Bond>1</MeleeWeapon_PowerMaul_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_GrimworldOgryns</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Gun_Rippergun -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/RecipeDef[defName="Make_Gun_Rippergun_Bond"]</xpath>
+                        </Operation>
+                        <!-- MeleeWeapon_PowerMaul -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/RecipeDef[defName="Make_MeleeWeapon_PowerMaul_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

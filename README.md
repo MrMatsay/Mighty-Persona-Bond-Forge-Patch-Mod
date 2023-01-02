@@ -21,6 +21,7 @@
 - [Grimworld: Autoguns](https://steamcommunity.com/sharedfiles/filedetails/?id=2897974516)
 - [Grimworld Lasguns](https://steamcommunity.com/sharedfiles/filedetails/?id=2894628781)
 - [Grimworld: Melee](https://steamcommunity.com/sharedfiles/filedetails/?id=2899647650)
+- [Grimworld: Ogryns](https://steamcommunity.com/sharedfiles/filedetails/?id=2910984982)
 - [Hellsing ARMS Ultimate](https://steamcommunity.com/sharedfiles/filedetails/?id=2834801420)
 - [Junior Marine's Armory](https://steamcommunity.com/sharedfiles/filedetails/?id=2888127396)
 - [KEP Weapons - Toxic (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2800013902)
@@ -43,6 +44,7 @@
 - [Vanilla Weapons Expanded - Laser - M36 Kantrael Pattern Lasgun](https://steamcommunity.com/sharedfiles/filedetails/?id=2879415284)
 - [Vanilla Weapons Expanded - Laser - Mark 2 Gyro-Stabled Hellgun](https://steamcommunity.com/sharedfiles/filedetails/?id=2880060684)
 - [Vanilla Weapons Expanded - Laser - N98 Lucius Pattern Lasgun](https://steamcommunity.com/sharedfiles/filedetails/?id=2879415463)
+- [米娅·SAMA的武器包重制版](https://steamcommunity.com/sharedfiles/filedetails/?id=2910574099)
 
 ### RimWorld 1.3
 - [[HRK] Gun Nut - "Item 62" Gauss Rifle](https://steamcommunity.com/sharedfiles/filedetails/?id=2423495653)

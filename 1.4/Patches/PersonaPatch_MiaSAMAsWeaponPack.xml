@@ -1,0 +1,1818 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== 米娅·SAMA的武器包重制版 =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>米娅·SAMA的武器包重制版</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Miya_Bullet_XM109_DT_Bond</defName>
+                            <label>独头弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_XM109_HEC</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>50</damageAmountBase>
+                                <armorPenetrationBase>0.4</armorPenetrationBase>
+                                <stoppingPower>1.2</stoppingPower>
+                                <speed>120</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_XM109_HE_Bond</defName>
+                            <label>高爆弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_XM109_HE</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <damageAmountBase>44</damageAmountBase>
+                                <stoppingPower>3.0</stoppingPower>
+                                <armorPenetrationBase>0.1</armorPenetrationBase>
+                                <explosionRadius>1.9</explosionRadius>
+                                <speed>120</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Miya_Bullet_XM109_HEC_Bond</defName>
+                            <label>高爆穿甲弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_XM109_HEC</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageAmountBase>33</damageAmountBase>
+                                <armorPenetrationBase>0.7</armorPenetrationBase>
+                                <stoppingPower>1.8</stoppingPower>
+                                <speed>120</speed>
+                                <soundExplode>Explosion_Bomb</soundExplode>
+                                <extraDamages>
+                                    <li>
+                                        <def>Bomb</def>
+                                        <amount>15</amount>
+                                    </li>
+                                </extraDamages>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun">
+                            <defName>Miya_XM109_SniperRifle_Bond</defName>
+                            <label>persona XM109型狙击步枪</label>
+                            <description>发射小型高速榴弹的古老反器材狙击步枪，装填缓慢，后坐力巨大，但是威力也同样巨大。XM109可以发射穿透能力与伤害均衡的独头炮弹，范围攻击的高爆榴弹，或是后效较低但是穿甲极高的破甲弹。\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Miya_XM109</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.5,1.5)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <techLevel>Industrial</techLevel>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>13.9</Mass>
+                                <AccuracyTouch>0.33</AccuracyTouch>
+                                <AccuracyShort>0.605</AccuracyShort>
+                                <AccuracyMedium>0.88</AccuracyMedium>
+                                <AccuracyLong>0.99</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.975</RangedWeapon_Cooldown>
+                            </statBases>
+                            <costListForDifficulty>
+                                <difficultyVar>classicMortars</difficultyVar>
+                                <invert>true</invert>
+                                <costList>
+                                    <ReinforcedBarrel>1</ReinforcedBarrel>
+                                    <Steel>60</Steel>
+                                    <ComponentIndustrial>9</ComponentIndustrial>
+                                    <Plasteel>50</Plasteel>
+                                    <ComponentSpacer>1</ComponentSpacer>
+                                </costList>
+                            </costListForDifficulty>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Miya_Bullet_XM109_DT_Bond</defaultProjectile>
+                                    <warmupTime>3.825</warmupTime>
+                                    <range>49.9</range>
+                                    <soundCast>Shot_Autocannon</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <comps>
+                                <li Class="MiaWeapons.CompProperties_SwitchableProjectile">
+                                    <projectiles>
+                                        <li>Miya_Bullet_XM109_DT</li>
+                                        <li>Miya_Bullet_XM109_HE</li>
+                                        <li>Miya_Bullet_XM109_HEC</li>
+                                    </projectiles>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Miya_Bullet_XM109_PLUS_DT_Bond</defName>
+                            <label>聚能电荷弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_XM109_HEC_Plus</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>60</damageAmountBase>
+                                <armorPenetrationBase>0.6</armorPenetrationBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>120</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_XM109_PLUS_HEC_Bond</defName>
+                            <label>爆破电荷弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_XM109_HEC_Plus</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <damageAmountBase>60</damageAmountBase>
+                                <stoppingPower>2.0</stoppingPower>
+                                <armorPenetrationBase>0.1</armorPenetrationBase>
+                                <explosionRadius>1.9</explosionRadius>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun">
+                            <defName>Miya_XM109_SniperRifle_Plus_Bond</defName>
+                            <label>persona XM109型狙击步枪-电荷改装版</label>
+                            <description>使用现代电荷科技改良的XM109反器材步枪，这种威力强大的武器能够发射聚能电荷弹和爆炸性电荷弹。\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Miya_XM109_Plus</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.5,1.5)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <techLevel>Spacer</techLevel>
+                            <smeltable>false</smeltable>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>10.9</Mass>
+                                <AccuracyTouch>0.33</AccuracyTouch>
+                                <AccuracyShort>0.55</AccuracyShort>
+                                <AccuracyMedium>0.825</AccuracyMedium>
+                                <AccuracyLong>0.99</AccuracyLong>
+                                <RangedWeapon_Cooldown>3.4</RangedWeapon_Cooldown>
+                            </statBases>
+                            <costListForDifficulty>
+                                <difficultyVar>classicMortars</difficultyVar>
+                                <invert>true</invert>
+                                <costList>
+                                    <ReinforcedBarrel>2</ReinforcedBarrel>
+                                    <Plasteel>150</Plasteel>
+                                    <ComponentIndustrial>5</ComponentIndustrial>
+                                    <ComponentSpacer>10</ComponentSpacer>
+                                </costList>
+                            </costListForDifficulty>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Miya_Bullet_XM109_PLUS_DT_Bond</defaultProjectile>
+                                    <warmupTime>3.825</warmupTime>
+                                    <range>40.9</range>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <comps>
+                                <li Class="MiaWeapons.CompProperties_SwitchableProjectile">
+                                    <projectiles>
+                                        <li>Miya_Bullet_XM109_PLUS_DT</li>
+                                        <li>Miya_Bullet_XM109_PLUS_HEC</li>
+                                    </projectiles>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Miya_Bullet_SVD_Normal_Bond</defName>
+                            <label>独头弹</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Big</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>20</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_SVD_HE_Bond</defName>
+                            <label>高爆弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_XM109_HE</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <damageAmountBase>22</damageAmountBase>
+                                <stoppingPower>2</stoppingPower>
+                                <armorPenetrationBase>0</armorPenetrationBase>
+                                <explosionRadius>0.9</explosionRadius>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun">
+                            <defName>Miya_SVD_SniperRifle_Bond</defName>
+                            <label>persona 英雄之怒SVD-EX</label>
+                            <description>构型古老但是可靠的半自动精确射手步枪，虽然射程，精度和威力略差于狙击步枪，但是能够更快的射击。该型号步枪的另一个与众不同之处在于它安装有一部下挂榴弹发射器，能够精确的发射小型高爆榴弹。\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Miya_SVDEX</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.5,1.5)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <techLevel>Industrial</techLevel>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>4.3</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.88</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.77</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.105</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Miya_Bullet_SVD_Normal_Bond</defaultProjectile>
+                                    <warmupTime>1.87</warmupTime>
+                                    <range>38.9</range>
+                                    <soundCast>Shot_BoltActionRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <comps>
+                                <li Class="MiaWeapons.CompProperties_SwitchableProjectile">
+                                    <projectiles>
+                                        <li>Miya_Bullet_SVD_Normal</li>
+                                        <li>Miya_Bullet_SVD_HE</li>
+                                    </projectiles>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Miya_Bullet_SVD_Plus_Normal_Bond</defName>
+                            <label>电荷弹</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/ChargeLanceShot</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>28</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_SVD_Plus_HE_Bond</defName>
+                            <label>爆破电荷弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_XM109_HE</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <damageAmountBase>55</damageAmountBase>
+                                <stoppingPower>3</stoppingPower>
+                                <armorPenetrationBase>0.25</armorPenetrationBase>
+                                <explosionRadius>2.5</explosionRadius>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun">
+                            <defName>Miya_SVD_SniperRifle_Plus_Bond</defName>
+                            <label>persona 英雄之怒SVD-EX-电荷改装</label>
+                            <description>基于可靠的古老精确步枪的结构和设计理念并将其现代化的产物，这款电荷步枪能够以可观的射速发射不稳定电荷穿甲弹或是爆炸性电荷榴弹。\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Miya_SVDEX_Plus</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.5,1.5)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <techLevel>Spacer</techLevel>
+                            <smeltable>false</smeltable>
+                            <statBases>
+                                <Mass>4</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.88</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.77</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Miya_Bullet_SVD_Plus_Normal_Bond</defaultProjectile>
+                                    <warmupTime>1.275</warmupTime>
+                                    <range>25.9</range>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <comps>
+                                <li Class="MiaWeapons.CompProperties_SwitchableProjectile">
+                                    <projectiles>
+                                        <li>Miya_Bullet_SVD_Plus_Normal</li>
+                                        <li>Miya_Bullet_SVD_Plus_HE</li>
+                                    </projectiles>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Miya_Bullet_BlackGold_Normal_Bond</defName>
+                            <label>独头弹</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Big</texPath>
+                            </graphicData>
+                            <projectile>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>31</damageAmountBase>
+                                <armorPenetrationBase>0.5</armorPenetrationBase>
+                                <stoppingPower>2.0</stoppingPower>
+                                <speed>180</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_HighExplosive_Bond</defName>
+                            <label>高爆弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>82</damageAmountBase>
+                                <stoppingPower>5.0</stoppingPower>
+                                <armorPenetrationBase>0.75</armorPenetrationBase>
+                                <explosionRadius>2.0</explosionRadius>
+                                <speed>145</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Fire_Bond</defName>
+                            <label>燃烧弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Flame</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>55</damageAmountBase>
+                                <stoppingPower>1.0</stoppingPower>
+                                <armorPenetrationBase>0.05</armorPenetrationBase>
+                                <explosionRadius>4.6</explosionRadius>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Extinguish_Bond</defName>
+                            <label>灭火弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Extinguish</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <stoppingPower>5.0</stoppingPower>
+                                <explosionRadius>9.9</explosionRadius>
+                                <explosionEffect>ExtinguisherExplosion</explosionEffect>
+                                <postExplosionSpawnThingDef>Filth_FireFoam</postExplosionSpawnThingDef>
+                                <postExplosionSpawnChance>1</postExplosionSpawnChance>
+                                <postExplosionSpawnThingCount>3</postExplosionSpawnThingCount>
+                                <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+                                <speed>185</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Smoke_Bond</defName>
+                            <label>烟雾弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Smoke</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>0</damageAmountBase>
+                                <stoppingPower>5.0</stoppingPower>
+                                <armorPenetrationBase>0</armorPenetrationBase>
+                                <explosionRadius>4.6</explosionRadius>
+                                <postExplosionGasType>BlindSmoke</postExplosionGasType>
+                                <postExplosionSpawnChance>1</postExplosionSpawnChance>
+                                <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+                                <speed>105</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Flash_Bond</defName>
+                            <label>闪光弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Stun</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>6</damageAmountBase>
+                                <stoppingPower>2.0</stoppingPower>
+                                <armorPenetrationBase>0.55</armorPenetrationBase>
+                                <explosionEffect>GiantExplosion</explosionEffect>
+                                <explosionRadius>3.2</explosionRadius>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_EMP_Bond</defName>
+                            <label>EMP弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>EMP</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>2200</damageAmountBase>
+                                <stoppingPower>2.0</stoppingPower>
+                                <armorPenetrationBase>5.55</armorPenetrationBase>
+                                <explosionRadius>2.4</explosionRadius>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" MayRequire="Ludeon.RimWorld.Biotech">
+                            <defName>Miya_Bullet_BlackGold_Gas_Bond</defName>
+                            <label>毒气弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Miya_Damage_Toxic</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>2</damageAmountBase>
+                                <stoppingPower>2.0</stoppingPower>
+                                <armorPenetrationBase>0.5</armorPenetrationBase>
+                                <explosionRadius>2.2</explosionRadius>
+                                <postExplosionSpawnThingDef>Gas_Toxic</postExplosionSpawnThingDef>
+                                <postExplosionSpawnChance>1</postExplosionSpawnChance>
+                                <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Heal_Bond</defName>
+                            <label>治疗弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Miya_Damage_Heal</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>22</damageAmountBase>
+                                <stoppingPower>0</stoppingPower>
+                                <armorPenetrationBase>0.55</armorPenetrationBase>
+                                <explosionRadius>3.4</explosionRadius>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Anesthesia_Bond</defName>
+                            <label>麻醉弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Miya_Damage_Anesthesia</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>1</damageAmountBase>
+                                <stoppingPower>2.0</stoppingPower>
+                                <armorPenetrationBase>0.15</armorPenetrationBase>
+                                <explosionRadius>1.6</explosionRadius>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun">
+                            <defName>Miya_BlackGold_Howitzer_Bond</defName>
+                            <label>persona 黑金榴弹炮</label>
+                            <description>可以发射多种榴弹的极致科技先进武器。\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Miya_BlackGold_Howitzer</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.5,1.5)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <techLevel>Ultra</techLevel>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <MarketValue>13750.0</MarketValue>
+                                <Mass>28.2</Mass>
+                                <DeteriorationRate>0.5</DeteriorationRate>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.99</AccuracyLong>
+                                <RangedWeapon_Cooldown>4.08</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Miya_Bullet_BlackGold_Normal_Bond</defaultProjectile>
+                                    <warmupTime>4.675</warmupTime>
+                                    <range>75.0</range>
+                                    <soundCast>Shot_SniperRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <comps>
+                                <li Class="MiaWeapons.CompProperties_SwitchableProjectile">
+                                    <projectiles>
+                                        <li>Miya_Bullet_BlackGold_Normal</li>
+                                        <li>Miya_Bullet_BlackGold_HighExplosive</li>
+                                        <li>Miya_Bullet_BlackGold_Fire</li>
+                                        <li>Miya_Bullet_BlackGold_Flash</li>
+                                        <li>Miya_Bullet_BlackGold_EMP</li>
+                                        <li>Miya_Bullet_BlackGold_Extinguish</li>
+                                        <li>Miya_Bullet_BlackGold_Smoke</li>
+                                        <li MayRequire="Ludeon.RimWorld.Biotech">Miya_Bullet_BlackGold_Gas</li>
+                                        <li>Miya_Bullet_BlackGold_Anesthesia</li>
+                                        <li>Miya_Bullet_BlackGold_Heal</li>
+                                    </projectiles>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_Normal_Bond</defName>
+                            <label>独头弹</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Big</texPath>
+                            </graphicData>
+                            <projectile>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>211</damageAmountBase>
+                                <armorPenetrationBase>1.95</armorPenetrationBase>
+                                <stoppingPower>20.0</stoppingPower>
+                                <speed>180</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_HighExplosive_Bond</defName>
+                            <label>高爆弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>110</damageAmountBase>
+                                <stoppingPower>5.0</stoppingPower>
+                                <armorPenetrationBase>0.75</armorPenetrationBase>
+                                <explosionRadius>2.0</explosionRadius>
+                                <speed>145</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_Fire_Bond</defName>
+                            <label>超凡燃烧弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Miya_Damage_DisassemblerFire</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>55</damageAmountBase>
+                                <stoppingPower>1.0</stoppingPower>
+                                <armorPenetrationBase>0.05</armorPenetrationBase>
+                                <explosionRadius>4.6</explosionRadius>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_Extinguish_Bond</defName>
+                            <label>灭火弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Extinguish</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <stoppingPower>5.0</stoppingPower>
+                                <explosionRadius>9.9</explosionRadius>
+                                <explosionEffect>ExtinguisherExplosion</explosionEffect>
+                                <postExplosionSpawnThingDef>Filth_FireFoam</postExplosionSpawnThingDef>
+                                <postExplosionSpawnChance>1</postExplosionSpawnChance>
+                                <postExplosionSpawnThingCount>3</postExplosionSpawnThingCount>
+                                <applyDamageToExplosionCellsNeighbors>true</applyDamageToExplosionCellsNeighbors>
+                                <speed>185</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_Smoke_Bond</defName>
+                            <label>烟雾弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Smoke</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>0</damageAmountBase>
+                                <stoppingPower>5.0</stoppingPower>
+                                <armorPenetrationBase>0</armorPenetrationBase>
+                                <explosionRadius>4.6</explosionRadius>
+                                <postExplosionGasType>BlindSmoke</postExplosionGasType>
+                                <postExplosionSpawnChance>1</postExplosionSpawnChance>
+                                <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+                                <speed>105</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_Flash_Bond</defName>
+                            <label>闪光弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Stun</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>6</damageAmountBase>
+                                <stoppingPower>2.0</stoppingPower>
+                                <armorPenetrationBase>0.55</armorPenetrationBase>
+                                <explosionEffect>GiantExplosion</explosionEffect>
+                                <explosionRadius>3.2</explosionRadius>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_EMP_Bond</defName>
+                            <label>EMP弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>EMP</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>11000</damageAmountBase>
+                                <stoppingPower>2.0</stoppingPower>
+                                <armorPenetrationBase>9.99</armorPenetrationBase>
+                                <explosionRadius>2.4</explosionRadius>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_AntigrainWarhead_Bond</defName>
+                            <label>反粒子弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Miya_Damage_BombSuper</damageDef>
+                                <speed>141</speed>
+                                <damageAmountBase>605</damageAmountBase>
+                                <explosionChanceToStartFire>0.22</explosionChanceToStartFire>
+                                <explosionDamageFalloff>true</explosionDamageFalloff>
+                                <explosionEffect>GiantExplosion</explosionEffect>
+                                <explosionRadius>14.9</explosionRadius>
+                                <flyOverhead>true</flyOverhead>
+                                <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+                                <soundExplode>Explosion_GiantBomb</soundExplode>
+                                <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+                                <soundAmbient>MortarRound_Ambient</soundAmbient>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" MayRequire="Ludeon.RimWorld.Biotech">
+                            <defName>Miya_Bullet_BlackGold_Plus_Gas_Bond</defName>
+                            <label>毒气弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Miya_Damage_Toxic</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>2</damageAmountBase>
+                                <stoppingPower>2.0</stoppingPower>
+                                <armorPenetrationBase>0.5</armorPenetrationBase>
+                                <explosionRadius>2.4</explosionRadius>
+                                <postExplosionSpawnThingDef>Gas_Toxic</postExplosionSpawnThingDef>
+                                <postExplosionSpawnChance>1</postExplosionSpawnChance>
+                                <postExplosionSpawnThingCount>1</postExplosionSpawnThingCount>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_Heal_Bond</defName>
+                            <label>治疗弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Miya_Damage_Heal</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>44</damageAmountBase>
+                                <stoppingPower>0</stoppingPower>
+                                <armorPenetrationBase>0.55</armorPenetrationBase>
+                                <explosionRadius>3.4</explosionRadius>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_PsychicShock_Bond</defName>
+                            <label>心灵冲击弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Miya_Damage_PsychicShock</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>1</damageAmountBase>
+                                <stoppingPower>2.0</stoppingPower>
+                                <armorPenetrationBase>2.56</armorPenetrationBase>
+                                <explosionRadius>1.4</explosionRadius>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_Anesthesia_Bond</defName>
+                            <label>麻醉弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Miya_Damage_Anesthesia</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>4</damageAmountBase>
+                                <stoppingPower>2.0</stoppingPower>
+                                <armorPenetrationBase>0.15</armorPenetrationBase>
+                                <explosionRadius>1.6</explosionRadius>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_Freeze_Bond</defName>
+                            <label>冰冻弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Miya_Damage_Freeze</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>4</damageAmountBase>
+                                <stoppingPower>2.0</stoppingPower>
+                                <armorPenetrationBase>2.56</armorPenetrationBase>
+                                <explosionRadius>3.6</explosionRadius>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_Resurrection_Bond</defName>
+                            <label>复活弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Miya_Damage_Resurrection</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>1</damageAmountBase>
+                                <stoppingPower>0</stoppingPower>
+                                <armorPenetrationBase>0</armorPenetrationBase>
+                                <explosionRadius>2.0</explosionRadius>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_PsychicRecovery_Bond</defName>
+                            <label>灵能恢复弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Miya_Damage_PsychicRecovery</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>1</damageAmountBase>
+                                <stoppingPower>0</stoppingPower>
+                                <armorPenetrationBase>0</armorPenetrationBase>
+                                <explosionRadius>2.5</explosionRadius>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_Berserk_Bond</defName>
+                            <label>狂暴弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Miya_Damage_Berserk</damageDef>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>1</damageAmountBase>
+                                <stoppingPower>0</stoppingPower>
+                                <armorPenetrationBase>0</armorPenetrationBase>
+                                <explosionRadius>2.5</explosionRadius>
+                                <speed>125</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet">
+                            <defName>Miya_Bullet_BlackGold_Plus_HighDimension_Bond</defName>
+                            <label>高维弹</label>
+                            <graphicData>
+                                <texPath>Bullets/Miya_5</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Miya_Damage_HighDimension</damageDef>
+                                <explosionEffect>GiantExplosion</explosionEffect>
+                                <flyOverhead>False</flyOverhead>
+                                <damageAmountBase>11</damageAmountBase>
+                                <stoppingPower>0</stoppingPower>
+                                <armorPenetrationBase>0</armorPenetrationBase>
+                                <explosionRadius>1.0</explosionRadius>
+                                <speed>9999</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseGunWithQuality">
+                            <defName>Miya_BlackGold_Howitzer_Plus_Bond</defName>
+                            <label>persona “光环”战术武器系统</label>
+                            <description>据传经过超凡智能之手的武器，其可用的弹头中包含了一些在人类技术理解范围之外的科技。\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Miya_BlackGold_Howitzer_Plus</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.5,1.5)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <techLevel>Archotech</techLevel>
+                            <smeltable>false</smeltable>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <MarketValue>72088.5</MarketValue>
+                                <Mass>14.2</Mass>
+                                <DeteriorationRate>0.5</DeteriorationRate>
+                                <AccuracyTouch>0.825</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>1.045</AccuracyMedium>
+                                <AccuracyLong>1.089</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.04</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Miya_Bullet_BlackGold_Normal_Bond</defaultProjectile>
+                                    <warmupTime>2.125</warmupTime>
+                                    <range>95.0</range>
+                                    <soundCast>PsychicShockLanceCast</soundCast>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <comps>
+                                <li Class="MiaWeapons.CompProperties_SwitchableProjectile">
+                                    <projectiles>
+                                        <li>Miya_Bullet_BlackGold_Plus_Normal</li>
+                                        <li>Miya_Bullet_BlackGold_Plus_HighExplosive</li>
+                                        <li>Miya_Bullet_BlackGold_Plus_Fire</li>
+                                        <li>Miya_Bullet_BlackGold_Plus_AntigrainWarhead</li>
+                                        <li>Miya_Bullet_BlackGold_Plus_HighDimension</li>
+                                        <li>Miya_Bullet_BlackGold_Plus_Flash</li>
+                                        <li>Miya_Bullet_BlackGold_Plus_Freeze</li>
+                                        <li>Miya_Bullet_BlackGold_Plus_EMP</li>
+                                        <li>Miya_Bullet_BlackGold_Plus_Extinguish</li>
+                                        <li>Miya_Bullet_BlackGold_Plus_Smoke</li>
+                                        <li MayRequire="Ludeon.RimWorld.Biotech">Miya_Bullet_BlackGold_Plus_Gas</li>
+                                        <li>Miya_Bullet_BlackGold_Plus_Berserk</li>
+                                        <li>Miya_Bullet_BlackGold_Plus_PsychicShock</li>
+                                        <li>Miya_Bullet_BlackGold_Plus_Anesthesia</li>
+                                        <li>Miya_Bullet_BlackGold_Plus_Heal</li>
+                                        <li>Miya_Bullet_BlackGold_Plus_PsychicRecovery</li>
+                                        <li>Miya_Bullet_BlackGold_Plus_Resurrection</li>
+                                    </projectiles>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseWeapon">
+                            <defName>Mia_Warhammer_Bond</defName>
+                            <label>persona 西格玛战锤</label>
+                            <description>传说中的强大战锤，拥有强大穿透力的同时，还能震撼目标。\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Ultra</techLevel>
+                            <relicChance>3</relicChance>
+                            <graphicData>
+                                <texPath>Weapons/Miya_Warhammer</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.2,1.2)</drawSize>
+                            </graphicData>
+                            <comps>
+                                <li>
+                                    <compClass>CompQuality</compClass>
+                                </li>
+                                <li Class="CompProperties_Art">
+                                    <nameMaker>NamerArtWeaponMelee</nameMaker>
+                                    <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+                                    <minQualityForArtistic>Excellent</minQualityForArtistic>
+                                </li>
+                                <li Class="CompProperties_Biocodable"/>
+                            </comps>
+                            <statBases>
+                                <MarketValue>2200.0</MarketValue>
+                                <Mass>5</Mass>
+                            </statBases>
+                            <burnableByRecipe>true</burnableByRecipe>
+                            <thingCategories>
+                                <li>WeaponsMelee</li>
+                            </thingCategories>
+                            <weaponClasses>
+                                <li>Melee</li>
+                                <li>Ultratech</li>
+                            </weaponClasses>
+                            <tradeTags>
+                                <li>WeaponMelee</li>
+                            </tradeTags>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.1</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>head</label>
+                                    <labelUsedInLogging>false</labelUsedInLogging>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>27.5</power>
+                                    <armorPenetration>0.55</armorPenetration>
+                                    <cooldownTime>2.21</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Stun</def>
+                                            <amount>10</amount>
+                                            <chance>1</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseWeapon" MayRequire="Ludeon.RimWorld.Royalty">
+                            <defName>Mia_WarhammerPsychic_Bond</defName>
+                            <label>persona 盖尔·玛拉兹</label>
+                            <description>传说中的强大战锤，拥有强大穿透力的同时，还能震撼目标。除此之外，这根极致科技级别的战锤内部由心灵聚合物编织而成。不仅能作为作及其有效的武器使用，而且当一个使用心灵能力的个体持有它时，除了会增加心灵敏感度外，还能够提高心灵熵降低速率。\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Ultra</techLevel>
+                            <relicChance>3</relicChance>
+                            <graphicData>
+                                <texPath>Weapons/Miya_EltexWarHammer</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.2,1.2)</drawSize>
+                            </graphicData>
+                            <comps>
+                                <li>
+                                    <compClass>CompQuality</compClass>
+                                </li>
+                                <li Class="CompProperties_Art">
+                                    <nameMaker>NamerArtWeaponMelee</nameMaker>
+                                    <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+                                    <minQualityForArtistic>Excellent</minQualityForArtistic>
+                                </li>
+                                <li Class="CompProperties_Biocodable"/>
+                            </comps>
+                            <statBases>
+                                <MarketValue>2200.0</MarketValue>
+                                <Mass>5</Mass>
+                            </statBases>
+                            <burnableByRecipe>true</burnableByRecipe>
+                            <thingCategories>
+                                <li>WeaponsMelee</li>
+                            </thingCategories>
+                            <weaponClasses>
+                                <li>Melee</li>
+                                <li>Ultratech</li>
+                            </weaponClasses>
+                            <tradeTags>
+                                <li>WeaponMelee</li>
+                                <li>PsychicWeapon</li>
+                            </tradeTags>
+                            <equippedStatOffsets>
+                                <PsychicSensitivityOffset>0.50</PsychicSensitivityOffset>
+                                <PsychicEntropyRecoveryRate>0.083</PsychicEntropyRecoveryRate>
+                            </equippedStatOffsets>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.1</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>head</label>
+                                    <labelUsedInLogging>false</labelUsedInLogging>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>27.5</power>
+                                    <armorPenetration>0.55</armorPenetration>
+                                    <cooldownTime>2.21</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Stun</def>
+                                            <amount>10</amount>
+                                            <chance>1</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun">
+                            <defName>Miya_DragonDrill_Bond</defName>
+                            <label>persona 电光狂龙钻</label>
+                            <description>为了抵御僵尸而设计制造的强大武器，霸气绝伦的狂龙钻能对敌人和建筑造成大量伤害，同时其尖端的散射电荷弹能够压制大范围的目标。\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Miya_DragonDrill</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.5,1.5)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <techLevel>Spacer</techLevel>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>14.2</Mass>
+                                <AccuracyTouch>0.88</AccuracyTouch>
+                                <AccuracyShort>0.957</AccuracyShort>
+                                <AccuracyMedium>0.847</AccuracyMedium>
+                                <AccuracyLong>0.704</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.04</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MiningSpeed>1</MiningSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_ChargeBlasterHeavy_Bond</defaultProjectile>
+                                    <warmupTime>1.062</warmupTime>
+                                    <range>26.9</range>
+                                    <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                                    <burstShotCount>8</burstShotCount>
+                                    <soundCast>Shot_ChargeBlaster</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>drill</label>
+                                    <labelUsedInLogging>false</labelUsedInLogging>
+                                    <capacities>
+                                        <li>Miya_Damage_Drill</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>0.085</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun" MayRequire="Ludeon.RimWorld.Biotech">
+                            <defName>Miya_LaserRifle_Bond</defName>
+                            <label>persona LAR-10 激光步枪</label>
+                            <description>由DelTec公司研制的单兵激光武器，能够发射持续性的激光光束，对中远距离的目标造成可靠的杀伤。\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapons/Miya_LaserRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.2,1.2)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <techLevel>Spacer</techLevel>
+                            <statBases>
+                                <Mass>4.2</Mass>
+                                <AccuracyTouch>0.88</AccuracyTouch>
+                                <AccuracyShort>0.957</AccuracyShort>
+                                <AccuracyMedium>0.847</AccuracyMedium>
+                                <AccuracyLong>0.704</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.19</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MiningSpeed>1</MiningSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_ShootBeam</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <warmupTime>1.53</warmupTime>
+                                    <range>36.9</range>
+                                    <minRange>5.9</minRange>
+                                    <beamFullWidthRange>6.9</beamFullWidthRange>
+                                    <burstShotCount>5</burstShotCount>
+                                    <beamWidth>1</beamWidth>
+                                    <ticksBetweenBurstShots>22</ticksBetweenBurstShots>
+                                    <beamDamageDef>Beam</beamDamageDef>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <soundCastBeam>BeamGraser_Shooting</soundCastBeam>
+                                    <beamGroundFleckDef>Fleck_BeamBurn</beamGroundFleckDef>
+                                    <beamFleckChancePerTick>0.32</beamFleckChancePerTick>
+                                    <beamMaxDeviation>1.5</beamMaxDeviation>
+                                    <beamCurvature>0.6</beamCurvature>
+                                    <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
+                                    <beamEndEffecterDef>GraserBeam_End</beamEndEffecterDef>
+                                    <beamChanceToStartFire>0</beamChanceToStartFire>
+                                    <beamChanceToAttachFire>0</beamChanceToAttachFire>
+                                    <beamLineFleckDef>Fleck_BeamSpark</beamLineFleckDef>
+                                    <beamStartOffset>0.8</beamStartOffset>
+                                    <beamLineFleckChanceCurve>
+                                        <points>
+                                            <li>(0, 0)</li>
+                                            <li>(0.65, 0.4)</li>
+                                            <li>(1, 0.75)</li>
+                                        </points>
+                                    </beamLineFleckChanceCurve>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseWeapon">
+                            <defName>Mia_IceSword_Bond</defName>
+                            <label>persona 冰刀</label>
+                            <description>传说中终日被寒气包裹的极致武器，不仅能轻易穿透敌人的护甲，还能使其寒气浸透敌人身体内部，降低敌人的能力。\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Ultra</techLevel>
+                            <relicChance>3</relicChance>
+                            <graphicData>
+                                <texPath>Weapons/MiyaWeapon_IceSword</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.2,1.2)</drawSize>
+                            </graphicData>
+                            <comps>
+                                <li>
+                                    <compClass>CompQuality</compClass>
+                                </li>
+                                <li Class="CompProperties_Art">
+                                    <nameMaker>NamerArtWeaponMelee</nameMaker>
+                                    <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+                                    <minQualityForArtistic>Excellent</minQualityForArtistic>
+                                </li>
+                                <li Class="CompProperties_BladelinkWeapon" MayRequire="Ludeon.RimWorld.Royalty">
+                                    <biocodeOnEquip>true</biocodeOnEquip>
+                                </li>
+                                <li Class="CompProperties_Biocodable"/>
+                            </comps>
+                            <statBases>
+                                <MarketValue>2200.0</MarketValue>
+                                <Mass>5</Mass>
+                            </statBases>
+                            <burnableByRecipe>true</burnableByRecipe>
+                            <thingCategories>
+                                <li>WeaponsMelee</li>
+                            </thingCategories>
+                            <weaponClasses>
+                                <li>Melee</li>
+                                <li>Ultratech</li>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <tradeTags>
+                                <li>WeaponMelee</li>
+                            </tradeTags>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>23.1</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Miya_Damage_Freeze</def>
+                                            <amount>4</amount>
+                                            <chance>1</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>23.1</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Miya_Damage_Freeze</def>
+                                            <amount>2</amount>
+                                            <chance>1</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseWeapon">
+                            <defName>Mia_UltraTechSword_Bond</defName>
+                            <label>persona 星际仲裁</label>
+                            <description>一把极致科技的能量剑，使用极薄的力场作为刀刃。虽然伤害不如其他极致科技武器，但是能够穿透几乎所有护甲。\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Ultra</techLevel>
+                            <relicChance>3</relicChance>
+                            <graphicData>
+                                <texPath>Weapons/Miya_UltraTechSword</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.2,1.2)</drawSize>
+                                <shaderType>Transparent</shaderType>
+                            </graphicData>
+                            <comps>
+                                <li>
+                                    <compClass>CompQuality</compClass>
+                                </li>
+                                <li Class="CompProperties_Art">
+                                    <nameMaker>NamerArtWeaponMelee</nameMaker>
+                                    <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+                                    <minQualityForArtistic>Excellent</minQualityForArtistic>
+                                </li>
+                                <li Class="CompProperties_Biocodable"/>
+                            </comps>
+                            <statBases>
+                                <MarketValue>2200.0</MarketValue>
+                                <Mass>5</Mass>
+                            </statBases>
+                            <burnableByRecipe>true</burnableByRecipe>
+                            <thingCategories>
+                                <li>WeaponsMelee</li>
+                            </thingCategories>
+                            <weaponClasses>
+                                <li>Melee</li>
+                                <li>Ultratech</li>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <tradeTags>
+                                <li>WeaponMelee</li>
+                            </tradeTags>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <cooldownTime>1.36</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>11.0</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                    <armorPenetration>1.65</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>16.5</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                    <armorPenetration>1.32</armorPenetration>
+                                </li>
+                            </tools>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseWeapon">
+                            <defName>Mia_DemonSword_Bond</defName>
+                            <label>persona 魔剑阿波菲斯</label>
+                            <description>仅存在于口口相传的神话中的魔剑，据说能够吸取其受害者的鲜血来治疗持有者。\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Ultra</techLevel>
+                            <relicChance>3</relicChance>
+                            <graphicData>
+                                <texPath>Weapons/Miya_DemonSword</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.2,1.2)</drawSize>
+                            </graphicData>
+                            <comps>
+                                <li>
+                                    <compClass>CompQuality</compClass>
+                                </li>
+                                <li Class="CompProperties_Art">
+                                    <nameMaker>NamerArtWeaponMelee</nameMaker>
+                                    <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+                                    <minQualityForArtistic>Excellent</minQualityForArtistic>
+                                </li>
+                                <li Class="CompProperties_BladelinkWeapon" MayRequire="Ludeon.RimWorld.Royalty">
+                                    <biocodeOnEquip>true</biocodeOnEquip>
+                                </li>
+                                <li Class="CompProperties_Biocodable"/>
+                            </comps>
+                            <statBases>
+                                <MarketValue>2200.0</MarketValue>
+                                <Mass>5</Mass>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <PsychicSensitivityOffset MayRequire="Ludeon.RimWorld.Royalty">0.50</PsychicSensitivityOffset>
+                                <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.083</PsychicEntropyRecoveryRate>
+                            </equippedStatOffsets>
+                            <burnableByRecipe>true</burnableByRecipe>
+                            <thingCategories>
+                                <li>WeaponsMelee</li>
+                            </thingCategories>
+                            <weaponClasses>
+                                <li>Melee</li>
+                                <li>Ultratech</li>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <tradeTags>
+                                <li>WeaponMelee</li>
+                            </tradeTags>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.2</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>23.1</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Miya_Damage_HealSelf</def>
+                                            <amount>10</amount>
+                                            <chance>1</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>23.1</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Miya_Damage_HealSelf</def>
+                                            <amount>10</amount>
+                                            <chance>1</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_MiaSAMAsWeaponPack</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Miya_Bullet_XM109_DT_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_XM109_DT_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_XM109_HE_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_XM109_HE_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_XM109_HEC_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_XM109_HEC_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_XM109_SniperRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_XM109_SniperRifle_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_XM109_PLUS_DT_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_XM109_PLUS_DT_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_XM109_PLUS_HEC_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_XM109_PLUS_HEC_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_XM109_SniperRifle_Plus_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_XM109_SniperRifle_Plus_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_SVD_Normal_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_SVD_Normal_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_SVD_HE_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_SVD_HE_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_SVD_SniperRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_SVD_SniperRifle_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_SVD_Plus_Normal_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_SVD_Plus_Normal_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_SVD_Plus_HE_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_SVD_Plus_HE_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_SVD_SniperRifle_Plus_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_SVD_SniperRifle_Plus_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Normal_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Normal_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_HighExplosive_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_HighExplosive_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Fire_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Fire_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Extinguish_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Extinguish_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Smoke_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Smoke_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Flash_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Flash_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_EMP_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_EMP_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Gas_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Gas_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Heal_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Heal_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Anesthesia_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Anesthesia_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_BlackGold_Howitzer_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_BlackGold_Howitzer_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_Normal_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_Normal_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_HighExplosive_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_HighExplosive_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_Fire_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_Fire_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_Extinguish_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_Extinguish_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_Smoke_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_Smoke_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_Flash_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_Flash_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_EMP_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_EMP_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_AntigrainWarhead_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_AntigrainWarhead_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_Gas_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_Gas_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_Heal_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_Heal_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_PsychicShock_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_PsychicShock_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_Anesthesia_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_Anesthesia_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_Freeze_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_Freeze_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_Resurrection_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_Resurrection_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_PsychicRecovery_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_PsychicRecovery_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_Berserk_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_Berserk_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_Bullet_BlackGold_Plus_HighDimension_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_Bullet_BlackGold_Plus_HighDimension_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_BlackGold_Howitzer_Plus_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_BlackGold_Howitzer_Plus_Bond"]</xpath>
+                        </Operation>
+                        <!-- Mia_Warhammer_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Mia_Warhammer_Bond"]</xpath>
+                        </Operation>
+                        <!-- Mia_WarhammerPsychic_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Mia_WarhammerPsychic_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_DragonDrill_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_DragonDrill_Bond"]</xpath>
+                        </Operation>
+                        <!-- Miya_LaserRifle_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Miya_LaserRifle_Bond"]</xpath>
+                        </Operation>
+                        <!-- Mia_IceSword_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Mia_IceSword_Bond"]</xpath>
+                        </Operation>
+                        <!-- Mia_UltraTechSword_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Mia_UltraTechSword_Bond"]</xpath>
+                        </Operation>
+                        <!-- Mia_DemonSword_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Mia_DemonSword_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

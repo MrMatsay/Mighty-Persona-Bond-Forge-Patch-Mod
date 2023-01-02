@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Grimworld: Ogryns =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Grimworld: Ogryns</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_Bullet">
+                            <defName>Bullet_Rippershell_Bond</defName>
+                            <label>Rippershell</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>22</damageAmountBase>
+                                <stoppingPower>4</stoppingPower>
+                                <armorPenetrationBase>0.14</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                            <defName>Gun_Rippergun_Bond</defName>
+                            <label>persona Rippergun</label>
+                            <description>test\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <possessionCount>1</possessionCount>
+                            <graphicData>
+                                <drawSize>1.4</drawSize>
+                                <texPath>Weapons/Rippergun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Shotgun</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>ShortShots</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>8</Mass>
+                                <AccuracyTouch>0.682</AccuracyTouch>
+                                <AccuracyShort>0.748</AccuracyShort>
+                                <AccuracyMedium>0.363</AccuracyMedium>
+                                <AccuracyLong>0.132</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.04</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Rippershell_Bond</defaultProjectile>
+                                    <warmupTime>2.04</warmupTime>
+                                    <range>18</range>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>Shot_Shotgun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.9</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Blunt_Quality">
+                            <defName>MeleeWeapon_PowerMaul_Bond</defName>
+                            <label>persona Power Maul</label>
+                            <description>test\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <possessionCount>1</possessionCount>
+                            <graphicData>
+                                <drawSize>1.4</drawSize>
+                                <texPath>Weapons/Power Maul</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                            </graphicData>
+                            <uiIconScale>1.2</uiIconScale>
+                            <techLevel>Industrial</techLevel>
+                            <statBases>
+                                <Mass>6.2</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <costStuffCount>40</costStuffCount>
+                            <stuffCategories>
+                                <li>Metallic</li>
+                            </stuffCategories>
+                            <weaponTags>
+                                <li>SpacerMeleeDecent</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>Melee</li>
+                            </weaponClasses>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.1</power>
+                                    <cooldownTime>2.04</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>head</label>
+                                    <labelUsedInLogging>false</labelUsedInLogging>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>22.88</power>
+                                    <cooldownTime>3.06</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                    <key>Daria40K_MightyPersonaBondForgePatch_GrimworldOgryns</key>
+                    <defaultValue>true</defaultValue>
+                    <caseFalse>
+                        <!-- Bullet_Rippershell_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Bullet_Rippershell_Bond"]</xpath>
+                        </Operation>
+                        <!-- Gun_Rippergun_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="Gun_Rippergun_Bond"]</xpath>
+                        </Operation>
+                        <!-- MeleeWeapon_PowerMaul_Bond -->
+                        <Operation Class="XmlExtensions.PatchOperationRemove">
+                            <xpath>Defs/ThingDef[defName="MeleeWeapon_PowerMaul_Bond"]</xpath>
+                        </Operation>
+                    </caseFalse>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
