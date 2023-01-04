@@ -26,6 +26,7 @@
 - [Junior Marine's Armory](https://steamcommunity.com/sharedfiles/filedetails/?id=2888127396)
 - [KEP Weapons - Toxic (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2800013902)
 - [[LFS] Night Shade Mercenarys](https://steamcommunity.com/sharedfiles/filedetails/?id=2909372626)
+- [Mechanitor's Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2912279562)
 - [pphhyy's Tox Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2891573871)
 - [Project Fortuna Laser Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2488213632)
 - [Project Fortuna Weapon Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2325528796)

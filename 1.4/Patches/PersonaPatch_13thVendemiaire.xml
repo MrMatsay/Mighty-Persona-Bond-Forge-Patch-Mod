@@ -11,101 +11,176 @@
             <li>The 13th Vendemiaire</li>
         </mods>
 
-        <match Class="PatchOperationSequence">
-            <success>Always</success>
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>/Defs</xpath>
-                    <value>
-                        <!-- ===== Range ===== -->
-                        <!-- HRK_13thVendemiaire_Bond -->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>HRK_13thVendemiaire_Bond</defName>
-                            <label>persona The 13th Vendemiaire</label>
-                            <description>The 13th Vendemiaire, or in its original technical name, the Mk IV Submunition Projector, is an unsubtle archotech weapon meant for extremely close range ship-boarding actions. In simple terms, it fires a barrage of charged flechettes from a pre-loaded canister affixed to the front of the weapon. When triggered, the flechettes are agitated within the canister and directed outwards, rapidly decomposing into highly unstable pulse charges. This rapid process also limits its range to mere meters, as they lose energy and lethality quickly over distance. Nevertheless, they are devastating in the knife-fight ranges they are employed in, and have sometimes been repurposed against drop-pod assaults and infestations. Brave (or foolish) volunteers would surround the entry point and greet the intruders with a hail of munitions. They would then scoot away after the first volley to begin the cumbersome reloading process of replacing the now spent canister.\n\nComparisons to ancient muzzle-loaded guns with grapeshot soon followed, thus the Mk IV was christened with its informal desition.\n\n"Give em the ol' whiff o' grapeshot, yer highness. They won't like that. Oh no they wouldn't," - Guardsman "Chungus" Angus, 5432\n\n"Its literally can't kill anything beyond sneezing range. Everything within it though..." Ramone Griffith, unknown.\n\n"Rimworld problems require Rimworld solutions," Greengrow Combat Industries, sales tagline circa 5390\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <graphicData>
-                                <texPath>Things/Weapons/HRK_13thVendemiaire</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                            <techLevel>Spacer</techLevel>
-                            <soundInteract>Interact_ChargeRifle</soundInteract>
-                            <statBases>
-                                <Mass>8.5</Mass>
-                                <AccuracyTouch>0.440</AccuracyTouch>
-                                <AccuracyShort>0.484</AccuracyShort>
-                                <AccuracyMedium>0.330</AccuracyMedium>
-                                <AccuracyLong>0.231</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.870</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>HRK_Bullet_13thVendemiaire_Bond</defaultProjectile>
-                                    <warmupTime>0.850</warmupTime>
-                                    <range>35</range>
-                                    <soundCast>HRK_Shot_13thVendemiaire</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <tools>
-                                <li>
-                                    <label>stock</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.900</power>
-                                    <cooldownTime>1.700</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.900</power>
-                                    <cooldownTime>1.700</cooldownTime>
-                                </li>
-                            </tools>
-                            <weaponTags>
-                                <li>SpacerGun</li>
-                            </weaponTags>
-                        </ThingDef>
+        <match Class="PatchOperationFindMod">
+            <mods>
+                <li>XML Extensions</li>
+            </mods>
 
-                        <ThingDef ParentName="MPBFPM_Bullet">
-                            <defName>HRK_Bullet_13thVendemiaire_Bond</defName>
-                            <label>The 13th Vendemiaire charged blast</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/Charge_Small</texPath>
-                                <shaderType>TransparentPostLight</shaderType>
-                                <drawSize>0.8</drawSize>
-                            </graphicData>
-                            <projectile>
-                                <damageAmountBase>10</damageAmountBase>
-                                <armorPenetrationBase>0.35</armorPenetrationBase>
-                                <stoppingPower>1</stoppingPower>
-                                <speed>60</speed>
-                            </projectile>
-                        </ThingDef>
-                    </value>
-                </li>
+            <nomatch Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                        <defName>HRK_13thVendemiaire_Bond</defName>
+                        <label>persona The 13th Vendemiaire</label>
+                        <description>The 13th Vendemiaire, or in its original technical name, the Mk IV Submunition Projector, is an unsubtle archotech weapon meant for extremely close range ship-boarding actions. In simple terms, it fires a barrage of charged flechettes from a pre-loaded canister affixed to the front of the weapon. When triggered, the flechettes are agitated within the canister and directed outwards, rapidly decomposing into highly unstable pulse charges. This rapid process also limits its range to mere meters, as they lose energy and lethality quickly over distance. Nevertheless, they are devastating in the knife-fight ranges they are employed in, and have sometimes been repurposed against drop-pod assaults and infestations. Brave (or foolish) volunteers would surround the entry point and greet the intruders with a hail of munitions. They would then scoot away after the first volley to begin the cumbersome reloading process of replacing the now spent canister.\n\nComparisons to ancient muzzle-loaded guns with grapeshot soon followed, thus the Mk IV was christened with its informal desition.\n\n"Give em the ol' whiff o' grapeshot, yer highness. They won't like that. Oh no they wouldn't," - Guardsman "Chungus" Angus, 5432\n\n"Its literally can't kill anything beyond sneezing range. Everything within it though..." Ramone Griffith, unknown.\n\n"Rimworld problems require Rimworld solutions," Greengrow Combat Industries, sales tagline circa 5390\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/HRK_13thVendemiaire</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <techLevel>Spacer</techLevel>
+                        <soundInteract>Interact_ChargeRifle</soundInteract>
+                        <statBases>
+                            <Mass>8.5</Mass>
+                            <AccuracyTouch>0.440</AccuracyTouch>
+                            <AccuracyShort>0.484</AccuracyShort>
+                            <AccuracyMedium>0.330</AccuracyMedium>
+                            <AccuracyLong>0.231</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.870</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>HRK_Bullet_13thVendemiaire_Bond</defaultProjectile>
+                                <warmupTime>0.850</warmupTime>
+                                <range>35</range>
+                                <soundCast>HRK_Shot_13thVendemiaire</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.900</power>
+                                <cooldownTime>1.700</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.900</power>
+                                <cooldownTime>1.700</cooldownTime>
+                            </li>
+                        </tools>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                        </weaponTags>
+                    </ThingDef>
 
-                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                    <key>Daria40K_MightyPersonaBondForgePatch_The13thVendemiaire</key>
-                    <defaultValue>true</defaultValue>
-                    <caseFalse>
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="HRK_13thVendemiaire_Bond"]</xpath>
-                        </Operation>
-    
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="HRK_Bullet_13thVendemiaire_Bond"]</xpath>
-                        </Operation>
-                    </caseFalse>
-                </li>
-            </operations>
+                    <ThingDef ParentName="MPBFPM_Bullet">
+                        <defName>HRK_Bullet_13thVendemiaire_Bond</defName>
+                        <label>The 13th Vendemiaire charged blast</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Charge_Small</texPath>
+                            <shaderType>TransparentPostLight</shaderType>
+                            <drawSize>0.8</drawSize>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>10</damageAmountBase>
+                            <armorPenetrationBase>0.35</armorPenetrationBase>
+                            <stoppingPower>1</stoppingPower>
+                            <speed>60</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </nomatch>
+
+            <match Class="PatchOperationSequence">
+                <operations>
+                    <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_The13thVendemiaire</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.Log">
+                                <text>test</text>
+                            </Operation>
+
+                            <Operation Class="XmlExtensions.PatchOperationAdd">
+                                <xpath>Defs</xpath>
+                                <value>
+                                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
+                                        <defName>HRK_13thVendemiaire_Bond</defName>
+                                        <label>persona The 13th Vendemiaire</label>
+                                        <description>The 13th Vendemiaire, or in its original technical name, the Mk IV Submunition Projector, is an unsubtle archotech weapon meant for extremely close range ship-boarding actions. In simple terms, it fires a barrage of charged flechettes from a pre-loaded canister affixed to the front of the weapon. When triggered, the flechettes are agitated within the canister and directed outwards, rapidly decomposing into highly unstable pulse charges. This rapid process also limits its range to mere meters, as they lose energy and lethality quickly over distance. Nevertheless, they are devastating in the knife-fight ranges they are employed in, and have sometimes been repurposed against drop-pod assaults and infestations. Brave (or foolish) volunteers would surround the entry point and greet the intruders with a hail of munitions. They would then scoot away after the first volley to begin the cumbersome reloading process of replacing the now spent canister.\n\nComparisons to ancient muzzle-loaded guns with grapeshot soon followed, thus the Mk IV was christened with its informal desition.\n\n"Give em the ol' whiff o' grapeshot, yer highness. They won't like that. Oh no they wouldn't," - Guardsman "Chungus" Angus, 5432\n\n"Its literally can't kill anything beyond sneezing range. Everything within it though..." Ramone Griffith, unknown.\n\n"Rimworld problems require Rimworld solutions," Greengrow Combat Industries, sales tagline circa 5390\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                                        <graphicData>
+                                            <texPath>Things/Weapons/HRK_13thVendemiaire</texPath>
+                                            <graphicClass>Graphic_Single</graphicClass>
+                                        </graphicData>
+                                        <techLevel>Spacer</techLevel>
+                                        <soundInteract>Interact_ChargeRifle</soundInteract>
+                                        <statBases>
+                                            <Mass>8.5</Mass>
+                                            <AccuracyTouch>0.440</AccuracyTouch>
+                                            <AccuracyShort>0.484</AccuracyShort>
+                                            <AccuracyMedium>0.330</AccuracyMedium>
+                                            <AccuracyLong>0.231</AccuracyLong>
+                                            <RangedWeapon_Cooldown>1.870</RangedWeapon_Cooldown>
+                                        </statBases>
+                                        <verbs>
+                                            <li>
+                                                <verbClass>Verb_Shoot</verbClass>
+                                                <hasStandardCommand>true</hasStandardCommand>
+                                                <defaultProjectile>HRK_Bullet_13thVendemiaire_Bond</defaultProjectile>
+                                                <warmupTime>0.850</warmupTime>
+                                                <range>35</range>
+                                                <soundCast>HRK_Shot_13thVendemiaire</soundCast>
+                                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                                <muzzleFlashScale>9</muzzleFlashScale>
+                                            </li>
+                                        </verbs>
+                                        <tools>
+                                            <li>
+                                                <label>stock</label>
+                                                <capacities>
+                                                    <li>Blunt</li>
+                                                </capacities>
+                                                <power>9.900</power>
+                                                <cooldownTime>1.700</cooldownTime>
+                                            </li>
+                                            <li>
+                                                <label>barrel</label>
+                                                <capacities>
+                                                    <li>Blunt</li>
+                                                    <li>Poke</li>
+                                                </capacities>
+                                                <power>9.900</power>
+                                                <cooldownTime>1.700</cooldownTime>
+                                            </li>
+                                        </tools>
+                                        <weaponTags>
+                                            <li>SpacerGun</li>
+                                        </weaponTags>
+                                    </ThingDef>
+
+                                    <ThingDef ParentName="MPBFPM_Bullet">
+                                        <defName>HRK_Bullet_13thVendemiaire_Bond</defName>
+                                        <label>The 13th Vendemiaire charged blast</label>
+                                        <graphicData>
+                                            <texPath>Things/Projectile/Charge_Small</texPath>
+                                            <shaderType>TransparentPostLight</shaderType>
+                                            <drawSize>0.8</drawSize>
+                                        </graphicData>
+                                        <projectile>
+                                            <damageAmountBase>10</damageAmountBase>
+                                            <armorPenetrationBase>0.35</armorPenetrationBase>
+                                            <stoppingPower>1</stoppingPower>
+                                            <speed>60</speed>
+                                        </projectile>
+                                    </ThingDef>
+                                </value>
+                            </Operation>
+                        </caseTrue>
+                    </li>
+                </operations>
+            </match>
         </match>
     </Operation>
 </Patch>
