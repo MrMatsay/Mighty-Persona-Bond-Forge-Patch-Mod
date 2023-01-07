@@ -34,6 +34,7 @@
 - [PsyBlasters](https://steamcommunity.com/sharedfiles/filedetails/?id=2913257502)
 - [Reinforced Mechanoid 2](https://steamcommunity.com/sharedfiles/filedetails/?id=2910050186)
 - [RimForge](https://steamcommunity.com/sharedfiles/filedetails/?id=2505778174)
+- [Rimlaser](https://steamcommunity.com/sharedfiles/filedetails/?id=1465459039)
 - [Rimsenal - Augmented Vanilla Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=849231601)
 - [Seventh Seraph Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2575381031)
 - [Sparkling Worlds - Full Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=1123043922)
