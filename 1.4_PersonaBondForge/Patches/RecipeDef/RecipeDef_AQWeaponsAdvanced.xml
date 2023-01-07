@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== AQ - Weapons Advanced =====
-
-    == Range
-    AQChargeRifle_Bond = persona PU145 charge rifle
-    AQMinigun_Bond = persona PU145 minigun
 -->
 <Patch>
     <Operation Class="PatchOperationFindMod">
@@ -12,84 +8,140 @@
             <li>AQ - Weapons Advanced</li>
         </mods>
 
-        <match Class="PatchOperationSequence">
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>Defs</xpath>
-                    <value>
-                        <!-- AQChargeRifle_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_AQChargeRifle_Bond</defName>
-                            <label>bond PU145 charge rifle</label>
-                            <description>Bond an PU145 charge rifle.</description>
-                            <jobString>Bonding a PU145 charge rifle.</jobString>
-                            <researchPrerequisite>ChargedShot</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>AQChargeRifle</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>AQChargeRifle</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <AQChargeRifle_Bond>1</AQChargeRifle_Bond>
-                            </products>
-                        </RecipeDef>
+        <match Class="PatchOperationFindMod">
+            <mods>
+                <li>XML Extensions</li>
+            </mods>
 
-                        <!-- AQMinigun_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_AQMinigun_Bond</defName>
-                            <label>bond PU145 minigun</label>
-                            <description>Bond an PU145 minigun.</description>
-                            <jobString>Bonding a PU145 minigun.</jobString>
-                            <researchPrerequisite>MultibarrelWeapons</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>AQMinigun</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>AQMinigun</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <AQMinigun_Bond>1</AQMinigun_Bond>
-                            </products>
-                        </RecipeDef>
-                    </value>
-                </li>
+            <nomatch Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <!-- AQChargeRifle_Bond -->
+                    <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                        <defName>Make_AQChargeRifle_Bond</defName>
+                        <label>bond PU145 charge rifle</label>
+                        <description>Bond an PU145 charge rifle.</description>
+                        <jobString>Bonding a PU145 charge rifle.</jobString>
+                        <researchPrerequisite>ChargedShot</researchPrerequisite>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>AQChargeRifle</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>AQChargeRifle</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <AQChargeRifle_Bond>1</AQChargeRifle_Bond>
+                        </products>
+                    </RecipeDef>
 
-                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                    <key>Daria40K_MightyPersonaBondForgePatch_AQWeaponsAdvanced</key>
-                    <defaultValue>true</defaultValue>
-                    <caseFalse>
-                        <!-- AQChargeRifle_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_AQChargeRifle_Bond"]</xpath>
-                        </Operation>
+                    <!-- AQMinigun_Bond -->
+                    <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                        <defName>Make_AQMinigun_Bond</defName>
+                        <label>bond PU145 minigun</label>
+                        <description>Bond an PU145 minigun.</description>
+                        <jobString>Bonding a PU145 minigun.</jobString>
+                        <researchPrerequisite>MultibarrelWeapons</researchPrerequisite>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>AQMinigun</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>AQMinigun</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <AQMinigun_Bond>1</AQMinigun_Bond>
+                        </products>
+                    </RecipeDef>
+                </value>
+            </nomatch>
 
-                        <!-- AQMinigun_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_AQMinigun_Bond"]</xpath>
-                        </Operation>
-                    </caseFalse>
-                </li>
-            </operations>
+            <match Class="PatchOperationSequence">
+                <operations>
+                    <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_AQWeaponsAdvanced</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.PatchOperationAdd">
+                                <xpath>Defs</xpath>
+                                <value>
+                                    <!-- AQChargeRifle_Bond -->
+                                    <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                                        <defName>Make_AQChargeRifle_Bond</defName>
+                                        <label>bond PU145 charge rifle</label>
+                                        <description>Bond an PU145 charge rifle.</description>
+                                        <jobString>Bonding a PU145 charge rifle.</jobString>
+                                        <researchPrerequisite>ChargedShot</researchPrerequisite>
+                                        <ingredients>
+                                            <li>
+                                                <filter>
+                                                    <thingDefs>
+                                                        <li>AQChargeRifle</li>
+                                                    </thingDefs>
+                                                </filter>
+                                                <count>1</count>
+                                            </li>
+                                        </ingredients>
+                                        <fixedIngredientFilter>
+                                            <thingDefs>
+                                                <li>AQChargeRifle</li>
+                                            </thingDefs>
+                                        </fixedIngredientFilter>
+                                        <products>
+                                            <AQChargeRifle_Bond>1</AQChargeRifle_Bond>
+                                        </products>
+                                    </RecipeDef>
+
+                                    <!-- AQMinigun_Bond -->
+                                    <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                                        <defName>Make_AQMinigun_Bond</defName>
+                                        <label>bond PU145 minigun</label>
+                                        <description>Bond an PU145 minigun.</description>
+                                        <jobString>Bonding a PU145 minigun.</jobString>
+                                        <researchPrerequisite>MultibarrelWeapons</researchPrerequisite>
+                                        <ingredients>
+                                            <li>
+                                                <filter>
+                                                    <thingDefs>
+                                                        <li>AQMinigun</li>
+                                                    </thingDefs>
+                                                </filter>
+                                                <count>1</count>
+                                            </li>
+                                        </ingredients>
+                                        <fixedIngredientFilter>
+                                            <thingDefs>
+                                                <li>AQMinigun</li>
+                                            </thingDefs>
+                                        </fixedIngredientFilter>
+                                        <products>
+                                            <AQMinigun_Bond>1</AQMinigun_Bond>
+                                        </products>
+                                    </RecipeDef>
+                                </value>
+                            </Operation>
+                        </caseTrue>
+                    </li>
+                </operations>
+            </match>
         </match>
     </Operation>
 </Patch>

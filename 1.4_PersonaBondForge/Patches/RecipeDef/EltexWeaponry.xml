@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Eltex Weaponry =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Eltex Weaponry</li>
+        </mods>
+
+        <match Class="PatchOperationFindMod">
+            <mods>
+                <li>XML Extensions</li>
+            </mods>
+
+            <nomatch Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <!-- EW_Gun_EltexPistol_Bond -->
+                    <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                        <defName>Make_EW_Gun_EltexPistol_Bond</defName>
+                        <label>bond eltex pistol</label>
+                        <description>Bond an eltex pistol.</description>
+                        <jobString>Bonding a eltex pistol.</jobString>
+                        <researchPrerequisite>EW_EltexWeaponry</researchPrerequisite>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>EW_Gun_EltexPistol</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>EW_Gun_EltexPistol</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <EW_Gun_EltexPistol_Bond>1</EW_Gun_EltexPistol_Bond>
+                        </products>
+                    </RecipeDef>
+
+                    <!-- EW_Gun_EltexSMG_Bond -->
+                    <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                        <defName>Make_EW_Gun_EltexSMG_Bond</defName>
+                        <label>bond eltex SMG</label>
+                        <description>Bond an eltex SMG.</description>
+                        <jobString>Bonding a eltex SMG.</jobString>
+                        <researchPrerequisite>EW_EltexWeaponry</researchPrerequisite>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>EW_Gun_EltexSMG</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>EW_Gun_EltexSMG</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <EW_Gun_EltexSMG_Bond>1</EW_Gun_EltexSMG_Bond>
+                        </products>
+                    </RecipeDef>
+
+                    <!-- EW_Gun_EltexRifle_Bond -->
+                    <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                        <defName>Make_EW_Gun_EltexRifle_Bond</defName>
+                        <label>bond eltex rifle</label>
+                        <description>Bond an eltex rifle.</description>
+                        <jobString>Bonding a eltex rifle.</jobString>
+                        <researchPrerequisite>EW_EltexWeaponry</researchPrerequisite>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>EW_Gun_EltexRifle</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>EW_Gun_EltexRifle</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <EW_Gun_EltexRifle_Bond>1</EW_Gun_EltexRifle_Bond>
+                        </products>
+                    </RecipeDef>
+
+                    <!-- EW_Gun_EltexLance_Bond -->
+                    <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                        <defName>Make_EW_Gun_EltexLance_Bond</defName>
+                        <label>bond eltex lance</label>
+                        <description>Bond an eltex lance.</description>
+                        <jobString>Bonding a eltex lance.</jobString>
+                        <researchPrerequisite>EW_EltexWeaponry</researchPrerequisite>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>EW_Gun_EltexLance</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>EW_Gun_EltexLance</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <EW_Gun_EltexLance_Bond>1</EW_Gun_EltexLance_Bond>
+                        </products>
+                    </RecipeDef>
+                </value>
+            </nomatch>
+
+            <match Class="PatchOperationSequence">
+                <operations>
+                    <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_EltexWeaponry</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.PatchOperationAdd">
+                                <xpath>Defs</xpath>
+                                <value>
+                                    <!-- EW_Gun_EltexPistol_Bond -->
+                                    <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                                        <defName>Make_EW_Gun_EltexPistol_Bond</defName>
+                                        <label>bond eltex pistol</label>
+                                        <description>Bond an eltex pistol.</description>
+                                        <jobString>Bonding a eltex pistol.</jobString>
+                                        <researchPrerequisite>EW_EltexWeaponry</researchPrerequisite>
+                                        <ingredients>
+                                            <li>
+                                                <filter>
+                                                    <thingDefs>
+                                                        <li>EW_Gun_EltexPistol</li>
+                                                    </thingDefs>
+                                                </filter>
+                                                <count>1</count>
+                                            </li>
+                                        </ingredients>
+                                        <fixedIngredientFilter>
+                                            <thingDefs>
+                                                <li>EW_Gun_EltexPistol</li>
+                                            </thingDefs>
+                                        </fixedIngredientFilter>
+                                        <products>
+                                            <EW_Gun_EltexPistol_Bond>1</EW_Gun_EltexPistol_Bond>
+                                        </products>
+                                    </RecipeDef>
+
+                                    <!-- EW_Gun_EltexSMG_Bond -->
+                                    <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                                        <defName>Make_EW_Gun_EltexSMG_Bond</defName>
+                                        <label>bond eltex SMG</label>
+                                        <description>Bond an eltex SMG.</description>
+                                        <jobString>Bonding a eltex SMG.</jobString>
+                                        <researchPrerequisite>EW_EltexWeaponry</researchPrerequisite>
+                                        <ingredients>
+                                            <li>
+                                                <filter>
+                                                    <thingDefs>
+                                                        <li>EW_Gun_EltexSMG</li>
+                                                    </thingDefs>
+                                                </filter>
+                                                <count>1</count>
+                                            </li>
+                                        </ingredients>
+                                        <fixedIngredientFilter>
+                                            <thingDefs>
+                                                <li>EW_Gun_EltexSMG</li>
+                                            </thingDefs>
+                                        </fixedIngredientFilter>
+                                        <products>
+                                            <EW_Gun_EltexSMG_Bond>1</EW_Gun_EltexSMG_Bond>
+                                        </products>
+                                    </RecipeDef>
+
+                                    <!-- EW_Gun_EltexRifle_Bond -->
+                                    <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                                        <defName>Make_EW_Gun_EltexRifle_Bond</defName>
+                                        <label>bond eltex rifle</label>
+                                        <description>Bond an eltex rifle.</description>
+                                        <jobString>Bonding a eltex rifle.</jobString>
+                                        <researchPrerequisite>EW_EltexWeaponry</researchPrerequisite>
+                                        <ingredients>
+                                            <li>
+                                                <filter>
+                                                    <thingDefs>
+                                                        <li>EW_Gun_EltexRifle</li>
+                                                    </thingDefs>
+                                                </filter>
+                                                <count>1</count>
+                                            </li>
+                                        </ingredients>
+                                        <fixedIngredientFilter>
+                                            <thingDefs>
+                                                <li>EW_Gun_EltexRifle</li>
+                                            </thingDefs>
+                                        </fixedIngredientFilter>
+                                        <products>
+                                            <EW_Gun_EltexRifle_Bond>1</EW_Gun_EltexRifle_Bond>
+                                        </products>
+                                    </RecipeDef>
+
+                                    <!-- EW_Gun_EltexLance_Bond -->
+                                    <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                                        <defName>Make_EW_Gun_EltexLance_Bond</defName>
+                                        <label>bond eltex lance</label>
+                                        <description>Bond an eltex lance.</description>
+                                        <jobString>Bonding a eltex lance.</jobString>
+                                        <researchPrerequisite>EW_EltexWeaponry</researchPrerequisite>
+                                        <ingredients>
+                                            <li>
+                                                <filter>
+                                                    <thingDefs>
+                                                        <li>EW_Gun_EltexLance</li>
+                                                    </thingDefs>
+                                                </filter>
+                                                <count>1</count>
+                                            </li>
+                                        </ingredients>
+                                        <fixedIngredientFilter>
+                                            <thingDefs>
+                                                <li>EW_Gun_EltexLance</li>
+                                            </thingDefs>
+                                        </fixedIngredientFilter>
+                                        <products>
+                                            <EW_Gun_EltexLance_Bond>1</EW_Gun_EltexLance_Bond>
+                                        </products>
+                                    </RecipeDef>
+                                </value>
+                            </Operation>
+                        </caseTrue>
+                    </li>
+                </operations>
+            </match>
+        </match>
+    </Operation>
+</Patch>
