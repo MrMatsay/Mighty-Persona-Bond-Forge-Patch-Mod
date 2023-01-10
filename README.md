@@ -24,6 +24,7 @@
 - [Grimworld: Melee](https://steamcommunity.com/sharedfiles/filedetails/?id=2899647650)
 - [Grimworld: Ogryns](https://steamcommunity.com/sharedfiles/filedetails/?id=2910984982)
 - [Hellsing ARMS Ultimate](https://steamcommunity.com/sharedfiles/filedetails/?id=2834801420)
+- [Imperial Arsenal: Royal Warcasket](https://steamcommunity.com/sharedfiles/filedetails/?id=2914153829)
 - [Junior Marine's Armory](https://steamcommunity.com/sharedfiles/filedetails/?id=2888127396)
 - [KEP Weapons - Toxic (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2800013902)
 - [[LFS] Night Shade Mercenarys](https://steamcommunity.com/sharedfiles/filedetails/?id=2909372626)

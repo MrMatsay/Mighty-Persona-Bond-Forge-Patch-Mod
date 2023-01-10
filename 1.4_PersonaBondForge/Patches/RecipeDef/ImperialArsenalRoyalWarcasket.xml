@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Imperial Arsenal: Royal Warcasket =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Imperial Arsenal: Royal Warcasket</li>
+        </mods>
+
+        <match Class="PatchOperationFindMod">
+            <mods>
+                <li>XML Extensions</li>
+            </mods>
+
+            <nomatch Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <!-- RWC_Halberd_Bond -->
+                    <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                        <defName>Make_RWC_Halberd_Bond</defName>
+                        <label>bond Xonus Pattern Halberd</label>
+                        <description>Bond an Xonus Pattern Halberd.</description>
+                        <jobString>Bonding a Xonus Pattern Halberd.</jobString>
+                        <researchPrerequisite>Bound_Research</researchPrerequisite>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>RWC_Halberd</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>RWC_Halberd</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <RWC_Halberd_Bond>1</RWC_Halberd_Bond>
+                        </products>
+                    </RecipeDef>
+                </value>
+            </nomatch>
+
+            <match Class="PatchOperationSequence">
+                <operations>
+                    <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_ImperialArsenalRoyalWarcasket</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.PatchOperationAdd">
+                                <xpath>Defs</xpath>
+                                <value>
+                                    <!-- RWC_Halberd_Bond -->
+                                    <RecipeDef ParentName="MPBFPM_RecipeDefBase">
+                                        <defName>Make_RWC_Halberd_Bond</defName>
+                                        <label>bond Xonus Pattern Halberd</label>
+                                        <description>Bond an Xonus Pattern Halberd.</description>
+                                        <jobString>Bonding a Xonus Pattern Halberd.</jobString>
+                                        <researchPrerequisite>Bound_Research</researchPrerequisite>
+                                        <ingredients>
+                                            <li>
+                                                <filter>
+                                                    <thingDefs>
+                                                        <li>RWC_Halberd</li>
+                                                    </thingDefs>
+                                                </filter>
+                                                <count>1</count>
+                                            </li>
+                                        </ingredients>
+                                        <fixedIngredientFilter>
+                                            <thingDefs>
+                                                <li>RWC_Halberd</li>
+                                            </thingDefs>
+                                        </fixedIngredientFilter>
+                                        <products>
+                                            <RWC_Halberd_Bond>1</RWC_Halberd_Bond>
+                                        </products>
+                                    </RecipeDef>
+                                </value>
+                            </Operation>
+                        </caseTrue>
+                    </li>
+                </operations>
+            </match>
+        </match>
+    </Operation>
+</Patch>
