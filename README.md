@@ -10,6 +10,7 @@
 
 ## Mods Supported
 ### RimWorld 1.4
+- [Ancient Arsenal: Warcaskets](https://steamcommunity.com/sharedfiles/filedetails/?id=2904745733)
 - [Antimatter Annihilation](https://steamcommunity.com/sharedfiles/filedetails/?id=2113692574)
 - [Beam Katana: Spacer Melee Weapon](https://steamcommunity.com/sharedfiles/filedetails/?id=2900389764)
 - [Call of Duty: Zombies Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2590363477)
