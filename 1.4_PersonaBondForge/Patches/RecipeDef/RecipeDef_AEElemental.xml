@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-		Altherian Export - Elemental Weaponry
-
-		HALCYZOM_Cryoblaster_Bond = persona HZ Cryoblaster
-		HALCYZOM_Plasmabolter_Bond = persona HZ Plasmabolter
-		HALCYZOM_Homicide_Applicator_Bond = persona HZ Homicide Applicator
-		HALCYZOM_Problem_Dissolver_Bond = persona HZ Problem Dissolver
-		HALCYZOM_Sonic_Shredder_Bond = persona HZ Sonic Shredder
-	-->
+    ===== Altherian Export - Elemental Weaponry =====
+-->
 <Patch>
 	<Operation Class="PatchOperationFindMod">
 		<mods>
@@ -19,9 +13,7 @@
 				<li Class="PatchOperationAdd">
 					<xpath>Defs</xpath>
 					<value>
-						<!-- HALCYZOM_Cryoblaster_Bond -->
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase">
-							<defName>Make_HALCYZOM_Cryoblaster_Bond</defName>
+						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_HALCYZOM_Cryoblaster_Bond" Abstract="True">
 							<label>bond HZ Cryoblaster</label>
 							<description>Bond an HZ Cryoblaster.</description>
 							<jobString>Bonding a HZ Cryoblaster.</jobString>
@@ -46,9 +38,7 @@
 							</products>
 						</RecipeDef>
 
-						<!-- HALCYZOM_Plasmabolter_Bond -->
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase">
-							<defName>Make_HALCYZOM_Plasmabolter_Bond</defName>
+						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_HALCYZOM_Plasmabolter_Bond" Abstract="True">
 							<label>bond HZ Plasmabolter</label>
 							<description>Bond an HZ Plasmabolter.</description>
 							<jobString>Bonding a HZ Plasmabolter.</jobString>
@@ -73,9 +63,7 @@
 							</products>
 						</RecipeDef>
 
-						<!-- HALCYZOM_Homicide_Applicator_Bond -->
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase">
-							<defName>Make_HALCYZOM_Homicide_Applicator_Bond</defName>
+						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_HALCYZOM_Homicide_Applicator_Bond" Abstract="True">
 							<label>bond HZ Homicide Applicator</label>
 							<description>Bond an HZ Homicide Applicator.</description>
 							<jobString>Bonding a HZ Homicide Applicator.</jobString>
@@ -100,9 +88,7 @@
 							</products>
 						</RecipeDef>
 
-						<!-- HALCYZOM_Problem_Dissolver_Bond -->
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase">
-							<defName>Make_HALCYZOM_Problem_Dissolver_Bond</defName>
+						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_HALCYZOM_Problem_Dissolver_Bond" Abstract="True">
 							<label>bond HZ Problem Dissolver</label>
 							<description>Bond an HZ Problem Dissolver.</description>
 							<jobString>Bonding a HZ Problem Dissolver.</jobString>
@@ -127,9 +113,7 @@
 							</products>
 						</RecipeDef>
 
-						<!-- HALCYZOM_Sonic_Shredder_Bond -->
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase">
-							<defName>Make_HALCYZOM_Sonic_Shredder_Bond</defName>
+						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_HALCYZOM_Sonic_Shredder_Bond" Abstract="True">
 							<label>bond HZ Sonic Shredder</label>
 							<description>Bond an HZ Sonic Shredder.</description>
 							<jobString>Bonding a HZ Sonic Shredder.</jobString>
@@ -156,36 +140,82 @@
 					</value>
 				</li>
 
-				<li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-					<modId>Daria40K.MightyPersonaBondForgePatch</modId>
-					<key>Daria40K_MightyPersonaBondForgePatch_AltherianExportElementalWeaponry</key>
-					<defaultValue>true</defaultValue>
-					<caseFalse>
-						<!-- HALCYZOM_Cryoblaster_Bond -->
-						<Operation Class="XmlExtensions.PatchOperationRemove">
-							<xpath>Defs/RecipeDef[defName="Make_HALCYZOM_Cryoblaster_Bond"]</xpath>
-						</Operation>
+				<li Class="PatchOperationFindMod">
+					<mods>
+						<li>XML Extensions</li>
+					</mods>
 
-						<!-- HALCYZOM_Plasmabolter_Bond -->
-						<Operation Class="XmlExtensions.PatchOperationRemove">
-							<xpath>Defs/RecipeDef[defName="Make_HALCYZOM_Plasmabolter_Bond"]</xpath>
-						</Operation>
+					<nomatch Class="PatchOperationAdd">
+						<xpath>Defs</xpath>
+						<value>
+							<!-- Make_HALCYZOM_Cryoblaster_Bond -->
+							<RecipeDef ParentName="Make_HALCYZOM_Cryoblaster_Bond">
+								<defName>Make_HALCYZOM_Cryoblaster_Bond</defName>
+							</RecipeDef>
 
-						<!-- HALCYZOM_Homicide_Applicator_Bond -->
-						<Operation Class="XmlExtensions.PatchOperationRemove">
-							<xpath>Defs/RecipeDef[defName="Make_HALCYZOM_Homicide_Applicator_Bond"]</xpath>
-						</Operation>
+							<!-- Make_HALCYZOM_Plasmabolter_Bond -->
+							<RecipeDef ParentName="Make_HALCYZOM_Plasmabolter_Bond">
+								<defName>Make_HALCYZOM_Plasmabolter_Bond</defName>
+							</RecipeDef>
 
-						<!-- HALCYZOM_Problem_Dissolver_Bond -->
-						<Operation Class="XmlExtensions.PatchOperationRemove">
-							<xpath>Defs/RecipeDef[defName="Make_HALCYZOM_Problem_Dissolver_Bond"]</xpath>
-						</Operation>
+							<!-- Make_HALCYZOM_Homicide_Applicator_Bond -->
+							<RecipeDef ParentName="Make_HALCYZOM_Homicide_Applicator_Bond">
+								<defName>Make_HALCYZOM_Homicide_Applicator_Bond</defName>
+							</RecipeDef>
 
-						<!-- HALCYZOM_Sonic_Shredder_Bond -->
-						<Operation Class="XmlExtensions.PatchOperationRemove">
-							<xpath>Defs/RecipeDef[defName="Make_HALCYZOM_Sonic_Shredder_Bond"]</xpath>
-						</Operation>
-					</caseFalse>
+							<!-- Make_HALCYZOM_Problem_Dissolver_Bond -->
+							<RecipeDef ParentName="Make_HALCYZOM_Problem_Dissolver_Bond">
+								<defName>Make_HALCYZOM_Problem_Dissolver_Bond</defName>
+							</RecipeDef>
+
+							<!-- Make_HALCYZOM_Sonic_Shredder_Bond -->
+							<RecipeDef ParentName="Make_HALCYZOM_Sonic_Shredder_Bond">
+								<defName>Make_HALCYZOM_Sonic_Shredder_Bond</defName>
+							</RecipeDef>
+						</value>
+					</nomatch>
+
+					<match Class="PatchOperationSequence">
+						<operations>
+							<li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+								<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+								<key>Daria40K_MightyPersonaBondForgePatch_AltherianExportElementalWeaponry</key>
+								<defaultValue>true</defaultValue>
+
+								<caseTrue>
+									<Operation Class="XmlExtensions.PatchOperationAdd">
+										<xpath>Defs</xpath>
+										<value>
+											<!-- Make_HALCYZOM_Cryoblaster_Bond -->
+											<RecipeDef ParentName="Make_HALCYZOM_Cryoblaster_Bond">
+												<defName>Make_HALCYZOM_Cryoblaster_Bond</defName>
+											</RecipeDef>
+
+											<!-- Make_HALCYZOM_Plasmabolter_Bond -->
+											<RecipeDef ParentName="Make_HALCYZOM_Plasmabolter_Bond">
+												<defName>Make_HALCYZOM_Plasmabolter_Bond</defName>
+											</RecipeDef>
+
+											<!-- Make_HALCYZOM_Homicide_Applicator_Bond -->
+											<RecipeDef ParentName="Make_HALCYZOM_Homicide_Applicator_Bond">
+												<defName>Make_HALCYZOM_Homicide_Applicator_Bond</defName>
+											</RecipeDef>
+
+											<!-- Make_HALCYZOM_Problem_Dissolver_Bond -->
+											<RecipeDef ParentName="Make_HALCYZOM_Problem_Dissolver_Bond">
+												<defName>Make_HALCYZOM_Problem_Dissolver_Bond</defName>
+											</RecipeDef>
+
+											<!-- Make_HALCYZOM_Sonic_Shredder_Bond -->
+											<RecipeDef ParentName="Make_HALCYZOM_Sonic_Shredder_Bond">
+												<defName>Make_HALCYZOM_Sonic_Shredder_Bond</defName>
+											</RecipeDef>
+										</value>
+									</Operation>
+								</caseTrue>
+							</li>
+						</operations>
+					</match>
 				</li>
 			</operations>
 		</match>

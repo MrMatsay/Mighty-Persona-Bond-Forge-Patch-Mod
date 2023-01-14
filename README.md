@@ -18,6 +18,7 @@
 - [Destiny 2 Exotic Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2702299840)
 - [Destiny 2 Weapon Package - Fusion Rifle](https://steamcommunity.com/sharedfiles/filedetails/?id=2624513561)
 - [Destiny Leviathan Weapons (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2876832012)
+- [[RH2] DOOM](https://steamcommunity.com/sharedfiles/filedetails/?id=2875842250)
 - [Eltex Weaponry](https://steamcommunity.com/sharedfiles/filedetails/?id=2913538990)
 - [Expanded Charge Weaponry](https://steamcommunity.com/sharedfiles/filedetails/?id=2561885396)
 - [Girl's Frontline: Sangvis Ferri Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=1684134687)

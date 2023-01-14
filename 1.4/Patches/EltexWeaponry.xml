@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Eltex Weaponry =====
 -->
@@ -8,798 +7,496 @@
             <li>Eltex Weaponry</li>
         </mods>
 
-        <match Class="PatchOperationFindMod">
-            <mods>
-                <li>XML Extensions</li>
-            </mods>
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="EW_Bullet_EltexPistol_Bond" Abstract="True">
+                            <label>eltex pistol bolt</label>
+                            <graphicData>
+                                <texPath>Projectiles/EltexShot</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>8</damageAmountBase>
+                                <armorPenetrationBase>0.30</armorPenetrationBase>
+                                <speed>65</speed>
+                            </projectile>
+                        </ThingDef>
 
-            <nomatch Class="PatchOperationAdd">
-                <xpath>Defs</xpath>
-                <value>
-                    <ThingDef ParentName="MPBFPM_Bullet">
-                        <defName>EW_Bullet_EltexPistol_Bond</defName>
-                        <label>eltex pistol bolt</label>
-                        <graphicData>
-                            <texPath>Projectiles/EltexShot</texPath>
-                        </graphicData>
-                        <projectile>
-                            <damageAmountBase>8</damageAmountBase>
-                            <armorPenetrationBase>0.30</armorPenetrationBase>
-                            <speed>65</speed>
-                        </projectile>
-                    </ThingDef>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="EW_Gun_EltexPistol_Bond" Abstract="True">
+                            <label>persona eltex pistol</label>
+                            <description>A psychic sidearm of ultratech design. Through its array of sophisticated eltex lenses, the weapon is capable of magnifying psychic power into a concentrated bolt of energy that grows in power the more psychically sensitive the wielder is. However, the psionic nature of the projectiles is a double edged sword, with psychically dull enemies like mechanoids being able to reduce the damage to a minimum.\n\nEach attack deals additional 4 damage that doesn't scale with psychic sensitivity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/EltexPistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.5</uiIconScale>
+                            <soundInteract>EW_PickUpLight</soundInteract>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <statBases>
+                                <MarketValue>1760.0</MarketValue>
+                                <Mass>1.1</Mass>
+                                <AccuracyTouch>0.99</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.495</AccuracyMedium>
+                                <AccuracyLong>0.385</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>EW_Bullet_EltexPistol_Bond</defaultProjectile>
+                                    <warmupTime>0.255</warmupTime>
+                                    <range>25.9</range>
+                                    <soundCast>EW_Shot_Light</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <techLevel>Ultra</techLevel>
+                            <tradeTags>
+                                <li>SpacerGun</li>
+                            </tradeTags>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <equippedStatOffsets>
+                                <PsychicSensitivityOffset>0.25</PsychicSensitivityOffset>
+                                <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.05</PsychicEntropyRecoveryRate>
+                            </equippedStatOffsets>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="AthenaFramework.DamageAmplifierExtension">
+                                    <modifiers>
+                                        <li>
+                                            <attackerStatDefs>
+                                                <li>PsychicSensitivity</li>
+                                            </attackerStatDefs>
+                                            <targetStatDefs>
+                                                <li>PsychicSensitivity</li>
+                                            </targetStatDefs>
+                                            <offset>4</offset>
+                                        </li>
+                                    </modifiers>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
 
-                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                        <defName>EW_Gun_EltexPistol_Bond</defName>
-                        <label>persona eltex pistol</label>
-                        <description>A psychic sidearm of ultratech design. Through its array of sophisticated eltex lenses, the weapon is capable of magnifying psychic power into a concentrated bolt of energy that grows in power the more psychically sensitive the wielder is. However, the psionic nature of the projectiles is a double edged sword, with psychically dull enemies like mechanoids being able to reduce the damage to a minimum.\n\nEach attack deals additional 4 damage that doesn't scale with psychic sensitivity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                        <graphicData>
-                            <texPath>Things/Weapons/EltexPistol</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                        <uiIconScale>1.5</uiIconScale>
-                        <soundInteract>EW_PickUpLight</soundInteract>
-                        <weaponClasses>
-                            <li>RangedLight</li>
-                        </weaponClasses>
-                        <statBases>
-                            <MarketValue>1760.0</MarketValue>
-                            <Mass>1.1</Mass>
-                            <AccuracyTouch>0.99</AccuracyTouch>
-                            <AccuracyShort>0.825</AccuracyShort>
-                            <AccuracyMedium>0.495</AccuracyMedium>
-                            <AccuracyLong>0.385</AccuracyLong>
-                            <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
-                        </statBases>
-                        <verbs>
-                            <li>
-                                <verbClass>Verb_Shoot</verbClass>
-                                <hasStandardCommand>true</hasStandardCommand>
-                                <defaultProjectile>EW_Bullet_EltexPistol_Bond</defaultProjectile>
-                                <warmupTime>0.255</warmupTime>
-                                <range>25.9</range>
-                                <soundCast>EW_Shot_Light</soundCast>
-                                <soundCastTail>GunTail_Light</soundCastTail>
-                                <muzzleFlashScale>9</muzzleFlashScale>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="EW_Bullet_EltexSMG_Bond" Abstract="True">
+                            <label>eltex SMG bolt</label>
+                            <graphicData>
+                                <texPath>Projectiles/EltexShot</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>8</damageAmountBase>
+                                <armorPenetrationBase>0.30</armorPenetrationBase>
+                                <speed>60</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="EW_Gun_EltexSMG_Bond" Abstract="True">
+                            <label>persona eltex SMG</label>
+                            <description>A compact psychic firearm of ultratech design. Through its array of sophisticated eltex lenses, the weapon is capable of magnifying psychic power into a concentrated bolt of energy that grows in power the more psychically sensitive the wielder is. However, the psionic nature of the projectiles is a double edged sword, with psychically dull enemies like mechanoids being able to reduce the damage to a minimum.\n\nEach attack deals additional 4 damage that doesn't scale with psychic sensitivity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/EltexSMG</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>EW_PickUpLight</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <statBases>
+                                <MarketValue>1980.0</MarketValue>
+                                <Mass>2.5</Mass>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.44</AccuracyMedium>
+                                <AccuracyLong>0.242</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.318</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>EW_Bullet_EltexSMG_Bond</defaultProjectile>
+                                    <warmupTime>0.765</warmupTime>
+                                    <range>22.9</range>
+                                    <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
+                                    <burstShotCount>3</burstShotCount>
+                                    <soundCast>EW_Shot_Light</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <techLevel>Ultra</techLevel>
+                            <tradeTags>
+                                <li>SpacerGun</li>
+                            </tradeTags>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <equippedStatOffsets>
+                                <PsychicSensitivityOffset>0.25</PsychicSensitivityOffset>
+                                <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.05</PsychicEntropyRecoveryRate>
+                            </equippedStatOffsets>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="AthenaFramework.DamageAmplifierExtension">
+                                    <modifiers>
+                                        <li>
+                                            <attackerStatDefs>
+                                                <li>PsychicSensitivity</li>
+                                            </attackerStatDefs>
+                                            <targetStatDefs>
+                                                <li>PsychicSensitivity</li>
+                                            </targetStatDefs>
+                                            <offset>4</offset>
+                                        </li>
+                                    </modifiers>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="EW_Bullet_EltexRifle_Bond" Abstract="True">
+                            <label>eltex rifle bolt</label>
+                            <graphicData>
+                                <texPath>Projectiles/EltexShot</texPath>
+                                <drawSize>1.2</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>8</damageAmountBase>
+                                <armorPenetrationBase>0.30</armorPenetrationBase>
+                                <speed>80</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="EW_Gun_EltexRifle_Bond" Abstract="True">
+                            <label>persona eltex rifle</label>
+                            <description>A psychic rifle of ultratech design. Through its array of sophisticated eltex lenses, the weapon is capable of magnifying psychic power into a concentrated bolt of energy that grows in power the more psychically sensitive the wielder is. However, the psionic nature of the projectiles is a double edged sword, with psychically dull enemies like mechanoids being able to reduce the damage to a minimum.\n\nEach attack deals additional 5 damage that doesn't scale with psychic sensitivity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/EltexRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>EW_PickUpHeavy</soundInteract>
+                            <statBases>
+                                <MarketValue>2310.0</MarketValue>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.77</AccuracyMedium>
+                                <AccuracyLong>0.66</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.36</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>EW_Bullet_EltexRifle_Bond</defaultProjectile>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>30.9</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>EW_Shot_Medium</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <techLevel>Ultra</techLevel>
+                            <tradeTags>
+                                <li>SpacerGun</li>
+                            </tradeTags>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <equippedStatOffsets>
+                                <PsychicSensitivityOffset>0.25</PsychicSensitivityOffset>
+                                <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.05</PsychicEntropyRecoveryRate>
+                            </equippedStatOffsets>
+                            <weaponTags>
+                                <li>RangedHeavy</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="AthenaFramework.DamageAmplifierExtension">
+                                    <modifiers>
+                                        <li>
+                                            <attackerStatDefs>
+                                                <li>PsychicSensitivity</li>
+                                            </attackerStatDefs>
+                                            <targetStatDefs>
+                                                <li>PsychicSensitivity</li>
+                                            </targetStatDefs>
+                                            <offset>5</offset>
+                                        </li>
+                                    </modifiers>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="EW_Bullet_EltexLance_Bond" Abstract="True">
+                            <label>eltex lance bolt</label>
+                            <graphicData>
+                                <texPath>Projectiles/EltexLongshot</texPath>
+                                <drawSize>1.5</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>19</damageAmountBase>
+                                <armorPenetrationBase>0.35</armorPenetrationBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>110</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="EW_Gun_EltexLance_Bond" Abstract="True">
+                            <label>persona eltex lance</label>
+                            <description>A long range, powerful weapon of ultratech design. Through its array of sophisticated eltex lenses, the weapon is capable of magnifying psychic power into a concentrated bolt of energy that grows in power the more psychically sensitive the wielder is. However, the psionic nature of the projectiles is a double edged sword, with psychically dull enemies like mechanoids being able to reduce the damage to a minimum.\n\nEach attack deals additional 15 damage that doesn't scale with psychic sensitivity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/EltexLance</texPath>
+                                <drawSize>1.2</drawSize>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>EW_PickUpHeavy</soundInteract>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <MarketValue>2640.0</MarketValue>
+                                <Mass>4</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.99</AccuracyMedium>
+                                <AccuracyLong>1.045</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.87</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>EW_Bullet_EltexLance_Bond</defaultProjectile>
+                                    <warmupTime>2.975</warmupTime>
+                                    <range>39.9</range>
+                                    <soundCast>EW_Shot_Heavy</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <techLevel>Ultra</techLevel>
+                            <tradeTags>
+                                <li>SpacerGun</li>
+                            </tradeTags>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <equippedStatOffsets>
+                                <PsychicSensitivityOffset>0.25</PsychicSensitivityOffset>
+                                <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.05</PsychicEntropyRecoveryRate>
+                            </equippedStatOffsets>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <modExtensions>
+                                <li Class="AthenaFramework.DamageAmplifierExtension">
+                                    <modifiers>
+                                        <li>
+                                            <attackerStatDefs>
+                                                <li>PsychicSensitivity</li>
+                                            </attackerStatDefs>
+                                            <targetStatDefs>
+                                                <li>PsychicSensitivity</li>
+                                            </targetStatDefs>
+                                            <offset>15</offset>
+                                        </li>
+                                    </modifiers>
+                                </li>
+                            </modExtensions>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- EW_Bullet_EltexPistol_Bond -->
+                            <ThingDef ParentName="EW_Bullet_EltexPistol_Bond">
+                                <defName>EW_Bullet_EltexPistol_Bond</defName>
+                            </ThingDef>
+
+                            <!-- EW_Gun_EltexPistol_Bond -->
+                            <ThingDef ParentName="EW_Gun_EltexPistol_Bond">
+                                <defName>EW_Gun_EltexPistol_Bond</defName>
+                            </ThingDef>
+
+                            <!-- EW_Bullet_EltexSMG_Bond -->
+                            <ThingDef ParentName="EW_Bullet_EltexSMG_Bond">
+                                <defName>EW_Bullet_EltexSMG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- EW_Gun_EltexSMG_Bond -->
+                            <ThingDef ParentName="EW_Gun_EltexSMG_Bond">
+                                <defName>EW_Gun_EltexSMG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- EW_Bullet_EltexRifle_Bond -->
+                            <ThingDef ParentName="EW_Bullet_EltexRifle_Bond">
+                                <defName>EW_Bullet_EltexRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- EW_Gun_EltexRifle_Bond -->
+                            <ThingDef ParentName="EW_Gun_EltexRifle_Bond">
+                                <defName>EW_Gun_EltexRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- EW_Bullet_EltexLance_Bond -->
+                            <ThingDef ParentName="EW_Bullet_EltexLance_Bond">
+                                <defName>EW_Bullet_EltexLance_Bond</defName>
+                            </ThingDef>
+
+                            <!-- EW_Gun_EltexLance_Bond -->
+                            <ThingDef ParentName="EW_Gun_EltexLance_Bond">
+                                <defName>EW_Gun_EltexLance_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_EltexWeaponry</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- EW_Bullet_EltexPistol_Bond -->
+                                            <ThingDef ParentName="EW_Bullet_EltexPistol_Bond">
+                                                <defName>EW_Bullet_EltexPistol_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- EW_Gun_EltexPistol_Bond -->
+                                            <ThingDef ParentName="EW_Gun_EltexPistol_Bond">
+                                                <defName>EW_Gun_EltexPistol_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- EW_Bullet_EltexSMG_Bond -->
+                                            <ThingDef ParentName="EW_Bullet_EltexSMG_Bond">
+                                                <defName>EW_Bullet_EltexSMG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- EW_Gun_EltexSMG_Bond -->
+                                            <ThingDef ParentName="EW_Gun_EltexSMG_Bond">
+                                                <defName>EW_Gun_EltexSMG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- EW_Bullet_EltexRifle_Bond -->
+                                            <ThingDef ParentName="EW_Bullet_EltexRifle_Bond">
+                                                <defName>EW_Bullet_EltexRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- EW_Gun_EltexRifle_Bond -->
+                                            <ThingDef ParentName="EW_Gun_EltexRifle_Bond">
+                                                <defName>EW_Gun_EltexRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- EW_Bullet_EltexLance_Bond -->
+                                            <ThingDef ParentName="EW_Bullet_EltexLance_Bond">
+                                                <defName>EW_Bullet_EltexLance_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- EW_Gun_EltexLance_Bond -->
+                                            <ThingDef ParentName="EW_Gun_EltexLance_Bond">
+                                                <defName>EW_Gun_EltexLance_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
                             </li>
-                        </verbs>
-                        <techLevel>Ultra</techLevel>
-                        <tradeTags>
-                            <li>SpacerGun</li>
-                        </tradeTags>
-                        <weaponTags>
-                            <li>SpacerGun</li>
-                        </weaponTags>
-                        <equippedStatOffsets>
-                            <PsychicSensitivityOffset>0.25</PsychicSensitivityOffset>
-                            <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.05</PsychicEntropyRecoveryRate>
-                        </equippedStatOffsets>
-                        <tools>
-                            <li>
-                                <label>grip</label>
-                                <capacities>
-                                    <li>Blunt</li>
-                                </capacities>
-                                <power>9.75</power>
-                                <cooldownTime>1.7</cooldownTime>
-                            </li>
-                            <li>
-                                <label>barrel</label>
-                                <capacities>
-                                    <li>Blunt</li>
-                                    <li>Poke</li>
-                                </capacities>
-                                <power>9.75</power>
-                                <cooldownTime>1.7</cooldownTime>
-                            </li>
-                        </tools>
-                        <modExtensions>
-                            <li Class="AthenaFramework.DamageAmplifierExtension">
-                                <modifiers>
-                                    <li>
-                                        <attackerStatDefs>
-                                            <li>PsychicSensitivity</li>
-                                        </attackerStatDefs>
-                                        <targetStatDefs>
-                                            <li>PsychicSensitivity</li>
-                                        </targetStatDefs>
-                                        <offset>4</offset>
-                                    </li>
-                                </modifiers>
-                            </li>
-                        </modExtensions>
-                    </ThingDef>
-
-                    <ThingDef ParentName="MPBFPM_Bullet">
-                        <defName>EW_Bullet_EltexSMG_Bond</defName>
-                        <label>eltex SMG bolt</label>
-                        <graphicData>
-                            <texPath>Projectiles/EltexShot</texPath>
-                        </graphicData>
-                        <projectile>
-                            <damageAmountBase>8</damageAmountBase>
-                            <armorPenetrationBase>0.30</armorPenetrationBase>
-                            <speed>60</speed>
-                        </projectile>
-                    </ThingDef>
-
-                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                        <defName>EW_Gun_EltexSMG_Bond</defName>
-                        <label>persona eltex SMG</label>
-                        <description>A compact psychic firearm of ultratech design. Through its array of sophisticated eltex lenses, the weapon is capable of magnifying psychic power into a concentrated bolt of energy that grows in power the more psychically sensitive the wielder is. However, the psionic nature of the projectiles is a double edged sword, with psychically dull enemies like mechanoids being able to reduce the damage to a minimum.\n\nEach attack deals additional 4 damage that doesn't scale with psychic sensitivity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                        <graphicData>
-                            <texPath>Things/Weapons/EltexSMG</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                        <soundInteract>EW_PickUpLight</soundInteract>
-                        <weaponClasses>
-                            <li>ShortShots</li>
-                            <li>RangedLight</li>
-                        </weaponClasses>
-                        <statBases>
-                            <MarketValue>1980.0</MarketValue>
-                            <Mass>2.5</Mass>
-                            <AccuracyTouch>1.045</AccuracyTouch>
-                            <AccuracyShort>0.825</AccuracyShort>
-                            <AccuracyMedium>0.44</AccuracyMedium>
-                            <AccuracyLong>0.242</AccuracyLong>
-                            <RangedWeapon_Cooldown>1.318</RangedWeapon_Cooldown>
-                        </statBases>
-                        <verbs>
-                            <li>
-                                <verbClass>Verb_Shoot</verbClass>
-                                <hasStandardCommand>true</hasStandardCommand>
-                                <defaultProjectile>EW_Bullet_EltexSMG_Bond</defaultProjectile>
-                                <warmupTime>0.765</warmupTime>
-                                <range>22.9</range>
-                                <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
-                                <burstShotCount>3</burstShotCount>
-                                <soundCast>EW_Shot_Light</soundCast>
-                                <soundCastTail>GunTail_Medium</soundCastTail>
-                                <muzzleFlashScale>9</muzzleFlashScale>
-                            </li>
-                        </verbs>
-                        <techLevel>Ultra</techLevel>
-                        <tradeTags>
-                            <li>SpacerGun</li>
-                        </tradeTags>
-                        <weaponTags>
-                            <li>SpacerGun</li>
-                        </weaponTags>
-                        <equippedStatOffsets>
-                            <PsychicSensitivityOffset>0.25</PsychicSensitivityOffset>
-                            <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.05</PsychicEntropyRecoveryRate>
-                        </equippedStatOffsets>
-                        <tools>
-                            <li>
-                                <label>grip</label>
-                                <capacities>
-                                    <li>Blunt</li>
-                                </capacities>
-                                <power>9.75</power>
-                                <cooldownTime>1.7</cooldownTime>
-                            </li>
-                            <li>
-                                <label>barrel</label>
-                                <capacities>
-                                    <li>Blunt</li>
-                                    <li>Poke</li>
-                                </capacities>
-                                <power>9.75</power>
-                                <cooldownTime>1.7</cooldownTime>
-                            </li>
-                        </tools>
-                        <modExtensions>
-                            <li Class="AthenaFramework.DamageAmplifierExtension">
-                                <modifiers>
-                                    <li>
-                                        <attackerStatDefs>
-                                            <li>PsychicSensitivity</li>
-                                        </attackerStatDefs>
-                                        <targetStatDefs>
-                                            <li>PsychicSensitivity</li>
-                                        </targetStatDefs>
-                                        <offset>4</offset>
-                                    </li>
-                                </modifiers>
-                            </li>
-                        </modExtensions>
-                    </ThingDef>
-
-                    <ThingDef ParentName="MPBFPM_Bullet">
-                        <defName>EW_Bullet_EltexRifle_Bond</defName>
-                        <label>eltex rifle bolt</label>
-                        <graphicData>
-                            <texPath>Projectiles/EltexShot</texPath>
-                            <drawSize>1.2</drawSize>
-                        </graphicData>
-                        <projectile>
-                            <damageAmountBase>8</damageAmountBase>
-                            <armorPenetrationBase>0.30</armorPenetrationBase>
-                            <speed>80</speed>
-                        </projectile>
-                    </ThingDef>
-
-                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                        <defName>EW_Gun_EltexRifle_Bond</defName>
-                        <label>persona eltex rifle</label>
-                        <description>A psychic rifle of ultratech design. Through its array of sophisticated eltex lenses, the weapon is capable of magnifying psychic power into a concentrated bolt of energy that grows in power the more psychically sensitive the wielder is. However, the psionic nature of the projectiles is a double edged sword, with psychically dull enemies like mechanoids being able to reduce the damage to a minimum.\n\nEach attack deals additional 5 damage that doesn't scale with psychic sensitivity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                        <graphicData>
-                            <texPath>Things/Weapons/EltexRifle</texPath>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                        <soundInteract>EW_PickUpHeavy</soundInteract>
-                        <statBases>
-                            <MarketValue>2310.0</MarketValue>
-                            <Mass>3.5</Mass>
-                            <AccuracyTouch>0.715</AccuracyTouch>
-                            <AccuracyShort>0.825</AccuracyShort>
-                            <AccuracyMedium>0.77</AccuracyMedium>
-                            <AccuracyLong>0.66</AccuracyLong>
-                            <RangedWeapon_Cooldown>1.36</RangedWeapon_Cooldown>
-                        </statBases>
-                        <verbs>
-                            <li>
-                                <verbClass>Verb_Shoot</verbClass>
-                                <hasStandardCommand>true</hasStandardCommand>
-                                <defaultProjectile>EW_Bullet_EltexRifle_Bond</defaultProjectile>
-                                <warmupTime>0.85</warmupTime>
-                                <range>30.9</range>
-                                <burstShotCount>3</burstShotCount>
-                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-                                <soundCast>EW_Shot_Medium</soundCast>
-                                <soundCastTail>GunTail_Medium</soundCastTail>
-                                <muzzleFlashScale>9</muzzleFlashScale>
-                            </li>
-                        </verbs>
-                        <techLevel>Ultra</techLevel>
-                        <tradeTags>
-                            <li>SpacerGun</li>
-                        </tradeTags>
-                        <weaponTags>
-                            <li>SpacerGun</li>
-                        </weaponTags>
-                        <equippedStatOffsets>
-                            <PsychicSensitivityOffset>0.25</PsychicSensitivityOffset>
-                            <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.05</PsychicEntropyRecoveryRate>
-                        </equippedStatOffsets>
-                        <weaponTags>
-                            <li>RangedHeavy</li>
-                        </weaponTags>
-                        <tools>
-                            <li>
-                                <label>stock</label>
-                                <capacities>
-                                    <li>Blunt</li>
-                                </capacities>
-                                <power>9.75</power>
-                                <cooldownTime>1.7</cooldownTime>
-                            </li>
-                            <li>
-                                <label>barrel</label>
-                                <capacities>
-                                    <li>Blunt</li>
-                                    <li>Poke</li>
-                                </capacities>
-                                <power>9.75</power>
-                                <cooldownTime>1.7</cooldownTime>
-                            </li>
-                        </tools>
-                        <modExtensions>
-                            <li Class="AthenaFramework.DamageAmplifierExtension">
-                                <modifiers>
-                                    <li>
-                                        <attackerStatDefs>
-                                            <li>PsychicSensitivity</li>
-                                        </attackerStatDefs>
-                                        <targetStatDefs>
-                                            <li>PsychicSensitivity</li>
-                                        </targetStatDefs>
-                                        <offset>5</offset>
-                                    </li>
-                                </modifiers>
-                            </li>
-                        </modExtensions>
-                    </ThingDef>
-
-                    <ThingDef ParentName="MPBFPM_Bullet">
-                        <defName>EW_Bullet_EltexLance_Bond</defName>
-                        <label>eltex lance bolt</label>
-                        <graphicData>
-                            <texPath>Projectiles/EltexLongshot</texPath>
-                            <drawSize>1.5</drawSize>
-                        </graphicData>
-                        <projectile>
-                            <damageAmountBase>19</damageAmountBase>
-                            <armorPenetrationBase>0.35</armorPenetrationBase>
-                            <stoppingPower>1.5</stoppingPower>
-                            <speed>110</speed>
-                        </projectile>
-                    </ThingDef>
-
-                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                        <defName>EW_Gun_EltexLance_Bond</defName>
-                        <label>persona eltex lance</label>
-                        <description>A long range, powerful weapon of ultratech design. Through its array of sophisticated eltex lenses, the weapon is capable of magnifying psychic power into a concentrated bolt of energy that grows in power the more psychically sensitive the wielder is. However, the psionic nature of the projectiles is a double edged sword, with psychically dull enemies like mechanoids being able to reduce the damage to a minimum.\n\nEach attack deals additional 15 damage that doesn't scale with psychic sensitivity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                        <graphicData>
-                            <texPath>Things/Weapons/EltexLance</texPath>
-                            <drawSize>1.2</drawSize>
-                            <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                        <soundInteract>EW_PickUpHeavy</soundInteract>
-                        <weaponClasses>
-                            <li>LongShots</li>
-                            <li>RangedHeavy</li>
-                        </weaponClasses>
-                        <statBases>
-                            <MarketValue>2640.0</MarketValue>
-                            <Mass>4</Mass>
-                            <AccuracyTouch>0.605</AccuracyTouch>
-                            <AccuracyShort>0.825</AccuracyShort>
-                            <AccuracyMedium>0.99</AccuracyMedium>
-                            <AccuracyLong>1.045</AccuracyLong>
-                            <RangedWeapon_Cooldown>1.87</RangedWeapon_Cooldown>
-                        </statBases>
-                        <verbs>
-                            <li>
-                                <verbClass>Verb_Shoot</verbClass>
-                                <hasStandardCommand>true</hasStandardCommand>
-                                <defaultProjectile>EW_Bullet_EltexLance_Bond</defaultProjectile>
-                                <warmupTime>2.975</warmupTime>
-                                <range>39.9</range>
-                                <soundCast>EW_Shot_Heavy</soundCast>
-                                <soundCastTail>GunTail_Heavy</soundCastTail>
-                                <muzzleFlashScale>9</muzzleFlashScale>
-                            </li>
-                        </verbs>
-                        <techLevel>Ultra</techLevel>
-                        <tradeTags>
-                            <li>SpacerGun</li>
-                        </tradeTags>
-                        <weaponTags>
-                            <li>SpacerGun</li>
-                        </weaponTags>
-                        <equippedStatOffsets>
-                            <PsychicSensitivityOffset>0.25</PsychicSensitivityOffset>
-                            <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.05</PsychicEntropyRecoveryRate>
-                        </equippedStatOffsets>
-                        <tools>
-                            <li>
-                                <label>stock</label>
-                                <capacities>
-                                    <li>Blunt</li>
-                                </capacities>
-                                <power>9.75</power>
-                                <cooldownTime>1.7</cooldownTime>
-                            </li>
-                            <li>
-                                <label>barrel</label>
-                                <capacities>
-                                    <li>Blunt</li>
-                                    <li>Poke</li>
-                                </capacities>
-                                <power>9.75</power>
-                                <cooldownTime>1.7</cooldownTime>
-                            </li>
-                        </tools>
-                        <modExtensions>
-                            <li Class="AthenaFramework.DamageAmplifierExtension">
-                                <modifiers>
-                                    <li>
-                                        <attackerStatDefs>
-                                            <li>PsychicSensitivity</li>
-                                        </attackerStatDefs>
-                                        <targetStatDefs>
-                                            <li>PsychicSensitivity</li>
-                                        </targetStatDefs>
-                                        <offset>15</offset>
-                                    </li>
-                                </modifiers>
-                            </li>
-                        </modExtensions>
-                    </ThingDef>
-                </value>
-            </nomatch>
-
-            <match Class="PatchOperationSequence">
-                <operations>
-                    <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                        <key>Daria40K_MightyPersonaBondForgePatch_EltexWeaponry</key>
-                        <defaultValue>true</defaultValue>
-
-                        <caseTrue>
-                            <Operation Class="XmlExtensions.PatchOperationAdd">
-                                <xpath>Defs</xpath>
-                                <value>
-                                    <ThingDef ParentName="MPBFPM_Bullet">
-                                        <defName>EW_Bullet_EltexPistol_Bond</defName>
-                                        <label>eltex pistol bolt</label>
-                                        <graphicData>
-                                            <texPath>Projectiles/EltexShot</texPath>
-                                        </graphicData>
-                                        <projectile>
-                                            <damageAmountBase>8</damageAmountBase>
-                                            <armorPenetrationBase>0.30</armorPenetrationBase>
-                                            <speed>65</speed>
-                                        </projectile>
-                                    </ThingDef>
-
-                                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                                        <defName>EW_Gun_EltexPistol_Bond</defName>
-                                        <label>persona eltex pistol</label>
-                                        <description>A psychic sidearm of ultratech design. Through its array of sophisticated eltex lenses, the weapon is capable of magnifying psychic power into a concentrated bolt of energy that grows in power the more psychically sensitive the wielder is. However, the psionic nature of the projectiles is a double edged sword, with psychically dull enemies like mechanoids being able to reduce the damage to a minimum.\n\nEach attack deals additional 4 damage that doesn't scale with psychic sensitivity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                                        <graphicData>
-                                            <texPath>Things/Weapons/EltexPistol</texPath>
-                                            <graphicClass>Graphic_Single</graphicClass>
-                                        </graphicData>
-                                        <uiIconScale>1.5</uiIconScale>
-                                        <soundInteract>EW_PickUpLight</soundInteract>
-                                        <weaponClasses>
-                                            <li>RangedLight</li>
-                                        </weaponClasses>
-                                        <statBases>
-                                            <MarketValue>1760.0</MarketValue>
-                                            <Mass>1.1</Mass>
-                                            <AccuracyTouch>0.99</AccuracyTouch>
-                                            <AccuracyShort>0.825</AccuracyShort>
-                                            <AccuracyMedium>0.495</AccuracyMedium>
-                                            <AccuracyLong>0.385</AccuracyLong>
-                                            <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
-                                        </statBases>
-                                        <verbs>
-                                            <li>
-                                                <verbClass>Verb_Shoot</verbClass>
-                                                <hasStandardCommand>true</hasStandardCommand>
-                                                <defaultProjectile>EW_Bullet_EltexPistol_Bond</defaultProjectile>
-                                                <warmupTime>0.255</warmupTime>
-                                                <range>25.9</range>
-                                                <soundCast>EW_Shot_Light</soundCast>
-                                                <soundCastTail>GunTail_Light</soundCastTail>
-                                                <muzzleFlashScale>9</muzzleFlashScale>
-                                            </li>
-                                        </verbs>
-                                        <techLevel>Ultra</techLevel>
-                                        <tradeTags>
-                                            <li>SpacerGun</li>
-                                        </tradeTags>
-                                        <weaponTags>
-                                            <li>SpacerGun</li>
-                                        </weaponTags>
-                                        <equippedStatOffsets>
-                                            <PsychicSensitivityOffset>0.25</PsychicSensitivityOffset>
-                                            <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.05</PsychicEntropyRecoveryRate>
-                                        </equippedStatOffsets>
-                                        <tools>
-                                            <li>
-                                                <label>grip</label>
-                                                <capacities>
-                                                    <li>Blunt</li>
-                                                </capacities>
-                                                <power>9.75</power>
-                                                <cooldownTime>1.7</cooldownTime>
-                                            </li>
-                                            <li>
-                                                <label>barrel</label>
-                                                <capacities>
-                                                    <li>Blunt</li>
-                                                    <li>Poke</li>
-                                                </capacities>
-                                                <power>9.75</power>
-                                                <cooldownTime>1.7</cooldownTime>
-                                            </li>
-                                        </tools>
-                                        <modExtensions>
-                                            <li Class="AthenaFramework.DamageAmplifierExtension">
-                                                <modifiers>
-                                                    <li>
-                                                        <attackerStatDefs>
-                                                            <li>PsychicSensitivity</li>
-                                                        </attackerStatDefs>
-                                                        <targetStatDefs>
-                                                            <li>PsychicSensitivity</li>
-                                                        </targetStatDefs>
-                                                        <offset>4</offset>
-                                                    </li>
-                                                </modifiers>
-                                            </li>
-                                        </modExtensions>
-                                    </ThingDef>
-
-                                    <ThingDef ParentName="MPBFPM_Bullet">
-                                        <defName>EW_Bullet_EltexSMG_Bond</defName>
-                                        <label>eltex SMG bolt</label>
-                                        <graphicData>
-                                            <texPath>Projectiles/EltexShot</texPath>
-                                        </graphicData>
-                                        <projectile>
-                                            <damageAmountBase>8</damageAmountBase>
-                                            <armorPenetrationBase>0.30</armorPenetrationBase>
-                                            <speed>60</speed>
-                                        </projectile>
-                                    </ThingDef>
-
-                                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                                        <defName>EW_Gun_EltexSMG_Bond</defName>
-                                        <label>persona eltex SMG</label>
-                                        <description>A compact psychic firearm of ultratech design. Through its array of sophisticated eltex lenses, the weapon is capable of magnifying psychic power into a concentrated bolt of energy that grows in power the more psychically sensitive the wielder is. However, the psionic nature of the projectiles is a double edged sword, with psychically dull enemies like mechanoids being able to reduce the damage to a minimum.\n\nEach attack deals additional 4 damage that doesn't scale with psychic sensitivity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                                        <graphicData>
-                                            <texPath>Things/Weapons/EltexSMG</texPath>
-                                            <graphicClass>Graphic_Single</graphicClass>
-                                        </graphicData>
-                                        <soundInteract>EW_PickUpLight</soundInteract>
-                                        <weaponClasses>
-                                            <li>ShortShots</li>
-                                            <li>RangedLight</li>
-                                        </weaponClasses>
-                                        <statBases>
-                                            <MarketValue>1980.0</MarketValue>
-                                            <Mass>2.5</Mass>
-                                            <AccuracyTouch>1.045</AccuracyTouch>
-                                            <AccuracyShort>0.825</AccuracyShort>
-                                            <AccuracyMedium>0.44</AccuracyMedium>
-                                            <AccuracyLong>0.242</AccuracyLong>
-                                            <RangedWeapon_Cooldown>1.318</RangedWeapon_Cooldown>
-                                        </statBases>
-                                        <verbs>
-                                            <li>
-                                                <verbClass>Verb_Shoot</verbClass>
-                                                <hasStandardCommand>true</hasStandardCommand>
-                                                <defaultProjectile>EW_Bullet_EltexSMG_Bond</defaultProjectile>
-                                                <warmupTime>0.765</warmupTime>
-                                                <range>22.9</range>
-                                                <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
-                                                <burstShotCount>3</burstShotCount>
-                                                <soundCast>EW_Shot_Light</soundCast>
-                                                <soundCastTail>GunTail_Medium</soundCastTail>
-                                                <muzzleFlashScale>9</muzzleFlashScale>
-                                            </li>
-                                        </verbs>
-                                        <techLevel>Ultra</techLevel>
-                                        <tradeTags>
-                                            <li>SpacerGun</li>
-                                        </tradeTags>
-                                        <weaponTags>
-                                            <li>SpacerGun</li>
-                                        </weaponTags>
-                                        <equippedStatOffsets>
-                                            <PsychicSensitivityOffset>0.25</PsychicSensitivityOffset>
-                                            <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.05</PsychicEntropyRecoveryRate>
-                                        </equippedStatOffsets>
-                                        <tools>
-                                            <li>
-                                                <label>grip</label>
-                                                <capacities>
-                                                    <li>Blunt</li>
-                                                </capacities>
-                                                <power>9.75</power>
-                                                <cooldownTime>1.7</cooldownTime>
-                                            </li>
-                                            <li>
-                                                <label>barrel</label>
-                                                <capacities>
-                                                    <li>Blunt</li>
-                                                    <li>Poke</li>
-                                                </capacities>
-                                                <power>9.75</power>
-                                                <cooldownTime>1.7</cooldownTime>
-                                            </li>
-                                        </tools>
-                                        <modExtensions>
-                                            <li Class="AthenaFramework.DamageAmplifierExtension">
-                                                <modifiers>
-                                                    <li>
-                                                        <attackerStatDefs>
-                                                            <li>PsychicSensitivity</li>
-                                                        </attackerStatDefs>
-                                                        <targetStatDefs>
-                                                            <li>PsychicSensitivity</li>
-                                                        </targetStatDefs>
-                                                        <offset>4</offset>
-                                                    </li>
-                                                </modifiers>
-                                            </li>
-                                        </modExtensions>
-                                    </ThingDef>
-
-                                    <ThingDef ParentName="MPBFPM_Bullet">
-                                        <defName>EW_Bullet_EltexRifle_Bond</defName>
-                                        <label>eltex rifle bolt</label>
-                                        <graphicData>
-                                            <texPath>Projectiles/EltexShot</texPath>
-                                            <drawSize>1.2</drawSize>
-                                        </graphicData>
-                                        <projectile>
-                                            <damageAmountBase>8</damageAmountBase>
-                                            <armorPenetrationBase>0.30</armorPenetrationBase>
-                                            <speed>80</speed>
-                                        </projectile>
-                                    </ThingDef>
-
-                                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                                        <defName>EW_Gun_EltexRifle_Bond</defName>
-                                        <label>persona eltex rifle</label>
-                                        <description>A psychic rifle of ultratech design. Through its array of sophisticated eltex lenses, the weapon is capable of magnifying psychic power into a concentrated bolt of energy that grows in power the more psychically sensitive the wielder is. However, the psionic nature of the projectiles is a double edged sword, with psychically dull enemies like mechanoids being able to reduce the damage to a minimum.\n\nEach attack deals additional 5 damage that doesn't scale with psychic sensitivity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                                        <graphicData>
-                                            <texPath>Things/Weapons/EltexRifle</texPath>
-                                            <graphicClass>Graphic_Single</graphicClass>
-                                        </graphicData>
-                                        <soundInteract>EW_PickUpHeavy</soundInteract>
-                                        <statBases>
-                                            <MarketValue>2310.0</MarketValue>
-                                            <Mass>3.5</Mass>
-                                            <AccuracyTouch>0.715</AccuracyTouch>
-                                            <AccuracyShort>0.825</AccuracyShort>
-                                            <AccuracyMedium>0.77</AccuracyMedium>
-                                            <AccuracyLong>0.66</AccuracyLong>
-                                            <RangedWeapon_Cooldown>1.36</RangedWeapon_Cooldown>
-                                        </statBases>
-                                        <verbs>
-                                            <li>
-                                                <verbClass>Verb_Shoot</verbClass>
-                                                <hasStandardCommand>true</hasStandardCommand>
-                                                <defaultProjectile>EW_Bullet_EltexRifle_Bond</defaultProjectile>
-                                                <warmupTime>0.85</warmupTime>
-                                                <range>30.9</range>
-                                                <burstShotCount>3</burstShotCount>
-                                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-                                                <soundCast>EW_Shot_Medium</soundCast>
-                                                <soundCastTail>GunTail_Medium</soundCastTail>
-                                                <muzzleFlashScale>9</muzzleFlashScale>
-                                            </li>
-                                        </verbs>
-                                        <techLevel>Ultra</techLevel>
-                                        <tradeTags>
-                                            <li>SpacerGun</li>
-                                        </tradeTags>
-                                        <weaponTags>
-                                            <li>SpacerGun</li>
-                                        </weaponTags>
-                                        <equippedStatOffsets>
-                                            <PsychicSensitivityOffset>0.25</PsychicSensitivityOffset>
-                                            <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.05</PsychicEntropyRecoveryRate>
-                                        </equippedStatOffsets>
-                                        <weaponTags>
-                                            <li>RangedHeavy</li>
-                                        </weaponTags>
-                                        <tools>
-                                            <li>
-                                                <label>stock</label>
-                                                <capacities>
-                                                    <li>Blunt</li>
-                                                </capacities>
-                                                <power>9.75</power>
-                                                <cooldownTime>1.7</cooldownTime>
-                                            </li>
-                                            <li>
-                                                <label>barrel</label>
-                                                <capacities>
-                                                    <li>Blunt</li>
-                                                    <li>Poke</li>
-                                                </capacities>
-                                                <power>9.75</power>
-                                                <cooldownTime>1.7</cooldownTime>
-                                            </li>
-                                        </tools>
-                                        <modExtensions>
-                                            <li Class="AthenaFramework.DamageAmplifierExtension">
-                                                <modifiers>
-                                                    <li>
-                                                        <attackerStatDefs>
-                                                            <li>PsychicSensitivity</li>
-                                                        </attackerStatDefs>
-                                                        <targetStatDefs>
-                                                            <li>PsychicSensitivity</li>
-                                                        </targetStatDefs>
-                                                        <offset>5</offset>
-                                                    </li>
-                                                </modifiers>
-                                            </li>
-                                        </modExtensions>
-                                    </ThingDef>
-
-                                    <ThingDef ParentName="MPBFPM_Bullet">
-                                        <defName>EW_Bullet_EltexLance_Bond</defName>
-                                        <label>eltex lance bolt</label>
-                                        <graphicData>
-                                            <texPath>Projectiles/EltexLongshot</texPath>
-                                            <drawSize>1.5</drawSize>
-                                        </graphicData>
-                                        <projectile>
-                                            <damageAmountBase>19</damageAmountBase>
-                                            <armorPenetrationBase>0.35</armorPenetrationBase>
-                                            <stoppingPower>1.5</stoppingPower>
-                                            <speed>110</speed>
-                                        </projectile>
-                                    </ThingDef>
-
-                                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                                        <defName>EW_Gun_EltexLance_Bond</defName>
-                                        <label>persona eltex lance</label>
-                                        <description>A long range, powerful weapon of ultratech design. Through its array of sophisticated eltex lenses, the weapon is capable of magnifying psychic power into a concentrated bolt of energy that grows in power the more psychically sensitive the wielder is. However, the psionic nature of the projectiles is a double edged sword, with psychically dull enemies like mechanoids being able to reduce the damage to a minimum.\n\nEach attack deals additional 15 damage that doesn't scale with psychic sensitivity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                                        <graphicData>
-                                            <texPath>Things/Weapons/EltexLance</texPath>
-                                            <drawSize>1.2</drawSize>
-                                            <graphicClass>Graphic_Single</graphicClass>
-                                        </graphicData>
-                                        <soundInteract>EW_PickUpHeavy</soundInteract>
-                                        <weaponClasses>
-                                            <li>LongShots</li>
-                                            <li>RangedHeavy</li>
-                                        </weaponClasses>
-                                        <statBases>
-                                            <MarketValue>2640.0</MarketValue>
-                                            <Mass>4</Mass>
-                                            <AccuracyTouch>0.605</AccuracyTouch>
-                                            <AccuracyShort>0.825</AccuracyShort>
-                                            <AccuracyMedium>0.99</AccuracyMedium>
-                                            <AccuracyLong>1.045</AccuracyLong>
-                                            <RangedWeapon_Cooldown>1.87</RangedWeapon_Cooldown>
-                                        </statBases>
-                                        <verbs>
-                                            <li>
-                                                <verbClass>Verb_Shoot</verbClass>
-                                                <hasStandardCommand>true</hasStandardCommand>
-                                                <defaultProjectile>EW_Bullet_EltexLance_Bond</defaultProjectile>
-                                                <warmupTime>2.975</warmupTime>
-                                                <range>39.9</range>
-                                                <soundCast>EW_Shot_Heavy</soundCast>
-                                                <soundCastTail>GunTail_Heavy</soundCastTail>
-                                                <muzzleFlashScale>9</muzzleFlashScale>
-                                            </li>
-                                        </verbs>
-                                        <techLevel>Ultra</techLevel>
-                                        <tradeTags>
-                                            <li>SpacerGun</li>
-                                        </tradeTags>
-                                        <weaponTags>
-                                            <li>SpacerGun</li>
-                                        </weaponTags>
-                                        <equippedStatOffsets>
-                                            <PsychicSensitivityOffset>0.25</PsychicSensitivityOffset>
-                                            <PsychicEntropyRecoveryRate MayRequire="Ludeon.RimWorld.Royalty">0.05</PsychicEntropyRecoveryRate>
-                                        </equippedStatOffsets>
-                                        <tools>
-                                            <li>
-                                                <label>stock</label>
-                                                <capacities>
-                                                    <li>Blunt</li>
-                                                </capacities>
-                                                <power>9.75</power>
-                                                <cooldownTime>1.7</cooldownTime>
-                                            </li>
-                                            <li>
-                                                <label>barrel</label>
-                                                <capacities>
-                                                    <li>Blunt</li>
-                                                    <li>Poke</li>
-                                                </capacities>
-                                                <power>9.75</power>
-                                                <cooldownTime>1.7</cooldownTime>
-                                            </li>
-                                        </tools>
-                                        <modExtensions>
-                                            <li Class="AthenaFramework.DamageAmplifierExtension">
-                                                <modifiers>
-                                                    <li>
-                                                        <attackerStatDefs>
-                                                            <li>PsychicSensitivity</li>
-                                                        </attackerStatDefs>
-                                                        <targetStatDefs>
-                                                            <li>PsychicSensitivity</li>
-                                                        </targetStatDefs>
-                                                        <offset>15</offset>
-                                                    </li>
-                                                </modifiers>
-                                            </li>
-                                        </modExtensions>
-                                    </ThingDef>
-                                </value>
-                            </Operation>
-                        </caseTrue>
-                    </li>
-                </operations>
-            </match>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
         </match>
     </Operation>
 </Patch>

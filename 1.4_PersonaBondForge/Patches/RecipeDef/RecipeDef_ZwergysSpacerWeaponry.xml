@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Zwergy's Spacer Weaponry (Continued) =====
-
-    == Range
-    Gun_ILID-Pistol_Bond = persona ILID-77 Incendiary Pistol
-    Gun_IL-Pistol_Bond = persona IL-77 Plasma Revolver
-    Gun_SK-Magnum_Bond = persona SK-40 Magnum
-    Gun_SK-Shotgun_Bond = persona SK-40 Plasma Shotgun
 -->
 <Patch>
     <Operation Class="PatchOperationFindMod">
@@ -19,9 +13,7 @@
                 <li Class="PatchOperationAdd">
                     <xpath>Defs</xpath>
                     <value>
-                        <!-- Gun_ILID-Pistol_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Gun_ILID-Pistol_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_ILID-Pistol_Bond" Abstract="True">
                             <label>bond ILID-77 Incendiary Pistol</label>
                             <description>Bond an ILID-77 Incendiary Pistol.</description>
                             <jobString>Bonding a ILID-77 Incendiary Pistol.</jobString>
@@ -46,9 +38,7 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Gun_IL-Pistol_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Gun_IL-Pistol_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_IL-Pistol_Bond" Abstract="True">
                             <label>bond IL-77 Plasma Revolver</label>
                             <description>Bond an IL-77 Plasma Revolver.</description>
                             <jobString>Bonding a IL-77 Plasma Revolver.</jobString>
@@ -73,9 +63,7 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Gun_SK-Magnum_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Gun_SK-Magnum_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_SK-Magnum_Bond" Abstract="True">
                             <label>bond SK-40 Magnum</label>
                             <description>Bond an SK-40 Magnum.</description>
                             <jobString>Bonding a SK-40 Magnum.</jobString>
@@ -100,9 +88,7 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Gun_SK-Shotgun_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Gun_SK-Shotgun_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_SK-Shotgun_Bond" Abstract="True">
                             <label>bond SK-40 Plasma Shotgun</label>
                             <description>Bond an SK-40 Plasma Shotgun.</description>
                             <jobString>Bonding a SK-40 Plasma Shotgun.</jobString>
@@ -129,31 +115,72 @@
                     </value>
                 </li>
 
-                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                    <key>Daria40K_MightyPersonaBondForgePatch_ZwergysSpacerWeaponryContinued</key>
-                    <defaultValue>true</defaultValue>
-                    <caseFalse>
-                        <!-- Gun_ILID-Pistol_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Gun_ILID-Pistol_Bond"]</xpath>
-                        </Operation>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
 
-                        <!-- Gun_IL-Pistol_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Gun_IL-Pistol_Bond"]</xpath>
-                        </Operation>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_Gun_ILID-Pistol_Bond -->
+                            <RecipeDef ParentName="Make_Gun_ILID-Pistol_Bond">
+                                <defName>Make_Gun_ILID-Pistol_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Gun_SK-Magnum_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Gun_SK-Magnum_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Gun_IL-Pistol_Bond -->
+                            <RecipeDef ParentName="Make_Gun_IL-Pistol_Bond">
+                                <defName>Make_Gun_IL-Pistol_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Gun_SK-Shotgun_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Gun_SK-Shotgun_Bond"]</xpath>
-                        </Operation>
-                    </caseFalse>
+                            <!-- Make_Gun_SK-Magnum_Bond -->
+                            <RecipeDef ParentName="Make_Gun_SK-Magnum_Bond">
+                                <defName>Make_Gun_SK-Magnum_Bond</defName>
+                            </RecipeDef>
+
+                            <!-- Make_Gun_SK-Shotgun_Bond -->
+                            <RecipeDef ParentName="Make_Gun_SK-Shotgun_Bond">
+                                <defName>Make_Gun_SK-Shotgun_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_ZwergysSpacerWeaponryContinued</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_Gun_ILID-Pistol_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_ILID-Pistol_Bond">
+                                                <defName>Make_Gun_ILID-Pistol_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Gun_IL-Pistol_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_IL-Pistol_Bond">
+                                                <defName>Make_Gun_IL-Pistol_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Gun_SK-Magnum_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_SK-Magnum_Bond">
+                                                <defName>Make_Gun_SK-Magnum_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Gun_SK-Shotgun_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_SK-Shotgun_Bond">
+                                                <defName>Make_Gun_SK-Shotgun_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
                 </li>
             </operations>
         </match>

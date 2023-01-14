@@ -1,0 +1,1124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== [RH2] DOOM =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>[RH2] DOOM</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef Name="MPBFPM_DOOMMakeableLauncher" ParentName="MPBFPM_BaseWeapon" Abstract="True">
+                            <weaponTags>
+                                <li>DOOM_LaunchersMain</li>
+                                <li>Bladelink</li>
+                                <li>RangedBladelink</li>
+                            </weaponTags>
+                            <thingCategories>
+                                <li>DOOM_RocketLaunchers</li>
+                                <li>WeaponsRanged</li>
+                            </thingCategories>
+                            <inspectorTabs>
+                                <li>ITab_Art</li>
+                            </inspectorTabs>
+                            <techLevel>Industrial</techLevel>
+                            <weaponClasses>
+                                <li>Ranged</li>
+                            </weaponClasses>
+                            <tradeTags>
+                                <li>WeaponRanged</li>
+                            </tradeTags>
+                        </ThingDef>
+
+                        <ThingDef Name="MPBFPM_DOOMMakeableGun" ParentName="MPBFPM_BaseHumanMakeableGun" Abstract="True">
+                            <weaponTags>
+                                <li>DOOM_IndustrialGunAdvanced</li>
+                            </weaponTags>
+                            <thingCategories>
+                                <li>DOOM_RangedMain</li>
+                            </thingCategories>
+                            <techLevel>Industrial</techLevel>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp" Name="RHMelee_DOOMCrucible_Bond" Abstract="True">
+                            <label>persona crucible</label>
+                            <description>The Crucible is a form of an energy blade weapon. These are blades known to be used by Night Sentinels. Crucible blades are supposedly the only kind of weapons capable of permanently killing Titan demons; however, the Titan will rise again if the Crucible blade is removed from its body.\n\nThere is a Slayer's mark on the hilt.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/Crucible</texPath>
+                                <drawSize>1.2</drawSize>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <equippedAngleOffset>-25</equippedAngleOffset>
+                            <weaponTags>
+                                <li>RN_DOOMCrucible</li>
+                            </weaponTags>
+                            <thingCategories>
+                                <li>DOOM_MeleeMain</li>
+                            </thingCategories>
+                            <soundInteract>RHInteract_Crucible</soundInteract>
+                            <statBases>
+                                <MarketValue>27500.0</MarketValue>
+                                <Mass>0.777</Mass>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>energy blade</label>
+                                    <capacities>
+                                        <li>RHMelee_CrucibleBladeSlash</li>
+                                    </capacities>
+                                    <power>804.875</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>energy blade</label>
+                                    <capacities>
+                                        <li>RHMelee_CrucibleBladeStab</li>
+                                    </capacities>
+                                    <power>828.284</power>
+                                    <cooldownTime>2.295</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_DOOMMakeableGun" Name="RHGun_DOOM_Chaingun_Bond" Abstract="True">
+                            <label>persona UAC D12 Chaingun</label>
+                            <description>The Delta-12 Chaingun (often referred to as "The D12" by operatives), is a high velocity heavy weapon capable of suppressing multiple targets at once. Recent changes to the firing mechanism have pushed the Delta-12 to the physical limits of a ballistic weapon. An Argent infused piston compresses gas within the firing crucible to over 220,000 PSI.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/UACD12Chaingun</texPath>
+                                <drawSize>1.20</drawSize>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>RHInteract_DOOMChaingun</soundInteract>
+                            <equippedAngleOffset>40</equippedAngleOffset>
+                            <statBases>
+                                <MarketValue>2750.0</MarketValue>
+                                <Mass>10</Mass>
+                                <AccuracyTouch>0.275</AccuracyTouch>
+                                <AccuracyShort>0.385</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.308</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.955</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Industrial</techLevel>
+                            <weaponTags>
+                                <li>DOOMGunHeavy</li>
+                                <li>RH_UAC_Chaingun</li>
+                            </weaponTags>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.25</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RHBullet_DOOMChaingun_Bond</defaultProjectile>
+                                    <warmupTime>2.125</warmupTime>
+                                    <range>30.9</range>
+                                    <forcedMissRadius>0.85</forcedMissRadius>
+                                    <burstShotCount>30</burstShotCount>
+                                    <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                                    <soundCast>RHFire_DOOMChaingun</soundCast>
+                                    <soundAiming>RHGun_DOOMChaingunAiming</soundAiming>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrels</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.555</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="RHBullet_DOOMChaingun_Bond" Abstract="True">
+                            <label>15mm shell</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/DOOMChaingun_Shell</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>RHDamageDef_RocketLauncher</damageDef>
+                                <!-- Use default damage from explosion def -->
+                                <explosionRadius>0.9</explosionRadius>
+                                <speed>80</speed>
+                                <damageAmountBase>99</damageAmountBase>
+                                <stoppingPower>5</stoppingPower>
+                                <armorPenetrationBase>0.12</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+
+                        <ThingDef ParentName="MPBFPM_DOOMMakeableGun" Name="RHGun_DOOM_UACEMGPistol_Bond" Abstract="True">
+                            <label>persona UAC EMG Sidearm</label>
+                            <description>The Union Aerospace EMG Sidearm (EMG stands for "Energy-Matter-Gel") is a pistol developed for UAC personnel, it's core feature is unlimited ammunition.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/UACEMGSidearm</texPath>
+                                <drawSize>0.80</drawSize>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Autopistol</soundInteract>
+                            <weaponTags>
+                                <li>DOOMSimpleGun</li>
+                                <li>DOOM_UAC_Pistol</li>
+                                <li>DOOM_UAC_PistolWeak</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>1.2</Mass>
+                                <MarketValue>1320.0</MarketValue>
+                                <AccuracyTouch>0.902</AccuracyTouch>
+                                <AccuracyShort>0.792</AccuracyShort>
+                                <AccuracyMedium>0.462</AccuracyMedium>
+                                <AccuracyLong>0.352</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.807</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RHBullet_EMG_PistolCharge_Bond</defaultProjectile>
+                                    <warmupTime>0.212</warmupTime>
+                                    <range>26.9</range>
+                                    <soundCast>RHShot_DOOMEMGPistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_DOOMMakeableGun" Name="RHGun_DOOM_PlasmaRifle_Bond" Abstract="True">
+                            <label>persona UAC Plasma Rifle</label>
+                            <description>Based on an early 21st century high-intensity plasma gun design, it has been enhanced with Argent energy technology developed at the UAC Mars Base. After these enhancements, it has become a standard-issue equipment for many militaries and has obsoleted the heavy assault rifle. Its plasmoid projectiles cause damage through both kinetic and thermal energy.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/UACPlasmaRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <equippedAngleOffset>40</equippedAngleOffset>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <MarketValue>2750.0</MarketValue>
+                                <AccuracyTouch>0.704</AccuracyTouch>
+                                <AccuracyShort>0.748</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.462</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RHBullet_DOOM_PlasmaGun_Bond</defaultProjectile>
+                                    <warmupTime>0.765</warmupTime>
+                                    <range>32.9</range>
+                                    <burstShotCount>5</burstShotCount>
+                                    <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                                    <soundCast>RHShot_DOOMPlasmaRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>DOOMGun</li>
+                                <li>DOOM_UAC_PlasmaGun</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+
+                        <ThingDef ParentName="MPBFPM_DOOMMakeableGun" Name="RHGun_DOOM_PlasmaGun_Bond" Abstract="True">
+                            <label>persona UAC Plasma Gun</label>
+                            <description>The UAC Plasma Gun (also known as the plasma rifle) is a spacer weapon with a segmented barrel, which fires blue and white bursts of plasma. Due to its high damage rate (three times that of the chaingun), the plasma gun is devastating against nearly any single opponent.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/UACPlasmaGun</texPath>
+                                <drawSize>1.10</drawSize>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>RHInteract_DOOMPlasmaGun</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.704</AccuracyShort>
+                                <AccuracyMedium>0.649</AccuracyMedium>
+                                <AccuracyLong>0.517</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedAngleOffset>40</equippedAngleOffset>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RHBullet_DOOM_PlasmaGun_Bond</defaultProjectile>
+                                    <warmupTime>0.765</warmupTime>
+                                    <range>32.9</range>
+                                    <burstShotCount>5</burstShotCount>
+                                    <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                                    <soundCast>RHShot_DOOMPlasmaGun</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>DOOMGun</li>
+                                <li>DOOM_UAC_PlasmaRifle</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+
+                        <ThingDef ParentName="MPBFPM_DOOMMakeableGun" Name="RHGun_DOOM_SuperShotgun_Bond" Abstract="True">
+                            <label>persona Super Shotgun</label>
+                            <description>It's a traditional style double barreled, break action shotgun which holds 2 shots at a time which cannot be fired independently. It's more powerful than most traditional shotguns but requires frequent reloads due to the small capacity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/SuperShotgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <equippedAngleOffset>40</equippedAngleOffset>
+                            <soundInteract>RHInteract_DOOMSuperShotgun</soundInteract>
+                            <statBases>
+                                <Mass>2</Mass>
+                                <AccuracyTouch>0.99</AccuracyTouch>
+                                <AccuracyShort>1.045</AccuracyShort>
+                                <AccuracyMedium>0.495</AccuracyMedium>
+                                <AccuracyLong>0.231</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>DOOMGun</li>
+                                <li>DOOM_UAC_SuperShotgun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RHBullet_12Gauge_SuperShotgun_Bond</defaultProjectile>
+                                    <warmupTime>0.595</warmupTime>
+                                    <range>17.9</range>
+                                    <soundCast>RHShot_DOOMSuperShotgun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.445</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_DOOMMakeableGun" Name="RHGun_DOOM_HeavyAssaultRifle_Bond" Abstract="True">
+                            <label>persona UAC Heavy Assault Rifle</label>
+                            <description>The UAC Heavy Assault Rifle (HAR) is more used as a heavy machine gun than an assault rifle by early 21st century standards. It fires from a closed bolt, but is belt fed. It fires a .50 caliber FMJ round, roughly equivalent to the .50 BMG round.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/UACHAR</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>RHInteract_DOOMHeavyAssaultRifle</soundInteract>
+                            <statBases>
+                                <MarketValue>2750.0</MarketValue>
+                                <Mass>10</Mass>
+                                <AccuracyTouch>0.462</AccuracyTouch>
+                                <AccuracyShort>0.616</AccuracyShort>
+                                <AccuracyMedium>0.495</AccuracyMedium>
+                                <AccuracyLong>0.374</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.68</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedAngleOffset>40</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.25</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RHBullet_50CalFMJ_HMG_Bond</defaultProjectile>
+                                    <warmupTime>1.53</warmupTime>
+                                    <range>27.9</range>
+                                    <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                    <burstShotCount>4</burstShotCount>
+                                    <soundCast>RHShot_DOOMHeavyAssaultRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>DOOMGun</li>
+                                <li>DOOM_UAC_HeavyAssaultRifle</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_DOOMMakeableGun" Name="RHGun_DOOM_VortexRifle_Bond" Abstract="True">
+                            <label>persona UAC Vortex Rifle</label>
+                            <description>The Union Aerospace Tactical Division V-ORT.X Rifle, also known as the Vortex Rifle, is a sniper weapon that fires a burst of energy. It charges the longer the scope is in use, dealing critical damage when fired.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/UACVortexRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <equippedAngleOffset>40</equippedAngleOffset>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.858</AccuracyShort>
+                                <AccuracyMedium>0.979</AccuracyMedium>
+                                <AccuracyLong>0.946</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.488</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RHBullet_DOOM_VortexRifle_Bond</defaultProjectile>
+                                    <warmupTime>1.7</warmupTime>
+                                    <range>44.9</range>
+                                    <burstShotCount>2</burstShotCount>
+                                    <ticksBetweenBurstShots>70</ticksBetweenBurstShots>
+                                    <soundCast>RHFire_DOOMVortexRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <weaponTags>
+                                <li>RN_UAC_Vortex</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_DOOMMakeableGun" Name="RHGun_DOOM_CombatShotgun_Bond" Abstract="True">
+                            <label>persona UAC DS-117 Shotgun</label>
+                            <description>The DS-117 Shotgun, more commonly known as the Combat Shotgun, is a weapon manufactured by Union Aerospace (UAC) for their security units.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/UACDS117Shotgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Shotgun</soundInteract>
+                            <equippedAngleOffset>40</equippedAngleOffset>
+                            <weaponTags>
+                                <li>DOOMGun</li>
+                                <li>DOOM_UAC_CombatShotgun</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>3</Mass>
+                                <AccuracyTouch>0.869</AccuracyTouch>
+                                <AccuracyShort>0.946</AccuracyShort>
+                                <AccuracyMedium>0.891</AccuracyMedium>
+                                <AccuracyLong>0.704</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.105</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RHBullet_12Gauge_GenericShotgun_Bond</defaultProjectile>
+                                    <warmupTime>1.02</warmupTime>
+                                    <range>17.9</range>
+                                    <soundCast>RHShot_DOOMCombatShotgun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_DOOMMakeableLauncher" Name="RHEx_DOOM_GAUSSCannon_Bond" Abstract="True">
+                            <label>persona UAC Gauss Cannon</label>
+                            <description>The UAC Gauss Cannon is a powerful and incredibly accurate weapon that fires steel flechettes (metal spikes essentially) at extremely high velocities using a magnetized chamber.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <tickerType>Normal</tickerType>
+                            <equippedAngleOffset>40</equippedAngleOffset>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/GAUSSCannon</texPath>
+                                <drawSize>1.1</drawSize>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>5500.0</MarketValue>
+                                <Mass>8</Mass>
+                                <RangedWeapon_Cooldown>2.55</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.10</MoveSpeed>
+                            </equippedStatOffsets>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <!--<li>DOOMGun</li>-->
+                                <li>RH_DOOM_GAUSS</li>
+                            </weaponTags>
+                            <soundInteract>RHInteract_DOOMGAUSS</soundInteract>
+                            <tradeTags>
+                                <li>ExoticMisc</li>
+                            </tradeTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_LaunchProjectile</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RHBullet_GaussCannonCoil_Bond</defaultProjectile>
+                                    <forcedMissRadius>1.0</forcedMissRadius>
+                                    <warmupTime>1.275</warmupTime>
+                                    <ai_AvoidFriendlyFireRadius>5</ai_AvoidFriendlyFireRadius>
+                                    <range>40</range>
+                                    <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>RHShot_DOOMGAUSS</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <onlyManualCast>false</onlyManualCast>
+                                    <stopBurstWithoutLos>false</stopBurstWithoutLos>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <muzzleFlashScale>15</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.555</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="RHBullet_GaussCannonCoil_Bond" Abstract="True">
+                            <label>Gauss Cannon Coil</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/GAUSSBeam</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>RHDamageDef_GAUSSCoil</damageDef>
+                                <!-- Use default damage from explosion def -->
+                                <explosionRadius>1</explosionRadius>
+                                <speed>90</speed>
+                                <damageAmountBase>99</damageAmountBase>
+                                <stoppingPower>5</stoppingPower>
+                                <armorPenetrationBase>50</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_DOOMMakeableLauncher" Name="RHEx_DOOM_BFG9000Gun_Bond" Abstract="True">
+                            <label>persona BFG 9000</label>
+                            <description>The BFG 9000 is a massively powerful plasma energy weapon which utilises ionised Argent Energy. The BFG 9000 fires a green burst of plasma, damaging enemies near the projectile during flight and vaporising targets upon impact, as well as causing significant splash damage to enemies standing in the vicinity of the projectile's explosion.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <tickerType>Normal</tickerType>
+                            <equippedAngleOffset>40</equippedAngleOffset>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/BFG9000</texPath>
+                                <drawSize>1.10</drawSize>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>11000.0</MarketValue>
+                                <Mass>10</Mass>
+                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <!--<li>DOOMGun</li>-->
+                                <li>RH_DOOM_BFG</li>
+                            </weaponTags>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.5</MoveSpeed>
+                            </equippedStatOffsets>
+                            <tradeTags>
+                                <li>ExoticMisc</li>
+                            </tradeTags>
+                            <soundInteract>RHInteract_DOOMBFG</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_LaunchProjectile</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RHBullet_BFGPlasm_Bond</defaultProjectile>
+                                    <forcedMissRadius>1.0</forcedMissRadius>
+                                    <warmupTime>1.445</warmupTime>
+                                    <soundAiming>RHGun_DOOMBFGAiming</soundAiming>
+                                    <ai_AvoidFriendlyFireRadius>5</ai_AvoidFriendlyFireRadius>
+                                    <range>30</range>
+                                    <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>RHShot_DOOMBFG</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <onlyManualCast>false</onlyManualCast>
+                                    <stopBurstWithoutLos>false</stopBurstWithoutLos>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <muzzleFlashScale>20</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.555</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="RHBullet_BFGPlasm_Bond" Abstract="True">
+                            <label>BFG Plasm</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/BFGPLAZMA</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>RHDamageDef_BFGBlast</damageDef>
+                                <!-- Use default damage from explosion def -->
+                                <explosionRadius>2.5</explosionRadius>
+                                <speed>30</speed>
+                                <damageAmountBase>522</damageAmountBase>
+                                <stoppingPower>8</stoppingPower>
+                                <armorPenetrationBase>90</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_DOOMMakeableLauncher" Name="RHEx_DOOM_RocketLauncher_Bond" Abstract="True">
+                            <label>persona UAC Rocket Launcher</label>
+                            <description>The Union Aerospace Rocket Launcher, with a large blast radius and high damage, the Rocket Launcher is useful against all but high mobility enemies.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <tickerType>Normal</tickerType>
+                            <equippedAngleOffset>40</equippedAngleOffset>
+                            <graphicData>
+                                <texPath>Things/Item/Weapons/UACRocketLauncher</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>3300.0</MarketValue>
+                                <Mass>4.5</Mass>
+                                <RangedWeapon_Cooldown>3.57</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <!--<li>Gun</li>-->
+                                <li>RH_DOOM_RocketLauncher</li>
+                            </weaponTags>
+                            <tradeTags>
+                                <li>ExoticMisc</li>
+                            </tradeTags>
+                            <soundInteract>RHInteract_DOOMRocketLauncher</soundInteract>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_LaunchProjectile</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RHBullet_DOOMRocketLauncher_Bond</defaultProjectile>
+                                    <forcedMissRadius>0.9</forcedMissRadius>
+                                    <warmupTime>2.125</warmupTime>
+                                    <soundAiming>RHGun_DOOMRocketLauncherAiming</soundAiming>
+                                    <ai_AvoidFriendlyFireRadius>5</ai_AvoidFriendlyFireRadius>
+                                    <range>41</range>
+                                    <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>RHShot_DOOMRocketLauncher</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <onlyManualCast>false</onlyManualCast>
+                                    <stopBurstWithoutLos>false</stopBurstWithoutLos>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <muzzleFlashScale>15</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.555</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="RHBullet_DOOMRocketLauncher_Bond" Abstract="True">
+                            <label>rocket</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/UACRocket</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>RHDamageDef_RocketLauncher</damageDef>
+                                <!-- Use default damage from explosion def -->
+                                <explosionRadius>2.5</explosionRadius>
+                                <speed>65</speed>
+                                <damageAmountBase>212</damageAmountBase>
+                                <stoppingPower>4.8</stoppingPower>
+                                <armorPenetrationBase>2.8</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="RHBullet_EMG_PistolCharge_Bond" Abstract="True">
+                            <label>UAC EMG charge</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/EMG_Plasma</texPath>
+                            </graphicData>
+                            <projectile>
+                                <flyOverhead>false</flyOverhead>
+                                <damageDef>DOOM_EMGBullet</damageDef>
+                                <damageAmountBase>18</damageAmountBase>
+                                <stoppingPower>1.2</stoppingPower>
+                                <armorPenetrationBase>0.20</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RHBullet_12Gauge_SuperShotgun_Bond" Abstract="True">
+                            <label>shotgun blast</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>38</damageAmountBase>
+                                <stoppingPower>4</stoppingPower>
+                                <armorPenetrationBase>0.12</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RHBullet_12Gauge_GenericShotgun_Bond" Abstract="True">
+                            <label>shotgun blast</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>22</damageAmountBase>
+                                <stoppingPower>3.5</stoppingPower>
+                                <armorPenetrationBase>0.12</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="RHBullet_DOOM_PlasmaGun_Bond" Abstract="True">
+                            <label>plasmoid projectile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/PlasmaGun_Plasm</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>DOOM_PlasmaGunBullet</damageDef>
+                                <damageAmountBase>14</damageAmountBase>
+                                <stoppingPower>0.85</stoppingPower>
+                                <armorPenetrationBase>0.50</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RHBullet_50CalFMJ_HMG_Bond" Abstract="True">
+                            <label>.50 FMJ bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Big</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>78</damageAmountBase>
+                                <stoppingPower>5</stoppingPower>
+                                <armorPenetrationBase>0.40</armorPenetrationBase>
+                                <speed>65</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="RHBullet_DOOM_VortexRifle_Bond" Abstract="True">
+                            <label>Vortex charge</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Vortexbeam</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>DOOM_VortexBullet</damageDef>
+                                <damageAmountBase>46</damageAmountBase>
+                                <stoppingPower>3</stoppingPower>
+                                <armorPenetrationBase>0.50</armorPenetrationBase>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- RHMelee_DOOMCrucible_Bond -->
+                            <ThingDef ParentName="RHMelee_DOOMCrucible_Bond">
+                                <defName>RHMelee_DOOMCrucible_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHGun_DOOM_Chaingun_Bond -->
+                            <ThingDef ParentName="RHGun_DOOM_Chaingun_Bond">
+                                <defName>RHGun_DOOM_Chaingun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHBullet_DOOMChaingun_Bond -->
+                            <ThingDef ParentName="RHBullet_DOOMChaingun_Bond">
+                                <defName>RHBullet_DOOMChaingun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHGun_DOOM_UACEMGPistol_Bond -->
+                            <ThingDef ParentName="RHGun_DOOM_UACEMGPistol_Bond">
+                                <defName>RHGun_DOOM_UACEMGPistol_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHGun_DOOM_PlasmaRifle_Bond -->
+                            <ThingDef ParentName="RHGun_DOOM_PlasmaRifle_Bond">
+                                <defName>RHGun_DOOM_PlasmaRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHGun_DOOM_PlasmaGun_Bond -->
+                            <ThingDef ParentName="RHGun_DOOM_PlasmaGun_Bond">
+                                <defName>RHGun_DOOM_PlasmaGun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHGun_DOOM_SuperShotgun_Bond -->
+                            <ThingDef ParentName="RHGun_DOOM_SuperShotgun_Bond">
+                                <defName>RHGun_DOOM_SuperShotgun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHGun_DOOM_HeavyAssaultRifle_Bond -->
+                            <ThingDef ParentName="RHGun_DOOM_HeavyAssaultRifle_Bond">
+                                <defName>RHGun_DOOM_HeavyAssaultRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHGun_DOOM_VortexRifle_Bond -->
+                            <ThingDef ParentName="RHGun_DOOM_VortexRifle_Bond">
+                                <defName>RHGun_DOOM_VortexRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHGun_DOOM_CombatShotgun_Bond -->
+                            <ThingDef ParentName="RHGun_DOOM_CombatShotgun_Bond">
+                                <defName>RHGun_DOOM_CombatShotgun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHEx_DOOM_GAUSSCannon_Bond -->
+                            <ThingDef ParentName="RHEx_DOOM_GAUSSCannon_Bond">
+                                <defName>RHEx_DOOM_GAUSSCannon_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHBullet_GaussCannonCoil_Bond -->
+                            <ThingDef ParentName="RHBullet_GaussCannonCoil_Bond">
+                                <defName>RHBullet_GaussCannonCoil_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHEx_DOOM_BFG9000Gun_Bond -->
+                            <ThingDef ParentName="RHEx_DOOM_BFG9000Gun_Bond">
+                                <defName>RHEx_DOOM_BFG9000Gun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHBullet_BFGPlasm_Bond -->
+                            <ThingDef ParentName="RHBullet_BFGPlasm_Bond">
+                                <defName>RHBullet_BFGPlasm_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHEx_DOOM_RocketLauncher_Bond -->
+                            <ThingDef ParentName="RHEx_DOOM_RocketLauncher_Bond">
+                                <defName>RHEx_DOOM_RocketLauncher_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHBullet_DOOMRocketLauncher_Bond -->
+                            <ThingDef ParentName="RHBullet_DOOMRocketLauncher_Bond">
+                                <defName>RHBullet_DOOMRocketLauncher_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHBullet_EMG_PistolCharge_Bond -->
+                            <ThingDef ParentName="RHBullet_EMG_PistolCharge_Bond">
+                                <defName>RHBullet_EMG_PistolCharge_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHBullet_12Gauge_SuperShotgun_Bond -->
+                            <ThingDef ParentName="RHBullet_12Gauge_SuperShotgun_Bond">
+                                <defName>RHBullet_12Gauge_SuperShotgun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHBullet_12Gauge_GenericShotgun_Bond -->
+                            <ThingDef ParentName="RHBullet_12Gauge_GenericShotgun_Bond">
+                                <defName>RHBullet_12Gauge_GenericShotgun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHBullet_DOOM_PlasmaGun_Bond -->
+                            <ThingDef ParentName="RHBullet_DOOM_PlasmaGun_Bond">
+                                <defName>RHBullet_DOOM_PlasmaGun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHBullet_50CalFMJ_HMG_Bond -->
+                            <ThingDef ParentName="RHBullet_50CalFMJ_HMG_Bond">
+                                <defName>RHBullet_50CalFMJ_HMG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RHBullet_DOOM_VortexRifle_Bond -->
+                            <ThingDef ParentName="RHBullet_DOOM_VortexRifle_Bond">
+                                <defName>RHBullet_DOOM_VortexRifle_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_RH2DOOM</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- RHMelee_DOOMCrucible_Bond -->
+                                            <ThingDef ParentName="RHMelee_DOOMCrucible_Bond">
+                                                <defName>RHMelee_DOOMCrucible_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHGun_DOOM_Chaingun_Bond -->
+                                            <ThingDef ParentName="RHGun_DOOM_Chaingun_Bond">
+                                                <defName>RHGun_DOOM_Chaingun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHBullet_DOOMChaingun_Bond -->
+                                            <ThingDef ParentName="RHBullet_DOOMChaingun_Bond">
+                                                <defName>RHBullet_DOOMChaingun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHGun_DOOM_UACEMGPistol_Bond -->
+                                            <ThingDef ParentName="RHGun_DOOM_UACEMGPistol_Bond">
+                                                <defName>RHGun_DOOM_UACEMGPistol_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHGun_DOOM_PlasmaRifle_Bond -->
+                                            <ThingDef ParentName="RHGun_DOOM_PlasmaRifle_Bond">
+                                                <defName>RHGun_DOOM_PlasmaRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHGun_DOOM_PlasmaGun_Bond -->
+                                            <ThingDef ParentName="RHGun_DOOM_PlasmaGun_Bond">
+                                                <defName>RHGun_DOOM_PlasmaGun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHGun_DOOM_SuperShotgun_Bond -->
+                                            <ThingDef ParentName="RHGun_DOOM_SuperShotgun_Bond">
+                                                <defName>RHGun_DOOM_SuperShotgun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHGun_DOOM_HeavyAssaultRifle_Bond -->
+                                            <ThingDef ParentName="RHGun_DOOM_HeavyAssaultRifle_Bond">
+                                                <defName>RHGun_DOOM_HeavyAssaultRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHGun_DOOM_VortexRifle_Bond -->
+                                            <ThingDef ParentName="RHGun_DOOM_VortexRifle_Bond">
+                                                <defName>RHGun_DOOM_VortexRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHGun_DOOM_CombatShotgun_Bond -->
+                                            <ThingDef ParentName="RHGun_DOOM_CombatShotgun_Bond">
+                                                <defName>RHGun_DOOM_CombatShotgun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHEx_DOOM_GAUSSCannon_Bond -->
+                                            <ThingDef ParentName="RHEx_DOOM_GAUSSCannon_Bond">
+                                                <defName>RHEx_DOOM_GAUSSCannon_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHBullet_GaussCannonCoil_Bond -->
+                                            <ThingDef ParentName="RHBullet_GaussCannonCoil_Bond">
+                                                <defName>RHBullet_GaussCannonCoil_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHEx_DOOM_BFG9000Gun_Bond -->
+                                            <ThingDef ParentName="RHEx_DOOM_BFG9000Gun_Bond">
+                                                <defName>RHEx_DOOM_BFG9000Gun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHBullet_BFGPlasm_Bond -->
+                                            <ThingDef ParentName="RHBullet_BFGPlasm_Bond">
+                                                <defName>RHBullet_BFGPlasm_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHEx_DOOM_RocketLauncher_Bond -->
+                                            <ThingDef ParentName="RHEx_DOOM_RocketLauncher_Bond">
+                                                <defName>RHEx_DOOM_RocketLauncher_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHBullet_DOOMRocketLauncher_Bond -->
+                                            <ThingDef ParentName="RHBullet_DOOMRocketLauncher_Bond">
+                                                <defName>RHBullet_DOOMRocketLauncher_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHBullet_EMG_PistolCharge_Bond -->
+                                            <ThingDef ParentName="RHBullet_EMG_PistolCharge_Bond">
+                                                <defName>RHBullet_EMG_PistolCharge_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHBullet_12Gauge_SuperShotgun_Bond -->
+                                            <ThingDef ParentName="RHBullet_12Gauge_SuperShotgun_Bond">
+                                                <defName>RHBullet_12Gauge_SuperShotgun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHBullet_12Gauge_GenericShotgun_Bond -->
+                                            <ThingDef ParentName="RHBullet_12Gauge_GenericShotgun_Bond">
+                                                <defName>RHBullet_12Gauge_GenericShotgun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHBullet_DOOM_PlasmaGun_Bond -->
+                                            <ThingDef ParentName="RHBullet_DOOM_PlasmaGun_Bond">
+                                                <defName>RHBullet_DOOM_PlasmaGun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHBullet_50CalFMJ_HMG_Bond -->
+                                            <ThingDef ParentName="RHBullet_50CalFMJ_HMG_Bond">
+                                                <defName>RHBullet_50CalFMJ_HMG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RHBullet_DOOM_VortexRifle_Bond -->
+                                            <ThingDef ParentName="RHBullet_DOOM_VortexRifle_Bond">
+                                                <defName>RHBullet_DOOM_VortexRifle_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

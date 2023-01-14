@@ -1,721 +1,478 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== [SYR] Naga =====
 -->
 <Patch>
-    <Operation Class="PatchOperationFindMod">
-        <mods>
-            <li>[SYR] Naga</li>
-        </mods>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>[SYR] Naga</li>
+    </mods>
 
-        <match Class="PatchOperationFindMod">
-            <mods>
-                <li>XML Extensions</li>
-            </mods>
+    <match Class="PatchOperationSequence">
+      <operations>
+        <li Class="PatchOperationAdd">
+          <xpath>Defs</xpath>
+          <value>
+            <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_NagaRevolver_Bond" Abstract="True">
+              <label>persona plasma revolver</label>
+              <description>Plasma version of a standard revolver.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+              <graphicData>
+                <texPath>Things/Weapon/NagaRevolver</texPath>
+                <graphicClass>Graphic_Single</graphicClass>
+              </graphicData>
+              <soundInteract>Interact_Revolver</soundInteract>
+              <statBases>
+                <Mass>1.4</Mass>
+                <AccuracyTouch>0.88</AccuracyTouch>
+                <AccuracyShort>0.825</AccuracyShort>
+                <AccuracyMedium>0.605</AccuracyMedium>
+                <AccuracyLong>0.495</AccuracyLong>
+                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+              </statBases>
+              <weaponTags>
+                <li>SimpleNagaGun</li>
+                <li>NagaGun</li>
+              </weaponTags>
+              <verbs>
+                <li>
+                  <verbClass>Verb_Shoot</verbClass>
+                  <hasStandardCommand>true</hasStandardCommand>
+                  <defaultProjectile>Bullet_NagaRevolver_Bond</defaultProjectile>
+                  <warmupTime>0.595</warmupTime>
+                  <range>25.9</range>
+                  <soundCast>Shot_ChargeRifle</soundCast>
+                  <soundCastTail>GunTail_Light</soundCastTail>
+                  <muzzleFlashScale>9</muzzleFlashScale>
+                </li>
+              </verbs>
+              <tools>
+                <li>
+                  <label>grip</label>
+                  <capacities>
+                    <li>Blunt</li>
+                  </capacities>
+                  <power>9.75</power>
+                  <cooldownTime>1.7</cooldownTime>
+                </li>
+                <li>
+                  <label>barrel</label>
+                  <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                  </capacities>
+                  <power>9.75</power>
+                  <cooldownTime>1.7</cooldownTime>
+                </li>
+              </tools>
+            </ThingDef>
 
-            <nomatch Class="PatchOperationAdd">
-                <xpath>Defs</xpath>
-                <value>
-                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality">
+            <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_NagaRevolver_Bond" Abstract="True">
+              <label>plasma bullet</label>
+              <graphicData>
+                <texPath>Things/Weapon/Bullet_Plasma</texPath>
+                <shaderType>TransparentPostLight</shaderType>
+              </graphicData>
+              <projectile>
+                <flyOverhead>false</flyOverhead>
+                <damageAmountBase>15</damageAmountBase>
+                <armorPenetrationBase>0.33</armorPenetrationBase>
+                <stoppingPower>1</stoppingPower>
+                <speed>80</speed>
+              </projectile>
+            </ThingDef>
+
+            <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_NagaSMG_Bond" Abstract="True">
+              <label>persona plasma SMG</label>
+              <description>Plasma version of a submachine gun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+              <graphicData>
+                <texPath>Things/Weapon/NagaSMG</texPath>
+                <graphicClass>Graphic_Single</graphicClass>
+              </graphicData>
+              <soundInteract>Interact_SMG</soundInteract>
+              <statBases>
+                <Mass>2.5</Mass>
+                <AccuracyTouch>0.935</AccuracyTouch>
+                <AccuracyShort>0.715</AccuracyShort>
+                <AccuracyMedium>0.385</AccuracyMedium>
+                <AccuracyLong>0.22</AccuracyLong>
+                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+              </statBases>
+              <verbs>
+                <li>
+                  <verbClass>Verb_Shoot</verbClass>
+                  <hasStandardCommand>true</hasStandardCommand>
+                  <defaultProjectile>Bullet_NagaSMG_Bond</defaultProjectile>
+                  <warmupTime>0.595</warmupTime>
+                  <range>21.9</range>
+                  <burstShotCount>5</burstShotCount>
+                  <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                  <soundCast>Shot_ChargeRifle</soundCast>
+                  <soundCastTail>GunTail_Light</soundCastTail>
+                  <muzzleFlashScale>9</muzzleFlashScale>
+                </li>
+              </verbs>
+              <tools>
+                <li>
+                  <label>grip</label>
+                  <capacities>
+                    <li>Blunt</li>
+                  </capacities>
+                  <power>9.75</power>
+                  <cooldownTime>1.7</cooldownTime>
+                </li>
+                <li>
+                  <label>barrel</label>
+                  <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                  </capacities>
+                  <power>9.75</power>
+                  <cooldownTime>1.7</cooldownTime>
+                </li>
+              </tools>
+            </ThingDef>
+
+            <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_NagaSMG_Bond" Abstract="True">
+              <label>plasma bullet</label>
+              <graphicData>
+                <texPath>Things/Weapon/Bullet_Plasma</texPath>
+                <shaderType>TransparentPostLight</shaderType>
+              </graphicData>
+              <projectile>
+                <damageAmountBase>12</damageAmountBase>
+                <armorPenetrationBase>0.2</armorPenetrationBase>
+                <speed>80</speed>
+              </projectile>
+            </ThingDef>
+
+            <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_NagaShotgun_Bond" Abstract="True">
+              <label>persona plasma shotgun</label>
+              <description>Plasma version of a shotgun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+              <graphicData>
+                <texPath>Things/Weapon/NagaShotgun</texPath>
+                <graphicClass>Graphic_Single</graphicClass>
+              </graphicData>
+              <soundInteract>Interact_Shotgun</soundInteract>
+              <statBases>
+                <Mass>3.4</Mass>
+                <AccuracyTouch>0.88</AccuracyTouch>
+                <AccuracyShort>0.957</AccuracyShort>
+                <AccuracyMedium>0.847</AccuracyMedium>
+                <AccuracyLong>0.704</AccuracyLong>
+                <RangedWeapon_Cooldown>0.935</RangedWeapon_Cooldown>
+              </statBases>
+              <verbs>
+                <li>
+                  <verbClass>Verb_Shoot</verbClass>
+                  <hasStandardCommand>true</hasStandardCommand>
+                  <defaultProjectile>Bullet_NagaShotgun_Bond</defaultProjectile>
+                  <warmupTime>0.765</warmupTime>
+                  <range>17.9</range>
+                  <soundCast>Shot_Shotgun</soundCast>
+                  <soundCastTail>GunTail_Heavy</soundCastTail>
+                  <muzzleFlashScale>15</muzzleFlashScale>
+                </li>
+              </verbs>
+              <tools>
+                <li>
+                  <label>stock</label>
+                  <capacities>
+                    <li>Blunt</li>
+                  </capacities>
+                  <power>9.75</power>
+                  <cooldownTime>1.7</cooldownTime>
+                </li>
+                <li>
+                  <label>barrel</label>
+                  <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                  </capacities>
+                  <power>9.75</power>
+                  <cooldownTime>1.7</cooldownTime>
+                </li>
+              </tools>
+            </ThingDef>
+
+            <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_NagaShotgun_Bond" Abstract="True">
+              <label>plasma blast</label>
+              <graphicData>
+                <texPath>Things/Weapon/Bullet_PlasmaBlast</texPath>
+                <shaderType>TransparentPostLight</shaderType>
+              </graphicData>
+              <projectile>
+                <damageAmountBase>22</damageAmountBase>
+                <stoppingPower>3</stoppingPower>
+                <armorPenetrationBase>0.33</armorPenetrationBase>
+                <speed>80</speed>
+              </projectile>
+            </ThingDef>
+
+            <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_NagaRifle_Bond" Abstract="True">
+              <label>persona plasma rifle</label>
+              <description>Plasma version of a rifle.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+              <graphicData>
+                <texPath>Things/Weapon/NagaRifle</texPath>
+                <graphicClass>Graphic_Single</graphicClass>
+              </graphicData>
+              <soundInteract>Interact_Rifle</soundInteract>
+              <statBases>
+                <Mass>3.5</Mass>
+                <AccuracyTouch>0.66</AccuracyTouch>
+                <AccuracyShort>0.77</AccuracyShort>
+                <AccuracyMedium>0.715</AccuracyMedium>
+                <AccuracyLong>0.605</AccuracyLong>
+                <RangedWeapon_Cooldown>1.19</RangedWeapon_Cooldown>
+              </statBases>
+              <verbs>
+                <li>
+                  <verbClass>Verb_Shoot</verbClass>
+                  <hasStandardCommand>true</hasStandardCommand>
+                  <defaultProjectile>Bullet_NagaRifle_Bond</defaultProjectile>
+                  <warmupTime>0.85</warmupTime>
+                  <range>33.9</range>
+                  <burstShotCount>3</burstShotCount>
+                  <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                  <soundCast>Shot_ChargeRifle</soundCast>
+                  <soundCastTail>GunTail_Medium</soundCastTail>
+                  <muzzleFlashScale>9</muzzleFlashScale>
+                </li>
+              </verbs>
+              <weaponTags>
+                <li>AdvancedNagaGun</li>
+                <li>NagaGun</li>
+              </weaponTags>
+              <tools>
+                <li>
+                  <label>stock</label>
+                  <capacities>
+                    <li>Blunt</li>
+                  </capacities>
+                  <power>9.75</power>
+                  <cooldownTime>1.7</cooldownTime>
+                </li>
+                <li>
+                  <label>barrel</label>
+                  <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                  </capacities>
+                  <power>9.75</power>
+                  <cooldownTime>1.7</cooldownTime>
+                </li>
+              </tools>
+            </ThingDef>
+
+            <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_NagaRifle_Bond" Abstract="True">
+              <label>plasma rifle bullet</label>
+              <graphicData>
+                <texPath>Things/Weapon/Bullet_Plasma</texPath>
+                <shaderType>TransparentPostLight</shaderType>
+              </graphicData>
+              <projectile>
+                <damageAmountBase>15</damageAmountBase>
+                <armorPenetrationBase>0.5</armorPenetrationBase>
+                <speed>80</speed>
+              </projectile>
+            </ThingDef>
+
+            <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_NagaSniper_Bond" Abstract="True">
+              <label>persona plasma javelin</label>
+              <description>Plasma version of a sniper rifle.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+              <graphicData>
+                <texPath>Things/Weapon/NagaSniper</texPath>
+                <graphicClass>Graphic_Single</graphicClass>
+                <drawSize>0.80</drawSize>
+              </graphicData>
+              <soundInteract>Interact_Rifle</soundInteract>
+              <statBases>
+                <Mass>4</Mass>
+                <AccuracyTouch>0.66</AccuracyTouch>
+                <AccuracyShort>0.77</AccuracyShort>
+                <AccuracyMedium>0.946</AccuracyMedium>
+                <AccuracyLong>0.968</AccuracyLong>
+                <RangedWeapon_Cooldown>1.955</RangedWeapon_Cooldown>
+              </statBases>
+              <verbs>
+                <li>
+                  <verbClass>Verb_Shoot</verbClass>
+                  <hasStandardCommand>true</hasStandardCommand>
+                  <defaultProjectile>Bullet_NagaSniper_Bond</defaultProjectile>
+                  <warmupTime>1.7</warmupTime>
+                  <range>44.9</range>
+                  <soundCast>NagaSniperShot</soundCast>
+                  <soundCastTail>GunTail_Heavy</soundCastTail>
+                  <muzzleFlashScale>15</muzzleFlashScale>
+                </li>
+              </verbs>
+              <tools>
+                <li>
+                  <label>stock</label>
+                  <capacities>
+                    <li>Blunt</li>
+                  </capacities>
+                  <power>9.75</power>
+                  <cooldownTime>1.7</cooldownTime>
+                </li>
+                <li>
+                  <label>barrel</label>
+                  <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                  </capacities>
+                  <power>9.75</power>
+                  <cooldownTime>1.7</cooldownTime>
+                </li>
+              </tools>
+              <weaponTags>
+                <li>NagaSniper</li>
+                <li>NagaGun</li>
+              </weaponTags>
+            </ThingDef>
+
+            <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_NagaSniper_Bond" Abstract="True">
+              <label>plasma sniper bullet</label>
+              <graphicData>
+                <texPath>Things/Weapon/Bullet_Plasma</texPath>
+                <shaderType>TransparentPostLight</shaderType>
+              </graphicData>
+              <projectile>
+                <damageAmountBase>30</damageAmountBase>
+                <stoppingPower>1.5</stoppingPower>
+                <armorPenetrationBase>0.67</armorPenetrationBase>
+                <speed>100</speed>
+              </projectile>
+            </ThingDef>
+          </value>
+        </li>
+
+        <li Class="PatchOperationFindMod">
+          <mods>
+            <li>XML Extensions</li>
+          </mods>
+
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <!-- Gun_NagaRevolver_Bond -->
+              <ThingDef ParentName="Gun_NagaRevolver_Bond">
+                <defName>Gun_NagaRevolver_Bond</defName>
+              </ThingDef>
+
+              <!-- Bullet_NagaRevolver_Bond -->
+              <ThingDef ParentName="Bullet_NagaRevolver_Bond">
+                <defName>Bullet_NagaRevolver_Bond</defName>
+              </ThingDef>
+
+              <!-- Gun_NagaSMG_Bond -->
+              <ThingDef ParentName="Gun_NagaSMG_Bond">
+                <defName>Gun_NagaSMG_Bond</defName>
+              </ThingDef>
+
+              <!-- Bullet_NagaSMG_Bond -->
+              <ThingDef ParentName="Bullet_NagaSMG_Bond">
+                <defName>Bullet_NagaSMG_Bond</defName>
+              </ThingDef>
+
+              <!-- Gun_NagaShotgun_Bond -->
+              <ThingDef ParentName="Gun_NagaShotgun_Bond">
+                <defName>Gun_NagaShotgun_Bond</defName>
+              </ThingDef>
+
+              <!-- Bullet_NagaShotgun_Bond -->
+              <ThingDef ParentName="Bullet_NagaShotgun_Bond">
+                <defName>Bullet_NagaShotgun_Bond</defName>
+              </ThingDef>
+
+              <!-- Gun_NagaRifle_Bond -->
+              <ThingDef ParentName="Gun_NagaRifle_Bond">
+                <defName>Gun_NagaRifle_Bond</defName>
+              </ThingDef>
+
+              <!-- Bullet_NagaRifle_Bond -->
+              <ThingDef ParentName="Bullet_NagaRifle_Bond">
+                <defName>Bullet_NagaRifle_Bond</defName>
+              </ThingDef>
+
+              <!-- Gun_NagaSniper_Bond -->
+              <ThingDef ParentName="Gun_NagaSniper_Bond">
+                <defName>Gun_NagaSniper_Bond</defName>
+              </ThingDef>
+
+              <!-- Bullet_NagaSniper_Bond -->
+              <ThingDef ParentName="Bullet_NagaSniper_Bond">
+                <defName>Bullet_NagaSniper_Bond</defName>
+              </ThingDef>
+            </value>
+          </nomatch>
+
+          <match Class="PatchOperationSequence">
+            <operations>
+              <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_SYRNaga</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                  <Operation Class="XmlExtensions.PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                      <!-- Gun_NagaRevolver_Bond -->
+                      <ThingDef ParentName="Gun_NagaRevolver_Bond">
                         <defName>Gun_NagaRevolver_Bond</defName>
-                        <label>persona plasma revolver</label>
-                        <description>Plasma version of a standard revolver.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                        <graphicData>
-                          <texPath>Things/Weapon/NagaRevolver</texPath>
-                          <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                        <soundInteract>Interact_Revolver</soundInteract>
-                        <statBases>
-                          <Mass>1.4</Mass>
-                          <AccuracyTouch>0.88</AccuracyTouch>
-                          <AccuracyShort>0.825</AccuracyShort>
-                          <AccuracyMedium>0.605</AccuracyMedium>
-                          <AccuracyLong>0.495</AccuracyLong>
-                          <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
-                        </statBases>
-                        <weaponTags>
-                          <li>SimpleNagaGun</li>
-                        <li>NagaGun</li>
-                        </weaponTags>
-                        <verbs>
-                          <li>
-                            <verbClass>Verb_Shoot</verbClass>
-                            <hasStandardCommand>true</hasStandardCommand>
-                            <defaultProjectile>Bullet_NagaRevolver_Bond</defaultProjectile>
-                            <warmupTime>0.595</warmupTime>
-                            <range>25.9</range>
-                            <soundCast>Shot_ChargeRifle</soundCast>
-                            <soundCastTail>GunTail_Light</soundCastTail>
-                            <muzzleFlashScale>9</muzzleFlashScale>
-                          </li>
-                        </verbs>
-                        <tools>
-                          <li>
-                            <label>grip</label>
-                            <capacities>
-                              <li>Blunt</li>
-                            </capacities>
-                            <power>9.75</power>
-                            <cooldownTime>1.7</cooldownTime>
-                          </li>
-                          <li>
-                            <label>barrel</label>
-                            <capacities>
-                              <li>Blunt</li>
-                              <li>Poke</li>
-                            </capacities>
-                            <power>9.75</power>
-                            <cooldownTime>1.7</cooldownTime>
-                          </li>
-                        </tools>
                       </ThingDef>
-                    
-                      <ThingDef ParentName="MPBFPM_Bullet">
+
+                      <!-- Bullet_NagaRevolver_Bond -->
+                      <ThingDef ParentName="Bullet_NagaRevolver_Bond">
                         <defName>Bullet_NagaRevolver_Bond</defName>
-                        <label>plasma bullet</label>
-                        <graphicData>
-                          <texPath>Things/Weapon/Bullet_Plasma</texPath>
-                          <shaderType>TransparentPostLight</shaderType>
-                        </graphicData>
-                        <projectile>
-                          <flyOverhead>false</flyOverhead>
-                          <damageAmountBase>15</damageAmountBase>
-                          <armorPenetrationBase>0.33</armorPenetrationBase>
-                          <stoppingPower>1</stoppingPower>
-                          <speed>80</speed>
-                        </projectile>
                       </ThingDef>
-                    
-                      <ThingDef ParentName="MPBFPM_BaseGunWithQuality">
+
+                      <!-- Gun_NagaSMG_Bond -->
+                      <ThingDef ParentName="Gun_NagaSMG_Bond">
                         <defName>Gun_NagaSMG_Bond</defName>
-                        <label>persona plasma SMG</label>
-                        <description>Plasma version of a submachine gun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                        <graphicData>
-                          <texPath>Things/Weapon/NagaSMG</texPath>
-                          <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                        <soundInteract>Interact_SMG</soundInteract>
-                        <statBases>
-                          <Mass>2.5</Mass>
-                          <AccuracyTouch>0.935</AccuracyTouch>
-                          <AccuracyShort>0.715</AccuracyShort>
-                          <AccuracyMedium>0.385</AccuracyMedium>
-                          <AccuracyLong>0.22</AccuracyLong>
-                          <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
-                        </statBases>
-                        <verbs>
-                          <li>
-                            <verbClass>Verb_Shoot</verbClass>
-                            <hasStandardCommand>true</hasStandardCommand>
-                            <defaultProjectile>Bullet_NagaSMG_Bond</defaultProjectile>
-                            <warmupTime>0.595</warmupTime>
-                            <range>21.9</range>
-                            <burstShotCount>5</burstShotCount>
-                            <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-                            <soundCast>Shot_ChargeRifle</soundCast>
-                            <soundCastTail>GunTail_Light</soundCastTail>
-                            <muzzleFlashScale>9</muzzleFlashScale>
-                          </li>
-                        </verbs>
-                        <tools>
-                          <li>
-                            <label>grip</label>
-                            <capacities>
-                              <li>Blunt</li>
-                            </capacities>
-                            <power>9.75</power>
-                            <cooldownTime>1.7</cooldownTime>
-                          </li>
-                          <li>
-                            <label>barrel</label>
-                            <capacities>
-                              <li>Blunt</li>
-                              <li>Poke</li>
-                            </capacities>
-                            <power>9.75</power>
-                            <cooldownTime>1.7</cooldownTime>
-                          </li>
-                        </tools>
                       </ThingDef>
-                    
-                      <ThingDef ParentName="MPBFPM_Bullet">
+
+                      <!-- Bullet_NagaSMG_Bond -->
+                      <ThingDef ParentName="Bullet_NagaSMG_Bond">
                         <defName>Bullet_NagaSMG_Bond</defName>
-                        <label>plasma bullet</label>
-                        <graphicData>
-                          <texPath>Things/Weapon/Bullet_Plasma</texPath>
-                          <shaderType>TransparentPostLight</shaderType>
-                        </graphicData>
-                        <projectile>
-                          <damageAmountBase>12</damageAmountBase>
-                          <armorPenetrationBase>0.2</armorPenetrationBase>
-                          <speed>80</speed>
-                        </projectile>
                       </ThingDef>
-                    
-                      <ThingDef ParentName="MPBFPM_BaseGunWithQuality">
+
+                      <!-- Gun_NagaShotgun_Bond -->
+                      <ThingDef ParentName="Gun_NagaShotgun_Bond">
                         <defName>Gun_NagaShotgun_Bond</defName>
-                        <label>persona plasma shotgun</label>
-                        <description>Plasma version of a shotgun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                        <graphicData>
-                          <texPath>Things/Weapon/NagaShotgun</texPath>
-                          <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                        <soundInteract>Interact_Shotgun</soundInteract>
-                        <statBases>
-                          <Mass>3.4</Mass>
-                          <AccuracyTouch>0.88</AccuracyTouch>
-                          <AccuracyShort>0.957</AccuracyShort>
-                          <AccuracyMedium>0.847</AccuracyMedium>
-                          <AccuracyLong>0.704</AccuracyLong>
-                          <RangedWeapon_Cooldown>0.935</RangedWeapon_Cooldown>
-                        </statBases>
-                        <verbs>
-                          <li>
-                            <verbClass>Verb_Shoot</verbClass>
-                            <hasStandardCommand>true</hasStandardCommand>
-                            <defaultProjectile>Bullet_NagaShotgun_Bond</defaultProjectile>
-                            <warmupTime>0.765</warmupTime>
-                            <range>17.9</range>
-                            <soundCast>Shot_Shotgun</soundCast>
-                            <soundCastTail>GunTail_Heavy</soundCastTail>
-                            <muzzleFlashScale>15</muzzleFlashScale>
-                          </li>
-                        </verbs>
-                        <tools>
-                          <li>
-                            <label>stock</label>
-                            <capacities>
-                              <li>Blunt</li>
-                            </capacities>
-                            <power>9.75</power>
-                            <cooldownTime>1.7</cooldownTime>
-                          </li>
-                          <li>
-                            <label>barrel</label>
-                            <capacities>
-                              <li>Blunt</li>
-                              <li>Poke</li>
-                            </capacities>
-                            <power>9.75</power>
-                            <cooldownTime>1.7</cooldownTime>
-                          </li>
-                        </tools>
                       </ThingDef>
-                    
-                      <ThingDef ParentName="MPBFPM_Bullet">
+
+                      <!-- Bullet_NagaShotgun_Bond -->
+                      <ThingDef ParentName="Bullet_NagaShotgun_Bond">
                         <defName>Bullet_NagaShotgun_Bond</defName>
-                        <label>plasma blast</label>
-                        <graphicData>
-                          <texPath>Things/Weapon/Bullet_PlasmaBlast</texPath>
-                          <shaderType>TransparentPostLight</shaderType>
-                        </graphicData>
-                        <projectile>
-                          <damageAmountBase>22</damageAmountBase>
-                          <stoppingPower>3</stoppingPower>
-                          <armorPenetrationBase>0.33</armorPenetrationBase>
-                          <speed>80</speed>
-                        </projectile>
                       </ThingDef>
-                    
-                      <ThingDef ParentName="MPBFPM_BaseGunWithQuality">
+
+                      <!-- Gun_NagaRifle_Bond -->
+                      <ThingDef ParentName="Gun_NagaRifle_Bond">
                         <defName>Gun_NagaRifle_Bond</defName>
-                        <label>persona plasma rifle</label>
-                        <description>Plasma version of a rifle.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                        <graphicData>
-                          <texPath>Things/Weapon/NagaRifle</texPath>
-                          <graphicClass>Graphic_Single</graphicClass>
-                        </graphicData>
-                        <soundInteract>Interact_Rifle</soundInteract>
-                        <statBases>
-                          <Mass>3.5</Mass>
-                          <AccuracyTouch>0.66</AccuracyTouch>
-                          <AccuracyShort>0.77</AccuracyShort>
-                          <AccuracyMedium>0.715</AccuracyMedium>
-                          <AccuracyLong>0.605</AccuracyLong>
-                          <RangedWeapon_Cooldown>1.19</RangedWeapon_Cooldown>
-                        </statBases>
-                        <verbs>
-                          <li>
-                            <verbClass>Verb_Shoot</verbClass>
-                            <hasStandardCommand>true</hasStandardCommand>
-                            <defaultProjectile>Bullet_NagaRifle_Bond</defaultProjectile>
-                            <warmupTime>0.85</warmupTime>
-                            <range>33.9</range>
-                            <burstShotCount>3</burstShotCount>
-                            <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-                            <soundCast>Shot_ChargeRifle</soundCast>
-                            <soundCastTail>GunTail_Medium</soundCastTail>
-                            <muzzleFlashScale>9</muzzleFlashScale>
-                          </li>
-                        </verbs>
-                            <weaponTags>
-                          <li>AdvancedNagaGun</li>
-                            <li>NagaGun</li>
-                        </weaponTags>
-                        <tools>
-                          <li>
-                            <label>stock</label>
-                            <capacities>
-                              <li>Blunt</li>
-                            </capacities>
-                            <power>9.75</power>
-                            <cooldownTime>1.7</cooldownTime>
-                          </li>
-                          <li>
-                            <label>barrel</label>
-                            <capacities>
-                              <li>Blunt</li>
-                              <li>Poke</li>
-                            </capacities>
-                            <power>9.75</power>
-                            <cooldownTime>1.7</cooldownTime>
-                          </li>
-                        </tools>
                       </ThingDef>
-                    
-                      <ThingDef ParentName="MPBFPM_Bullet">
+
+                      <!-- Bullet_NagaRifle_Bond -->
+                      <ThingDef ParentName="Bullet_NagaRifle_Bond">
                         <defName>Bullet_NagaRifle_Bond</defName>
-                        <label>plasma rifle bullet</label>
-                        <graphicData>
-                          <texPath>Things/Weapon/Bullet_Plasma</texPath>
-                          <shaderType>TransparentPostLight</shaderType>
-                        </graphicData>
-                        <projectile>
-                          <damageAmountBase>15</damageAmountBase>
-                          <armorPenetrationBase>0.5</armorPenetrationBase>
-                          <speed>80</speed>
-                        </projectile>
                       </ThingDef>
-                    
-                      <ThingDef ParentName="MPBFPM_BaseGunWithQuality">
+
+                      <!-- Gun_NagaSniper_Bond -->
+                      <ThingDef ParentName="Gun_NagaSniper_Bond">
                         <defName>Gun_NagaSniper_Bond</defName>
-                        <label>persona plasma javelin</label>
-                        <description>Plasma version of a sniper rifle.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                        <graphicData>
-                          <texPath>Things/Weapon/NagaSniper</texPath>
-                          <graphicClass>Graphic_Single</graphicClass>
-                          <drawSize>0.80</drawSize>
-                        </graphicData>
-                        <soundInteract>Interact_Rifle</soundInteract>
-                        <statBases>
-                          <Mass>4</Mass>
-                          <AccuracyTouch>0.66</AccuracyTouch>
-                          <AccuracyShort>0.77</AccuracyShort>
-                          <AccuracyMedium>0.946</AccuracyMedium>
-                          <AccuracyLong>0.968</AccuracyLong>
-                          <RangedWeapon_Cooldown>1.955</RangedWeapon_Cooldown>
-                        </statBases>
-                        <verbs>
-                          <li>
-                            <verbClass>Verb_Shoot</verbClass>
-                            <hasStandardCommand>true</hasStandardCommand>
-                            <defaultProjectile>Bullet_NagaSniper_Bond</defaultProjectile>
-                            <warmupTime>1.7</warmupTime>
-                            <range>44.9</range>
-                            <soundCast>NagaSniperShot</soundCast>
-                            <soundCastTail>GunTail_Heavy</soundCastTail>
-                            <muzzleFlashScale>15</muzzleFlashScale>
-                          </li>
-                        </verbs>
-                        <tools>
-                          <li>
-                            <label>stock</label>
-                            <capacities>
-                              <li>Blunt</li>
-                            </capacities>
-                            <power>9.75</power>
-                            <cooldownTime>1.7</cooldownTime>
-                          </li>
-                          <li>
-                            <label>barrel</label>
-                            <capacities>
-                              <li>Blunt</li>
-                              <li>Poke</li>
-                            </capacities>
-                            <power>9.75</power>
-                            <cooldownTime>1.7</cooldownTime>
-                          </li>
-                        </tools>
-                        <weaponTags>
-                          <li>NagaSniper</li>
-                        <li>NagaGun</li>
-                        </weaponTags>
                       </ThingDef>
-                      
-                      <ThingDef ParentName="MPBFPM_Bullet">
+
+                      <!-- Bullet_NagaSniper_Bond -->
+                      <ThingDef ParentName="Bullet_NagaSniper_Bond">
                         <defName>Bullet_NagaSniper_Bond</defName>
-                        <label>plasma sniper bullet</label>
-                        <graphicData>
-                          <texPath>Things/Weapon/Bullet_Plasma</texPath>
-                          <shaderType>TransparentPostLight</shaderType>
-                        </graphicData>
-                        <projectile>
-                          <damageAmountBase>30</damageAmountBase>
-                          <stoppingPower>1.5</stoppingPower>
-                          <armorPenetrationBase>0.67</armorPenetrationBase>
-                          <speed>100</speed>
-                        </projectile>
                       </ThingDef>
-                </value>
-            </nomatch>
-
-            <match Class="PatchOperationSequence">
-                <operations>
-                    <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                        <key>Daria40K_MightyPersonaBondForgePatch_SYRNaga</key>
-                        <defaultValue>true</defaultValue>
-
-                        <caseTrue>
-                            <Operation Class="XmlExtensions.PatchOperationAdd">
-                                <xpath>Defs</xpath>
-                                <value>
-                                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality">
-                                        <defName>Gun_NagaRevolver_Bond</defName>
-                                        <label>persona plasma revolver</label>
-                                        <description>Plasma version of a standard revolver.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                                        <graphicData>
-                                          <texPath>Things/Weapon/NagaRevolver</texPath>
-                                          <graphicClass>Graphic_Single</graphicClass>
-                                        </graphicData>
-                                        <soundInteract>Interact_Revolver</soundInteract>
-                                        <statBases>
-                                          <Mass>1.4</Mass>
-                                          <AccuracyTouch>0.88</AccuracyTouch>
-                                          <AccuracyShort>0.825</AccuracyShort>
-                                          <AccuracyMedium>0.605</AccuracyMedium>
-                                          <AccuracyLong>0.495</AccuracyLong>
-                                          <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
-                                        </statBases>
-                                        <weaponTags>
-                                          <li>SimpleNagaGun</li>
-                                        <li>NagaGun</li>
-                                        </weaponTags>
-                                        <verbs>
-                                          <li>
-                                            <verbClass>Verb_Shoot</verbClass>
-                                            <hasStandardCommand>true</hasStandardCommand>
-                                            <defaultProjectile>Bullet_NagaRevolver_Bond</defaultProjectile>
-                                            <warmupTime>0.595</warmupTime>
-                                            <range>25.9</range>
-                                            <soundCast>Shot_ChargeRifle</soundCast>
-                                            <soundCastTail>GunTail_Light</soundCastTail>
-                                            <muzzleFlashScale>9</muzzleFlashScale>
-                                          </li>
-                                        </verbs>
-                                        <tools>
-                                          <li>
-                                            <label>grip</label>
-                                            <capacities>
-                                              <li>Blunt</li>
-                                            </capacities>
-                                            <power>9.75</power>
-                                            <cooldownTime>1.7</cooldownTime>
-                                          </li>
-                                          <li>
-                                            <label>barrel</label>
-                                            <capacities>
-                                              <li>Blunt</li>
-                                              <li>Poke</li>
-                                            </capacities>
-                                            <power>9.75</power>
-                                            <cooldownTime>1.7</cooldownTime>
-                                          </li>
-                                        </tools>
-                                      </ThingDef>
-                                    
-                                      <ThingDef ParentName="MPBFPM_Bullet">
-                                        <defName>Bullet_NagaRevolver_Bond</defName>
-                                        <label>plasma bullet</label>
-                                        <graphicData>
-                                          <texPath>Things/Weapon/Bullet_Plasma</texPath>
-                                          <shaderType>TransparentPostLight</shaderType>
-                                        </graphicData>
-                                        <projectile>
-                                          <flyOverhead>false</flyOverhead>
-                                          <damageAmountBase>15</damageAmountBase>
-                                          <armorPenetrationBase>0.33</armorPenetrationBase>
-                                          <stoppingPower>1</stoppingPower>
-                                          <speed>80</speed>
-                                        </projectile>
-                                      </ThingDef>
-                                    
-                                      <ThingDef ParentName="MPBFPM_BaseGunWithQuality">
-                                        <defName>Gun_NagaSMG_Bond</defName>
-                                        <label>persona plasma SMG</label>
-                                        <description>Plasma version of a submachine gun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                                        <graphicData>
-                                          <texPath>Things/Weapon/NagaSMG</texPath>
-                                          <graphicClass>Graphic_Single</graphicClass>
-                                        </graphicData>
-                                        <soundInteract>Interact_SMG</soundInteract>
-                                        <statBases>
-                                          <Mass>2.5</Mass>
-                                          <AccuracyTouch>0.935</AccuracyTouch>
-                                          <AccuracyShort>0.715</AccuracyShort>
-                                          <AccuracyMedium>0.385</AccuracyMedium>
-                                          <AccuracyLong>0.22</AccuracyLong>
-                                          <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
-                                        </statBases>
-                                        <verbs>
-                                          <li>
-                                            <verbClass>Verb_Shoot</verbClass>
-                                            <hasStandardCommand>true</hasStandardCommand>
-                                            <defaultProjectile>Bullet_NagaSMG_Bond</defaultProjectile>
-                                            <warmupTime>0.595</warmupTime>
-                                            <range>21.9</range>
-                                            <burstShotCount>5</burstShotCount>
-                                            <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-                                            <soundCast>Shot_ChargeRifle</soundCast>
-                                            <soundCastTail>GunTail_Light</soundCastTail>
-                                            <muzzleFlashScale>9</muzzleFlashScale>
-                                          </li>
-                                        </verbs>
-                                        <tools>
-                                          <li>
-                                            <label>grip</label>
-                                            <capacities>
-                                              <li>Blunt</li>
-                                            </capacities>
-                                            <power>9.75</power>
-                                            <cooldownTime>1.7</cooldownTime>
-                                          </li>
-                                          <li>
-                                            <label>barrel</label>
-                                            <capacities>
-                                              <li>Blunt</li>
-                                              <li>Poke</li>
-                                            </capacities>
-                                            <power>9.75</power>
-                                            <cooldownTime>1.7</cooldownTime>
-                                          </li>
-                                        </tools>
-                                      </ThingDef>
-                                    
-                                      <ThingDef ParentName="MPBFPM_Bullet">
-                                        <defName>Bullet_NagaSMG_Bond</defName>
-                                        <label>plasma bullet</label>
-                                        <graphicData>
-                                          <texPath>Things/Weapon/Bullet_Plasma</texPath>
-                                          <shaderType>TransparentPostLight</shaderType>
-                                        </graphicData>
-                                        <projectile>
-                                          <damageAmountBase>12</damageAmountBase>
-                                          <armorPenetrationBase>0.2</armorPenetrationBase>
-                                          <speed>80</speed>
-                                        </projectile>
-                                      </ThingDef>
-                                    
-                                      <ThingDef ParentName="MPBFPM_BaseGunWithQuality">
-                                        <defName>Gun_NagaShotgun_Bond</defName>
-                                        <label>persona plasma shotgun</label>
-                                        <description>Plasma version of a shotgun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                                        <graphicData>
-                                          <texPath>Things/Weapon/NagaShotgun</texPath>
-                                          <graphicClass>Graphic_Single</graphicClass>
-                                        </graphicData>
-                                        <soundInteract>Interact_Shotgun</soundInteract>
-                                        <statBases>
-                                          <Mass>3.4</Mass>
-                                          <AccuracyTouch>0.88</AccuracyTouch>
-                                          <AccuracyShort>0.957</AccuracyShort>
-                                          <AccuracyMedium>0.847</AccuracyMedium>
-                                          <AccuracyLong>0.704</AccuracyLong>
-                                          <RangedWeapon_Cooldown>0.935</RangedWeapon_Cooldown>
-                                        </statBases>
-                                        <verbs>
-                                          <li>
-                                            <verbClass>Verb_Shoot</verbClass>
-                                            <hasStandardCommand>true</hasStandardCommand>
-                                            <defaultProjectile>Bullet_NagaShotgun_Bond</defaultProjectile>
-                                            <warmupTime>0.765</warmupTime>
-                                            <range>17.9</range>
-                                            <soundCast>Shot_Shotgun</soundCast>
-                                            <soundCastTail>GunTail_Heavy</soundCastTail>
-                                            <muzzleFlashScale>15</muzzleFlashScale>
-                                          </li>
-                                        </verbs>
-                                        <tools>
-                                          <li>
-                                            <label>stock</label>
-                                            <capacities>
-                                              <li>Blunt</li>
-                                            </capacities>
-                                            <power>9.75</power>
-                                            <cooldownTime>1.7</cooldownTime>
-                                          </li>
-                                          <li>
-                                            <label>barrel</label>
-                                            <capacities>
-                                              <li>Blunt</li>
-                                              <li>Poke</li>
-                                            </capacities>
-                                            <power>9.75</power>
-                                            <cooldownTime>1.7</cooldownTime>
-                                          </li>
-                                        </tools>
-                                      </ThingDef>
-                                    
-                                      <ThingDef ParentName="MPBFPM_Bullet">
-                                        <defName>Bullet_NagaShotgun_Bond</defName>
-                                        <label>plasma blast</label>
-                                        <graphicData>
-                                          <texPath>Things/Weapon/Bullet_PlasmaBlast</texPath>
-                                          <shaderType>TransparentPostLight</shaderType>
-                                        </graphicData>
-                                        <projectile>
-                                          <damageAmountBase>22</damageAmountBase>
-                                          <stoppingPower>3</stoppingPower>
-                                          <armorPenetrationBase>0.33</armorPenetrationBase>
-                                          <speed>80</speed>
-                                        </projectile>
-                                      </ThingDef>
-                                    
-                                      <ThingDef ParentName="MPBFPM_BaseGunWithQuality">
-                                        <defName>Gun_NagaRifle_Bond</defName>
-                                        <label>persona plasma rifle</label>
-                                        <description>Plasma version of a rifle.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                                        <graphicData>
-                                          <texPath>Things/Weapon/NagaRifle</texPath>
-                                          <graphicClass>Graphic_Single</graphicClass>
-                                        </graphicData>
-                                        <soundInteract>Interact_Rifle</soundInteract>
-                                        <statBases>
-                                          <Mass>3.5</Mass>
-                                          <AccuracyTouch>0.66</AccuracyTouch>
-                                          <AccuracyShort>0.77</AccuracyShort>
-                                          <AccuracyMedium>0.715</AccuracyMedium>
-                                          <AccuracyLong>0.605</AccuracyLong>
-                                          <RangedWeapon_Cooldown>1.19</RangedWeapon_Cooldown>
-                                        </statBases>
-                                        <verbs>
-                                          <li>
-                                            <verbClass>Verb_Shoot</verbClass>
-                                            <hasStandardCommand>true</hasStandardCommand>
-                                            <defaultProjectile>Bullet_NagaRifle_Bond</defaultProjectile>
-                                            <warmupTime>0.85</warmupTime>
-                                            <range>33.9</range>
-                                            <burstShotCount>3</burstShotCount>
-                                            <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-                                            <soundCast>Shot_ChargeRifle</soundCast>
-                                            <soundCastTail>GunTail_Medium</soundCastTail>
-                                            <muzzleFlashScale>9</muzzleFlashScale>
-                                          </li>
-                                        </verbs>
-                                            <weaponTags>
-                                          <li>AdvancedNagaGun</li>
-                                            <li>NagaGun</li>
-                                        </weaponTags>
-                                        <tools>
-                                          <li>
-                                            <label>stock</label>
-                                            <capacities>
-                                              <li>Blunt</li>
-                                            </capacities>
-                                            <power>9.75</power>
-                                            <cooldownTime>1.7</cooldownTime>
-                                          </li>
-                                          <li>
-                                            <label>barrel</label>
-                                            <capacities>
-                                              <li>Blunt</li>
-                                              <li>Poke</li>
-                                            </capacities>
-                                            <power>9.75</power>
-                                            <cooldownTime>1.7</cooldownTime>
-                                          </li>
-                                        </tools>
-                                      </ThingDef>
-                                    
-                                      <ThingDef ParentName="MPBFPM_Bullet">
-                                        <defName>Bullet_NagaRifle_Bond</defName>
-                                        <label>plasma rifle bullet</label>
-                                        <graphicData>
-                                          <texPath>Things/Weapon/Bullet_Plasma</texPath>
-                                          <shaderType>TransparentPostLight</shaderType>
-                                        </graphicData>
-                                        <projectile>
-                                          <damageAmountBase>15</damageAmountBase>
-                                          <armorPenetrationBase>0.5</armorPenetrationBase>
-                                          <speed>80</speed>
-                                        </projectile>
-                                      </ThingDef>
-                                    
-                                      <ThingDef ParentName="MPBFPM_BaseGunWithQuality">
-                                        <defName>Gun_NagaSniper_Bond</defName>
-                                        <label>persona plasma javelin</label>
-                                        <description>Plasma version of a sniper rifle.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                                        <graphicData>
-                                          <texPath>Things/Weapon/NagaSniper</texPath>
-                                          <graphicClass>Graphic_Single</graphicClass>
-                                          <drawSize>0.80</drawSize>
-                                        </graphicData>
-                                        <soundInteract>Interact_Rifle</soundInteract>
-                                        <statBases>
-                                          <Mass>4</Mass>
-                                          <AccuracyTouch>0.66</AccuracyTouch>
-                                          <AccuracyShort>0.77</AccuracyShort>
-                                          <AccuracyMedium>0.946</AccuracyMedium>
-                                          <AccuracyLong>0.968</AccuracyLong>
-                                          <RangedWeapon_Cooldown>1.955</RangedWeapon_Cooldown>
-                                        </statBases>
-                                        <verbs>
-                                          <li>
-                                            <verbClass>Verb_Shoot</verbClass>
-                                            <hasStandardCommand>true</hasStandardCommand>
-                                            <defaultProjectile>Bullet_NagaSniper_Bond</defaultProjectile>
-                                            <warmupTime>1.7</warmupTime>
-                                            <range>44.9</range>
-                                            <soundCast>NagaSniperShot</soundCast>
-                                            <soundCastTail>GunTail_Heavy</soundCastTail>
-                                            <muzzleFlashScale>15</muzzleFlashScale>
-                                          </li>
-                                        </verbs>
-                                        <tools>
-                                          <li>
-                                            <label>stock</label>
-                                            <capacities>
-                                              <li>Blunt</li>
-                                            </capacities>
-                                            <power>9.75</power>
-                                            <cooldownTime>1.7</cooldownTime>
-                                          </li>
-                                          <li>
-                                            <label>barrel</label>
-                                            <capacities>
-                                              <li>Blunt</li>
-                                              <li>Poke</li>
-                                            </capacities>
-                                            <power>9.75</power>
-                                            <cooldownTime>1.7</cooldownTime>
-                                          </li>
-                                        </tools>
-                                        <weaponTags>
-                                          <li>NagaSniper</li>
-                                        <li>NagaGun</li>
-                                        </weaponTags>
-                                      </ThingDef>
-                                      
-                                      <ThingDef ParentName="MPBFPM_Bullet">
-                                        <defName>Bullet_NagaSniper_Bond</defName>
-                                        <label>plasma sniper bullet</label>
-                                        <graphicData>
-                                          <texPath>Things/Weapon/Bullet_Plasma</texPath>
-                                          <shaderType>TransparentPostLight</shaderType>
-                                        </graphicData>
-                                        <projectile>
-                                          <damageAmountBase>30</damageAmountBase>
-                                          <stoppingPower>1.5</stoppingPower>
-                                          <armorPenetrationBase>0.67</armorPenetrationBase>
-                                          <speed>100</speed>
-                                        </projectile>
-                                      </ThingDef>
-                                </value>
-                            </Operation>
-                        </caseTrue>
-                    </li>
-                </operations>
-            </match>
-        </match>
-    </Operation>
+                    </value>
+                  </Operation>
+                </caseTrue>
+              </li>
+            </operations>
+          </match>
+        </li>
+      </operations>
+    </match>
+  </Operation>
 </Patch>
