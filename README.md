@@ -53,6 +53,7 @@
 - [Vanilla Weapons Expanded - Laser - M36 Kantrael Pattern Lasgun](https://steamcommunity.com/sharedfiles/filedetails/?id=2879415284)
 - [Vanilla Weapons Expanded - Laser - Mark 2 Gyro-Stabled Hellgun](https://steamcommunity.com/sharedfiles/filedetails/?id=2880060684)
 - [Vanilla Weapons Expanded - Laser - N98 Lucius Pattern Lasgun](https://steamcommunity.com/sharedfiles/filedetails/?id=2879415463)
+- [Wisteria Corporation](https://steamcommunity.com/sharedfiles/filedetails/?id=2920016617)
 - [米娅·SAMA的武器包重制版](https://steamcommunity.com/sharedfiles/filedetails/?id=2910574099)
 
 ### RimWorld 1.3
