@@ -1,0 +1,1500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Paniel the Automata =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Paniel the Automata</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Blunt" Name="PN_Shovel_Bond" Abstract="True">
+                            <label>persona PnL shovel</label>
+                            <description>It's a small shovel. Useful for farming, mining and construction. It looks powerful even when used as a weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/PNShovel</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                            </graphicData>
+                            <techLevel>Industrial</techLevel>
+                            <thingCategories>
+                                <li>PN_WeaponsMelee</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>PN_Melee</li>
+                                <li>PN_Shovel</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>1.2</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.0</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>shovel blade</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>20.0</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>shovel head</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>20.0</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <equippedStatOffsets>
+                                <MiningSpeed>0.15</MiningSpeed>
+                                <PlantWorkSpeed>0.15</PlantWorkSpeed>
+                                <ConstructionSpeed>0.15</ConstructionSpeed>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp" Name="PN_Chainsword_Bond" Abstract="True">
+                            <label>persona PnL chainsword</label>
+                            <description>[caution] : Automaton exclusive weapon.\n\nA sword with a rotating chain saw blade. It works by linking with the automaton and receiving power.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/PNSword</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                            </graphicData>
+                            <meleeHitSound>PNChainswordSound</meleeHitSound>
+                            <techLevel>Industrial</techLevel>
+                            <thingCategories>
+                                <li>PN_WeaponsMelee</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>PN_Melee</li>
+                                <li>PN_Chainsword</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>2</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.0</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>20.0</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>PN_ChainCutTool</li>
+                                    </capacities>
+                                    <power>20.0</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <equippedStatOffsets>
+                                <PlantWorkSpeed>0.25</PlantWorkSpeed>
+                            </equippedStatOffsets>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun" Name="PN_Revolver_Bond" Abstract="True">
+                            <label>persona PnL revolver</label>
+                            <description>A revolver similar to a shotgun that fires from six barrels at once.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/PNRevolver</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <uiIconScale>1</uiIconScale>
+                            <soundInteract>Interact_Revolver</soundInteract>
+                            <statBases>
+                                <Mass>1.6</Mass>
+                                <AccuracyTouch>0.55</AccuracyTouch>
+                                <AccuracyShort>0.385</AccuracyShort>
+                                <AccuracyMedium>0.165</AccuracyMedium>
+                                <AccuracyLong>0.055</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.53</RangedWeapon_Cooldown>
+                            </statBases>
+                            <thingCategories>
+                                <li>PN_WeaponsRanged</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>PN_Gun</li>
+                                <li>PN_Revolver</li>
+                            </weaponTags>
+                            <comps>
+                            </comps>
+                            <verbs>
+                                <li Class="PNTorgue.Verb_Properties_ShotGun">
+                                    <verbClass>PNTorgue.Verb_Shoot_ShotGun</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PN_Bullet_Revolver_Volley_Bond</defaultProjectile>
+                                    <warmupTime>0.425</warmupTime>
+                                    <range>12.9</range>
+                                    <burstShotCount>1</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>Shot_Revolver</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <pelletCount>6</pelletCount>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.866</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="PN_Bullet_Revolver_Volley_Bond" Abstract="True">
+                            <label>PnL revolver bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>11</damageAmountBase>
+                                <stoppingPower>1</stoppingPower>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun" Name="PN_Rifle_Bond" Abstract="True">
+                            <label>persona PnL rifle</label>
+                            <description>Lever action rifle produced by PnL industry. Users can choose between rapid fire mode and accuracy mode(WIP).\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/PNRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.715</AccuracyMedium>
+                                <AccuracyLong>0.605</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.595</RangedWeapon_Cooldown>
+                            </statBases>
+                            <comps>
+                                <li Class="SYS.CompProperties_Sheath">
+                                    <sheathOnlyGraphicData>
+                                        <texPath>Things/Weapons/SYS/PNRifle_Sheath</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                    </sheathOnlyGraphicData>
+                                    <fullGraphicData>
+                                        <texPath>Things/Weapons/SYS/PNRifle_Full</texPath>
+                                        <graphicClass>Graphic_Multi</graphicClass>
+                                    </fullGraphicData>
+                                    <drawPosition>Back</drawPosition>
+                                    <northOffset>
+                                        <position>(0.15,0.3,0)</position>
+                                        <angle>-45</angle>
+                                    </northOffset>
+                                    <southOffset>
+                                        <position>(-0.15,-0.3,0)</position>
+                                        <angle>-45</angle>
+                                    </southOffset>
+                                    <eastOffset>
+                                        <position>(-0.15,-0.3,0)</position>
+                                        <angle>-30</angle>
+                                    </eastOffset>
+                                    <westOffset>
+                                        <position>(0.15,-0.3,0)</position>
+                                        <angle>30</angle>
+                                    </westOffset>
+                                </li>
+                            </comps>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PN_Bullet_Rifle_Bond</defaultProjectile>
+                                    <warmupTime>0.595</warmupTime>
+                                    <range>30.9</range>
+                                    <soundCast>PNRifleSound</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <thingCategories>
+                                <li>PN_WeaponsRanged</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>PN_Gun</li>
+                                <li>PN_Rifle</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="PN_Bullet_Rifle_Bond" Abstract="True">
+                            <label>PnL rifle bullet</label>
+                            <projectile>
+                                <damageAmountBase>20</damageAmountBase>
+                                <stoppingPower>1.0</stoppingPower>
+                                <speed>70</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_big</texPath>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun" Name="PN_Machinegun_Bond" Abstract="True">
+                            <label>persona PnL machine gun</label>
+                            <description>Machine gun produced by PnL industry.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/PNMachinegun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>10</Mass>
+                                <AccuracyTouch>0.165</AccuracyTouch>
+                                <AccuracyShort>0.275</AccuracyShort>
+                                <AccuracyMedium>0.275</AccuracyMedium>
+                                <AccuracyLong>0.198</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.38</RangedWeapon_Cooldown>
+                            </statBases>
+                            <comps>
+                                <li Class="SYS.CompProperties_Sheath">
+                                    <sheathOnlyGraphicData>
+                                        <texPath>Things/Weapons/SYS/PNMachinegun_Sheath</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                    </sheathOnlyGraphicData>
+                                    <fullGraphicData>
+                                        <texPath>Things/Weapons/SYS/PNMachinegun_Full</texPath>
+                                        <graphicClass>Graphic_Multi</graphicClass>
+                                    </fullGraphicData>
+                                    <drawPosition>Back</drawPosition>
+                                    <northOffset>
+                                        <position>(0,0.3,0.05)</position>
+                                        <angle>25</angle>
+                                    </northOffset>
+                                    <southOffset>
+                                        <position>(0,-0.3,0.05)</position>
+                                        <angle>-25</angle>
+                                    </southOffset>
+                                    <eastOffset>
+                                        <position>(-0.15,-0.3,0.05)</position>
+                                        <angle>70</angle>
+                                    </eastOffset>
+                                    <westOffset>
+                                        <position>(0.15,-0.3,0.05)</position>
+                                        <angle>-70</angle>
+                                    </westOffset>
+                                </li>
+                            </comps>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PN_Bullet_Machinegun_Bond</defaultProjectile>
+                                    <warmupTime>2.21</warmupTime>
+                                    <range>30.9</range>
+                                    <burstShotCount>40</burstShotCount>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <soundCast>Shot_AssaultRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <thingCategories>
+                                <li>PN_WeaponsRanged</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>PN_Gun</li>
+                                <li>PN_Machinegun</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.555</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                </li>
+                            </tools>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.25</MoveSpeed>
+                            </equippedStatOffsets>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="PN_Bullet_Machinegun_Bond" Abstract="True">
+                            <label>PnL machinegun bullet</label>
+                            <projectile>
+                                <damageAmountBase>11</damageAmountBase>
+                                <stoppingPower>1.0</stoppingPower>
+                                <speed>70</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun" Name="PN_Cannon_Bond" Abstract="True">
+                            <label>persona PnL portable cannon</label>
+                            <description>portable cannon produced by PnL industry. It can fire high-explosive(WIP) and penetrating rounds.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/PNCannon</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>9.5</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.825</AccuracyLong>
+                                <RangedWeapon_Cooldown>3.825</RangedWeapon_Cooldown>
+                            </statBases>
+                            <comps>
+                                <li Class="SYS.CompProperties_Sheath">
+                                    <sheathOnlyGraphicData>
+                                        <texPath>Things/Weapons/SYS/PNCannon_Sheath</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                    </sheathOnlyGraphicData>
+                                    <fullGraphicData>
+                                        <texPath>Things/Weapons/SYS/PNCannon_Full</texPath>
+                                        <graphicClass>Graphic_Multi</graphicClass>
+                                    </fullGraphicData>
+                                    <drawPosition>Back</drawPosition>
+                                    <northOffset>
+                                        <position>(0,0.3,-0.05)</position>
+                                        <angle>25</angle>
+                                    </northOffset>
+                                    <southOffset>
+                                        <position>(0,-0.3,-0.05)</position>
+                                        <angle>-25</angle>
+                                    </southOffset>
+                                    <eastOffset>
+                                        <position>(-0.15,-0.3,-0.05)</position>
+                                        <angle>70</angle>
+                                    </eastOffset>
+                                    <westOffset>
+                                        <position>(0.15,-0.3,-0.05)</position>
+                                        <angle>-70</angle>
+                                    </westOffset>
+                                </li>
+                            </comps>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PN_Bullet_AP_Bond</defaultProjectile>
+                                    <warmupTime>2.975</warmupTime>
+                                    <minRange>4.9</minRange>
+                                    <range>44.9</range>
+                                    <soundCast>PNCannonSound</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <thingCategories>
+                                <li>PN_WeaponsRanged</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>PN_Gun</li>
+                                <li>PN_Cannon</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>16.691</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.25</MoveSpeed>
+                            </equippedStatOffsets>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                                <li>LongShots</li>
+                            </weaponClasses>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="PN_Bullet_HE_Bond" Abstract="True">
+                            <label>PnL he bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/ShellHighExplosive</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>PN_Bomb_Cannon</damageDef>
+                                <speed>100</speed>
+                                <explosionRadius>1.9</explosionRadius>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="PN_Bullet_AP_Bond" Abstract="True">
+                            <label>PnL ap bullet</label>
+                            <projectile>
+                                <damageAmountBase>46</damageAmountBase>
+                                <stoppingPower>3</stoppingPower>
+                                <armorPenetrationBase>0.70</armorPenetrationBase>
+                                <speed>100</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/ShellHighExplosive</texPath>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp" Name="PN_Chainlongsword_Bond" Abstract="True">
+                            <label>persona PnL chain longsword</label>
+                            <description>[caution] : Automaton exclusive weapon.\n\nA long sword with a rotating chain saw blade. It works by linking with the automaton and receiving power.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/PNSwordLong</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                            </graphicData>
+                            <techLevel>Industrial</techLevel>
+                            <thingCategories>
+                                <li>PN_WeaponsMelee</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>PN_Melee</li>
+                                <li>PN_RoyalChainsword</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>4</Mass>
+                            </statBases>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.0</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>27.796</power>
+                                    <cooldownTime>2.04</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>PN_ChainCutTool</li>
+                                    </capacities>
+                                    <power>27.796</power>
+                                    <cooldownTime>2.04</cooldownTime>
+                                </li>
+                            </tools>
+                            <comps>
+                                <li Class="SYS.CompProperties_WeaponExtention">
+                                    <littleDown>True</littleDown>
+                                    <northOffset>
+                                        <position>(0.2,0,0.25)</position>
+                                        <angle>-45</angle>
+                                    </northOffset>
+                                    <southOffset>
+                                        <position>(-0.25,0.3,0.2)</position>
+                                        <angle>45</angle>
+                                    </southOffset>
+                                    <eastOffset>
+                                        <position>(0.15,0.3,0.2)</position>
+                                        <angle>-45</angle>
+                                    </eastOffset>
+                                    <westOffset>
+                                        <position>(-0.15,-0.3,0.2)</position>
+                                        <angle>45</angle>
+                                    </westOffset>
+                                </li>
+                            </comps>
+                            <weaponClasses>
+
+                            </weaponClasses>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp" Name="PN_WarHammer_Bond" Abstract="True">
+                            <label>persona PnL warhammer</label>
+                            <description>A luxurious war hammer made by PnL industry. There is no special function.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/PNWarHammer</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <shaderType>CutoutComplex</shaderType>
+                            </graphicData>
+                            <techLevel>Industrial</techLevel>
+                            <thingCategories>
+                                <li>PN_WeaponsMelee</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>PN_Melee</li>
+                                <li>PN_WarHammer</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>4</Mass>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>14.317</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>head</label>
+                                    <labelUsedInLogging>false</labelUsedInLogging>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>26.69</power>
+                                    <cooldownTime>2.04</cooldownTime>
+                                </li>
+                            </tools>
+                            <comps>
+
+                            </comps>
+                            <weaponClasses>
+
+                            </weaponClasses>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun" Name="PN_TwinPistol_Bond" Abstract="True">
+                            <label>persona PnL twin pistol</label>
+                            <description>[caution] : Automaton exclusive weapon.\n\nA dual pistol that fires a lot of bullets at a close range. Used by the Royal Guard's Special Forces Automaton. In conjunction with the automaton, it enables fast reloading and gives the user high melee combat ability.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <relicChance>1</relicChance>
+                            <graphicData>
+                                <texPath>Things/Weapons/PNTwinpistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.2</Mass>
+                                <AccuracyTouch>0.627</AccuracyTouch>
+                                <AccuracyShort>0.495</AccuracyShort>
+                                <AccuracyMedium>0.154</AccuracyMedium>
+                                <AccuracyLong>0.033</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.722</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PN_Bullet_TwinPistol_Bond</defaultProjectile>
+                                    <warmupTime>0.297</warmupTime>
+                                    <range>12.9</range>
+                                    <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                                    <burstShotCount>12</burstShotCount>
+                                    <soundCast>Shot_Revolver</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <thingCategories>
+                                <li>PN_WeaponsRanged</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>PN_Gun</li>
+                                <li>PN_RoyalRifle</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>0.85</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>kick</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>19.061</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Close shot</label>
+                                    <capacities>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>21.118</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                    <armorPenetration>0.09</armorPenetration>
+                                </li>
+                            </tools>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                                <li>Ultratech</li>
+                            </weaponClasses>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="PN_Bullet_TwinPistol_Bond" Abstract="True">
+                            <label>PnL twin pistol bullet</label>
+                            <projectile>
+                                <damageAmountBase>6</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <armorPenetrationBase>0.15</armorPenetrationBase>
+                                <speed>70</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun" Name="PN_RoyalRifle_Bond" Abstract="True">
+                            <label>persona PnL royal rifle</label>
+                            <description>[caution] : Automaton exclusive weapon.\n\nroyal guard rifle produced by PnL industry. Users can choose between rapid fire mode and accuracy mode(WIP).\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <relicChance>1</relicChance>
+                            <graphicData>
+                                <texPath>Things/Weapons/PNRoyalRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>4.6</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.715</AccuracyMedium>
+                                <AccuracyLong>0.605</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.595</RangedWeapon_Cooldown>
+                            </statBases>
+                            <comps>
+                                <li Class="SYS.CompProperties_Sheath">
+                                    <sheathOnlyGraphicData>
+                                        <texPath>Things/Weapons/SYS/PNRoyalRifle_Sheath</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                    </sheathOnlyGraphicData>
+                                    <fullGraphicData>
+                                        <texPath>Things/Weapons/SYS/PNRoyalRifle_Full</texPath>
+                                        <graphicClass>Graphic_Multi</graphicClass>
+                                    </fullGraphicData>
+                                    <drawPosition>Back</drawPosition>
+                                    <northOffset>
+                                        <position>(0.15,0.3,0.05)</position>
+                                        <angle>-45</angle>
+                                    </northOffset>
+                                    <southOffset>
+                                        <position>(-0.15,-0.3,0.05)</position>
+                                        <angle>-45</angle>
+                                    </southOffset>
+                                    <eastOffset>
+                                        <position>(-0.15,-0.3,0.05)</position>
+                                        <angle>-30</angle>
+                                    </eastOffset>
+                                    <westOffset>
+                                        <position>(0.15,-0.3,0.05)</position>
+                                        <angle>30</angle>
+                                    </westOffset>
+                                </li>
+                            </comps>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PN_Bullet_RoyalRifle_Bond</defaultProjectile>
+                                    <warmupTime>0.595</warmupTime>
+                                    <range>30.9</range>
+                                    <soundCast>PNRoyalRifleSound</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <thingCategories>
+                                <li>PN_WeaponsRanged</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>PN_Gun</li>
+                                <li>PN_RoyalRifle</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <weaponClasses>
+                                <li>Ultratech</li>
+                            </weaponClasses>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="PN_Bullet_RoyalRifle_Bond" Abstract="True">
+                            <label>PnL rifle bullet</label>
+                            <projectile>
+                                <damageAmountBase>27</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <armorPenetrationBase>0.38</armorPenetrationBase>
+                                <speed>100</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_big</texPath>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun" Name="PN_RoyalHeavySlug_Bond" Abstract="True">
+                            <label>persona PnL royal heavy slug rifle</label>
+                            <description>[caution] : Automaton exclusive weapon.\n\nheavy slug rifle produced by PnL industry. They fire huge bullets, but it have a short range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <relicChance>1</relicChance>
+                            <graphicData>
+                                <texPath>Things/Weapons/PNRoyalHeavyslug</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>4.6</Mass>
+                                <AccuracyTouch>0.627</AccuracyTouch>
+                                <AccuracyShort>0.704</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                            </statBases>
+                            <comps>
+                                <li Class="SYS.CompProperties_Sheath">
+                                    <sheathOnlyGraphicData>
+                                        <texPath>Things/Weapons/SYS/PNRoyalHeavyslug_Sheath</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                    </sheathOnlyGraphicData>
+                                    <fullGraphicData>
+                                        <texPath>Things/Weapons/SYS/PNRoyalHeavyslug_Full</texPath>
+                                        <graphicClass>Graphic_Multi</graphicClass>
+                                    </fullGraphicData>
+                                    <drawPosition>Back</drawPosition>
+                                    <northOffset>
+                                        <position>(0,0.3,0.05)</position>
+                                        <angle>25</angle>
+                                    </northOffset>
+                                    <southOffset>
+                                        <position>(0,-0.3,0.05)</position>
+                                        <angle>-25</angle>
+                                    </southOffset>
+                                    <eastOffset>
+                                        <position>(-0.15,-0.3,0.05)</position>
+                                        <angle>70</angle>
+                                    </eastOffset>
+                                    <westOffset>
+                                        <position>(0.15,-0.3,0.05)</position>
+                                        <angle>-70</angle>
+                                    </westOffset>
+                                </li>
+                            </comps>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PN_Bullet_HeavySlug_Bond</defaultProjectile>
+                                    <warmupTime>0.595</warmupTime>
+                                    <range>12.9</range>
+                                    <soundCast>PNRoyalHCSound</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <thingCategories>
+                                <li>PN_WeaponsRanged</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>PN_Gun</li>
+                                <li>PN_RoyalRifle</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <weaponClasses>
+                                <li>Ultratech</li>
+                            </weaponClasses>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="PN_Bullet_HeavySlug_Bond" Abstract="True">
+                            <label>PnL heavy slug bullet</label>
+                            <projectile>
+                                <damageAmountBase>46</damageAmountBase>
+                                <stoppingPower>3</stoppingPower>
+                                <armorPenetrationBase>0.38</armorPenetrationBase>
+                                <speed>100</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/ShellHighExplosive</texPath>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun" Name="PN_RoyalMachinegun_Bond" Abstract="True">
+                            <label>persona PnL royal machine gun</label>
+                            <description>[caution] : Automaton exclusive weapon.\n\nroyal machine gun produced by PnL industry.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <relicChance>1</relicChance>
+                            <graphicData>
+                                <texPath>Things/Weapons/PNRoyalMachinegun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>10</Mass>
+                                <AccuracyTouch>0.165</AccuracyTouch>
+                                <AccuracyShort>0.275</AccuracyShort>
+                                <AccuracyMedium>0.275</AccuracyMedium>
+                                <AccuracyLong>0.198</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.38</RangedWeapon_Cooldown>
+                            </statBases>
+                            <comps>
+                                <li Class="SYS.CompProperties_Sheath">
+                                    <sheathOnlyGraphicData>
+                                        <texPath>Things/Weapons/SYS/PNRoyalMachinegun_Sheath</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                    </sheathOnlyGraphicData>
+                                    <fullGraphicData>
+                                        <texPath>Things/Weapons/SYS/PNRoyalMachinegun_Full</texPath>
+                                        <graphicClass>Graphic_Multi</graphicClass>
+                                    </fullGraphicData>
+                                    <drawPosition>Back</drawPosition>
+                                    <northOffset>
+                                        <position>(0,0.3,0.05)</position>
+                                        <angle>25</angle>
+                                    </northOffset>
+                                    <southOffset>
+                                        <position>(0,-0.3,0.05)</position>
+                                        <angle>-25</angle>
+                                    </southOffset>
+                                    <eastOffset>
+                                        <position>(-0.15,-0.3,0.05)</position>
+                                        <angle>70</angle>
+                                    </eastOffset>
+                                    <westOffset>
+                                        <position>(0.15,-0.3,0.05)</position>
+                                        <angle>-70</angle>
+                                    </westOffset>
+                                </li>
+                            </comps>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PN_Bullet_RoyalMachinegun_Bond</defaultProjectile>
+                                    <warmupTime>2.21</warmupTime>
+                                    <range>30.9</range>
+                                    <burstShotCount>20</burstShotCount>
+                                    <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+                                    <soundCast>PNRoyalMachinegunSound</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <thingCategories>
+                                <li>PN_WeaponsRanged</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>PN_Gun</li>
+                                <li>PN_Machinegun</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.555</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                </li>
+                            </tools>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.25</MoveSpeed>
+                            </equippedStatOffsets>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="PN_Bullet_RoyalMachinegun_Bond" Abstract="True">
+                            <label>PnL machinegun bullet</label>
+                            <projectile>
+                                <damageAmountBase>24</damageAmountBase>
+                                <stoppingPower>3.0</stoppingPower>
+                                <armorPenetrationBase>0.38</armorPenetrationBase>
+                                <speed>100</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_big</texPath>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMakeableGun" Name="PN_RoyalLSW_Bond" Abstract="True">
+                            <label>persona PnL multiple launcher (WIP)</label>
+                            <description>[caution] : Automaton exclusive weapon.\n\nA launcher that can fire a variety of grenades. Users can fire Frag, Incendiary, EMP, Smoke, and Firefoam grenades.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Things/Weapons/PNRoyalLSW</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>7</Mass>
+                                <RangedWeapon_Cooldown>2.55</RangedWeapon_Cooldown>
+                            </statBases>
+                            <comps>
+                                <li Class="SYS.CompProperties_Sheath">
+                                    <sheathOnlyGraphicData>
+                                        <texPath>Things/Weapons/SYS/PNRoyalLSW_Sheath</texPath>
+                                        <graphicClass>Graphic_Single</graphicClass>
+                                    </sheathOnlyGraphicData>
+                                    <fullGraphicData>
+                                        <texPath>Things/Weapons/SYS/PNRoyalLSW_Full</texPath>
+                                        <graphicClass>Graphic_Multi</graphicClass>
+                                    </fullGraphicData>
+                                    <drawPosition>Back</drawPosition>
+                                    <northOffset>
+                                        <position>(0,0.3,0)</position>
+                                        <angle>25</angle>
+                                    </northOffset>
+                                    <southOffset>
+                                        <position>(0,-0.3,0)</position>
+                                        <angle>-25</angle>
+                                    </southOffset>
+                                    <eastOffset>
+                                        <position>(-0.15,-0.3,0)</position>
+                                        <angle>70</angle>
+                                    </eastOffset>
+                                    <westOffset>
+                                        <position>(0.15,-0.3,0)</position>
+                                        <angle>-70</angle>
+                                    </westOffset>
+                                </li>
+                            </comps>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PN_Bullet_LSW_bomb_Bond</defaultProjectile>
+                                    <warmupTime>2.55</warmupTime>
+                                    <range>23.9</range>
+                                    <forcedMissRadius>0.9</forcedMissRadius>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>Shot_IncendiaryLauncher</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <thingCategories>
+                                <li>PN_WeaponsRanged</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>PN_Gun</li>
+                                <li>PN_RoyalRifle</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <weaponClasses>
+                                <li>Ultratech</li>
+                            </weaponClasses>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="PN_Bullet_LSW_bomb_Bond" Abstract="True">
+                            <label>PnL LSW bullet</label>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <explosionRadius>1.9</explosionRadius>
+                                <damageDef>Bomb</damageDef>
+                                <speed>40</speed>
+                                <ai_IsIncendiary>true</ai_IsIncendiary>
+                                <arcHeightFactor>0.2</arcHeightFactor>
+                                <shadowSize>0.6</shadowSize>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/LauncherShot</texPath>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="PN_Bullet_LSW_Flame_Bond" Abstract="True">
+                            <label>PnL LSW bullet</label>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <explosionRadius>1.9</explosionRadius>
+                                <damageDef>Flame</damageDef>
+                                <speed>40</speed>
+                                <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+                                <preExplosionSpawnChance>0.6</preExplosionSpawnChance>
+                                <ai_IsIncendiary>true</ai_IsIncendiary>
+                                <arcHeightFactor>0.2</arcHeightFactor>
+                                <shadowSize>0.6</shadowSize>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/LauncherShot</texPath>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="PN_Bullet_LSW_EMP_Bond" Abstract="True">
+                            <label>PnL LSW bullet</label>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <explosionRadius>1.9</explosionRadius>
+                                <damageDef>EMP</damageDef>
+                                <speed>40</speed>
+                                <arcHeightFactor>0.2</arcHeightFactor>
+                                <shadowSize>0.6</shadowSize>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/LauncherShot</texPath>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="PN_Bullet_LSW_Smoke_Bond" Abstract="True">
+                            <label>PnL LSW bullet</label>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <speed>40</speed>
+                                <damageDef>Smoke</damageDef>
+                                <explosionRadius>2.4</explosionRadius>
+                                <postExplosionGasType>BlindSmoke</postExplosionGasType>
+                                <ai_IsIncendiary>true</ai_IsIncendiary>
+                                <arcHeightFactor>0.2</arcHeightFactor>
+                                <shadowSize>0.6</shadowSize>
+                                <screenShakeFactor>0.5</screenShakeFactor>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/LauncherShot</texPath>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="PN_Bullet_LSW_FF_Bond" Abstract="True">
+                            <label>PnL LSW bullet</label>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <explosionRadius>2.4</explosionRadius>
+                                <damageDef>Extinguish</damageDef>
+                                <speed>40</speed>
+                                <arcHeightFactor>0.2</arcHeightFactor>
+                                <shadowSize>0.6</shadowSize>
+                                <postExplosionSpawnThingDef>Filth_FireFoam</postExplosionSpawnThingDef>
+                                <postExplosionSpawnChance>1</postExplosionSpawnChance>
+                                <postExplosionSpawnThingCount>3</postExplosionSpawnThingCount>
+                                <explosionEffect>ExtinguisherExplosion</explosionEffect>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Projectile/LauncherShot</texPath>
+                            </graphicData>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- PN_Shovel_Bond -->
+                            <ThingDef ParentName="PN_Shovel_Bond">
+                                <defName>PN_Shovel_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Chainsword_Bond -->
+                            <ThingDef ParentName="PN_Chainsword_Bond">
+                                <defName>PN_Chainsword_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Revolver_Bond -->
+                            <ThingDef ParentName="PN_Revolver_Bond">
+                                <defName>PN_Revolver_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Bullet_Revolver_Volley_Bond -->
+                            <ThingDef ParentName="PN_Bullet_Revolver_Volley_Bond">
+                                <defName>PN_Bullet_Revolver_Volley_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Rifle_Bond -->
+                            <ThingDef ParentName="PN_Rifle_Bond">
+                                <defName>PN_Rifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Bullet_Rifle_Bond -->
+                            <ThingDef ParentName="PN_Bullet_Rifle_Bond">
+                                <defName>PN_Bullet_Rifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Machinegun_Bond -->
+                            <ThingDef ParentName="PN_Machinegun_Bond">
+                                <defName>PN_Machinegun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Bullet_Machinegun_Bond -->
+                            <ThingDef ParentName="PN_Bullet_Machinegun_Bond">
+                                <defName>PN_Bullet_Machinegun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Cannon_Bond -->
+                            <ThingDef ParentName="PN_Cannon_Bond">
+                                <defName>PN_Cannon_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Bullet_HE_Bond -->
+                            <ThingDef ParentName="PN_Bullet_HE_Bond">
+                                <defName>PN_Bullet_HE_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Bullet_AP_Bond -->
+                            <ThingDef ParentName="PN_Bullet_AP_Bond">
+                                <defName>PN_Bullet_AP_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Chainlongsword_Bond -->
+                            <ThingDef ParentName="PN_Chainlongsword_Bond">
+                                <defName>PN_Chainlongsword_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_WarHammer_Bond -->
+                            <ThingDef ParentName="PN_WarHammer_Bond">
+                                <defName>PN_WarHammer_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_TwinPistol_Bond -->
+                            <ThingDef ParentName="PN_TwinPistol_Bond">
+                                <defName>PN_TwinPistol_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Bullet_TwinPistol_Bond -->
+                            <ThingDef ParentName="PN_Bullet_TwinPistol_Bond">
+                                <defName>PN_Bullet_TwinPistol_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_RoyalRifle_Bond -->
+                            <ThingDef ParentName="PN_RoyalRifle_Bond">
+                                <defName>PN_RoyalRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Bullet_RoyalRifle_Bond -->
+                            <ThingDef ParentName="PN_Bullet_RoyalRifle_Bond">
+                                <defName>PN_Bullet_RoyalRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_RoyalHeavySlug_Bond -->
+                            <ThingDef ParentName="PN_RoyalHeavySlug_Bond">
+                                <defName>PN_RoyalHeavySlug_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Bullet_HeavySlug_Bond -->
+                            <ThingDef ParentName="PN_Bullet_HeavySlug_Bond">
+                                <defName>PN_Bullet_HeavySlug_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_RoyalMachinegun_Bond -->
+                            <ThingDef ParentName="PN_RoyalMachinegun_Bond">
+                                <defName>PN_RoyalMachinegun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Bullet_RoyalMachinegun_Bond -->
+                            <ThingDef ParentName="PN_Bullet_RoyalMachinegun_Bond">
+                                <defName>PN_Bullet_RoyalMachinegun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_RoyalLSW_Bond -->
+                            <ThingDef ParentName="PN_RoyalLSW_Bond">
+                                <defName>PN_RoyalLSW_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Bullet_LSW_bomb_Bond -->
+                            <ThingDef ParentName="PN_Bullet_LSW_bomb_Bond">
+                                <defName>PN_Bullet_LSW_bomb_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Bullet_LSW_Flame_Bond -->
+                            <ThingDef ParentName="PN_Bullet_LSW_Flame_Bond">
+                                <defName>PN_Bullet_LSW_Flame_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Bullet_LSW_EMP_Bond -->
+                            <ThingDef ParentName="PN_Bullet_LSW_EMP_Bond">
+                                <defName>PN_Bullet_LSW_EMP_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Bullet_LSW_Smoke_Bond -->
+                            <ThingDef ParentName="PN_Bullet_LSW_Smoke_Bond">
+                                <defName>PN_Bullet_LSW_Smoke_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PN_Bullet_LSW_FF_Bond -->
+                            <ThingDef ParentName="PN_Bullet_LSW_FF_Bond">
+                                <defName>PN_Bullet_LSW_FF_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_PanieltheAutomata</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- PN_Shovel_Bond -->
+                                            <ThingDef ParentName="PN_Shovel_Bond">
+                                                <defName>PN_Shovel_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Chainsword_Bond -->
+                                            <ThingDef ParentName="PN_Chainsword_Bond">
+                                                <defName>PN_Chainsword_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Revolver_Bond -->
+                                            <ThingDef ParentName="PN_Revolver_Bond">
+                                                <defName>PN_Revolver_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Bullet_Revolver_Volley_Bond -->
+                                            <ThingDef ParentName="PN_Bullet_Revolver_Volley_Bond">
+                                                <defName>PN_Bullet_Revolver_Volley_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Rifle_Bond -->
+                                            <ThingDef ParentName="PN_Rifle_Bond">
+                                                <defName>PN_Rifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Bullet_Rifle_Bond -->
+                                            <ThingDef ParentName="PN_Bullet_Rifle_Bond">
+                                                <defName>PN_Bullet_Rifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Machinegun_Bond -->
+                                            <ThingDef ParentName="PN_Machinegun_Bond">
+                                                <defName>PN_Machinegun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Bullet_Machinegun_Bond -->
+                                            <ThingDef ParentName="PN_Bullet_Machinegun_Bond">
+                                                <defName>PN_Bullet_Machinegun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Cannon_Bond -->
+                                            <ThingDef ParentName="PN_Cannon_Bond">
+                                                <defName>PN_Cannon_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Bullet_HE_Bond -->
+                                            <ThingDef ParentName="PN_Bullet_HE_Bond">
+                                                <defName>PN_Bullet_HE_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Bullet_AP_Bond -->
+                                            <ThingDef ParentName="PN_Bullet_AP_Bond">
+                                                <defName>PN_Bullet_AP_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Chainlongsword_Bond -->
+                                            <ThingDef ParentName="PN_Chainlongsword_Bond">
+                                                <defName>PN_Chainlongsword_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_WarHammer_Bond -->
+                                            <ThingDef ParentName="PN_WarHammer_Bond">
+                                                <defName>PN_WarHammer_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_TwinPistol_Bond -->
+                                            <ThingDef ParentName="PN_TwinPistol_Bond">
+                                                <defName>PN_TwinPistol_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Bullet_TwinPistol_Bond -->
+                                            <ThingDef ParentName="PN_Bullet_TwinPistol_Bond">
+                                                <defName>PN_Bullet_TwinPistol_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_RoyalRifle_Bond -->
+                                            <ThingDef ParentName="PN_RoyalRifle_Bond">
+                                                <defName>PN_RoyalRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Bullet_RoyalRifle_Bond -->
+                                            <ThingDef ParentName="PN_Bullet_RoyalRifle_Bond">
+                                                <defName>PN_Bullet_RoyalRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_RoyalHeavySlug_Bond -->
+                                            <ThingDef ParentName="PN_RoyalHeavySlug_Bond">
+                                                <defName>PN_RoyalHeavySlug_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Bullet_HeavySlug_Bond -->
+                                            <ThingDef ParentName="PN_Bullet_HeavySlug_Bond">
+                                                <defName>PN_Bullet_HeavySlug_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_RoyalMachinegun_Bond -->
+                                            <ThingDef ParentName="PN_RoyalMachinegun_Bond">
+                                                <defName>PN_RoyalMachinegun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Bullet_RoyalMachinegun_Bond -->
+                                            <ThingDef ParentName="PN_Bullet_RoyalMachinegun_Bond">
+                                                <defName>PN_Bullet_RoyalMachinegun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_RoyalLSW_Bond -->
+                                            <ThingDef ParentName="PN_RoyalLSW_Bond">
+                                                <defName>PN_RoyalLSW_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Bullet_LSW_bomb_Bond -->
+                                            <ThingDef ParentName="PN_Bullet_LSW_bomb_Bond">
+                                                <defName>PN_Bullet_LSW_bomb_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Bullet_LSW_Flame_Bond -->
+                                            <ThingDef ParentName="PN_Bullet_LSW_Flame_Bond">
+                                                <defName>PN_Bullet_LSW_Flame_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Bullet_LSW_EMP_Bond -->
+                                            <ThingDef ParentName="PN_Bullet_LSW_EMP_Bond">
+                                                <defName>PN_Bullet_LSW_EMP_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Bullet_LSW_Smoke_Bond -->
+                                            <ThingDef ParentName="PN_Bullet_LSW_Smoke_Bond">
+                                                <defName>PN_Bullet_LSW_Smoke_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PN_Bullet_LSW_FF_Bond -->
+                                            <ThingDef ParentName="PN_Bullet_LSW_FF_Bond">
+                                                <defName>PN_Bullet_LSW_FF_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

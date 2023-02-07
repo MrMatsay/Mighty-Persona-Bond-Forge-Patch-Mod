@@ -33,6 +33,7 @@
 - [[SYR] Naga](https://steamcommunity.com/sharedfiles/filedetails/?id=1539971494)
 - [[LFS] Night Shade Mercenarys](https://steamcommunity.com/sharedfiles/filedetails/?id=2909372626)
 - [Mechanitor's Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2912279562)
+- [Paniel the Automata](https://steamcommunity.com/sharedfiles/filedetails/?id=2649305776)
 - [pphhyy's Tox Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2891573871)
 - [Project Fortuna Laser Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2488213632)
 - [Project Fortuna Weapon Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2325528796)
