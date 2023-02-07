@@ -44,6 +44,7 @@
 - [Rimsenal - Augmented Vanilla Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=849231601)
 - [Seventh Seraph Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2575381031)
 - [Sparkling Worlds - Full Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=1123043922)
+- [[JDS] StarWars - Armory](https://steamcommunity.com/sharedfiles/filedetails/?id=1911155594)
 - [Sunset Weapon Technology 2](https://steamcommunity.com/sharedfiles/filedetails/?id=2890976130)
 - [Tau Armory](https://steamcommunity.com/sharedfiles/filedetails/?id=2898438491)
 - [TOT's Advanced Weapon Set](https://steamcommunity.com/sharedfiles/filedetails/?id=2883670795)
