@@ -1,0 +1,1830 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== RimArchive-In Progress =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>RimArchive-In Progress</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef Name="MPBFPM_BAW_BaseHumanMakeableGun" ParentName="MPBFPM_BaseHumanMakeableGun" Abstract="True">
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Hoshino_Bond" Abstract="True">
+                            <label>persona Eye of Horus</label>
+                            <description>Hoshino's beloved shotgun, sporting a simple design.\n\nWhile she may be lazy at heart, Hoshino does not slack off when it comes to maintaining her weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Abydos/Hoshino</texPath>
+                                <drawSize>1.3</drawSize>
+                            </graphicData>
+                            <weaponTags>
+                                <li>BAW_Hoshino</li>
+                            </weaponTags>
+                            <soundInteract>Interact_Shotgun</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>4.5</Mass>
+                                <AccuracyTouch>0.913</AccuracyTouch>
+                                <AccuracyShort>1.001</AccuracyShort>
+                                <AccuracyMedium>0.858</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.147</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Hoshino_Bond</defaultProjectile>
+                                    <warmupTime>0.595</warmupTime>
+                                    <range>18</range>
+                                    <soundCast>Shot_Shotgun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Hoshino_Bond" Abstract="True">
+                            <label>Bullet of Eye of Horus</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>27</damageAmountBase>
+                                <stoppingPower>3</stoppingPower>
+                                <armorPenetrationBase>0.24</armorPenetrationBase>
+                                <speed>60</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Shiroko_Bond" Abstract="True">
+                            <label>persona WHITE FANG 465</label>
+                            <description>Shiroko's cherished assault rifle.\n\nThanks to careful maintenance, it's always ready to use whenever the need arises.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Abydos/Shiroko</texPath>
+                                <drawSize>1.25</drawSize>
+                            </graphicData>
+                            <weaponTags>
+                                <li>BAW_Shiroko</li>
+                            </weaponTags>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.913</AccuracyTouch>
+                                <AccuracyShort>0.792</AccuracyShort>
+                                <AccuracyMedium>0.374</AccuracyMedium>
+                                <AccuracyLong>0.286</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.011</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Shiroko_Bond</defaultProjectile>
+                                    <warmupTime>0.561</warmupTime>
+                                    <range>32</range>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                                    <soundCast>Shot_AssaultRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Shiroko_Bond" Abstract="True">
+                            <label>Bullet of WHITE FANG 465</label>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_yellow</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>13</damageAmountBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Serika_Bond" Abstract="True">
+                            <label>persona Sincerity</label>
+                            <description>An assault rifle Serika carries to her part-time job.\n\nIt is always carefully maintained, thanks to Serika's meticulousness and sincerity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Abydos/Serika</texPath>
+                                <drawSize>1.25</drawSize>
+                            </graphicData>
+                            <weaponTags>
+                                <li>BAW_Serika</li>
+                            </weaponTags>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.759</AccuracyTouch>
+                                <AccuracyShort>0.814</AccuracyShort>
+                                <AccuracyMedium>0.979</AccuracyMedium>
+                                <AccuracyLong>0.88</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.53</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Serika_Bond</defaultProjectile>
+                                    <warmupTime>1.105</warmupTime>
+                                    <range>39</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+                                    <soundCast>Shot_AssaultRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Serika_Bond" Abstract="True">
+                            <label>Bullet of Sincerity</label>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_yellow</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>19</damageAmountBase>
+                                <speed>80</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Nonomi_Bond" Abstract="True">
+                            <label>persona Little Machine Gun V</label>
+                            <description>Machine gun used by Nonomi.\n\nDespite the "Little" moniker, it's actually quite big.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Abydos/Nonomi</texPath>
+                            </graphicData>
+                            <weaponTags>
+                                <li>BAW_Nonomi</li>
+                            </weaponTags>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>14</Mass>
+                                <AccuracyTouch>0.253</AccuracyTouch>
+                                <AccuracyShort>0.286</AccuracyShort>
+                                <AccuracyMedium>0.396</AccuracyMedium>
+                                <AccuracyLong>0.319</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.125</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.25</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Nonomi_Bond</defaultProjectile>
+                                    <warmupTime>1.36</warmupTime>
+                                    <range>39</range>
+                                    <burstShotCount>25</burstShotCount>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <soundCast>Shot_Minigun</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools Inherit="False">
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Nonomi_Bond" Abstract="True">
+                            <label>Bullet of Little Machine Gun V</label>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_yellow</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>18</damageAmountBase>
+                                <speed>60</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Hina_Bond" Abstract="True">
+                            <label>persona The End: Destroyer</label>
+                            <description>Hina's machine gun that she utilizes as if it were one of her own limbs.\n\nThose who violate school rules or disturb public morals will be blown away by its merciless destructive power.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Gehenna/Hina</texPath>
+                                <drawSize>1.3</drawSize>
+                            </graphicData>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.869</AccuracyMedium>
+                                <AccuracyLong>0.66</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.402</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Hina_Bond</defaultProjectile>
+                                    <warmupTime>1.615</warmupTime>
+                                    <range>43</range>
+                                    <burstShotCount>15</burstShotCount>
+                                    <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                    <soundCast>Shot_AssaultRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Hina_Bond" Abstract="True">
+                            <label>Bullet of The End: Destroyer</label>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_purple</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>19</damageAmountBase>
+                                <speed>80</speed>
+                                <armorPenetrationBase>0.35</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Mutsuki_Bond" Abstract="True">
+                            <label>persona Trick or Trick</label>
+                            <description>A machine gun that Mutsuki always carries with her.\n\nAccording to Mutsuki, firepower is an important component of fun pranks.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Gehenna/Mutsuki</texPath>
+                                <drawSize>1.15</drawSize>
+                            </graphicData>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <weaponTags>
+                                <li>BAW_Mutsuki</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.638</AccuracyTouch>
+                                <AccuracyShort>0.792</AccuracyShort>
+                                <AccuracyMedium>0.902</AccuracyMedium>
+                                <AccuracyLong>0.781</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.402</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Mutsuki_Bond</defaultProjectile>
+                                    <warmupTime>1.615</warmupTime>
+                                    <range>39</range>
+                                    <burstShotCount>7</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>Shot_AssaultRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Mutsuki_Bond" Abstract="True">
+                            <label>Bullet of Trick or Trick</label>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_yellow</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>20</damageAmountBase>
+                                <speed>69</speed>
+                                <armorPenetrationBase>0.18</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Aru_Bond" Abstract="True">
+                            <label>persona Wine-red Admire</label>
+                            <description>Aru's antique-style sniper rifle that she always takes care of.\n\nJust by carrying it, her hard-boiledness increases...or so it seems.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Gehenna/Aru</texPath>
+                                <drawSize>1.3</drawSize>
+                            </graphicData>
+                            <weaponTags>
+                                <li>BAW_Aru</li>
+                            </weaponTags>
+                            <equippedAngleOffset>41</equippedAngleOffset>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.506</AccuracyTouch>
+                                <AccuracyShort>0.891</AccuracyShort>
+                                <AccuracyMedium>1.012</AccuracyMedium>
+                                <AccuracyLong>1.034</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Aru_Bond</defaultProjectile>
+                                    <warmupTime>1.53</warmupTime>
+                                    <range>52</range>
+                                    <soundCast>Shot_BoltActionRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Aru_Bond" Abstract="True">
+                            <label>Bullet of Wine-red Admire</label>
+                            <projectile>
+                                <damageAmountBase>35</damageAmountBase>
+                                <stoppingPower>1.8</stoppingPower>
+                                <armorPenetrationBase>0.35</armorPenetrationBase>
+                                <speed>65</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_red</texPath>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Kayoko_Bond" Abstract="True">
+                            <label>persona Demon's Roar</label>
+                            <description>A handgun that Kayoko usually carries.\n\nAs the name implies, it makes a loud roaring noise every time it is fired, so Kayoko had a silencer added to it.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Gehenna/Kayoko</texPath>
+                                <drawSize>0.8</drawSize>
+                            </graphicData>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <soundInteract>Interact_Revolver</soundInteract>
+                            <weaponTags>
+                                <li>BAW_Kayoko</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.968</AccuracyTouch>
+                                <AccuracyShort>0.858</AccuracyShort>
+                                <AccuracyMedium>0.616</AccuracyMedium>
+                                <AccuracyLong>0.275</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.062</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Kayoko_Bond</defaultProjectile>
+                                    <warmupTime>0.383</warmupTime>
+                                    <range>30.5</range>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>Shot_Autopistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Kayoko_Bond" Abstract="True">
+                            <label>Bullet of Demon's Roar</label>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_yellow</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>13</damageAmountBase>
+                                <speed>43</speed>
+                                <armorPenetrationBase>0.12</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Haruka_Bond" Abstract="True">
+                            <label>persona Blow Away</label>
+                            <description>A shotgun used by Haruka to exterminate pests.\n\nThe definition of "pest" seems to be on a case-by-case basis.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Gehenna/Haruka</texPath>
+                                <drawSize>1.15</drawSize>
+                            </graphicData>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <weaponTags>
+                                <li>BAW_Haruka</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.572</AccuracyTouch>
+                                <AccuracyShort>0.649</AccuracyShort>
+                                <AccuracyMedium>0.671</AccuracyMedium>
+                                <AccuracyLong>0.363</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.318</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Haruka_Bond</defaultProjectile>
+                                    <warmupTime>0.51</warmupTime>
+                                    <range>20.3</range>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>25</ticksBetweenBurstShots>
+                                    <soundCast>Shot_Shotgun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Haruka_Bond" Abstract="True">
+                            <label>Bullet of Blow Away</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>25</damageAmountBase>
+                                <speed>69</speed>
+                                <armorPenetrationBase>0.18</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Izuna_Bond" Abstract="True">
+                            <label>persona Izuna-style Super Ninja Apparatus</label>
+                            <description>Izuna's beloved submachine gun.\n\nA state-of-the-art ninja implement, when combined with Izuna-style ninja arts its uses are practically limitless, such as shooting smoke grenades that have been thrown, or massaging Master's shoulders.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Hyakkiyako/Izuna</texPath>
+                                <drawSize>1.15</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.869</AccuracyTouch>
+                                <AccuracyShort>0.704</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.319</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.535</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>0.25</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Izuna_Bond</defaultProjectile>
+                                    <warmupTime>0.935</warmupTime>
+                                    <range>25.6</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+                                    <soundCast>Shot_HeavySMG</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Izuna_Bond" Abstract="True">
+                            <label>Bullet of Izuna-style Super Ninja Apparatus</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>12</damageAmountBase>
+                                <speed>48</speed>
+                            </projectile>
+                        </ThingDef>
+
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Wakamo_Bond" Abstract="True">
+                            <label>persona Crimson Calamity</label>
+                            <description>Wakamo's favorite rifle.Despite its old-fashioned appearance, it always smells of flames and gunpowder. \n\nNowadays, it is often used against "obstacles" around the teacher.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Hyakkiyako/Wakamo</texPath>
+                                <drawSize>1.03</drawSize>
+                            </graphicData>
+                            <equippedAngleOffset>46</equippedAngleOffset>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.572</AccuracyTouch>
+                                <AccuracyShort>0.649</AccuracyShort>
+                                <AccuracyMedium>0.869</AccuracyMedium>
+                                <AccuracyLong>0.935</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.51</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Wakamo_Bond</defaultProjectile>
+                                    <warmupTime>1.785</warmupTime>
+                                    <range>49</range>
+                                    <soundCast>Shot_BoltActionRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>Bayonet</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>19.061</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Wakamo_Bond" Abstract="True">
+                            <label>Bullet of Crimson Calamity</label>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_red</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>27</damageAmountBase>
+                                <armorPenetrationBase>0.90</armorPenetrationBase>
+                                <speed>80</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Hibiki_Bond" Abstract="True">
+                            <label>persona Fancy Light</label>
+                            <description>Hibiki's fondly used mortar.\n\nOccasionally finding use in her daily experiments, it is used to fire various other things alongside shells.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Millennium/Hibiki</texPath>
+                                <drawSize>1.33</drawSize>
+                            </graphicData>
+                            <weaponTags>
+                                <li>BAW_Millennium</li>
+                            </weaponTags>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <RangedWeapon_Cooldown>5.1</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0</DeteriorationRate>
+                                <Mass>30</Mass>
+                                <Flammability>0</Flammability>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.2</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <defaultProjectile>Bullet_BA_Hibiki_Bond</defaultProjectile>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <forcedMissRadius>5.5</forcedMissRadius>
+                                    <warmupTime>2.975</warmupTime>
+                                    <minRange>11</minRange>
+                                    <range>78</range>
+                                    <isMortar>true</isMortar>
+                                    <burstShotCount>5</burstShotCount>
+                                    <ticksBetweenBurstShots>50</ticksBetweenBurstShots>
+                                    <soundCast>Mortar_LaunchA</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <requireLineOfSight>false</requireLineOfSight>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_BA_Hibiki_Bond" Abstract="True">
+                            <label>Shell of Fancy Light</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Rocket_Big</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <explosionRadius>3.9</explosionRadius>
+                                <speed>50</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Neru_Bond" Abstract="True">
+                            <label>persona Twin Dragon</label>
+                            <description>Neru's dual submachine guns.\n\nA beautiful golden dragon pattern is engraved upon both guns.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Millennium/Neru</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <weaponTags>
+                                <li>BAW_Neru</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.22</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.998</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Neru_Bond</defaultProjectile>
+                                    <warmupTime>0.765</warmupTime>
+                                    <range>22.9</range>
+                                    <burstShotCount>12</burstShotCount>
+                                    <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                                    <soundCast>Shot_HeavySMG</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Neru_Bond" Abstract="True">
+                            <label>Bullet of Twin Dragon</label>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_yellow</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>13</damageAmountBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Karin_Bond" Abstract="True">
+                            <label>persona Hawkeye</label>
+                            <description>An anti-materiel rifle used exclusively by Karin.\n\nEven from far away in the sky, her shots land with unmatched accuracy.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Millennium/Karin</texPath>
+                                <drawSize>1.6</drawSize>
+                            </graphicData>
+                            <weaponTags>
+                                <li>BAW_Millennium</li>
+                            </weaponTags>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.275</AccuracyTouch>
+                                <AccuracyShort>0.605</AccuracyShort>
+                                <AccuracyMedium>1.034</AccuracyMedium>
+                                <AccuracyLong>1.1</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.55</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.2</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Karin_Bond</defaultProjectile>
+                                    <warmupTime>1.7</warmupTime>
+                                    <range>60</range>
+                                    <minRange>4</minRange>
+                                    <soundCast>Shot_BoltActionRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Karin_Bond" Abstract="True">
+                            <label>Bullet of Hawkeye</label>
+                            <projectile>
+                                <damageAmountBase>62</damageAmountBase>
+                                <stoppingPower>3.8</stoppingPower>
+                                <armorPenetrationBase>0.80</armorPenetrationBase>
+                                <speed>80</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_cyan</texPath>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Midori_Bond" Abstract="True">
+                            <label>persona Fresh Inspiration</label>
+                            <description>Midori's sniper rifle.\n\nAttached to the rifle is an accessory given to Midori by her beloved older sister, and she always finds inspiration when needed by playing around with it.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Millennium/Midori</texPath>
+                                <drawSize>1.25</drawSize>
+                            </graphicData>
+                            <weaponTags>
+                                <li>BAW_Midori</li>
+                            </weaponTags>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.484</AccuracyTouch>
+                                <AccuracyShort>0.638</AccuracyShort>
+                                <AccuracyMedium>0.979</AccuracyMedium>
+                                <AccuracyLong>0.935</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Midori_Bond</defaultProjectile>
+                                    <warmupTime>1.87</warmupTime>
+                                    <range>44</range>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>25</ticksBetweenBurstShots>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Midori_Bond" Abstract="True">
+                            <label>Bullet for Fresh Inspiration</label>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_cyan</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>23</damageAmountBase>
+                                <speed>75</speed>
+                            </projectile>
+                        </ThingDef>
+
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Momoi_Bond" Abstract="True">
+                            <label>persona Unique Idea</label>
+                            <description>The assault rifle used by Momoi.\n\nAttached to the rifle is an accessory given to Momoi by her beloved younger sister, and she always comes up with new ideas when needed by playing around with it.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Millennium/Momoi</texPath>
+                                <drawSize>1.25</drawSize>
+                            </graphicData>
+                            <weaponTags>
+                                <li>BAW_Momoi</li>
+                            </weaponTags>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.539</AccuracyTouch>
+                                <AccuracyShort>0.583</AccuracyShort>
+                                <AccuracyMedium>0.539</AccuracyMedium>
+                                <AccuracyLong>0.484</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Momoi_Bond</defaultProjectile>
+                                    <warmupTime>2.72</warmupTime>
+                                    <range>32</range>
+                                    <burstShotCount>10</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Momoi_Bond" Abstract="True">
+                            <label>Bullet of Unique Idea</label>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_Momoi</texPath>
+                                <drawSize>2</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>13</damageAmountBase>
+                                <speed>60</speed>
+                            </projectile>
+                        </ThingDef>
+
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Yuzu_Bond" Abstract="True">
+                            <label>persona Nyan's Dash</label>
+                            <description>The gun carried by Yuzu.\n\nIt has a cute image of an forever-flying cat on the side.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Millennium/Yuzu</texPath>
+                                <drawSize>0.95</drawSize>
+                            </graphicData>
+                            <weaponTags>
+                                <li>BAW_Yuzu</li>
+                            </weaponTags>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <RangedWeapon_Cooldown>3.825</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0</DeteriorationRate>
+                                <Mass>30</Mass>
+                                <Flammability>0</Flammability>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <defaultProjectile>Bullet_BA_Yuzu_Bond</defaultProjectile>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <forcedMissRadius>4.5</forcedMissRadius>
+                                    <warmupTime>1.7</warmupTime>
+                                    <minRange>6</minRange>
+                                    <range>45</range>
+                                    <soundCast>Mortar_LaunchA</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <requireLineOfSight>false</requireLineOfSight>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_BA_Yuzu_Bond" Abstract="True">
+                            <label>Nyan's Dash</label>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_cyan</texPath>
+                                <drawSize>2.1</drawSize>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <damageAmountBase>38</damageAmountBase>
+                                <explosionRadius>2.4</explosionRadius>
+                                <stoppingPower>3</stoppingPower>
+                                <speed>40</speed>
+                                <soundExplode>InfernoCannon_Fire</soundExplode>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Aris_Bond" Abstract="True">
+                            <label>persona Sword of Light: Supernova</label>
+                            <description>The massive railgun that Arisu received from the engineering club.\n\nIts size and power output are so great that ordinary students would struggle to simply walk around with it.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Millennium/Aris</texPath>
+                                <drawSize>1.5</drawSize>
+                            </graphicData>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <weaponTags>
+                                <li>BAW_Aris</li>
+                            </weaponTags>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <RangedWeapon_Cooldown>3.825</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0</DeteriorationRate>
+                                <Mass>30</Mass>
+                                <Flammability>0</Flammability>
+                            </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.25</MoveSpeed>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <defaultProjectile>Bullet_BA_Aris_Bond</defaultProjectile>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+                                    <ai_AvoidFriendlyFireRadius>5</ai_AvoidFriendlyFireRadius>
+                                    <forcedMissRadius>4.7</forcedMissRadius>
+                                    <warmupTime>5.1</warmupTime>
+                                    <minRange>5</minRange>
+                                    <range>68</range>
+                                    <ticksBetweenBurstShots>50</ticksBetweenBurstShots>
+                                    <soundCast>ThumpCannon_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <requireLineOfSight>false</requireLineOfSight>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_BA_Aris_Bond" Abstract="True">
+                            <label>Hikari</label>
+                            <graphicData>
+                                <texPath>Projectile/Hikari</texPath>
+                                <drawSize>2.3</drawSize>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Thump</damageDef>
+                                <damageAmountBase>46</damageAmountBase>
+                                <explosionRadius>5.4</explosionRadius>
+                                <preExplosionSpawnThingDef>Fire</preExplosionSpawnThingDef>
+                                <preExplosionSpawnChance>0.25</preExplosionSpawnChance>
+                                <stoppingPower>3</stoppingPower>
+                                <speed>99</speed>
+                                <soundExplode>InfernoCannon_Fire</soundExplode>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Noa_Bond" Abstract="True">
+                            <label>persona Secretary's vote</label>
+                            <description>Pistol with a conversion kit used by Noa.\n\nWith the stock extended, it can be fired like a submachine gun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Millennium/Noa</texPath>
+                                <drawSize>0.71</drawSize>
+                            </graphicData>
+                            <weaponTags>
+                                <li>BAW_Noa</li>
+                            </weaponTags>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>1.012</AccuracyTouch>
+                                <AccuracyShort>0.968</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.517</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.578</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Noa_Bond</defaultProjectile>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>18</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>17</ticksBetweenBurstShots>
+                                    <soundCast>Shot_ChargeRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>3</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Noa_Bond" Abstract="True">
+                            <label>Bullet of Secretary's vote</label>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_blue</texPath>
+                                <drawSize>1.75</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>14</damageAmountBase>
+                                <speed>60</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Kokona_Bond" Abstract="True">
+                            <label>persona Lady's Grace</label>
+                            <description>An assault rifle that is effective both in protecting the dignity of a lady and in fulfilling her duties as an instructor.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Shanhaijing/Kokona</texPath>
+                                <drawSize>1.2</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <weaponTags>
+                                <li>BAW_Kokona</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.638</AccuracyTouch>
+                                <AccuracyShort>0.748</AccuracyShort>
+                                <AccuracyMedium>0.869</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.232</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Kokona_Bond</defaultProjectile>
+                                    <warmupTime>0.637</warmupTime>
+                                    <range>39</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>18</ticksBetweenBurstShots>
+                                    <soundCast>Shot_HeavySMG</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>4</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Kokona_Bond" Abstract="True">
+                            <label>Bullet of Lady's Grace</label>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_yellow</texPath>
+                                <drawSize>0.9</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>22</damageAmountBase>
+                                <speed>60</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Shun_Bond" Abstract="True">
+                            <label>persona Whip of Love</label>
+                            <description>Shun's sniper rifle.\n\nNo matter how naughty a child may be, they will immediately start behaving once Shun takes out this gun. \n\nOf course, she never actually points the gun at the children.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Shanhaijing/Shun</texPath>
+                                <drawSize>1.13</drawSize>
+                            </graphicData>
+                            <weaponTags>
+                                <li>BAW_Shun</li>
+                                <li>BAW_SmallShun</li>
+                            </weaponTags>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.726</AccuracyTouch>
+                                <AccuracyShort>0.781</AccuracyShort>
+                                <AccuracyMedium>0.979</AccuracyMedium>
+                                <AccuracyLong>1.012</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.55</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Shun_Bond</defaultProjectile>
+                                    <warmupTime>1.87</warmupTime>
+                                    <range>58</range>
+                                    <soundCast>Shot_BoltActionRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Shun_Bond" Abstract="True">
+                            <label>Bullet of Whip of Love</label>
+                            <projectile>
+                                <damageAmountBase>40</damageAmountBase>
+                                <stoppingPower>2</stoppingPower>
+                                <armorPenetrationBase>0.45</armorPenetrationBase>
+                                <speed>80</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_purple</texPath>
+                                <drawSize>1.3</drawSize>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Hifumi_Bond" Abstract="True">
+                            <label>persona My Necessity</label>
+                            <description>The pink assault rifle carried around by Hifumi.\n\nMuch like her other favorite goods, it's a must-bring item whenever Hifumi goes out.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Trinity/Hifumi</texPath>
+                                <drawSize>1.12</drawSize>
+                            </graphicData>
+                            <weaponTags>
+                                <li>BAW_Hifumi</li>
+                            </weaponTags>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.858</AccuracyShort>
+                                <AccuracyMedium>0.715</AccuracyMedium>
+                                <AccuracyLong>0.605</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Hifumi_Bond</defaultProjectile>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>33.3</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>Shot_AssaultRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Hifumi_Bond" Abstract="True">
+                            <label>Bullet of My Necessity</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>20</damageAmountBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Koharu_Bond" Abstract="True">
+                            <label>persona Justice Black</label>
+                            <description>The sniper rifle used by Koharu.\n\nKoharu was still in the Justice Actualization Committee when it was given its name.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Trinity/Koharu</texPath>
+                                <drawSize>0.92</drawSize>
+                            </graphicData>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.539</AccuracyTouch>
+                                <AccuracyShort>0.616</AccuracyShort>
+                                <AccuracyMedium>0.803</AccuracyMedium>
+                                <AccuracyLong>0.715</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Koharu_Bond</defaultProjectile>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>41.9</range>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>Shot_BoltActionRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Koharu_Bond" Abstract="True">
+                            <label>Bullet of Justice Black</label>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_yellow</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>30</damageAmountBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Tsurugi_Bond" Abstract="True">
+                            <label>persona Blood n Gunpowder</label>
+                            <description>The two shotguns used by Tsurugi\n\n.Named "Blood" and "Gunpowder", they can't be told apart easily even from close range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Trinity/Tsurugi</texPath>
+                                <drawSize>1.1</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Shotgun</soundInteract>
+                            <statBases>
+                                <Mass>4.5</Mass>
+                                <AccuracyTouch>0.902</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.462</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Tsurugi_Bond</defaultProjectile>
+                                    <burstShotCount>2</burstShotCount>
+                                    <ticksBetweenBurstShots>27</ticksBetweenBurstShots>
+                                    <warmupTime>1.062</warmupTime>
+                                    <range>17</range>
+                                    <soundCast>Shot_Shotgun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>23.173</power>
+                                    <cooldownTime>4.25</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Tsurugi_Bond" Abstract="True">
+                            <label>Bullet of BloodnGunpowder</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>27</damageAmountBase>
+                                <stoppingPower>3.5</stoppingPower>
+                                <armorPenetrationBase>0.1</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+
+                        <ThingDef ParentName="MPBFPM_BAW_BaseHumanMakeableGun" Name="BAW_Azusa_Bond" Abstract="True">
+                            <label>persona Et Omnia Vanitas</label>
+                            <description>The gun that Azusa carries.\n\nThe text engraved on the gun reads "Everything is futile. No matter how far you go, it's all in vain."\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Weapon/Trinity/Azusa</texPath>
+                                <drawSize>1.15</drawSize>
+                            </graphicData>
+                            <weaponTags>
+                                <li>BAW_Azusa</li>
+                            </weaponTags>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.737</AccuracyTouch>
+                                <AccuracyShort>0.968</AccuracyShort>
+                                <AccuracyMedium>0.869</AccuracyMedium>
+                                <AccuracyLong>0.737</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BA_Azusa_Bond</defaultProjectile>
+                                    <warmupTime>1.318</warmupTime>
+                                    <range>36.6</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>16</ticksBetweenBurstShots>
+                                    <soundCast>Shot_AssaultRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_BA_Azusa_Bond" Abstract="True">
+                            <label>Bullet of Et Omnia Vanitas</label>
+                            <graphicData>
+                                <texPath>Projectile/Bullet_purple</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>18</damageAmountBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- BAW_Hoshino_Bond -->
+                            <ThingDef ParentName="BAW_Hoshino_Bond">
+                                <defName>BAW_Hoshino_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Hoshino_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Hoshino_Bond">
+                                <defName>Bullet_BA_Hoshino_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Shiroko_Bond -->
+                            <ThingDef ParentName="BAW_Shiroko_Bond">
+                                <defName>BAW_Shiroko_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Shiroko_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Shiroko_Bond">
+                                <defName>Bullet_BA_Shiroko_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Serika_Bond -->
+                            <ThingDef ParentName="BAW_Serika_Bond">
+                                <defName>BAW_Serika_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Serika_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Serika_Bond">
+                                <defName>Bullet_BA_Serika_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Nonomi_Bond -->
+                            <ThingDef ParentName="BAW_Nonomi_Bond">
+                                <defName>BAW_Nonomi_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Nonomi_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Nonomi_Bond">
+                                <defName>Bullet_BA_Nonomi_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Hina_Bond -->
+                            <ThingDef ParentName="BAW_Hina_Bond">
+                                <defName>BAW_Hina_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Hina_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Hina_Bond">
+                                <defName>Bullet_BA_Hina_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Mutsuki_Bond -->
+                            <ThingDef ParentName="BAW_Mutsuki_Bond">
+                                <defName>BAW_Mutsuki_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Mutsuki_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Mutsuki_Bond">
+                                <defName>Bullet_BA_Mutsuki_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Aru_Bond -->
+                            <ThingDef ParentName="BAW_Aru_Bond">
+                                <defName>BAW_Aru_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Aru_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Aru_Bond">
+                                <defName>Bullet_BA_Aru_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Kayoko_Bond -->
+                            <ThingDef ParentName="BAW_Kayoko_Bond">
+                                <defName>BAW_Kayoko_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Kayoko_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Kayoko_Bond">
+                                <defName>Bullet_BA_Kayoko_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Haruka_Bond -->
+                            <ThingDef ParentName="BAW_Haruka_Bond">
+                                <defName>BAW_Haruka_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Haruka_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Haruka_Bond">
+                                <defName>Bullet_BA_Haruka_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Izuna_Bond -->
+                            <ThingDef ParentName="BAW_Izuna_Bond">
+                                <defName>BAW_Izuna_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Izuna_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Izuna_Bond">
+                                <defName>Bullet_BA_Izuna_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Wakamo_Bond -->
+                            <ThingDef ParentName="BAW_Wakamo_Bond">
+                                <defName>BAW_Wakamo_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Wakamo_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Wakamo_Bond">
+                                <defName>Bullet_BA_Wakamo_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Hibiki_Bond -->
+                            <ThingDef ParentName="BAW_Hibiki_Bond">
+                                <defName>BAW_Hibiki_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Hibiki_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Hibiki_Bond">
+                                <defName>Bullet_BA_Hibiki_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Neru_Bond -->
+                            <ThingDef ParentName="BAW_Neru_Bond">
+                                <defName>BAW_Neru_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Neru_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Neru_Bond">
+                                <defName>Bullet_BA_Neru_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Karin_Bond -->
+                            <ThingDef ParentName="BAW_Karin_Bond">
+                                <defName>BAW_Karin_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Karin_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Karin_Bond">
+                                <defName>Bullet_BA_Karin_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Midori_Bond -->
+                            <ThingDef ParentName="BAW_Midori_Bond">
+                                <defName>BAW_Midori_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Midori_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Midori_Bond">
+                                <defName>Bullet_BA_Midori_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Momoi_Bond -->
+                            <ThingDef ParentName="BAW_Momoi_Bond">
+                                <defName>BAW_Momoi_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Momoi_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Momoi_Bond">
+                                <defName>Bullet_BA_Momoi_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Yuzu_Bond -->
+                            <ThingDef ParentName="BAW_Yuzu_Bond">
+                                <defName>BAW_Yuzu_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Yuzu_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Yuzu_Bond">
+                                <defName>Bullet_BA_Yuzu_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Aris_Bond -->
+                            <ThingDef ParentName="BAW_Aris_Bond">
+                                <defName>BAW_Aris_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Aris_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Aris_Bond">
+                                <defName>Bullet_BA_Aris_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Noa_Bond -->
+                            <ThingDef ParentName="BAW_Noa_Bond">
+                                <defName>BAW_Noa_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Noa_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Noa_Bond">
+                                <defName>Bullet_BA_Noa_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Kokona_Bond -->
+                            <ThingDef ParentName="BAW_Kokona_Bond">
+                                <defName>BAW_Kokona_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Kokona_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Kokona_Bond">
+                                <defName>Bullet_BA_Kokona_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Shun_Bond -->
+                            <ThingDef ParentName="BAW_Shun_Bond">
+                                <defName>BAW_Shun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Shun_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Shun_Bond">
+                                <defName>Bullet_BA_Shun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Hifumi_Bond -->
+                            <ThingDef ParentName="BAW_Hifumi_Bond">
+                                <defName>BAW_Hifumi_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Hifumi_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Hifumi_Bond">
+                                <defName>Bullet_BA_Hifumi_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Koharu_Bond -->
+                            <ThingDef ParentName="BAW_Koharu_Bond">
+                                <defName>BAW_Koharu_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Koharu_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Koharu_Bond">
+                                <defName>Bullet_BA_Koharu_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Tsurugi_Bond -->
+                            <ThingDef ParentName="BAW_Tsurugi_Bond">
+                                <defName>BAW_Tsurugi_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Tsurugi_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Tsurugi_Bond">
+                                <defName>Bullet_BA_Tsurugi_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BAW_Azusa_Bond -->
+                            <ThingDef ParentName="BAW_Azusa_Bond">
+                                <defName>BAW_Azusa_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_BA_Azusa_Bond -->
+                            <ThingDef ParentName="Bullet_BA_Azusa_Bond">
+                                <defName>Bullet_BA_Azusa_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_RimArchiveInProgress</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- BAW_Hoshino_Bond -->
+                                            <ThingDef ParentName="BAW_Hoshino_Bond">
+                                                <defName>BAW_Hoshino_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Hoshino_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Hoshino_Bond">
+                                                <defName>Bullet_BA_Hoshino_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Shiroko_Bond -->
+                                            <ThingDef ParentName="BAW_Shiroko_Bond">
+                                                <defName>BAW_Shiroko_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Shiroko_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Shiroko_Bond">
+                                                <defName>Bullet_BA_Shiroko_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Serika_Bond -->
+                                            <ThingDef ParentName="BAW_Serika_Bond">
+                                                <defName>BAW_Serika_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Serika_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Serika_Bond">
+                                                <defName>Bullet_BA_Serika_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Nonomi_Bond -->
+                                            <ThingDef ParentName="BAW_Nonomi_Bond">
+                                                <defName>BAW_Nonomi_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Nonomi_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Nonomi_Bond">
+                                                <defName>Bullet_BA_Nonomi_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Hina_Bond -->
+                                            <ThingDef ParentName="BAW_Hina_Bond">
+                                                <defName>BAW_Hina_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Hina_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Hina_Bond">
+                                                <defName>Bullet_BA_Hina_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Mutsuki_Bond -->
+                                            <ThingDef ParentName="BAW_Mutsuki_Bond">
+                                                <defName>BAW_Mutsuki_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Mutsuki_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Mutsuki_Bond">
+                                                <defName>Bullet_BA_Mutsuki_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Aru_Bond -->
+                                            <ThingDef ParentName="BAW_Aru_Bond">
+                                                <defName>BAW_Aru_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Aru_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Aru_Bond">
+                                                <defName>Bullet_BA_Aru_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Kayoko_Bond -->
+                                            <ThingDef ParentName="BAW_Kayoko_Bond">
+                                                <defName>BAW_Kayoko_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Kayoko_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Kayoko_Bond">
+                                                <defName>Bullet_BA_Kayoko_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Haruka_Bond -->
+                                            <ThingDef ParentName="BAW_Haruka_Bond">
+                                                <defName>BAW_Haruka_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Haruka_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Haruka_Bond">
+                                                <defName>Bullet_BA_Haruka_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Izuna_Bond -->
+                                            <ThingDef ParentName="BAW_Izuna_Bond">
+                                                <defName>BAW_Izuna_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Izuna_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Izuna_Bond">
+                                                <defName>Bullet_BA_Izuna_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Wakamo_Bond -->
+                                            <ThingDef ParentName="BAW_Wakamo_Bond">
+                                                <defName>BAW_Wakamo_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Wakamo_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Wakamo_Bond">
+                                                <defName>Bullet_BA_Wakamo_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Hibiki_Bond -->
+                                            <ThingDef ParentName="BAW_Hibiki_Bond">
+                                                <defName>BAW_Hibiki_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Hibiki_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Hibiki_Bond">
+                                                <defName>Bullet_BA_Hibiki_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Neru_Bond -->
+                                            <ThingDef ParentName="BAW_Neru_Bond">
+                                                <defName>BAW_Neru_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Neru_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Neru_Bond">
+                                                <defName>Bullet_BA_Neru_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Karin_Bond -->
+                                            <ThingDef ParentName="BAW_Karin_Bond">
+                                                <defName>BAW_Karin_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Karin_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Karin_Bond">
+                                                <defName>Bullet_BA_Karin_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Midori_Bond -->
+                                            <ThingDef ParentName="BAW_Midori_Bond">
+                                                <defName>BAW_Midori_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Midori_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Midori_Bond">
+                                                <defName>Bullet_BA_Midori_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Momoi_Bond -->
+                                            <ThingDef ParentName="BAW_Momoi_Bond">
+                                                <defName>BAW_Momoi_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Momoi_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Momoi_Bond">
+                                                <defName>Bullet_BA_Momoi_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Yuzu_Bond -->
+                                            <ThingDef ParentName="BAW_Yuzu_Bond">
+                                                <defName>BAW_Yuzu_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Yuzu_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Yuzu_Bond">
+                                                <defName>Bullet_BA_Yuzu_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Aris_Bond -->
+                                            <ThingDef ParentName="BAW_Aris_Bond">
+                                                <defName>BAW_Aris_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Aris_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Aris_Bond">
+                                                <defName>Bullet_BA_Aris_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Noa_Bond -->
+                                            <ThingDef ParentName="BAW_Noa_Bond">
+                                                <defName>BAW_Noa_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Noa_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Noa_Bond">
+                                                <defName>Bullet_BA_Noa_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Kokona_Bond -->
+                                            <ThingDef ParentName="BAW_Kokona_Bond">
+                                                <defName>BAW_Kokona_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Kokona_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Kokona_Bond">
+                                                <defName>Bullet_BA_Kokona_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Shun_Bond -->
+                                            <ThingDef ParentName="BAW_Shun_Bond">
+                                                <defName>BAW_Shun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Shun_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Shun_Bond">
+                                                <defName>Bullet_BA_Shun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Hifumi_Bond -->
+                                            <ThingDef ParentName="BAW_Hifumi_Bond">
+                                                <defName>BAW_Hifumi_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Hifumi_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Hifumi_Bond">
+                                                <defName>Bullet_BA_Hifumi_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Koharu_Bond -->
+                                            <ThingDef ParentName="BAW_Koharu_Bond">
+                                                <defName>BAW_Koharu_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Koharu_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Koharu_Bond">
+                                                <defName>Bullet_BA_Koharu_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Tsurugi_Bond -->
+                                            <ThingDef ParentName="BAW_Tsurugi_Bond">
+                                                <defName>BAW_Tsurugi_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Tsurugi_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Tsurugi_Bond">
+                                                <defName>Bullet_BA_Tsurugi_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BAW_Azusa_Bond -->
+                                            <ThingDef ParentName="BAW_Azusa_Bond">
+                                                <defName>BAW_Azusa_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_BA_Azusa_Bond -->
+                                            <ThingDef ParentName="Bullet_BA_Azusa_Bond">
+                                                <defName>Bullet_BA_Azusa_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
