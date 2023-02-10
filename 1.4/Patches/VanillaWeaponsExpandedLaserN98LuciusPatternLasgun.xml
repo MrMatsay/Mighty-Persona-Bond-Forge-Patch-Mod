@@ -13,8 +13,23 @@
                 <li Class="PatchOperationAdd">
                     <xpath>Defs</xpath>
                     <value>
-                        <ThingDef ParentName="MPBFPM_BaseGun">
-                            <defName>VWEL_Gun_N98LG_Bond</defName>
+                        <ThingDef ParentName="VWEL_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef" Name="VWEL_Bullet_N98LasRifle_Bond" Abstract="True">
+                            <label>las bolt</label>
+                            <description>A focused laser beam.</description>
+                            <textures>
+                                <li>Things/Projectile/Shot_Las</li>
+                            </textures>
+                            <seam>0</seam>
+                            <causefireChance>0.3</causefireChance>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>31</damageAmountBase>
+                                <armorPenetrationBase>0.80</armorPenetrationBase>
+                                <stoppingPower>3</stoppingPower>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseWeapon" Name="VWEL_Gun_N98LG_Bond" Abstract="True">
                             <thingClass>VanillaWeaponsExpandedLaser.LaserGun</thingClass>
                             <label>persona N98 Lucius Pattern Lasgun</label>
                             <description>The signature weapon of the Death Korps of Krieg, the Lucius-pattern lasgun operates in the 21 megathoule range, but is designed to draw from a standard Munitorum-issue power pack. \n\nConsequently, the Lucius lasgun discharges a more powerful shot, but drains the power pack at a correspondingly increased rate. This also puts a great strain on the weapon, limiting the rate of fire and requiring such features as additional heat sink rings lining the exterior of the barrel. Even with such considerations, an over-taxed Lucius lasgun can quickly overheat. The added danger of the weapon overheating does not perturb the famously stoic Krieg.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -30,8 +45,13 @@
                                 <AccuracyShort>1.023</AccuracyShort>
                                 <AccuracyMedium>1.056</AccuracyMedium>
                                 <AccuracyLong>1.012</AccuracyLong>
-                                <RangedWeapon_Cooldown>0.88</RangedWeapon_Cooldown>
+                                <RangedWeapon_Cooldown>0.68</RangedWeapon_Cooldown>
                             </statBases>
+                            <techLevel>Ultra</techLevel>
+                            <tradeability>All</tradeability>
+                            <tradeTags>
+                                <li>SpacerGun</li>
+                            </tradeTags>
                             <techLevel>Ultra</techLevel>
                             <weaponTags>
                                 <li>SpacerGun</li>
@@ -77,7 +97,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>5.5</power>
+                                    <power>5.559</power>
                                     <cooldownTime>1.53</cooldownTime>
                                 </li>
                                 <li>
@@ -85,76 +105,60 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>13.2</power>
+                                    <power>12.866</power>
                                     <cooldownTime>1.615</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
-
-                        <ThingDef ParentName="VWEL_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
-                            <defName>VWEL_Bullet_N98LasRifle_Bond</defName>
-                            <label>las bolt</label>
-                            <description>A focused laser beam.</description>
-                            <textures>
-                                <li>Things/Projectile/Shot_Las</li>
-                            </textures>
-                            <seam>0</seam>
-                            <causefireChance>0.3</causefireChance>
-
-                            <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>29</damageAmountBase>
-                                <armorPenetrationBase>0.80</armorPenetrationBase>
-                                <stoppingPower>3</stoppingPower>
-                            </projectile>
-                        </ThingDef>
-
-                        <!-- VWEL_Gun_N98LG_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_VWEL_Gun_N98LG_Bond</defName>
-                            <label>bond N98 Lucius Pattern Lasgun</label>
-                            <description>Bond an N98 Lucius Pattern Lasgun.</description>
-                            <jobString>Bonding a N98 Lucius Pattern Lasgun.</jobString>
-                            <researchPrerequisite>Bound_Research</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>VWEL_Gun_N98LG</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>VWEL_Gun_N98LG</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <VWEL_Gun_N98LG_Bond>1</VWEL_Gun_N98LG_Bond>
-                            </products>
-                        </RecipeDef>
                     </value>
                 </li>
 
-                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                    <key>Daria40K_MightyPersonaBondForgePatch_VanillaWeaponsExpandedLaser_N98</key>
-                    <defaultValue>true</defaultValue>
-                    <caseFalse>
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VWEL_Gun_N98LG_Bond"]</xpath>
-                        </Operation>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VWEL_Bullet_N98LasRifle_Bond"]</xpath>
-                        </Operation>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- VWEL_Gun_N98LG_Bond -->
+                            <ThingDef ParentName="VWEL_Gun_N98LG_Bond">
+                                <defName>VWEL_Gun_N98LG_Bond</defName>
+                            </ThingDef>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_VWEL_Gun_N98LG_Bond"]</xpath>
-                        </Operation>
-                    </caseFalse>
+                            <!-- VWEL_Bullet_N98LasRifle_Bond -->
+                            <ThingDef ParentName="VWEL_Bullet_N98LasRifle_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                <defName>VWEL_Bullet_N98LasRifle_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_VanillaWeaponsExpandedLaserN98LuciusPatternLasgun</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- VWEL_Gun_N98LG_Bond -->
+                                            <ThingDef ParentName="VWEL_Gun_N98LG_Bond">
+                                                <defName>VWEL_Gun_N98LG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- VWEL_Bullet_N98LasRifle_Bond -->
+                                            <ThingDef ParentName="VWEL_Bullet_N98LasRifle_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                                <defName>VWEL_Bullet_N98LasRifle_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
                 </li>
             </operations>
         </match>

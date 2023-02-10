@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Australden's Fusion Weapons Pack Remastered =====
-
-    == Range
-    Gun_FusionPistol_Bond = persona fusion pistol
-    Gun_FusionRifle_Bond = persona fusion rifle
-    Gun_FusionShotgun_Bond = persona fusion shotgun
-    Gun_FusionSniper_Bond = persona fusion sniper rifle
-    Gun_FusionLMG_Bond = persona fusion lmg
 -->
 <Patch>
     <Operation Class="PatchOperationFindMod">
@@ -20,10 +13,20 @@
                 <li Class="PatchOperationAdd">
                     <xpath>Defs</xpath>
                     <value>
-                        <!-- ===== Range ===== -->
-                        <!-- Fusion Pistol -->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>Gun_FusionPistol_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_FusionPistol_Bond" Abstract="True">
+                            <label>Bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Charge_Small_Red</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>19</damageAmountBase>
+                                <armorPenetrationBase>0.35</armorPenetrationBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>65</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_FusionPistol_Bond" Abstract="True">
                             <label>persona fusion pistol</label>
                             <description>A fusion-charged pistol. Fusion technology enables this weapon to fire fusion-charged particles. On impact, the particles release immense amounts of energy into the target. Although it has a shorter range of fire than its larger counterparts, it still packs a punch by having a higher rate of fire and being lightweight.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Spacer</techLevel>
@@ -39,7 +42,7 @@
                                 <AccuracyShort>0.99</AccuracyShort>
                                 <AccuracyMedium>0.88</AccuracyMedium>
                                 <AccuracyLong>0.77</AccuracyLong>
-                                <RangedWeapon_Cooldown>0.44</RangedWeapon_Cooldown>
+                                <RangedWeapon_Cooldown>0.34</RangedWeapon_Cooldown>
                             </statBases>
                             <weaponTags>
                                 <li>SpacerGun</li>
@@ -65,7 +68,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
@@ -74,30 +77,26 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseBullet">
-                            <defName>Bullet_FusionPistol_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_FusionRifle_Bond" Abstract="True">
                             <label>Bullet</label>
                             <graphicData>
                                 <texPath>Things/Projectile/Charge_Small_Red</texPath>
                             </graphicData>
                             <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>16</damageAmountBase>
-                                <armorPenetrationBase>0.35</armorPenetrationBase>
-                                <stoppingPower>0.5</stoppingPower>
-                                <speed>65</speed>
+                                <damageAmountBase>20</damageAmountBase>
+                                <armorPenetrationBase>0.38</armorPenetrationBase>
+                                <stoppingPower>1.0</stoppingPower>
+                                <speed>75</speed>
                             </projectile>
                         </ThingDef>
 
-                        <!-- Gun_FusionRifle_Bond -->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>Gun_FusionRifle_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_FusionRifle_Bond" Abstract="True">
                             <label>persona fusion rifle</label>
                             <description>A fusion-charged rifle. An extremely deadly assault rifle that fires 4 burst rounds at high accuracy. It has decent range as well making this a deadly addition to anyone's arsenal.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Spacer</techLevel>
@@ -113,7 +112,7 @@
                                 <AccuracyShort>0.957</AccuracyShort>
                                 <AccuracyMedium>1.012</AccuracyMedium>
                                 <AccuracyLong>0.935</AccuracyLong>
-                                <RangedWeapon_Cooldown>0.55</RangedWeapon_Cooldown>
+                                <RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
                             </statBases>
                             <weaponTags>
                                 <li>SpacerGun</li>
@@ -138,7 +137,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
@@ -147,30 +146,26 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseBullet">
-                            <defName>Bullet_FusionRifle_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_FusionShotgun_Bond" Abstract="True">
                             <label>Bullet</label>
                             <graphicData>
                                 <texPath>Things/Projectile/Charge_Small_Red</texPath>
                             </graphicData>
                             <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>18</damageAmountBase>
-                                <armorPenetrationBase>0.38</armorPenetrationBase>
+                                <damageAmountBase>10</damageAmountBase>
+                                <armorPenetrationBase>0.30</armorPenetrationBase>
                                 <stoppingPower>1.0</stoppingPower>
-                                <speed>75</speed>
+                                <speed>65</speed>
                             </projectile>
                         </ThingDef>
 
-                        <!-- Gun_FusionShotgun_Bond -->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>Gun_FusionShotgun_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_FusionShotgun_Bond" Abstract="True">
                             <label>persona fusion shotgun</label>
                             <description>A fusion-charged shotgun. While this has the shortest range of any of the fusion weapons it doesn't mean it isn't any more deadly. It fires 8 fusion charged particles which decimate any target they come in contact with. It also has a sweet fusion powered knife on the end that can cut through pretty much anything.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Spacer</techLevel>
@@ -186,7 +181,7 @@
                                 <AccuracyShort>0.88</AccuracyShort>
                                 <AccuracyMedium>0.825</AccuracyMedium>
                                 <AccuracyLong>0.77</AccuracyLong>
-                                <RangedWeapon_Cooldown>0.55</RangedWeapon_Cooldown>
+                                <RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
                             </statBases>
                             <weaponTags>
                                 <li>SpacerGun</li>
@@ -211,7 +206,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
@@ -220,30 +215,26 @@
                                         <li>Cut</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>38.5</power>
+                                    <power>36.479</power>
                                     <cooldownTime>0.85</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseBullet">
-                            <defName>Bullet_FusionShotgun_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_FusionSniper_Bond" Abstract="True">
                             <label>Bullet</label>
                             <graphicData>
                                 <texPath>Things/Projectile/Charge_Small_Red</texPath>
                             </graphicData>
                             <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>8</damageAmountBase>
-                                <armorPenetrationBase>0.30</armorPenetrationBase>
-                                <stoppingPower>1.0</stoppingPower>
-                                <speed>65</speed>
+                                <damageAmountBase>52</damageAmountBase>
+                                <armorPenetrationBase>0.50</armorPenetrationBase>
+                                <stoppingPower>2.0</stoppingPower>
+                                <speed>95</speed>
                             </projectile>
                         </ThingDef>
 
-                        <!-- Gun_FusionSniper_Bond -->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>Gun_FusionSniper_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_FusionSniper_Bond" Abstract="True">
                             <label>persona fusion sniper rifle</label>
                             <description>A fusion-charged sniper rifle. Excelling at range, this armor piercing, fast shooting weapon is sure to take out almost any target with just one shot.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Spacer</techLevel>
@@ -259,7 +250,7 @@
                                 <AccuracyShort>0.935</AccuracyShort>
                                 <AccuracyMedium>0.99</AccuracyMedium>
                                 <AccuracyLong>1.045</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.65</RangedWeapon_Cooldown>
+                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
                             </statBases>
                             <weaponTags>
                                 <li>SpacerGun</li>
@@ -282,7 +273,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
@@ -291,30 +282,26 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseBullet">
-                            <defName>Bullet_FusionSniper_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_FusionLMG_Bond" Abstract="True">
                             <label>Bullet</label>
                             <graphicData>
                                 <texPath>Things/Projectile/Charge_Small_Red</texPath>
                             </graphicData>
                             <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>50</damageAmountBase>
-                                <armorPenetrationBase>0.50</armorPenetrationBase>
-                                <stoppingPower>2.0</stoppingPower>
-                                <speed>95</speed>
+                                <damageAmountBase>13</damageAmountBase>
+                                <stoppingPower>1.8</stoppingPower>
+                                <armorPenetrationBase>0.40</armorPenetrationBase>
+                                <speed>75</speed>
                             </projectile>
                         </ThingDef>
 
-                        <!-- Gun_FusionLMG_Bond -->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>Gun_FusionLMG_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_FusionLMG_Bond" Abstract="True">
                             <label>persona fusion lmg</label>
                             <description>A fusion charged light machine gun. Commonly used in archotech warfare for suppressing fire and stopping enemies in their tracks.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Spacer</techLevel>
@@ -330,7 +317,7 @@
                                 <AccuracyShort>0.803</AccuracyShort>
                                 <AccuracyMedium>0.858</AccuracyMedium>
                                 <AccuracyLong>0.803</AccuracyLong>
-                                <RangedWeapon_Cooldown>0.88</RangedWeapon_Cooldown>
+                                <RangedWeapon_Cooldown>0.68</RangedWeapon_Cooldown>
                             </statBases>
                             <weaponTags>
                                 <li>SpacerGun</li>
@@ -355,7 +342,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
@@ -364,79 +351,140 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
-
-                        <ThingDef ParentName="MPBFPM_BaseBullet">
-                            <defName>Bullet_FusionLMG_Bond</defName>
-                            <label>Bullet</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/Charge_Small_Red</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>11</damageAmountBase>
-                                <stoppingPower>1.8</stoppingPower>
-                                <armorPenetrationBase>0.40</armorPenetrationBase>
-                                <speed>75</speed>
-                            </projectile>
-                        </ThingDef>
                     </value>
                 </li>
 
-                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                    <key>Daria40K_MightyPersonaBondForgePatch_AustraldensFusionWeaponsPackRemastered</key>
-                    <defaultValue>true</defaultValue>
-                    <caseFalse>
-                        <!-- Gun_FusionPistol_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Gun_FusionPistol_Bond"]</xpath>
-                        </Operation>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Bullet_FusionPistol_Bond"]</xpath>
-                        </Operation>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Bullet_FusionPistol_Bond -->
+                            <ThingDef ParentName="Bullet_FusionPistol_Bond">
+                                <defName>Bullet_FusionPistol_Bond</defName>
+                            </ThingDef>
 
-                        <!-- Gun_FusionRifle_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Gun_FusionRifle_Bond"]</xpath>
-                        </Operation>
+                            <!-- Gun_FusionPistol_Bond -->
+                            <ThingDef ParentName="Gun_FusionPistol_Bond">
+                                <defName>Gun_FusionPistol_Bond</defName>
+                            </ThingDef>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Bullet_FusionRifle_Bond"]</xpath>
-                        </Operation>
+                            <!-- Bullet_FusionRifle_Bond -->
+                            <ThingDef ParentName="Bullet_FusionRifle_Bond">
+                                <defName>Bullet_FusionRifle_Bond</defName>
+                            </ThingDef>
 
-                        <!-- Gun_FusionShotgun_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Gun_FusionShotgun_Bond"]</xpath>
-                        </Operation>
+                            <!-- Gun_FusionRifle_Bond -->
+                            <ThingDef ParentName="Gun_FusionRifle_Bond">
+                                <defName>Gun_FusionRifle_Bond</defName>
+                            </ThingDef>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Bullet_FusionShotgun_Bond"]</xpath>
-                        </Operation>
+                            <!-- Bullet_FusionShotgun_Bond -->
+                            <ThingDef ParentName="Bullet_FusionShotgun_Bond">
+                                <defName>Bullet_FusionShotgun_Bond</defName>
+                            </ThingDef>
 
-                        <!-- Gun_FusionSniper_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Gun_FusionSniper_Bond"]</xpath>
-                        </Operation>
+                            <!-- Gun_FusionShotgun_Bond -->
+                            <ThingDef ParentName="Gun_FusionShotgun_Bond">
+                                <defName>Gun_FusionShotgun_Bond</defName>
+                            </ThingDef>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Bullet_FusionSniper_Bond"]</xpath>
-                        </Operation>
+                            <!-- Bullet_FusionSniper_Bond -->
+                            <ThingDef ParentName="Bullet_FusionSniper_Bond">
+                                <defName>Bullet_FusionSniper_Bond</defName>
+                            </ThingDef>
 
-                        <!-- Gun_FusionLMG_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Gun_FusionLMG_Bond"]</xpath>
-                        </Operation>
+                            <!-- Gun_FusionSniper_Bond -->
+                            <ThingDef ParentName="Gun_FusionSniper_Bond">
+                                <defName>Gun_FusionSniper_Bond</defName>
+                            </ThingDef>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Bullet_FusionLMG_Bond"]</xpath>
-                        </Operation>
-                    </caseFalse>
+                            <!-- Bullet_FusionLMG_Bond -->
+                            <ThingDef ParentName="Bullet_FusionLMG_Bond">
+                                <defName>Bullet_FusionLMG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Gun_FusionLMG_Bond -->
+                            <ThingDef ParentName="Gun_FusionLMG_Bond">
+                                <defName>Gun_FusionLMG_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_AustraldensFusionWeaponsPackRemastered</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Bullet_FusionPistol_Bond -->
+                                            <ThingDef ParentName="Bullet_FusionPistol_Bond">
+                                                <defName>Bullet_FusionPistol_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Gun_FusionPistol_Bond -->
+                                            <ThingDef ParentName="Gun_FusionPistol_Bond">
+                                                <defName>Gun_FusionPistol_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_FusionRifle_Bond -->
+                                            <ThingDef ParentName="Bullet_FusionRifle_Bond">
+                                                <defName>Bullet_FusionRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Gun_FusionRifle_Bond -->
+                                            <ThingDef ParentName="Gun_FusionRifle_Bond">
+                                                <defName>Gun_FusionRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_FusionShotgun_Bond -->
+                                            <ThingDef ParentName="Bullet_FusionShotgun_Bond">
+                                                <defName>Bullet_FusionShotgun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Gun_FusionShotgun_Bond -->
+                                            <ThingDef ParentName="Gun_FusionShotgun_Bond">
+                                                <defName>Gun_FusionShotgun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_FusionSniper_Bond -->
+                                            <ThingDef ParentName="Bullet_FusionSniper_Bond">
+                                                <defName>Bullet_FusionSniper_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Gun_FusionSniper_Bond -->
+                                            <ThingDef ParentName="Gun_FusionSniper_Bond">
+                                                <defName>Gun_FusionSniper_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_FusionLMG_Bond -->
+                                            <ThingDef ParentName="Bullet_FusionLMG_Bond">
+                                                <defName>Bullet_FusionLMG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Gun_FusionLMG_Bond -->
+                                            <ThingDef ParentName="Gun_FusionLMG_Bond">
+                                                <defName>Gun_FusionLMG_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
                 </li>
             </operations>
         </match>

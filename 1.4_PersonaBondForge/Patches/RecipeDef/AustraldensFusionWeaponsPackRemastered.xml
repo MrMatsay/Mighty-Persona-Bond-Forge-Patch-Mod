@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Australden's Fusion Weapons Pack Remastered =====
-
-    == Range
-    Gun_FusionPistol_Bond = persona fusion pistol
-    Gun_FusionRifle_Bond = persona fusion rifle
-    Gun_FusionShotgun_Bond = persona fusion shotgun
-    Gun_FusionSniper_Bond = persona fusion sniper rifle
-    Gun_FusionLMG_Bond = persona fusion lmg
 -->
 <Patch>
     <Operation Class="PatchOperationFindMod">
@@ -20,10 +13,7 @@
                 <li Class="PatchOperationAdd">
                     <xpath>Defs</xpath>
                     <value>
-                        <!-- ===== Range ===== -->
-                        <!-- Gun_FusionPistol_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Gun_FusionPistol_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_FusionPistol_Bond" Abstract="True">
                             <label>bond fusion pistol</label>
                             <description>Bond an fusion pistol.</description>
                             <jobString>Bonding a fusion pistol.</jobString>
@@ -48,9 +38,7 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Gun_FusionRifle_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Gun_FusionRifle_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_FusionRifle_Bond" Abstract="True">
                             <label>bond fusion rifle</label>
                             <description>Bond an fusion rifle.</description>
                             <jobString>Bonding a fusion rifle.</jobString>
@@ -75,9 +63,7 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Gun_FusionShotgun_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Gun_FusionShotgun_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_FusionShotgun_Bond" Abstract="True">
                             <label>bond fusion shotgun</label>
                             <description>Bond an fusion shotgun.</description>
                             <jobString>Bonding a fusion shotgun.</jobString>
@@ -102,9 +88,7 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Gun_FusionSniper_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Gun_FusionSniper_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_FusionSniper_Bond" Abstract="True">
                             <label>bond fusion sniper rifle</label>
                             <description>Bond an fusion sniper rifle.</description>
                             <jobString>Bonding a fusion sniper rifle.</jobString>
@@ -129,9 +113,7 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Gun_FusionLMG_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Gun_FusionLMG_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_FusionLMG_Bond" Abstract="True">
                             <label>bond fusion lmg</label>
                             <description>Bond an fusion lmg.</description>
                             <jobString>Bonding a fusion lmg.</jobString>
@@ -158,36 +140,82 @@
                     </value>
                 </li>
 
-                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                    <key>Daria40K_MightyPersonaBondForgePatch_AustraldensFusionWeaponsPackRemastered</key>
-                    <defaultValue>true</defaultValue>
-                    <caseFalse>
-                        <!-- Gun_FusionPistol_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Gun_FusionPistol_Bond"]</xpath>
-                        </Operation>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
 
-                        <!-- Gun_FusionRifle_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Gun_FusionRifle_Bond"]</xpath>
-                        </Operation>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_Gun_FusionPistol_Bond -->
+                            <RecipeDef ParentName="Make_Gun_FusionPistol_Bond">
+                                <defName>Make_Gun_FusionPistol_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Gun_FusionShotgun_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Gun_FusionShotgun_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Gun_FusionRifle_Bond -->
+                            <RecipeDef ParentName="Make_Gun_FusionRifle_Bond">
+                                <defName>Make_Gun_FusionRifle_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Gun_FusionSniper_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Gun_FusionSniper_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Gun_FusionShotgun_Bond -->
+                            <RecipeDef ParentName="Make_Gun_FusionShotgun_Bond">
+                                <defName>Make_Gun_FusionShotgun_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Gun_FusionLMG_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Gun_FusionLMG_Bond"]</xpath>
-                        </Operation>
-                    </caseFalse>
+                            <!-- Make_Gun_FusionSniper_Bond -->
+                            <RecipeDef ParentName="Make_Gun_FusionSniper_Bond">
+                                <defName>Make_Gun_FusionSniper_Bond</defName>
+                            </RecipeDef>
+
+                            <!-- Make_Gun_FusionLMG_Bond -->
+                            <RecipeDef ParentName="Make_Gun_FusionLMG_Bond">
+                                <defName>Make_Gun_FusionLMG_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_AustraldensFusionWeaponsPackRemastered</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_Gun_FusionPistol_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_FusionPistol_Bond">
+                                                <defName>Make_Gun_FusionPistol_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Gun_FusionRifle_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_FusionRifle_Bond">
+                                                <defName>Make_Gun_FusionRifle_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Gun_FusionShotgun_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_FusionShotgun_Bond">
+                                                <defName>Make_Gun_FusionShotgun_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Gun_FusionSniper_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_FusionSniper_Bond">
+                                                <defName>Make_Gun_FusionSniper_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Gun_FusionLMG_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_FusionLMG_Bond">
+                                                <defName>Make_Gun_FusionLMG_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
                 </li>
             </operations>
         </match>

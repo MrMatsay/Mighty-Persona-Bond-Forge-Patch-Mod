@@ -13,8 +13,23 @@
                 <li Class="PatchOperationAdd">
                     <xpath>Defs</xpath>
                     <value>
-                        <ThingDef ParentName="MPBFPM_BaseGun">
-                            <defName>VWEL_Gun_M36LG_Bond</defName>
+                        <ThingDef ParentName="VWEL_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef" Name="VWEL_Bullet_LasRifle_Bond" Abstract="True">
+                            <label>las bolt</label>
+                            <description>A focused laser beam.</description>
+                            <textures>
+                                <li>Things/Projectile/Shot_Las</li>
+                            </textures>
+                            <seam>0</seam>
+                            <causefireChance>0.1</causefireChance>
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>20</damageAmountBase>
+                                <armorPenetrationBase>0.60</armorPenetrationBase>
+                                <stoppingPower>2</stoppingPower>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseWeapon" Name="VWEL_Gun_M36LG_Bond" Abstract="True">
                             <thingClass>VanillaWeaponsExpandedLaser.LaserGun</thingClass>
                             <label>persona M36 Kantrael Pattern Lasgun</label>
                             <description>The M36 Kantrael Pattern Lasrifle is the standard variant for the Cadian Shock Troopers and the Severan Dominate.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
@@ -30,16 +45,19 @@
                                 <AccuracyShort>0.913</AccuracyShort>
                                 <AccuracyMedium>0.946</AccuracyMedium>
                                 <AccuracyLong>0.792</AccuracyLong>
-                                <RangedWeapon_Cooldown>0.66</RangedWeapon_Cooldown>
+                                <RangedWeapon_Cooldown>0.51</RangedWeapon_Cooldown>
                             </statBases>
                             <techLevel>Ultra</techLevel>
                             <weaponTags>
                                 <li>SpacerGun</li>
                                 <li>LaserGun</li>
                             </weaponTags>
+                            <techLevel>Ultra</techLevel>
+                            <tradeability>All</tradeability>
+                            <tradeTags>
+                                <li>SpacerGun</li>
+                            </tradeTags>
                             <generateCommonality>0.1</generateCommonality>
-                            <equippedStatOffsets>
-                            </equippedStatOffsets>
                             <verbs>
                                 <li>
                                     <verbClass>Verb_Shoot</verbClass>
@@ -76,7 +94,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>5.5</power>
+                                    <power>5.559</power>
                                     <cooldownTime>1.53</cooldownTime>
                                 </li>
                                 <li>
@@ -84,74 +102,60 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>6.6</power>
+                                    <power>6.612</power>
                                     <cooldownTime>1.615</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
-
-                        <ThingDef ParentName="VWEL_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
-                            <defName>VWEL_Bullet_LasRifle_Bond</defName>
-                            <label>las bolt</label>
-                            <description>A focused laser beam.</description>
-                            <textures>
-                                <li>Things/Projectile/Shot_Las</li>
-                            </textures>
-                            <seam>0</seam>
-                            <causefireChance>0.1</causefireChance>
-                            <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>18</damageAmountBase>
-                                <armorPenetrationBase>0.60</armorPenetrationBase>
-                                <stoppingPower>2</stoppingPower>
-                            </projectile>
-                        </ThingDef>
-
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_VWEL_Gun_M36LG_Bond</defName>
-                            <label>bond M36 Kantrael Pattern Lasgun</label>
-                            <description>Bond an M36 Kantrael Pattern Lasgun.</description>
-                            <jobString>Bonding a M36 Kantrael Pattern Lasgun.</jobString>
-                            <researchPrerequisite>Bound_Research</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>VWEL_Gun_M36LG</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>VWEL_Gun_M36LG</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <VWEL_Gun_M36LG_Bond>1</VWEL_Gun_M36LG_Bond>
-                            </products>
-                        </RecipeDef>
                     </value>
                 </li>
 
-                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                    <key>Daria40K_MightyPersonaBondForgePatch_VanillaWeaponsExpandedLaser_M36</key>
-                    <defaultValue>true</defaultValue>
-                    <caseFalse>
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VWEL_Gun_M36LG_Bond"]</xpath>
-                        </Operation>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VWEL_Bullet_LasRifle_Bond"]</xpath>
-                        </Operation>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- VWEL_Bullet_LasRifle_Bond -->
+                            <ThingDef ParentName="VWEL_Bullet_LasRifle_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                <defName>VWEL_Bullet_LasRifle_Bond</defName>
+                            </ThingDef>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_VWEL_Gun_M36LG_Bond"]</xpath>
-                        </Operation>
-                    </caseFalse>
+                            <!-- VWEL_Gun_M36LG_Bond -->
+                            <ThingDef ParentName="VWEL_Gun_M36LG_Bond">
+                                <defName>VWEL_Gun_M36LG_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_VanillaWeaponsExpandedLaserM36KantraelPatternLasgun</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- VWEL_Bullet_LasRifle_Bond -->
+                                            <ThingDef ParentName="VWEL_Bullet_LasRifle_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                                <defName>VWEL_Bullet_LasRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- VWEL_Gun_M36LG_Bond -->
+                                            <ThingDef ParentName="VWEL_Gun_M36LG_Bond">
+                                                <defName>VWEL_Gun_M36LG_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
                 </li>
             </operations>
         </match>

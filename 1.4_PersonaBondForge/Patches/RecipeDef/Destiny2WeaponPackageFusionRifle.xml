@@ -13,9 +13,7 @@
                 <li Class="PatchOperationAdd">
                     <xpath>Defs</xpath>
                     <value>
-                        <!-- FR_Jotunn_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_FR_Jotunn_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_FR_Jotunn_Bond" Abstract="True">
                             <label>bond Jötunn</label>
                             <description>Bond an Jötunn.</description>
                             <jobString>Bonding a Jötunn.</jobString>
@@ -40,9 +38,7 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- FR_Ingredient_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_FR_Ingredient_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_FR_Ingredient_Bond" Abstract="True">
                             <label>bond Main Ingredient</label>
                             <description>Bond an Main Ingredient.</description>
                             <jobString>Bonding a Main Ingredient.</jobString>
@@ -67,9 +63,7 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- FR_Dynamo_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_FR_Dynamo_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_FR_Dynamo_Bond" Abstract="True">
                             <label>bond Tempered Dynamo</label>
                             <description>Bond an Tempered Dynamo.</description>
                             <jobString>Bonding a Tempered Dynamo.</jobString>
@@ -96,24 +90,62 @@
                     </value>
                 </li>
 
-                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                    <key>Daria40K_MightyPersonaBondForgePatch_Destiny2WeaponPackageFusionRifle</key>
-                    <defaultValue>true</defaultValue>
-                    <caseFalse>
-                        <!-- FR_Jotunn -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_FR_Jotunn"]</xpath>
-                        </Operation>
-                        <!-- FR_Ingredient -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_FR_Ingredient"]</xpath>
-                        </Operation>
-                        <!-- FR_Dynamo -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_FR_Dynamo"]</xpath>
-                        </Operation>
-                    </caseFalse>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_FR_Jotunn_Bond -->
+                            <RecipeDef ParentName="Make_FR_Jotunn_Bond">
+                                <defName>Make_FR_Jotunn_Bond</defName>
+                            </RecipeDef>
+
+                            <!-- Make_FR_Ingredient_Bond -->
+                            <RecipeDef ParentName="Make_FR_Ingredient_Bond">
+                                <defName>Make_FR_Ingredient_Bond</defName>
+                            </RecipeDef>
+
+                            <!-- Make_FR_Dynamo_Bond -->
+                            <RecipeDef ParentName="Make_FR_Dynamo_Bond">
+                                <defName>Make_FR_Dynamo_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_Destiny2WeaponPackageFusionRifle</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_FR_Jotunn_Bond -->
+                                            <RecipeDef ParentName="Make_FR_Jotunn_Bond">
+                                                <defName>Make_FR_Jotunn_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_FR_Ingredient_Bond -->
+                                            <RecipeDef ParentName="Make_FR_Ingredient_Bond">
+                                                <defName>Make_FR_Ingredient_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_FR_Dynamo_Bond -->
+                                            <RecipeDef ParentName="Make_FR_Dynamo_Bond">
+                                                <defName>Make_FR_Dynamo_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
                 </li>
             </operations>
         </match>
