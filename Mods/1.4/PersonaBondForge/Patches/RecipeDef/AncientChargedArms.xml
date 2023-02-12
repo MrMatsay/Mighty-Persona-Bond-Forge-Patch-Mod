@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Ancient Charged Arms =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Ancient Charged Arms</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_AW_ChargeSMG_Bond" Abstract="True">
+                            <label>bond Ancient Charged PDW</label>
+                            <description>Bond an Ancient Charged PDW.</description>
+                            <jobString>Bonding a Ancient Charged PDW.</jobString>
+                            <researchPrerequisite>UltraMechtech</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AW_ChargeSMG</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>AW_ChargeSMG</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <AW_ChargeSMG_Bond>1</AW_ChargeSMG_Bond>
+                            </products>
+                        </RecipeDef>
+
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_AW_ChargeBR_Bond" Abstract="True">
+                            <label>bond Ancient Charged BR</label>
+                            <description>Bond an Ancient Charged BR.</description>
+                            <jobString>Bonding a Ancient Charged BR.</jobString>
+                            <researchPrerequisite>UltraMechtech</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AW_ChargeBR</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>AW_ChargeBR</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <AW_ChargeBR_Bond>1</AW_ChargeBR_Bond>
+                            </products>
+                        </RecipeDef>
+
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_AW_ChargeLMG_Bond" Abstract="True">
+                            <label>bond Ancient Charged HMG</label>
+                            <description>Bond an Ancient Charged HMG.</description>
+                            <jobString>Bonding a Ancient Charged HMG.</jobString>
+                            <researchPrerequisite>UltraMechtech</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AW_ChargeLMG</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>AW_ChargeLMG</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <AW_ChargeLMG_Bond>1</AW_ChargeLMG_Bond>
+                            </products>
+                        </RecipeDef>
+
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_AW_ChargeSR_Bond" Abstract="True">
+                            <label>bond Ancient Charged AMR</label>
+                            <description>Bond an Ancient Charged AMR.</description>
+                            <jobString>Bonding a Ancient Charged AMR.</jobString>
+                            <researchPrerequisite>UltraMechtech</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>AW_ChargeSR</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>AW_ChargeSR</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <AW_ChargeSR_Bond>1</AW_ChargeSR_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_AW_ChargeSMG_Bond -->
+                            <RecipeDef ParentName="Make_AW_ChargeSMG_Bond">
+                                <defName>Make_AW_ChargeSMG_Bond</defName>
+                            </RecipeDef>
+
+                            <!-- Make_AW_ChargeBR_Bond -->
+                            <RecipeDef ParentName="Make_AW_ChargeBR_Bond">
+                                <defName>Make_AW_ChargeBR_Bond</defName>
+                            </RecipeDef>
+
+                            <!-- Make_AW_ChargeLMG_Bond -->
+                            <RecipeDef ParentName="Make_AW_ChargeLMG_Bond">
+                                <defName>Make_AW_ChargeLMG_Bond</defName>
+                            </RecipeDef>
+
+                            <!-- Make_AW_ChargeSR_Bond -->
+                            <RecipeDef ParentName="Make_AW_ChargeSR_Bond">
+                                <defName>Make_AW_ChargeSR_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_AncientChargedArms</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_AW_ChargeSMG_Bond -->
+                                            <RecipeDef ParentName="Make_AW_ChargeSMG_Bond">
+                                                <defName>Make_AW_ChargeSMG_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_AW_ChargeBR_Bond -->
+                                            <RecipeDef ParentName="Make_AW_ChargeBR_Bond">
+                                                <defName>Make_AW_ChargeBR_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_AW_ChargeLMG_Bond -->
+                                            <RecipeDef ParentName="Make_AW_ChargeLMG_Bond">
+                                                <defName>Make_AW_ChargeLMG_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_AW_ChargeSR_Bond -->
+                                            <RecipeDef ParentName="Make_AW_ChargeSR_Bond">
+                                                <defName>Make_AW_ChargeSR_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
