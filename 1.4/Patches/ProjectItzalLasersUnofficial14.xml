@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Project Itzal - Lasers (Unofficial 1.4) =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Project Itzal - Lasers (Unofficial 1.4)</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="VWEL_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef" Name="Bullet_Laser_Combat_MG_Bond" Abstract="True">
+                            <label>unstable laser shot</label>
+                            <description>An unstable laser beam.</description>
+                            <textures>
+                                <li>Things/Projectile/Shot_SalvagedLaserRifle</li>
+                            </textures>
+                            <seam>0</seam>
+                            <causefireChance>0.15</causefireChance>
+
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>10</damageAmountBase>
+                                <armorPenetrationBase>0.51</armorPenetrationBase>
+                                <stoppingPower>1.25</stoppingPower>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseLaserGun" Name="Itzal_LaserCombatMG_Bond" Abstract="True">
+                            <thingClass>VanillaWeaponsExpandedLaser.LaserGun</thingClass>
+                            <label>persona Laser Combat MG</label>
+                            <description>A spacer laser machine gun capable of emitting a large amount of beams.\n\nBy using unefficient battery cells, this weapon is capable of quickly warming up, boosting the firing speed with each consecutive shot when standing still.\n\nThis weapon can overheat quickly when fully warmed up, resulting in a small battery explosion around the user.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>LaserLMG</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>VWE_Interact_UnstableLaserGun</soundInteract>
+                            <statBases>
+                                <MarketValue>2530.0</MarketValue>
+                                <Mass>5.3</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.825</AccuracyMedium>
+                                <AccuracyLong>0.627</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.125</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Ultra</techLevel>
+                            <weaponTags>
+                                <li>SalvagedLaserGun</li>
+                            </weaponTags>
+                            <generateCommonality>0.1</generateCommonality>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.25</MoveSpeed>                                <!-- drawback -->
+                            </equippedStatOffsets>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <label>Standard</label>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Laser_Combat_MG_Bond</defaultProjectile>
+                                    <warmupTime>1.913</warmupTime>
+                                    <range>27</range>
+                                    <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                                    <burstShotCount>7</burstShotCount>
+                                    <soundCast>VWE_UnstableLaserShot_Rifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="VanillaWeaponsExpandedLaser.CompProperties_LaserCapacitor">
+                                    <UiIconPath>UI/EnableWarmup/EnableWarmup</UiIconPath>
+                                    <WarmUpReductionPerShot>0.15</WarmUpReductionPerShot>
+                                    <Overheats>true</Overheats>
+                                    <OverheatDestroys>false</OverheatDestroys>
+                                    <OverheatBlastDamageDef>Burn</OverheatBlastDamageDef>
+                                    <OverheatBlastExtraDamage>4</OverheatBlastExtraDamage>
+                                    <OverheatBlastRadius>2.5</OverheatBlastRadius>
+                                    <OverheatChance>0.1</OverheatChance>
+                                    <OverheatMoteThrown>HeatGlow</OverheatMoteThrown>
+                                    <OverheatMoteSize>1</OverheatMoteSize>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>5.559</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>6.612</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_CombatLaserPistol_Bond" Abstract="True">
+                            <label>unstable laser pistol shot</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Shot_SalvagedLaserPistol</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>8</damageAmountBase>
+                                <armorPenetrationBase>0.50</armorPenetrationBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>85</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseLaserGun" Name="Itzal_LaserCombatPistol_Bond" Abstract="True">
+                            <thingClass>VanillaWeaponsExpandedLaser.LaserGun</thingClass>
+                            <label>persona Laser Combat Pistol</label>
+                            <description>A spacer laser pistol capable of emitting 3 unstable lasers at one time, like a mini shotgun.\n\nBy using unefficient battery cells, this weapon is capable of quickly warming up, boosting the firing speed with each consecutive shot when standing still.\n\nThis weapon can overheat quickly when fully warmed up, resulting in a small battery explosion around the user.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>LaserPistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>VWE_Interact_UnstableLaserGun</soundInteract>
+                            <statBases>
+                                <MarketValue>1842.5</MarketValue>
+                                <Mass>1.1</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.605</AccuracyShort>
+                                <AccuracyMedium>0.44</AccuracyMedium>
+                                <AccuracyLong>0.385</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.977</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Ultra</techLevel>
+                            <weaponTags>
+                                <li>SalvagedLaserGun</li>
+                            </weaponTags>
+                            <generateCommonality>0.1</generateCommonality>
+                            <equippedStatOffsets>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <label>Standard</label>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_CombatLaserPistol_Bond</defaultProjectile>
+                                    <warmupTime>1.7</warmupTime>
+                                    <range>16.9</range>
+                                    <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                                    <burstShotCount>3</burstShotCount>
+                                    <soundCast>VWE_UnstableLaserShot_Light</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="VanillaWeaponsExpandedLaser.CompProperties_LaserCapacitor">
+                                    <UiIconPath>UI/EnableWarmup/EnableWarmup</UiIconPath>
+                                    <WarmUpReductionPerShot>0.20</WarmUpReductionPerShot>
+                                    <Overheats>true</Overheats>
+                                    <OverheatDestroys>false</OverheatDestroys>
+                                    <OverheatBlastDamageDef>Burn</OverheatBlastDamageDef>
+                                    <OverheatBlastExtraDamage>4</OverheatBlastExtraDamage>
+                                    <OverheatBlastRadius>1</OverheatBlastRadius>
+                                    <OverheatChance>0.1</OverheatChance>
+                                    <OverheatMoteThrown>HeatGlow</OverheatMoteThrown>
+                                    <OverheatMoteSize>1</OverheatMoteSize>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>5.559</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>6.612</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="VWEL_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef" Name="Bullet_Laser_Combat_Rifle_Bond" Abstract="True">
+                            <label>unstable laser shot</label>
+                            <description>An unstable laser beam.</description>
+                            <textures>
+                                <li>Things/Projectile/Shot_SalvagedLaserRifle</li>
+                            </textures>
+                            <seam>0</seam>
+                            <causefireChance>0.15</causefireChance>
+
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.51</armorPenetrationBase>
+                                <stoppingPower>1.25</stoppingPower>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseLaserGun" Name="Itzal_LaserCombatRifle_Bond" Abstract="True">
+                            <thingClass>VanillaWeaponsExpandedLaser.LaserGun</thingClass>
+                            <label>persona Laser Combat Rifle</label>
+                            <description>A spacer assault rifle capable of emitting a quick burst of 2 unstable beams of light.\n\nBy using unefficient battery cells, this weapon is capable of quickly warming up, boosting the firing speed with each consecutive shot when standing still.\n\nThis weapon can overheat quickly when fully warmed up, resulting in a small battery explosion around the user.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>LaserCRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>VWE_Interact_UnstableLaserGun</soundInteract>
+                            <statBases>
+                                <MarketValue>2145.0</MarketValue>
+                                <Mass>2.6</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.825</AccuracyMedium>
+                                <AccuracyLong>0.627</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.51</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Ultra</techLevel>
+                            <weaponTags>
+                                <li>SalvagedLaserGun</li>
+                            </weaponTags>
+                            <generateCommonality>0.1</generateCommonality>
+                            <equippedStatOffsets>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <label>Standard</label>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Laser_Combat_Rifle_Bond</defaultProjectile>
+                                    <warmupTime>1.7</warmupTime>
+                                    <range>31</range>
+                                    <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                                    <burstShotCount>2</burstShotCount>
+                                    <soundCast>VWE_UnstableLaserShot_Rifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="VanillaWeaponsExpandedLaser.CompProperties_LaserCapacitor">
+                                    <UiIconPath>UI/EnableWarmup/EnableWarmup</UiIconPath>
+                                    <WarmUpReductionPerShot>0.25</WarmUpReductionPerShot>
+                                    <Overheats>true</Overheats>
+                                    <OverheatDestroys>false</OverheatDestroys>
+                                    <OverheatBlastDamageDef>Burn</OverheatBlastDamageDef>
+                                    <OverheatBlastExtraDamage>4</OverheatBlastExtraDamage>
+                                    <OverheatBlastRadius>1.5</OverheatBlastRadius>
+                                    <OverheatChance>0.1</OverheatChance>
+                                    <OverheatMoteThrown>HeatGlow</OverheatMoteThrown>
+                                    <OverheatMoteSize>1</OverheatMoteSize>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>5.559</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>6.612</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="VWEL_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef" Name="Bullet_CombatLaserSRifle_Bond" Abstract="True">
+                            <label>unstable laser shot</label>
+                            <description>An unstable laser beam.</description>
+                            <textures>
+                                <li>Things/Projectile/Shot_SalvagedLaserRifle</li>
+                            </textures>
+                            <seam>0</seam>
+                            <causefireChance>0.15</causefireChance>
+
+                            <projectile>
+                                <damageDef>Bullet</damageDef>
+                                <damageAmountBase>35</damageAmountBase>
+                                <armorPenetrationBase>0.56</armorPenetrationBase>
+                                <stoppingPower>1.5</stoppingPower>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseLaserGun" Name="Itzal_LaserCombatSniperRifle_Bond" Abstract="True">
+                            <thingClass>VanillaWeaponsExpandedLaser.LaserGun</thingClass>
+                            <label>persona Laser Combat Sniper Rifle</label>
+                            <description>A laser rifle capable of emitting a very focused beam of light with enough power to deal moderate damage over a long distance.\n\nBy using unefficient battery cells, this weapon is capable of quickly warming up, boosting the firing speed with each consecutive shot when standing still.\n\nThis weapon can overheat quickly when fully warmed up, resulting in a small battery explosion around the user.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>LaserSniper</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>VWE_Interact_UnstableLaserGun</soundInteract>
+                            <statBases>
+                                <MarketValue>2365.0</MarketValue>
+                                <Mass>4</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.77</AccuracyMedium>
+                                <AccuracyLong>0.88</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Ultra</techLevel>
+                            <weaponTags>
+                                <li>SalvagedLaserGun</li>
+                            </weaponTags>
+                            <generateCommonality>0.1</generateCommonality>
+                            <equippedStatOffsets>
+                            </equippedStatOffsets>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <label>Standard</label>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_CombatLaserSRifle_Bond</defaultProjectile>
+                                    <warmupTime>3.825</warmupTime>
+                                    <range>50</range>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>VWE_UnstableLaserShot_Rifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>17</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="VanillaWeaponsExpandedLaser.CompProperties_LaserCapacitor">
+                                    <UiIconPath>UI/EnableWarmup/EnableWarmup</UiIconPath>
+                                    <WarmUpReductionPerShot>0.30</WarmUpReductionPerShot>
+                                    <Overheats>true</Overheats>
+                                    <OverheatDestroys>false</OverheatDestroys>
+                                    <OverheatBlastDamageDef>Burn</OverheatBlastDamageDef>
+                                    <OverheatBlastExtraDamage>4</OverheatBlastExtraDamage>
+                                    <OverheatBlastRadius>1.5</OverheatBlastRadius>
+                                    <OverheatChance>0.1</OverheatChance>
+                                    <OverheatMoteThrown>HeatGlow</OverheatMoteThrown>
+                                    <OverheatMoteSize>1</OverheatMoteSize>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>5.559</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>6.612</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseLaserGun" Name="Itzal_PLaserRifle_Bond" Abstract="True">
+                            <thingClass>VanillaWeaponsExpandedLaser.LaserGun</thingClass>
+                            <label>persona Primed Assaulter</label>
+                            <description>An high-end ultratech assault rifle capable of emitting a concentrated beam of light with enough power to deal considerable damage over medium distance.\n\nBy using advanced battery cells, this weapon is capable of warming up, boosting the firing speed with each consecutive shot when standing still.\n\nThis weapon can overheat when fully warmed up, resulting in a small battery explosion around the user.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Soma</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>VWE_Interact_LaserGun</soundInteract>
+                            <statBases>
+                                <MarketValue>4400.0</MarketValue>
+                                <Mass>2.9</Mass>
+                                <AccuracyTouch>0.737</AccuracyTouch>
+                                <AccuracyShort>0.88</AccuracyShort>
+                                <AccuracyMedium>0.913</AccuracyMedium>
+                                <AccuracyLong>0.77</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.51</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Ultra</techLevel>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                                <li>LaserGun</li>
+                            </weaponTags>
+                            <generateCommonality>0.1</generateCommonality>
+                            <equippedStatOffsets>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <label>Standard</label>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>VWEL_Bullet_LaserRifle_Bond</defaultProjectile>
+                                    <warmupTime>1.7</warmupTime>
+                                    <range>35.9</range>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <burstShotCount>3</burstShotCount>
+                                    <soundCast>VWE_LaserShot_Rifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="VanillaWeaponsExpandedLaser.CompProperties_LaserCapacitor">
+                                    <UiIconPath>UI/EnableWarmup/EnableWarmup</UiIconPath>
+                                    <WarmUpReductionPerShot>0.225</WarmUpReductionPerShot>
+                                    <Overheats>true</Overheats>
+                                    <OverheatDestroys>false</OverheatDestroys>
+                                    <OverheatBlastDamageDef>Burn</OverheatBlastDamageDef>
+                                    <OverheatBlastExtraDamage>3</OverheatBlastExtraDamage>
+                                    <OverheatBlastRadius>1.5</OverheatBlastRadius>
+                                    <OverheatChance>0.05</OverheatChance>
+                                    <OverheatMoteThrown>HeatGlow</OverheatMoteThrown>
+                                    <OverheatMoteSize>0.5</OverheatMoteSize>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>5.559</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>6.612</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_PPR_Bond" Abstract="True">
+                            <label>laser pistol shot</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Shot_LaserPistol</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Burn</damageDef>
+                                <damageAmountBase>30</damageAmountBase>
+                                <armorPenetrationBase>0.75</armorPenetrationBase>
+                                <stoppingPower>0.75</stoppingPower>
+                                <speed>85</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseLaserGun" Name="Itzal_PLaserPistol_Bond" Abstract="True">
+                            <thingClass>VanillaWeaponsExpandedLaser.LaserGun</thingClass>
+                            <label>persona Primed Persuader</label>
+                            <description>An elegant ultratech pistol capable of emitting a concentrated beam of light with enough power to deal considerable damage.\n\nBy using advanced battery cells, this weapon is capable of warming up, boosting the firing speed with each consecutive shot when standing still.\n\nThis weapon can overheat when fully warmed up, resulting in a small battery explosion around the user.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Jagara</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>VWE_Interact_LaserGun</soundInteract>
+                            <statBases>
+                                <MarketValue>3300.0</MarketValue>
+                                <Mass>1.5</Mass>
+                                <AccuracyTouch>0.88</AccuracyTouch>
+                                <AccuracyShort>0.792</AccuracyShort>
+                                <AccuracyMedium>0.77</AccuracyMedium>
+                                <AccuracyLong>0.616</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.935</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Ultra</techLevel>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                                <li>LaserGun</li>
+                            </weaponTags>
+                            <generateCommonality>0.1</generateCommonality>
+                            <equippedStatOffsets>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <label>Standard</label>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_PPR_Bond</defaultProjectile>
+                                    <warmupTime>1.87</warmupTime>
+                                    <range>23.9</range>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>VWE_LaserShot_Light</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="VanillaWeaponsExpandedLaser.CompProperties_LaserCapacitor">
+                                    <UiIconPath>UI/EnableWarmup/EnableWarmup</UiIconPath>
+                                    <WarmUpReductionPerShot>0.30</WarmUpReductionPerShot>
+                                    <Overheats>true</Overheats>
+                                    <OverheatDestroys>false</OverheatDestroys>
+                                    <OverheatBlastDamageDef>Burn</OverheatBlastDamageDef>
+                                    <OverheatBlastExtraDamage>2</OverheatBlastExtraDamage>
+                                    <OverheatBlastRadius>1</OverheatBlastRadius>
+                                    <OverheatChance>0.05</OverheatChance>
+                                    <OverheatMoteThrown>HeatGlow</OverheatMoteThrown>
+                                    <OverheatMoteSize>1</OverheatMoteSize>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>5.559</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>6.612</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="VWEL_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef" Name="Bullet_PLaserSniperRifle_Bond" Abstract="True">
+                            <label>precise laser shot</label>
+                            <description>A focused, long range laser beam.</description>
+                            <textures>
+                                <li>Things/Projectile/Shot_LaserSniperRifle</li>
+                            </textures>
+                            <seam>0.1</seam>
+                            <causefireChance>0.2</causefireChance>
+                            <beamWidth>1.5</beamWidth>
+                            <lifetime>120</lifetime>
+                            <projectile>
+                                <damageDef>Burn</damageDef>
+                                <damageAmountBase>46</damageAmountBase>
+                                <armorPenetrationBase>3</armorPenetrationBase>
+                                <stoppingPower>3</stoppingPower>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseLaserGun" Name="Itzal_PLaserSniper_Bond" Abstract="True">
+                            <thingClass>VanillaWeaponsExpandedLaser.LaserGun</thingClass>
+                            <label>persona Primed Sharpshooter</label>
+                            <description>An ultratech sniper rifle capable of emitting a concentrated, armor piercing beam of light with enough power to deal considerable damage over long range.\n\nBy using advanced battery cells, this weapon is capable of warming up, boosting the firing speed with each consecutive shot when standing still.\n\nThis weapon can overheat when fully warmed up, resulting in a small battery explosion around the user.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Veldt</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>VWE_Interact_LaserGun</soundInteract>
+                            <statBases>
+                                <MarketValue>4950.0</MarketValue>
+                                <Mass>3.6</Mass>
+                                <AccuracyTouch>0.737</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>1.045</AccuracyMedium>
+                                <AccuracyLong>1.056</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.72</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Ultra</techLevel>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                                <li>LaserGun</li>
+                            </weaponTags>
+                            <generateCommonality>0.1</generateCommonality>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.10</MoveSpeed>                                <!-- drawback -->
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <label>Standard</label>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_PLaserSniperRifle_Bond</defaultProjectile>
+                                    <warmupTime>2.72</warmupTime>
+                                    <range>53.9</range>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>VWE_LaserShot_Heavy</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="VanillaWeaponsExpandedLaser.CompProperties_LaserCapacitor">
+                                    <UiIconPath>UI/EnableWarmup/EnableWarmup</UiIconPath>
+                                    <WarmUpReductionPerShot>1.8</WarmUpReductionPerShot>
+                                    <Overheats>true</Overheats>
+                                    <OverheatDestroys>false</OverheatDestroys>
+                                    <OverheatBlastDamageDef>Burn</OverheatBlastDamageDef>
+                                    <OverheatBlastExtraDamage>6</OverheatBlastExtraDamage>
+                                    <OverheatBlastRadius>1.5</OverheatBlastRadius>
+                                    <OverheatChance>0.06</OverheatChance>
+                                    <OverheatMoteThrown>HeatGlow</OverheatMoteThrown>
+                                    <OverheatMoteSize>1</OverheatMoteSize>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>5.559</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>6.612</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="VWEL_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef" Name="Bullet_PSup_Bond" Abstract="True">
+                            <label>laser shot</label>
+                            <description>A focused laser beam.</description>
+                            <textures>
+                                <li>Things/Projectile/Shot_LaserRifle</li>
+                            </textures>
+                            <seam>0</seam>
+                            <causefireChance>0.1</causefireChance>
+
+                            <projectile>
+                                <damageDef>Burn</damageDef>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.57</armorPenetrationBase>
+                                <stoppingPower>1.4</stoppingPower>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseLaserGun" Name="Itzal_PSup_Bond" Abstract="True">
+                            <thingClass>VanillaWeaponsExpandedLaser.LaserGun</thingClass>
+                            <label>persona Primed Suppressor</label>
+                            <description>An high-end ultratech assault rifle capable of emitting multiple concentrated beams of light with enough power to deal considerable damage over medium distance.\n\nBy using advanced battery cells, this weapon is capable of warming up, boosting the firing speed with each consecutive shot when standing still.\n\nThis weapon can overheat when fully warmed up, resulting in a small battery explosion around the user.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Stradavar</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>VWE_Interact_LaserGun</soundInteract>
+                            <statBases>
+                                <MarketValue>4675.0</MarketValue>
+                                <Mass>3.3</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.836</AccuracyMedium>
+                                <AccuracyLong>0.737</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.637</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Ultra</techLevel>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                                <li>LaserGun</li>
+                            </weaponTags>
+                            <generateCommonality>0.1</generateCommonality>
+                            <equippedStatOffsets>
+                            </equippedStatOffsets>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <label>Standard</label>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_PSup_Bond</defaultProjectile>
+                                    <warmupTime>1.913</warmupTime>
+                                    <range>33.9</range>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <burstShotCount>5</burstShotCount>
+                                    <soundCast>VWE_LaserShot_Rifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="VanillaWeaponsExpandedLaser.CompProperties_LaserCapacitor">
+                                    <UiIconPath>UI/EnableWarmup/EnableWarmup</UiIconPath>
+                                    <WarmUpReductionPerShot>0.225</WarmUpReductionPerShot>
+                                    <Overheats>true</Overheats>
+                                    <OverheatDestroys>false</OverheatDestroys>
+                                    <OverheatBlastDamageDef>Burn</OverheatBlastDamageDef>
+                                    <OverheatBlastExtraDamage>3</OverheatBlastExtraDamage>
+                                    <OverheatBlastRadius>1.5</OverheatBlastRadius>
+                                    <OverheatChance>0.05</OverheatChance>
+                                    <OverheatMoteThrown>HeatGlow</OverheatMoteThrown>
+                                    <OverheatMoteSize>0.5</OverheatMoteSize>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>5.559</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>6.612</power>
+                                    <cooldownTime>1.615</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Bullet_Laser_Combat_MG_Bond -->
+                            <ThingDef ParentName="Bullet_Laser_Combat_MG_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                <defName>Bullet_Laser_Combat_MG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Itzal_LaserCombatMG_Bond -->
+                            <ThingDef ParentName="Itzal_LaserCombatMG_Bond">
+                                <defName>Itzal_LaserCombatMG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_CombatLaserPistol_Bond -->
+                            <ThingDef ParentName="Bullet_CombatLaserPistol_Bond">
+                                <defName>Bullet_CombatLaserPistol_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Itzal_LaserCombatPistol_Bond -->
+                            <ThingDef ParentName="Itzal_LaserCombatPistol_Bond">
+                                <defName>Itzal_LaserCombatPistol_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_Laser_Combat_Rifle_Bond -->
+                            <ThingDef ParentName="Bullet_Laser_Combat_Rifle_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                <defName>Bullet_Laser_Combat_Rifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Itzal_LaserCombatRifle_Bond -->
+                            <ThingDef ParentName="Itzal_LaserCombatRifle_Bond">
+                                <defName>Itzal_LaserCombatRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_CombatLaserSRifle_Bond -->
+                            <ThingDef ParentName="Bullet_CombatLaserSRifle_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                <defName>Bullet_CombatLaserSRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Itzal_LaserCombatSniperRifle_Bond -->
+                            <ThingDef ParentName="Itzal_LaserCombatSniperRifle_Bond">
+                                <defName>Itzal_LaserCombatSniperRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Itzal_PLaserRifle_Bond -->
+                            <ThingDef ParentName="Itzal_PLaserRifle_Bond">
+                                <defName>Itzal_PLaserRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_PPR_Bond -->
+                            <ThingDef ParentName="Bullet_PPR_Bond">
+                                <defName>Bullet_PPR_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Itzal_PLaserPistol_Bond -->
+                            <ThingDef ParentName="Itzal_PLaserPistol_Bond">
+                                <defName>Itzal_PLaserPistol_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_PLaserSniperRifle_Bond -->
+                            <ThingDef ParentName="Bullet_PLaserSniperRifle_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                <defName>Bullet_PLaserSniperRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Itzal_PLaserSniper_Bond -->
+                            <ThingDef ParentName="Itzal_PLaserSniper_Bond">
+                                <defName>Itzal_PLaserSniper_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_PSup_Bond -->
+                            <ThingDef ParentName="Bullet_PSup_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                <defName>Bullet_PSup_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Itzal_PSup_Bond -->
+                            <ThingDef ParentName="Itzal_PSup_Bond">
+                                <defName>Itzal_PSup_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_ProjectItzalLasersUnofficial14</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Bullet_Laser_Combat_MG_Bond -->
+                                            <ThingDef ParentName="Bullet_Laser_Combat_MG_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                                <defName>Bullet_Laser_Combat_MG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Itzal_LaserCombatMG_Bond -->
+                                            <ThingDef ParentName="Itzal_LaserCombatMG_Bond">
+                                                <defName>Itzal_LaserCombatMG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_CombatLaserPistol_Bond -->
+                                            <ThingDef ParentName="Bullet_CombatLaserPistol_Bond">
+                                                <defName>Bullet_CombatLaserPistol_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Itzal_LaserCombatPistol_Bond -->
+                                            <ThingDef ParentName="Itzal_LaserCombatPistol_Bond">
+                                                <defName>Itzal_LaserCombatPistol_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_Laser_Combat_Rifle_Bond -->
+                                            <ThingDef ParentName="Bullet_Laser_Combat_Rifle_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                                <defName>Bullet_Laser_Combat_Rifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Itzal_LaserCombatRifle_Bond -->
+                                            <ThingDef ParentName="Itzal_LaserCombatRifle_Bond">
+                                                <defName>Itzal_LaserCombatRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_CombatLaserSRifle_Bond -->
+                                            <ThingDef ParentName="Bullet_CombatLaserSRifle_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                                <defName>Bullet_CombatLaserSRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Itzal_LaserCombatSniperRifle_Bond -->
+                                            <ThingDef ParentName="Itzal_LaserCombatSniperRifle_Bond">
+                                                <defName>Itzal_LaserCombatSniperRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Itzal_PLaserRifle_Bond -->
+                                            <ThingDef ParentName="Itzal_PLaserRifle_Bond">
+                                                <defName>Itzal_PLaserRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_PPR_Bond -->
+                                            <ThingDef ParentName="Bullet_PPR_Bond">
+                                                <defName>Bullet_PPR_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Itzal_PLaserPistol_Bond -->
+                                            <ThingDef ParentName="Itzal_PLaserPistol_Bond">
+                                                <defName>Itzal_PLaserPistol_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_PLaserSniperRifle_Bond -->
+                                            <ThingDef ParentName="Bullet_PLaserSniperRifle_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                                <defName>Bullet_PLaserSniperRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Itzal_PLaserSniper_Bond -->
+                                            <ThingDef ParentName="Itzal_PLaserSniper_Bond">
+                                                <defName>Itzal_PLaserSniper_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_PSup_Bond -->
+                                            <ThingDef ParentName="Bullet_PSup_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                                <defName>Bullet_PSup_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Itzal_PSup_Bond -->
+                                            <ThingDef ParentName="Itzal_PSup_Bond">
+                                                <defName>Itzal_PSup_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

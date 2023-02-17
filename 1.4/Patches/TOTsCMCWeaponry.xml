@@ -1,0 +1,3180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== TOT's CMC Weaponry =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>TOT's CMC Weaponry</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef Name="MPBFPM_TOT_Weapons" ParentName="MPBFPM_BaseMakeableGun" Abstract="True">
+                            <thingCategories>
+                                <li>TOT_Weapons_Cat</li>
+                            </thingCategories>
+                        </ThingDef>
+
+                        <ThingDef Name="MPBFPM_CMCR_Weapons" ParentName="MPBFPM_BaseMakeableGun" Abstract="True">
+                            <thingCategories>
+                                <li>CMCR_Weapon_Cat</li>
+                            </thingCategories>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="HJX_Bond" Abstract="True">
+                            <label>persona HJ-41 missile launcher</label>
+                            <description>An individual anti-tank missile launcher, equipped with HJ-41 missile.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Things/Weapons/HJX</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.4,1.4)</drawSize>
+                            </graphicData>
+                            <destroyOnDrop>False</destroyOnDrop>
+                            <tradeTags>
+                                <li>WeaponRanged</li>
+                            </tradeTags>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>Spacer</li>
+                            </weaponTags>
+                            <statBases>
+                                <AccuracyTouch>1.078</AccuracyTouch>
+                                <AccuracyShort>1.012</AccuracyShort>
+                                <AccuracyMedium>1.056</AccuracyMedium>
+                                <AccuracyLong>1.045</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.975</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0.9</DeteriorationRate>
+                                <Mass>15</Mass>
+                                <Flammability>0.9</Flammability>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <warmupTime>4.25</warmupTime>
+                                    <defaultProjectile>Missile_ML_Bond</defaultProjectile>
+                                    <forcedMissRadius>1.9</forcedMissRadius>
+                                    <range>49.9</range>
+                                    <burstShotCount>1</burstShotCount>
+                                    <minRange>5.9</minRange>
+                                    <targetParams>
+                                        <canTargetPawns>true</canTargetPawns>
+                                        <canTargetLocations>true</canTargetLocations>
+                                        <canTargetBuildings>true</canTargetBuildings>
+                                    </targetParams>
+                                    <soundCast>RocketswarmLauncher_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>24</muzzleFlashScale>
+                                    <soundAiming>HellsphereCannon_Aiming</soundAiming>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>15.968</power>
+                                    <cooldownTime>1.36</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" MayRequire="Ludeon.RimWorld.Biotech" Name="QLUX_Pulse_Projector_Bond" Abstract="True">
+                            <label>persona &lt;color=#FF0000&gt;&lt;i&gt;QLUX Pulse Projector&lt;/i&gt;&lt;/color&gt;</label>
+                            <description>Named after Zhu Rong, the god for its devastating power, QLU-X is a powerful pulse projector used by PLA in 2080s.Due to its high accuracy and long range of fire, QLU-X is able to easily suppress enemy battle positions, bunkers and slower targets. It must hold a bead on its target for several seconds while charging, before it releases a devastating tsunami of power. The explosion is capable of melting concrete in its blast radius. The heat of the explosion will ignite anything nearby. It cannot fire at close-up targets to prevent friendly fire.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Things/Weapons/QLUX</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.5,1.5)</drawSize>
+                            </graphicData>
+                            <destroyOnDrop>False</destroyOnDrop>
+                            <statBases>
+                                <MarketValue>5940.0</MarketValue>
+                                <Mass>13.5</Mass>
+                                <AccuracyTouch>1.1</AccuracyTouch>
+                                <AccuracyShort>0.99</AccuracyShort>
+                                <AccuracyMedium>0.902</AccuracyMedium>
+                                <AccuracyLong>0.88</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.975</RangedWeapon_Cooldown>
+                            </statBases>
+                            <tradeTags>
+                                <li>WeaponRanged</li>
+                            </tradeTags>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>QLU_X</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Projectile_QLUX_Bond</defaultProjectile>
+                                    <warmupTime>1.105</warmupTime>
+                                    <range>65</range>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>Sound_Cannon</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <ai_AvoidFriendlyFireRadius>9</ai_AvoidFriendlyFireRadius>
+                                    <minRange>11.9</minRange>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                        <canTargetPawns>true</canTargetPawns>
+                                    </targetParams>
+                                    <canGoWild>false</canGoWild>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="WeaponUtility.CompProperties_SecondaryVerb">
+                                    <verbProps>
+                                        <verbClass>Verb_Shoot</verbClass>
+                                        <hasStandardCommand>true</hasStandardCommand>
+                                        <defaultProjectile>Bullet_HellsphereCannonGun</defaultProjectile>
+                                        <warmupTime>2.5</warmupTime>
+                                        <range>28.9</range>
+                                        <soundCast>Shot_HellsphereCannonGun</soundCast>
+                                        <soundCastTail>GunTail_Heavy</soundCastTail>
+                                        <muzzleFlashScale>29</muzzleFlashScale>
+                                        <minRange>6.9</minRange>
+                                        <targetParams>
+                                            <canTargetLocations>true</canTargetLocations>
+                                            <canTargetPawns>false</canTargetPawns>
+                                        </targetParams>
+                                        <onlyManualCast>true</onlyManualCast>
+                                        <aimingLineMote>Mote_HellsphereCannon_Aim</aimingLineMote>
+                                        <aimingChargeMote>Mote_HellsphereCannon_Charge</aimingChargeMote>
+                                        <aimingChargeMoteOffset>1.07</aimingChargeMoteOffset>
+                                        <aimingLineMoteFixedLength>15.9</aimingLineMoteFixedLength>
+                                        <aimingTargetMote>Mote_HellsphereCannon_Target</aimingTargetMote>
+                                        <burstShotCount>1</burstShotCount>
+                                        <beamTargetsGround>true</beamTargetsGround>
+                                        <soundAiming>HellsphereCannon_Aiming</soundAiming>
+                                        <canGoWild>false</canGoWild>
+                                    </verbProps>
+                                    <mainWeaponLabel>Sniper Mode</mainWeaponLabel>
+                                    <mainCommandIcon>UI/UI_Sniper</mainCommandIcon>
+                                    <secondaryWeaponLabel>Pulse Mode</secondaryWeaponLabel>
+                                    <secondaryCommandIcon>UI/UI_Missile</secondaryCommandIcon>
+                                    <description>Mode switch</description>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>5.559</power>
+                                    <cooldownTime>1.36</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="ISRL_Bond" Abstract="True">
+                            <label>persona individual swarm rocket launcher</label>
+                            <description>An individual six-barrel rocket launcher, equipped with 40mm HE rockets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Things/Weapons/HRL</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.4,1.4)</drawSize>
+                            </graphicData>
+                            <tradeTags>
+                                <li>WeaponRanged</li>
+                            </tradeTags>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>Spacer</li>
+                            </weaponTags>
+                            <statBases>
+                                <AccuracyTouch>1.078</AccuracyTouch>
+                                <AccuracyShort>1.012</AccuracyShort>
+                                <AccuracyMedium>0.836</AccuracyMedium>
+                                <AccuracyLong>0.935</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.975</RangedWeapon_Cooldown>
+                                <DeteriorationRate>0.9</DeteriorationRate>
+                                <Mass>18.5</Mass>
+                                <Flammability>1</Flammability>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <warmupTime>4.25</warmupTime>
+                                    <defaultProjectile>HJX_Rocket_Bond</defaultProjectile>
+                                    <forcedMissRadius>1.9</forcedMissRadius>
+                                    <range>34.9</range>
+                                    <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+                                    <burstShotCount>6</burstShotCount>
+                                    <minRange>5.9</minRange>
+                                    <targetParams>
+                                        <canTargetPawns>true</canTargetPawns>
+                                        <canTargetLocations>true</canTargetLocations>
+                                        <canTargetBuildings>true</canTargetBuildings>
+                                    </targetParams>
+                                    <soundCast>RocketswarmLauncher_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>24</muzzleFlashScale>
+                                    <soundAiming>HellsphereCannon_Aiming</soundAiming>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>15.968</power>
+                                    <cooldownTime>1.36</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="PLP_Bond" Abstract="True">
+                            <label>persona &lt;color=#1DD5EE&gt;&lt;i&gt;QSZL-79 pulse laser pistol&lt;/i&gt;&lt;/color&gt;</label>
+                            <description>A prototype laser pistol, it can cause lethal damage to enemy at short range at high accuracy regardless of users' shooting skill, but it is unable to damage buildings.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/PLpistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>0.8</drawSize>
+                            </graphicData>
+                            <uiIconScale>1</uiIconScale>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>MYDE_Share_L.Verb_Laser_Once</verbClass>
+                                    <defaultProjectile>Bullet_SniperRifle_Bond</defaultProjectile>
+                                    <stunTargetOnCastStart>false</stunTargetOnCastStart>
+                                    <meleeArmorPenetrationBase>2</meleeArmorPenetrationBase>
+                                    <sprayNumExtraCells>2</sprayNumExtraCells>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <range>18</range>
+                                    <!--这个是预热时间-->
+                                    <warmupTime>0.17</warmupTime>
+                                    <!--这个是造成伤害的数值-->
+                                    <burstShotCount>9</burstShotCount>
+                                    <!--这个是造成伤害类型-->
+                                    <meleeDamageDef>InfernoBeam</meleeDamageDef>
+                                    <!--这个是穿甲-->
+                                    <muzzleFlashScale>0.8</muzzleFlashScale>
+                                    <!--这个是特效的Defname-->
+                                    <spawnDef>MYDE_FlashingOfSwordEffectii</spawnDef>
+                                    <soundCast>PL</soundCast>
+                                    <targetParams>
+                                        <canTargetBuildings>true</canTargetBuildings>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>7.661</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>7.661</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Flame</def>
+                                            <amount>10</amount>
+                                            <chance>0.6</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="PLR_Bond" Abstract="True">
+                            <label>persona &lt;color=#1DD5EE&gt;&lt;i&gt;QBZL-801 pulse laser Rifle&lt;/i&gt;&lt;/color&gt;</label>
+                            <description>A prototype laser rifle which can cause lethal damage to enemy at medium range at high accuracy regardless of users' shooting skill, but it is unable to damage buildings.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/PLrifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.2</drawSize>
+                            </graphicData>
+                            <uiIconScale>1</uiIconScale>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>5.5</Mass>
+                                <RangedWeapon_Cooldown>0.34</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>MYDE_Share_L.Verb_Laser_Once</verbClass>
+                                    <defaultProjectile>Bullet_SniperRifle_Bond</defaultProjectile>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <stunTargetOnCastStart>false</stunTargetOnCastStart>
+                                    <meleeArmorPenetrationBase>2</meleeArmorPenetrationBase>
+                                    <sprayNumExtraCells>4</sprayNumExtraCells>
+                                    <range>38</range>
+                                    <!--这个是预热时间-->
+                                    <warmupTime>0.34</warmupTime>
+                                    <!--这个是造成伤害的数值-->
+                                    <burstShotCount>12</burstShotCount>
+                                    <!--这个是造成伤害类型-->
+                                    <meleeDamageDef>InfernoBeam</meleeDamageDef>
+                                    <!--这个是穿甲-->
+                                    <muzzleFlashScale>1.2</muzzleFlashScale>
+                                    <!--这个是特效的Defname-->
+                                    <soundCast>PL</soundCast>
+                                    <spawnDef>MYDE_FlashingOfSwordEffectii</spawnDef>
+                                    <targetParams>
+                                        <canTargetBuildings>true</canTargetBuildings>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>7.661</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>7.661</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Flame</def>
+                                            <amount>10</amount>
+                                            <chance>0.6</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="PLS_Bond" Abstract="True">
+                            <label>persona &lt;color=#1DD5EE&gt;&lt;i&gt;QBUL-801 pulse laser Sniper&lt;/i&gt;&lt;/color&gt;</label>
+                            <description>A prototype laser sniper which can cause lethal damage to enemy at long range at high accuracy regardless of users' shooting skill, but it is unable to damage buildings.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/PLsniper</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.3</drawSize>
+                            </graphicData>
+                            <uiIconScale>1</uiIconScale>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>5.5</Mass>
+                                <RangedWeapon_Cooldown>0.68</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>MYDE_Share_L.Verb_Laser_Once</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_SniperRifle_Bond</defaultProjectile>
+                                    <stunTargetOnCastStart>false</stunTargetOnCastStart>
+                                    <meleeArmorPenetrationBase>3</meleeArmorPenetrationBase>
+                                    <sprayNumExtraCells>2</sprayNumExtraCells>
+                                    <range>49.9</range>
+                                    <!--这个是预热时间-->
+                                    <warmupTime>0.68</warmupTime>
+                                    <!--这个是造成伤害的数值-->
+                                    <burstShotCount>25</burstShotCount>
+                                    <!--这个是造成伤害类型-->
+                                    <meleeDamageDef>InfernoBeam</meleeDamageDef>
+                                    <!--这个是穿甲-->
+                                    <muzzleFlashScale>1.5</muzzleFlashScale>
+                                    <soundCast>PL</soundCast>
+                                    <!--这个是特效的Defname-->
+                                    <spawnDef>MYDE_FlashingOfSwordEffectii</spawnDef>
+                                    <targetParams>
+                                        <canTargetBuildings>true</canTargetBuildings>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>18.031</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>11.829</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Flame</def>
+                                            <amount>10</amount>
+                                            <chance>0.6</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="PLSMG_Bond" Abstract="True">
+                            <label>persona &lt;color=#1DD5EE&gt;&lt;i&gt;QBZL-79 pulse laser SMG&lt;/i&gt;&lt;/color&gt;</label>
+                            <description>A prototype laser SMG\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/PLSMG</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1</drawSize>
+                            </graphicData>
+                            <uiIconScale>1</uiIconScale>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>4.5</Mass>
+                                <RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>MYDE_Share_L.Verb_Laser_Once</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_SniperRifle_Bond</defaultProjectile>
+                                    <stunTargetOnCastStart>false</stunTargetOnCastStart>
+                                    <meleeArmorPenetrationBase>2</meleeArmorPenetrationBase>
+                                    <sprayNumExtraCells>4</sprayNumExtraCells>
+                                    <range>24.9</range>
+                                    <!--这个是预热时间-->
+                                    <warmupTime>0.17</warmupTime>
+                                    <!--这个是造成伤害的数值-->
+                                    <burstShotCount>16</burstShotCount>
+                                    <!--这个是造成伤害类型-->
+                                    <meleeDamageDef>InfernoBeam</meleeDamageDef>
+                                    <!--这个是穿甲-->
+                                    <muzzleFlashScale>1.2</muzzleFlashScale>
+                                    <soundCast>PL</soundCast>
+                                    <!--这个是特效的Defname-->
+                                    <spawnDef>MYDE_FlashingOfSwordEffectii</spawnDef>
+                                    <targetParams>
+                                        <canTargetBuildings>true</canTargetBuildings>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>11.829</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>10.791</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Flame</def>
+                                            <amount>10</amount>
+                                            <chance>0.6</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="PLM_Bond" Abstract="True">
+                            <label>persona &lt;color=#1DD5EE&gt;&lt;i&gt;QBBL-802 pulse laser LMG&lt;/i&gt;&lt;/color&gt;</label>
+                            <description>A powerful prototype laser LMG\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/PLminigun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.3</drawSize>
+                            </graphicData>
+                            <uiIconScale>1</uiIconScale>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>6.5</Mass>
+                                <RangedWeapon_Cooldown>0.17</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>MYDE_Share_L.Verb_Laser_Once</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_SniperRifle_Bond</defaultProjectile>
+                                    <stunTargetOnCastStart>false</stunTargetOnCastStart>
+                                    <meleeArmorPenetrationBase>3</meleeArmorPenetrationBase>
+                                    <sprayNumExtraCells>5</sprayNumExtraCells>
+                                    <range>37.9</range>
+                                    <!--这个是预热时间-->
+                                    <warmupTime>0.17</warmupTime>
+                                    <!--这个是造成伤害的数值-->
+                                    <burstShotCount>12</burstShotCount>
+                                    <!--这个是造成伤害类型-->
+                                    <meleeDamageDef>InfernoBeam</meleeDamageDef>
+                                    <!--这个是穿甲-->
+                                    <muzzleFlashScale>1.2</muzzleFlashScale>
+                                    <!--这个是特效的Defname-->
+                                    <spawnDef>MYDE_FlashingOfSwordEffectii</spawnDef>
+                                    <soundCast>PL</soundCast>
+                                    <targetParams>
+                                        <canTargetBuildings>true</canTargetBuildings>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.901</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>11.829</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Flame</def>
+                                            <amount>10</amount>
+                                            <chance>0.6</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="SLR_Bond" Abstract="True">
+                            <label>persona QBZL-55 shaped laser rifle</label>
+                            <description>First generation of laser rifle, its aiming system ensures that its gamma laser beam can always hit target. It takes time to cause damage.Unable to damage buildings.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/SLR</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.2</drawSize>
+                            </graphicData>
+                            <uiIconScale>1</uiIconScale>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <!--这个是RGB的R-->
+                                <AccuracyShort>280.5</AccuracyShort>
+                                <!--这个是RGB的G-->
+                                <AccuracyMedium>168.3</AccuracyMedium>
+                                <!--这个是RGB的B-->
+                                <AccuracyLong>0.0</AccuracyLong>
+                                <Mass>5</Mass>
+                                <RangedWeapon_Cooldown>0.255</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>MYDE_Share_L.Verb_Laser_Stay</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_SniperRifle_Bond</defaultProjectile>
+                                    <range>40</range>
+                                    <!--这个是持续时间-->
+                                    <warmupTime>4.25</warmupTime>
+                                    <!--这个是造成伤害的间隔-->
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <!--这个是造成伤害的数值-->
+                                    <burstShotCount>8</burstShotCount>
+                                    <!--这个是造成伤害类型-->
+                                    <meleeDamageDef>InfernoBeam</meleeDamageDef>
+                                    <!--这个是穿甲-->
+                                    <muzzleFlashScale>1</muzzleFlashScale>
+                                    <soundCast>SL</soundCast>
+                                    <targetParams>
+                                        <canTargetBuildings>true</canTargetBuildings>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Flame</def>
+                                            <amount>10</amount>
+                                            <chance>0.6</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="SLS_Bond" Abstract="True">
+                            <label>persona QBUL-56 shaped laser sniper</label>
+                            <description>First generation of laser sniper, its aiming system ensures that its gamma laser beam can always hit target. It takes time to cause damage. Unable to damage buildings.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/SLS</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.3</drawSize>
+                            </graphicData>
+                            <uiIconScale>1</uiIconScale>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <!--这个是RGB的R-->
+                                <AccuracyShort>280.5</AccuracyShort>
+                                <!--这个是RGB的G-->
+                                <AccuracyMedium>168.3</AccuracyMedium>
+                                <!--这个是RGB的B-->
+                                <AccuracyLong>0.0</AccuracyLong>
+                                <Mass>6.5</Mass>
+                                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>MYDE_Share_L.Verb_Laser_Stay</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_SniperRifle_Bond</defaultProjectile>
+                                    <range>60</range>
+                                    <!--这个是持续时间-->
+                                    <warmupTime>2.55</warmupTime>
+                                    <!--这个是造成伤害的间隔-->
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <!--这个是造成伤害的数值-->
+                                    <burstShotCount>12</burstShotCount>
+                                    <!--这个是造成伤害类型-->
+                                    <meleeDamageDef>InfernoBeam</meleeDamageDef>
+                                    <!--这个是穿甲-->
+                                    <muzzleFlashScale>1</muzzleFlashScale>
+                                    <soundCast>SL</soundCast>
+                                    <targetParams>
+                                        <canTargetBuildings>true</canTargetBuildings>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Flame</def>
+                                            <amount>10</amount>
+                                            <chance>0.6</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="TT_Bond" Abstract="True">
+                            <label>persona &lt;color=#FF0000&gt;&lt;i&gt;QBZL-822 TaoTie inferno lance&lt;/i&gt;&lt;/color&gt;</label>
+                            <description>A powerful prototype rifle, which fires large focused beams of highly energized particles and cause massive damage. It is extremely effective against armored targets at close range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/TaoTie</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>1.1</drawSize>
+                            </graphicData>
+                            <uiIconScale>1</uiIconScale>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MarketValue>6490.0</MarketValue>
+                                <Mass>11.5</Mass>
+                                <RangedWeapon_Cooldown>0.68</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>MYDE_Share_L.Verb_Laser_Once</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_SniperRifle_Bond</defaultProjectile>
+                                    <stunTargetOnCastStart>true</stunTargetOnCastStart>
+                                    <meleeArmorPenetrationBase>5</meleeArmorPenetrationBase>
+                                    <sprayNumExtraCells>4</sprayNumExtraCells>
+                                    <range>34.9</range>
+                                    <!--这个是预热时间-->
+                                    <warmupTime>0.17</warmupTime>
+                                    <!--这个是造成伤害的数值-->
+                                    <burstShotCount>38</burstShotCount>
+                                    <!--这个是造成伤害类型-->
+                                    <meleeDamageDef>InfernoBeam</meleeDamageDef>
+                                    <!--这个是穿甲-->
+                                    <muzzleFlashScale>2</muzzleFlashScale>
+                                    <!--这个是特效的Defname-->
+                                    <spawnDef>MYDE_FlashingOfSwordEffectiii</spawnDef>
+                                    <soundCast>TT</soundCast>
+                                    <targetParams>
+                                        <canTargetBuildings>true</canTargetBuildings>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>24.199</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Flame</def>
+                                            <amount>30</amount>
+                                            <chance>0.9</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon" Name="EMPsword_Bond" Abstract="True">
+                            <label>persona EMPsword</label>
+                            <description>A ultra tech sword designed to stun Mechanoids with its EMP generator\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <soundInteract>Interact_MonoSword</soundInteract>
+                            <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+                            <techLevel>Ultra</techLevel>
+                            <statBases>
+                                <MarketValue>1650.0</MarketValue>
+                                <Mass>2</Mass>
+                            </statBases>
+                            <comps>
+                                <li Class="CompProperties_Art">
+                                    <nameMaker>NamerArtWeaponMelee</nameMaker>
+                                    <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+                                    <minQualityForArtistic>Excellent</minQualityForArtistic>
+                                </li>
+                            </comps>
+                            <equippedStatOffsets>
+                                <MoveSpeed>0.35</MoveSpeed>
+                            </equippedStatOffsets>
+                            <burnableByRecipe>true</burnableByRecipe>
+                            <thingCategories>
+                                <li>TOT_Weapons_Cat</li>
+                            </thingCategories>
+                            <weaponTags>
+                                <li>UltratechMelee</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>Ultratech</li>
+                            </weaponClasses>
+                            <relicChance>3</relicChance>
+                            <smeltable>false</smeltable>
+                            <graphicData>
+                                <texPath>Things/Weapons/EMPSword</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.2,1.2)</drawSize>
+                            </graphicData>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>46.325</power>
+                                    <cooldownTime>1.02</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>EMP</def>
+                                            <amount>9</amount>
+                                        </li>
+                                    </extraMeleeDamages>
+                                    <armorPenetration>1.43</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>30.0</power>
+                                    <cooldownTime>0.51</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>EMP</def>
+                                            <amount>20</amount>
+                                        </li>
+                                    </extraMeleeDamages>
+                                    <armorPenetration>0.99</armorPenetration>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" MayRequire="Ludeon.RimWorld.Biotech" Name="QSZfourtwo_Bond" Abstract="True">
+                            <label>persona QSZ-42 beam pistol</label>
+                            <description>A beam pistol\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <tradeability>All</tradeability>
+                            <destroyOnDrop>False</destroyOnDrop>
+                            <relicChance>3</relicChance>
+                            <graphicData>
+                                <texPath>Things/Weapons/QSZfourtwo</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(0.6,0.6)</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>2200.0</MarketValue>
+                                <Mass>1</Mass>
+                                <AccuracyTouch>0.99</AccuracyTouch>
+                                <AccuracyShort>0.99</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.605</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.595</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>MYDE_Share_L.Verb_ShootBeam_Change</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <warmupTime>0.0</warmupTime>
+                                    <range>18.0</range>
+                                    <minRange>2.0</minRange>
+                                    <beamFullWidthRange>9</beamFullWidthRange>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                    <beamWidth>6</beamWidth>
+                                    <beamDamageDef>Beam</beamDamageDef>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                    <soundCastBeam>BeamGraser_Shooting</soundCastBeam>
+                                    <beamGroundFleckDef>Fleck_BeamBurn</beamGroundFleckDef>
+                                    <beamFleckChancePerTick>0.72</beamFleckChancePerTick>
+                                    <beamMaxDeviation>1.5</beamMaxDeviation>
+                                    <beamCurvature>0.1</beamCurvature>
+                                    <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
+                                    <beamEndEffecterDef>GraserBeam_End</beamEndEffecterDef>
+                                    <beamChanceToStartFire>0.85</beamChanceToStartFire>
+                                    <beamChanceToAttachFire>0.85</beamChanceToAttachFire>
+                                    <beamFireSizeRange>0.55~0.85</beamFireSizeRange>
+                                    <beamLineFleckDef>Fleck_BeamSpark</beamLineFleckDef>
+                                    <beamStartOffset>0.8</beamStartOffset>
+                                    <beamLineFleckChanceCurve>
+                                        <points>
+                                            <li>(0,0)</li>
+                                            <li>(0,0)</li>
+                                            <li>(0,0)</li>
+                                        </points>
+                                    </beamLineFleckChanceCurve>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" MayRequire="Ludeon.RimWorld.Biotech" Name="QSZfiveseven_Bond" Abstract="True">
+                            <label>persona QSZ-57 Swarm</label>
+                            <description>A pistol fires bullets that are able to add toxic effect to its target upon hit\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/QSZfiveseven</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(0.6,0.6)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Autopistol</soundInteract>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>1.2</Mass>
+                                <AccuracyTouch>0.99</AccuracyTouch>
+                                <AccuracyShort>0.99</AccuracyShort>
+                                <AccuracyMedium>0.55</AccuracyMedium>
+                                <AccuracyLong>0.33</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <burstShotCount>1</burstShotCount>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_QSZfiveseven_Bond</defaultProjectile>
+                                    <warmupTime>0.51</warmupTime>
+                                    <range>20</range>
+                                    <soundCast>Shot_Autopistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="MPBFPM_CMC_MARSBase" Abstract="True">
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <weaponTags>
+                                <li>RangedHeavy</li>
+                                <li>IndustrialGunAdvanced</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_CMC_MARSBase" Name="CMC_MARS_AR_Bond" Abstract="True">
+                            <label>persona QBZM-01 Assault Rifle</label>
+                            <description>Modular auto rifle.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/CMC_AcRifle_MKII</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.3,1.3)</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <Mass>11.2</Mass>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>0.913</AccuracyShort>
+                                <AccuracyMedium>0.869</AccuracyMedium>
+                                <AccuracyLong>0.671</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.53</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_AssaultRifle_Bond</defaultProjectile>
+                                    <warmupTime>0.17</warmupTime>
+                                    <range>40</range>
+                                    <burstShotCount>5</burstShotCount>
+                                    <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                    <soundCast>Shot_AssaultRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>13</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.866</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>19.061</power>
+                                    <cooldownTime>1.02</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_CMC_MARSBase" Name="CMC_MARS_SG_Bond" Abstract="True">
+                            <label>persona QBZM-01 Shotgun</label>
+                            <description>Modular shotgun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/CMC_CSG_MKII</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.3,1.3)</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <Mass>10.4</Mass>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>0.913</AccuracyShort>
+                                <AccuracyMedium>0.759</AccuracyMedium>
+                                <AccuracyLong>0.561</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.785</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Shotgun_Bond</defaultProjectile>
+                                    <warmupTime>0.17</warmupTime>
+                                    <range>21</range>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                    <soundCast>Shot_Shotgun</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>13</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.866</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>19.061</power>
+                                    <cooldownTime>1.02</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_CMC_MARSBase" Name="CMC_MARS_MG_Bond" Abstract="True">
+                            <label>persona QBZM-01 LMG</label>
+                            <description>Modular light machine gun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/CMC_minigun_MKII</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.3,1.3)</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <Mass>15.5</Mass>
+                                <AccuracyTouch>1.089</AccuracyTouch>
+                                <AccuracyShort>0.913</AccuracyShort>
+                                <AccuracyMedium>0.759</AccuracyMedium>
+                                <AccuracyLong>0.44</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.785</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_Minigun_Bond</defaultProjectile>
+                                    <warmupTime>0.17</warmupTime>
+                                    <range>32</range>
+                                    <burstShotCount>28</burstShotCount>
+                                    <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                    <soundCast>Shot_Minigun</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>13</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.866</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>19.061</power>
+                                    <cooldownTime>1.02</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_CMCR_Weapons" Name="CMCRRetrofitted_ChainShotgun_Bond" Abstract="True">
+                            <label>persona Retrofitted chain shotgun(EMP)</label>
+                            <description>An automatic shotgun firing EMP bullets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/CMCRCSG</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1,1)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Shotgun</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <statBases>
+                                <MarketValue>385.0</MarketValue>
+                                <Mass>5.5</Mass>
+                                <AccuracyTouch>0.957</AccuracyTouch>
+                                <AccuracyShort>0.924</AccuracyShort>
+                                <AccuracyMedium>0.715</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.212</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_EMPCSG_Bond</defaultProjectile>
+                                    <warmupTime>1.19</warmupTime>
+                                    <range>15.9</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <soundCast>Shot_Shotgun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                                <li>ShortShots</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_CMCR_Weapons" Name="CMCRRetrofitted_LMG_Bond" Abstract="True">
+                            <label>persona Retrofitted LMG</label>
+                            <description>A retrofitted gas-operated light machine gun, with is somewhat less unwieldy and inaccurate\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/CMCRRetrofittedLMG</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.2,1.2)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <MarketValue>957.0</MarketValue>
+                                <Mass>9.5</Mass>
+                                <AccuracyTouch>0.99</AccuracyTouch>
+                                <AccuracyShort>0.858</AccuracyShort>
+                                <AccuracyMedium>0.715</AccuracyMedium>
+                                <AccuracyLong>0.506</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.87</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_LMG_Bond</defaultProjectile>
+                                    <warmupTime>0.085</warmupTime>
+                                    <range>25.9</range>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <burstShotCount>6</burstShotCount>
+                                    <soundCast>Shot_Minigun</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_CMCR_Weapons" Name="CMCRRetrofitted_MachinePistol_Bond" Abstract="True">
+                            <label>persona Retrofitted machine pistol</label>
+                            <description>A retrofitted micro-submachine gun. Better at close range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/CMCRRetrofittedMachinePistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.0,1.0)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>ShortShots</li>
+                            </weaponTags>
+                            <statBases>
+                                <MarketValue>308.0</MarketValue>
+                                <Mass>2.9</Mass>
+                                <AccuracyTouch>0.99</AccuracyTouch>
+                                <AccuracyShort>1.045</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.165</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_MachinePistol_Bond</defaultProjectile>
+                                    <warmupTime>0.255</warmupTime>
+                                    <range>25.9</range>
+                                    <burstShotCount>6</burstShotCount>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <soundCast>Shot_MachinePistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_CMCR_Weapons" Name="CMCRRetrofitted_BoltActionRifle_Bond" Abstract="True">
+                            <label>persona Retrofitted bolt-action rifle</label>
+                            <description>An ancient pattern bolt-action rifle,retrofitted with CMC technology. Longer range, but longer cooldown time as well\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/CMCRRetrofittedBoltActionRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.3,1.3)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                            </weaponClasses>
+                            <statBases>
+                                <MarketValue>352.0</MarketValue>
+                                <Mass>3.7</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.88</AccuracyShort>
+                                <AccuracyMedium>1.045</AccuracyMedium>
+                                <AccuracyLong>0.99</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.615</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_BoltActionRifle_Bond</defaultProjectile>
+                                    <warmupTime>0.935</warmupTime>
+                                    <range>38.9</range>
+                                    <soundCast>Shot_BoltActionRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_CMCR_Weapons" Name="CMCRRetrofitted_HeavySMG_Bond" Abstract="True">
+                            <label>persona retrofitted SMG</label>
+                            <description>A SMG with modified barrel to perform as an electro-thermal chemical gun\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/CMCRRetrofittedHeavySMG</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1,1)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <MarketValue>363.0</MarketValue>
+                                <Mass>3.9</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.935</AccuracyShort>
+                                <AccuracyMedium>0.935</AccuracyMedium>
+                                <AccuracyLong>0.88</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.657</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_CMCRHeavySMG_Bond</defaultProjectile>
+                                    <warmupTime>1.02</warmupTime>
+                                    <range>23.9</range>
+                                    <burstShotCount>4</burstShotCount>
+                                    <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                                    <soundCast>Shot_HeavySMG</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                                <li>ShortShots</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="QBU_sixsix_Bond" Abstract="True">
+                            <label>persona QBU 66 Sniper Rifle</label>
+                            <description>A charged-shot sniper firing high-penetration bullets\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/QBUsixsix</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.3,1.3)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <statBases>
+                                <MarketValue>3410.0</MarketValue>
+                                <Mass>5.2</Mass>
+                                <AccuracyTouch>0.825</AccuracyTouch>
+                                <AccuracyShort>0.913</AccuracyShort>
+                                <AccuracyMedium>0.979</AccuracyMedium>
+                                <AccuracyLong>0.891</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_QBUsixsix_Bond</defaultProjectile>
+                                    <warmupTime>1.105</warmupTime>
+                                    <range>50</range>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>11.829</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>14.935</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" MayRequire="Ludeon.RimWorld.Biotech" Name="QS_Bond" Abstract="True">
+                            <label>persona QBU-71 Viper</label>
+                            <description>A multi-functional tactical sniper rifle that fires nanomechanical bullets, the nanomechanical elements in the bullets have two modes: they can paralyze the brain of humans or even mechanoids, or directly release a large amount of neurotoxins into the victim's blood stream.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/QBUsevenone</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.3,1.3)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <generateCommonality>0</generateCommonality>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>HeavyTox</li>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <tradeTags>
+                                <li>WeaponRanged</li>
+                            </tradeTags>
+                            <statBases>
+                                <Mass>6.4</Mass>
+                                <RangedWeapon_Cooldown>3.825</RangedWeapon_Cooldown>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.803</AccuracyShort>
+                                <AccuracyMedium>0.913</AccuracyMedium>
+                                <AccuracyLong>1.001</AccuracyLong>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <burstShotCount>1</burstShotCount>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_QSZfivesevenS_Bond</defaultProjectile>
+                                    <warmupTime>0.17</warmupTime>
+                                    <range>53.9</range>
+                                    <soundCast>SSii</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>19</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="WeaponUtility.CompProperties_SecondaryVerb">
+                                    <verbProps>
+                                        <verbClass>Verb_Shoot</verbClass>
+                                        <hasStandardCommand>true</hasStandardCommand>
+                                        <defaultProjectile>Bullet_QS</defaultProjectile>
+                                        <warmupTime>2.5</warmupTime>
+                                        <range>53.9</range>
+                                        <forcedMissRadius>0.1</forcedMissRadius>
+                                        <burstShotCount>1</burstShotCount>
+                                        <soundCast>SSii</soundCast>
+                                        <soundCastTail>GunTail_Medium</soundCastTail>
+                                        <muzzleFlashScale>14</muzzleFlashScale>
+                                        <targetParams>
+                                            <canTargetLocations>true</canTargetLocations>
+                                            <canTargetPawns>true</canTargetPawns>
+                                        </targetParams>
+                                    </verbProps>
+                                    <mainWeaponLabel>ATB</mainWeaponLabel>
+                                    <mainCommandIcon>UI/UI_Toxic</mainCommandIcon>
+                                    <secondaryWeaponLabel>NTB</secondaryWeaponLabel>
+                                    <secondaryCommandIcon>UI/UI_Nanite</secondaryCommandIcon>
+                                    <description>Mode switch</description>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>13.901</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>14.935</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="QBZ_fivenine_Bond" Abstract="True">
+                            <label>persona QBZ 59 Assault Rifle</label>
+                            <description>A charged-shot assault rifle firing high-penetration but low damage bullets at very high rate\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/QBZfivenine</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.3,1.3)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <statBases>
+                                <MarketValue>3300.0</MarketValue>
+                                <Mass>6.2</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.803</AccuracyShort>
+                                <AccuracyMedium>0.759</AccuracyMedium>
+                                <AccuracyLong>0.671</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_QBZfivenine_Bond</defaultProjectile>
+                                    <warmupTime>0.51</warmupTime>
+                                    <range>32</range>
+                                    <burstShotCount>10</burstShotCount>
+                                    <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                    <soundCast>STi</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="QBZ_fiveninePDW_Bond" Abstract="True">
+                            <label>persona QBZ 59-1 PDW</label>
+                            <description>A SMG version of QBZ 59. It is designed as personal defense weapon for pilots or star ship crews.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/QBZfiveninePDW</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.3,1.3)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <statBases>
+                                <MarketValue>3300.0</MarketValue>
+                                <Mass>6.0</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.803</AccuracyShort>
+                                <AccuracyMedium>0.55</AccuracyMedium>
+                                <AccuracyLong>0.451</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.17</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_QBZfivenine_Bond</defaultProjectile>
+                                    <warmupTime>0.34</warmupTime>
+                                    <range>25</range>
+                                    <burstShotCount>5</burstShotCount>
+                                    <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                    <soundCast>STi</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="QBB_fivenine_Bond" Abstract="True">
+                            <label>persona QBB 59 LMG</label>
+                            <description>A light machine gun designed based on QBZ 59. It provides fire support for squads.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/QBBfivenine</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.3,1.3)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <statBases>
+                                <MarketValue>3300.0</MarketValue>
+                                <Mass>7.7</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.737</AccuracyShort>
+                                <AccuracyMedium>0.539</AccuracyMedium>
+                                <AccuracyLong>0.341</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_QBZfivenine_Bond</defaultProjectile>
+                                    <warmupTime>0.51</warmupTime>
+                                    <range>35</range>
+                                    <burstShotCount>18</burstShotCount>
+                                    <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                    <soundCast>STi</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>13</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>11.829</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.866</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="QBZoneooneXuanMing_Bond" Abstract="True">
+                            <label>persona &lt;color=#FF0000&gt;&lt;i&gt;XuanMing Electro-magnetic Rifle&lt;/i&gt;&lt;/color&gt;</label>
+                            <description>A powerful rifle originated from a rapid electro-magnetic laucher\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/QBZoneooneXuanMing</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.3,1.3)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <statBases>
+                                <MarketValue>6710.0</MarketValue>
+                                <Mass>7.2</Mass>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>1.023</AccuracyShort>
+                                <AccuracyMedium>0.99</AccuracyMedium>
+                                <AccuracyLong>1.001</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.68</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_XuanMing_Bond</defaultProjectile>
+                                    <warmupTime>0.68</warmupTime>
+                                    <range>60</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <soundCast>STii</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>23.173</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>30.346</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="QBZ_threeooE_Bond" Abstract="True">
+                            <label>persona QBZ-301E assault rifle</label>
+                            <description>Developed in 2030s, QBZ301E(Export Type) is the first generation of charged assault rifle in the world. It is inaccurate and heavy due to limitation of battery technology.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/QBZthreeooE</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.2,1.2)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <statBases>
+                                <Mass>6.2</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.693</AccuracyShort>
+                                <AccuracyMedium>0.649</AccuracyMedium>
+                                <AccuracyLong>0.561</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_QBZfivenine_Bond</defaultProjectile>
+                                    <warmupTime>0.765</warmupTime>
+                                    <range>27</range>
+                                    <burstShotCount>6</burstShotCount>
+                                    <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                                    <soundCast>ChargeLance_Fire</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>14.935</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>17.0</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="W85XWJ_Bond" Abstract="True">
+                            <label>persona &lt;color=#FFCC66&gt;&lt;i&gt;W85X WanJian&lt;/i&gt;&lt;/color&gt;</label>
+                            <description>A smart LMG firing guide bullets, it can also switch mode to fire normal under emergency situations. Its mini fusion reactor can partially ionize metallic hydrogen ammo and launch them in the form of plasma. Its reactor may lead to a massive explosion if it takes damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/WJ</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.4,1.4)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <tickerType>Normal</tickerType>
+                            <statBases>
+                                <MarketValue>4400.0</MarketValue>
+                                <Mass>12.2</Mass>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>0.693</AccuracyShort>
+                                <AccuracyMedium>0.44</AccuracyMedium>
+                                <AccuracyLong>0.341</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_WJ_Bond</defaultProjectile>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>40</range>
+                                    <burstShotCount>6</burstShotCount>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <soundCast>Sound_railgun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="WeaponUtility.CompProperties_SecondaryVerb">
+                                    <verbProps>
+                                        <verbClass>Verb_Shoot</verbClass>
+                                        <hasStandardCommand>true</hasStandardCommand>
+                                        <defaultProjectile>Bullet_WJNT</defaultProjectile>
+                                        <warmupTime>1.5</warmupTime>
+                                        <range>40</range>
+                                        <burstShotCount>36</burstShotCount>
+                                        <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                        <soundCast>Sound_railgun</soundCast>
+                                        <soundCastTail>GunTail_Heavy</soundCastTail>
+                                        <muzzleFlashScale>9</muzzleFlashScale>
+                                    </verbProps>
+                                    <mainWeaponLabel>Smart Mode</mainWeaponLabel>
+                                    <mainCommandIcon>UI/UI_Smart</mainCommandIcon>
+                                    <secondaryWeaponLabel>Burst Mode</secondaryWeaponLabel>
+                                    <secondaryCommandIcon>UI/UI_Burst</secondaryCommandIcon>
+                                    <description>Mode switch</description>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>20.09</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>20.09</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="QBUS85XWJ_Bond" Abstract="True">
+                            <label>persona &lt;color=#FFCC66&gt;&lt;i&gt;QBZS-85X XiangJian&lt;/i&gt;&lt;/color&gt;</label>
+                            <description>A smart sniper, it fires guided bullets which can accurately hit moving target at long range regardless of weather conditions.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/WJQB</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.3,1.3)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <tickerType>Normal</tickerType>
+                            <statBases>
+                                <MarketValue>3960.0</MarketValue>
+                                <Mass>12.4</Mass>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>0.913</AccuracyShort>
+                                <AccuracyMedium>0.88</AccuracyMedium>
+                                <AccuracyLong>0.891</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_WJU_Bond</defaultProjectile>
+                                    <warmupTime>0.51</warmupTime>
+                                    <range>63.9</range>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>Sound_railguncharge</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>20.09</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>20.09</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" Name="QBZS85XWJ_Bond" Abstract="True">
+                            <label>persona &lt;color=#FFCC66&gt;&lt;i&gt;QBZS-85X XiuJian&lt;/i&gt;&lt;/color&gt;</label>
+                            <description>A smart rifle that fires guided bullets witch can accurately hit moving target at long range regardless of weather conditions.Its reactor may lead to a massive explosion if it takes damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/WJQ</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.2,1.2)</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeLance</soundInteract>
+                            <tickerType>Normal</tickerType>
+                            <statBases>
+                                <MarketValue>3300.0</MarketValue>
+                                <Mass>8.1</Mass>
+                                <AccuracyTouch>1.045</AccuracyTouch>
+                                <AccuracyShort>0.913</AccuracyShort>
+                                <AccuracyMedium>0.77</AccuracyMedium>
+                                <AccuracyLong>0.671</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.595</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_WJ_Bond</defaultProjectile>
+                                    <warmupTime>0.51</warmupTime>
+                                    <range>40</range>
+                                    <burstShotCount>6</burstShotCount>
+                                    <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+                                    <soundCast>Sound_railgun</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <comps>
+                                <li Class="WeaponUtility.CompProperties_SecondaryVerb">
+                                    <verbProps>
+                                        <verbClass>Verb_Shoot</verbClass>
+                                        <hasStandardCommand>true</hasStandardCommand>
+                                        <defaultProjectile>Bullet_WJNT</defaultProjectile>
+                                        <warmupTime>0.36</warmupTime>
+                                        <range>40</range>
+                                        <burstShotCount>9</burstShotCount>
+                                        <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                        <soundCast>Sound_railgun</soundCast>
+                                        <soundCastTail>GunTail_Heavy</soundCastTail>
+                                        <muzzleFlashScale>9</muzzleFlashScale>
+                                    </verbProps>
+                                    <mainWeaponLabel>Smart Mode</mainWeaponLabel>
+                                    <mainCommandIcon>UI/UI_Smart</mainCommandIcon>
+                                    <secondaryWeaponLabel>Burst Mode</secondaryWeaponLabel>
+                                    <secondaryCommandIcon>UI/UI_Burst</secondaryCommandIcon>
+                                    <description>Mode switch</description>
+                                </li>
+                                <li Class="CompProperties_Explosive">
+                                    <wickTicks>240</wickTicks>
+                                    <explosiveRadius>6.0</explosiveRadius>
+                                    <explosiveDamageType>Bomb</explosiveDamageType>
+                                    <chanceNeverExplodeFromDamage>0.5</chanceNeverExplodeFromDamage>
+                                </li>
+                            </comps>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>20.09</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>20.09</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_TOT_Weapons" MayRequire="Ludeon.RimWorld.Biotech" Name="PrototypeXiHe_Bond" Abstract="True">
+                            <label>persona Prototype XiHe flameblaster</label>
+                            <description>A light spacer burst-oriented flamethrower with long range, very efficient against organism\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/PrototypeXiHe</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1.3,1.3)</drawSize>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>3300.0</MarketValue>
+                                <Mass>2.5</Mass>
+                                <AccuracyTouch>0.77</AccuracyTouch>
+                                <AccuracyShort>0.418</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.506</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_CMC_Flame_Bond</defaultProjectile>
+                                    <warmupTime>1.275</warmupTime>
+                                    <range>23.9</range>
+                                    <soundCast>Shot_MiniFlameblaster</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>29</muzzleFlashScale>
+                                    <minRange>6.9</minRange>
+                                    <forcedMissRadius>1.9</forcedMissRadius>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                        <canTargetPawns>true</canTargetPawns>
+                                    </targetParams>
+                                    <onlyManualCast>false</onlyManualCast>
+                                    <burstShotCount>12</burstShotCount>
+                                    <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                    <canGoWild>false</canGoWild>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>20.09</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>Flame</def>
+                                            <amount>20</amount>
+                                            <chance>0.9</chance>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Projectile_QLUX_Bond" Abstract="True">
+                            <label>Pulse</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_QLUX</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(1, 2)</drawSize>
+                            </graphicData>
+                            <thingClass>Projectile_HellsphereCannon</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <speed>70</speed>
+                                <explosionRadius>4</explosionRadius>
+                                <screenShakeFactor>1.5</screenShakeFactor>
+                                <damageAmountBase>46</damageAmountBase>
+                                <flyOverhead>true</flyOverhead>
+                                <stoppingPower>4</stoppingPower>
+                                <armorPenetrationBase>2</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Projectile_AGS_Bond" Abstract="True">
+                            <label>Grenade</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Megball</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(1.2, 1.2)</drawSize>
+                            </graphicData>
+                            <thingClass>Projectile_HellsphereCannon</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <speed>70</speed>
+                                <explosionRadius>4</explosionRadius>
+                                <screenShakeFactor>1.5</screenShakeFactor>
+                                <damageAmountBase>46</damageAmountBase>
+                                <flyOverhead>true</flyOverhead>
+                                <stoppingPower>4</stoppingPower>
+                                <armorPenetrationBase>1.2</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_QBZsmart_Bond" Abstract="True">
+                            <label>Smart assault rifle bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_AssaultRifle_blue</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.25, 0.8)</drawSize>
+                            </graphicData>
+                            <thingClass>WeaponUtility.ProjectileGuidedBullet</thingClass>
+                            <projectile>
+                                <damageAmountBase>21</damageAmountBase>
+                                <armorPenetrationBase>0.6</armorPenetrationBase>
+                                <speed>90</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_QBZfivenine_Bond" Abstract="True">
+                            <label>Charged assault rifle bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_AssaultRifle_blue</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.25, 0.8)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>11</damageAmountBase>
+                                <armorPenetrationBase>0.6</armorPenetrationBase>
+                                <speed>90</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_QBUsixsix_Bond" Abstract="True">
+                            <label>Charged sniper bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_AssaultRifle_blue</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.7, 1.8)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>41</damageAmountBase>
+                                <armorPenetrationBase>1.2</armorPenetrationBase>
+                                <speed>110</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_XuanMing_Bond" Abstract="True">
+                            <label>Charged sniper bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/XM_Bullet</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(1, 2)</drawSize>
+                            </graphicData>
+                            <thingClass>WeaponUtility.ProjectileGuidedBullet</thingClass>
+                            <projectile>
+                                <damageAmountBase>39</damageAmountBase>
+                                <armorPenetrationBase>2</armorPenetrationBase>
+                                <speed>150</speed>
+                                <extraDamages>
+                                    <li>
+                                        <def>EMP</def>
+                                        <amount>15</amount>
+                                    </li>
+                                </extraDamages>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_QJG_Bond" Abstract="True">
+                            <label>Charged HMG bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/XM_Bullet</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(1, 1.2)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>35</damageAmountBase>
+                                <armorPenetrationBase>2</armorPenetrationBase>
+                                <speed>150</speed>
+                                <extraDamages>
+                                    <li>
+                                        <def>EMP</def>
+                                        <amount>15</amount>
+                                    </li>
+                                </extraDamages>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_QSZfiveseven_Bond" Abstract="True">
+                            <label>pistol bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_AssaultRifle</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.15, 0.6)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>NTB</damageDef>
+                                <damageAmountBase>2</damageAmountBase>
+                                <armorPenetrationBase>2</armorPenetrationBase>
+                                <speed>120</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_CMCRHeavySMG_Bond" Abstract="True">
+                            <label>heavy SMG bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_QLUX</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.6, 0.8)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>14</damageAmountBase>
+                                <speed>68</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_EMPCSG_Bond" Abstract="True">
+                            <label>EMP shotgun bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/CSG</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.5, 0.8)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>15</damageAmountBase>
+                                <speed>68</speed>
+                                <extraDamages>
+                                    <li>
+                                        <def>EMP</def>
+                                        <amount>16</amount>
+                                    </li>
+                                </extraDamages>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_CSG_Bond" Abstract="True">
+                            <label>EMP shotgun bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/CSG</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.6, 1.6)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>24</damageAmountBase>
+                                <speed>48</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_CB_Bond" Abstract="True">
+                            <label>heavy sniper bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_AssaultRifle</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(1, 0.8)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>13</damageAmountBase>
+                                <speed>98</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Missile_ML_Bond" Abstract="True">
+                            <label>ATGM missile</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/ATGM_Proj</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>(1.8, 1.8)</drawSize>
+                            </graphicData>
+                            <thingClass>WeaponUtility.ProjectileMissile</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <speed>60</speed>
+                                <explosionRadius>1.2</explosionRadius>
+                                <explosionEffect>CMC_Bomb</explosionEffect>
+                                <screenShakeFactor>0</screenShakeFactor>
+                                <damageAmountBase>1235</damageAmountBase>
+                                <flyOverhead>true</flyOverhead>
+                                <stoppingPower>4</stoppingPower>
+                                <armorPenetrationBase>6</armorPenetrationBase>
+                                <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+                                <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+                                <soundAmbient>MortarRound_Ambient</soundAmbient>
+                                <shadowSize>0.8</shadowSize>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_CSGII_Bond" Abstract="True">
+                            <label>shotgun bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/CSG</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.4, 1.1)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>22</damageAmountBase>
+                                <speed>68</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_QS_Bond" Abstract="True">
+                            <label>sniper bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_AssaultRifle</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.45, 1.1)</drawSize>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>ATB</damageDef>
+                                <damageAmountBase>2</damageAmountBase>
+                                <speed>68</speed>
+                                <armorPenetrationBase>2</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_WJ_Bond" Abstract="True">
+                            <label>smart bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_AssaultRifle_gold</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.3, 0.7)</drawSize>
+                            </graphicData>
+                            <thingClass>WeaponUtility.ProjectileGuidedBullet</thingClass>
+                            <projectile>
+                                <damageAmountBase>22</damageAmountBase>
+                                <speed>68</speed>
+                                <armorPenetrationBase>1.3</armorPenetrationBase>
+                                <extraDamages>
+                                    <li>
+                                        <def>EMP</def>
+                                        <amount>5</amount>
+                                    </li>
+                                </extraDamages>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_WJU_Bond" Abstract="True">
+                            <label>smart bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_AssaultRifle_gold</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.4, 0.6)</drawSize>
+                            </graphicData>
+                            <thingClass>WeaponUtility.ProjectileGuidedBullet</thingClass>
+                            <projectile>
+                                <damageAmountBase>33</damageAmountBase>
+                                <speed>68</speed>
+                                <armorPenetrationBase>1.7</armorPenetrationBase>
+                                <extraDamages>
+                                    <li>
+                                        <def>EMP</def>
+                                        <amount>25</amount>
+                                    </li>
+                                </extraDamages>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_WJNT_Bond" Abstract="True">
+                            <label>Plasma Sword</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_AssaultRifle_gold</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.3, 0.7)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>22</damageAmountBase>
+                                <speed>68</speed>
+                                <armorPenetrationBase>1.3</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_QSZfivesevenS_Bond" Abstract="True">
+                            <label>sniper bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_AssaultRifle</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.45, 1.1)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>NTB</damageDef>
+                                <damageAmountBase>2</damageAmountBase>
+                                <armorPenetrationBase>2</armorPenetrationBase>
+                                <speed>110</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_AutocannonTurret_Bond" Abstract="True">
+                            <label>autocannon shell</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/shell</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.6, 1.6)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>37</damageAmountBase>
+                                <speed>88</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_AutocannonTurretEMP_Bond" Abstract="True">
+                            <label>EMP autocannon shell</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/shell</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.6, 1.6)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <speed>90</speed>
+                                <damageAmountBase>89</damageAmountBase>
+                                <flyOverhead>false</flyOverhead>
+                                <stoppingPower>4</stoppingPower>
+                                <armorPenetrationBase>4</armorPenetrationBase>
+                                <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+                                <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+                                <soundAmbient>MortarRound_Ambient</soundAmbient>
+                                <extraDamages>
+                                    <li>
+                                        <def>EMP</def>
+                                        <amount>65</amount>
+                                    </li>
+                                </extraDamages>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_HMB_Bond" Abstract="True">
+                            <label>test</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_AssaultRifle</texPath>
+                                <shaderType>MoteGlow</shaderType>
+                                <drawSize>(0.6, 0.6)</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>HMB</damageDef>
+                                <damageAmountBase>2</damageAmountBase>
+                                <speed>88</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_CMC_Flame_Bond" Abstract="True">
+                            <label>Flame</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Flame_CMC</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>(1.1, 1.6)</drawSize>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>CMC_Vaporize_Small</damageDef>
+                                <speed>40</speed>
+                                <explosionRadius>1.2</explosionRadius>
+                                <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+                                <preExplosionSpawnChance>0.6</preExplosionSpawnChance>
+                                <ai_IsIncendiary>true</ai_IsIncendiary>
+                                <arcHeightFactor>0.4</arcHeightFactor>
+                                <shadowSize>0.9</shadowSize>
+                                <damageAmountBase>15</damageAmountBase>
+                                <stoppingPower>1.4</stoppingPower>
+                                <armorPenetrationBase>1.3</armorPenetrationBase>
+                                <screenShakeFactor>0</screenShakeFactor>
+                                <extraDamages>
+                                    <li>
+                                        <def>Flame</def>
+                                        <amount>15</amount>
+                                    </li>
+                                </extraDamages>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="HJX_Rocket_Bond" Abstract="True">
+                            <label>rocket</label>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <graphicData>
+                                <texPath>Things/Projectile/CMC_Rocket</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <drawSize>1.8</drawSize>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <explosionEffect>CMC_Small_Vaporize_Heatwave</explosionEffect>
+                                <explosionRadius>3.9</explosionRadius>
+                                <screenShakeFactor>0</screenShakeFactor>
+                                <speed>58</speed>
+                                <damageAmountBase>30</damageAmountBase>
+                                <arcHeightFactor>0.7</arcHeightFactor>
+                                <soundExplode>Explosion_Rocket</soundExplode>
+                                <shadowSize>0.8</shadowSize>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- HJX_Bond -->
+                            <ThingDef ParentName="HJX_Bond">
+                                <defName>HJX_Bond</defName>
+                            </ThingDef>
+
+                            <!-- QLUX_Pulse_Projector_Bond -->
+                            <ThingDef ParentName="QLUX_Pulse_Projector_Bond">
+                                <defName>QLUX_Pulse_Projector_Bond</defName>
+                            </ThingDef>
+
+                            <!-- ISRL_Bond -->
+                            <ThingDef ParentName="ISRL_Bond">
+                                <defName>ISRL_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PLP_Bond -->
+                            <ThingDef ParentName="PLP_Bond">
+                                <defName>PLP_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PLR_Bond -->
+                            <ThingDef ParentName="PLR_Bond">
+                                <defName>PLR_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PLS_Bond -->
+                            <ThingDef ParentName="PLS_Bond">
+                                <defName>PLS_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PLSMG_Bond -->
+                            <ThingDef ParentName="PLSMG_Bond">
+                                <defName>PLSMG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PLM_Bond -->
+                            <ThingDef ParentName="PLM_Bond">
+                                <defName>PLM_Bond</defName>
+                            </ThingDef>
+
+                            <!-- SLR_Bond -->
+                            <ThingDef ParentName="SLR_Bond">
+                                <defName>SLR_Bond</defName>
+                            </ThingDef>
+
+                            <!-- SLS_Bond -->
+                            <ThingDef ParentName="SLS_Bond">
+                                <defName>SLS_Bond</defName>
+                            </ThingDef>
+
+                            <!-- TT_Bond -->
+                            <ThingDef ParentName="TT_Bond">
+                                <defName>TT_Bond</defName>
+                            </ThingDef>
+
+                            <!-- EMPsword_Bond -->
+                            <ThingDef ParentName="EMPsword_Bond">
+                                <defName>EMPsword_Bond</defName>
+                            </ThingDef>
+
+                            <!-- QSZfourtwo_Bond -->
+                            <ThingDef ParentName="QSZfourtwo_Bond">
+                                <defName>QSZfourtwo_Bond</defName>
+                            </ThingDef>
+
+                            <!-- QSZfiveseven_Bond -->
+                            <ThingDef ParentName="QSZfiveseven_Bond">
+                                <defName>QSZfiveseven_Bond</defName>
+                            </ThingDef>
+
+                            <!-- CMC_MARS_AR_Bond -->
+                            <ThingDef ParentName="CMC_MARS_AR_Bond">
+                                <defName>CMC_MARS_AR_Bond</defName>
+                            </ThingDef>
+
+                            <!-- CMC_MARS_SG_Bond -->
+                            <ThingDef ParentName="CMC_MARS_SG_Bond">
+                                <defName>CMC_MARS_SG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- CMC_MARS_MG_Bond -->
+                            <ThingDef ParentName="CMC_MARS_MG_Bond">
+                                <defName>CMC_MARS_MG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- CMCRRetrofitted_ChainShotgun_Bond -->
+                            <ThingDef ParentName="CMCRRetrofitted_ChainShotgun_Bond">
+                                <defName>CMCRRetrofitted_ChainShotgun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- CMCRRetrofitted_LMG_Bond -->
+                            <ThingDef ParentName="CMCRRetrofitted_LMG_Bond">
+                                <defName>CMCRRetrofitted_LMG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- CMCRRetrofitted_MachinePistol_Bond -->
+                            <ThingDef ParentName="CMCRRetrofitted_MachinePistol_Bond">
+                                <defName>CMCRRetrofitted_MachinePistol_Bond</defName>
+                            </ThingDef>
+
+                            <!-- CMCRRetrofitted_BoltActionRifle_Bond -->
+                            <ThingDef ParentName="CMCRRetrofitted_BoltActionRifle_Bond">
+                                <defName>CMCRRetrofitted_BoltActionRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- CMCRRetrofitted_HeavySMG_Bond -->
+                            <ThingDef ParentName="CMCRRetrofitted_HeavySMG_Bond">
+                                <defName>CMCRRetrofitted_HeavySMG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- QBU_sixsix_Bond -->
+                            <ThingDef ParentName="QBU_sixsix_Bond">
+                                <defName>QBU_sixsix_Bond</defName>
+                            </ThingDef>
+
+                            <!-- QS_Bond -->
+                            <ThingDef ParentName="QS_Bond">
+                                <defName>QS_Bond</defName>
+                            </ThingDef>
+
+                            <!-- QBZ_fivenine_Bond -->
+                            <ThingDef ParentName="QBZ_fivenine_Bond">
+                                <defName>QBZ_fivenine_Bond</defName>
+                            </ThingDef>
+
+                            <!-- QBZ_fiveninePDW_Bond -->
+                            <ThingDef ParentName="QBZ_fiveninePDW_Bond">
+                                <defName>QBZ_fiveninePDW_Bond</defName>
+                            </ThingDef>
+
+                            <!-- QBB_fivenine_Bond -->
+                            <ThingDef ParentName="QBB_fivenine_Bond">
+                                <defName>QBB_fivenine_Bond</defName>
+                            </ThingDef>
+
+                            <!-- QBZoneooneXuanMing_Bond -->
+                            <ThingDef ParentName="QBZoneooneXuanMing_Bond">
+                                <defName>QBZoneooneXuanMing_Bond</defName>
+                            </ThingDef>
+
+                            <!-- QBZ_threeooE_Bond -->
+                            <ThingDef ParentName="QBZ_threeooE_Bond">
+                                <defName>QBZ_threeooE_Bond</defName>
+                            </ThingDef>
+
+                            <!-- W85XWJ_Bond -->
+                            <ThingDef ParentName="W85XWJ_Bond">
+                                <defName>W85XWJ_Bond</defName>
+                            </ThingDef>
+
+                            <!-- QBUS85XWJ_Bond -->
+                            <ThingDef ParentName="QBUS85XWJ_Bond">
+                                <defName>QBUS85XWJ_Bond</defName>
+                            </ThingDef>
+
+                            <!-- QBZS85XWJ_Bond -->
+                            <ThingDef ParentName="QBZS85XWJ_Bond">
+                                <defName>QBZS85XWJ_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PrototypeXiHe_Bond -->
+                            <ThingDef ParentName="PrototypeXiHe_Bond">
+                                <defName>PrototypeXiHe_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Projectile_QLUX_Bond -->
+                            <ThingDef ParentName="Projectile_QLUX_Bond">
+                                <defName>Projectile_QLUX_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Projectile_AGS_Bond -->
+                            <ThingDef ParentName="Projectile_AGS_Bond">
+                                <defName>Projectile_AGS_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_QBZsmart_Bond -->
+                            <ThingDef ParentName="Bullet_QBZsmart_Bond">
+                                <defName>Bullet_QBZsmart_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_QBZfivenine_Bond -->
+                            <ThingDef ParentName="Bullet_QBZfivenine_Bond">
+                                <defName>Bullet_QBZfivenine_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_QBUsixsix_Bond -->
+                            <ThingDef ParentName="Bullet_QBUsixsix_Bond">
+                                <defName>Bullet_QBUsixsix_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_XuanMing_Bond -->
+                            <ThingDef ParentName="Bullet_XuanMing_Bond">
+                                <defName>Bullet_XuanMing_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_QJG_Bond -->
+                            <ThingDef ParentName="Bullet_QJG_Bond">
+                                <defName>Bullet_QJG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_QSZfiveseven_Bond -->
+                            <ThingDef ParentName="Bullet_QSZfiveseven_Bond">
+                                <defName>Bullet_QSZfiveseven_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_CMCRHeavySMG_Bond -->
+                            <ThingDef ParentName="Bullet_CMCRHeavySMG_Bond">
+                                <defName>Bullet_CMCRHeavySMG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_EMPCSG_Bond -->
+                            <ThingDef ParentName="Bullet_EMPCSG_Bond">
+                                <defName>Bullet_EMPCSG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_CSG_Bond -->
+                            <ThingDef ParentName="Bullet_CSG_Bond">
+                                <defName>Bullet_CSG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_CB_Bond -->
+                            <ThingDef ParentName="Bullet_CB_Bond">
+                                <defName>Bullet_CB_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Missile_ML_Bond -->
+                            <ThingDef ParentName="Missile_ML_Bond">
+                                <defName>Missile_ML_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_CSGII_Bond -->
+                            <ThingDef ParentName="Bullet_CSGII_Bond">
+                                <defName>Bullet_CSGII_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_QS_Bond -->
+                            <ThingDef ParentName="Bullet_QS_Bond">
+                                <defName>Bullet_QS_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_WJ_Bond -->
+                            <ThingDef ParentName="Bullet_WJ_Bond">
+                                <defName>Bullet_WJ_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_WJU_Bond -->
+                            <ThingDef ParentName="Bullet_WJU_Bond">
+                                <defName>Bullet_WJU_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_WJNT_Bond -->
+                            <ThingDef ParentName="Bullet_WJNT_Bond">
+                                <defName>Bullet_WJNT_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_QSZfivesevenS_Bond -->
+                            <ThingDef ParentName="Bullet_QSZfivesevenS_Bond">
+                                <defName>Bullet_QSZfivesevenS_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_AutocannonTurret_Bond -->
+                            <ThingDef ParentName="Bullet_AutocannonTurret_Bond">
+                                <defName>Bullet_AutocannonTurret_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_AutocannonTurretEMP_Bond -->
+                            <ThingDef ParentName="Bullet_AutocannonTurretEMP_Bond">
+                                <defName>Bullet_AutocannonTurretEMP_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_HMB_Bond -->
+                            <ThingDef ParentName="Bullet_HMB_Bond">
+                                <defName>Bullet_HMB_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_CMC_Flame_Bond -->
+                            <ThingDef ParentName="Bullet_CMC_Flame_Bond">
+                                <defName>Bullet_CMC_Flame_Bond</defName>
+                            </ThingDef>
+
+                            <!-- HJX_Rocket_Bond -->
+                            <ThingDef ParentName="HJX_Rocket_Bond">
+                                <defName>HJX_Rocket_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_TOTsCMCWeaponry</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- HJX_Bond -->
+                                            <ThingDef ParentName="HJX_Bond">
+                                                <defName>HJX_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- QLUX_Pulse_Projector_Bond -->
+                                            <ThingDef ParentName="QLUX_Pulse_Projector_Bond">
+                                                <defName>QLUX_Pulse_Projector_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- ISRL_Bond -->
+                                            <ThingDef ParentName="ISRL_Bond">
+                                                <defName>ISRL_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PLP_Bond -->
+                                            <ThingDef ParentName="PLP_Bond">
+                                                <defName>PLP_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PLR_Bond -->
+                                            <ThingDef ParentName="PLR_Bond">
+                                                <defName>PLR_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PLS_Bond -->
+                                            <ThingDef ParentName="PLS_Bond">
+                                                <defName>PLS_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PLSMG_Bond -->
+                                            <ThingDef ParentName="PLSMG_Bond">
+                                                <defName>PLSMG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PLM_Bond -->
+                                            <ThingDef ParentName="PLM_Bond">
+                                                <defName>PLM_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- SLR_Bond -->
+                                            <ThingDef ParentName="SLR_Bond">
+                                                <defName>SLR_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- SLS_Bond -->
+                                            <ThingDef ParentName="SLS_Bond">
+                                                <defName>SLS_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- TT_Bond -->
+                                            <ThingDef ParentName="TT_Bond">
+                                                <defName>TT_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- EMPsword_Bond -->
+                                            <ThingDef ParentName="EMPsword_Bond">
+                                                <defName>EMPsword_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- QSZfourtwo_Bond -->
+                                            <ThingDef ParentName="QSZfourtwo_Bond">
+                                                <defName>QSZfourtwo_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- QSZfiveseven_Bond -->
+                                            <ThingDef ParentName="QSZfiveseven_Bond">
+                                                <defName>QSZfiveseven_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- CMC_MARS_AR_Bond -->
+                                            <ThingDef ParentName="CMC_MARS_AR_Bond">
+                                                <defName>CMC_MARS_AR_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- CMC_MARS_SG_Bond -->
+                                            <ThingDef ParentName="CMC_MARS_SG_Bond">
+                                                <defName>CMC_MARS_SG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- CMC_MARS_MG_Bond -->
+                                            <ThingDef ParentName="CMC_MARS_MG_Bond">
+                                                <defName>CMC_MARS_MG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- CMCRRetrofitted_ChainShotgun_Bond -->
+                                            <ThingDef ParentName="CMCRRetrofitted_ChainShotgun_Bond">
+                                                <defName>CMCRRetrofitted_ChainShotgun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- CMCRRetrofitted_LMG_Bond -->
+                                            <ThingDef ParentName="CMCRRetrofitted_LMG_Bond">
+                                                <defName>CMCRRetrofitted_LMG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- CMCRRetrofitted_MachinePistol_Bond -->
+                                            <ThingDef ParentName="CMCRRetrofitted_MachinePistol_Bond">
+                                                <defName>CMCRRetrofitted_MachinePistol_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- CMCRRetrofitted_BoltActionRifle_Bond -->
+                                            <ThingDef ParentName="CMCRRetrofitted_BoltActionRifle_Bond">
+                                                <defName>CMCRRetrofitted_BoltActionRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- CMCRRetrofitted_HeavySMG_Bond -->
+                                            <ThingDef ParentName="CMCRRetrofitted_HeavySMG_Bond">
+                                                <defName>CMCRRetrofitted_HeavySMG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- QBU_sixsix_Bond -->
+                                            <ThingDef ParentName="QBU_sixsix_Bond">
+                                                <defName>QBU_sixsix_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- QS_Bond -->
+                                            <ThingDef ParentName="QS_Bond">
+                                                <defName>QS_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- QBZ_fivenine_Bond -->
+                                            <ThingDef ParentName="QBZ_fivenine_Bond">
+                                                <defName>QBZ_fivenine_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- QBZ_fiveninePDW_Bond -->
+                                            <ThingDef ParentName="QBZ_fiveninePDW_Bond">
+                                                <defName>QBZ_fiveninePDW_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- QBB_fivenine_Bond -->
+                                            <ThingDef ParentName="QBB_fivenine_Bond">
+                                                <defName>QBB_fivenine_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- QBZoneooneXuanMing_Bond -->
+                                            <ThingDef ParentName="QBZoneooneXuanMing_Bond">
+                                                <defName>QBZoneooneXuanMing_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- QBZ_threeooE_Bond -->
+                                            <ThingDef ParentName="QBZ_threeooE_Bond">
+                                                <defName>QBZ_threeooE_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- W85XWJ_Bond -->
+                                            <ThingDef ParentName="W85XWJ_Bond">
+                                                <defName>W85XWJ_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- QBUS85XWJ_Bond -->
+                                            <ThingDef ParentName="QBUS85XWJ_Bond">
+                                                <defName>QBUS85XWJ_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- QBZS85XWJ_Bond -->
+                                            <ThingDef ParentName="QBZS85XWJ_Bond">
+                                                <defName>QBZS85XWJ_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PrototypeXiHe_Bond -->
+                                            <ThingDef ParentName="PrototypeXiHe_Bond">
+                                                <defName>PrototypeXiHe_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Projectile_QLUX_Bond -->
+                                            <ThingDef ParentName="Projectile_QLUX_Bond">
+                                                <defName>Projectile_QLUX_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Projectile_AGS_Bond -->
+                                            <ThingDef ParentName="Projectile_AGS_Bond">
+                                                <defName>Projectile_AGS_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_QBZsmart_Bond -->
+                                            <ThingDef ParentName="Bullet_QBZsmart_Bond">
+                                                <defName>Bullet_QBZsmart_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_QBZfivenine_Bond -->
+                                            <ThingDef ParentName="Bullet_QBZfivenine_Bond">
+                                                <defName>Bullet_QBZfivenine_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_QBUsixsix_Bond -->
+                                            <ThingDef ParentName="Bullet_QBUsixsix_Bond">
+                                                <defName>Bullet_QBUsixsix_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_XuanMing_Bond -->
+                                            <ThingDef ParentName="Bullet_XuanMing_Bond">
+                                                <defName>Bullet_XuanMing_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_QJG_Bond -->
+                                            <ThingDef ParentName="Bullet_QJG_Bond">
+                                                <defName>Bullet_QJG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_QSZfiveseven_Bond -->
+                                            <ThingDef ParentName="Bullet_QSZfiveseven_Bond">
+                                                <defName>Bullet_QSZfiveseven_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_CMCRHeavySMG_Bond -->
+                                            <ThingDef ParentName="Bullet_CMCRHeavySMG_Bond">
+                                                <defName>Bullet_CMCRHeavySMG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_EMPCSG_Bond -->
+                                            <ThingDef ParentName="Bullet_EMPCSG_Bond">
+                                                <defName>Bullet_EMPCSG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_CSG_Bond -->
+                                            <ThingDef ParentName="Bullet_CSG_Bond">
+                                                <defName>Bullet_CSG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_CB_Bond -->
+                                            <ThingDef ParentName="Bullet_CB_Bond">
+                                                <defName>Bullet_CB_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Missile_ML_Bond -->
+                                            <ThingDef ParentName="Missile_ML_Bond">
+                                                <defName>Missile_ML_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_CSGII_Bond -->
+                                            <ThingDef ParentName="Bullet_CSGII_Bond">
+                                                <defName>Bullet_CSGII_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_QS_Bond -->
+                                            <ThingDef ParentName="Bullet_QS_Bond">
+                                                <defName>Bullet_QS_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_WJ_Bond -->
+                                            <ThingDef ParentName="Bullet_WJ_Bond">
+                                                <defName>Bullet_WJ_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_WJU_Bond -->
+                                            <ThingDef ParentName="Bullet_WJU_Bond">
+                                                <defName>Bullet_WJU_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_WJNT_Bond -->
+                                            <ThingDef ParentName="Bullet_WJNT_Bond">
+                                                <defName>Bullet_WJNT_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_QSZfivesevenS_Bond -->
+                                            <ThingDef ParentName="Bullet_QSZfivesevenS_Bond">
+                                                <defName>Bullet_QSZfivesevenS_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_AutocannonTurret_Bond -->
+                                            <ThingDef ParentName="Bullet_AutocannonTurret_Bond">
+                                                <defName>Bullet_AutocannonTurret_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_AutocannonTurretEMP_Bond -->
+                                            <ThingDef ParentName="Bullet_AutocannonTurretEMP_Bond">
+                                                <defName>Bullet_AutocannonTurretEMP_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_HMB_Bond -->
+                                            <ThingDef ParentName="Bullet_HMB_Bond">
+                                                <defName>Bullet_HMB_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_CMC_Flame_Bond -->
+                                            <ThingDef ParentName="Bullet_CMC_Flame_Bond">
+                                                <defName>Bullet_CMC_Flame_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- HJX_Rocket_Bond -->
+                                            <ThingDef ParentName="HJX_Rocket_Bond">
+                                                <defName>HJX_Rocket_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
