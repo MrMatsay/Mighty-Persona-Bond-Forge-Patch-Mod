@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== RimTrek (Continued) =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>RimTrek (Continued)</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef Name="MPBFPM_BaseStarfleetGun" Abstract="True" ParentName="MPBFPM_BaseGunWithQuality">
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>ST_SFW</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="PhaserPulse_Bond" Abstract="True">
+                            <label>phaser pulse</label>
+                            <graphicData>
+                                <texPath>Things/Weapons/Projectile/phaserpulse</texPath>
+                            </graphicData>
+                            <projectile>
+                                <flyOverhead>false</flyOverhead>
+                                <damageDef>Burn</damageDef>
+                                <damageAmountBase>19</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <armorPenetrationBase>0.40</armorPenetrationBase>
+                                <speed>45</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="PhaserDispersal_Bond" Abstract="True">
+                            <label>phaser dispersal</label>
+                            <graphicData>
+                                <texPath>Things/Weapons/Projectile/phaserdispersal</texPath>
+                            </graphicData>
+                            <projectile>
+                                <flyOverhead>false</flyOverhead>
+                                <damageDef>Burn</damageDef>
+                                <damageAmountBase>30</damageAmountBase>
+                                <stoppingPower>4</stoppingPower>
+                                <armorPenetrationBase>0.55</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="PhaserPrecise_Bond" Abstract="True">
+                            <label>phaser precise</label>
+                            <projectile>
+                                <flyOverhead>false</flyOverhead>
+                                <damageDef>Burn</damageDef>
+                                <damageAmountBase>28</damageAmountBase>
+                                <stoppingPower>2</stoppingPower>
+                                <armorPenetrationBase>0.60</armorPenetrationBase>
+                                <speed>80</speed>
+                            </projectile>
+                            <graphicData>
+                                <texPath>Things/Weapons/Projectile/phaserbeam</texPath>
+                            </graphicData>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="PhaserMinigun_Bond" Abstract="True">
+                            <label>phaser assault minigun bullet</label>
+                            <graphicData>
+                                <texPath>Things/Weapons/Projectile/phaserpulse</texPath>
+                            </graphicData>
+                            <projectile>
+                                <flyOverhead>false</flyOverhead>
+                                <damageDef>Burn</damageDef>
+                                <damageAmountBase>19</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <armorPenetrationBase>0.45</armorPenetrationBase>
+                                <speed>65</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="BulletTR116Rifle_Bond" Abstract="True">
+                            <label>tr116 rifle bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Big</texPath>
+                            </graphicData>
+                            <projectile>
+                                <flyOverhead>true</flyOverhead>
+                                <damageAmountBase>41</damageAmountBase>
+                                <stoppingPower>5</stoppingPower>
+                                <speed>999</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="BulletTR120Launcher_Bond" Abstract="True">
+                            <label>tr120 incendiary magnetic pulse</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/LauncherShot</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <color>(254,189,58)</color>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <speed>45</speed>
+                                <damageDef>Flame</damageDef>
+                                <!-- Use default damage from explosion def -->
+                                <explosionRadius>2.5</explosionRadius>
+                                <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+                                <preExplosionSpawnChance>0.4</preExplosionSpawnChance>
+                                <ai_IsIncendiary>true</ai_IsIncendiary>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_TetryonPulse_Bond" Abstract="True">
+                            <label>tetryonpulse</label>
+                            <graphicData>
+                                <texPath>Things/Weapons/Projectile/tetryonpulse</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <thingClass>Projectile_DoomsdayRocket</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <!-- Use default damage from explosion def -->
+                                <explosionRadius>8.8</explosionRadius>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_I-mod_Bond" Abstract="True">
+                            <label>I-mod burst</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/LauncherShot</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <color>(68,150,215)</color>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <speed>50</speed>
+                                <damageDef>EMP</damageDef>
+                                <damageAmountBase>30</damageAmountBase>
+                                <armorPenetrationBase>0.85</armorPenetrationBase>
+                                <stoppingPower>2</stoppingPower>
+                                <explosionRadius>2.5</explosionRadius>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseStarfleetGun" Name="Phaser_TypeTwo_Advanced_Bond" Abstract="True">
+                            <label>persona Type 2 Phaser Advanced</label>
+                            <description>An advanced military phaser, more compact than its Type 3 counterparts. Making up for its lack of ranged precision with increase discharge speed and short range accuracy.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Ranged/Phasers/phasertype2advanced</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1,1)</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Metal_Drop</soundInteract>
+                            <statBases>
+                                <Mass>1.5</Mass>
+                                <AccuracyTouch>0.99</AccuracyTouch>
+                                <AccuracyShort>0.99</AccuracyShort>
+                                <AccuracyMedium>0.44</AccuracyMedium>
+                                <AccuracyLong>0.275</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.062</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Starfleet Phasers</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PhaserPulse_Bond</defaultProjectile>
+                                    <burstShotCount>5</burstShotCount>
+                                    <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                    <warmupTime>0.68</warmupTime>
+                                    <range>23</range>
+                                    <soundCast>phaserpulsesound</soundCast>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>11.829</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+
+                        <ThingDef ParentName="MPBFPM_BaseStarfleetGun" Name="Phaser_TypeThree_Compression_Bond" Abstract="True">
+                            <label>persona Type 3 Phaser Compression Rifle</label>
+                            <description>A larger version of the multi-shot Type 2 Advanced Phaser. The Compression Rifle excels as a support and crowd control armament at short to mid-range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Ranged/Phasers/phasertype3compression</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1,1)</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Metal_Drop</soundInteract>
+                            <statBases>
+                                <Mass>2.2</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.88</AccuracyShort>
+                                <AccuracyMedium>0.88</AccuracyMedium>
+                                <AccuracyLong>0.275</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.318</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Starfleet Phasers</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PhaserPulse_Bond</defaultProjectile>
+                                    <burstShotCount>9</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>26</range>
+                                    <soundCast>phaserpulsesound</soundCast>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>11.829</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseStarfleetGun" Name="Phaser_TypeThree_MKI_Bond" Abstract="True">
+                            <label>persona Type 3 MKI Dispersal Phaser Rifle</label>
+                            <description>The MKI represent a stark departure from standard Federation phaser design principles, focusing on the rapid dispersal of energy over a wider area, for in greater stopping power. The limitation is that the phased energy more loses cohesion quite quickly, reducing its effective range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Ranged/Phasers/phasertype3MKI</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1,1)</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Metal_Drop</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.825</AccuracyTouch>
+                                <AccuracyShort>0.88</AccuracyShort>
+                                <AccuracyMedium>0.66</AccuracyMedium>
+                                <AccuracyLong>0.55</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.062</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Starfleet Phasers</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PhaserDispersal_Bond</defaultProjectile>
+                                    <burstShotCount>2</burstShotCount>
+                                    <ticksBetweenBurstShots>25</ticksBetweenBurstShots>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>18</range>
+                                    <soundCast>phaserdispersalsound</soundCast>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>14.935</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>14.935</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseStarfleetGun" Name="Phaser_TypeThreeMKII_Bond" Abstract="True">
+                            <label>persona Type 3 MKII Assault Phaser Rifle</label>
+                            <description>The MK II represent the pinnacle of combat versatility, and as a result has become the mainstay of ground forces and standard issue to security forces on board most vessels, stations and installations. Limited only perhaps by its lack of specialisation.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Ranged/Phasers/phasertype3MKII</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1,1)</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Metal_Drop</soundInteract>
+                            <statBases>
+                                <Mass>2.5</Mass>
+                                <AccuracyTouch>0.77</AccuracyTouch>
+                                <AccuracyShort>0.88</AccuracyShort>
+                                <AccuracyMedium>0.825</AccuracyMedium>
+                                <AccuracyLong>0.715</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.36</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Starfleet Phasers</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PhaserBeam_Bond</defaultProjectile>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>32</range>
+                                    <soundCast>phaserbeamsound</soundCast>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>11.829</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>10.791</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseStarfleetGun" Name="Phaser_TypeThreeMKIII_Bond" Abstract="True">
+                            <label>persona Type 3 MKIII Precise Phaser Rifle</label>
+                            <description>The MKIII dominates at range, unleashing a phaser beam of unmatched stopping power and precision.  Less common amongst security forces due to its more unwieldy nature.  In the right hands however, sharp-shooters can takeout almost any threat before their weapons are in range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Ranged/Phasers/phasertype3MKIII</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1,1)</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Metal_Drop</soundInteract>
+                            <statBases>
+                                <Mass>2.2</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.99</AccuracyMedium>
+                                <AccuracyLong>0.979</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Starfleet Phasers</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PhaserPrecise_Bond</defaultProjectile>
+                                    <burstShotCount>1</burstShotCount>
+                                    <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+                                    <warmupTime>2.55</warmupTime>
+                                    <range>50</range>
+                                    <soundCast>phaserbeamsound</soundCast>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseStarfleetGun" Name="Phaser_Assault_Minigun_Bond" Abstract="True">
+                            <label>persona Phaser Assault Minigun</label>
+                            <description>The Phaser Assault Minigun is only deployed in the direst of circumstances or used when assaulting the most entrenched opposition.  Unleashing a relentless hailstorm of phaser pules on to a target which few would expect to endure.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Ranged/Phasers/phaserassaultminigun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1,1)</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Metal_Drop</soundInteract>
+                            <statBases>
+                                <Mass>8.0</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.88</AccuracyMedium>
+                                <AccuracyLong>0.935</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Starfleet Phasers</li>
+                            </weaponTags>
+                            <equippedAngleOffset>50</equippedAngleOffset>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>PhaserMinigun_Bond</defaultProjectile>
+                                    <warmupTime>1.7</warmupTime>
+                                    <range>32</range>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <burstShotCount>20</burstShotCount>
+                                    <soundCast>phaserpulsesound</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrels</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.866</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseStarfleetGun" Name="TR_116_Rifle_Bond" Abstract="True">
+                            <label>persona TR-116 Projectile Rifle</label>
+                            <description>The TR-116 fires tritanium bullets at such velocities they appear to be near instantaneous in landing a deadly blow.  Due to the immense projectile speeds and integrated exographic targeting sensors its battle field range is virtually infinite.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Ranged/Projectiles/TR-116</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1,1)</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Metal_Drop</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>1.1</AccuracyTouch>
+                                <AccuracyShort>1.1</AccuracyShort>
+                                <AccuracyMedium>1.1</AccuracyMedium>
+                                <AccuracyLong>1.1</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Starfleet Phasers</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>BulletTR116Rifle_Bond</defaultProjectile>
+                                    <warmupTime>1.7</warmupTime>
+                                    <range>999</range>
+                                    <soundCast>Shot_SniperRifle</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>7</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseStarfleetGun" Name="TR_120_Launcher_Bond" Abstract="True">
+                            <label>persona TR-120 Incendiary Pulse Launcher</label>
+                            <description>The TR-120 shoots a burst of 3 incendiary explosives with good accuracy and wide explosive dispersion.  Ineffective on its own, but excellent in a supporting role.  This weapon can be used to quickly clear brush in large areas or to detonate existing explosive traps.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Ranged/Projectiles/TR-120</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <drawSize>(1,1)</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Metal_Drop</soundInteract>
+                            <statBases>
+                                <Mass>3.2</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.66</AccuracyShort>
+                                <AccuracyMedium>0.66</AccuracyMedium>
+                                <AccuracyLong>0.55</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.125</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Starfleet Phasers</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>BulletTR120Launcher_Bond</defaultProjectile>
+                                    <warmupTime>2.125</warmupTime>
+                                    <range>30</range>
+                                    <soundCast>Shot_IncendiaryLauncher</soundCast>
+                                    <forcedMissRadius>2.5</forcedMissRadius>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>10</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseStarfleetGun" Name="Tetryon_Pulse_Launcher_Bond" Abstract="True">
+                            <label>persona Tetryon Pulse Launcher</label>
+                            <description>A shoulder mounted Tetryon Pulse Launcher capable of self-replication of munitions. this launcher represents an exceptional threat on the battle field and is capable of killing multiple opponents simultaneously. As such its use in any engagement must first be authorised by Star Fleet Command.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <tickerType>Normal</tickerType>
+                            <graphicData>
+                                <texPath>Things/Weapons/Ranged/Projectiles/worfzooka</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Metal_Drop</soundInteract>
+                            <statBases>
+                                <Mass>3.2</Mass>
+                                <AccuracyTouch>0.88</AccuracyTouch>
+                                <AccuracyShort>0.88</AccuracyShort>
+                                <AccuracyMedium>0.88</AccuracyMedium>
+                                <AccuracyLong>0.88</AccuracyLong>
+                                <RangedWeapon_Cooldown>7.225</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>Starfleet Phasers</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_TetryonPulse_Bond</defaultProjectile>
+                                    <forcedMissRadius>0.5</forcedMissRadius>
+                                    <warmupTime>3.4</warmupTime>
+                                    <ai_AvoidFriendlyFireRadius>8</ai_AvoidFriendlyFireRadius>
+                                    <range>45.0</range>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>tetryonpulsesound</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <onlyManualCast>true</onlyManualCast>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.555</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                </li>
+                            </tools>
+                            <comps>
+                                <li Class="CompProperties_Explosive">
+                                    <explosiveRadius>7.8</explosiveRadius>
+                                    <explosiveDamageType>Bomb</explosiveDamageType>
+                                    <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseStarfleetGun" Name="Infinity_Modulator_Bond" Abstract="True">
+                            <label>persona Infinity Modulator</label>
+                            <description>Originally developed to respond to the Borg threat, its design has been modified recently to be effective against a verity of machines and cybernetically enchanted lifeforms and those employing personal shields.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Weapons/Ranged/Phasers/i-mod</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <weaponTags>
+                                <li>Starfleet Phasers</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>3.0</Mass>
+                                <AccuracyTouch>0.825</AccuracyTouch>
+                                <AccuracyShort>0.88</AccuracyShort>
+                                <AccuracyMedium>0.88</AccuracyMedium>
+                                <AccuracyLong>0.715</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_I-mod_Bond</defaultProjectile>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>25</range>
+                                    <forcedMissRadius>1.0</forcedMissRadius>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>Shot_IncendiaryLauncher</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>11.829</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>11.829</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="PhaserBeam_Bond" Abstract="True">
+                            <label>phaser beam</label>
+                            <graphicData>
+                                <texPath>Things/Weapons/Projectile/phaserbeam</texPath>
+                            </graphicData>
+                            <projectile>
+                                <flyOverhead>false</flyOverhead>
+                                <damageDef>Burn</damageDef>
+                                <damageAmountBase>24</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <armorPenetrationBase>0.5</armorPenetrationBase>
+                                <speed>45</speed>
+                            </projectile>
+                        </ThingDef>
+
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+
+
+                            <!-- PhaserPulse_Bond -->
+                            <ThingDef ParentName="PhaserPulse_Bond">
+                                <defName>PhaserPulse_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PhaserDispersal_Bond -->
+                            <ThingDef ParentName="PhaserDispersal_Bond">
+                                <defName>PhaserDispersal_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PhaserPrecise_Bond -->
+                            <ThingDef ParentName="PhaserPrecise_Bond">
+                                <defName>PhaserPrecise_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PhaserMinigun_Bond -->
+                            <ThingDef ParentName="PhaserMinigun_Bond">
+                                <defName>PhaserMinigun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BulletTR116Rifle_Bond -->
+                            <ThingDef ParentName="BulletTR116Rifle_Bond">
+                                <defName>BulletTR116Rifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BulletTR120Launcher_Bond -->
+                            <ThingDef ParentName="BulletTR120Launcher_Bond">
+                                <defName>BulletTR120Launcher_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_TetryonPulse_Bond -->
+                            <ThingDef ParentName="Bullet_TetryonPulse_Bond">
+                                <defName>Bullet_TetryonPulse_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_I-mod_Bond -->
+                            <ThingDef ParentName="Bullet_I-mod_Bond">
+                                <defName>Bullet_I-mod_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Phaser_TypeTwo_Advanced_Bond -->
+                            <ThingDef ParentName="Phaser_TypeTwo_Advanced_Bond">
+                                <defName>Phaser_TypeTwo_Advanced_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Phaser_TypeThree_Compression_Bond -->
+                            <ThingDef ParentName="Phaser_TypeThree_Compression_Bond">
+                                <defName>Phaser_TypeThree_Compression_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Phaser_TypeThree_MKI_Bond -->
+                            <ThingDef ParentName="Phaser_TypeThree_MKI_Bond">
+                                <defName>Phaser_TypeThree_MKI_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Phaser_TypeThreeMKII_Bond -->
+                            <ThingDef ParentName="Phaser_TypeThreeMKII_Bond">
+                                <defName>Phaser_TypeThreeMKII_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Phaser_TypeThreeMKIII_Bond -->
+                            <ThingDef ParentName="Phaser_TypeThreeMKIII_Bond">
+                                <defName>Phaser_TypeThreeMKIII_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Phaser_Assault_Minigun_Bond -->
+                            <ThingDef ParentName="Phaser_Assault_Minigun_Bond">
+                                <defName>Phaser_Assault_Minigun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- TR_116_Rifle_Bond -->
+                            <ThingDef ParentName="TR_116_Rifle_Bond">
+                                <defName>TR_116_Rifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- TR_120_Launcher_Bond -->
+                            <ThingDef ParentName="TR_120_Launcher_Bond">
+                                <defName>TR_120_Launcher_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Tetryon_Pulse_Launcher_Bond -->
+                            <ThingDef ParentName="Tetryon_Pulse_Launcher_Bond">
+                                <defName>Tetryon_Pulse_Launcher_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Infinity_Modulator_Bond -->
+                            <ThingDef ParentName="Infinity_Modulator_Bond">
+                                <defName>Infinity_Modulator_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PhaserBeam_Bond -->
+                            <ThingDef ParentName="PhaserBeam_Bond">
+                                <defName>PhaserBeam_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_RimTrekContinued</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+
+
+                                            <!-- PhaserPulse_Bond -->
+                                            <ThingDef ParentName="PhaserPulse_Bond">
+                                                <defName>PhaserPulse_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PhaserDispersal_Bond -->
+                                            <ThingDef ParentName="PhaserDispersal_Bond">
+                                                <defName>PhaserDispersal_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PhaserPrecise_Bond -->
+                                            <ThingDef ParentName="PhaserPrecise_Bond">
+                                                <defName>PhaserPrecise_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PhaserMinigun_Bond -->
+                                            <ThingDef ParentName="PhaserMinigun_Bond">
+                                                <defName>PhaserMinigun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BulletTR116Rifle_Bond -->
+                                            <ThingDef ParentName="BulletTR116Rifle_Bond">
+                                                <defName>BulletTR116Rifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BulletTR120Launcher_Bond -->
+                                            <ThingDef ParentName="BulletTR120Launcher_Bond">
+                                                <defName>BulletTR120Launcher_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_TetryonPulse_Bond -->
+                                            <ThingDef ParentName="Bullet_TetryonPulse_Bond">
+                                                <defName>Bullet_TetryonPulse_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_I-mod_Bond -->
+                                            <ThingDef ParentName="Bullet_I-mod_Bond">
+                                                <defName>Bullet_I-mod_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Phaser_TypeTwo_Advanced_Bond -->
+                                            <ThingDef ParentName="Phaser_TypeTwo_Advanced_Bond">
+                                                <defName>Phaser_TypeTwo_Advanced_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Phaser_TypeThree_Compression_Bond -->
+                                            <ThingDef ParentName="Phaser_TypeThree_Compression_Bond">
+                                                <defName>Phaser_TypeThree_Compression_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Phaser_TypeThree_MKI_Bond -->
+                                            <ThingDef ParentName="Phaser_TypeThree_MKI_Bond">
+                                                <defName>Phaser_TypeThree_MKI_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Phaser_TypeThreeMKII_Bond -->
+                                            <ThingDef ParentName="Phaser_TypeThreeMKII_Bond">
+                                                <defName>Phaser_TypeThreeMKII_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Phaser_TypeThreeMKIII_Bond -->
+                                            <ThingDef ParentName="Phaser_TypeThreeMKIII_Bond">
+                                                <defName>Phaser_TypeThreeMKIII_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Phaser_Assault_Minigun_Bond -->
+                                            <ThingDef ParentName="Phaser_Assault_Minigun_Bond">
+                                                <defName>Phaser_Assault_Minigun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- TR_116_Rifle_Bond -->
+                                            <ThingDef ParentName="TR_116_Rifle_Bond">
+                                                <defName>TR_116_Rifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- TR_120_Launcher_Bond -->
+                                            <ThingDef ParentName="TR_120_Launcher_Bond">
+                                                <defName>TR_120_Launcher_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Tetryon_Pulse_Launcher_Bond -->
+                                            <ThingDef ParentName="Tetryon_Pulse_Launcher_Bond">
+                                                <defName>Tetryon_Pulse_Launcher_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Infinity_Modulator_Bond -->
+                                            <ThingDef ParentName="Infinity_Modulator_Bond">
+                                                <defName>Infinity_Modulator_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PhaserBeam_Bond -->
+                                            <ThingDef ParentName="PhaserBeam_Bond">
+                                                <defName>PhaserBeam_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

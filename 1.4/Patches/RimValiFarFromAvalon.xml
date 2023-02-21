@@ -1,0 +1,1667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== RimVali: Far From Avalon =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>RimVali: Far From Avalon</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RVFFA_PistolBullet_Bond" Abstract="True">
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/SmallBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>11</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>150</speed>
+                                <armorPenetrationBase>0.185</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseGun" Name="RVFFA_IlluminatePistol_Bond" Abstract="True">
+                            <label>persona Illuminate Pistol</label>
+                            <description>A common Illuminate pattern pistol. Unlike its Terran counterparts this weapon uses coil-based acceleration. Whilst It has more accuracy and a shorter travel time than a Terran auto pistol, it hits with less power when compared to one.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Pistol</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <statBases>
+                                <Mass>1.5</Mass>
+                                <AccuracyTouch>0.957</AccuracyTouch>
+                                <AccuracyShort>1.012</AccuracyShort>
+                                <AccuracyMedium>0.847</AccuracyMedium>
+                                <AccuracyLong>0.605</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_PistolBullet_Bond</defaultProjectile>
+                                    <warmupTime>0.255</warmupTime>
+                                    <range>29.9</range>
+                                    <soundCast>Shot_Autopistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                    <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RVFFA_SMGBullet_Bond" Abstract="True">
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/SmallBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>20</damageAmountBase>
+                                <speed>150</speed>
+                                <armorPenetrationBase>0.32</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseGun" Name="RVFFA_IlluminateSMG_Bond" Abstract="True">
+                            <label>persona Illuminate SMG</label>
+                            <description>A coil-based Illuminate SMG. Whilst it does theoretically have a better service range compared to its Terran counterparts, this weapon is best used for medium to short ranged engagements. Besides this fact, it still has two qualities that make it reliable—its accuracy and travel time.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/SMG</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <statBases>
+                                <Mass>4.5</Mass>
+                                <AccuracyTouch>0.77</AccuracyTouch>
+                                <AccuracyShort>0.946</AccuracyShort>
+                                <AccuracyMedium>0.792</AccuracyMedium>
+                                <AccuracyLong>0.572</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.147</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_SMGBullet_Bond</defaultProjectile>
+                                    <warmupTime>0.595</warmupTime>
+                                    <range>30.4</range>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <burstShotCount>2</burstShotCount>
+                                    <soundCast>Shot_HeavySMG</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RVFFA_MinigunBullet_Bond" Abstract="True">
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/SmallBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>10</damageAmountBase>
+                                <speed>88</speed>
+                                <armorPenetrationBase>0.47</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseGun" Name="RVFFA_IlluminateMachineGun_Bond" Abstract="True">
+                            <label>persona Illuminate Machinegun</label>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Vali_Illuminate_Minigun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <statBases>
+                                <Mass>6.5</Mass>
+                                <MarketValue>1589.5</MarketValue>
+                                <AccuracyTouch>0.396</AccuracyTouch>
+                                <AccuracyShort>0.473</AccuracyShort>
+                                <AccuracyMedium>0.429</AccuracyMedium>
+                                <AccuracyLong>0.22</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_MinigunBullet_Bond</defaultProjectile>
+                                    <warmupTime>1.53</warmupTime>
+                                    <range>35</range>
+                                    <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                                    <burstShotCount>22</burstShotCount>
+                                    <soundCast>Shot_HeavySMG</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RVFFA_RifleBullet_Bond" Abstract="True">
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/RifleBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>17</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>177</speed>
+                                <armorPenetrationBase>0.42</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseGun" Name="RVFFA_Rifle_Bond" Abstract="True">
+                            <label>persona Illuminate Rifle</label>
+                            <description>A common Illuminate pattern rifle. Praised by both soldiers and hunters for its reliability, it is practically standard issue for any weaponized operation. Its high range and very short travel time makes it perfect for picking off distant enemies.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Rifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.759</AccuracyTouch>
+                                <AccuracyShort>0.891</AccuracyShort>
+                                <AccuracyMedium>1.012</AccuracyMedium>
+                                <AccuracyLong>0.946</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.232</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_RifleBullet_Bond</defaultProjectile>
+                                    <warmupTime>1.36</warmupTime>
+                                    <range>38.5</range>
+                                    <soundCast>Shot_Autopistol</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RVFFA_SniperBullet_Bond" Abstract="True">
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/SniperBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>39</damageAmountBase>
+                                <speed>183</speed>
+                                <stoppingPower>2</stoppingPower>
+                                <armorPenetrationBase>0.54</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseGun" Name="RVFFA_IlluminateSniperRifle_Bond" Abstract="True">
+                            <label>persona Illuminate Sniper Rifle</label>
+                            <description>A high-powered Illuminate pattern sniper rifle. This sophisticated weapon optimizes the use of Helium-cooling to keep its powerful and plentiful coils from overheating in it’s user’s talons. With its long range and powerful bullet, it is highly loved by Illuminate snipers for picking off high-value targets with.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/SniperRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>6.5</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.902</AccuracyShort>
+                                <AccuracyMedium>0.968</AccuracyMedium>
+                                <AccuracyLong>1.023</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.465</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_SniperBullet_Bond</defaultProjectile>
+                                    <warmupTime>1.573</warmupTime>
+                                    <range>48</range>
+                                    <soundCast>Shot_SniperRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RVFFA_ShotgunBullet_Bond" Abstract="True">
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/ShotgunBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <stoppingPower>3</stoppingPower>
+                                <damageAmountBase>29</damageAmountBase>
+                                <speed>150</speed>
+                                <armorPenetrationBase>0.33</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseGun" Name="RVFFA_IlluminateShotgun_Bond" Abstract="True">
+                            <label>persona Illuminate Shotgun</label>
+                            <description>An Illuminate Pattern shotgun. Together with its advanced coil technology and a simple choke at the end, it fires a highly concentrated wad of pellets towards its enemies. Whilst longer range than its Terran counterparts, it has to trade in short range usability to make this possible.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Shotgun</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <soundInteract>Interact_Shotgun</soundInteract>
+                            <statBases>
+                                <Mass>5.0</Mass>
+                                <AccuracyTouch>0.748</AccuracyTouch>
+                                <AccuracyShort>0.869</AccuracyShort>
+                                <AccuracyMedium>0.902</AccuracyMedium>
+                                <AccuracyLong>0.715</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.402</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_ShotgunBullet_Bond</defaultProjectile>
+                                    <warmupTime>1.615</warmupTime>
+                                    <range>24</range>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>Shot_Shotgun</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="RVFFA_Rocket_Bond" Abstract="True">
+                            <label>rocket</label>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/Rocket</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>Bomb</damageDef>
+                                <!-- Use default damage from explosion def -->
+                                <explosionRadius>3.7</explosionRadius>
+                                <speed>35</speed>
+                            </projectile>
+                        </ThingDef>
+
+
+                        <ThingDef ParentName="MPBFPM_BaseGun" Name="RVFFA_IlluminateRocketLauncher_Bond" Abstract="True">
+                            <label>persona Illuminate Rocket Launcher</label>
+                            <description>An Illuminate rocket launcher. Anti-Tank weapons are important in any war, and this rocket launcher is no different. Using a fin-stabilized system together with a small jet system, this rocket ensures you hit where you aim. Despite its good range, near-perfect accuracy and high-explosive payload. It fires a slow and easy to dodge projectile and should be used with good prior planning.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <tickerType>Normal</tickerType>
+                            <smeltable>false</smeltable>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/RocketLauncher</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <statBases>
+                                <MarketValue>2222.0</MarketValue>
+                                <Mass>7</Mass>
+                                <RangedWeapon_Cooldown>3.995</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Spacer</techLevel>
+                            <tradeTags>
+                                <li>ExoticMisc</li>
+                            </tradeTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_Rocket_Bond</defaultProjectile>
+                                    <forcedMissRadius>0.5</forcedMissRadius>
+                                    <warmupTime>3.825</warmupTime>
+                                    <ai_AvoidFriendlyFireRadius>5</ai_AvoidFriendlyFireRadius>
+                                    <range>34</range>
+                                    <soundCast>InfernoCannon_Fire</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <onlyManualCast>true</onlyManualCast>
+                                    <stopBurstWithoutLos>false</stopBurstWithoutLos>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.555</power>
+                                    <cooldownTime>2.21</cooldownTime>
+                                </li>
+                            </tools>
+                            <comps>
+                                <li Class="CompProperties_Explosive">
+                                    <explosiveRadius>3.9</explosiveRadius>
+                                    <explosiveDamageType>Bomb</explosiveDamageType>
+                                    <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+                                </li>
+                            </comps>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RVFFA_IWPistolBullet_Bond" Abstract="True">
+                            <label>Bullet</label>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/SmallBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>8</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>75</speed>
+                                <armorPenetrationBase>0.10</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="RVFFA_IWPistol_Bond" Abstract="True">
+                            <label>persona Independent Worlds Pistol</label>
+                            <description>A simple non-Illuminate pistol. Whilst dealing less damage and having a slightly shorter range when compared to its Terran counterpart, it makes up for this by using coil technology for a better firing rate and more medium range viability.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/IWWeapons/Pistol_IndependentWorlds</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Interact_Autopistol</soundInteract>
+                            <statBases>
+                                <Mass>1.5</Mass>
+                                <AccuracyTouch>0.935</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.55</AccuracyMedium>
+                                <AccuracyLong>0.44</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>RVFFA_IWAvaliWeapons</li>
+                                <li>RVFFA_Weapons</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_IWPistolBullet_Bond</defaultProjectile>
+                                    <warmupTime>0.17</warmupTime>
+                                    <range>22</range>
+                                    <soundCast>Shot_Autopistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RVFFA_BattleRifleBullet_Bond" Abstract="True">
+                            <label>Bullet</label>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/SmallBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>14</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>135</speed>
+                                <armorPenetrationBase>0.19</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="RVFFA_BattleRifle_Bond" Abstract="True">
+                            <label>persona Independent Worlds battle rifle</label>
+                            <description>A popular non-Illuminate battle rifle. The design of these simple rifles has quickly spread throughout the Rimworld to offer Avali both defensive and hunting capacities. Together with a regular old blowback-action design and its fast but small bullet, it brings a decent fire-rate and equally decent range to the table.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/IWWeapons/vali_Primitive_semiauto</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Interact_Autopistol</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.726</AccuracyTouch>
+                                <AccuracyShort>0.792</AccuracyShort>
+                                <AccuracyMedium>0.902</AccuracyMedium>
+                                <AccuracyLong>0.693</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>RVFFA_IWAvaliWeapons</li>
+                                <li>RVFFA_Weapons</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_BattleRifleBullet_Bond</defaultProjectile>
+                                    <warmupTime>1.02</warmupTime>
+                                    <range>32</range>
+                                    <soundCast>Shot_Autopistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RVFFA_IW_Rifle_Bullet_Bond" Abstract="True">
+                            <label>Bullet</label>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/SmallBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>21</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>150</speed>
+                                <armorPenetrationBase>0.22</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="RVFFA_IW_Rifle_Bond" Abstract="True">
+                            <label>persona Independent Worlds rifle</label>
+                            <description>A bolt-action non-Illuminate rifle. Whilst this weapon has a lower fire-rate when compared to its semi-auto packmate, it quickly proves itself when competing for range and accuracy against it. This causes the weapon to still attract Avali sharpshooters that seek something reliable and simple to arm themselves with.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/IWWeapons/Vali_Primitive_Rifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Interact_Autopistol</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.55</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.88</AccuracyMedium>
+                                <AccuracyLong>0.935</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>RVFFA_IWAvaliWeapons</li>
+                                <li>RVFFA_Weapons</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_IW_Rifle_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>1.105</warmupTime>
+                                    <range>37</range>
+                                    <soundCast>Shot_Autopistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RVFFA_AssaultRifleBullet_Bond" Abstract="True">
+                            <label>Bullet</label>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/SmallBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>12</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>130</speed>
+                                <armorPenetrationBase>0.12</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="RVFFA_IWAssaultRifle_Bond" Abstract="True">
+                            <label>persona Independent Worlds assault rifle</label>
+                            <description>A non-Illuminate assault rifle. Choosing fire-power over accuracy, this weapon releases a burst of four shots before the user has to zero in again due to recoil. Whilst it doesn’t receive the same love from Avali sharpshooters that the other rifles receive, it certainly finds its favour by Avali who prefer more suppressing fire.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/IWWeapons/Vali_Primitive_Assault_Rifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Interact_Autopistol</soundInteract>
+                            <weaponTags>
+                                <li>IWAvaliWeapons</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>4.5</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.66</AccuracyMedium>
+                                <AccuracyLong>0.55</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_AssaultRifleBullet_Bond</defaultProjectile>
+                                    <warmupTime>0.935</warmupTime>
+                                    <range>28</range>
+                                    <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+                                    <burstShotCount>4</burstShotCount>
+                                    <soundCast>Shot_Autopistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RVFFA_IW_Machinegun_Bullet_Bond" Abstract="True">
+                            <label>Bullet</label>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/SmallBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>8</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>100</speed>
+                                <armorPenetrationBase>0.12</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="RVFFA_IW_Machinegun_Bond" Abstract="True">
+                            <label>persona Independent Worlds light machine gun</label>
+                            <description>A rapid-fire non-Illuminate LMG. Throwing away more popular doctrines of accuracy and controllability. This weapon is capable of firing enough projectiles to make a certain area wholly suppressed. Whilst it certainly has this high fire-power, this comes at the expense of the Avali wielder who needs time to zero it in again after usage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/IWWeapons/Vali_Independent_MG</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Interact_Autopistol</soundInteract>
+                            <statBases>
+                                <Mass>10.5</Mass>
+                                <AccuracyTouch>0.198</AccuracyTouch>
+                                <AccuracyShort>0.319</AccuracyShort>
+                                <AccuracyMedium>0.33</AccuracyMedium>
+                                <AccuracyLong>0.264</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_IW_Machinegun_Bullet_Bond</defaultProjectile>
+                                    <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                    <burstShotCount>28</burstShotCount>
+                                    <soundCast>Shot_HeavySMG</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <range>28.5</range>
+                                    <warmupTime>1.615</warmupTime>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RVFFA_IW_GMPG_Bullet_Bond" Abstract="True">
+                            <label>Bullet</label>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/SmallBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>15</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>125</speed>
+                                <armorPenetrationBase>0.26</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="RV_IW_GMPG_Bond" Abstract="True">
+                            <label>persona Independent Worlds machine gun</label>
+                            <description>A more general purpose non-Illuminate machine gun. When compared to its lighter packmate, this machine gun already comes with more accuracy and a heavier bullet. Whilst this may be the case, it generally has less range compared to it and the advised burst is also lowered for more controllability.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/IWWeapons/Vali_Primitive_GPMG</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Interact_Autopistol</soundInteract>
+                            <statBases>
+                                <Mass>12.5</Mass>
+                                <AccuracyTouch>0.341</AccuracyTouch>
+                                <AccuracyShort>0.462</AccuracyShort>
+                                <AccuracyMedium>0.374</AccuracyMedium>
+                                <AccuracyLong>0.286</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.51</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>RVFFA_IWAvaliWeapons</li>
+                                <li>RVFFA_Weapons</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_IW_GMPG_Bullet_Bond</defaultProjectile>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <burstShotCount>7</burstShotCount>
+                                    <soundCast>Shot_HeavySMG</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <range>24.5</range>
+                                    <warmupTime>1.275</warmupTime>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RVFFA_IW_SMG_Bullet_Bond" Abstract="True">
+                            <label>Bullet</label>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/SmallBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>11</damageAmountBase>
+                                <stoppingPower>0.5</stoppingPower>
+                                <speed>96</speed>
+                                <armorPenetrationBase>0.15</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="RVFFA_IW_SMG_Bond" Abstract="True">
+                            <label>persona Independent Worlds sub-machine gun</label>
+                            <description>A regular old non-Illuminate SMG. Whilst generally better in close quarters or when closing in on your target, its fire-rate is the thing that makes up for this fact. This weapon is best used in shorter ranges or maybe just a way to protect yourself from melee based attackers, or an alternative to melee attacks of your own.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/IWWeapons/Vali_Primitive_AngryTube</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Interact_Autopistol</soundInteract>
+                            <weaponTags>
+                                <li>IWAvaliWeapons</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>4.5</Mass>
+                                <AccuracyTouch>0.803</AccuracyTouch>
+                                <AccuracyShort>0.638</AccuracyShort>
+                                <AccuracyMedium>0.297</AccuracyMedium>
+                                <AccuracyLong>0.308</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>RVFFA_IWAvaliWeapons</li>
+                                <li>RVFFA_Weapons</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_IW_SMG_Bullet_Bond</defaultProjectile>
+                                    <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+                                    <burstShotCount>5</burstShotCount>
+                                    <soundCast>Shot_HeavySMG</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <range>18.5</range>
+                                    <warmupTime>0.595</warmupTime>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RVFFA_IW_RailRifle_Bullet_Bond" Abstract="True">
+                            <label>Bullet</label>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/SmallBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>27</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>175</speed>
+                                <armorPenetrationBase>0.52</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="RVFFA_IW_Rail_Rifle_Bond" Abstract="True">
+                            <label>persona Independent Worlds rail rifle</label>
+                            <description>A non-Illuminate Anti-Tank rail rifle. Together with its lengthy coil system and its dense projectile, this rifle will punch a hole through most armoured targets and will do the same to unarmoured targets — with overpenetration, mind you.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/IWWeapons/Vali_Primitive_Railrifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Interact_Autopistol</soundInteract>
+                            <statBases>
+                                <Mass>5.5</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.715</AccuracyShort>
+                                <AccuracyMedium>0.77</AccuracyMedium>
+                                <AccuracyLong>0.737</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>RVFFA_IWAvaliWeapons</li>
+                                <li>RVFFA_Weapons</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_IW_RailRifle_Bullet_Bond</defaultProjectile>
+                                    <soundCast>Shot_Autopistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <range>33.5</range>
+                                    <warmupTime>1.275</warmupTime>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="RVFFA_IW_Revolver_Bullet_Bond" Abstract="True">
+                            <label>Bullet</label>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/Bullet/SmallBullet</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>13</damageAmountBase>
+                                <stoppingPower>1</stoppingPower>
+                                <speed>85</speed>
+                                <armorPenetrationBase>0.14</armorPenetrationBase>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="RVFFA_IW_Revolver_Bond" Abstract="True">
+                            <label>persona Independent Worlds revolver</label>
+                            <description>A Terran influenced non-Illuminate revolver. Despite its non-Avali nature, this cylinder shooter still shouldn’t be mistaken for a kit’s toy to the same kin that designed it. Sporting short range accuracy and a punchy bullet, it’s a good weapon for an Avali that wants an easy to both maintain and make weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Guns/IWWeapons/Vali_Primitive_Revolver</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Interact_Autopistol</soundInteract>
+                            <statBases>
+                                <Mass>2.5</Mass>
+                                <AccuracyTouch>0.814</AccuracyTouch>
+                                <AccuracyShort>0.792</AccuracyShort>
+                                <AccuracyMedium>0.539</AccuracyMedium>
+                                <AccuracyLong>0.407</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>RVFFA_IWAvaliWeapons</li>
+                                <li>RVFFA_Weapons</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>RVFFA_IW_Revolver_Bullet_Bond</defaultProjectile>
+                                    <soundCast>Shot_Autopistol</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <range>21.5</range>
+                                    <warmupTime>0.17</warmupTime>
+                                    <muzzleFlashScale>0</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp" Name="RVFFA_Scythe_Bond" Abstract="True">
+                            <label>persona Illuminate Scythe</label>
+                            <description>A high-tech Illuminate scythe. Unlike most Ferrogel weapons, this one’s blade isn’t actually supposed to break in the target. Despite this it still has an advanced printer in the blade’s base to replace it when it gets dull. Whilst its viability for actual combat is questionable, being attacked by this weapon is still going to deal great damage.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Melee/Scythe</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.2</uiIconScale>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>AvaliWeapons</li>
+                                <li>AvaliMelee</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>0.6</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>Scythe Handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.0</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Scythe Blade</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>13.162</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp" Name="RVFFA_Axe_Bond" Abstract="True">
+                            <label>persona Illuminate Axe</label>
+                            <description>A dangerous Illuminate battle axe. Truly meant for combat, this weapon uses vibrations to cut into the skin of the enemy, after multiple hits the blade will break off and stick in its target’s flesh before rapidly being reconstructed by the printer in its head. It is renowned for its brutality and the surprising force an Avali can strike down with it.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Melee/Axe</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.2</uiIconScale>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>AvaliWeapons</li>
+                                <li>AvaliMelee</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>0.6</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>Axe Handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>6.0</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Avali Axe Blade</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>7.48</power>
+                                    <cooldownTime>0.85</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp" Name="RVFFA_Knife_Bond" Abstract="True">
+                            <label>persona Illuminate knife</label>
+                            <description>A small Illuminate survival knife. Whilst primarily used together with its vibrating blade as a tool to cut food and small objects with, it is still a dangerous hold-out weapon, able to use its vibrating blade to cut through an enemy with ease and being able to reprint the blade when it shatters in the enemy or simply gets too dull with just the same amount of ease.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Melee/Knife</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.2</uiIconScale>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>AvaliWeapons</li>
+                                <li>AvaliMelee</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>0.6</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>knife Handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>2.0</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Knife Blade</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>3.683</power>
+                                    <cooldownTime>0.17</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp" Name="RVFFA_Spear_Bond" Abstract="True">
+                            <label>persona Illuminate Spear</label>
+                            <description>An elegant and long Illuminate spear. Being popular for both the low amount of training required and the large amount of ferrogel able to be stored in it to reprint its head with. It is perhaps the most viable weapon to train beginners with but is also dangerous in the talons of masters with its sharp and explicitly fragile head.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Melee/Spear</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.2</uiIconScale>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>AvaliWeapons</li>
+                                <li>AvaliMelee</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>0.6</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>Avali Spear Handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>3.414</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Avali Spear Blade</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>16.606</power>
+                                    <cooldownTime>4.25</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp" Name="RVFFA_Viroblae_Bond" Abstract="True">
+                            <label>persona Illuminate Viroblade</label>
+                            <description>The renowned and highly iconic Illuminate sword. Perhaps it is the vibrating blade and the song-like hum it creates that makes it so popular. Or perhaps it is the splintering ferrogel blade instead, creating many deadly injuries. Whatever the reason may be, this blade has a legendary reputation and a bodycount to support it.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>RimValiFFA/Things/Weapons/Melee/Viroblade</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                            </graphicData>
+                            <uiIconScale>1.2</uiIconScale>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>AvaliWeapons</li>
+                                <li>AvaliMelee</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>0.6</Mass>
+                            </statBases>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <tools>
+                                <li>
+                                    <label>Viroblade Handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>4.732</power>
+                                    <cooldownTime>2.55</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Viroblade guard</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>3.414</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>Viroblade</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>30.0</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- RVFFA_PistolBullet_Bond -->
+                            <ThingDef ParentName="RVFFA_PistolBullet_Bond">
+                                <defName>RVFFA_PistolBullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IlluminatePistol_Bond -->
+                            <ThingDef ParentName="RVFFA_IlluminatePistol_Bond">
+                                <defName>RVFFA_IlluminatePistol_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_SMGBullet_Bond -->
+                            <ThingDef ParentName="RVFFA_SMGBullet_Bond">
+                                <defName>RVFFA_SMGBullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IlluminateSMG_Bond -->
+                            <ThingDef ParentName="RVFFA_IlluminateSMG_Bond">
+                                <defName>RVFFA_IlluminateSMG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_MinigunBullet_Bond -->
+                            <ThingDef ParentName="RVFFA_MinigunBullet_Bond">
+                                <defName>RVFFA_MinigunBullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IlluminateMachineGun_Bond -->
+                            <ThingDef ParentName="RVFFA_IlluminateMachineGun_Bond">
+                                <defName>RVFFA_IlluminateMachineGun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_RifleBullet_Bond -->
+                            <ThingDef ParentName="RVFFA_RifleBullet_Bond">
+                                <defName>RVFFA_RifleBullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_Rifle_Bond -->
+                            <ThingDef ParentName="RVFFA_Rifle_Bond">
+                                <defName>RVFFA_Rifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_SniperBullet_Bond -->
+                            <ThingDef ParentName="RVFFA_SniperBullet_Bond">
+                                <defName>RVFFA_SniperBullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IlluminateSniperRifle_Bond -->
+                            <ThingDef ParentName="RVFFA_IlluminateSniperRifle_Bond">
+                                <defName>RVFFA_IlluminateSniperRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_ShotgunBullet_Bond -->
+                            <ThingDef ParentName="RVFFA_ShotgunBullet_Bond">
+                                <defName>RVFFA_ShotgunBullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IlluminateShotgun_Bond -->
+                            <ThingDef ParentName="RVFFA_IlluminateShotgun_Bond">
+                                <defName>RVFFA_IlluminateShotgun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_Rocket_Bond -->
+                            <ThingDef ParentName="RVFFA_Rocket_Bond">
+                                <defName>RVFFA_Rocket_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IlluminateRocketLauncher_Bond -->
+                            <ThingDef ParentName="RVFFA_IlluminateRocketLauncher_Bond">
+                                <defName>RVFFA_IlluminateRocketLauncher_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IWPistolBullet_Bond -->
+                            <ThingDef ParentName="RVFFA_IWPistolBullet_Bond">
+                                <defName>RVFFA_IWPistolBullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IWPistol_Bond -->
+                            <ThingDef ParentName="RVFFA_IWPistol_Bond">
+                                <defName>RVFFA_IWPistol_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_BattleRifleBullet_Bond -->
+                            <ThingDef ParentName="RVFFA_BattleRifleBullet_Bond">
+                                <defName>RVFFA_BattleRifleBullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_BattleRifle_Bond -->
+                            <ThingDef ParentName="RVFFA_BattleRifle_Bond">
+                                <defName>RVFFA_BattleRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IW_Rifle_Bullet_Bond -->
+                            <ThingDef ParentName="RVFFA_IW_Rifle_Bullet_Bond">
+                                <defName>RVFFA_IW_Rifle_Bullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IW_Rifle_Bond -->
+                            <ThingDef ParentName="RVFFA_IW_Rifle_Bond">
+                                <defName>RVFFA_IW_Rifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_AssaultRifleBullet_Bond -->
+                            <ThingDef ParentName="RVFFA_AssaultRifleBullet_Bond">
+                                <defName>RVFFA_AssaultRifleBullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IWAssaultRifle_Bond -->
+                            <ThingDef ParentName="RVFFA_IWAssaultRifle_Bond">
+                                <defName>RVFFA_IWAssaultRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IW_Machinegun_Bullet_Bond -->
+                            <ThingDef ParentName="RVFFA_IW_Machinegun_Bullet_Bond">
+                                <defName>RVFFA_IW_Machinegun_Bullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IW_Machinegun_Bond -->
+                            <ThingDef ParentName="RVFFA_IW_Machinegun_Bond">
+                                <defName>RVFFA_IW_Machinegun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IW_GMPG_Bullet_Bond -->
+                            <ThingDef ParentName="RVFFA_IW_GMPG_Bullet_Bond">
+                                <defName>RVFFA_IW_GMPG_Bullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RV_IW_GMPG_Bond -->
+                            <ThingDef ParentName="RV_IW_GMPG_Bond">
+                                <defName>RV_IW_GMPG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IW_SMG_Bullet_Bond -->
+                            <ThingDef ParentName="RVFFA_IW_SMG_Bullet_Bond">
+                                <defName>RVFFA_IW_SMG_Bullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IW_SMG_Bond -->
+                            <ThingDef ParentName="RVFFA_IW_SMG_Bond">
+                                <defName>RVFFA_IW_SMG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IW_RailRifle_Bullet_Bond -->
+                            <ThingDef ParentName="RVFFA_IW_RailRifle_Bullet_Bond">
+                                <defName>RVFFA_IW_RailRifle_Bullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IW_Rail_Rifle_Bond -->
+                            <ThingDef ParentName="RVFFA_IW_Rail_Rifle_Bond">
+                                <defName>RVFFA_IW_Rail_Rifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IW_Revolver_Bullet_Bond -->
+                            <ThingDef ParentName="RVFFA_IW_Revolver_Bullet_Bond">
+                                <defName>RVFFA_IW_Revolver_Bullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_IW_Revolver_Bond -->
+                            <ThingDef ParentName="RVFFA_IW_Revolver_Bond">
+                                <defName>RVFFA_IW_Revolver_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_Scythe_Bond -->
+                            <ThingDef ParentName="RVFFA_Scythe_Bond">
+                                <defName>RVFFA_Scythe_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_Axe_Bond -->
+                            <ThingDef ParentName="RVFFA_Axe_Bond">
+                                <defName>RVFFA_Axe_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_Knife_Bond -->
+                            <ThingDef ParentName="RVFFA_Knife_Bond">
+                                <defName>RVFFA_Knife_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_Spear_Bond -->
+                            <ThingDef ParentName="RVFFA_Spear_Bond">
+                                <defName>RVFFA_Spear_Bond</defName>
+                            </ThingDef>
+
+                            <!-- RVFFA_Viroblae_Bond -->
+                            <ThingDef ParentName="RVFFA_Viroblae_Bond">
+                                <defName>RVFFA_Viroblae_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_RimValiFarFromAvalon</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- RVFFA_PistolBullet_Bond -->
+                                            <ThingDef ParentName="RVFFA_PistolBullet_Bond">
+                                                <defName>RVFFA_PistolBullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IlluminatePistol_Bond -->
+                                            <ThingDef ParentName="RVFFA_IlluminatePistol_Bond">
+                                                <defName>RVFFA_IlluminatePistol_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_SMGBullet_Bond -->
+                                            <ThingDef ParentName="RVFFA_SMGBullet_Bond">
+                                                <defName>RVFFA_SMGBullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IlluminateSMG_Bond -->
+                                            <ThingDef ParentName="RVFFA_IlluminateSMG_Bond">
+                                                <defName>RVFFA_IlluminateSMG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_MinigunBullet_Bond -->
+                                            <ThingDef ParentName="RVFFA_MinigunBullet_Bond">
+                                                <defName>RVFFA_MinigunBullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IlluminateMachineGun_Bond -->
+                                            <ThingDef ParentName="RVFFA_IlluminateMachineGun_Bond">
+                                                <defName>RVFFA_IlluminateMachineGun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_RifleBullet_Bond -->
+                                            <ThingDef ParentName="RVFFA_RifleBullet_Bond">
+                                                <defName>RVFFA_RifleBullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_Rifle_Bond -->
+                                            <ThingDef ParentName="RVFFA_Rifle_Bond">
+                                                <defName>RVFFA_Rifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_SniperBullet_Bond -->
+                                            <ThingDef ParentName="RVFFA_SniperBullet_Bond">
+                                                <defName>RVFFA_SniperBullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IlluminateSniperRifle_Bond -->
+                                            <ThingDef ParentName="RVFFA_IlluminateSniperRifle_Bond">
+                                                <defName>RVFFA_IlluminateSniperRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_ShotgunBullet_Bond -->
+                                            <ThingDef ParentName="RVFFA_ShotgunBullet_Bond">
+                                                <defName>RVFFA_ShotgunBullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IlluminateShotgun_Bond -->
+                                            <ThingDef ParentName="RVFFA_IlluminateShotgun_Bond">
+                                                <defName>RVFFA_IlluminateShotgun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_Rocket_Bond -->
+                                            <ThingDef ParentName="RVFFA_Rocket_Bond">
+                                                <defName>RVFFA_Rocket_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IlluminateRocketLauncher_Bond -->
+                                            <ThingDef ParentName="RVFFA_IlluminateRocketLauncher_Bond">
+                                                <defName>RVFFA_IlluminateRocketLauncher_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IWPistolBullet_Bond -->
+                                            <ThingDef ParentName="RVFFA_IWPistolBullet_Bond">
+                                                <defName>RVFFA_IWPistolBullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IWPistol_Bond -->
+                                            <ThingDef ParentName="RVFFA_IWPistol_Bond">
+                                                <defName>RVFFA_IWPistol_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_BattleRifleBullet_Bond -->
+                                            <ThingDef ParentName="RVFFA_BattleRifleBullet_Bond">
+                                                <defName>RVFFA_BattleRifleBullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_BattleRifle_Bond -->
+                                            <ThingDef ParentName="RVFFA_BattleRifle_Bond">
+                                                <defName>RVFFA_BattleRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IW_Rifle_Bullet_Bond -->
+                                            <ThingDef ParentName="RVFFA_IW_Rifle_Bullet_Bond">
+                                                <defName>RVFFA_IW_Rifle_Bullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IW_Rifle_Bond -->
+                                            <ThingDef ParentName="RVFFA_IW_Rifle_Bond">
+                                                <defName>RVFFA_IW_Rifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_AssaultRifleBullet_Bond -->
+                                            <ThingDef ParentName="RVFFA_AssaultRifleBullet_Bond">
+                                                <defName>RVFFA_AssaultRifleBullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IWAssaultRifle_Bond -->
+                                            <ThingDef ParentName="RVFFA_IWAssaultRifle_Bond">
+                                                <defName>RVFFA_IWAssaultRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IW_Machinegun_Bullet_Bond -->
+                                            <ThingDef ParentName="RVFFA_IW_Machinegun_Bullet_Bond">
+                                                <defName>RVFFA_IW_Machinegun_Bullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IW_Machinegun_Bond -->
+                                            <ThingDef ParentName="RVFFA_IW_Machinegun_Bond">
+                                                <defName>RVFFA_IW_Machinegun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IW_GMPG_Bullet_Bond -->
+                                            <ThingDef ParentName="RVFFA_IW_GMPG_Bullet_Bond">
+                                                <defName>RVFFA_IW_GMPG_Bullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RV_IW_GMPG_Bond -->
+                                            <ThingDef ParentName="RV_IW_GMPG_Bond">
+                                                <defName>RV_IW_GMPG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IW_SMG_Bullet_Bond -->
+                                            <ThingDef ParentName="RVFFA_IW_SMG_Bullet_Bond">
+                                                <defName>RVFFA_IW_SMG_Bullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IW_SMG_Bond -->
+                                            <ThingDef ParentName="RVFFA_IW_SMG_Bond">
+                                                <defName>RVFFA_IW_SMG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IW_RailRifle_Bullet_Bond -->
+                                            <ThingDef ParentName="RVFFA_IW_RailRifle_Bullet_Bond">
+                                                <defName>RVFFA_IW_RailRifle_Bullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IW_Rail_Rifle_Bond -->
+                                            <ThingDef ParentName="RVFFA_IW_Rail_Rifle_Bond">
+                                                <defName>RVFFA_IW_Rail_Rifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IW_Revolver_Bullet_Bond -->
+                                            <ThingDef ParentName="RVFFA_IW_Revolver_Bullet_Bond">
+                                                <defName>RVFFA_IW_Revolver_Bullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_IW_Revolver_Bond -->
+                                            <ThingDef ParentName="RVFFA_IW_Revolver_Bond">
+                                                <defName>RVFFA_IW_Revolver_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_Scythe_Bond -->
+                                            <ThingDef ParentName="RVFFA_Scythe_Bond">
+                                                <defName>RVFFA_Scythe_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_Axe_Bond -->
+                                            <ThingDef ParentName="RVFFA_Axe_Bond">
+                                                <defName>RVFFA_Axe_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_Knife_Bond -->
+                                            <ThingDef ParentName="RVFFA_Knife_Bond">
+                                                <defName>RVFFA_Knife_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_Spear_Bond -->
+                                            <ThingDef ParentName="RVFFA_Spear_Bond">
+                                                <defName>RVFFA_Spear_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- RVFFA_Viroblae_Bond -->
+                                            <ThingDef ParentName="RVFFA_Viroblae_Bond">
+                                                <defName>RVFFA_Viroblae_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

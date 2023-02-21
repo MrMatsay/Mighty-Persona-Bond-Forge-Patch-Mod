@@ -47,6 +47,8 @@
 - [Rimlaser](https://steamcommunity.com/sharedfiles/filedetails/?id=1465459039)
 - [Rimsenal - Core](https://steamcommunity.com/sharedfiles/filedetails/?id=725947920)
 - [Rimsenal - Augmented Vanilla Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=849231601)
+- [RimTrek (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2936752864)
+- [RimVali: Far From Avalon](https://steamcommunity.com/sharedfiles/filedetails/?id=2936752864)
 - [Seventh Seraph Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2575381031)
 - [Sparkling Worlds - Full Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=1123043922)
 - [[JDS] StarWars - Armory](https://steamcommunity.com/sharedfiles/filedetails/?id=1911155594)
