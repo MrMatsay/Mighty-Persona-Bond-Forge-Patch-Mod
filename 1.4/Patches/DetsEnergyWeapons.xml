@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Det's Energy Weapons =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Det's Energy Weapons</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Energy_Rifle_Bond" Abstract="True">
+                            <label>persona energy rifle</label>
+                            <description>A decently low-tech battery powered burst rifle, it has good range, decent damage but not much penetration. Used mostly by outlanders.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Range_Weapons/EnergyRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MarketValue>286.0</MarketValue>
+                                <Mass>4</Mass>
+                                <AccuracyTouch>0.55</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.946</AccuracyMedium>
+                                <AccuracyLong>0.968</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.105</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>EnergyBolt_Bond</defaultProjectile>
+                                    <warmupTime>1.02</warmupTime>
+                                    <range>35</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                    <soundCast>Shot_EnergyRifle</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                                <li>Gun</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="EnergyBolt_Bond" Abstract="True">
+                            <label>Energy bolt</label>
+                            <graphicData>
+                                <texPath>Things/EnergyBolt</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>EnergyDamage</damageDef>
+                                <damageAmountBase>18</damageAmountBase>
+                                <speed>65</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Energy_Gattler_Bond" Abstract="True">
+                            <label>persona energy gattler</label>
+                            <description>A heavy, decently low-tech battery powered gatling gun that fires a deadly volley of electric bolts, it has a decent range and is good for crowds. Used mostly by outlanders.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Range_Weapons/EnergyGattler</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MarketValue>418.0</MarketValue>
+                                <Mass>5</Mass>
+                                <AccuracyTouch>0.77</AccuracyTouch>
+                                <AccuracyShort>0.44</AccuracyShort>
+                                <AccuracyMedium>0.418</AccuracyMedium>
+                                <AccuracyLong>0.308</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.805</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>EnergyBolt_Bond</defaultProjectile>
+                                    <warmupTime>1.7</warmupTime>
+                                    <burstShotCount>14</burstShotCount>
+                                    <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                                    <range>32</range>
+                                    <soundCast>Shot_EnergyGattler</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                                <li>Gun</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Energy_Revolver_Bond" Abstract="True">
+                            <label>persona energy revolver</label>
+                            <description>A decently low-tech double action battery powered revolver. It's not very good at armor penetration but has a decent range for a pistol and is quick to draw. Used mostly by outlanders.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Range_Weapons/EnergyRevolver</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <soundInteract>Interact_Autopistol</soundInteract>
+                            <statBases>
+                                <MarketValue>242.0</MarketValue>
+                                <Mass>3</Mass>
+                                <AccuracyTouch>0.88</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.528</AccuracyMedium>
+                                <AccuracyLong>0.418</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.105</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>EnergyBolt_Bond</defaultProjectile>
+                                    <warmupTime>0.68</warmupTime>
+                                    <range>25</range>
+                                    <soundCast>Shot_EnergyRevolver</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                                <li>Gun</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Energy_PrecisionRifle_Bond" Abstract="True">
+                            <label>persona energy precision rifle</label>
+                            <description>A decently low-tech battery powered precision rifle. Very good range, decent stopping power and alright armor penetration. Used mostly by outlanders.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Range_Weapons/EnergyPrecisionRifle</texPath>
+                                <graphicClass>Graphic_Single</graphicClass>
+                                <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <MarketValue>352.0</MarketValue>
+                                <Mass>4</Mass>
+                                <AccuracyTouch>0.88</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.572</AccuracyMedium>
+                                <AccuracyLong>0.748</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.105</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>EnergyBolt_Bond</defaultProjectile>
+                                    <warmupTime>1.87</warmupTime>
+                                    <range>45</range>
+                                    <soundCast>Shot_EnergySniper</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>12</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                                <li>Gun</li>
+                            </weaponTags>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Energy_Rifle_Bond -->
+                            <ThingDef ParentName="Energy_Rifle_Bond">
+                                <defName>Energy_Rifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- EnergyBolt_Bond -->
+                            <ThingDef ParentName="EnergyBolt_Bond">
+                                <defName>EnergyBolt_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Energy_Gattler_Bond -->
+                            <ThingDef ParentName="Energy_Gattler_Bond">
+                                <defName>Energy_Gattler_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Energy_Revolver_Bond -->
+                            <ThingDef ParentName="Energy_Revolver_Bond">
+                                <defName>Energy_Revolver_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Energy_PrecisionRifle_Bond -->
+                            <ThingDef ParentName="Energy_PrecisionRifle_Bond">
+                                <defName>Energy_PrecisionRifle_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DetsEnergyWeapons</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Energy_Rifle_Bond -->
+                                            <ThingDef ParentName="Energy_Rifle_Bond">
+                                                <defName>Energy_Rifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- EnergyBolt_Bond -->
+                                            <ThingDef ParentName="EnergyBolt_Bond">
+                                                <defName>EnergyBolt_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Energy_Gattler_Bond -->
+                                            <ThingDef ParentName="Energy_Gattler_Bond">
+                                                <defName>Energy_Gattler_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Energy_Revolver_Bond -->
+                                            <ThingDef ParentName="Energy_Revolver_Bond">
+                                                <defName>Energy_Revolver_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Energy_PrecisionRifle_Bond -->
+                                            <ThingDef ParentName="Energy_PrecisionRifle_Bond">
+                                                <defName>Energy_PrecisionRifle_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
