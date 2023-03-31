@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Bill Doors' Luxury Guns =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Bill Doors' Luxury Guns</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_BDLG_GoldenDE_Bond" Abstract="True">
+                            <label>bond golden desert eagle</label>
+                            <description>Bond an golden desert eagle.</description>
+                            <jobString>Bonding a golden desert eagle.</jobString>
+                            <researchPrerequisite>Bound_Research</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BDLG_GoldenDE</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>BDLG_GoldenDE</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <BDLG_GoldenDE_Bond>1</BDLG_GoldenDE_Bond>
+                            </products>
+                        </RecipeDef>
+
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_BDLG_GoldenAK_Bond" Abstract="True">
+                            <label>bond golden AK-47</label>
+                            <description>Bond an golden AK-47.</description>
+                            <jobString>Bonding a golden AK-47.</jobString>
+                            <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BDLG_GoldenAK</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>BDLG_GoldenAK</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <BDLG_GoldenAK_Bond>1</BDLG_GoldenAK_Bond>
+                            </products>
+                        </RecipeDef>
+
+                        <RecipeDef>
+                            <defName>Make_Moyo_Piledriver_Bond</defName>
+                            <label>bond moyo piledriver</label>
+                            <description>Bond an moyo piledriver.</description>
+                            <jobString>Bonding a moyo piledriver.</jobString>
+                            <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
+                            <effectWorking>Cook</effectWorking>
+                            <soundWorking>Recipe_Machining</soundWorking>
+                            <workAmount>200000</workAmount>
+                            <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
+                            <researchPrerequisites>
+                                <li>LongBlades</li>
+                                <li>GasOperation</li>
+                            </researchPrerequisites>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Moyo_Piledriver</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>BondingCore</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Moyo_Piledriver</li>
+                                    <li>BondingCore</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Moyo_Piledriver_Bond>1</Moyo_Piledriver_Bond>
+                            </products>
+                            <skillRequirements>
+                                <Intellectual>15</Intellectual>
+                            </skillRequirements>
+                            <workSkill>Intellectual</workSkill>
+                            <recipeUsers>
+                                <li>BondingBench</li>
+                            </recipeUsers>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_BDLG_GoldenDE_Bond -->
+                            <RecipeDef ParentName="Make_BDLG_GoldenDE_Bond">
+                                <defName>Make_BDLG_GoldenDE_Bond</defName>
+                            </RecipeDef>
+
+                            <!-- Make_BDLG_GoldenAK_Bond -->
+                            <RecipeDef ParentName="Make_BDLG_GoldenAK_Bond">
+                                <defName>Make_BDLG_GoldenAK_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_BillDoorsLuxuryGuns</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_BDLG_GoldenDE_Bond -->
+                                            <RecipeDef ParentName="Make_BDLG_GoldenDE_Bond">
+                                                <defName>Make_BDLG_GoldenDE_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_BDLG_GoldenAK_Bond -->
+                                            <RecipeDef ParentName="Make_BDLG_GoldenAK_Bond">
+                                                <defName>Make_BDLG_GoldenAK_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
