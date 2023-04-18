@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== [TSC]Terra Space Corps =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>[TSC]Terra Space Corps</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="FTF_SMG_Bond" Abstract="True">
+                            <label>persona FTF 23 SMG</label>
+                            <description>The FTF 23 SMG your go to CQC weapon fast firing SMG will never fail you\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/FTF_SMG</texPath>
+                            </graphicData>
+                            <uiIconScale>1.4</uiIconScale>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <weaponTags>
+                                <li>ShortShots</li>
+                            </weaponTags>
+                            <statBases>
+                                <Mass>2.5</Mass>
+                                <AccuracyTouch>0.99</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.495</AccuracyMedium>
+                                <AccuracyLong>0.165</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>TerraSpaceCorps_SMG_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>0.17</warmupTime>
+                                    <range>19.9</range>
+                                    <burstShotCount>5</burstShotCount>
+                                    <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                                    <soundCast>SMG_shot</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="TerraSpaceCorps_SMG_Bullet_Bond" Abstract="True">
+                            <label>machine pistol bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>13</damageAmountBase>
+                                <speed>65</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="LMG_FSK_Bond" Abstract="True">
+                            <label>persona FSK MG 34 </label>
+                            <description>Slow down the hoard with the FSK MG 34\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/LMG_FSK</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>8.5</Mass>
+                                <AccuracyTouch>0.495</AccuracyTouch>
+                                <AccuracyShort>0.55</AccuracyShort>
+                                <AccuracyMedium>0.495</AccuracyMedium>
+                                <AccuracyLong>0.44</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.53</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>TerraSpaceCorps_LMG_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>1.53</warmupTime>
+                                    <range>25.9</range>
+                                    <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                                    <burstShotCount>10</burstShotCount>
+                                    <soundCast>LMG_shot</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="TerraSpaceCorps_LMG_Bullet_Bond" Abstract="True">
+                            <label>LMG bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>24</damageAmountBase>
+                                <stoppingPower>2</stoppingPower>
+                                <speed>80</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="PPT_Shotgun_Bond" Abstract="True">
+                            <label>persona PPT 25 Shotgun</label>
+                            <description>Double firing Shotgun the PPT 25 is there for all your Bug killing needs!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/PPT_Shotgun</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Shotgun</soundInteract>
+                            <weaponClasses>
+                                <li>ShortShots</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>4.5</Mass>
+                                <AccuracyTouch>0.627</AccuracyTouch>
+                                <AccuracyShort>0.704</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.147</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>TerraSpaceCorps_ChainShotgun_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>1.02</warmupTime>
+                                    <range>12.9</range>
+                                    <burstShotCount>2</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>SG_shot</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                                <li>ShortShots</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="TerraSpaceCorps_ChainShotgun_Bullet_Bond" Abstract="True">
+                            <label>shotgun blast</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>22</damageAmountBase>
+                                <stoppingPower>3</stoppingPower>
+                                <armorPenetrationBase>0.14</armorPenetrationBase>
+                                <speed>55</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Lar_Rifle_Bond" Abstract="True">
+                            <label>persona L75 Assault Rifle</label>
+                            <description>The L75 Assault Rifle standard issued ot all TSC Trooper's and marine's alike.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/Lar_Rifle</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.715</AccuracyMedium>
+                                <AccuracyLong>0.605</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>TerraSpaceCorps_AssaultRifle_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>30.9</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>Battle_shot</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                                <li>AssaultRifle</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="TerraSpaceCorps_AssaultRifle_Bullet_Bond" Abstract="True">
+                            <label>assault rifle bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>14</damageAmountBase>
+                                <speed>70</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="BattleRifle_Bond" Abstract="True">
+                            <label>persona VS 92 battle Rifle</label>
+                            <description>The VS 92 Battle Rifle, a heavy hiting rifle use to put down more beefer enemys.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/BattleRifle</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <statBases>
+                                <Mass>3.5</Mass>
+                                <AccuracyTouch>0.66</AccuracyTouch>
+                                <AccuracyShort>0.825</AccuracyShort>
+                                <AccuracyMedium>0.715</AccuracyMedium>
+                                <AccuracyLong>0.605</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>TerraSpaceCorps_AssaultRifleTwo_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>30.9</range>
+                                    <burstShotCount>3</burstShotCount>
+                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                    <soundCast>Battle_shot</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>IndustrialGunAdvanced</li>
+                                <li>AssaultRifle</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>10.791</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>10.791</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="TerraSpaceCorps_AssaultRifleTwo_Bullet_Bond" Abstract="True">
+                            <label>assault rifle bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>22</damageAmountBase>
+                                <speed>80</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Mark_Charge_Bond" Abstract="True">
+                            <label>persona Mark 223 Charge Rifle</label>
+                            <description>The Mark 223 A Terra charged-based assault rifle. Created to combat the growiwng Mechanoid threat and pick up where standared rifles failed at.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/Mark_Charge</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <statBases>
+                                <Mass>4.6</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.814</AccuracyShort>
+                                <AccuracyMedium>0.605</AccuracyMedium>
+                                <AccuracyLong>0.495</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <tradeTags>
+                                <li>WeaponRanged</li>
+                            </tradeTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>TerraSpaceCorps_ChargeRifle_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>0.85</warmupTime>
+                                    <range>27.9</range>
+                                    <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                    <burstShotCount>4</burstShotCount>
+                                    <soundCast>TChagre_shot</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="TerraSpaceCorps_ChargeRifle_Bullet_Bond" Abstract="True">
+                            <label>charge shot</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Charge_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>24</damageAmountBase>
+                                <armorPenetrationBase>0.48</armorPenetrationBase>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARS_SniperRifle_Bond" Abstract="True">
+                            <label>persona ARS 12 Sniper</label>
+                            <description>ARS 12 Sniper will put down even or cripple most living them it hits\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <possessionCount>1</possessionCount>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/ARS_SniperRifle</texPath>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <statBases>
+                                <Mass>4</Mass>
+                                <AccuracyTouch>0.55</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.946</AccuracyMedium>
+                                <AccuracyLong>0.968</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.955</RangedWeapon_Cooldown>
+                            </statBases>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>TerraSpaceCorps_SniperRifle_Bullet_Bond</defaultProjectile>
+                                    <warmupTime>1.955</warmupTime>
+                                    <range>44.9</range>
+                                    <soundCast>Bolt_shot</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.866</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>12.866</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                            <weaponTags>
+                                <li>SniperRifle</li>
+                            </weaponTags>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="TerraSpaceCorps_SniperRifle_Bullet_Bond" Abstract="True">
+                            <label>sniper rifle bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Big</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>46</damageAmountBase>
+                                <stoppingPower>5.0</stoppingPower>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- FTF_SMG_Bond -->
+                            <ThingDef ParentName="FTF_SMG_Bond">
+                                <defName>FTF_SMG_Bond</defName>
+                            </ThingDef>
+
+                            <!-- TerraSpaceCorps_SMG_Bullet_Bond -->
+                            <ThingDef ParentName="TerraSpaceCorps_SMG_Bullet_Bond">
+                                <defName>TerraSpaceCorps_SMG_Bullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- LMG_FSK_Bond -->
+                            <ThingDef ParentName="LMG_FSK_Bond">
+                                <defName>LMG_FSK_Bond</defName>
+                            </ThingDef>
+
+                            <!-- TerraSpaceCorps_LMG_Bullet_Bond -->
+                            <ThingDef ParentName="TerraSpaceCorps_LMG_Bullet_Bond">
+                                <defName>TerraSpaceCorps_LMG_Bullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- PPT_Shotgun_Bond -->
+                            <ThingDef ParentName="PPT_Shotgun_Bond">
+                                <defName>PPT_Shotgun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- TerraSpaceCorps_ChainShotgun_Bullet_Bond -->
+                            <ThingDef ParentName="TerraSpaceCorps_ChainShotgun_Bullet_Bond">
+                                <defName>TerraSpaceCorps_ChainShotgun_Bullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Lar_Rifle_Bond -->
+                            <ThingDef ParentName="Lar_Rifle_Bond">
+                                <defName>Lar_Rifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- TerraSpaceCorps_AssaultRifle_Bullet_Bond -->
+                            <ThingDef ParentName="TerraSpaceCorps_AssaultRifle_Bullet_Bond">
+                                <defName>TerraSpaceCorps_AssaultRifle_Bullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- BattleRifle_Bond -->
+                            <ThingDef ParentName="BattleRifle_Bond">
+                                <defName>BattleRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- TerraSpaceCorps_AssaultRifleTwo_Bullet_Bond -->
+                            <ThingDef ParentName="TerraSpaceCorps_AssaultRifleTwo_Bullet_Bond">
+                                <defName>TerraSpaceCorps_AssaultRifleTwo_Bullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Mark_Charge_Bond -->
+                            <ThingDef ParentName="Mark_Charge_Bond">
+                                <defName>Mark_Charge_Bond</defName>
+                            </ThingDef>
+
+                            <!-- TerraSpaceCorps_ChargeRifle_Bullet_Bond -->
+                            <ThingDef ParentName="TerraSpaceCorps_ChargeRifle_Bullet_Bond">
+                                <defName>TerraSpaceCorps_ChargeRifle_Bullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- ARS_SniperRifle_Bond -->
+                            <ThingDef ParentName="ARS_SniperRifle_Bond">
+                                <defName>ARS_SniperRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- TerraSpaceCorps_SniperRifle_Bullet_Bond -->
+                            <ThingDef ParentName="TerraSpaceCorps_SniperRifle_Bullet_Bond">
+                                <defName>TerraSpaceCorps_SniperRifle_Bullet_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_TSCTerraSpaceCorps</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- FTF_SMG_Bond -->
+                                            <ThingDef ParentName="FTF_SMG_Bond">
+                                                <defName>FTF_SMG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- TerraSpaceCorps_SMG_Bullet_Bond -->
+                                            <ThingDef ParentName="TerraSpaceCorps_SMG_Bullet_Bond">
+                                                <defName>TerraSpaceCorps_SMG_Bullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- LMG_FSK_Bond -->
+                                            <ThingDef ParentName="LMG_FSK_Bond">
+                                                <defName>LMG_FSK_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- TerraSpaceCorps_LMG_Bullet_Bond -->
+                                            <ThingDef ParentName="TerraSpaceCorps_LMG_Bullet_Bond">
+                                                <defName>TerraSpaceCorps_LMG_Bullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- PPT_Shotgun_Bond -->
+                                            <ThingDef ParentName="PPT_Shotgun_Bond">
+                                                <defName>PPT_Shotgun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- TerraSpaceCorps_ChainShotgun_Bullet_Bond -->
+                                            <ThingDef ParentName="TerraSpaceCorps_ChainShotgun_Bullet_Bond">
+                                                <defName>TerraSpaceCorps_ChainShotgun_Bullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Lar_Rifle_Bond -->
+                                            <ThingDef ParentName="Lar_Rifle_Bond">
+                                                <defName>Lar_Rifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- TerraSpaceCorps_AssaultRifle_Bullet_Bond -->
+                                            <ThingDef ParentName="TerraSpaceCorps_AssaultRifle_Bullet_Bond">
+                                                <defName>TerraSpaceCorps_AssaultRifle_Bullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- BattleRifle_Bond -->
+                                            <ThingDef ParentName="BattleRifle_Bond">
+                                                <defName>BattleRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- TerraSpaceCorps_AssaultRifleTwo_Bullet_Bond -->
+                                            <ThingDef ParentName="TerraSpaceCorps_AssaultRifleTwo_Bullet_Bond">
+                                                <defName>TerraSpaceCorps_AssaultRifleTwo_Bullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Mark_Charge_Bond -->
+                                            <ThingDef ParentName="Mark_Charge_Bond">
+                                                <defName>Mark_Charge_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- TerraSpaceCorps_ChargeRifle_Bullet_Bond -->
+                                            <ThingDef ParentName="TerraSpaceCorps_ChargeRifle_Bullet_Bond">
+                                                <defName>TerraSpaceCorps_ChargeRifle_Bullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- ARS_SniperRifle_Bond -->
+                                            <ThingDef ParentName="ARS_SniperRifle_Bond">
+                                                <defName>ARS_SniperRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- TerraSpaceCorps_SniperRifle_Bullet_Bond -->
+                                            <ThingDef ParentName="TerraSpaceCorps_SniperRifle_Bullet_Bond">
+                                                <defName>TerraSpaceCorps_SniperRifle_Bullet_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
