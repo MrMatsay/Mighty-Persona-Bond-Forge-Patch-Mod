@@ -12,7 +12,7 @@
 ### RimWorld 1.4
 - [Ancient Arsenal: Warcaskets](https://steamcommunity.com/sharedfiles/filedetails/?id=2904745733)
 - [Antimatter Annihilation](https://steamcommunity.com/sharedfiles/filedetails/?id=2113692574)
-- [Beam Katana: Spacer Melee Weapon](https://steamcommunity.com/sharedfiles/filedetails/?id=2900389764)
+- [Beam Katana](https://steamcommunity.com/sharedfiles/filedetails/?id=2900389764)
 - [Bill Doors' Plasma Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2937054043)
 - [Call of Duty: Zombies Pack](https://steamcommunity.com/sharedfiles/filedetails/?id=2590363477)
 - [Caridion Arsenal (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2332908273)
@@ -29,7 +29,7 @@
 - [Girl's Frontline: Sangvis Ferri Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=1684134687)
 - [Glitter Weaponry](https://steamcommunity.com/sharedfiles/filedetails/?id=2935078937)
 - [Grimworld: Autoguns](https://steamcommunity.com/sharedfiles/filedetails/?id=2897974516)
-- [Grimworld Lasguns](https://steamcommunity.com/sharedfiles/filedetails/?id=2894628781)
+- [Grimworld: Lasguns](https://steamcommunity.com/sharedfiles/filedetails/?id=2894628781)
 - [Grimworld: Melee](https://steamcommunity.com/sharedfiles/filedetails/?id=2899647650)
 - [Grimworld: Ogryns](https://steamcommunity.com/sharedfiles/filedetails/?id=2910984982)
 - [Hellsing ARMS Ultimate](https://steamcommunity.com/sharedfiles/filedetails/?id=2834801420)
@@ -38,7 +38,7 @@
 - [KEP Weapons - Toxic (Continued)](https://steamcommunity.com/sharedfiles/filedetails/?id=2800013902)
 - [Kurin, The Three Tailed Fox [Deluxe Edition]](https://steamcommunity.com/sharedfiles/filedetails/?id=2670355481)
 - [[SYR] Naga](https://steamcommunity.com/sharedfiles/filedetails/?id=1539971494)
-- [[LFS] Night Shade Mercenarys](https://steamcommunity.com/sharedfiles/filedetails/?id=2909372626)
+- [[LFS] Night Shade Mercenaries](https://steamcommunity.com/sharedfiles/filedetails/?id=2909372626)
 - [Mechanitor's Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2912279562)
 - [Paniel the Automata](https://steamcommunity.com/sharedfiles/filedetails/?id=2649305776)
 - [pphhyy's Tox Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=2891573871)
@@ -73,7 +73,7 @@
 - [米娅·SAMA的武器包重制版](https://steamcommunity.com/sharedfiles/filedetails/?id=2910574099)
 
 ### RimWorld 1.3
-- [[HRK] Gun Nut - "Item 62" Gauss Rifle](https://steamcommunity.com/sharedfiles/filedetails/?id=2423495653)
+- [S.T.A.L.K.E.R. - Custom Gauss Rifle](https://steamcommunity.com/sharedfiles/filedetails/?id=2423495653)
 - [[M.W]Resonant Munitions](https://steamcommunity.com/sharedfiles/filedetails/?id=2779269892)
 - [[RWY]Advanced Mechanoid Warfare](https://steamcommunity.com/sharedfiles/filedetails/?id=2119930282)
 - [[TMC] GlitterGats](https://steamcommunity.com/sharedfiles/filedetails/?id=2519161105)
