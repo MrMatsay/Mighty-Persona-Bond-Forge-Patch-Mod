@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Beam Katanas =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Beam Katanas</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality" Name="MeleeWeapon_BeamKatana_Bond" Abstract="True">
+                            <label>persona beam katana</label>
+                            <description>A popular knock off of a Lightsaber from a certain movie series, it's popularity sky-rocketed thanks to being worn by a legendary assassin.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <possessionCount>1</possessionCount>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponMelee/BeamKatana</texPath>
+                            </graphicData>
+                            <uiIconScale>1.1</uiIconScale>
+                            <techLevel>Spacer</techLevel>
+                            <statBases>
+                                <Mass>0.90</Mass>
+                            </statBases>
+                            <soundInteract>Interact_PlasmaSword</soundInteract>
+                            <meleeHitSound>MeleeHit_PlasmaSword</meleeHitSound>
+                            <equippedAngleOffset>-30</equippedAngleOffset>
+                            <weaponTags>
+                                <li>SpacerMeleeDecent</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>10.828</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>28.899</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                    <armorPenetration>0.99</armorPenetration>
+                                    <extraMeleeDamages>
+                                        <li>
+                                            <def>EMP</def>
+                                            <amount>4</amount>
+                                        </li>
+                                    </extraMeleeDamages>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>33.292</power>
+                                    <cooldownTime>1.53</cooldownTime>
+                                    <armorPenetration>1.43</armorPenetration>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality" Name="MeleeWeapon_TigerBeamKatana_Bond" Abstract="True">
+                            <label>persona beam katana (tora)</label>
+                            <description>An extremely refined beam katana faster than it's predecessors, it does not feature an extractable frame and is one of the only recognized beam katanas to emit properly without a receiver.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <possessionCount>1</possessionCount>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponMelee/TigerKatana</texPath>
+                            </graphicData>
+                            <uiIconScale>1.1</uiIconScale>
+                            <techLevel>Spacer</techLevel>
+                            <statBases>
+                                <Mass>0.75</Mass>
+                            </statBases>
+                            <soundInteract>Interact_PlasmaSword</soundInteract>
+                            <meleeHitSound>MeleeHit_PlasmaSword</meleeHitSound>
+                            <equippedAngleOffset>-30</equippedAngleOffset>
+                            <weaponTags>
+                                <li>SpacerMeleeDecent</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>MeleePiercer</li>
+                            </weaponClasses>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>12.0</power>
+                                    <cooldownTime>1.105</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>31.099</power>
+                                    <cooldownTime>1.275</cooldownTime>
+                                    <armorPenetration>1.21</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>34.385</power>
+                                    <cooldownTime>1.105</cooldownTime>
+                                    <armorPenetration>1.54</armorPenetration>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- MeleeWeapon_BeamKatana_Bond -->
+                            <ThingDef ParentName="MeleeWeapon_BeamKatana_Bond">
+                                <defName>MeleeWeapon_BeamKatana_Bond</defName>
+                            </ThingDef>
+
+                            <!-- MeleeWeapon_TigerBeamKatana_Bond -->
+                            <ThingDef ParentName="MeleeWeapon_TigerBeamKatana_Bond">
+                                <defName>MeleeWeapon_TigerBeamKatana_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_BeamKatanaSpacerMeleeWeapon</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- MeleeWeapon_BeamKatana_Bond -->
+                                            <ThingDef ParentName="MeleeWeapon_BeamKatana_Bond">
+                                                <defName>MeleeWeapon_BeamKatana_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- MeleeWeapon_TigerBeamKatana_Bond -->
+                                            <ThingDef ParentName="MeleeWeapon_TigerBeamKatana_Bond">
+                                                <defName>MeleeWeapon_TigerBeamKatana_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

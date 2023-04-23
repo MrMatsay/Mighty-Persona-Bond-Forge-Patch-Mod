@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Moyo-From the depth =====
-
-    == Melee
-    Moyo_Wrench_Bond = persona moyo wrench
-    Moyo_Knife_Bond = persona moyo diving knife
-    Moyo_Piledriver_Bond = persona moyo piledriver
-    Moyo_Spear_Bond = persona moyo battleaxe
-    Moyo_PowerFist_Bond = persona moyo powerfist
-    Moyo_GDSpear_Bond = persona moyo royal battleaxe
-    Moyo_GDPowerFist_Bond = persona moyo royal powerfist
-
-    == Range
-    Moyo_Pistol_Bond = persona moyo nail gun
-    Moyo_ChargeRifle_Bond = persona moyo charge rifle
-    Moyo_PrecisionRifle_Bond = persona moyo precision rifle
-    Moyo_ChargeSMG_Bond = persona moyo charge SMG
-    Moyo_BoltCaster_Bond = persona moyo balista
-    Moyo_AutoCannon_Bond = persona moyo autocannon
-    Moyo_HeavyChargeRifle_Bond = persona moyo royal charge rifle
-    Moyo_HeavyAutoCannon_Bond = persona moyo royal autocannon
-    Moyo_HeavyBoltCaster_Bond = persona moyo royal balista
-    Moyo_CryoBlaster_Bond = persona moyo cryoblaster
 -->
 <Patch>
     <Operation Class="PatchOperationFindMod">
@@ -34,14 +13,14 @@
                 <li Class="PatchOperationAdd">
                     <xpath>Defs</xpath>
                     <value>
-                        <!-- ===== Melee ===== -->
-                        <!-- Moyo_Wrench_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_Wrench_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_Wrench_Bond" Abstract="True">
                             <label>bond moyo wrench</label>
                             <description>Bond an moyo wrench.</description>
                             <jobString>Bonding a moyo wrench.</jobString>
-                            <researchPrerequisite>Machining</researchPrerequisite>
+                            <researchPrerequisites>
+                                <li>Machining</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -62,13 +41,14 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Moyo_Knife_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_Knife_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_Knife_Bond" Abstract="True">
                             <label>bond moyo diving knife</label>
                             <description>Bond an moyo diving knife.</description>
                             <jobString>Bonding a moyo diving knife.</jobString>
-                            <researchPrerequisite>Machining</researchPrerequisite>
+                            <researchPrerequisites>
+                                <li>Machining</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -89,16 +69,16 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Moyo_Piledriver_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_Piledriver_Bond</defName>
-                            <label>bond moyo piledriver</label>
-                            <description>Bond an moyo piledriver.</description>
-                            <jobString>Bonding a moyo piledriver.</jobString>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_Piledriver_Bond" Abstract="True">
+                            <label>bond Moyo piledriver</label>
+                            <description>Bond an Moyo piledriver.</description>
+                            <jobString>Bonding a Moyo piledriver.</jobString>
                             <researchPrerequisites>
                                 <li>LongBlades</li>
                                 <li>GasOperation</li>
+                                <li>Bound_Research</li>
                             </researchPrerequisites>
+                            <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -119,13 +99,14 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Moyo_Spear_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_Spear_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_Spear_Bond" Abstract="True">
                             <label>bond moyo battleaxe</label>
                             <description>Bond an moyo battleaxe.</description>
                             <jobString>Bonding a moyo battleaxe.</jobString>
-                            <researchPrerequisite>MoyoCryoBlaster</researchPrerequisite>
+                            <researchPrerequisites>
+                                <li>MoyoCryoBlaster</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -146,13 +127,15 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Moyo_PowerFist_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_PowerFist_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_PowerFist_Bond" Abstract="True">
                             <label>bond moyo powerfist</label>
                             <description>Bond an moyo powerfist.</description>
                             <jobString>Bonding a moyo powerfist.</jobString>
-                            <researchPrerequisite>DeepSeaProtection</researchPrerequisite>
+                            <researchPrerequisites>
+                                <li>DeepSeaProtection</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
+                            <unfinishedThingDef>UnfinishedGun</unfinishedThingDef>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -173,13 +156,14 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Moyo_GDSpear_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_GDSpear_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_GDSpear_Bond" Abstract="True">
                             <label>bond moyo royal battleaxe</label>
                             <description>Bond an moyo royal battleaxe.</description>
                             <jobString>Bonding a moyo royal battleaxe.</jobString>
-                            <researchPrerequisite>GuardianModule</researchPrerequisite>
+                            <researchPrerequisites>
+                                <li>GuardianModule</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -200,13 +184,14 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Moyo_GDPowerFist_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_GDPowerFist_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_GDPowerFist_Bond" Abstract="True">
                             <label>bond moyo royal powerfist</label>
                             <description>Bond an moyo royal powerfist.</description>
                             <jobString>Bonding a moyo royal powerfist.</jobString>
-                            <researchPrerequisite>GuardianModule</researchPrerequisite>
+                            <researchPrerequisites>
+                                <li>GuardianModule</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -227,14 +212,14 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- ===== Range ===== -->
-                        <!-- Moyo_Pistol_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_Pistol_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_Pistol_Bond" Abstract="True">
                             <label>bond moyo nail gun</label>
                             <description>Bond an moyo nail gun.</description>
                             <jobString>Bonding a moyo nail gun.</jobString>
-                            <researchPrerequisite>GasOperation</researchPrerequisite>
+                            <researchPrerequisites>
+                                <li>GasOperation</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -255,12 +240,14 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Moyo_ChargeRifle_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_ChargeRifle_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_ChargeRifle_Bond" Abstract="True">
                             <label>bond moyo charge rifle</label>
                             <description>Bond an moyo charge rifle.</description>
                             <jobString>Bonding a moyo charge rifle.</jobString>
+                            <researchPrerequisites>
+                                <li>MoyoChargedBolt</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -281,12 +268,14 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Moyo_PrecisionRifle_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_PrecisionRifle_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_PrecisionRifle_Bond" Abstract="True">
                             <label>bond moyo precision rifle</label>
                             <description>Bond an moyo precision rifle.</description>
                             <jobString>Bonding a moyo precision rifle.</jobString>
+                            <researchPrerequisites>
+                                <li>MoyoChargedBolt</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -307,12 +296,14 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Moyo_ChargeSMG_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_ChargeSMG_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_ChargeSMG_Bond" Abstract="True">
                             <label>bond moyo charge SMG</label>
                             <description>Bond an moyo charge SMG.</description>
                             <jobString>Bonding a moyo charge SMG.</jobString>
+                            <researchPrerequisites>
+                                <li>MoyoChargedBolt</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -333,13 +324,14 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Moyo_BoltCaster_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_BoltCaster_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_BoltCaster_Bond" Abstract="True">
                             <label>bond moyo balista</label>
                             <description>Bond an moyo balista.</description>
                             <jobString>Bonding a moyo balista.</jobString>
-                            <researchPrerequisite>MoyoChargedBolt</researchPrerequisite>
+                            <researchPrerequisites>
+                                <li>MoyoChargedBolt</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -360,13 +352,14 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Moyo_AutoCannon_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_AutoCannon_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_AutoCannon_Bond" Abstract="True">
                             <label>bond moyo autocannon</label>
                             <description>Bond an moyo autocannon.</description>
                             <jobString>Bonding a moyo autocannon.</jobString>
-                            <researchPrerequisite>MoyoChargedBolt</researchPrerequisite>
+                            <researchPrerequisites>
+                                <li>MoyoChargedBolt</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -387,13 +380,14 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Moyo_HeavyChargeRifle_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_HeavyChargeRifle_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_HeavyChargeRifle_Bond" Abstract="True">
                             <label>bond moyo royal charge rifle</label>
                             <description>Bond an moyo royal charge rifle.</description>
                             <jobString>Bonding a moyo royal charge rifle.</jobString>
-                            <researchPrerequisite>GuardianModule</researchPrerequisite>
+                            <researchPrerequisites>
+                                <li>GuardianModule</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -414,13 +408,14 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Moyo_HeavyAutoCannon_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_HeavyAutoCannon_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_HeavyAutoCannon_Bond" Abstract="True">
                             <label>bond moyo royal autocannon</label>
                             <description>Bond an moyo royal autocannon.</description>
                             <jobString>Bonding a moyo royal autocannon.</jobString>
-                            <researchPrerequisite>GuardianModule</researchPrerequisite>
+                            <researchPrerequisites>
+                                <li>GuardianModule</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -441,13 +436,14 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Moyo_HeavyBoltCaster_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_HeavyBoltCaster_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_HeavyBoltCaster_Bond" Abstract="True">
                             <label>bond moyo royal balista</label>
                             <description>Bond an moyo royal balista.</description>
                             <jobString>Bonding a moyo royal balista.</jobString>
-                            <researchPrerequisite>GuardianModule</researchPrerequisite>
+                            <researchPrerequisites>
+                                <li>GuardianModule</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -468,13 +464,14 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Moyo_CryoBlaster_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Moyo_CryoBlaster_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Moyo_CryoBlaster_Bond" Abstract="True">
                             <label>bond moyo cryoblaster</label>
                             <description>Bond an moyo cryoblaster.</description>
                             <jobString>Bonding a moyo cryoblaster.</jobString>
-                            <researchPrerequisite>MoyoCryoBlaster</researchPrerequisite>
+                            <researchPrerequisites>
+                                <li>MoyoCryoBlaster</li>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
                             <ingredients>
                                 <li>
                                     <filter>
@@ -497,96 +494,202 @@
                     </value>
                 </li>
 
-                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                    <key>Daria40K_MightyPersonaBondForgePatch_MoyoFromthedepth</key>
-                    <defaultValue>true</defaultValue>
-                    <caseFalse>
-                        <!-- Moyo_Wrench_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_Wrench_Bond"]</xpath>
-                        </Operation>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
 
-                        <!-- Moyo_Knife_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_Knife_Bond"]</xpath>
-                        </Operation>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_Moyo_Wrench_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_Wrench_Bond">
+                                <defName>Make_Moyo_Wrench_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Moyo_Piledriver_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_Piledriver_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Moyo_Knife_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_Knife_Bond">
+                                <defName>Make_Moyo_Knife_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Moyo_Spear_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_Spear_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Moyo_Piledriver_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_Piledriver_Bond">
+                                <defName>Make_Moyo_Piledriver_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Moyo_PowerFist_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_PowerFist_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Moyo_Spear_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_Spear_Bond">
+                                <defName>Make_Moyo_Spear_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Moyo_GDSpear_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_GDSpear_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Moyo_PowerFist_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_PowerFist_Bond">
+                                <defName>Make_Moyo_PowerFist_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Moyo_GDPowerFist_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_GDPowerFist_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Moyo_GDSpear_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_GDSpear_Bond">
+                                <defName>Make_Moyo_GDSpear_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Moyo_Pistol_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_Pistol_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Moyo_GDPowerFist_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_GDPowerFist_Bond">
+                                <defName>Make_Moyo_GDPowerFist_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Moyo_ChargeRifle_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_ChargeRifle_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Moyo_Pistol_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_Pistol_Bond">
+                                <defName>Make_Moyo_Pistol_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Moyo_PrecisionRifle_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_PrecisionRifle_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Moyo_ChargeRifle_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_ChargeRifle_Bond">
+                                <defName>Make_Moyo_ChargeRifle_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Moyo_ChargeSMG_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_ChargeSMG_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Moyo_PrecisionRifle_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_PrecisionRifle_Bond">
+                                <defName>Make_Moyo_PrecisionRifle_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Moyo_BoltCaster_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_BoltCaster_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Moyo_ChargeSMG_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_ChargeSMG_Bond">
+                                <defName>Make_Moyo_ChargeSMG_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Moyo_AutoCannon_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_AutoCannon_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Moyo_BoltCaster_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_BoltCaster_Bond">
+                                <defName>Make_Moyo_BoltCaster_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Moyo_HeavyChargeRifle_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_HeavyChargeRifle_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Moyo_AutoCannon_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_AutoCannon_Bond">
+                                <defName>Make_Moyo_AutoCannon_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Moyo_HeavyAutoCannon_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_HeavyAutoCannon_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Moyo_HeavyChargeRifle_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_HeavyChargeRifle_Bond">
+                                <defName>Make_Moyo_HeavyChargeRifle_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Moyo_HeavyBoltCaster_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_HeavyBoltCaster_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Moyo_HeavyAutoCannon_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_HeavyAutoCannon_Bond">
+                                <defName>Make_Moyo_HeavyAutoCannon_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Moyo_CryoBlaster_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Moyo_CryoBlaster_Bond"]</xpath>
-                        </Operation>
-                    </caseFalse>
+                            <!-- Make_Moyo_HeavyBoltCaster_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_HeavyBoltCaster_Bond">
+                                <defName>Make_Moyo_HeavyBoltCaster_Bond</defName>
+                            </RecipeDef>
+
+                            <!-- Make_Moyo_CryoBlaster_Bond -->
+                            <RecipeDef ParentName="Make_Moyo_CryoBlaster_Bond">
+                                <defName>Make_Moyo_CryoBlaster_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_MoyoFromthedepth</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_Moyo_Wrench_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_Wrench_Bond">
+                                                <defName>Make_Moyo_Wrench_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_Knife_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_Knife_Bond">
+                                                <defName>Make_Moyo_Knife_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_Piledriver_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_Piledriver_Bond">
+                                                <defName>Make_Moyo_Piledriver_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_Spear_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_Spear_Bond">
+                                                <defName>Make_Moyo_Spear_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_PowerFist_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_PowerFist_Bond">
+                                                <defName>Make_Moyo_PowerFist_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_GDSpear_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_GDSpear_Bond">
+                                                <defName>Make_Moyo_GDSpear_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_GDPowerFist_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_GDPowerFist_Bond">
+                                                <defName>Make_Moyo_GDPowerFist_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_Pistol_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_Pistol_Bond">
+                                                <defName>Make_Moyo_Pistol_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_ChargeRifle_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_ChargeRifle_Bond">
+                                                <defName>Make_Moyo_ChargeRifle_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_PrecisionRifle_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_PrecisionRifle_Bond">
+                                                <defName>Make_Moyo_PrecisionRifle_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_ChargeSMG_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_ChargeSMG_Bond">
+                                                <defName>Make_Moyo_ChargeSMG_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_BoltCaster_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_BoltCaster_Bond">
+                                                <defName>Make_Moyo_BoltCaster_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_AutoCannon_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_AutoCannon_Bond">
+                                                <defName>Make_Moyo_AutoCannon_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_HeavyChargeRifle_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_HeavyChargeRifle_Bond">
+                                                <defName>Make_Moyo_HeavyChargeRifle_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_HeavyAutoCannon_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_HeavyAutoCannon_Bond">
+                                                <defName>Make_Moyo_HeavyAutoCannon_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_HeavyBoltCaster_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_HeavyBoltCaster_Bond">
+                                                <defName>Make_Moyo_HeavyBoltCaster_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Moyo_CryoBlaster_Bond -->
+                                            <RecipeDef ParentName="Make_Moyo_CryoBlaster_Bond">
+                                                <defName>Make_Moyo_CryoBlaster_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
                 </li>
             </operations>
         </match>

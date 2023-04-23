@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    ===== Arilla Armory =====
-
-    == Range
-    Gun_ArillaAR_Bond = persona arilla assaultrifle
-    Gun_ArillaMarksman_Bond = persona arilla marksmanrifle
-    Gun_ArillaSMG_Bond = persona arilla smg
-    Gun_ArillaSniper_Bond = persona arilla sniperrifle
-
-    == Melee
-    MeleeWeapon_ArillaSword_Bond = persona arilla sword
+    ===== Arilla Tech =====
 -->
 <Patch>
     <Operation Class="PatchOperationFindMod">
@@ -18,15 +9,11 @@
         </mods>
 
         <match Class="PatchOperationSequence">
-            <success>Always</success>
             <operations>
                 <li Class="PatchOperationAdd">
                     <xpath>Defs</xpath>
                     <value>
-                        <!-- ===== Range ===== -->
-                        <!-- Gun_ArillaAR_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Gun_ArillaAR_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_ArillaAR_Bond" Abstract="True">
                             <label>bond arilla assaultrifle</label>
                             <description>Bond an arilla assaultrifle.</description>
                             <jobString>Bonding a arilla assaultrifle.</jobString>
@@ -51,9 +38,7 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Gun_ArillaMarksman_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Gun_ArillaMarksman_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_ArillaMarksman_Bond" Abstract="True">
                             <label>bond arilla marksmanrifle</label>
                             <description>Bond an arilla marksmanrifle.</description>
                             <jobString>Bonding a arilla marksmanrifle.</jobString>
@@ -78,9 +63,7 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Gun_ArillaSMG_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Gun_ArillaSMG_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_ArillaSMG_Bond" Abstract="True">
                             <label>bond arilla smg</label>
                             <description>Bond an arilla smg.</description>
                             <jobString>Bonding a arilla smg.</jobString>
@@ -105,9 +88,7 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- Gun_ArillaSniper_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_Gun_ArillaSniper_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_ArillaSniper_Bond" Abstract="True">
                             <label>bond arilla sniperrifle</label>
                             <description>Bond an arilla sniperrifle.</description>
                             <jobString>Bonding a arilla sniperrifle.</jobString>
@@ -132,10 +113,7 @@
                             </products>
                         </RecipeDef>
 
-                        <!-- ===== Melee ===== -->
-                        <!-- MeleeWeapon_ArillaSword_Bond -->
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase">
-                            <defName>Make_MeleeWeapon_ArillaSword_Bond</defName>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_MeleeWeapon_ArillaSword_Bond" Abstract="True">
                             <label>bond arilla sword</label>
                             <description>Bond an arilla sword.</description>
                             <jobString>Bonding a arilla sword.</jobString>
@@ -162,36 +140,82 @@
                     </value>
                 </li>
 
-                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                    <key>Daria40K_MightyPersonaBondForgePatch_ArillaTech</key>
-                    <defaultValue>true</defaultValue>
-                    <caseFalse>
-                        <!-- Gun_ArillaAR_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Gun_ArillaAR_Bond"]</xpath>
-                        </Operation>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
 
-                        <!-- Gun_ArillaMarksman_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Gun_ArillaMarksman_Bond"]</xpath>
-                        </Operation>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_Gun_ArillaAR_Bond -->
+                            <RecipeDef ParentName="Make_Gun_ArillaAR_Bond">
+                                <defName>Make_Gun_ArillaAR_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Gun_ArillaSMG_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Gun_ArillaSMG_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Gun_ArillaMarksman_Bond -->
+                            <RecipeDef ParentName="Make_Gun_ArillaMarksman_Bond">
+                                <defName>Make_Gun_ArillaMarksman_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- Gun_ArillaSniper_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_Gun_ArillaSniper_Bond"]</xpath>
-                        </Operation>
+                            <!-- Make_Gun_ArillaSMG_Bond -->
+                            <RecipeDef ParentName="Make_Gun_ArillaSMG_Bond">
+                                <defName>Make_Gun_ArillaSMG_Bond</defName>
+                            </RecipeDef>
 
-                        <!-- MeleeWeapon_ArillaSword_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/RecipeDef[defName="Make_MeleeWeapon_ArillaSword_Bond"]</xpath>
-                        </Operation>
-                    </caseFalse>
+                            <!-- Make_Gun_ArillaSniper_Bond -->
+                            <RecipeDef ParentName="Make_Gun_ArillaSniper_Bond">
+                                <defName>Make_Gun_ArillaSniper_Bond</defName>
+                            </RecipeDef>
+
+                            <!-- Make_MeleeWeapon_ArillaSword_Bond -->
+                            <RecipeDef ParentName="Make_MeleeWeapon_ArillaSword_Bond">
+                                <defName>Make_MeleeWeapon_ArillaSword_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_ArillaTech</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_Gun_ArillaAR_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_ArillaAR_Bond">
+                                                <defName>Make_Gun_ArillaAR_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Gun_ArillaMarksman_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_ArillaMarksman_Bond">
+                                                <defName>Make_Gun_ArillaMarksman_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Gun_ArillaSMG_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_ArillaSMG_Bond">
+                                                <defName>Make_Gun_ArillaSMG_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_Gun_ArillaSniper_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_ArillaSniper_Bond">
+                                                <defName>Make_Gun_ArillaSniper_Bond</defName>
+                                            </RecipeDef>
+
+                                            <!-- Make_MeleeWeapon_ArillaSword_Bond -->
+                                            <RecipeDef ParentName="Make_MeleeWeapon_ArillaSword_Bond">
+                                                <defName>Make_MeleeWeapon_ArillaSword_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
                 </li>
             </operations>
         </match>

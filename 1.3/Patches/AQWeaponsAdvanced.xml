@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== AQ - Weapons Advanced =====
-
-    == Range
-    AQChargeRifle_Bond = persona PU145 charge rifle
-    AQMinigun_Bond = persona PU145 minigun
 -->
 <Patch>
     <Operation Class="PatchOperationFindMod">
@@ -13,20 +9,16 @@
         </mods>
 
         <match Class="PatchOperationSequence">
-            <success>Always</success>
             <operations>
                 <li Class="PatchOperationAdd">
                     <xpath>Defs</xpath>
                     <value>
-                        <!-- AQChargeRifle_Bond -->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>AQChargeRifle_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="AQChargeRifle_Bond" Abstract="True">
                             <label>persona PU145 charge rifle</label>
                             <description>Very powerful and extremely hard to assemble, shiny blue charged rifle. Invented by Glittertech scientist Ann Aquamarine.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Spacer</techLevel>
                             <graphicData>
-                                <texPath>PUChargeRifle</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
+                                <texPath>Rifle/PUChargeRifle</texPath>
                                 <shaderType>CutoutComplex</shaderType>
                             </graphicData>
                             <soundInteract>Interact_ChargeRifle</soundInteract>
@@ -36,7 +28,7 @@
                                 <AccuracyShort>0.814</AccuracyShort>
                                 <AccuracyMedium>0.715</AccuracyMedium>
                                 <AccuracyLong>0.605</AccuracyLong>
-                                <RangedWeapon_Cooldown>2.2</RangedWeapon_Cooldown>
+                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
                             </statBases>
                             <weaponTags>
                                 <li>SpacerGun</li>
@@ -61,7 +53,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
@@ -70,32 +62,29 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
-                        <ThingDef ParentName="MPBFPM_Bullet">
-                            <defName>Bullet_ArchoChargeRifle_Bond</defName>
+                        
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_ArchoChargeRifle_Bond" Abstract="True">
                             <label>charge shot</label>
                             <graphicData>
                                 <texPath>Things/Projectile/Charge_Small</texPath>
                             </graphicData>
                             <projectile>
-                                <damageAmountBase>28</damageAmountBase>
+                                <damageAmountBase>30</damageAmountBase>
                                 <armorPenetrationBase>0.35</armorPenetrationBase>
                                 <speed>70</speed>
                             </projectile>
                         </ThingDef>
 
-                        <!-- AQMinigun_Bond -->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>AQMinigun_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="AQMinigun_Bond" Abstract="True">
                             <label>persona PU145 minigun</label>
-                            <description>Very powerful and extremely hard to assemble, shiny blue minigun. Invente by Glittertech scientist Ann Aquamarine.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <description>Very powerful and extremely hard to assemble, shiny blue minigun. Invented by Glittertech scientist Ann Aquamarine.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <graphicData>
-                                <texPath>PUMinigun</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
+                                <texPath>Minigun/PUMinigun</texPath>
                                 <shaderType>CutoutComplex</shaderType>
                             </graphicData>
                             <soundInteract>Interact_Rifle</soundInteract>
@@ -105,7 +94,7 @@
                                 <AccuracyShort>0.385</AccuracyShort>
                                 <AccuracyMedium>0.385</AccuracyMedium>
                                 <AccuracyLong>0.33</AccuracyLong>
-                                <RangedWeapon_Cooldown>2.2</RangedWeapon_Cooldown>
+                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
                             </statBases>
                             <techLevel>Spacer</techLevel>
                             <weaponTags>
@@ -134,49 +123,91 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>12.87</power>
+                                    <power>12.555</power>
                                     <cooldownTime>2.21</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_Bullet">
-                            <defName>Bullet_PUMinigun_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_PUMinigun_Bond" Abstract="True">
                             <label>minigun bullet</label>
                             <graphicData>
                                 <texPath>Things/Projectile/Bullet_Small</texPath>
                             </graphicData>
                             <projectile>
-                                <damageAmountBase>22</damageAmountBase>
+                                <damageAmountBase>24</damageAmountBase>
                                 <speed>100</speed>
                             </projectile>
                         </ThingDef>
                     </value>
                 </li>
 
-                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                    <key>Daria40K_MightyPersonaBondForgePatch_AQWeaponsAdvanced</key>
-                    <defaultValue>true</defaultValue>
-                    <caseFalse>
-                        <!-- AQChargeRifle_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="AQChargeRifle_Bond"]</xpath>
-                        </Operation>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Bullet_ArchoChargeRifle_Bond"]</xpath>
-                        </Operation>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- AQChargeRifle_Bond -->
+                            <ThingDef ParentName="AQChargeRifle_Bond">
+                                <defName>AQChargeRifle_Bond</defName>
+                            </ThingDef>
 
-                        <!-- AQMinigun_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="AQMinigun_Bond"]</xpath>
-                        </Operation>
+                            <!-- Bullet_ArchoChargeRifle_Bond -->
+                            <ThingDef ParentName="Bullet_ArchoChargeRifle_Bond">
+                                <defName>Bullet_ArchoChargeRifle_Bond</defName>
+                            </ThingDef>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Bullet_PUMinigun_Bond"]</xpath>
-                        </Operation>
-                    </caseFalse>
+                            <!-- AQMinigun_Bond -->
+                            <ThingDef ParentName="AQMinigun_Bond">
+                                <defName>AQMinigun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_PUMinigun_Bond -->
+                            <ThingDef ParentName="Bullet_PUMinigun_Bond">
+                                <defName>Bullet_PUMinigun_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_AQWeaponsAdvanced</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- AQChargeRifle_Bond -->
+                                            <ThingDef ParentName="AQChargeRifle_Bond">
+                                                <defName>AQChargeRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_ArchoChargeRifle_Bond -->
+                                            <ThingDef ParentName="Bullet_ArchoChargeRifle_Bond">
+                                                <defName>Bullet_ArchoChargeRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- AQMinigun_Bond -->
+                                            <ThingDef ParentName="AQMinigun_Bond">
+                                                <defName>AQMinigun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_PUMinigun_Bond -->
+                                            <ThingDef ParentName="Bullet_PUMinigun_Bond">
+                                                <defName>Bullet_PUMinigun_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
                 </li>
             </operations>
         </match>

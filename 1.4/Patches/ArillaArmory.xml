@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Arilla Tech =====
-
-    == Range
-    Gun_ArillaAR_Bond = persona arilla assaultrifle
-    Gun_ArillaMarksman_Bond = persona arilla marksmanrifle
-    Gun_ArillaSMG_Bond = persona arilla smg
-    Gun_ArillaSniper_Bond = persona arilla sniperrifle
-
-    == Melee
-    MeleeWeapon_ArillaSword_Bond = persona arilla sword
 -->
 <Patch>
     <Operation Class="PatchOperationFindMod">
@@ -18,43 +9,32 @@
         </mods>
 
         <match Class="PatchOperationSequence">
-            <success>Always</success>
             <operations>
                 <li Class="PatchOperationAdd">
                     <xpath>Defs</xpath>
                     <value>
-                        <!-- ===== Range ===== -->
-                        <ThingDef Name="MPBFPM_ArillaArmoryBaseRange" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <techLevel>Spacer</techLevel>
-                            <weaponTags>
-                                <li>SpacerGun</li>
-                            </weaponTags>
-                            <soundInteract>Interact_ChargeRifle</soundInteract>
-                        </ThingDef>
-
-                        <!-- Gun_ArillaAR_Bond -->
-                        <ThingDef ParentName="MPBFPM_ArillaArmoryBaseRange">
-                            <defName>Gun_ArillaAR_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_ArillaAR_Bond" Abstract="True">
                             <label>persona arilla assaultrifle</label>
                             <description>An all-rounder plasma assault rifle, designed for short-medium range engagements. Fires a burst of five plasma rounds towards its target.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
                             <graphicData>
                                 <texPath>Things/Item/Equipment/WeaponRanged/ArillaAR</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
                             <statBases>
                                 <Mass>4.8</Mass>
                                 <AccuracyTouch>1.001</AccuracyTouch>
                                 <AccuracyShort>0.968</AccuracyShort>
                                 <AccuracyMedium>0.803</AccuracyMedium>
                                 <AccuracyLong>0.682</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.020</RangedWeapon_Cooldown>
+                                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
                             </statBases>
                             <verbs>
                                 <li>
                                     <verbClass>Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>Bullet_Arillaarround_Bond</defaultProjectile>
-                                    <warmupTime>0.850</warmupTime>
+                                    <warmupTime>0.85</warmupTime>
                                     <range>25.3</range>
                                     <burstShotCount>5</burstShotCount>
                                     <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
@@ -63,14 +43,17 @@
                                     <muzzleFlashScale>11</muzzleFlashScale>
                                 </li>
                             </verbs>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
                             <tools>
                                 <li>
                                     <label>stock</label>
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>12.100</power>
-                                    <cooldownTime>2.550</cooldownTime>
+                                    <power>11.829</power>
+                                    <cooldownTime>2.55</cooldownTime>
                                 </li>
                                 <li>
                                     <label>barrel</label>
@@ -78,41 +61,38 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>3.300</power>
-                                    <cooldownTime>1.700</cooldownTime>
+                                    <power>3.433</power>
+                                    <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseBullet">
-                            <defName>Bullet_Arillaarround_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_Arillaarround_Bond" Abstract="True">
                             <label>arilla arbullet</label>
                             <graphicData>
                                 <texPath>Things/Projectile/Arillaarround</texPath>
                             </graphicData>
                             <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>20</damageAmountBase>
+                                <damageAmountBase>22</damageAmountBase>
                                 <armorPenetrationBase>0.43</armorPenetrationBase>
                                 <speed>140</speed>
                             </projectile>
                         </ThingDef>
 
-                        <!-- Gun_ArillaMarksman_Bond -->
-                        <ThingDef ParentName="MPBFPM_ArillaArmoryBaseRange">
-                            <defName>Gun_ArillaMarksman_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_ArillaMarksman_Bond" Abstract="True">
                             <label>persona arilla marksmanrifle</label>
                             <description>A heavy plasma-marksmanrifle that's used in medium to high range exchanges. Fires eight heavy shots of plasma rounds towards its target after a timed charge up.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
                             <graphicData>
                                 <texPath>Things/Item/Equipment/WeaponRanged/ArillaMMR</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
                             <statBases>
                                 <Mass>6</Mass>
                                 <AccuracyTouch>0.451</AccuracyTouch>
                                 <AccuracyShort>0.506</AccuracyShort>
                                 <AccuracyMedium>0.803</AccuracyMedium>
-                                <AccuracyLong>0.770</AccuracyLong>
+                                <AccuracyLong>0.77</AccuracyLong>
                                 <RangedWeapon_Cooldown>1.615</RangedWeapon_Cooldown>
                             </statBases>
                             <verbs>
@@ -120,7 +100,7 @@
                                     <verbClass>Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>Bullet_Arillammround_Bond</defaultProjectile>
-                                    <warmupTime>2.550</warmupTime>
+                                    <warmupTime>2.55</warmupTime>
                                     <range>33.4</range>
                                     <burstShotCount>8</burstShotCount>
                                     <ticksBetweenBurstShots>25</ticksBetweenBurstShots>
@@ -130,6 +110,7 @@
                                 </li>
                             </verbs>
                             <weaponTags>
+                                <li>SpacerGun</li>
                                 <li>GunHeavy</li>
                             </weaponTags>
                             <tools>
@@ -138,8 +119,8 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>14.300</power>
-                                    <cooldownTime>5.100</cooldownTime>
+                                    <power>13.901</power>
+                                    <cooldownTime>5.1</cooldownTime>
                                 </li>
                                 <li>
                                     <label>barrel</label>
@@ -147,36 +128,33 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>5.500</power>
-                                    <cooldownTime>3.400</cooldownTime>
+                                    <power>5.559</power>
+                                    <cooldownTime>3.4</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseBullet">
-                            <defName>Bullet_Arillammround_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_Arillammround_Bond" Abstract="True">
                             <label>arilla mmbullet</label>
                             <graphicData>
                                 <texPath>Things/Projectile/Arillammround</texPath>
                             </graphicData>
                             <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>31</damageAmountBase>
+                                <damageAmountBase>33</damageAmountBase>
                                 <armorPenetrationBase>0.60</armorPenetrationBase>
                                 <speed>130</speed>
                                 <stoppingPower>1.1</stoppingPower>
                             </projectile>
                         </ThingDef>
 
-                        <!-- Gun_ArillaSMG_Bond -->
-                        <ThingDef ParentName="MPBFPM_ArillaArmoryBaseRange">
-                            <defName>Gun_ArillaSMG_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_ArillaSMG_Bond" Abstract="True">
                             <label>persona arilla smg</label>
                             <description>A rapid plasma-submachine gun with high firerate, great in close ranged combat. Unleashes a volley of rapid plasma rounds towards its target.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
                             <graphicData>
                                 <texPath>Things/Item/Equipment/WeaponRanged/ArillaSMG</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
                             <statBases>
                                 <Mass>2.5</Mass>
                                 <AccuracyTouch>0.781</AccuracyTouch>
@@ -190,7 +168,7 @@
                                     <verbClass>Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>Bullet_Arillasmground_Bond</defaultProjectile>
-                                    <warmupTime>1.360</warmupTime>
+                                    <warmupTime>1.36</warmupTime>
                                     <range>13.3</range>
                                     <burstShotCount>16</burstShotCount>
                                     <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
@@ -199,14 +177,17 @@
                                     <muzzleFlashScale>8</muzzleFlashScale>
                                 </li>
                             </verbs>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
                             <tools>
                                 <li>
                                     <label>stock</label>
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.900</power>
-                                    <cooldownTime>1.700</cooldownTime>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
                                     <label>barrel</label>
@@ -214,40 +195,37 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.900</power>
-                                    <cooldownTime>0.850</cooldownTime>
+                                    <power>9.75</power>
+                                    <cooldownTime>0.85</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseBullet">
-                            <defName>Bullet_Arillasmground_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_Arillasmground_Bond" Abstract="True">
                             <label>arilla smgbullet</label>
                             <graphicData>
                                 <texPath>Things/Projectile/Arillasmground</texPath>
                             </graphicData>
                             <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>12</damageAmountBase>
+                                <damageAmountBase>14</damageAmountBase>
                                 <armorPenetrationBase>0.20</armorPenetrationBase>
                                 <speed>110</speed>
                             </projectile>
                         </ThingDef>
 
-                        <!-- Gun_ArillaSniper_Bond -->
-                        <ThingDef ParentName="MPBFPM_ArillaArmoryBaseRange">
-                            <defName>Gun_ArillaSniper_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_ArillaSniper_Bond" Abstract="True">
                             <label>persona arilla sniperrifle</label>
                             <description>A plasma sniper rifle that excels at far range combat, aswell as penetrating most metals. Shoots a singular light speed charged plasma round. Superior weapon and damage, but horrible charge times that punishes the user for using it in close to medium range combat.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
                             <graphicData>
                                 <texPath>Things/Item/Equipment/WeaponRanged/ArillaSniper</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
                             <statBases>
                                 <Mass>9</Mass>
                                 <AccuracyTouch>0.121</AccuracyTouch>
-                                <AccuracyShort>0.550</AccuracyShort>
-                                <AccuracyMedium>0.880</AccuracyMedium>
+                                <AccuracyShort>0.55</AccuracyShort>
+                                <AccuracyMedium>0.88</AccuracyMedium>
                                 <AccuracyLong>1.023</AccuracyLong>
                                 <RangedWeapon_Cooldown>4.165</RangedWeapon_Cooldown>
                             </statBases>
@@ -256,7 +234,7 @@
                                     <verbClass>Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>Bullet_Arillasniper_Bond</defaultProjectile>
-                                    <warmupTime>3.400</warmupTime>
+                                    <warmupTime>3.4</warmupTime>
                                     <range>50.5</range>
                                     <burstShotCount>1</burstShotCount>
                                     <ticksBetweenBurstShots>25</ticksBetweenBurstShots>
@@ -266,6 +244,7 @@
                                 </li>
                             </verbs>
                             <weaponTags>
+                                <li>SpacerGun</li>
                                 <li>SniperRifle</li>
                                 <li>GunHeavy</li>
                             </weaponTags>
@@ -275,8 +254,8 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>22.000</power>
-                                    <cooldownTime>5.100</cooldownTime>
+                                    <power>21.118</power>
+                                    <cooldownTime>5.1</cooldownTime>
                                 </li>
                                 <li>
                                     <label>barrel</label>
@@ -284,20 +263,18 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>12.100</power>
-                                    <cooldownTime>4.250</cooldownTime>
+                                    <power>11.829</power>
+                                    <cooldownTime>4.25</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseBullet">
-                            <defName>Bullet_Arillasniper_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_Arillasniper_Bond" Abstract="True">
                             <label>arilla sniperbullet</label>
                             <graphicData>
                                 <texPath>Things/Projectile/Arillasniperround</texPath>
                             </graphicData>
                             <projectile>
-                                <damageDef>Bullet</damageDef>
                                 <damageAmountBase>105</damageAmountBase>
                                 <armorPenetrationBase>0.90</armorPenetrationBase>
                                 <speed>500</speed>
@@ -305,16 +282,12 @@
                             </projectile>
                         </ThingDef>
 
-                        <!-- ===== Melee ===== -->
-                        <!-- MeleeWeapon_ArillaSword_Bond -->
-                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality">
-                            <defName>MeleeWeapon_ArillaSword_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality" Name="MeleeWeapon_ArillaSword_Bond" Abstract="True">
                             <label>persona arilla sword</label>
                             <description>A one-handed plasma sword, designed for melee engagements. Powerful enough to cut through most metals..\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Spacer</techLevel>
                             <graphicData>
                                 <texPath>Things/Item/Equipment/WeaponMelee/ArillaSword</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                             <weaponTags>
                                 <li>LongSword</li>
@@ -329,15 +302,15 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>47.30</power>
-                                    <cooldownTime>1.700</cooldownTime>
+                                    <power>49.557</power>
+                                    <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
                                     <label>point</label>
                                     <capacities>
                                         <li>Stab</li>
                                     </capacities>
-                                    <power>97.90</power>
+                                    <power>98.434</power>
                                     <cooldownTime>2.125</cooldownTime>
                                 </li>
                                 <li>
@@ -345,7 +318,7 @@
                                     <capacities>
                                         <li>Cut</li>
                                     </capacities>
-                                    <power>81.40</power>
+                                    <power>82.602</power>
                                     <cooldownTime>1.785</cooldownTime>
                                 </li>
                             </tools>
@@ -353,52 +326,122 @@
                     </value>
                 </li>
 
-                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                    <key>Daria40K_MightyPersonaBondForgePatch_ArillaTech</key>
-                    <defaultValue>true</defaultValue>
-                    <caseFalse>
-                        <!-- Gun_ArillaAR_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Gun_ArillaAR_Bond"]</xpath>
-                        </Operation>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Bullet_Arillaarround_Bond"]</xpath>
-                        </Operation>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Gun_ArillaAR_Bond -->
+                            <ThingDef ParentName="Gun_ArillaAR_Bond">
+                                <defName>Gun_ArillaAR_Bond</defName>
+                            </ThingDef>
 
-                        <!-- Gun_ArillaMarksman_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Gun_ArillaMarksman_Bond"]</xpath>
-                        </Operation>
+                            <!-- Bullet_Arillaarround_Bond -->
+                            <ThingDef ParentName="Bullet_Arillaarround_Bond">
+                                <defName>Bullet_Arillaarround_Bond</defName>
+                            </ThingDef>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Bullet_Arillammround_Bond"]</xpath>
-                        </Operation>
+                            <!-- Gun_ArillaMarksman_Bond -->
+                            <ThingDef ParentName="Gun_ArillaMarksman_Bond">
+                                <defName>Gun_ArillaMarksman_Bond</defName>
+                            </ThingDef>
 
-                        <!-- Gun_ArillaSMG_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Gun_ArillaSMG_Bond"]</xpath>
-                        </Operation>
+                            <!-- Bullet_Arillammround_Bond -->
+                            <ThingDef ParentName="Bullet_Arillammround_Bond">
+                                <defName>Bullet_Arillammround_Bond</defName>
+                            </ThingDef>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Bullet_Arillasmground_Bond"]</xpath>
-                        </Operation>
+                            <!-- Gun_ArillaSMG_Bond -->
+                            <ThingDef ParentName="Gun_ArillaSMG_Bond">
+                                <defName>Gun_ArillaSMG_Bond</defName>
+                            </ThingDef>
 
-                        <!-- Gun_ArillaSniper_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Gun_ArillaSniper_Bond"]</xpath>
-                        </Operation>
+                            <!-- Bullet_Arillasmground_Bond -->
+                            <ThingDef ParentName="Bullet_Arillasmground_Bond">
+                                <defName>Bullet_Arillasmground_Bond</defName>
+                            </ThingDef>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Bullet_Arillasniper_Bond"]</xpath>
-                        </Operation>
+                            <!-- Gun_ArillaSniper_Bond -->
+                            <ThingDef ParentName="Gun_ArillaSniper_Bond">
+                                <defName>Gun_ArillaSniper_Bond</defName>
+                            </ThingDef>
 
-                        <!-- MeleeWeapon_ArillaSword_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="MeleeWeapon_ArillaSword_Bond"]</xpath>
-                        </Operation>
-                    </caseFalse>
+                            <!-- Bullet_Arillasniper_Bond -->
+                            <ThingDef ParentName="Bullet_Arillasniper_Bond">
+                                <defName>Bullet_Arillasniper_Bond</defName>
+                            </ThingDef>
+
+                            <!-- MeleeWeapon_ArillaSword_Bond -->
+                            <ThingDef ParentName="MeleeWeapon_ArillaSword_Bond">
+                                <defName>MeleeWeapon_ArillaSword_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_ArillaTech</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Gun_ArillaAR_Bond -->
+                                            <ThingDef ParentName="Gun_ArillaAR_Bond">
+                                                <defName>Gun_ArillaAR_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_Arillaarround_Bond -->
+                                            <ThingDef ParentName="Bullet_Arillaarround_Bond">
+                                                <defName>Bullet_Arillaarround_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Gun_ArillaMarksman_Bond -->
+                                            <ThingDef ParentName="Gun_ArillaMarksman_Bond">
+                                                <defName>Gun_ArillaMarksman_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_Arillammround_Bond -->
+                                            <ThingDef ParentName="Bullet_Arillammround_Bond">
+                                                <defName>Bullet_Arillammround_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Gun_ArillaSMG_Bond -->
+                                            <ThingDef ParentName="Gun_ArillaSMG_Bond">
+                                                <defName>Gun_ArillaSMG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_Arillasmground_Bond -->
+                                            <ThingDef ParentName="Bullet_Arillasmground_Bond">
+                                                <defName>Bullet_Arillasmground_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Gun_ArillaSniper_Bond -->
+                                            <ThingDef ParentName="Gun_ArillaSniper_Bond">
+                                                <defName>Gun_ArillaSniper_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_Arillasniper_Bond -->
+                                            <ThingDef ParentName="Bullet_Arillasniper_Bond">
+                                                <defName>Bullet_Arillasniper_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- MeleeWeapon_ArillaSword_Bond -->
+                                            <ThingDef ParentName="MeleeWeapon_ArillaSword_Bond">
+                                                <defName>MeleeWeapon_ArillaSword_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
                 </li>
             </operations>
         </match>
