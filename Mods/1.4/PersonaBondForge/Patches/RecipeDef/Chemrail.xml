@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Chemrail =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Chemrail</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_CR_Chemrail_Bond" Abstract="True">
+                            <label>bond chemrail rifle</label>
+                            <description>Bond an chemrail rifle.</description>
+                            <jobString>Bonding a chemrail rifle.</jobString>
+                            <researchPrerequisites>
+                                <li>Bound_Research</li>
+                            </researchPrerequisites>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>CR_Chemrail</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>CR_Chemrail</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <CR_Chemrail_Bond>1</CR_Chemrail_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_CR_Chemrail_Bond -->
+                            <RecipeDef ParentName="Make_CR_Chemrail_Bond">
+                                <defName>Make_CR_Chemrail_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_Chemrail</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_CR_Chemrail_Bond -->
+                                            <RecipeDef ParentName="Make_CR_Chemrail_Bond">
+                                                <defName>Make_CR_Chemrail_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
