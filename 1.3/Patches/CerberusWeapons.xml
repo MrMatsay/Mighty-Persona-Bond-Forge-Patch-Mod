@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Cerberus Weapons =====
-
-    == Melee
-    Cerberus_sword_phantom_Bond = persona Phantom sword
-
-    == Range
-    GS_Gun_CerberusSMG_Bond = persona Cerberus SMG
-    Gs_Cerberus_rifle_Bond = persona Cerberus rifle
-    Cerberus_Sniper_Rifle_Bond = persona Cerberus sniper
-    Cerberus_Talon_Bond = persona Cerberus pistol
 -->
 <Patch>
     <Operation Class="PatchOperationFindMod">
@@ -22,63 +13,12 @@
                 <li Class="PatchOperationAdd">
                     <xpath>Defs</xpath>
                     <value>
-                        <!-- ===== Meele ===== -->
-                        <!-- Cerberus_sword_phantom_Bond -->
-                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality">
-                            <defName>Cerberus_sword_phantom_Bond</defName>
-                            <label>persona Phantom sword</label>
-                            <description>The monomolecular blades' melee stabs can kill enemies quite easily.Phantom swords are created with reaper technology and therefor outlawed\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <graphicData>
-                                <texPath>Things/Items/Cerberus/Weapons/Sword</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                            <equippedAngleOffset>-65</equippedAngleOffset>
-                            <soundInteract>REN7_Interact_N7Blade</soundInteract>
-                            <meleeHitSound>REN7_MeleeHit_N7Blade</meleeHitSound>
-                            <statBases>
-                                <Mass>1.2</Mass>
-                            </statBases>
-                            <tools>
-                                <li>
-                                    <label>handle</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>13.20</power>
-                                    <cooldownTime>1.360</cooldownTime>
-
-                                </li>
-                                <li>
-                                    <label>point</label>
-                                    <capacities>
-                                        <li>Stab</li>
-                                    </capacities>
-                                    <power>25.30</power>
-                                    <cooldownTime>1.360</cooldownTime>
-                                    <armorPenetration>0.990</armorPenetration>
-                                </li>
-                                <li>
-                                    <label>edge</label>
-                                    <capacities>
-                                        <li>Cut</li>
-                                    </capacities>
-                                    <power>25.30</power>
-                                    <cooldownTime>1.360</cooldownTime>
-                                    <armorPenetration>0.990</armorPenetration>
-                                </li>
-                            </tools>
-                        </ThingDef>
-
-                        <!-- ===== Range ===== -->
-                        <!-- GS_Gun_CerberusSMG_Bond -->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>GS_Gun_CerberusSMG_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="GS_Gun_CerberusSMG_Bond" Abstract="True">
                             <label>persona Cerberus SMG</label>
                             <description>A heavy submachine gun that fires three-round bursts. Originally created in the Milky Way by the paramilitary group Cerberus.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Ultra</techLevel>
                             <graphicData>
                                 <texPath>Things/Items/Cerberus/Weapons/SMG</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                             <soundInteract>REN7_Interact_N7SMG</soundInteract>
                             <statBases>
@@ -86,16 +26,15 @@
                                 <AccuracyTouch>0.935</AccuracyTouch>
                                 <AccuracyShort>0.715</AccuracyShort>
                                 <AccuracyMedium>0.385</AccuracyMedium>
-                                <AccuracyLong>0.220</AccuracyLong>
-                                <RangedWeapon_Cooldown>2.210</RangedWeapon_Cooldown>
+                                <AccuracyLong>0.22</AccuracyLong>
+                                <RangedWeapon_Cooldown>2.21</RangedWeapon_Cooldown>
                             </statBases>
                             <verbs>
                                 <li>
                                     <verbClass>Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>GS_Bullet_SMG</defaultProjectile>
-                                    <warmupTime>0.510
-                                    </warmupTime>
+                                    <defaultProjectile>GS_Bullet_SMG_Bond</defaultProjectile>
+                                    <warmupTime>0.51</warmupTime>
                                     <range>18.9</range>
                                     <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
                                     <burstShotCount>3</burstShotCount>
@@ -111,8 +50,8 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.450</power>
-                                    <cooldownTime>1.800</cooldownTime>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
                             <modExtensions>
@@ -122,8 +61,7 @@
                             </modExtensions>
                         </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseBullet">
-                            <defName>GS_Bullet_SMG</defName>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="GS_Bullet_SMG_Bond" Abstract="True">
                             <label>accelerated shot</label>
                             <graphicData>
                                 <texPath>Things/Projectile/Shot_MassAccelerated_Small</texPath>
@@ -131,28 +69,24 @@
                                 <drawSize>1.2</drawSize>
                             </graphicData>
                             <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>15</damageAmountBase>
+                                <damageAmountBase>18</damageAmountBase>
                                 <armorPenetrationBase>0.35</armorPenetrationBase>
                                 <speed>70</speed>
                                 <extraDamages>
                                     <li>
                                         <def>Bullet</def>
-                                        <amount>15</amount>
+                                        <amount>14</amount>
                                     </li>
                                 </extraDamages>
                             </projectile>
                         </ThingDef>
 
-                        <!-- Gs_Cerberus_rifle_Bond -->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>Gs_Cerberus_rifle_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gs_Cerberus_rifle_Bond" Abstract="True">
                             <label>persona Cerberus rifle</label>
                             <description>These Cerberus-modified M-96 Mattock rifles are fully automatic. Cerberus gunsmiths reined in the recoil issues, resulting in a gun that stays on target but delivers slightly less punch per round than a standard Mattock. As such, the weapon is typically utilized by Cerberus’s elite troopers who train constantly to make every burst count.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Ultra</techLevel>
                             <graphicData>
                                 <texPath>Things/Items/Cerberus/Weapons/Rifle</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                             <soundInteract>REN7_Interact_N7SMG</soundInteract>
                             <statBases>
@@ -160,15 +94,15 @@
                                 <AccuracyTouch>0.594</AccuracyTouch>
                                 <AccuracyShort>0.792</AccuracyShort>
                                 <AccuracyMedium>0.858</AccuracyMedium>
-                                <AccuracyLong>0.880</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.870</RangedWeapon_Cooldown>
+                                <AccuracyLong>0.88</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.87</RangedWeapon_Cooldown>
                             </statBases>
                             <verbs>
                                 <li>
                                     <verbClass>Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>REN7_Bullet_N7BattleRifle_Bond</defaultProjectile>
-                                    <warmupTime>1.700</warmupTime>
+                                    <warmupTime>1.7</warmupTime>
                                     <range>39.9</range>
                                     <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
                                     <burstShotCount>2</burstShotCount>
@@ -183,8 +117,8 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.450</power>
-                                    <cooldownTime>1.800</cooldownTime>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
                                     <label>barrel</label>
@@ -192,24 +126,24 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.450</power>
-                                    <cooldownTime>1.800</cooldownTime>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
+                            <comps>
+                                <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+                                </li>
+                            </comps>
                         </ThingDef>
 
-                        <!-- Cerberus_Sniper_Rifle_Bond -->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>Cerberus_Sniper_Rifle_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Cerberus_Sniper_Rifle_Bond" Abstract="True">
                             <label>persona Cerberus sniper</label>
                             <description>The Raptor is a human version of a turian weapon developed for conflict on the low-gravity world Amar. Fighting at longer ranges than expected, the turians optimized a low-recoil, semi-automatic rifle with a scope, and issued it to their regular infantry, creating a hybrid weapon that was half-assault rifle and half-sniper weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Ultra</techLevel>
                             <graphicData>
                                 <texPath>Things/Items/Cerberus/Weapons/Sniper</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
                                 <drawSize>1.4</drawSize>
                             </graphicData>
-
                             <soundInteract>REN7_Interact_N7SMG</soundInteract>
                             <statBases>
                                 <Mass>7.0</Mass>
@@ -225,7 +159,7 @@
                                     <verbClass>Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>REN7_Bullet_N7AntimaterielRifle_Bond</defaultProjectile>
-                                    <warmupTime>2.210</warmupTime>
+                                    <warmupTime>2.21</warmupTime>
                                     <range>42.9</range>
                                     <burstShotCount>1</burstShotCount>
                                     <soundCast>REN7_Shot_N7AntiMaterielRifle</soundCast>
@@ -239,8 +173,8 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.450</power>
-                                    <cooldownTime>1.800</cooldownTime>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
                                     <label>barrel</label>
@@ -248,26 +182,27 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.450</power>
-                                    <cooldownTime>1.800</cooldownTime>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
+                            <comps>
+                                <li Class="CompOversizedWeapon.CompProperties_OversizedWeapon">
+                                </li>
+                            </comps>
                         </ThingDef>
 
-                        <!-- Cerberus_Talon_Bond -->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>Cerberus_Talon_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Cerberus_Talon_Bond" Abstract="True">
                             <label>persona Cerberus pistol</label>
                             <description>The Talon is a close-range pistol favored by Cerberus Guardians. Firing heavy-gauge shotgun pellets, it delivers massive trauma to unarmored targets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Ultra</techLevel>
                             <graphicData>
                                 <texPath>Things/Items/Cerberus/Weapons/Pistol</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                             <soundInteract>REN7_Interact_N7SMG</soundInteract>
                             <statBases>
                                 <Mass>4.2</Mass>
-                                <AccuracyTouch>0.770</AccuracyTouch>
+                                <AccuracyTouch>0.77</AccuracyTouch>
                                 <AccuracyShort>0.803</AccuracyShort>
                                 <AccuracyMedium>0.946</AccuracyMedium>
                                 <AccuracyLong>0.968</AccuracyLong>
@@ -278,7 +213,7 @@
                                     <verbClass>Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>REN7_Bullet_N7ChainShotgun_Bond</defaultProjectile>
-                                    <warmupTime>1.020</warmupTime>
+                                    <warmupTime>1.02</warmupTime>
                                     <range>5.9</range>
                                     <burstShotCount>2</burstShotCount>
                                     <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
@@ -294,8 +229,8 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.450</power>
-                                    <cooldownTime>1.800</cooldownTime>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
                             <modExtensions>
@@ -304,43 +239,139 @@
                                 </li>
                             </modExtensions>
                         </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality" Name="Cerberus_sword_phantom_Bond" Abstract="True">
+                            <label>persona Phantom sword</label>
+                            <description>The monomolecular blades' melee stabs can kill enemies quite easily.Phantom swords are created with reaper technology and therefor outlawed\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Ultra</techLevel>
+                            <graphicData>
+                                <texPath>Things/Items/Cerberus/Weapons/Sword</texPath>
+                            </graphicData>
+                            <equippedAngleOffset>-65</equippedAngleOffset>
+                            <soundInteract>REN7_Interact_N7Blade</soundInteract>
+                            <meleeHitSound>REN7_MeleeHit_N7Blade</meleeHitSound>
+                            <statBases>
+                                <Mass>1.2</Mass>
+                            </statBases>
+                            <tools>
+                                <li>
+                                    <label>handle</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>15.464</power>
+                                    <cooldownTime>1.36</cooldownTime>
+
+                                </li>
+                                <li>
+                                    <label>point</label>
+                                    <capacities>
+                                        <li>Stab</li>
+                                    </capacities>
+                                    <power>27.796</power>
+                                    <cooldownTime>1.36</cooldownTime>
+                                    <armorPenetration>0.99</armorPenetration>
+                                </li>
+                                <li>
+                                    <label>edge</label>
+                                    <capacities>
+                                        <li>Cut</li>
+                                    </capacities>
+                                    <power>27.796</power>
+                                    <cooldownTime>1.36</cooldownTime>
+                                    <armorPenetration>0.99</armorPenetration>
+                                </li>
+                            </tools>
+                        </ThingDef>
                     </value>
                 </li>
 
-                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                    <key>Daria40K_MightyPersonaBondForgePatch_CerberusWeapons</key>
-                    <defaultValue>true</defaultValue>
-                    <caseFalse>
-                        <!-- Cerberus_sword_phantom_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Cerberus_sword_phantom_Bond"]</xpath>
-                        </Operation>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
 
-                        <!-- GS_Gun_CerberusSMG_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="GS_Gun_CerberusSMG_Bond"]</xpath>
-                        </Operation>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- GS_Gun_CerberusSMG_Bond -->
+                            <ThingDef ParentName="GS_Gun_CerberusSMG_Bond">
+                                <defName>GS_Gun_CerberusSMG_Bond</defName>
+                            </ThingDef>
 
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="GS_Bullet_SMG"]</xpath>
-                        </Operation>
+                            <!-- GS_Bullet_SMG_Bond -->
+                            <ThingDef ParentName="GS_Bullet_SMG_Bond">
+                                <defName>GS_Bullet_SMG_Bond</defName>
+                            </ThingDef>
 
-                        <!-- Gs_Cerberus_rifle_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Gs_Cerberus_rifle_Bond"]</xpath>
-                        </Operation>
+                            <!-- Gs_Cerberus_rifle_Bond -->
+                            <ThingDef ParentName="Gs_Cerberus_rifle_Bond">
+                                <defName>Gs_Cerberus_rifle_Bond</defName>
+                            </ThingDef>
 
-                        <!-- Cerberus_Sniper_Rifle_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Cerberus_Sniper_Rifle_Bond"]</xpath>
-                        </Operation>
+                            <!-- Cerberus_Sniper_Rifle_Bond -->
+                            <ThingDef ParentName="Cerberus_Sniper_Rifle_Bond">
+                                <defName>Cerberus_Sniper_Rifle_Bond</defName>
+                            </ThingDef>
 
-                        <!-- Cerberus_Talon_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Cerberus_Talon_Bond"]</xpath>
-                        </Operation>
-                    </caseFalse>
+                            <!-- Cerberus_Talon_Bond -->
+                            <ThingDef ParentName="Cerberus_Talon_Bond">
+                                <defName>Cerberus_Talon_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Cerberus_sword_phantom_Bond -->
+                            <ThingDef ParentName="Cerberus_sword_phantom_Bond">
+                                <defName>Cerberus_sword_phantom_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_CerberusWeapons</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- GS_Gun_CerberusSMG_Bond -->
+                                            <ThingDef ParentName="GS_Gun_CerberusSMG_Bond">
+                                                <defName>GS_Gun_CerberusSMG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- GS_Bullet_SMG_Bond -->
+                                            <ThingDef ParentName="GS_Bullet_SMG_Bond">
+                                                <defName>GS_Bullet_SMG_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Gs_Cerberus_rifle_Bond -->
+                                            <ThingDef ParentName="Gs_Cerberus_rifle_Bond">
+                                                <defName>Gs_Cerberus_rifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Cerberus_Sniper_Rifle_Bond -->
+                                            <ThingDef ParentName="Cerberus_Sniper_Rifle_Bond">
+                                                <defName>Cerberus_Sniper_Rifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Cerberus_Talon_Bond -->
+                                            <ThingDef ParentName="Cerberus_Talon_Bond">
+                                                <defName>Cerberus_Talon_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Cerberus_sword_phantom_Bond -->
+                                            <ThingDef ParentName="Cerberus_sword_phantom_Bond">
+                                                <defName>Cerberus_sword_phantom_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
                 </li>
             </operations>
         </match>
