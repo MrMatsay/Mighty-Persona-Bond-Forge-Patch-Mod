@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Cryoweapons =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Cryoweapons</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="CW_Cryopistol_Bond" Abstract="True">
+                            <label>persona cryo pistol</label>
+                            <description>A specialized cryotech pistol, intended for emergency personal defense. While it severely lacks in damage and in range, it's ability to quickly freeze and slow down targets nearby make it a very important tool for risky field work.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/WeaponRanged/Cryopistol</texPath>
+                                <drawSize>0.7</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_SMG</soundInteract>
+                            <generateCommonality>0</generateCommonality>
+                            <statBases>
+                                <MarketValue>858.0</MarketValue>
+                                <Mass>1.3</Mass>
+                                <AccuracyTouch>0.99</AccuracyTouch>
+                                <AccuracyShort>0.88</AccuracyShort>
+                                <AccuracyMedium>0.385</AccuracyMedium>
+                                <AccuracyLong>0.22</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.595</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <tradeTags>
+                                <li>WeaponRanged</li>
+                            </tradeTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <equippedAngleOffset>50</equippedAngleOffset>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>CW_CryoRifleBullet_Bond</defaultProjectile>
+                                    <warmupTime>1.062</warmupTime>
+                                    <range>7.9</range>
+                                    <burstShotCount>1</burstShotCount>
+                                    <ticksBetweenBurstShots>6.75</ticksBetweenBurstShots>
+                                    <soundCast>CW_SoundCryoshot</soundCast>
+                                    <soundCastTail>GunTail_Light</soundCastTail>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="CW_CryoPistolBullet_Bond" Abstract="True">
+                            <label>cryo bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Charge_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>CW_CryoDamagePistolBullet</damageDef>
+                                <damageAmountBase>6</damageAmountBase>
+                                <armorPenetrationBase>0.4</armorPenetrationBase>
+                                <stoppingPower>2</stoppingPower>
+                                <speed>50</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="CW_Cryorifle_Bond" Abstract="True">
+                            <label>persona Cryo Rifle</label>
+                            <description>A specialized cryotech rifle, and the standard for cryoweaponry. It has a solid balance of range and firing speed, making it an ideal weapon for broad use.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/WeaponRanged/Cryorifle</texPath>
+                                <drawSize>1.2</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <generateCommonality>0</generateCommonality>
+                            <statBases>
+                                <MarketValue>1540.0</MarketValue>
+                                <Mass>4</Mass>
+                                <AccuracyTouch>0.715</AccuracyTouch>
+                                <AccuracyShort>0.814</AccuracyShort>
+                                <AccuracyMedium>0.55</AccuracyMedium>
+                                <AccuracyLong>0.385</AccuracyLong>
+                                <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <tradeTags>
+                                <li>WeaponRanged</li>
+                            </tradeTags>
+                            <weaponClasses>
+                                <li>RangedLight</li>
+                            </weaponClasses>
+                            <equippedAngleOffset>50</equippedAngleOffset>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>CW_CryoRifleBullet_Bond</defaultProjectile>
+                                    <warmupTime>1.53</warmupTime>
+                                    <range>12.9</range>
+                                    <burstShotCount>2</burstShotCount>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <soundCast>CW_SoundCryoshot</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="CW_CryoRifleBullet_Bond" Abstract="True">
+                            <label>cryo bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Charge_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageDef>CW_CryoDamageRifleBullet</damageDef>
+                                <damageAmountBase>6</damageAmountBase>
+                                <armorPenetrationBase>0.2</armorPenetrationBase>
+                                <speed>50</speed>
+                            </projectile>
+                        </ThingDef>
+
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="CW_Cryolauncher_Bond" Abstract="True">
+                            <label>persona Cryo Launcher</label>
+                            <description>A grenade launcher that fires a cryogenically-laced foam projectile,  which bursts and covers a wide area upon impact. The temperatures of this area dramatically drop fopr a short period of time, affecting anyone within it.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/WeaponRanged/Cryolauncher</texPath>
+                                <drawSize>1.3</drawSize>
+                            </graphicData>
+                            <uiIconScale>1.2</uiIconScale>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <generateCommonality>0</generateCommonality>
+                            <statBases>
+                                <MarketValue>1870.0</MarketValue>
+                                <Mass>3.6</Mass>
+                                <AccuracyTouch>0.55</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.825</AccuracyMedium>
+                                <AccuracyLong>0.44</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <tradeTags>
+                                <li>WeaponRanged</li>
+                            </tradeTags>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <equippedAngleOffset>50</equippedAngleOffset>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>CW_CryoLauncherBullet_Bond</defaultProjectile>
+                                    <forcedMissRadius>1.5</forcedMissRadius>
+                                    <warmupTime>3.06</warmupTime>
+                                    <range>17.9</range>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>Shot_IncendiaryLauncher</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>14</muzzleFlashScale>
+                                    <targetParams>
+                                        <canTargetLocations>true</canTargetLocations>
+                                    </targetParams>
+                                </li>
+                            </verbs>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.2</MoveSpeed>
+                            </equippedStatOffsets>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="CW_CryoLauncherBullet_Bond" Abstract="True">
+                            <label>cryo shell</label>
+                            <graphicData>
+                                <texPath>Projectile/Cryolauncherbullet</texPath>
+                                <shaderType>TransparentPostLight</shaderType>
+                                <color>(68,150,215)</color>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <speed>20</speed>
+                                <damageDef>CW_CryoDamageShell</damageDef>
+                                <damageAmountBase>11</damageAmountBase>
+                                <explosionRadius>2.9</explosionRadius>
+                                <ai_IsIncendiary>false</ai_IsIncendiary>
+                                <arcHeightFactor>0.55</arcHeightFactor>
+                                <shadowSize>0.6</shadowSize>
+                                <soundExplode>Explosion_Smoke</soundExplode>
+                            </projectile>
+                        </ThingDef>
+
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="CW_Cryorail_Bond" Abstract="True">
+                            <label>persona Cryo Railgun</label>
+                            <description>A powerful, compact railgun that fires a cryogenically-laced projectile at massive speeds. While it's projectiles have been designed to travel greater distances, and inflict massive hypothermic damage, it is incredibly slow to fire, making it unideal for combat, and more suited for incapacitating single targets urgently.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/WeaponRanged/Cryorail</texPath>
+                                <drawSize>1.3</drawSize>
+                            </graphicData>
+                            <soundInteract>Interact_Rifle</soundInteract>
+                            <generateCommonality>0</generateCommonality>
+                            <statBases>
+                                <MarketValue>2420.0</MarketValue>
+                                <Mass>6.8</Mass>
+                                <AccuracyTouch>0.55</AccuracyTouch>
+                                <AccuracyShort>0.55</AccuracyShort>
+                                <AccuracyMedium>0.715</AccuracyMedium>
+                                <AccuracyLong>0.88</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.36</RangedWeapon_Cooldown>
+                            </statBases>
+                            <techLevel>Spacer</techLevel>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <tradeTags>
+                                <li>WeaponRanged</li>
+                            </tradeTags>
+                            <weaponClasses>
+                                <li>LongShots</li>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <equippedAngleOffset>50</equippedAngleOffset>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>CW_CryoRailBullet_Bond</defaultProjectile>
+                                    <forcedMissRadius>0.1</forcedMissRadius>
+                                    <warmupTime>4.25</warmupTime>
+                                    <range>34.9</range>
+                                    <burstShotCount>1</burstShotCount>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <soundCast>CW_SoundCryorail</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="CW_CryoRailBullet_Bond" Abstract="True">
+                            <label>cryorail bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Charge_Small</texPath>
+                            </graphicData>
+                            <thingClass>Projectile_Explosive</thingClass>
+                            <projectile>
+                                <damageDef>CW_CryoDamageRailShot</damageDef>
+                                <damageAmountBase>13</damageAmountBase>
+                                <armorPenetrationBase>0.4</armorPenetrationBase>
+                                <speed>150</speed>
+                                <explosionRadius>1.4</explosionRadius>
+                                <ai_IsIncendiary>false</ai_IsIncendiary>
+                                <arcHeightFactor>0</arcHeightFactor>
+                                <shadowSize>0</shadowSize>
+                                <soundExplode>ThumpCannon_Impact</soundExplode>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- CW_Cryopistol_Bond -->
+                            <ThingDef ParentName="CW_Cryopistol_Bond">
+                                <defName>CW_Cryopistol_Bond</defName>
+                            </ThingDef>
+
+                            <!-- CW_CryoPistolBullet_Bond -->
+                            <ThingDef ParentName="CW_CryoPistolBullet_Bond">
+                                <defName>CW_CryoPistolBullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- CW_Cryorifle_Bond -->
+                            <ThingDef ParentName="CW_Cryorifle_Bond">
+                                <defName>CW_Cryorifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- CW_CryoRifleBullet_Bond -->
+                            <ThingDef ParentName="CW_CryoRifleBullet_Bond">
+                                <defName>CW_CryoRifleBullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- CW_Cryolauncher_Bond -->
+                            <ThingDef ParentName="CW_Cryolauncher_Bond">
+                                <defName>CW_Cryolauncher_Bond</defName>
+                            </ThingDef>
+
+                            <!-- CW_CryoLauncherBullet_Bond -->
+                            <ThingDef ParentName="CW_CryoLauncherBullet_Bond">
+                                <defName>CW_CryoLauncherBullet_Bond</defName>
+                            </ThingDef>
+
+                            <!-- CW_Cryorail_Bond -->
+                            <ThingDef ParentName="CW_Cryorail_Bond">
+                                <defName>CW_Cryorail_Bond</defName>
+                            </ThingDef>
+
+                            <!-- CW_CryoRailBullet_Bond -->
+                            <ThingDef ParentName="CW_CryoRailBullet_Bond">
+                                <defName>CW_CryoRailBullet_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_Cryoweapons</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- CW_Cryopistol_Bond -->
+                                            <ThingDef ParentName="CW_Cryopistol_Bond">
+                                                <defName>CW_Cryopistol_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- CW_CryoPistolBullet_Bond -->
+                                            <ThingDef ParentName="CW_CryoPistolBullet_Bond">
+                                                <defName>CW_CryoPistolBullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- CW_Cryorifle_Bond -->
+                                            <ThingDef ParentName="CW_Cryorifle_Bond">
+                                                <defName>CW_Cryorifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- CW_CryoRifleBullet_Bond -->
+                                            <ThingDef ParentName="CW_CryoRifleBullet_Bond">
+                                                <defName>CW_CryoRifleBullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- CW_Cryolauncher_Bond -->
+                                            <ThingDef ParentName="CW_Cryolauncher_Bond">
+                                                <defName>CW_Cryolauncher_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- CW_CryoLauncherBullet_Bond -->
+                                            <ThingDef ParentName="CW_CryoLauncherBullet_Bond">
+                                                <defName>CW_CryoLauncherBullet_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- CW_Cryorail_Bond -->
+                                            <ThingDef ParentName="CW_Cryorail_Bond">
+                                                <defName>CW_Cryorail_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- CW_CryoRailBullet_Bond -->
+                                            <ThingDef ParentName="CW_CryoRailBullet_Bond">
+                                                <defName>CW_CryoRailBullet_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
