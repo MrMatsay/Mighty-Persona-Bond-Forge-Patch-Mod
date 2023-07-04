@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Obliterator (Continued) =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Obliterator (Continued)</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="VVO_Bullet_Obliterator_Bond" Abstract="True">
+                            <label>obliterator bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Bullet_Big</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>15</damageAmountBase>
+                                <stoppingPower>1</stoppingPower>
+                                <speed>55</speed>
+                            </projectile>
+                            <modExtensions>
+                                <li Class="VVO_Obliterator.ModExtension_ObliteratorBullet">
+                                    <destroyBodyPartChance>1</destroyBodyPartChance>
+                                </li>
+                            </modExtensions>
+                            <thingClass>VVO_Obliterator.Projectile_ObliteratorBullet</thingClass>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VVO_Gun_Obliterator_Bond" Abstract="True">
+                            <label>persona obliterator</label>
+                            <description>A massive gun that obliterates the body parts of your enemies. The question is which body part...\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/Obliterator</texPath>
+                            </graphicData>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <uiIconScale>1.1</uiIconScale>
+                            <soundInteract>VVO_Equip_Obliterator</soundInteract>
+                            <statBases>
+                                <Mass>3</Mass>
+                                <AccuracyTouch>1.1</AccuracyTouch>
+                                <AccuracyShort>1.1</AccuracyShort>
+                                <AccuracyMedium>1.1</AccuracyMedium>
+                                <AccuracyLong>1.1</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.36</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>GunHeavy</li>
+                            </weaponTags>
+                            <weaponClasses>
+                                <li>RangedHeavy</li>
+                            </weaponClasses>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>VVO_Bullet_Obliterator_Bond</defaultProjectile>
+                                    <warmupTime>2.55</warmupTime>
+                                    <range>25.9</range>
+                                    <soundCast>VVO_Shot_Obliterator</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>18</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>grip</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- VVO_Bullet_Obliterator_Bond -->
+                            <ThingDef ParentName="VVO_Bullet_Obliterator_Bond">
+                                <defName>VVO_Bullet_Obliterator_Bond</defName>
+                            </ThingDef>
+
+                            <!-- VVO_Gun_Obliterator_Bond -->
+                            <ThingDef ParentName="VVO_Gun_Obliterator_Bond">
+                                <defName>VVO_Gun_Obliterator_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_ObliteratorContinued</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- VVO_Bullet_Obliterator_Bond -->
+                                            <ThingDef ParentName="VVO_Bullet_Obliterator_Bond">
+                                                <defName>VVO_Bullet_Obliterator_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- VVO_Gun_Obliterator_Bond -->
+                                            <ThingDef ParentName="VVO_Gun_Obliterator_Bond">
+                                                <defName>VVO_Gun_Obliterator_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
