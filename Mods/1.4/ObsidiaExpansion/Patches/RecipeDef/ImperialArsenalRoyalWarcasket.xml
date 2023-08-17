@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ===== Imperial Arsenal: Royal Warcasket ===== -->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Imperial Arsenal: Royal Warcasket</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_RWC_Halberd_Bond" Abstract="True">
+                            <label>Persona bond Xonus Pattern Halberd</label>
+                            <description>Persona bond an Xonus Pattern Halberd.</description>
+                            <jobString>Persona bonding a Xonus Pattern Halberd.</jobString>
+                            <researchPrerequisites></researchPrerequisites>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>RWC_Halberd</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>RWC_Halberd</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <RWC_Halberd_Bond>1</RWC_Halberd_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_OEResetRecipeDefBase" Name="Make_OE_RWC_Halberd_Bond_Reset" Abstract="True">
+                            <label>Reset Persona Xonus Pattern Halberd</label>
+                            <description>Reset an Persona Xonus Pattern Halberd.\n\nWarning! Item Quality and Persona traits will be changed.</description>
+                            <jobString>Resetting a Persona Xonus Pattern Halberd.</jobString>
+                            <researchPrerequisites></researchPrerequisites>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>RWC_Halberd_Bond</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>RWC_Halberd_Bond</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <RWC_Halberd_Bond>1</RWC_Halberd_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_OE_RWC_Halberd_Bond -->
+                            <RecipeDef ParentName="Make_OE_RWC_Halberd_Bond">
+                                <defName>Make_OE_RWC_Halberd_Bond</defName>
+                            </RecipeDef>                            <!-- Make_OE_RWC_Halberd_Bond_Reset -->
+                            <RecipeDef ParentName="Make_OE_RWC_Halberd_Bond_Reset">
+                                <defName>Make_OE_RWC_Halberd_Bond_Reset</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_ImperialArsenalRoyalWarcasket</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_OE_RWC_Halberd_Bond -->
+                                            <RecipeDef ParentName="Make_OE_RWC_Halberd_Bond">
+                                                <defName>Make_OE_RWC_Halberd_Bond</defName>
+                                            </RecipeDef>                                            <!-- Make_OE_RWC_Halberd_Bond_Reset -->
+                                            <RecipeDef ParentName="Make_OE_RWC_Halberd_Bond_Reset">
+                                                <defName>Make_OE_RWC_Halberd_Bond_Reset</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
