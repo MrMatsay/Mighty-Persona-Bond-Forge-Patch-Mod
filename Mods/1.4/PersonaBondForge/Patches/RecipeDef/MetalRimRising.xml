@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ===== Metal Rim Rising ===== -->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Metal Rim Rising</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_MeleeWeapon_MGR_Katana_Bond" Abstract="True">
+                            <label>bond Duelist Objectifier</label>
+                            <description>Bond an Duelist Objectifier.</description>
+                            <jobString>Bonding a Duelist Objectifier.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>MeleeWeapon_MGR_Katana</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>MeleeWeapon_MGR_Katana</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <MeleeWeapon_MGR_Katana_Bond>1</MeleeWeapon_MGR_Katana_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_MeleeWeapon_MGR_Katana_Jump_Bond" Abstract="True">
+                            <label>bond Duelist Objectifier (JUMP)</label>
+                            <description>Bond an Duelist Objectifier (JUMP).</description>
+                            <jobString>Bonding a Duelist Objectifier (JUMP).</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>MeleeWeapon_MGR_Katana_Jump</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>MeleeWeapon_MGR_Katana_Jump</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <MeleeWeapon_MGR_Katana_Jump_Bond>1</MeleeWeapon_MGR_Katana_Jump_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_MGR_RaidenSword_Bond" Abstract="True">
+                            <label>bond Maverick Blade</label>
+                            <description>Bond an Maverick Blade.</description>
+                            <jobString>Bonding a Maverick Blade.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>MGR_RaidenSword</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>MGR_RaidenSword</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <MGR_RaidenSword_Bond>1</MGR_RaidenSword_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_MeleeWeapon_MGR_Katana_Bond -->
+                            <RecipeDef ParentName="Make_MeleeWeapon_MGR_Katana_Bond">
+                                <defName>Make_MeleeWeapon_MGR_Katana_Bond</defName>
+                            </RecipeDef>                            <!-- Make_MeleeWeapon_MGR_Katana_Jump_Bond -->
+                            <RecipeDef ParentName="Make_MeleeWeapon_MGR_Katana_Jump_Bond">
+                                <defName>Make_MeleeWeapon_MGR_Katana_Jump_Bond</defName>
+                            </RecipeDef>                            <!-- Make_MGR_RaidenSword_Bond -->
+                            <RecipeDef ParentName="Make_MGR_RaidenSword_Bond">
+                                <defName>Make_MGR_RaidenSword_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_MetalRimRising</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_MeleeWeapon_MGR_Katana_Bond -->
+                                            <RecipeDef ParentName="Make_MeleeWeapon_MGR_Katana_Bond">
+                                                <defName>Make_MeleeWeapon_MGR_Katana_Bond</defName>
+                                            </RecipeDef>                                            <!-- Make_MeleeWeapon_MGR_Katana_Jump_Bond -->
+                                            <RecipeDef ParentName="Make_MeleeWeapon_MGR_Katana_Jump_Bond">
+                                                <defName>Make_MeleeWeapon_MGR_Katana_Jump_Bond</defName>
+                                            </RecipeDef>                                            <!-- Make_MGR_RaidenSword_Bond -->
+                                            <RecipeDef ParentName="Make_MGR_RaidenSword_Bond">
+                                                <defName>Make_MGR_RaidenSword_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ===== [M.W]Resonant Munitions ===== -->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>[M.W]Resonant Munitions</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_GRAVITY_GUN_Bond" Abstract="True">
+                            <label>bond gravity gun</label>
+                            <description>Bond an gravity gun.</description>
+                            <jobString>Bonding a gravity gun.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_GRAVITY_GUN</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_GRAVITY_GUN</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_GRAVITY_GUN_Bond>1</Gun_GRAVITY_GUN_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_TAU_CANNON_Bond" Abstract="True">
+                            <label>bond tau cannon</label>
+                            <description>Bond an tau cannon.</description>
+                            <jobString>Bonding a tau cannon.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_TAU_CANNON</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_TAU_CANNON</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_TAU_CANNON_Bond>1</Gun_TAU_CANNON_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_Gun_GRAVITY_GUN_Bond -->
+                            <RecipeDef ParentName="Make_Gun_GRAVITY_GUN_Bond">
+                                <defName>Make_Gun_GRAVITY_GUN_Bond</defName>
+                            </RecipeDef>                            <!-- Make_Gun_TAU_CANNON_Bond -->
+                            <RecipeDef ParentName="Make_Gun_TAU_CANNON_Bond">
+                                <defName>Make_Gun_TAU_CANNON_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_ResonantMunitions</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_Gun_GRAVITY_GUN_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_GRAVITY_GUN_Bond">
+                                                <defName>Make_Gun_GRAVITY_GUN_Bond</defName>
+                                            </RecipeDef>                                            <!-- Make_Gun_TAU_CANNON_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_TAU_CANNON_Bond">
+                                                <defName>Make_Gun_TAU_CANNON_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

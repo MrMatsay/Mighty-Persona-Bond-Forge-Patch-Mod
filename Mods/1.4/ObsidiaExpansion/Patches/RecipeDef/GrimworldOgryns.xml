@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ===== Grimworld: Ogryns ===== -->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Grimworld: Ogryns</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_Gun_Rippergun_Bond" Abstract="True">
+                            <label>Persona bond Rippergun</label>
+                            <description>Persona bond an Rippergun.</description>
+                            <jobString>Persona bonding a Rippergun.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_Rippergun</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_Rippergun</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_Rippergun_Bond>1</Gun_Rippergun_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_OEResetRecipeDefBase" Name="Make_OE_Gun_Rippergun_Bond_Reset" Abstract="True">
+                            <label>Reset Persona Rippergun</label>
+                            <description>Reset an Persona Rippergun.\n\nWarning! Item Quality and Persona traits will be changed.</description>
+                            <jobString>Resetting a Persona Rippergun.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_Rippergun_Bond</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_Rippergun_Bond</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_Rippergun_Bond>1</Gun_Rippergun_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_MeleeWeapon_PowerMaul_Bond" Abstract="True">
+                            <label>Persona bond Power Maul</label>
+                            <description>Persona bond an Power Maul.</description>
+                            <jobString>Persona bonding a Power Maul.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>MeleeWeapon_PowerMaul</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>MeleeWeapon_PowerMaul</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <MeleeWeapon_PowerMaul_Bond>1</MeleeWeapon_PowerMaul_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_OEResetRecipeDefBase" Name="Make_OE_MeleeWeapon_PowerMaul_Bond_Reset" Abstract="True">
+                            <label>Reset Persona Power Maul</label>
+                            <description>Reset an Persona Power Maul.\n\nWarning! Item Quality and Persona traits will be changed.</description>
+                            <jobString>Resetting a Persona Power Maul.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>MeleeWeapon_PowerMaul_Bond</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>MeleeWeapon_PowerMaul_Bond</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <MeleeWeapon_PowerMaul_Bond>1</MeleeWeapon_PowerMaul_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_OE_Gun_Rippergun_Bond -->
+                            <RecipeDef ParentName="Make_OE_Gun_Rippergun_Bond">
+                                <defName>Make_OE_Gun_Rippergun_Bond</defName>
+                            </RecipeDef>                            <!-- Make_OE_Gun_Rippergun_Bond_Reset -->
+                            <RecipeDef ParentName="Make_OE_Gun_Rippergun_Bond_Reset">
+                                <defName>Make_OE_Gun_Rippergun_Bond_Reset</defName>
+                            </RecipeDef>                            <!-- Make_OE_MeleeWeapon_PowerMaul_Bond -->
+                            <RecipeDef ParentName="Make_OE_MeleeWeapon_PowerMaul_Bond">
+                                <defName>Make_OE_MeleeWeapon_PowerMaul_Bond</defName>
+                            </RecipeDef>                            <!-- Make_OE_MeleeWeapon_PowerMaul_Bond_Reset -->
+                            <RecipeDef ParentName="Make_OE_MeleeWeapon_PowerMaul_Bond_Reset">
+                                <defName>Make_OE_MeleeWeapon_PowerMaul_Bond_Reset</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_GrimworldOgryns</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_OE_Gun_Rippergun_Bond -->
+                                            <RecipeDef ParentName="Make_OE_Gun_Rippergun_Bond">
+                                                <defName>Make_OE_Gun_Rippergun_Bond</defName>
+                                            </RecipeDef>                                            <!-- Make_OE_Gun_Rippergun_Bond_Reset -->
+                                            <RecipeDef ParentName="Make_OE_Gun_Rippergun_Bond_Reset">
+                                                <defName>Make_OE_Gun_Rippergun_Bond_Reset</defName>
+                                            </RecipeDef>                                            <!-- Make_OE_MeleeWeapon_PowerMaul_Bond -->
+                                            <RecipeDef ParentName="Make_OE_MeleeWeapon_PowerMaul_Bond">
+                                                <defName>Make_OE_MeleeWeapon_PowerMaul_Bond</defName>
+                                            </RecipeDef>                                            <!-- Make_OE_MeleeWeapon_PowerMaul_Bond_Reset -->
+                                            <RecipeDef ParentName="Make_OE_MeleeWeapon_PowerMaul_Bond_Reset">
+                                                <defName>Make_OE_MeleeWeapon_PowerMaul_Bond_Reset</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

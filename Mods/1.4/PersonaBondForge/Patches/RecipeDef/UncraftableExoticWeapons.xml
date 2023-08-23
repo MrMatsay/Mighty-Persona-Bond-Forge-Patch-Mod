@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ===== UncraftableExoticWeapons ===== -->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>UncraftableExoticWeapons</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_XM8_Prototype_Bond" Abstract="True">
+                            <label>bond xm8 prototype</label>
+                            <description>Bond an xm8 prototype.</description>
+                            <jobString>Bonding a xm8 prototype.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_XM8_Prototype</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_XM8_Prototype</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_XM8_Prototype_Bond>1</Gun_XM8_Prototype_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_NU43_Humiliator_Bond" Abstract="True">
+                            <label>bond nu43 humiliator</label>
+                            <description>Bond an nu43 humiliator.</description>
+                            <jobString>Bonding a nu43 humiliator.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_NU43_Humiliator</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_NU43_Humiliator</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_NU43_Humiliator_Bond>1</Gun_NU43_Humiliator_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_A34_Harvester_Bond" Abstract="True">
+                            <label>bond a34 harvester</label>
+                            <description>Bond an a34 harvester.</description>
+                            <jobString>Bonding a a34 harvester.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_A34_Harvester</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_A34_Harvester</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_A34_Harvester_Bond>1</Gun_A34_Harvester_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_Gun_XM8_Prototype_Bond -->
+                            <RecipeDef ParentName="Make_Gun_XM8_Prototype_Bond">
+                                <defName>Make_Gun_XM8_Prototype_Bond</defName>
+                            </RecipeDef>                            <!-- Make_Gun_NU43_Humiliator_Bond -->
+                            <RecipeDef ParentName="Make_Gun_NU43_Humiliator_Bond">
+                                <defName>Make_Gun_NU43_Humiliator_Bond</defName>
+                            </RecipeDef>                            <!-- Make_Gun_A34_Harvester_Bond -->
+                            <RecipeDef ParentName="Make_Gun_A34_Harvester_Bond">
+                                <defName>Make_Gun_A34_Harvester_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_UncraftableExoticWeapons</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_Gun_XM8_Prototype_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_XM8_Prototype_Bond">
+                                                <defName>Make_Gun_XM8_Prototype_Bond</defName>
+                                            </RecipeDef>                                            <!-- Make_Gun_NU43_Humiliator_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_NU43_Humiliator_Bond">
+                                                <defName>Make_Gun_NU43_Humiliator_Bond</defName>
+                                            </RecipeDef>                                            <!-- Make_Gun_A34_Harvester_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_A34_Harvester_Bond">
+                                                <defName>Make_Gun_A34_Harvester_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

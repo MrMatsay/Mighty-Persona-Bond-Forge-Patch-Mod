@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ===== S.T.A.L.K.E.R. - Custom Gauss Rifle ===== -->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>S.T.A.L.K.E.R. - Custom Gauss Rifle</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_HRK_STALKER_Gauss_Bond" Abstract="True">
+                            <label>bond Item 62 Mk.I</label>
+                            <description>Bond an Item 62 Mk.I.</description>
+                            <jobString>Bonding a Item 62 Mk.I.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>HRK_STALKER_Gauss</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>HRK_STALKER_Gauss</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <HRK_STALKER_Gauss_Bond>1</HRK_STALKER_Gauss_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_HRK_STALKER_Gauss_Sniper_Bond" Abstract="True">
+                            <label>bond Item 62 Mk.II</label>
+                            <description>Bond an Item 62 Mk.II.</description>
+                            <jobString>Bonding a Item 62 Mk.II.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>HRK_STALKER_Gauss_Sniper</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>HRK_STALKER_Gauss_Sniper</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <HRK_STALKER_Gauss_Sniper_Bond>1</HRK_STALKER_Gauss_Sniper_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_HRK_STALKER_Gauss_Bond -->
+                            <RecipeDef ParentName="Make_HRK_STALKER_Gauss_Bond">
+                                <defName>Make_HRK_STALKER_Gauss_Bond</defName>
+                            </RecipeDef>                            <!-- Make_HRK_STALKER_Gauss_Sniper_Bond -->
+                            <RecipeDef ParentName="Make_HRK_STALKER_Gauss_Sniper_Bond">
+                                <defName>Make_HRK_STALKER_Gauss_Sniper_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_GunNutGaussRifle</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_HRK_STALKER_Gauss_Bond -->
+                                            <RecipeDef ParentName="Make_HRK_STALKER_Gauss_Bond">
+                                                <defName>Make_HRK_STALKER_Gauss_Bond</defName>
+                                            </RecipeDef>                                            <!-- Make_HRK_STALKER_Gauss_Sniper_Bond -->
+                                            <RecipeDef ParentName="Make_HRK_STALKER_Gauss_Sniper_Bond">
+                                                <defName>Make_HRK_STALKER_Gauss_Sniper_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

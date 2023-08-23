@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ===== Rail Weapons Revived [1.1->1.3] ===== -->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Rail Weapons Revived [1.1->1.3]</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_rail_pistol_Bond" Abstract="True">
+                            <label>bond Rail Pistol</label>
+                            <description>Bond an Rail Pistol.</description>
+                            <jobString>Bonding a Rail Pistol.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>rail_pistol</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>rail_pistol</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <rail_pistol_Bond>1</rail_pistol_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_rail_rifle_Bond" Abstract="True">
+                            <label>bond Rail Rifle</label>
+                            <description>Bond an Rail Rifle.</description>
+                            <jobString>Bonding a Rail Rifle.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>rail_rifle</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>rail_rifle</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <rail_rifle_Bond>1</rail_rifle_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_rail_sniper_Bond" Abstract="True">
+                            <label>bond Rail Sniper</label>
+                            <description>Bond an Rail Sniper.</description>
+                            <jobString>Bonding a Rail Sniper.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>rail_sniper</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>rail_sniper</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <rail_sniper_Bond>1</rail_sniper_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_rail_pistol_Bond -->
+                            <RecipeDef ParentName="Make_rail_pistol_Bond">
+                                <defName>Make_rail_pistol_Bond</defName>
+                            </RecipeDef>                            <!-- Make_rail_rifle_Bond -->
+                            <RecipeDef ParentName="Make_rail_rifle_Bond">
+                                <defName>Make_rail_rifle_Bond</defName>
+                            </RecipeDef>                            <!-- Make_rail_sniper_Bond -->
+                            <RecipeDef ParentName="Make_rail_sniper_Bond">
+                                <defName>Make_rail_sniper_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_RailWeaponsRevived</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_rail_pistol_Bond -->
+                                            <RecipeDef ParentName="Make_rail_pistol_Bond">
+                                                <defName>Make_rail_pistol_Bond</defName>
+                                            </RecipeDef>                                            <!-- Make_rail_rifle_Bond -->
+                                            <RecipeDef ParentName="Make_rail_rifle_Bond">
+                                                <defName>Make_rail_rifle_Bond</defName>
+                                            </RecipeDef>                                            <!-- Make_rail_sniper_Bond -->
+                                            <RecipeDef ParentName="Make_rail_sniper_Bond">
+                                                <defName>Make_rail_sniper_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

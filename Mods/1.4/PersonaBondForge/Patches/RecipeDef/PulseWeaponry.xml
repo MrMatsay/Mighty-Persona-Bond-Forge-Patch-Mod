@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ===== Pulse Weaponry ===== -->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Pulse Weaponry</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_PulseCarbine_Bond" Abstract="True">
+                            <label>bond pulse carbine</label>
+                            <description>Bond an pulse carbine.</description>
+                            <jobString>Bonding a pulse carbine.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_PulseCarbine</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_PulseCarbine</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_PulseCarbine_Bond>1</Gun_PulseCarbine_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_PulsePistol_Bond" Abstract="True">
+                            <label>bond pulse pistol</label>
+                            <description>Bond an pulse pistol.</description>
+                            <jobString>Bonding a pulse pistol.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_PulsePistol</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_PulsePistol</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_PulsePistol_Bond>1</Gun_PulsePistol_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_PulseRifle_Bond" Abstract="True">
+                            <label>bond pulse rifle</label>
+                            <description>Bond an pulse rifle.</description>
+                            <jobString>Bonding a pulse rifle.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_PulseRifle</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_PulseRifle</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_PulseRifle_Bond>1</Gun_PulseRifle_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_Gun_PulseCarbine_Bond -->
+                            <RecipeDef ParentName="Make_Gun_PulseCarbine_Bond">
+                                <defName>Make_Gun_PulseCarbine_Bond</defName>
+                            </RecipeDef>                            <!-- Make_Gun_PulsePistol_Bond -->
+                            <RecipeDef ParentName="Make_Gun_PulsePistol_Bond">
+                                <defName>Make_Gun_PulsePistol_Bond</defName>
+                            </RecipeDef>                            <!-- Make_Gun_PulseRifle_Bond -->
+                            <RecipeDef ParentName="Make_Gun_PulseRifle_Bond">
+                                <defName>Make_Gun_PulseRifle_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_PulseWeaponry</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_Gun_PulseCarbine_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_PulseCarbine_Bond">
+                                                <defName>Make_Gun_PulseCarbine_Bond</defName>
+                                            </RecipeDef>                                            <!-- Make_Gun_PulsePistol_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_PulsePistol_Bond">
+                                                <defName>Make_Gun_PulsePistol_Bond</defName>
+                                            </RecipeDef>                                            <!-- Make_Gun_PulseRifle_Bond -->
+                                            <RecipeDef ParentName="Make_Gun_PulseRifle_Bond">
+                                                <defName>Make_Gun_PulseRifle_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

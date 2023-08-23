@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ===== Ratchet & Clank R.Y.N.O. ===== -->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Ratchet &amp; Clank R.Y.N.O.</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_HRK_RYNO_Bond" Abstract="True">
+                            <label>Persona bond R.Y.N.O rocket launcher</label>
+                            <description>Persona bond an R.Y.N.O rocket launcher.</description>
+                            <jobString>Persona bonding a R.Y.N.O rocket launcher.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>HRK_RYNO</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>HRK_RYNO</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <HRK_RYNO_Bond>1</HRK_RYNO_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_OEResetRecipeDefBase" Name="Make_OE_HRK_RYNO_Bond_Reset" Abstract="True">
+                            <label>Reset Persona R.Y.N.O rocket launcher</label>
+                            <description>Reset an Persona R.Y.N.O rocket launcher.\n\nWarning! Item Quality and Persona traits will be changed.</description>
+                            <jobString>Resetting a Persona R.Y.N.O rocket launcher.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>HRK_RYNO_Bond</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>HRK_RYNO_Bond</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <HRK_RYNO_Bond>1</HRK_RYNO_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Make_OE_HRK_RYNO_Bond -->
+                            <RecipeDef ParentName="Make_OE_HRK_RYNO_Bond">
+                                <defName>Make_OE_HRK_RYNO_Bond</defName>
+                            </RecipeDef>                            <!-- Make_OE_HRK_RYNO_Bond_Reset -->
+                            <RecipeDef ParentName="Make_OE_HRK_RYNO_Bond_Reset">
+                                <defName>Make_OE_HRK_RYNO_Bond_Reset</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_RatchetClankRYNO</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Make_OE_HRK_RYNO_Bond -->
+                                            <RecipeDef ParentName="Make_OE_HRK_RYNO_Bond">
+                                                <defName>Make_OE_HRK_RYNO_Bond</defName>
+                                            </RecipeDef>                                            <!-- Make_OE_HRK_RYNO_Bond_Reset -->
+                                            <RecipeDef ParentName="Make_OE_HRK_RYNO_Bond_Reset">
+                                                <defName>Make_OE_HRK_RYNO_Bond_Reset</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
