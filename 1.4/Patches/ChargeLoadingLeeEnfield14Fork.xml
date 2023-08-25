@@ -1,0 +1,219 @@
+<!--
+    ===== Charge-Loading Lee-Enfield 1.4 Fork =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Charge-Loading Lee-Enfield 1.4 Fork</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_ChargeEnfield_Bond" Abstract="True">
+                            <label>persona charge Enfield</label>
+                            <description>A charged-shot bolt-action rifle - the Charge-Loading Lee-Enfield. It is built upon the basic British Lee-Enfield design, and modified to fire charged rounds.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <techLevel>Spacer</techLevel>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/ChargeEnfield</texPath>
+                            </graphicData>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <statBases>
+                                <Mass>4.6</Mass>
+                                <AccuracyTouch>0.605</AccuracyTouch>
+                                <AccuracyShort>0.77</AccuracyShort>
+                                <AccuracyMedium>0.99</AccuracyMedium>
+                                <AccuracyLong>0.935</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.36</RangedWeapon_Cooldown>
+                            </statBases>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_ChargeEnfield_Bond</defaultProjectile>
+                                    <warmupTime>1.53</warmupTime>
+                                    <range>36.9</range>
+                                    <burstShotCount>1</burstShotCount>
+                                    <soundCast>Shot_ChargeEnfield</soundCast>
+                                    <soundCastTail>GunTail_Medium</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>1.7</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+                        
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_ChargeEnfield_Bond" Abstract="True">
+                            <label>charge shot</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Charge_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>24</damageAmountBase>
+                                <armorPenetrationBase>0.35</armorPenetrationBase>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_ChargeLewis_Bond" Abstract="True">
+                            <label>persona Charge Lewis</label>
+                            <description>A charged-shot version of the ancient Lewis LMG. It is unwieldy and heavy, but makes up for it with decent accuracy and damage. The cooling shroud has been modified to house charge rails and an improved cooling system\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                            <graphicData>
+                                <texPath>Things/Item/Equipment/WeaponRanged/ChargeLewis</texPath>
+                            </graphicData>
+                            <equippedAngleOffset>45</equippedAngleOffset>
+                            <soundInteract>Interact_ChargeRifle</soundInteract>
+                            <statBases>
+                                <Mass>12</Mass>
+                                <AccuracyTouch>0.33</AccuracyTouch>
+                                <AccuracyShort>0.495</AccuracyShort>
+                                <AccuracyMedium>0.44</AccuracyMedium>
+                                <AccuracyLong>0.275</AccuracyLong>
+                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                            </statBases>
+                            <verbs>
+                                <li>
+                                    <verbClass>Verb_Shoot</verbClass>
+                                    <hasStandardCommand>true</hasStandardCommand>
+                                    <defaultProjectile>Bullet_ChargeLewis_Bond</defaultProjectile>
+                                    <warmupTime>1.87</warmupTime>
+                                    <range>29.9</range>
+                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                    <burstShotCount>6</burstShotCount>
+                                    <soundCast>Shot_ChargeBlaster</soundCast>
+                                    <soundCastTail>GunTail_Heavy</soundCastTail>
+                                    <muzzleFlashScale>9</muzzleFlashScale>
+                                </li>
+                            </verbs>
+                            <weaponTags>
+                                <li>SpacerGun</li>
+                            </weaponTags>
+                            <tools>
+                                <li>
+                                    <label>stock</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                    </capacities>
+                                    <power>9.75</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                                <li>
+                                    <label>barrel</label>
+                                    <capacities>
+                                        <li>Blunt</li>
+                                        <li>Poke</li>
+                                    </capacities>
+                                    <power>10.791</power>
+                                    <cooldownTime>2.125</cooldownTime>
+                                </li>
+                            </tools>
+                        </ThingDef>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_ChargeLewis_Bond" Abstract="True">
+                            <label>Charge Lewis bullet</label>
+                            <graphicData>
+                                <texPath>Things/Projectile/Charge_Small</texPath>
+                            </graphicData>
+                            <projectile>
+                                <damageAmountBase>17</damageAmountBase>
+                                <stoppingPower>1.5</stoppingPower>
+                                <speed>100</speed>
+                            </projectile>
+                        </ThingDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Gun_ChargeEnfield_Bond -->
+                            <ThingDef ParentName="Gun_ChargeEnfield_Bond">
+                                <defName>Gun_ChargeEnfield_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_ChargeEnfield_Bond -->
+                            <ThingDef ParentName="Bullet_ChargeEnfield_Bond">
+                                <defName>Bullet_ChargeEnfield_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Gun_ChargeLewis_Bond -->
+                            <ThingDef ParentName="Gun_ChargeLewis_Bond">
+                                <defName>Gun_ChargeLewis_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Bullet_ChargeLewis_Bond -->
+                            <ThingDef ParentName="Bullet_ChargeLewis_Bond">
+                                <defName>Bullet_ChargeLewis_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_ChargeLoadingLeeEnfield14Fork</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Gun_ChargeEnfield_Bond -->
+                                            <ThingDef ParentName="Gun_ChargeEnfield_Bond">
+                                                <defName>Gun_ChargeEnfield_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_ChargeEnfield_Bond -->
+                                            <ThingDef ParentName="Bullet_ChargeEnfield_Bond">
+                                                <defName>Bullet_ChargeEnfield_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Gun_ChargeLewis_Bond -->
+                                            <ThingDef ParentName="Gun_ChargeLewis_Bond">
+                                                <defName>Gun_ChargeLewis_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Bullet_ChargeLewis_Bond -->
+                                            <ThingDef ParentName="Bullet_ChargeLewis_Bond">
+                                                <defName>Bullet_ChargeLewis_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

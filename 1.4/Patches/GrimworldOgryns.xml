@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Grimworld: Ogryns =====
 -->
@@ -13,22 +12,20 @@
                 <li Class="PatchOperationAdd">
                     <xpath>Defs</xpath>
                     <value>
-                        <ThingDef ParentName="MPBFPM_Bullet">
-                            <defName>Bullet_Rippershell_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_Rippershell_Bond" Abstract="True">
                             <label>Rippershell</label>
                             <graphicData>
                                 <texPath>Things/Projectile/Bullet_Shotgun</texPath>
                             </graphicData>
                             <projectile>
-                                <damageAmountBase>22</damageAmountBase>
+                                <damageAmountBase>24</damageAmountBase>
                                 <stoppingPower>4</stoppingPower>
                                 <armorPenetrationBase>0.14</armorPenetrationBase>
                                 <speed>55</speed>
                             </projectile>
                         </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>Gun_Rippergun_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_Rippergun_Bond" Abstract="True">
                             <label>persona Rippergun</label>
                             <description>test\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <possessionCount>1</possessionCount>
@@ -71,7 +68,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
@@ -80,14 +77,13 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Blunt_Quality">
-                            <defName>MeleeWeapon_PowerMaul_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Blunt_Quality" Name="MeleeWeapon_PowerMaul_Bond" Abstract="True">
                             <label>persona Power Maul</label>
                             <description>test\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <possessionCount>1</possessionCount>
@@ -102,10 +98,6 @@
                                 <Mass>6.2</Mass>
                             </statBases>
                             <equippedAngleOffset>-65</equippedAngleOffset>
-                            <costStuffCount>40</costStuffCount>
-                            <stuffCategories>
-                                <li>Metallic</li>
-                            </stuffCategories>
                             <weaponTags>
                                 <li>SpacerMeleeDecent</li>
                             </weaponTags>
@@ -118,7 +110,7 @@
                                     <capacities>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>12.1</power>
+                                    <power>14.317</power>
                                     <cooldownTime>2.04</cooldownTime>
                                 </li>
                                 <li>
@@ -127,7 +119,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>22.88</power>
+                                    <power>25.361</power>
                                     <cooldownTime>3.06</cooldownTime>
                                 </li>
                             </tools>
@@ -135,24 +127,62 @@
                     </value>
                 </li>
 
-                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                    <key>Daria40K_MightyPersonaBondForgePatch_GrimworldOgryns</key>
-                    <defaultValue>true</defaultValue>
-                    <caseFalse>
-                        <!-- Bullet_Rippershell_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Bullet_Rippershell_Bond"]</xpath>
-                        </Operation>
-                        <!-- Gun_Rippergun_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="Gun_Rippergun_Bond"]</xpath>
-                        </Operation>
-                        <!-- MeleeWeapon_PowerMaul_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="MeleeWeapon_PowerMaul_Bond"]</xpath>
-                        </Operation>
-                    </caseFalse>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- Bullet_Rippershell_Bond -->
+                            <ThingDef ParentName="Bullet_Rippershell_Bond">
+                                <defName>Bullet_Rippershell_Bond</defName>
+                            </ThingDef>
+
+                            <!-- Gun_Rippergun_Bond -->
+                            <ThingDef ParentName="Gun_Rippergun_Bond">
+                                <defName>Gun_Rippergun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- MeleeWeapon_PowerMaul_Bond -->
+                            <ThingDef ParentName="MeleeWeapon_PowerMaul_Bond">
+                                <defName>MeleeWeapon_PowerMaul_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_GrimworldOgryns</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- Bullet_Rippershell_Bond -->
+                                            <ThingDef ParentName="Bullet_Rippershell_Bond">
+                                                <defName>Bullet_Rippershell_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- Gun_Rippergun_Bond -->
+                                            <ThingDef ParentName="Gun_Rippergun_Bond">
+                                                <defName>Gun_Rippergun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- MeleeWeapon_PowerMaul_Bond -->
+                                            <ThingDef ParentName="MeleeWeapon_PowerMaul_Bond">
+                                                <defName>MeleeWeapon_PowerMaul_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
                 </li>
             </operations>
         </match>

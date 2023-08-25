@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Vanilla Spacer weapons - Explosive Bolt =====
 -->
@@ -13,14 +12,12 @@
                 <li Class="PatchOperationAdd">
                     <xpath>Defs</xpath>
                     <value>
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>VSWEB_Gun_ExplosiveBoltRifle_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VSWEB_Gun_ExplosiveBoltRifle_Bond" Abstract="True">
                             <label>persona explosive bolt rifle</label>
                             <description>A rifle-based variant of explosive bolt weapon commonly used by war marines, whose combat-focused culture grants them the skill to make the most of each shot fired with a greater area of effect.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Spacer</techLevel>
                             <graphicData>
                                 <texPath>Things/Item/Equipment/WeaponRanged/ExpBoltRifle</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                             <soundInteract>VSWEB_Interact_ExplosiveBoltLight</soundInteract>
                             <statBases>
@@ -32,6 +29,9 @@
                                 <AccuracyLong>0.55</AccuracyLong>
                                 <RangedWeapon_Cooldown>1.105</RangedWeapon_Cooldown>
                             </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.02</MoveSpeed>
+                            </equippedStatOffsets>
                             <generateCommonality>0.1</generateCommonality>                            <!--0.1-->
                             <weaponTags>
                                 <li>SpacerGun</li>
@@ -45,7 +45,7 @@
                                     <verbClass>ExplosiveBolt.ExplosiveBolt_Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>VSWEB_Bullet_ExplosiveBoltRifle_SmallCan_Bond</defaultProjectile>
-                                    <warmupTime>3.4</warmupTime>
+                                    <warmupTime>1.7</warmupTime>
                                     <range>12.9</range>
                                     <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
                                     <burstShotCount>3</burstShotCount>
@@ -65,7 +65,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
@@ -74,34 +74,30 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
-                        <ThingDef ParentName="MPBFPM_Bullet">
-                            <defName>VSWEB_Bullet_ExplosiveBoltRifle_SmallCan_Bond</defName>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="VSWEB_Bullet_ExplosiveBoltRifle_SmallCan_Bond" Abstract="True">
                             <label>explosive canister shot</label>
                             <graphicData>
                                 <texPath>Things/Projectile/ExplosiveBolt_Small</texPath>
                             </graphicData>
                             <projectile>
-                                <damageAmountBase>9</damageAmountBase>
+                                <damageAmountBase>11</damageAmountBase>
                                 <speed>50</speed>
                             </projectile>
                             <thingClass>ExplosiveBolt.Explosive3x3Area_Projectile</thingClass>
                         </ThingDef>
 
-
-                        <!--========== Explosive Bolt Pistol ============-->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>VSWEB_Gun_ExplosiveBoltPistol_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VSWEB_Gun_ExplosiveBoltPistol_Bond" Abstract="True">
                             <label>persona explosive bolt pistol</label>
                             <description>A scaled-down version of explosive bolt weapon. The complex bolt ammunition is highly technical, with skilled users capable of detonating it for maximum area effect.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Spacer</techLevel>
                             <graphicData>
                                 <texPath>Things/Item/Equipment/WeaponRanged/ExpBoltPistol</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                             <soundInteract>VSWEB_Interact_ExplosiveBoltLight</soundInteract>
                             <statBases>
@@ -113,6 +109,9 @@
                                 <AccuracyLong>0.66</AccuracyLong>
                                 <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
                             </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.02</MoveSpeed>
+                            </equippedStatOffsets>
                             <generateCommonality>0.1</generateCommonality>                            <!--0.1-->
                             <weaponTags>
                                 <li>SpacerGun</li>
@@ -127,7 +126,7 @@
                                     <verbClass>ExplosiveBolt.ExplosiveBolt_Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>VSWEB_Bullet_ExplosiveBoltPistol_SmallCan_Bond</defaultProjectile>
-                                    <warmupTime>2.55</warmupTime>
+                                    <warmupTime>1.275</warmupTime>
                                     <range>19.9</range>
                                     <soundCast>VSWEB_ExplosiveBoltShot_Light</soundCast>
                                     <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -145,7 +144,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
@@ -154,33 +153,30 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
-                        <ThingDef ParentName="MPBFPM_Bullet">
-                            <defName>VSWEB_Bullet_ExplosiveBoltPistol_SmallCan_Bond</defName>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="VSWEB_Bullet_ExplosiveBoltPistol_SmallCan_Bond" Abstract="True">
                             <label>explosive canister shot</label>
                             <graphicData>
                                 <texPath>Things/Projectile/ExplosiveBolt_Small</texPath>
                             </graphicData>
                             <projectile>
-                                <damageAmountBase>9</damageAmountBase>
+                                <damageAmountBase>11</damageAmountBase>
                                 <speed>50</speed>
                             </projectile>
                             <thingClass>ExplosiveBolt.Explosive3x3Area_Projectile</thingClass>
                         </ThingDef>
 
-                        <!--========== Explosive bolt Scattergun ============-->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>VSWEB_Gun_ExplosiveBoltScattergun_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VSWEB_Gun_ExplosiveBoltScattergun_Bond" Abstract="True">
                             <label>persona explosive bolt scattergun</label>
                             <description>A variant of explosive bolt weapon designed to fire unique directional explosive bolts that splash out to engulf a wide area in front of itself after detonation. Often used by High-end marines to breach and exterminate xeno starships.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Spacer</techLevel>
                             <graphicData>
                                 <texPath>Things/Item/Equipment/WeaponRanged/ExpBoltShotgun</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                             <soundInteract>VSWEB_Interact_ExplosiveBoltShotgun</soundInteract>
                             <statBases>
@@ -190,8 +186,11 @@
                                 <AccuracyShort>1.045</AccuracyShort>
                                 <AccuracyMedium>1.045</AccuracyMedium>
                                 <AccuracyLong>1.045</AccuracyLong>
-                                <RangedWeapon_Cooldown>2.975</RangedWeapon_Cooldown>
+                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
                             </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.03</MoveSpeed>
+                            </equippedStatOffsets>
                             <generateCommonality>0.1</generateCommonality>                            <!--0.01-->
                             <weaponTags>
                                 <li>SpacerGun</li>
@@ -205,7 +204,7 @@
                                     <verbClass>ExplosiveBolt.ExplosiveBolt_Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>VSWEB_Bullet_ExplosiveScattergun_ExplosiveWave_Bond</defaultProjectile>
-                                    <warmupTime>2.975</warmupTime>
+                                    <warmupTime>1.87</warmupTime>
                                     <range>5.9</range>
                                     <soundCast>VSWEB_ExplosiveBoltShot_Shotgun</soundCast>
                                     <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -223,7 +222,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
@@ -232,36 +231,32 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
-                        <ThingDef ParentName="MPBFPM_Bullet">
-                            <defName>VSWEB_Bullet_ExplosiveScattergun_ExplosiveWave_Bond</defName>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="VSWEB_Bullet_ExplosiveScattergun_ExplosiveWave_Bond" Abstract="True">
                             <label>explosive shotgun blast</label>
                             <graphicData>
                                 <texPath>Things/Projectile/ExplosiveBolt_Large</texPath>
                             </graphicData>
                             <projectile>
-                                <damageAmountBase>11</damageAmountBase>
+                                <damageAmountBase>19</damageAmountBase>
                                 <armorPenetrationBase>0.3</armorPenetrationBase>
                                 <stoppingPower>1</stoppingPower>
                                 <speed>900</speed>
                             </projectile>
                             <thingClass>ExplosiveBolt.ExplosiveWall_Projectile</thingClass>
-
                         </ThingDef>
 
-                        <!--========== Explosive Bolt Sniper ============-->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>VSWEB_Gun_ExplosiveBoltSniper_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VSWEB_Gun_ExplosiveBoltSniper_Bond" Abstract="True">
                             <label>persona explosive bolt sniper rifle</label>
                             <description>An extended Spacer explosive bolt weapon capable of engaging enemies at much greater distances, where the weapons thunderous roar is the first and only warning. Skilled users are capable of adjusting the bolts detonation, activating it mid-air, showering the target area with a pattern on deadly shrapnel.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Spacer</techLevel>
                             <graphicData>
                                 <texPath>Things/Item/Equipment/WeaponRanged/ExpBoltSniper</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                             <equippedAngleOffset>45</equippedAngleOffset>
                             <soundInteract>VSWEB_Interact_ExplosiveBoltHeavy</soundInteract>
@@ -272,8 +267,11 @@
                                 <AccuracyShort>0.44</AccuracyShort>
                                 <AccuracyMedium>0.66</AccuracyMedium>
                                 <AccuracyLong>0.935</AccuracyLong>
-                                <RangedWeapon_Cooldown>4.25</RangedWeapon_Cooldown>
+                                <RangedWeapon_Cooldown>2.55</RangedWeapon_Cooldown>
                             </statBases>
+                            <equippedStatOffsets>
+                                <MoveSpeed>-0.04</MoveSpeed>
+                            </equippedStatOffsets>
                             <generateCommonality>0.1</generateCommonality>                            <!--0.1-->
                             <weaponTags>
                                 <li>SpacerGun</li>
@@ -288,7 +286,7 @@
                                     <verbClass>ExplosiveBolt.ExplosiveBolt_Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>VSWEB_Bullet_ExplosiveBoltSniperRifle_LargeCan_Bond</defaultProjectile>
-                                    <warmupTime>6.375</warmupTime>
+                                    <warmupTime>4.675</warmupTime>
                                     <range>49.9</range>
                                     <soundCast>VSWEB_ExplosiveBoltShot_Sniper</soundCast>
                                     <soundCastTail>GunTail_Heavy</soundCastTail>
@@ -306,7 +304,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
@@ -315,19 +313,19 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
-                        <ThingDef ParentName="MPBFPM_Bullet">
-                            <defName>VSWEB_Bullet_ExplosiveBoltSniperRifle_LargeCan_Bond</defName>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="VSWEB_Bullet_ExplosiveBoltSniperRifle_LargeCan_Bond" Abstract="True">
                             <label>large explosive canister shot</label>
                             <graphicData>
                                 <texPath>Things/Projectile/ExplosiveBolt_Large</texPath>
                             </graphicData>
                             <projectile>
-                                <damageAmountBase>28</damageAmountBase>
+                                <damageAmountBase>30</damageAmountBase>
                                 <armorPenetrationBase>0.2</armorPenetrationBase>
                                 <stoppingPower>1</stoppingPower>
                                 <speed>80</speed>
@@ -335,15 +333,12 @@
                             <thingClass>ExplosiveBolt.Explosive3x3Area_Projectile</thingClass>
                         </ThingDef>
 
-                        <!--========== Explosive bolt Minigun ============-->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>VSWEB_Gun_ExplosiveBoltMinigun_Bond</defName>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VSWEB_Gun_ExplosiveBoltMinigun_Bond" Abstract="True">
                             <label>persona explosive bolt minigun</label>
                             <description>An explosive bolt weapon equipped with a motorized firing system and a large magazine. A single highly skilled war marine is capable of rapidly covering an entire battlefield in explosive shrapnel by adapting and maximizing the area of effect of each and every one of its many shots.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Spacer</techLevel>
                             <graphicData>
                                 <texPath>Things/Item/Equipment/WeaponRanged/ExpBoltMinigun</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                             <equippedAngleOffset>45</equippedAngleOffset>
                             <soundInteract>VSWEB_Interact_ExplosiveBoltHeavy</soundInteract>
@@ -354,7 +349,7 @@
                                 <AccuracyShort>0.44</AccuracyShort>
                                 <AccuracyMedium>0.55</AccuracyMedium>
                                 <AccuracyLong>0.143</AccuracyLong>
-                                <RangedWeapon_Cooldown>4.25</RangedWeapon_Cooldown>
+                                <RangedWeapon_Cooldown>2.55</RangedWeapon_Cooldown>
                             </statBases>
                             <generateCommonality>0.1</generateCommonality>                            <!--0.1-->
                             <weaponTags>
@@ -369,7 +364,7 @@
                                     <verbClass>ExplosiveBolt.ExplosiveBolt_Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>VSWEB_Bullet_ExplosiveBoltminigun_SmallCan_Bond</defaultProjectile>
-                                    <warmupTime>6.375</warmupTime>
+                                    <warmupTime>3.825</warmupTime>
                                     <range>20.9</range>
                                     <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
                                     <burstShotCount>10</burstShotCount>
@@ -392,7 +387,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
@@ -401,33 +396,30 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
-                        <ThingDef ParentName="MPBFPM_Bullet">
-                            <defName>VSWEB_Bullet_ExplosiveBoltminigun_SmallCan_Bond</defName>
+
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="VSWEB_Bullet_ExplosiveBoltminigun_SmallCan_Bond" Abstract="True">
                             <label>explosive canister shot</label>
                             <graphicData>
                                 <texPath>Things/Projectile/ExplosiveBolt_Small</texPath>
                             </graphicData>
                             <projectile>
-                                <damageAmountBase>9</damageAmountBase>
+                                <damageAmountBase>11</damageAmountBase>
                                 <speed>50</speed>
                             </projectile>
                             <thingClass>ExplosiveBolt.Explosive3x3Area_Projectile</thingClass>
                         </ThingDef>
 
-                        <!--========== Explosive bolt Heavy Cannon ============-->
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun">
-                            <defName>VSWEB_Gun_FlackStormCannon_Bond</defName>
-                            <label>persona flack storm cannon</label>
+                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VSWEB_Gun_FlackStormCannon_Bond" Abstract="True">
+                            <label>persona flak storm cannon</label>
                             <description>A heavy by even war marine standards, this unique variation of explosive bolt weapon is only ever seen held by by the highest ranking war marine officers leading massive battles in which the weapons storm of explosive ammunition brutally cleaves a path to victory against the most heretical enemies.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
                             <techLevel>Spacer</techLevel>
                             <graphicData>
                                 <texPath>Things/Item/Equipment/WeaponRanged/ExpBoltHeavy</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
                             </graphicData>
                             <equippedAngleOffset>45</equippedAngleOffset>
                             <soundInteract>VSWEB_Interact_ExplosiveBoltHeavy</soundInteract>
@@ -438,7 +430,7 @@
                                 <AccuracyShort>0.385</AccuracyShort>
                                 <AccuracyMedium>0.275</AccuracyMedium>
                                 <AccuracyLong>0.22</AccuracyLong>
-                                <RangedWeapon_Cooldown>4.845</RangedWeapon_Cooldown>
+                                <RangedWeapon_Cooldown>2.295</RangedWeapon_Cooldown>
                             </statBases>
                             <equippedStatOffsets>
                                 <MoveSpeed>-0.6</MoveSpeed>
@@ -457,7 +449,7 @@
                                     <verbClass>ExplosiveBolt.ExplosiveBolt_Verb_Shoot</verbClass>
                                     <hasStandardCommand>true</hasStandardCommand>
                                     <defaultProjectile>VSWEB_Bullet_ExplosiveBoltHeavy_LargeCan_Bond</defaultProjectile>
-                                    <warmupTime>7.225</warmupTime>
+                                    <warmupTime>2.975</warmupTime>
                                     <range>28.9</range>
                                     <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
                                     <burstShotCount>10</burstShotCount>
@@ -477,7 +469,7 @@
                                     <capacities>
                                         <li>Blunt</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                                 <li>
@@ -486,20 +478,19 @@
                                         <li>Blunt</li>
                                         <li>Poke</li>
                                     </capacities>
-                                    <power>9.9</power>
+                                    <power>9.75</power>
                                     <cooldownTime>1.7</cooldownTime>
                                 </li>
                             </tools>
                         </ThingDef>
-
-                        <ThingDef ParentName="MPBFPM_Bullet">
-                            <defName>VSWEB_Bullet_ExplosiveBoltHeavy_LargeCan_Bond</defName>
+                        
+                        <ThingDef ParentName="MPBFPM_Bullet" Name="VSWEB_Bullet_ExplosiveBoltHeavy_LargeCan_Bond" Abstract="True">
                             <label>large explosive canister shot</label>
                             <graphicData>
                                 <texPath>Things/Projectile/ExplosiveBolt_Large</texPath>
                             </graphicData>
                             <projectile>
-                                <damageAmountBase>10</damageAmountBase>
+                                <damageAmountBase>12</damageAmountBase>
                                 <armorPenetrationBase>0.1</armorPenetrationBase>
                                 <stoppingPower>0.5</stoppingPower>
                                 <speed>80</speed>
@@ -509,60 +500,152 @@
                     </value>
                 </li>
 
-                <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                    <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                    <key>Daria40K_MightyPersonaBondForgePatch_VanillaSpacerWeaponsExplosiveBolt</key>
-                    <defaultValue>true</defaultValue>
-                    <caseFalse>
-                        <!-- VSWEB_Gun_ExplosiveBoltRifle_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VSWEB_Gun_ExplosiveBoltRifle_Bond"]</xpath>
-                        </Operation>
-                        <!-- VSWEB_Bullet_ExplosiveBoltRifle_SmallCan_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VSWEB_Bullet_ExplosiveBoltRifle_SmallCan_Bond"]</xpath>
-                        </Operation>
-                        <!-- VSWEB_Gun_ExplosiveBoltPistol_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VSWEB_Gun_ExplosiveBoltPistol_Bond"]</xpath>
-                        </Operation>
-                        <!-- VSWEB_Bullet_ExplosiveBoltPistol_SmallCan_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VSWEB_Bullet_ExplosiveBoltPistol_SmallCan_Bond"]</xpath>
-                        </Operation>
-                        <!-- VSWEB_Gun_ExplosiveBoltScattergun_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VSWEB_Gun_ExplosiveBoltScattergun_Bond"]</xpath>
-                        </Operation>
-                        <!-- VSWEB_Bullet_ExplosiveScattergun_ExplosiveWave_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VSWEB_Bullet_ExplosiveScattergun_ExplosiveWave_Bond"]</xpath>
-                        </Operation>
-                        <!-- VSWEB_Gun_ExplosiveBoltSniper_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VSWEB_Gun_ExplosiveBoltSniper_Bond"]</xpath>
-                        </Operation>
-                        <!-- VSWEB_Bullet_ExplosiveBoltSniperRifle_LargeCan_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VSWEB_Bullet_ExplosiveBoltSniperRifle_LargeCan_Bond"]</xpath>
-                        </Operation>
-                        <!-- VSWEB_Gun_ExplosiveBoltMinigun_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VSWEB_Gun_ExplosiveBoltMinigun_Bond"]</xpath>
-                        </Operation>
-                        <!-- VSWEB_Bullet_ExplosiveBoltminigun_SmallCan_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VSWEB_Bullet_ExplosiveBoltminigun_SmallCan_Bond"]</xpath>
-                        </Operation>
-                        <!-- VSWEB_Gun_FlackStormCannon_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VSWEB_Gun_FlackStormCannon_Bond"]</xpath>
-                        </Operation>
-                        <!-- VSWEB_Bullet_ExplosiveBoltHeavy_LargeCan_Bond -->
-                        <Operation Class="XmlExtensions.PatchOperationRemove">
-                            <xpath>Defs/ThingDef[defName="VSWEB_Bullet_ExplosiveBoltHeavy_LargeCan_Bond"]</xpath>
-                        </Operation>
-                    </caseFalse>
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <!-- VSWEB_Gun_ExplosiveBoltRifle_Bond -->
+                            <ThingDef ParentName="VSWEB_Gun_ExplosiveBoltRifle_Bond">
+                                <defName>VSWEB_Gun_ExplosiveBoltRifle_Bond</defName>
+                            </ThingDef>
+
+                            <!-- VSWEB_Bullet_ExplosiveBoltRifle_SmallCan_Bond -->
+                            <ThingDef ParentName="VSWEB_Bullet_ExplosiveBoltRifle_SmallCan_Bond">
+                                <defName>VSWEB_Bullet_ExplosiveBoltRifle_SmallCan_Bond</defName>
+                            </ThingDef>
+
+                            <!-- VSWEB_Gun_ExplosiveBoltPistol_Bond -->
+                            <ThingDef ParentName="VSWEB_Gun_ExplosiveBoltPistol_Bond">
+                                <defName>VSWEB_Gun_ExplosiveBoltPistol_Bond</defName>
+                            </ThingDef>
+
+                            <!-- VSWEB_Bullet_ExplosiveBoltPistol_SmallCan_Bond -->
+                            <ThingDef ParentName="VSWEB_Bullet_ExplosiveBoltPistol_SmallCan_Bond">
+                                <defName>VSWEB_Bullet_ExplosiveBoltPistol_SmallCan_Bond</defName>
+                            </ThingDef>
+
+                            <!-- VSWEB_Gun_ExplosiveBoltScattergun_Bond -->
+                            <ThingDef ParentName="VSWEB_Gun_ExplosiveBoltScattergun_Bond">
+                                <defName>VSWEB_Gun_ExplosiveBoltScattergun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- VSWEB_Bullet_ExplosiveScattergun_ExplosiveWave_Bond -->
+                            <ThingDef ParentName="VSWEB_Bullet_ExplosiveScattergun_ExplosiveWave_Bond">
+                                <defName>VSWEB_Bullet_ExplosiveScattergun_ExplosiveWave_Bond</defName>
+                            </ThingDef>
+
+                            <!-- VSWEB_Gun_ExplosiveBoltSniper_Bond -->
+                            <ThingDef ParentName="VSWEB_Gun_ExplosiveBoltSniper_Bond">
+                                <defName>VSWEB_Gun_ExplosiveBoltSniper_Bond</defName>
+                            </ThingDef>
+
+                            <!-- VSWEB_Bullet_ExplosiveBoltSniperRifle_LargeCan_Bond -->
+                            <ThingDef ParentName="VSWEB_Bullet_ExplosiveBoltSniperRifle_LargeCan_Bond">
+                                <defName>VSWEB_Bullet_ExplosiveBoltSniperRifle_LargeCan_Bond</defName>
+                            </ThingDef>
+
+                            <!-- VSWEB_Gun_ExplosiveBoltMinigun_Bond -->
+                            <ThingDef ParentName="VSWEB_Gun_ExplosiveBoltMinigun_Bond">
+                                <defName>VSWEB_Gun_ExplosiveBoltMinigun_Bond</defName>
+                            </ThingDef>
+
+                            <!-- VSWEB_Bullet_ExplosiveBoltminigun_SmallCan_Bond -->
+                            <ThingDef ParentName="VSWEB_Bullet_ExplosiveBoltminigun_SmallCan_Bond">
+                                <defName>VSWEB_Bullet_ExplosiveBoltminigun_SmallCan_Bond</defName>
+                            </ThingDef>
+
+                            <!-- VSWEB_Gun_FlackStormCannon_Bond -->
+                            <ThingDef ParentName="VSWEB_Gun_FlackStormCannon_Bond">
+                                <defName>VSWEB_Gun_FlackStormCannon_Bond</defName>
+                            </ThingDef>
+
+                            <!-- VSWEB_Bullet_ExplosiveBoltHeavy_LargeCan_Bond -->
+                            <ThingDef ParentName="VSWEB_Bullet_ExplosiveBoltHeavy_LargeCan_Bond">
+                                <defName>VSWEB_Bullet_ExplosiveBoltHeavy_LargeCan_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_VanillaSpacerWeaponsExplosiveBolt</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <!-- VSWEB_Gun_ExplosiveBoltRifle_Bond -->
+                                            <ThingDef ParentName="VSWEB_Gun_ExplosiveBoltRifle_Bond">
+                                                <defName>VSWEB_Gun_ExplosiveBoltRifle_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- VSWEB_Bullet_ExplosiveBoltRifle_SmallCan_Bond -->
+                                            <ThingDef ParentName="VSWEB_Bullet_ExplosiveBoltRifle_SmallCan_Bond">
+                                                <defName>VSWEB_Bullet_ExplosiveBoltRifle_SmallCan_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- VSWEB_Gun_ExplosiveBoltPistol_Bond -->
+                                            <ThingDef ParentName="VSWEB_Gun_ExplosiveBoltPistol_Bond">
+                                                <defName>VSWEB_Gun_ExplosiveBoltPistol_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- VSWEB_Bullet_ExplosiveBoltPistol_SmallCan_Bond -->
+                                            <ThingDef ParentName="VSWEB_Bullet_ExplosiveBoltPistol_SmallCan_Bond">
+                                                <defName>VSWEB_Bullet_ExplosiveBoltPistol_SmallCan_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- VSWEB_Gun_ExplosiveBoltScattergun_Bond -->
+                                            <ThingDef ParentName="VSWEB_Gun_ExplosiveBoltScattergun_Bond">
+                                                <defName>VSWEB_Gun_ExplosiveBoltScattergun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- VSWEB_Bullet_ExplosiveScattergun_ExplosiveWave_Bond -->
+                                            <ThingDef ParentName="VSWEB_Bullet_ExplosiveScattergun_ExplosiveWave_Bond">
+                                                <defName>VSWEB_Bullet_ExplosiveScattergun_ExplosiveWave_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- VSWEB_Gun_ExplosiveBoltSniper_Bond -->
+                                            <ThingDef ParentName="VSWEB_Gun_ExplosiveBoltSniper_Bond">
+                                                <defName>VSWEB_Gun_ExplosiveBoltSniper_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- VSWEB_Bullet_ExplosiveBoltSniperRifle_LargeCan_Bond -->
+                                            <ThingDef ParentName="VSWEB_Bullet_ExplosiveBoltSniperRifle_LargeCan_Bond">
+                                                <defName>VSWEB_Bullet_ExplosiveBoltSniperRifle_LargeCan_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- VSWEB_Gun_ExplosiveBoltMinigun_Bond -->
+                                            <ThingDef ParentName="VSWEB_Gun_ExplosiveBoltMinigun_Bond">
+                                                <defName>VSWEB_Gun_ExplosiveBoltMinigun_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- VSWEB_Bullet_ExplosiveBoltminigun_SmallCan_Bond -->
+                                            <ThingDef ParentName="VSWEB_Bullet_ExplosiveBoltminigun_SmallCan_Bond">
+                                                <defName>VSWEB_Bullet_ExplosiveBoltminigun_SmallCan_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- VSWEB_Gun_FlackStormCannon_Bond -->
+                                            <ThingDef ParentName="VSWEB_Gun_FlackStormCannon_Bond">
+                                                <defName>VSWEB_Gun_FlackStormCannon_Bond</defName>
+                                            </ThingDef>
+
+                                            <!-- VSWEB_Bullet_ExplosiveBoltHeavy_LargeCan_Bond -->
+                                            <ThingDef ParentName="VSWEB_Bullet_ExplosiveBoltHeavy_LargeCan_Bond">
+                                                <defName>VSWEB_Bullet_ExplosiveBoltHeavy_LargeCan_Bond</defName>
+                                            </ThingDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
                 </li>
             </operations>
         </match>
