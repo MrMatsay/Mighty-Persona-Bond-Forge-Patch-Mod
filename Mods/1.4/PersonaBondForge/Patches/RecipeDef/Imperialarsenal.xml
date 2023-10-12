@@ -1,0 +1,178 @@
+<!--
+    ===== Imperial arsenal =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Imperial arsenal</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_ICW_ChargeLMG_Bond" Abstract="True">
+                            <label>bond imperial plasma machinegun</label>
+                            <description>Bond an imperial plasma machinegun.</description>
+                            <jobString>Bonding a imperial plasma machinegun.</jobString>
+                            <researchPrerequisites>
+                                <li>ICW_Weapons</li>
+                            </researchPrerequisites>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_ICW_ChargeLMG</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_ICW_ChargeLMG</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_ICW_ChargeLMG_Bond>1</Gun_ICW_ChargeLMG_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_ICW_AdvChargeRifle_Bond" Abstract="True">
+                            <label>bond imperial plasma rifle</label>
+                            <description>Bond an imperial plasma rifle.</description>
+                            <jobString>Bonding a imperial plasma rifle.</jobString>
+                            <researchPrerequisites>
+                                <li>ICW_Weapons</li>
+                            </researchPrerequisites>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_ICW_AdvChargeRifle</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_ICW_AdvChargeRifle</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_ICW_AdvChargeRifle_Bond>1</Gun_ICW_AdvChargeRifle_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_ICW_ChargeSG_Bond" Abstract="True">
+                            <label>bond imperial plasma shotgun</label>
+                            <description>Bond an imperial plasma shotgun.</description>
+                            <jobString>Bonding a imperial plasma shotgun.</jobString>
+                            <researchPrerequisites>
+                                <li>ICW_Weapons</li>
+                            </researchPrerequisites>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_ICW_ChargeSG</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_ICW_ChargeSG</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_ICW_ChargeSG_Bond>1</Gun_ICW_ChargeSG_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_ICW_ChargeSR_Bond" Abstract="True">
+                            <label>bond imperial plasma lance</label>
+                            <description>Bond an imperial plasma lance.</description>
+                            <jobString>Bonding a imperial plasma lance.</jobString>
+                            <researchPrerequisites>
+                                <li>ICW_Weapons</li>
+                            </researchPrerequisites>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Gun_ICW_ChargeSR</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>Gun_ICW_ChargeSR</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <Gun_ICW_ChargeSR_Bond>1</Gun_ICW_ChargeSR_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <RecipeDef ParentName="Make_Gun_ICW_ChargeLMG_Bond">
+                                <defName>Make_Gun_ICW_ChargeLMG_Bond</defName>
+                            </RecipeDef>
+                            <RecipeDef ParentName="Make_Gun_ICW_AdvChargeRifle_Bond">
+                                <defName>Make_Gun_ICW_AdvChargeRifle_Bond</defName>
+                            </RecipeDef>
+                            <RecipeDef ParentName="Make_Gun_ICW_ChargeSG_Bond">
+                                <defName>Make_Gun_ICW_ChargeSG_Bond</defName>
+                            </RecipeDef>
+                            <RecipeDef ParentName="Make_Gun_ICW_ChargeSR_Bond">
+                                <defName>Make_Gun_ICW_ChargeSR_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_Imperialarsenal</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <RecipeDef ParentName="Make_Gun_ICW_ChargeLMG_Bond">
+                                                <defName>Make_Gun_ICW_ChargeLMG_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_Gun_ICW_AdvChargeRifle_Bond">
+                                                <defName>Make_Gun_ICW_AdvChargeRifle_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_Gun_ICW_ChargeSG_Bond">
+                                                <defName>Make_Gun_ICW_ChargeSG_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_Gun_ICW_ChargeSR_Bond">
+                                                <defName>Make_Gun_ICW_ChargeSR_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
