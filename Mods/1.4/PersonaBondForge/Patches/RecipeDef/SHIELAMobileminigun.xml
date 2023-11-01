@@ -1,0 +1,82 @@
+<!--
+    ===== SHIELA, Mobile minigun =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>SHIELA, Mobile minigun</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_SHIELA_Bond" Abstract="True">
+                            <label>bond SHIELA, mobile minigun</label>
+                            <description>Bond an SHIELA, mobile minigun.</description>
+                            <jobString>Bonding a SHIELA, mobile minigun.</jobString>
+                            <researchPrerequisites>
+                                <li>MultibarrelWeapons</li>
+                            </researchPrerequisites>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>SHIELA</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>SHIELA</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <SHIELA_Bond>1</SHIELA_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <RecipeDef ParentName="Make_SHIELA_Bond">
+                                <defName>Make_SHIELA_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_SHIELAMobileminigun</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <RecipeDef ParentName="Make_SHIELA_Bond">
+                                                <defName>Make_SHIELA_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
