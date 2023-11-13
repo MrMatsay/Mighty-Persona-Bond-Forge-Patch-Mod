@@ -1,2126 +1,1797 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Apex: Rimworld Legends (Continued) =====
 -->
 <Patch>
-	<Operation Class="PatchOperationFindMod">
+	<Operation Class="XmlExtensions.FindMod">
 		<mods>
-			<li>Apex: Rimworld Legends (Continued)</li>
+			<li>mlie.apexrimworldlegends</li>
 		</mods>
+		<packageId>true</packageId>
 
-		<match Class="PatchOperationSequence">
-			<operations>
-				<li Class="PatchOperationAdd">
-					<xpath>Defs</xpath>
-					<value>
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_CombatHandgun_Bond" Abstract="True">
-							<label>combat handgun bullet</label>
-							<graphicData>
-								<texPath>Things/Projectile/Bullet_Small</texPath>
-							</graphicData>
-							<projectile>
-								<flyOverhead>false</flyOverhead>
-								<damageAmountBase>13</damageAmountBase>
-								<speed>55</speed>
-							</projectile>
-						</ThingDef>
+		<caseTrue>
+			<Operation Class="XmlExtensions.PatchOperationAdd">
+				<xpath>Defs</xpath>
+				<value>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_CombatHandgun_Bond" Abstract="True">
+						<label>persona combat handgun</label>
+						<description>The Hammond P2020 is a semi-automatic handgun with good accuracy and damage at range. Its integrated 'match trigger' allows it to be fired very rapidly, which is useful in close quarters.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<graphicData>
+							<texPath>Things/A16/p2020</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_Autopistol</soundInteract>
+						<weaponTags>
+							<li>SimpleGun</li>
+						</weaponTags>
+						<statBases>
+							<Mass>1.2</Mass>
+							<AccuracyTouch>0.968</AccuracyTouch>
+							<AccuracyShort>0.847</AccuracyShort>
+							<AccuracyMedium>0.484</AccuracyMedium>
+							<AccuracyLong>0.363</AccuracyLong>
+							<RangedWeapon_Cooldown>0.361</RangedWeapon_Cooldown>
+						</statBases>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_CombatHandgun_Bond</defaultProjectile>
+								<warmupTime>0.3</warmupTime>
+								<range>25.9</range>
+								<soundCast>Shot_Autopistol</soundCast>
+								<soundCastTail>GunTail_Light</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_ShotgunHandgun_Bond" Abstract="True">
+						<label>persona shotgun handgun</label>
+						<description>Controlled spread triple barrel shotgun pistol.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<graphicData>
+							<texPath>Things/A16/mozambique</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_Shotgun</soundInteract>
+						<statBases>
+							<Mass>1.6</Mass>
+							<AccuracyTouch>0.968</AccuracyTouch>
+							<AccuracyShort>0.847</AccuracyShort>
+							<AccuracyMedium>0.484</AccuracyMedium>
+							<AccuracyLong>0.363</AccuracyLong>
+							<RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+						</statBases>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_ShotgunHandgun_Bond</defaultProjectile>
+								<warmupTime>1.8</warmupTime>
+								<range>15.9</range>
+								<burstShotCount>3</burstShotCount>
+								<soundCast>ARL_Shot_ShotgunHandgun</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_ChargePistol_Bond" Abstract="True">
+						<label>persona charge pistol</label>
+						<description>The RE-45 is a fully automatic charge pistol, sacrificing damage and accuracy at longer distances for improved effectiveness at close range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<techLevel>Spacer</techLevel>
+						<graphicData>
+							<texPath>Things/A16/re-45</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_ChargeRifle</soundInteract>
+						<statBases>
+							<Mass>1.3</Mass>
+							<AccuracyTouch>0.968</AccuracyTouch>
+							<AccuracyShort>0.847</AccuracyShort>
+							<AccuracyMedium>0.242</AccuracyMedium>
+							<AccuracyLong>0.121</AccuracyLong>
+							<RangedWeapon_Cooldown>0.722</RangedWeapon_Cooldown>
+						</statBases>
+						<weaponTags>
+							<li>SpacerGun</li>
+						</weaponTags>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_ChargePistol_Bond</defaultProjectile>
+								<warmupTime>0.6</warmupTime>
+								<range>25.9</range>
+								<ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+								<burstShotCount>3</burstShotCount>
+								<soundCast>ARL_Shot_ChargePistol</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>6</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_HandCannon_Bond" Abstract="True">
+						<label>persona hand cannon</label>
+						<description>The B3 Wingman is an extremely powerful revolver with very high accuracy out to long ranges. Precision aim is required to mitigate the disadvantages of its very low rate of fire.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<graphicData>
+							<texPath>Things/A16/wingman</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_Revolver</soundInteract>
+						<statBases>
+							<Mass>2</Mass>
+							<AccuracyTouch>0.968</AccuracyTouch>
+							<AccuracyShort>0.907</AccuracyShort>
+							<AccuracyMedium>0.907</AccuracyMedium>
+							<AccuracyLong>0.786</AccuracyLong>
+							<RangedWeapon_Cooldown>1.011</RangedWeapon_Cooldown>
+						</statBases>
+						<weaponTags>
+							<li>SimpleGun</li>
+							<li>Revolver</li>
+						</weaponTags>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_HandCannon_Bond</defaultProjectile>
+								<warmupTime>0.46</warmupTime>
+								<range>35.9</range>
+								<soundCast>Shot_Revolver</soundCast>
+								<soundCastTail>GunTail_Light</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_LeverActionShotgun_Bond" Abstract="True">
+						<label>persona lever-action shotgun</label>
+						<description>The Peacekeeper is an anti-personnel lever-action shotgun, with rail-operated barrel firing mechanism. Despite not possessing a stopping power of a pump action shotgun, Peacekeeper reload time is much faster.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<graphicData>
+							<texPath>Things/A16/peacekeeper</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>ARL_Interact_LeverActionShotgun</soundInteract>
+						<statBases>
+							<Mass>3.2</Mass>
+							<AccuracyTouch>0.968</AccuracyTouch>
+							<AccuracyShort>1.053</AccuracyShort>
+							<AccuracyMedium>0.932</AccuracyMedium>
+							<AccuracyLong>0.774</AccuracyLong>
+							<RangedWeapon_Cooldown>0.658</RangedWeapon_Cooldown>
+						</statBases>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_LeverActionShotgun_Bond</defaultProjectile>
+								<warmupTime>0.9</warmupTime>
+								<range>18.9</range>
+								<soundCast>ARL_Shot_LeverActionShotgun</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>12</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_SemiAutomaticShotgun_Bond" Abstract="True">
+						<label>persona semi-automatic shotgun</label>
+						<description>The EVA-8 is a semi-automatic shotgun, originally designed for extra-vehicular activity, both in conventional and in exo-atmospheric conditions.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<graphicData>
+							<texPath>Things/A16/eva-8</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_Shotgun</soundInteract>
+						<statBases>
+							<Mass>4.6</Mass>
+							<AccuracyTouch>0.69</AccuracyTouch>
+							<AccuracyShort>0.774</AccuracyShort>
+							<AccuracyMedium>0.665</AccuracyMedium>
+							<AccuracyLong>0.544</AccuracyLong>
+							<RangedWeapon_Cooldown>0.975</RangedWeapon_Cooldown>
+						</statBases>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_SemiAutomaticShotgun_Bond</defaultProjectile>
+								<warmupTime>1.2</warmupTime>
+								<range>16.9</range>
+								<burstShotCount>4</burstShotCount>
+								<ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+								<soundCast>Shot_Shotgun</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>7</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_ChargeShotgun_Bond" Abstract="True">
+						<label>persona charge shotgun</label>
+						<description>Intended for low-zero gravity ship boarding and clearing operations, the Mastiff gained notoriety throughout The Rimworlds as a reliable and devastating combat shotgun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<techLevel>Spacer</techLevel>
+						<graphicData>
+							<texPath>Things/A16/mastiff</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_ChargeRifle</soundInteract>
+						<statBases>
+							<Mass>5.2</Mass>
+							<AccuracyTouch>0.968</AccuracyTouch>
+							<AccuracyShort>1.053</AccuracyShort>
+							<AccuracyMedium>0.932</AccuracyMedium>
+							<AccuracyLong>0.774</AccuracyLong>
+							<RangedWeapon_Cooldown>1.142</RangedWeapon_Cooldown>
+						</statBases>
+						<weaponTags>
+							<li>SpacerGun</li>
+						</weaponTags>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_ChargeShotgun_Bond</defaultProjectile>
+								<warmupTime>1.36</warmupTime>
+								<range>23.9</range>
+								<ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+								<burstShotCount>1</burstShotCount>
+								<soundCast>ARL_Shot_ChargeShotgun</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>7</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_LightSMG_Bond" Abstract="True">
+						<label>persona light SMG</label>
+						<description>Twin Barrel SMG with the clip twice the size of a machine pistol. Lethal in close quarters.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<graphicData>
+							<texPath>Things/A16/alternator</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_SMG</soundInteract>
+						<statBases>
+							<Mass>2.5</Mass>
+							<AccuracyTouch>1.089</AccuracyTouch>
+							<AccuracyShort>0.786</AccuracyShort>
+							<AccuracyMedium>0.423</AccuracyMedium>
+							<AccuracyLong>0.181</AccuracyLong>
+							<RangedWeapon_Cooldown>1.011</RangedWeapon_Cooldown>
+						</statBases>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_LightSMG_Bond</defaultProjectile>
+								<warmupTime>0.5</warmupTime>
+								<range>16.9</range>
+								<burstShotCount>6</burstShotCount>
+								<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+								<soundCast>ARL_Shot_LightSMG</soundCast>
+								<soundCastTail>GunTail_Light</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_ChargeSMG_Bond" Abstract="True">
+						<label>persona charge SMG</label>
+						<description>The Prowler Burst PDW is 3 round fast burst firing anti-personnel charge personal defense weapon (PDW). Lethal in close quarters, Prowler is known for terrible accuracy long range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<techLevel>Spacer</techLevel>
+						<graphicData>
+							<texPath>Things/A16/prowler</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_ChargeRifle</soundInteract>
+						<statBases>
+							<Mass>3.0</Mass>
+							<AccuracyTouch>1.089</AccuracyTouch>
+							<AccuracyShort>0.786</AccuracyShort>
+							<AccuracyMedium>0.303</AccuracyMedium>
+							<AccuracyLong>0.181</AccuracyLong>
+							<RangedWeapon_Cooldown>0.722</RangedWeapon_Cooldown>
+						</statBases>
+						<weaponTags>
+							<li>SpacerGun</li>
+						</weaponTags>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_ChargeSMG_Bond</defaultProjectile>
+								<warmupTime>0.9</warmupTime>
+								<range>25.9</range>
+								<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+								<burstShotCount>3</burstShotCount>
+								<soundCast>ARL_Shot_ChargeSMG</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_CompactSMG_Bond" Abstract="True">
+						<label>persona compact SMG</label>
+						<description>The R-99 is a compact submachine gun that excels at close-quarters combat, due to its extremely high rate of fire and minimal recoil.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<graphicData>
+							<texPath>Things/A16/r-99</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_SMG</soundInteract>
+						<statBases>
+							<Mass>3.5</Mass>
+							<AccuracyTouch>1.028</AccuracyTouch>
+							<AccuracyShort>0.786</AccuracyShort>
+							<AccuracyMedium>0.423</AccuracyMedium>
+							<AccuracyLong>0.242</AccuracyLong>
+							<RangedWeapon_Cooldown>0.961</RangedWeapon_Cooldown>
+						</statBases>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_CompactSMG_Bond</defaultProjectile>
+								<warmupTime>1</warmupTime>
+								<range>18.9</range>
+								<burstShotCount>4</burstShotCount>
+								<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+								<soundCast>Shot_HeavySMG</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_ChargeLMG_Bond" Abstract="True">
+						<label>persona charge LMG</label>
+						<description>The X-55 Devotion is a charge LMG capable of firing armour piercing projectiles at insane speed with almost no need to reload. The further away the target, the more accurate Devotion gets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<techLevel>Spacer</techLevel>
+						<graphicData>
+							<texPath>Things/A16/devotion</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>ARL_Interact_ChargeLMG</soundInteract>
+						<statBases>
+							<Mass>12.5</Mass>
+							<AccuracyTouch>0.484</AccuracyTouch>
+							<AccuracyShort>0.46</AccuracyShort>
+							<AccuracyMedium>0.423</AccuracyMedium>
+							<AccuracyLong>0.557</AccuracyLong>
+							<RangedWeapon_Cooldown>1.3</RangedWeapon_Cooldown>
+						</statBases>
+						<weaponTags>
+							<li>SpacerGun</li>
+						</weaponTags>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_ChargeLMG_Bond</defaultProjectile>
+								<warmupTime>1.8</warmupTime>
+								<range>34.9</range>
+								<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+								<burstShotCount>12</burstShotCount>
+								<soundCast>ARL_Shot_ChargeLMG</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_HMG_Bond" Abstract="True">
+						<label>persona HMG</label>
+						<description>The Spitfire Heavy Machine Gun recoils heavily when first fired, but quickly settles into a tight firing pattern. The manufacturer strongly recommends sustained saturating fire, instead of short controlled bursts.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<graphicData>
+							<texPath>Things/A16/m600-spitfire</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_Rifle</soundInteract>
+						<statBases>
+							<Mass>10.5</Mass>
+							<AccuracyTouch>0.484</AccuracyTouch>
+							<AccuracyShort>0.581</AccuracyShort>
+							<AccuracyMedium>0.423</AccuracyMedium>
+							<AccuracyLong>0.315</AccuracyLong>
+							<RangedWeapon_Cooldown>0.361</RangedWeapon_Cooldown>
+						</statBases>
+						<techLevel>Industrial</techLevel>
+						<weaponTags>
+							<li>GunHeavy</li>
+						</weaponTags>
+						<equippedStatOffsets>
+							<MoveSpeed>-0.25</MoveSpeed>
+						</equippedStatOffsets>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_HMG_Bond</defaultProjectile>
+								<warmupTime>2.5</warmupTime>
+								<range>33.9</range>
+								<burstShotCount>18</burstShotCount>
+								<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+								<soundCast>Shot_Minigun</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>barrels</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>12.555</power>
+								<cooldownTime>2.21</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_MechanoidLMG_Bond" Abstract="True">
+						<label>persona mechanoid LMG</label>
+						<description>The L-STAR is a rapid fire particle accelerating charge light machine gun. It fires energy bolts at a moderate speed at the target. Perfect for area suppresion, this weapon uses salvaged mechanoid technology.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<techLevel>Spacer</techLevel>
+						<graphicData>
+							<texPath>Things/A16/l-star</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.3</drawSize>
+						</graphicData>
+						<soundInteract>Interact_ChargeLance</soundInteract>
+						<statBases>
+							<Mass>14.7</Mass>
+							<AccuracyTouch>0.218</AccuracyTouch>
+							<AccuracyShort>0.315</AccuracyShort>
+							<AccuracyMedium>0.315</AccuracyMedium>
+							<AccuracyLong>0.363</AccuracyLong>
+							<RangedWeapon_Cooldown>3.974</RangedWeapon_Cooldown>
+						</statBases>
+						<weaponTags>
+							<li>SpacerGun</li>
+						</weaponTags>
+						<equippedStatOffsets>
+							<MoveSpeed>-0.25</MoveSpeed>
+						</equippedStatOffsets>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_MechanoidLMG_Bond</defaultProjectile>
+								<warmupTime>1.25</warmupTime>
+								<range>26.9</range>
+								<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+								<burstShotCount>24</burstShotCount>
+								<soundCast>ARL_Shot_MechanoidLMG</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_MechanoidRifle_Bond" Abstract="True">
+						<label>persona mechanoid rifle</label>
+						<description>The Havoc Rifle fires two energy beam bursts that inflicts massive damage. Holding the trigger charges the weapon. Timing is critical to its use: this weapon will only fire when it reaches full charge and reloading takes a little while.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<techLevel>Spacer</techLevel>
+						<graphicData>
+							<texPath>Things/A16/havoc-rifle</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.2</drawSize>
+						</graphicData>
+						<soundInteract>Interact_ChargeLance</soundInteract>
+						<statBases>
+							<Mass>4.8</Mass>
+							<AccuracyTouch>1.028</AccuracyTouch>
+							<AccuracyShort>1.028</AccuracyShort>
+							<AccuracyMedium>0.968</AccuracyMedium>
+							<AccuracyLong>0.847</AccuracyLong>
+							<RangedWeapon_Cooldown>2.167</RangedWeapon_Cooldown>
+						</statBases>
+						<weaponTags>
+							<li>SpacerGun</li>
+						</weaponTags>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_MechanoidRifle_Bond</defaultProjectile>
+								<warmupTime>1.0</warmupTime>
+								<range>28.9</range>
+								<ticksBetweenBurstShots>24</ticksBetweenBurstShots>
+								<burstShotCount>2</burstShotCount>
+								<soundCast>ARL_Shot_MechanoidRifle</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_BullpupRifle_Bond" Abstract="True">
+						<label>persona bullpup rifle</label>
+						<description>The VK-47 Flatline is an anti-personnel fully automatic bullpup assault rifle. It has negligible vertical recoil, instead involving an extreme degree of horizontal recoil, similar to the Alternator light SMG.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<graphicData>
+							<texPath>Things/A16/vk-47-flatline</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_Rifle</soundInteract>
+						<statBases>
+							<Mass>3.5</Mass>
+							<AccuracyTouch>0.665</AccuracyTouch>
+							<AccuracyShort>0.786</AccuracyShort>
+							<AccuracyMedium>0.726</AccuracyMedium>
+							<AccuracyLong>0.605</AccuracyLong>
+							<RangedWeapon_Cooldown>1.228</RangedWeapon_Cooldown>
+						</statBases>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_BullpupRifle_Bond</defaultProjectile>
+								<warmupTime>1.0</warmupTime>
+								<range>28.9</range>
+								<burstShotCount>4</burstShotCount>
+								<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+								<soundCast>ARL_Shot_BullpupRifle</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<weaponTags>
+							<li>IndustrialGunAdvanced</li>
+						</weaponTags>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_AssaultCarbine_Bond" Abstract="True">
+						<label>persona assault carbine</label>
+						<description>Full auto and high accuracy make this weapon desirable in the Rimworlds, however low damage and armor penetration makes it often unreliable against armored enemies.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<graphicData>
+							<texPath>Things/A16/r-301</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_Rifle</soundInteract>
+						<statBases>
+							<Mass>3.5</Mass>
+							<AccuracyTouch>0.726</AccuracyTouch>
+							<AccuracyShort>0.907</AccuracyShort>
+							<AccuracyMedium>1.028</AccuracyMedium>
+							<AccuracyLong>0.907</AccuracyLong>
+							<RangedWeapon_Cooldown>1.228</RangedWeapon_Cooldown>
+						</statBases>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_AssaultCarbine_Bond</defaultProjectile>
+								<warmupTime>1.0</warmupTime>
+								<range>30.9</range>
+								<burstShotCount>5</burstShotCount>
+								<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+								<soundCast>Shot_AssaultRifle</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<weaponTags>
+							<li>IndustrialGunAdvanced</li>
+						</weaponTags>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_BattleRifle_Bond" Abstract="True">
+						<label>persona battle rifle</label>
+						<description>The factory issue Hemlok fires a two-round burst. While this can be a liability at short range, this tradeoff allowed the glitterworld engineers to deliver a weapon with a good balance of long-range accuracy, damage, and fire rate.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<graphicData>
+							<texPath>Things/A16/hemlok</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_Rifle</soundInteract>
+						<statBases>
+							<Mass>4.5</Mass>
+							<AccuracyTouch>0.726</AccuracyTouch>
+							<AccuracyShort>0.847</AccuracyShort>
+							<AccuracyMedium>0.907</AccuracyMedium>
+							<AccuracyLong>0.786</AccuracyLong>
+							<RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+						</statBases>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_BattleRifle_Bond</defaultProjectile>
+								<warmupTime>1.0</warmupTime>
+								<range>33.9</range>
+								<burstShotCount>2</burstShotCount>
+								<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+								<soundCast>ARL_Shot_BattleRifle</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<weaponTags>
+							<li>IndustrialGunAdvanced</li>
+						</weaponTags>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_ChargeSniperRifle_Bond" Abstract="True">
+						<label>persona charge sniper rifle</label>
+						<description>The Triple Take is a triple-barrel marksman rifle that consumes 3 bullets per shot. The shots are fired side by side, and the default sights have two chevrons, indicating where the shots will land.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<techLevel>Spacer</techLevel>
+						<graphicData>
+							<texPath>Things/A16/triple-take</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_ChargeRifle</soundInteract>
+						<statBases>
+							<Mass>4.7</Mass>
+							<AccuracyTouch>0.774</AccuracyTouch>
+							<AccuracyShort>0.92</AccuracyShort>
+							<AccuracyMedium>1.065</AccuracyMedium>
+							<AccuracyLong>0.968</AccuracyLong>
+							<RangedWeapon_Cooldown>1.662</RangedWeapon_Cooldown>
+						</statBases>
+						<weaponTags>
+							<li>SpacerGun</li>
+						</weaponTags>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_ChargeSniperRifle_Bond</defaultProjectile>
+								<warmupTime>3.5</warmupTime>
+								<range>48.9</range>
+								<ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+								<burstShotCount>3</burstShotCount>
+								<soundCast>ARL_Shot_ChargeSniperRifle</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>12</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_SemiautomaticRifle_Bond" Abstract="True">
+						<label>persona semi-automatic rifle</label>
+						<description>Despite recent advances in weapons technology, the older G7 Scout semi-automatic rifle remains a favorite of special forces units due to damage and extremely precise fire - a testament to its high level of craftsmanship.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<graphicData>
+							<texPath>Things/A16/g7-scout</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_Rifle</soundInteract>
+						<statBases>
+							<Mass>3.5</Mass>
+							<AccuracyTouch>0.786</AccuracyTouch>
+							<AccuracyShort>0.968</AccuracyShort>
+							<AccuracyMedium>1.089</AccuracyMedium>
+							<AccuracyLong>0.968</AccuracyLong>
+							<RangedWeapon_Cooldown>0.541</RangedWeapon_Cooldown>
+						</statBases>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_SemiautomaticRifle_Bond</defaultProjectile>
+								<warmupTime>0.85</warmupTime>
+								<range>36.9</range>
+								<soundCast>Shot_BoltActionRifle</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_MarksmanRifle_Bond" Abstract="True">
+						<label>persona marksman rifle</label>
+						<description>The Longbow-DMR is a semi-automatic sniper rifle. Its hyper-velocity round completely eliminates the need to lead targets, and allows the shooter to fire multiple shots quickly in succession.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<graphicData>
+							<texPath>Things/A16/longbow-dmr</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_Rifle</soundInteract>
+						<statBases>
+							<Mass>4.5</Mass>
+							<AccuracyTouch>0.605</AccuracyTouch>
+							<AccuracyShort>0.847</AccuracyShort>
+							<AccuracyMedium>1.041</AccuracyMedium>
+							<AccuracyLong>1.065</AccuracyLong>
+							<RangedWeapon_Cooldown>1.662</RangedWeapon_Cooldown>
+						</statBases>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_MarksmanRifle_Bond</defaultProjectile>
+								<warmupTime>3.2</warmupTime>
+								<range>40.9</range>
+								<burstShotCount>3</burstShotCount>
+								<ticksBetweenBurstShots>34</ticksBetweenBurstShots>
+								<soundCast>Shot_SniperRifle</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+						<weaponTags>
+							<li>SniperRifle</li>
+						</weaponTags>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_MechanoidSniperRifle_Bond" Abstract="True">
+						<label>persona mechanoid sniper rifle</label>
+						<description>The Kraber fires a unique round that ensures 'one-shot,one-kill' results against human-scale targets. However, considerable judgement in leading is required, making this a difficult weapon to use against moving targets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<techLevel>Spacer</techLevel>
+						<graphicData>
+							<texPath>Things/A16/kraber</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.4</drawSize>
+						</graphicData>
+						<soundInteract>ARL_Interact_MechanoidSniperRifle</soundInteract>
+						<statBases>
+							<Mass>7.6</Mass>
+							<AccuracyTouch>0.544</AccuracyTouch>
+							<AccuracyShort>0.726</AccuracyShort>
+							<AccuracyMedium>1.162</AccuracyMedium>
+							<AccuracyLong>1.186</AccuracyLong>
+							<RangedWeapon_Cooldown>2.261</RangedWeapon_Cooldown>
+						</statBases>
+						<weaponTags>
+							<li>SpacerGun</li>
+						</weaponTags>
+						<equippedStatOffsets>
+							<MoveSpeed>-0.15</MoveSpeed>
+						</equippedStatOffsets>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_MechanoidSniperRifle_Bond</defaultProjectile>
+								<warmupTime>3.5</warmupTime>
+								<range>49.9</range>
+								<soundCast>ARL_Shot_MechanoidSniperRifle</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_MechanoidRocketLauncher_Bond" Abstract="True">
+						<label>persona mechanoid inferno launcher</label>
+						<description>The Mechanoid Rocket launcher fires eight small rockets at once in its primary firing mode that are effective at temporarily denying territory to the enemy.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<techLevel>Spacer</techLevel>
+						<graphicData>
+							<texPath>Things/A16/quad-rocket</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.6</drawSize>
+						</graphicData>
+						<soundInteract>Interact_ChargeLance</soundInteract>
+						<statBases>
+							<Mass>18</Mass>
+							<AccuracyTouch>0.218</AccuracyTouch>
+							<AccuracyShort>0.315</AccuracyShort>
+							<AccuracyMedium>0.315</AccuracyMedium>
+							<AccuracyLong>0.218</AccuracyLong>
+							<RangedWeapon_Cooldown>7.225</RangedWeapon_Cooldown>
+						</statBases>
+						<weaponTags>
+							<li>SpacerGun</li>
+						</weaponTags>
+						<equippedStatOffsets>
+							<MoveSpeed>-0.25</MoveSpeed>
+						</equippedStatOffsets>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_MechanoidRocketLauncher_Bond</defaultProjectile>
+								<warmupTime>3.32</warmupTime>
+								<forcedMissRadius>3.5</forcedMissRadius>
+								<range>26.9</range>
+								<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+								<burstShotCount>8</burstShotCount>
+								<soundCast>ARL_Shot_MechanoidRocketLauncher</soundCast>
+								<onlyManualCast>true</onlyManualCast>
+								<targetParams>
+									<canTargetLocations>true</canTargetLocations>
+								</targetParams>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_GrenadeLauncher_Bond" Abstract="True">
+						<label>persona grenade launcher</label>
+						<description>The R-6P Softball Anti-Armor Grenade Launcher (AAGL) is a rotary magazine grenade launcher. It is lightweight and stowable, which allows its operator to quickly fire and maneuver.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<graphicData>
+							<texPath>Things/A16/softball</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<soundInteract>Interact_Rifle</soundInteract>
+						<generateCommonality>0.2</generateCommonality>
+						<statBases>
+							<Mass>3.6</Mass>
+							<RangedWeapon_Cooldown>1.929</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<MoveSpeed>-0.15</MoveSpeed>
+						</equippedStatOffsets>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_GrenadeLauncher_Bond</defaultProjectile>
+								<warmupTime>3.5</warmupTime>
+								<noiseRadius>4</noiseRadius>
+								<range>23.9</range>
+								<forcedMissRadius>2.9</forcedMissRadius>
+								<burstShotCount>1</burstShotCount>
+								<soundCast>Shot_IncendiaryLauncher</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>14</muzzleFlashScale>
+								<targetParams>
+									<canTargetLocations>true</canTargetLocations>
+								</targetParams>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_ChargeMinigun_Bond" Abstract="True">
+						<label>persona charge minigun</label>
+						<description>The 40mm Charge Minigun (Or "40 mil") is a multi-purpose/ anti-vehicle automatic cannon. It is a popular and versatile armament often fielded by glitterworld soldiers operating in medium to long-distance engagements. The 40mm cartridge can be lethal to both enemy personnel and vehicles due to explosive shells.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<techLevel>Spacer</techLevel>
+						<graphicData>
+							<texPath>Things/A16/40mm-tracker-cannon</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.8</drawSize>
+						</graphicData>
+						<soundInteract>Interact_ChargeRifle</soundInteract>
+						<statBases>
+							<Mass>16</Mass>
+							<AccuracyTouch>0.181</AccuracyTouch>
+							<AccuracyShort>0.303</AccuracyShort>
+							<AccuracyMedium>0.411</AccuracyMedium>
+							<AccuracyLong>0.303</AccuracyLong>
+							<RangedWeapon_Cooldown>0.903</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<MoveSpeed>-0.35</MoveSpeed>
+						</equippedStatOffsets>
+						<weaponTags>
+							<li>SpacerGun</li>
+						</weaponTags>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<forcedMissRadius>0.5</forcedMissRadius>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>ARL_Bullet_ChargeMinigun_Bond</defaultProjectile>
+								<warmupTime>7.0</warmupTime>
+								<range>34.9</range>
+								<ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+								<burstShotCount>25</burstShotCount>
+								<soundCast>ARL_Shot_ChargeMinigun</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+								<targetParams>
+									<canTargetLocations>true</canTargetLocations>
+								</targetParams>
+							</li>
+						</verbs>
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_CombatHandgun_Bond" Abstract="True">
+						<label>combat handgun bullet</label>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Small</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<projectile>
+							<flyOverhead>false</flyOverhead>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>13</damageAmountBase>
+							<speed>55</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_ShotgunHandgun_Bond" Abstract="True">
+						<label>shotgun handgun blast</label>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Shotgun</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>8</damageAmountBase>
+							<stoppingPower>3</stoppingPower>
+							<armorPenetrationBase>0.14</armorPenetrationBase>
+							<speed>55</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_ChargePistol_Bond" Abstract="True">
+						<label>charge shot</label>
+						<graphicData>
+							<texPath>Things/Projectile/Charge_Small</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>15</damageAmountBase>
+							<armorPenetrationBase>0.35</armorPenetrationBase>
+							<stoppingPower>0.5</stoppingPower>
+							<speed>70</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_HandCannon_Bond" Abstract="True">
+						<label>hand cannon bullet</label>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Small</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<projectile>
+							<flyOverhead>false</flyOverhead>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>20</damageAmountBase>
+							<stoppingPower>1</stoppingPower>
+							<speed>45</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_LeverActionShotgun_Bond" Abstract="True">
+						<label>shotgun blast</label>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Shotgun</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>22</damageAmountBase>
+							<stoppingPower>1</stoppingPower>
+							<armorPenetrationBase>0.14</armorPenetrationBase>
+							<speed>55</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_SemiAutomaticShotgun_Bond" Abstract="True">
+						<label>shotgun blast</label>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Shotgun</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>13</damageAmountBase>
+							<stoppingPower>3</stoppingPower>
+							<armorPenetrationBase>0.14</armorPenetrationBase>
+							<speed>55</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_ChargeShotgun_Bond" Abstract="True">
+						<label>charge shot</label>
+						<graphicData>
+							<texPath>Things/Projectile/bullet_Charge_Shotgun</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>42</damageAmountBase>
+							<armorPenetrationBase>0.4</armorPenetrationBase>
+							<speed>55</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_LightSMG_Bond" Abstract="True">
+						<label>light SMG bullet</label>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Small</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>6</damageAmountBase>
+							<speed>55</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_ChargeSMG_Bond" Abstract="True">
+						<label>charge shot</label>
+						<graphicData>
+							<texPath>Things/Projectile/Charge_Small</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>18</damageAmountBase>
+							<armorPenetrationBase>0.35</armorPenetrationBase>
+							<speed>70</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_CompactSMG_Bond" Abstract="True">
+						<label>compact SMG bullet</label>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Small</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>13</damageAmountBase>
+							<armorPenetrationBase>0.18</armorPenetrationBase>
+							<speed>55</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_ChargeLMG_Bond" Abstract="True">
+						<label>charge shot</label>
+						<graphicData>
+							<texPath>Things/Projectile/Charge_Small</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>TransparentPostLight</shaderType>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>11</damageAmountBase>
+							<armorPenetrationBase>0.35</armorPenetrationBase>
+							<speed>70</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_HMG_Bond" Abstract="True">
+						<label>HMG bullet</label>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Small</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>6</damageAmountBase>
+							<speed>45</speed>
+							<armorPenetrationBase>0.09</armorPenetrationBase>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_MechanoidLMG_Bond" Abstract="True">
+						<label>mechanoid LMG bullet</label>
+						<graphicData>
+							<texPath>Things/Projectile/Charge_Small</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>TransparentPostLight</shaderType>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>15</damageAmountBase>
+							<speed>90</speed>
+							<stoppingPower>0.5</stoppingPower>
+							<armorPenetrationBase>0.15</armorPenetrationBase>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_MechanoidRifle_Bond" Abstract="True">
+						<label>charge shot</label>
+						<graphicData>
+							<texPath>Things/Projectile/ChargeLanceShot</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>TransparentPostLight</shaderType>
+							<drawSize>1.5</drawSize>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>35</damageAmountBase>
+							<armorPenetrationBase>0.45</armorPenetrationBase>
+							<speed>120</speed>
+							<stoppingPower>1.5</stoppingPower>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_BullpupRifle_Bond" Abstract="True">
+						<label>bullpup rifle bullet</label>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Small</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>13</damageAmountBase>
+							<speed>55</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_AssaultCarbine_Bond" Abstract="True">
+						<label>assault carbine bullet</label>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Small</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>10</damageAmountBase>
+							<speed>70</speed>
+							<stoppingPower>0.5</stoppingPower>
+							<armorPenetrationBase>0.09</armorPenetrationBase>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_BattleRifle_Bond" Abstract="True">
+						<label>battle rifle bullet</label>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Small</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.3</drawSize>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>21</damageAmountBase>
+							<speed>70</speed>
+							<stoppingPower>0.5</stoppingPower>
+							<armorPenetrationBase>0.16</armorPenetrationBase>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_ChargeSniperRifle_Bond" Abstract="True">
+						<label>charge shot</label>
+						<graphicData>
+							<texPath>Things/Projectile/Charge_Small</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.6</drawSize>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>30</damageAmountBase>
+							<armorPenetrationBase>0.38</armorPenetrationBase>
+							<speed>100</speed>
+							<stoppingPower>3</stoppingPower>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_SemiautomaticRifle_Bond" Abstract="True">
+						<label>semi-automatic rifle bullet</label>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>12</damageAmountBase>
+							<stoppingPower>0.5</stoppingPower>
+							<speed>55</speed>
+							<armorPenetrationBase>0.24</armorPenetrationBase>
+						</projectile>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_big</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_MarksmanRifle_Bond" Abstract="True">
+						<label>marksman rifle bullet</label>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Big</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>20</damageAmountBase>
+							<stoppingPower>1.5</stoppingPower>
+							<speed>115</speed>
+							<armorPenetrationBase>0.38</armorPenetrationBase>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_MechanoidSniperRifle_Bond" Abstract="True">
+						<label>charge shot</label>
+						<graphicData>
+							<texPath>Things/Projectile/ChargeLanceShot</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>TransparentPostLight</shaderType>
+							<drawSize>2</drawSize>
+						</graphicData>
+						<projectile>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>97</damageAmountBase>
+							<stoppingPower>3</stoppingPower>
+							<speed>65</speed>
+							<armorPenetrationBase>0.88</armorPenetrationBase>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_MechanoidRocketLauncher_Bond" Abstract="True">
+						<label>mini-inferno shell</label>
+						<graphicData>
+							<texPath>Things/Projectile/LauncherShot</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>TransparentPostLight</shaderType>
+							<drawSize>0.6</drawSize>
+						</graphicData>
+						<thingClass>Projectile_Explosive</thingClass>
+						<projectile>
+							<damageDef>Flame</damageDef>
+							<!-- Use default damage from explosion def -->
+							<explosionRadius>1.2</explosionRadius>
+							<speed>50</speed>
+							<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+							<preExplosionSpawnChance>0.11</preExplosionSpawnChance>
+							<ai_IsIncendiary>true</ai_IsIncendiary>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_GrenadeLauncher_Bond" Abstract="True">
+						<label>frag grenade</label>
+						<graphicData>
+							<texPath>Things/Projectile/ExplosiveCannonShot</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+						</graphicData>
+						<thingClass>Projectile_Explosive</thingClass>
+						<projectile>
+							<speed>40</speed>
+							<damageDef>Bomb</damageDef>
+							<!-- Use default damage from explosion def -->
+							<explosionRadius>1.9</explosionRadius>
+							<preExplosionSpawnThingDef>Filth_RubbleRock</preExplosionSpawnThingDef>
+							<preExplosionSpawnChance>0.3</preExplosionSpawnChance>
+							<ai_IsIncendiary>false</ai_IsIncendiary>
+							<explosionDelay>30</explosionDelay>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_ChargeMinigun_Bond" Abstract="True">
+						<label>charge shot</label>
+						<graphicData>
+							<texPath>Things/Projectile/Charge_Explosive</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<shaderType>TransparentPostLight</shaderType>
+						</graphicData>
+						<thingClass>Projectile_Explosive</thingClass>
+						<projectile>
+							<speed>70</speed>
+							<damageDef>ARL_Bomb_ChargeMinigun</damageDef>
+							<damageAmountBase>13</damageAmountBase>
+							<explosionRadius>1.4</explosionRadius>
+						</projectile>
+					</ThingDef>
+				</value>
+			</Operation>
 
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_CombatHandgun_Bond" Abstract="True">
-							<label>persona combat handgun</label>
-							<description>The Hammond P2020 is a semi-automatic handgun with good accuracy and damage at range. Its integrated 'match trigger' allows it to be fired very rapidly, which is useful in close quarters.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<graphicData>
-								<texPath>Things/A16/p2020</texPath>
-							</graphicData>
-							<soundInteract>Interact_Autopistol</soundInteract>
-							<weaponTags>
-								<li>SimpleGun</li>
-							</weaponTags>
-							<statBases>
-								<Mass>1.2</Mass>
-								<AccuracyTouch>0.88</AccuracyTouch>
-								<AccuracyShort>0.77</AccuracyShort>
-								<AccuracyMedium>0.44</AccuracyMedium>
-								<AccuracyLong>0.33</AccuracyLong>
-								<RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
-							</statBases>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_CombatHandgun_Bond</defaultProjectile>
-									<warmupTime>0.255</warmupTime>
-									<range>25.9</range>
-									<soundCast>Shot_Autopistol</soundCast>
-									<soundCastTail>GunTail_Light</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>grip</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+				<key>Daria40K_MightyPersonaBondForgePatch_ApexRimworldLegendsContinued</key>
+				<defaultValue>true</defaultValue>
 
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_ShotgunHandgun_Bond" Abstract="True">
-							<label>shotgun handgun blast</label>
-							<graphicData>
-								<texPath>Things/Projectile/Bullet_Shotgun</texPath>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>8</damageAmountBase>
-								<stoppingPower>3</stoppingPower>
-								<armorPenetrationBase>0.14</armorPenetrationBase>
-								<speed>55</speed>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_ShotgunHandgun_Bond" Abstract="True">
-							<label>persona shotgun handgun</label>
-							<description>Controlled spread triple barrel shotgun pistol.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<graphicData>
-								<texPath>Things/A16/mozambique</texPath>
-							</graphicData>
-							<soundInteract>Interact_Shotgun</soundInteract>
-							<statBases>
-								<Mass>1.6</Mass>
-								<AccuracyTouch>0.88</AccuracyTouch>
-								<AccuracyShort>0.77</AccuracyShort>
-								<AccuracyMedium>0.44</AccuracyMedium>
-								<AccuracyLong>0.33</AccuracyLong>
-								<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
-							</statBases>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_ShotgunHandgun_Bond</defaultProjectile>
-									<warmupTime>1.53</warmupTime>
-									<range>15.9</range>
-									<burstShotCount>3</burstShotCount>
-									<soundCast>ARL_Shot_ShotgunHandgun</soundCast>
-									<soundCastTail>GunTail_Heavy</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>grip</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_ChargePistol_Bond" Abstract="True">
-							<label>charge shot</label>
-							<graphicData>
-								<texPath>Things/Projectile/Charge_Small</texPath>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>15</damageAmountBase>
-								<armorPenetrationBase>0.35</armorPenetrationBase>
-								<stoppingPower>0.5</stoppingPower>
-								<speed>70</speed>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_ChargePistol_Bond" Abstract="True">
-							<label>persona charge pistol</label>
-							<description>The RE-45 is a fully automatic charge pistol, sacrificing damage and accuracy at longer distances for improved effectiveness at close range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<techLevel>Spacer</techLevel>
-							<graphicData>
-								<texPath>Things/A16/re-45</texPath>
-							</graphicData>
-							<soundInteract>Interact_ChargeRifle</soundInteract>
-							<statBases>
-								<Mass>1.3</Mass>
-								<AccuracyTouch>0.88</AccuracyTouch>
-								<AccuracyShort>0.77</AccuracyShort>
-								<AccuracyMedium>0.22</AccuracyMedium>
-								<AccuracyLong>0.11</AccuracyLong>
-								<RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
-							</statBases>
-							<weaponTags>
-								<li>SpacerGun</li>
-							</weaponTags>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_ChargePistol_Bond</defaultProjectile>
-									<warmupTime>0.51</warmupTime>
-									<range>25.9</range>
-									<ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-									<burstShotCount>3</burstShotCount>
-									<soundCast>ARL_Shot_ChargePistol</soundCast>
-									<soundCastTail>GunTail_Medium</soundCastTail>
-									<muzzleFlashScale>6</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>grip</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_HandCannon_Bond" Abstract="True">
-							<label>hand cannon bullet</label>
-							<graphicData>
-								<texPath>Things/Projectile/Bullet_Small</texPath>
-							</graphicData>
-							<projectile>
-								<flyOverhead>false</flyOverhead>
-								<damageAmountBase>20</damageAmountBase>
-								<stoppingPower>1</stoppingPower>
-								<speed>45</speed>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_HandCannon_Bond" Abstract="True">
-							<label>persona hand cannon</label>
-							<description>The B3 Wingman is an extremely powerful revolver with very high accuracy out to long ranges. Precision aim is required to mitigate the disadvantages of its very low rate of fire.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<graphicData>
-								<texPath>Things/A16/wingman</texPath>
-							</graphicData>
-							<soundInteract>Interact_Revolver</soundInteract>
-							<statBases>
-								<Mass>2</Mass>
-								<AccuracyTouch>0.88</AccuracyTouch>
-								<AccuracyShort>0.825</AccuracyShort>
-								<AccuracyMedium>0.825</AccuracyMedium>
-								<AccuracyLong>0.715</AccuracyLong>
-								<RangedWeapon_Cooldown>1.19</RangedWeapon_Cooldown>
-							</statBases>
-							<weaponTags>
-								<li>SimpleGun</li>
-								<li>Revolver</li>
-							</weaponTags>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_HandCannon_Bond</defaultProjectile>
-									<warmupTime>0.391</warmupTime>
-									<range>35.9</range>
-									<soundCast>Shot_Revolver</soundCast>
-									<soundCastTail>GunTail_Light</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>grip</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_LeverActionShotgun_Bond" Abstract="True">
-							<label>shotgun blast</label>
-							<graphicData>
-								<texPath>Things/Projectile/Bullet_Shotgun</texPath>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>22</damageAmountBase>
-								<stoppingPower>1</stoppingPower>
-								<armorPenetrationBase>0.14</armorPenetrationBase>
-								<speed>55</speed>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_LeverActionShotgun_Bond" Abstract="True">
-							<label>persona lever-action shotgun</label>
-							<description>The Peacekeeper is an anti-personnel lever-action shotgun, with rail-operated barrel firing mechanism. Despite not possessing a stopping power of a pump action shotgun, Peacekeeper reload time is much faster.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<graphicData>
-								<texPath>Things/A16/peacekeeper</texPath>
-							</graphicData>
-							<soundInteract>ARL_Interact_LeverActionShotgun</soundInteract>
-							<statBases>
-								<Mass>3.2</Mass>
-								<AccuracyTouch>0.88</AccuracyTouch>
-								<AccuracyShort>0.957</AccuracyShort>
-								<AccuracyMedium>0.847</AccuracyMedium>
-								<AccuracyLong>0.704</AccuracyLong>
-								<RangedWeapon_Cooldown>0.774</RangedWeapon_Cooldown>
-							</statBases>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_LeverActionShotgun_Bond</defaultProjectile>
-									<warmupTime>0.765</warmupTime>
-									<range>18.9</range>
-									<soundCast>ARL_Shot_LeverActionShotgun</soundCast>
-									<soundCastTail>GunTail_Heavy</soundCastTail>
-									<muzzleFlashScale>12</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_SemiAutomaticShotgun_Bond" Abstract="True">
-							<label>shotgun blast</label>
-							<graphicData>
-								<texPath>Things/Projectile/Bullet_Shotgun</texPath>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>13</damageAmountBase>
-								<stoppingPower>3</stoppingPower>
-								<armorPenetrationBase>0.14</armorPenetrationBase>
-								<speed>55</speed>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_SemiAutomaticShotgun_Bond" Abstract="True">
-							<label>persona semi-automatic shotgun</label>
-							<description>The EVA-8 is a semi-automatic shotgun, originally designed for extra-vehicular activity, both in conventional and in exo-atmospheric conditions.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<graphicData>
-								<texPath>Things/A16/eva-8</texPath>
-							</graphicData>
-							<soundInteract>Interact_Shotgun</soundInteract>
-							<statBases>
-								<Mass>4.6</Mass>
-								<AccuracyTouch>0.627</AccuracyTouch>
-								<AccuracyShort>0.704</AccuracyShort>
-								<AccuracyMedium>0.605</AccuracyMedium>
-								<AccuracyLong>0.495</AccuracyLong>
-								<RangedWeapon_Cooldown>1.147</RangedWeapon_Cooldown>
-							</statBases>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_SemiAutomaticShotgun_Bond</defaultProjectile>
-									<warmupTime>1.02</warmupTime>
-									<range>16.9</range>
-									<burstShotCount>4</burstShotCount>
-									<ticksBetweenBurstShots>20</ticksBetweenBurstShots>
-									<soundCast>Shot_Shotgun</soundCast>
-									<soundCastTail>GunTail_Heavy</soundCastTail>
-									<muzzleFlashScale>7</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_ChargeShotgun_Bond" Abstract="True">
-							<label>charge shot</label>
-							<graphicData>
-								<texPath>Things/Projectile/bullet_Charge_Shotgun</texPath>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>42</damageAmountBase>
-								<armorPenetrationBase>0.4</armorPenetrationBase>
-								<speed>55</speed>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_ChargeShotgun_Bond" Abstract="True">
-							<label>persona charge shotgun</label>
-							<description>Intended for low-zero gravity ship boarding and clearing operations, the Mastiff gained notoriety throughout The Rimworlds as a reliable and devastating combat shotgun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<techLevel>Spacer</techLevel>
-							<graphicData>
-								<texPath>Things/A16/mastiff</texPath>
-							</graphicData>
-							<soundInteract>Interact_ChargeRifle</soundInteract>
-							<statBases>
-								<Mass>5.2</Mass>
-								<AccuracyTouch>0.88</AccuracyTouch>
-								<AccuracyShort>0.957</AccuracyShort>
-								<AccuracyMedium>0.847</AccuracyMedium>
-								<AccuracyLong>0.704</AccuracyLong>
-								<RangedWeapon_Cooldown>1.343</RangedWeapon_Cooldown>
-							</statBases>
-							<weaponTags>
-								<li>SpacerGun</li>
-							</weaponTags>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_ChargeShotgun_Bond</defaultProjectile>
-									<warmupTime>1.156</warmupTime>
-									<range>23.9</range>
-									<ticksBetweenBurstShots>0</ticksBetweenBurstShots>
-									<burstShotCount>1</burstShotCount>
-									<soundCast>ARL_Shot_ChargeShotgun</soundCast>
-									<soundCastTail>GunTail_Heavy</soundCastTail>
-									<muzzleFlashScale>7</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_LightSMG_Bond" Abstract="True">
-							<label>light SMG bullet</label>
-							<graphicData>
-								<texPath>Things/Projectile/Bullet_Small</texPath>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>6</damageAmountBase>
-								<speed>55</speed>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_LightSMG_Bond" Abstract="True">
-							<label>persona light SMG</label>
-							<description>Twin Barrel SMG with the clip twice the size of a machine pistol. Lethal in close quarters.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<graphicData>
-								<texPath>Things/A16/alternator</texPath>
-							</graphicData>
-							<soundInteract>Interact_SMG</soundInteract>
-							<statBases>
-								<Mass>2.5</Mass>
-								<AccuracyTouch>0.99</AccuracyTouch>
-								<AccuracyShort>0.715</AccuracyShort>
-								<AccuracyMedium>0.385</AccuracyMedium>
-								<AccuracyLong>0.165</AccuracyLong>
-								<RangedWeapon_Cooldown>1.19</RangedWeapon_Cooldown>
-							</statBases>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_LightSMG_Bond</defaultProjectile>
-									<warmupTime>0.425</warmupTime>
-									<range>16.9</range>
-									<burstShotCount>6</burstShotCount>
-									<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
-									<soundCast>ARL_Shot_LightSMG</soundCast>
-									<soundCastTail>GunTail_Light</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>grip</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_ChargeSMG_Bond" Abstract="True">
-							<label>charge shot</label>
-							<graphicData>
-								<texPath>Things/Projectile/Charge_Small</texPath>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>18</damageAmountBase>
-								<armorPenetrationBase>0.35</armorPenetrationBase>
-								<speed>70</speed>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_ChargeSMG_Bond" Abstract="True">
-							<label>persona charge SMG</label>
-							<description>The Prowler Burst PDW is 3 round fast burst firing anti-personnel charge personal defense weapon (PDW). Lethal in close quarters, Prowler is known for terrible accuracy long range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<techLevel>Spacer</techLevel>
-							<graphicData>
-								<texPath>Things/A16/prowler</texPath>
-							</graphicData>
-							<soundInteract>Interact_ChargeRifle</soundInteract>
-							<statBases>
-								<Mass>3.0</Mass>
-								<AccuracyTouch>0.99</AccuracyTouch>
-								<AccuracyShort>0.715</AccuracyShort>
-								<AccuracyMedium>0.275</AccuracyMedium>
-								<AccuracyLong>0.165</AccuracyLong>
-								<RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
-							</statBases>
-							<weaponTags>
-								<li>SpacerGun</li>
-							</weaponTags>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_ChargeSMG_Bond</defaultProjectile>
-									<warmupTime>0.765</warmupTime>
-									<range>25.9</range>
-									<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
-									<burstShotCount>3</burstShotCount>
-									<soundCast>ARL_Shot_ChargeSMG</soundCast>
-									<soundCastTail>GunTail_Medium</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_CompactSMG_Bond" Abstract="True">
-							<label>compact SMG bullet</label>
-							<graphicData>
-								<texPath>Things/Projectile/Bullet_Small</texPath>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>13</damageAmountBase>
-								<armorPenetrationBase>0.18</armorPenetrationBase>
-								<speed>55</speed>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_CompactSMG_Bond" Abstract="True">
-							<label>persona compact SMG</label>
-							<description>The R-99 is a compact submachine gun that excels at close-quarters combat, due to its extremely high rate of fire and minimal recoil.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<graphicData>
-								<texPath>Things/A16/r-99</texPath>
-							</graphicData>
-							<soundInteract>Interact_SMG</soundInteract>
-							<statBases>
-								<Mass>3.5</Mass>
-								<AccuracyTouch>0.935</AccuracyTouch>
-								<AccuracyShort>0.715</AccuracyShort>
-								<AccuracyMedium>0.385</AccuracyMedium>
-								<AccuracyLong>0.22</AccuracyLong>
-								<RangedWeapon_Cooldown>1.131</RangedWeapon_Cooldown>
-							</statBases>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_CompactSMG_Bond</defaultProjectile>
-									<warmupTime>0.85</warmupTime>
-									<range>18.9</range>
-									<burstShotCount>4</burstShotCount>
-									<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-									<soundCast>Shot_HeavySMG</soundCast>
-									<soundCastTail>GunTail_Heavy</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>grip</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_ChargeLMG_Bond" Abstract="True">
-							<label>charge shot</label>
-							<graphicData>
-								<texPath>Things/Projectile/Charge_Small</texPath>
-								<shaderType>TransparentPostLight</shaderType>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>11</damageAmountBase>
-								<armorPenetrationBase>0.35</armorPenetrationBase>
-								<speed>70</speed>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_ChargeLMG_Bond" Abstract="True">
-							<label>persona charge LMG</label>
-							<description>The X-55 Devotion is a charge LMG capable of firing armour piercing projectiles at insane speed with almost no need to reload. The further away the target, the more accurate Devotion gets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<techLevel>Spacer</techLevel>
-							<graphicData>
-								<texPath>Things/A16/devotion</texPath>
-							</graphicData>
-							<soundInteract>ARL_Interact_ChargeLMG</soundInteract>
-							<statBases>
-								<Mass>12.5</Mass>
-								<AccuracyTouch>0.44</AccuracyTouch>
-								<AccuracyShort>0.418</AccuracyShort>
-								<AccuracyMedium>0.385</AccuracyMedium>
-								<AccuracyLong>0.506</AccuracyLong>
-								<RangedWeapon_Cooldown>1.53</RangedWeapon_Cooldown>
-							</statBases>
-							<weaponTags>
-								<li>SpacerGun</li>
-							</weaponTags>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_ChargeLMG_Bond</defaultProjectile>
-									<warmupTime>1.53</warmupTime>
-									<range>34.9</range>
-									<ticksBetweenBurstShots>4</ticksBetweenBurstShots>
-									<burstShotCount>12</burstShotCount>
-									<soundCast>ARL_Shot_ChargeLMG</soundCast>
-									<soundCastTail>GunTail_Medium</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_HMG_Bond" Abstract="True">
-							<label>HMG bullet</label>
-							<graphicData>
-								<texPath>Things/Projectile/Bullet_Small</texPath>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>6</damageAmountBase>
-								<speed>45</speed>
-								<armorPenetrationBase>0.09</armorPenetrationBase>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_HMG_Bond" Abstract="True">
-							<label>persona HMG</label>
-							<description>The Spitfire Heavy Machine Gun recoils heavily when first fired, but quickly settles into a tight firing pattern. The manufacturer strongly recommends sustained saturating fire, instead of short controlled bursts.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<graphicData>
-								<texPath>Things/A16/m600-spitfire</texPath>
-							</graphicData>
-							<soundInteract>Interact_Rifle</soundInteract>
-							<statBases>
-								<Mass>10.5</Mass>
-								<AccuracyTouch>0.44</AccuracyTouch>
-								<AccuracyShort>0.528</AccuracyShort>
-								<AccuracyMedium>0.385</AccuracyMedium>
-								<AccuracyLong>0.286</AccuracyLong>
-								<RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
-							</statBases>
-							<techLevel>Industrial</techLevel>
-							<weaponTags>
-								<li>GunHeavy</li>
-							</weaponTags>
-							<equippedStatOffsets>
-								<MoveSpeed>-0.25</MoveSpeed>
-							</equippedStatOffsets>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_HMG_Bond</defaultProjectile>
-									<warmupTime>2.125</warmupTime>
-									<range>33.9</range>
-									<burstShotCount>18</burstShotCount>
-									<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
-									<soundCast>Shot_Minigun</soundCast>
-									<soundCastTail>GunTail_Medium</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>barrels</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>12.555</power>
-									<cooldownTime>2.21</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_MechanoidLMG_Bond" Abstract="True">
-							<label>mechanoid LMG bullet</label>
-							<graphicData>
-								<texPath>Things/Projectile/Charge_Small</texPath>
-								<shaderType>TransparentPostLight</shaderType>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>15</damageAmountBase>
-								<speed>90</speed>
-								<stoppingPower>0.5</stoppingPower>
-								<armorPenetrationBase>0.15</armorPenetrationBase>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_MechanoidLMG_Bond" Abstract="True">
-							<label>persona mechanoid LMG</label>
-							<description>The L-STAR is a rapid fire particle accelerating charge light machine gun. It fires energy bolts at a moderate speed at the target. Perfect for area suppresion, this weapon uses salvaged mechanoid technology.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<techLevel>Spacer</techLevel>
-							<graphicData>
-								<texPath>Things/A16/l-star</texPath>
-								<drawSize>1.3</drawSize>
-							</graphicData>
-							<soundInteract>Interact_ChargeLance</soundInteract>
-							<statBases>
-								<Mass>14.7</Mass>
-								<AccuracyTouch>0.198</AccuracyTouch>
-								<AccuracyShort>0.286</AccuracyShort>
-								<AccuracyMedium>0.286</AccuracyMedium>
-								<AccuracyLong>0.33</AccuracyLong>
-								<RangedWeapon_Cooldown>4.675</RangedWeapon_Cooldown>
-							</statBases>
-							<weaponTags>
-								<li>SpacerGun</li>
-							</weaponTags>
-							<equippedStatOffsets>
-								<MoveSpeed>-0.25</MoveSpeed>
-							</equippedStatOffsets>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_MechanoidLMG_Bond</defaultProjectile>
-									<warmupTime>1.062</warmupTime>
-									<range>26.9</range>
-									<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
-									<burstShotCount>24</burstShotCount>
-									<soundCast>ARL_Shot_MechanoidLMG</soundCast>
-									<soundCastTail>GunTail_Heavy</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_MechanoidRifle_Bond" Abstract="True">
-							<label>charge shot</label>
-							<graphicData>
-								<texPath>Things/Projectile/ChargeLanceShot</texPath>
-								<shaderType>TransparentPostLight</shaderType>
-								<drawSize>1.5</drawSize>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>35</damageAmountBase>
-								<armorPenetrationBase>0.45</armorPenetrationBase>
-								<speed>120</speed>
-								<stoppingPower>1.5</stoppingPower>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_MechanoidRifle_Bond" Abstract="True">
-							<label>persona mechanoid rifle</label>
-							<description>The Havoc Rifle fires two energy beam bursts that inflicts massive damage. Holding the trigger charges the weapon. Timing is critical to its use: this weapon will only fire when it reaches full charge and reloading takes a little while.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<techLevel>Spacer</techLevel>
-							<graphicData>
-								<texPath>Things/A16/havoc-rifle</texPath>
-								<drawSize>1.2</drawSize>
-							</graphicData>
-							<soundInteract>Interact_ChargeLance</soundInteract>
-							<statBases>
-								<Mass>4.8</Mass>
-								<AccuracyTouch>0.935</AccuracyTouch>
-								<AccuracyShort>0.935</AccuracyShort>
-								<AccuracyMedium>0.88</AccuracyMedium>
-								<AccuracyLong>0.77</AccuracyLong>
-								<RangedWeapon_Cooldown>2.55</RangedWeapon_Cooldown>
-							</statBases>
-							<weaponTags>
-								<li>SpacerGun</li>
-							</weaponTags>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_MechanoidRifle_Bond</defaultProjectile>
-									<warmupTime>0.85</warmupTime>
-									<range>28.9</range>
-									<ticksBetweenBurstShots>24</ticksBetweenBurstShots>
-									<burstShotCount>2</burstShotCount>
-									<soundCast>ARL_Shot_MechanoidRifle</soundCast>
-									<soundCastTail>GunTail_Medium</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_BullpupRifle_Bond" Abstract="True">
-							<label>bullpup rifle bullet</label>
-							<graphicData>
-								<texPath>Things/Projectile/Bullet_Small</texPath>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>13</damageAmountBase>
-								<speed>55</speed>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_BullpupRifle_Bond" Abstract="True">
-							<label>persona bullpup rifle</label>
-							<description>The VK-47 Flatline is an anti-personnel fully automatic bullpup assault rifle. It has negligible vertical recoil, instead involving an extreme degree of horizontal recoil, similar to the Alternator light SMG.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<graphicData>
-								<texPath>Things/A16/vk-47-flatline</texPath>
-							</graphicData>
-							<soundInteract>Interact_Rifle</soundInteract>
-							<statBases>
-								<Mass>3.5</Mass>
-								<AccuracyTouch>0.605</AccuracyTouch>
-								<AccuracyShort>0.715</AccuracyShort>
-								<AccuracyMedium>0.66</AccuracyMedium>
-								<AccuracyLong>0.55</AccuracyLong>
-								<RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
-							</statBases>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_BullpupRifle_Bond</defaultProjectile>
-									<warmupTime>0.85</warmupTime>
-									<range>28.9</range>
-									<burstShotCount>4</burstShotCount>
-									<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-									<soundCast>ARL_Shot_BullpupRifle</soundCast>
-									<soundCastTail>GunTail_Medium</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<weaponTags>
-								<li>IndustrialGunAdvanced</li>
-							</weaponTags>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_AssaultCarbine_Bond" Abstract="True">
-							<label>assault carbine bullet</label>
-							<graphicData>
-								<texPath>Things/Projectile/Bullet_Small</texPath>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>10</damageAmountBase>
-								<speed>70</speed>
-								<stoppingPower>0.5</stoppingPower>
-								<armorPenetrationBase>0.09</armorPenetrationBase>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_AssaultCarbine_Bond" Abstract="True">
-							<label>persona assault carbine</label>
-							<description>Full auto and high accuracy make this weapon desirable in the Rimworlds, however low damage and armor penetration makes it often unreliable against armored enemies.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<graphicData>
-								<texPath>Things/A16/r-301</texPath>
-							</graphicData>
-							<soundInteract>Interact_Rifle</soundInteract>
-							<statBases>
-								<Mass>3.5</Mass>
-								<AccuracyTouch>0.66</AccuracyTouch>
-								<AccuracyShort>0.825</AccuracyShort>
-								<AccuracyMedium>0.935</AccuracyMedium>
-								<AccuracyLong>0.825</AccuracyLong>
-								<RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
-							</statBases>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_AssaultCarbine_Bond</defaultProjectile>
-									<warmupTime>0.85</warmupTime>
-									<range>30.9</range>
-									<burstShotCount>5</burstShotCount>
-									<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-									<soundCast>Shot_AssaultRifle</soundCast>
-									<soundCastTail>GunTail_Medium</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<weaponTags>
-								<li>IndustrialGunAdvanced</li>
-							</weaponTags>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_BattleRifle_Bond" Abstract="True">
-							<label>battle rifle bullet</label>
-							<graphicData>
-								<texPath>Things/Projectile/Bullet_Small</texPath>
-								<drawSize>1.3</drawSize>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>21</damageAmountBase>
-								<speed>70</speed>
-								<stoppingPower>0.5</stoppingPower>
-								<armorPenetrationBase>0.16</armorPenetrationBase>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_BattleRifle_Bond" Abstract="True">
-							<label>persona battle rifle</label>
-							<description>The factory issue Hemlok fires a two-round burst. While this can be a liability at short range, this tradeoff allowed the glitterworld engineers to deliver a weapon with a good balance of long-range accuracy, damage, and fire rate.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<graphicData>
-								<texPath>Things/A16/hemlok</texPath>
-							</graphicData>
-							<soundInteract>Interact_Rifle</soundInteract>
-							<statBases>
-								<Mass>4.5</Mass>
-								<AccuracyTouch>0.66</AccuracyTouch>
-								<AccuracyShort>0.77</AccuracyShort>
-								<AccuracyMedium>0.825</AccuracyMedium>
-								<AccuracyLong>0.715</AccuracyLong>
-								<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
-							</statBases>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_BattleRifle_Bond</defaultProjectile>
-									<warmupTime>0.85</warmupTime>
-									<range>33.9</range>
-									<burstShotCount>2</burstShotCount>
-									<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-									<soundCast>ARL_Shot_BattleRifle</soundCast>
-									<soundCastTail>GunTail_Medium</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<weaponTags>
-								<li>IndustrialGunAdvanced</li>
-							</weaponTags>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_ChargeSniperRifle_Bond" Abstract="True">
-							<label>charge shot</label>
-							<graphicData>
-								<texPath>Things/Projectile/Charge_Small</texPath>
-								<drawSize>1.6</drawSize>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>30</damageAmountBase>
-								<armorPenetrationBase>0.38</armorPenetrationBase>
-								<speed>100</speed>
-								<stoppingPower>3</stoppingPower>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_ChargeSniperRifle_Bond" Abstract="True">
-							<label>persona charge sniper rifle</label>
-							<description>The Triple Take is a triple-barrel marksman rifle that consumes 3 bullets per shot. The shots are fired side by side, and the default sights have two chevrons, indicating where the shots will land.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<techLevel>Spacer</techLevel>
-							<graphicData>
-								<texPath>Things/A16/triple-take</texPath>
-							</graphicData>
-							<soundInteract>Interact_ChargeRifle</soundInteract>
-							<statBases>
-								<Mass>4.7</Mass>
-								<AccuracyTouch>0.704</AccuracyTouch>
-								<AccuracyShort>0.836</AccuracyShort>
-								<AccuracyMedium>0.968</AccuracyMedium>
-								<AccuracyLong>0.88</AccuracyLong>
-								<RangedWeapon_Cooldown>1.955</RangedWeapon_Cooldown>
-							</statBases>
-							<weaponTags>
-								<li>SpacerGun</li>
-							</weaponTags>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_ChargeSniperRifle_Bond</defaultProjectile>
-									<warmupTime>2.975</warmupTime>
-									<range>48.9</range>
-									<ticksBetweenBurstShots>1</ticksBetweenBurstShots>
-									<burstShotCount>3</burstShotCount>
-									<soundCast>ARL_Shot_ChargeSniperRifle</soundCast>
-									<soundCastTail>GunTail_Medium</soundCastTail>
-									<muzzleFlashScale>12</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_SemiautomaticRifle_Bond" Abstract="True">
-							<label>semi-automatic rifle bullet</label>
-							<projectile>
-								<damageAmountBase>12</damageAmountBase>
-								<stoppingPower>0.5</stoppingPower>
-								<speed>55</speed>
-								<armorPenetrationBase>0.24</armorPenetrationBase>
-							</projectile>
-							<graphicData>
-								<texPath>Things/Projectile/Bullet_big</texPath>
-							</graphicData>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_SemiautomaticRifle_Bond" Abstract="True">
-							<label>persona semi-automatic rifle</label>
-							<description>Despite recent advances in weapons technology, the older G7 Scout semi-automatic rifle remains a favorite of special forces units due to damage and extremely precise fire - a testament to its high level of craftsmanship.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<graphicData>
-								<texPath>Things/A16/g7-scout</texPath>
-							</graphicData>
-							<soundInteract>Interact_Rifle</soundInteract>
-							<statBases>
-								<Mass>3.5</Mass>
-								<AccuracyTouch>0.715</AccuracyTouch>
-								<AccuracyShort>0.88</AccuracyShort>
-								<AccuracyMedium>0.99</AccuracyMedium>
-								<AccuracyLong>0.88</AccuracyLong>
-								<RangedWeapon_Cooldown>0.637</RangedWeapon_Cooldown>
-							</statBases>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_SemiautomaticRifle_Bond</defaultProjectile>
-									<warmupTime>0.722</warmupTime>
-									<range>36.9</range>
-									<soundCast>Shot_BoltActionRifle</soundCast>
-									<soundCastTail>GunTail_Heavy</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_MarksmanRifle_Bond" Abstract="True">
-							<label>marksman rifle bullet</label>
-							<graphicData>
-								<texPath>Things/Projectile/Bullet_Big</texPath>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>20</damageAmountBase>
-								<stoppingPower>1.5</stoppingPower>
-								<speed>115</speed>
-								<armorPenetrationBase>0.38</armorPenetrationBase>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_MarksmanRifle_Bond" Abstract="True">
-							<label>persona marksman rifle</label>
-							<description>The Longbow-DMR is a semi-automatic sniper rifle. Its hyper-velocity round completely eliminates the need to lead targets, and allows the shooter to fire multiple shots quickly in succession.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<graphicData>
-								<texPath>Things/A16/longbow-dmr</texPath>
-							</graphicData>
-							<soundInteract>Interact_Rifle</soundInteract>
-							<statBases>
-								<Mass>4.5</Mass>
-								<AccuracyTouch>0.55</AccuracyTouch>
-								<AccuracyShort>0.77</AccuracyShort>
-								<AccuracyMedium>0.946</AccuracyMedium>
-								<AccuracyLong>0.968</AccuracyLong>
-								<RangedWeapon_Cooldown>1.955</RangedWeapon_Cooldown>
-							</statBases>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_MarksmanRifle_Bond</defaultProjectile>
-									<warmupTime>2.72</warmupTime>
-									<range>40.9</range>
-									<burstShotCount>3</burstShotCount>
-									<ticksBetweenBurstShots>34</ticksBetweenBurstShots>
-									<soundCast>Shot_SniperRifle</soundCast>
-									<soundCastTail>GunTail_Heavy</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-							<weaponTags>
-								<li>SniperRifle</li>
-							</weaponTags>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_Bullet" Name="ARL_Bullet_MechanoidSniperRifle_Bond" Abstract="True">
-							<label>charge shot</label>
-							<graphicData>
-								<texPath>Things/Projectile/ChargeLanceShot</texPath>
-								<shaderType>TransparentPostLight</shaderType>
-								<drawSize>2</drawSize>
-							</graphicData>
-							<projectile>
-								<damageAmountBase>97</damageAmountBase>
-								<stoppingPower>3</stoppingPower>
-								<speed>65</speed>
-								<armorPenetrationBase>0.88</armorPenetrationBase>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_MechanoidSniperRifle_Bond" Abstract="True">
-							<label>persona mechanoid sniper rifle</label>
-							<description>The Kraber fires a unique round that ensures 'one-shot,one-kill' results against human-scale targets. However, considerable judgement in leading is required, making this a difficult weapon to use against moving targets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<techLevel>Spacer</techLevel>
-							<graphicData>
-								<texPath>Things/A16/kraber</texPath>
-								<drawSize>1.4</drawSize>
-							</graphicData>
-							<soundInteract>ARL_Interact_MechanoidSniperRifle</soundInteract>
-							<statBases>
-								<Mass>7.6</Mass>
-								<AccuracyTouch>0.495</AccuracyTouch>
-								<AccuracyShort>0.66</AccuracyShort>
-								<AccuracyMedium>1.056</AccuracyMedium>
-								<AccuracyLong>1.078</AccuracyLong>
-								<RangedWeapon_Cooldown>2.66</RangedWeapon_Cooldown>
-							</statBases>
-							<weaponTags>
-								<li>SpacerGun</li>
-							</weaponTags>
-							<equippedStatOffsets>
-								<MoveSpeed>-0.15</MoveSpeed>
-							</equippedStatOffsets>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_MechanoidSniperRifle_Bond</defaultProjectile>
-									<warmupTime>2.975</warmupTime>
-									<range>49.9</range>
-									<soundCast>ARL_Shot_MechanoidSniperRifle</soundCast>
-									<soundCastTail>GunTail_Heavy</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_MechanoidRocketLauncher_Bond" Abstract="True">
-							<label>mini-inferno shell</label>
-							<graphicData>
-								<texPath>Things/Projectile/LauncherShot</texPath>
-								<shaderType>TransparentPostLight</shaderType>
-								<drawSize>0.6</drawSize>
-							</graphicData>
-							<thingClass>Projectile_Explosive</thingClass>
-							<projectile>
-								<damageDef>Flame</damageDef>
-								<explosionRadius>1.2</explosionRadius>
-								<speed>50</speed>
-								<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
-								<preExplosionSpawnChance>0.11</preExplosionSpawnChance>
-								<ai_IsIncendiary>true</ai_IsIncendiary>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_MechanoidRocketLauncher_Bond" Abstract="True">
-							<label>persona mechanoid inferno launcher</label>
-							<description>The Mechanoid Rocket launcher fires eight small rockets at once in its primary firing mode that are effective at temporarily denying territory to the enemy.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<techLevel>Spacer</techLevel>
-							<graphicData>
-								<texPath>Things/A16/quad-rocket</texPath>
-								<drawSize>1.6</drawSize>
-							</graphicData>
-							<soundInteract>Interact_ChargeLance</soundInteract>
-							<statBases>
-								<Mass>18</Mass>
-								<AccuracyTouch>0.198</AccuracyTouch>
-								<AccuracyShort>0.286</AccuracyShort>
-								<AccuracyMedium>0.286</AccuracyMedium>
-								<AccuracyLong>0.198</AccuracyLong>
-								<RangedWeapon_Cooldown>8.5</RangedWeapon_Cooldown>
-							</statBases>
-							<weaponTags>
-								<li>SpacerGun</li>
-							</weaponTags>
-							<equippedStatOffsets>
-								<MoveSpeed>-0.25</MoveSpeed>
-							</equippedStatOffsets>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_MechanoidRocketLauncher_Bond</defaultProjectile>
-									<warmupTime>2.822</warmupTime>
-									<forcedMissRadius>3.5</forcedMissRadius>
-									<range>26.9</range>
-									<ticksBetweenBurstShots>8</ticksBetweenBurstShots>
-									<burstShotCount>8</burstShotCount>
-									<soundCast>ARL_Shot_MechanoidRocketLauncher</soundCast>
-									<onlyManualCast>true</onlyManualCast>
-									<targetParams>
-										<canTargetLocations>true</canTargetLocations>
-									</targetParams>
-									<soundCastTail>GunTail_Medium</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_GrenadeLauncher_Bond" Abstract="True">
-							<label>frag grenade</label>
-							<graphicData>
-								<texPath>Things/Projectile/ExplosiveCannonShot</texPath>
-							</graphicData>
-							<thingClass>Projectile_Explosive</thingClass>
-							<projectile>
-								<speed>40</speed>
-								<damageDef>Bomb</damageDef>
-								<!-- Use default damage from explosion def -->
-								<explosionRadius>1.9</explosionRadius>
-								<preExplosionSpawnThingDef>Filth_RubbleRock</preExplosionSpawnThingDef>
-								<preExplosionSpawnChance>0.3</preExplosionSpawnChance>
-								<ai_IsIncendiary>false</ai_IsIncendiary>
-								<explosionDelay>30</explosionDelay>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_GrenadeLauncher_Bond" Abstract="True">
-							<label>persona grenade launcher</label>
-							<description>The R-6P Softball Anti-Armor Grenade Launcher (AAGL) is a rotary magazine grenade launcher. It is lightweight and stowable, which allows its operator to quickly fire and maneuver.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<graphicData>
-								<texPath>Things/A16/softball</texPath>
-							</graphicData>
-							<soundInteract>Interact_Rifle</soundInteract>
-							<generateCommonality>0.2</generateCommonality>
-							<statBases>
-								<Mass>3.6</Mass>
-								<RangedWeapon_Cooldown>2.269</RangedWeapon_Cooldown>
-							</statBases>
-							<equippedStatOffsets>
-								<MoveSpeed>-0.15</MoveSpeed>
-							</equippedStatOffsets>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_GrenadeLauncher_Bond</defaultProjectile>
-									<warmupTime>2.975</warmupTime>
-									<noiseRadius>4</noiseRadius>
-									<range>23.9</range>
-									<forcedMissRadius>2.9</forcedMissRadius>
-									<burstShotCount>1</burstShotCount>
-									<soundCast>Shot_IncendiaryLauncher</soundCast>
-									<soundCastTail>GunTail_Medium</soundCastTail>
-									<muzzleFlashScale>14</muzzleFlashScale>
-									<targetParams>
-										<canTargetLocations>true</canTargetLocations>
-									</targetParams>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseBullet" Name="ARL_Bullet_ChargeMinigun_Bond" Abstract="True">
-							<label>charge shot</label>
-							<graphicData>
-								<texPath>Things/Projectile/Charge_Explosive</texPath>
-								<shaderType>TransparentPostLight</shaderType>
-							</graphicData>
-							<thingClass>Projectile_Explosive</thingClass>
-							<projectile>
-								<speed>70</speed>
-								<damageDef>ARL_Bomb_ChargeMinigun</damageDef>
-								<damageAmountBase>13</damageAmountBase>
-								<explosionRadius>1.4</explosionRadius>
-							</projectile>
-						</ThingDef>
-
-						<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="ARL_ChargeMinigun_Bond" Abstract="True">
-							<label>persona charge minigun</label>
-							<description>The 40mm Charge Minigun (Or "40 mil") is a multi-purpose/ anti-vehicle automatic cannon. It is a popular and versatile armament often fielded by glitterworld soldiers operating in medium to long-distance engagements. The 40mm cartridge can be lethal to both enemy personnel and vehicles due to explosive shells.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-							<techLevel>Spacer</techLevel>
-							<graphicData>
-								<texPath>Things/A16/40mm-tracker-cannon</texPath>
-								<drawSize>1.8</drawSize>
-							</graphicData>
-							<soundInteract>Interact_ChargeRifle</soundInteract>
-							<statBases>
-								<Mass>16</Mass>
-								<AccuracyTouch>0.165</AccuracyTouch>
-								<AccuracyShort>0.275</AccuracyShort>
-								<AccuracyMedium>0.374</AccuracyMedium>
-								<AccuracyLong>0.275</AccuracyLong>
-								<RangedWeapon_Cooldown>1.062</RangedWeapon_Cooldown>
-							</statBases>
-							<equippedStatOffsets>
-								<MoveSpeed>-0.35</MoveSpeed>
-							</equippedStatOffsets>
-							<weaponTags>
-								<li>SpacerGun</li>
-							</weaponTags>
-							<verbs>
-								<li>
-									<verbClass>Verb_Shoot</verbClass>
-									<forcedMissRadius>0.5</forcedMissRadius>
-									<hasStandardCommand>true</hasStandardCommand>
-									<defaultProjectile>ARL_Bullet_ChargeMinigun_Bond</defaultProjectile>
-									<warmupTime>5.95</warmupTime>
-									<range>34.9</range>
-									<ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-									<burstShotCount>25</burstShotCount>
-									<soundCast>ARL_Shot_ChargeMinigun</soundCast>
-									<soundCastTail>GunTail_Medium</soundCastTail>
-									<muzzleFlashScale>9</muzzleFlashScale>
-									<targetParams>
-										<canTargetLocations>true</canTargetLocations>
-									</targetParams>
-								</li>
-							</verbs>
-							<tools>
-								<li>
-									<label>stock</label>
-									<capacities>
-										<li>Blunt</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-								<li>
-									<label>barrel</label>
-									<capacities>
-										<li>Blunt</li>
-										<li>Poke</li>
-									</capacities>
-									<power>9.75</power>
-									<cooldownTime>1.7</cooldownTime>
-								</li>
-							</tools>
-						</ThingDef>
-					</value>
-				</li>
-
-				<li Class="PatchOperationFindMod">
-					<mods>
-						<li>XML Extensions</li>
-					</mods>
-
-					<nomatch Class="PatchOperationAdd">
+				<caseTrue>
+					<Operation Class="XmlExtensions.PatchOperationAdd">
 						<xpath>Defs</xpath>
 						<value>
-							<!-- ARL_Bullet_CombatHandgun_Bond -->
-							<ThingDef ParentName="ARL_Bullet_CombatHandgun_Bond">
-								<defName>ARL_Bullet_CombatHandgun_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_CombatHandgun_Bond -->
 							<ThingDef ParentName="ARL_CombatHandgun_Bond">
 								<defName>ARL_CombatHandgun_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_ShotgunHandgun_Bond -->
-							<ThingDef ParentName="ARL_Bullet_ShotgunHandgun_Bond">
-								<defName>ARL_Bullet_ShotgunHandgun_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_ShotgunHandgun_Bond -->
 							<ThingDef ParentName="ARL_ShotgunHandgun_Bond">
 								<defName>ARL_ShotgunHandgun_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_ChargePistol_Bond -->
-							<ThingDef ParentName="ARL_Bullet_ChargePistol_Bond">
-								<defName>ARL_Bullet_ChargePistol_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_ChargePistol_Bond -->
 							<ThingDef ParentName="ARL_ChargePistol_Bond">
 								<defName>ARL_ChargePistol_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_HandCannon_Bond -->
-							<ThingDef ParentName="ARL_Bullet_HandCannon_Bond">
-								<defName>ARL_Bullet_HandCannon_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_HandCannon_Bond -->
 							<ThingDef ParentName="ARL_HandCannon_Bond">
 								<defName>ARL_HandCannon_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_LeverActionShotgun_Bond -->
-							<ThingDef ParentName="ARL_Bullet_LeverActionShotgun_Bond">
-								<defName>ARL_Bullet_LeverActionShotgun_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_LeverActionShotgun_Bond -->
 							<ThingDef ParentName="ARL_LeverActionShotgun_Bond">
 								<defName>ARL_LeverActionShotgun_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_SemiAutomaticShotgun_Bond -->
-							<ThingDef ParentName="ARL_Bullet_SemiAutomaticShotgun_Bond">
-								<defName>ARL_Bullet_SemiAutomaticShotgun_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_SemiAutomaticShotgun_Bond -->
 							<ThingDef ParentName="ARL_SemiAutomaticShotgun_Bond">
 								<defName>ARL_SemiAutomaticShotgun_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_ChargeShotgun_Bond -->
-							<ThingDef ParentName="ARL_Bullet_ChargeShotgun_Bond">
-								<defName>ARL_Bullet_ChargeShotgun_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_ChargeShotgun_Bond -->
 							<ThingDef ParentName="ARL_ChargeShotgun_Bond">
 								<defName>ARL_ChargeShotgun_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_LightSMG_Bond -->
-							<ThingDef ParentName="ARL_Bullet_LightSMG_Bond">
-								<defName>ARL_Bullet_LightSMG_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_LightSMG_Bond -->
 							<ThingDef ParentName="ARL_LightSMG_Bond">
 								<defName>ARL_LightSMG_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_ChargeSMG_Bond -->
-							<ThingDef ParentName="ARL_Bullet_ChargeSMG_Bond">
-								<defName>ARL_Bullet_ChargeSMG_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_ChargeSMG_Bond -->
 							<ThingDef ParentName="ARL_ChargeSMG_Bond">
 								<defName>ARL_ChargeSMG_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_CompactSMG_Bond -->
-							<ThingDef ParentName="ARL_Bullet_CompactSMG_Bond">
-								<defName>ARL_Bullet_CompactSMG_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_CompactSMG_Bond -->
 							<ThingDef ParentName="ARL_CompactSMG_Bond">
 								<defName>ARL_CompactSMG_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_ChargeLMG_Bond -->
-							<ThingDef ParentName="ARL_Bullet_ChargeLMG_Bond">
-								<defName>ARL_Bullet_ChargeLMG_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_ChargeLMG_Bond -->
 							<ThingDef ParentName="ARL_ChargeLMG_Bond">
 								<defName>ARL_ChargeLMG_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_HMG_Bond -->
-							<ThingDef ParentName="ARL_Bullet_HMG_Bond">
-								<defName>ARL_Bullet_HMG_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_HMG_Bond -->
 							<ThingDef ParentName="ARL_HMG_Bond">
 								<defName>ARL_HMG_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_MechanoidLMG_Bond -->
-							<ThingDef ParentName="ARL_Bullet_MechanoidLMG_Bond">
-								<defName>ARL_Bullet_MechanoidLMG_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_MechanoidLMG_Bond -->
 							<ThingDef ParentName="ARL_MechanoidLMG_Bond">
 								<defName>ARL_MechanoidLMG_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_MechanoidRifle_Bond -->
-							<ThingDef ParentName="ARL_Bullet_MechanoidRifle_Bond">
-								<defName>ARL_Bullet_MechanoidRifle_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_MechanoidRifle_Bond -->
 							<ThingDef ParentName="ARL_MechanoidRifle_Bond">
 								<defName>ARL_MechanoidRifle_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_BullpupRifle_Bond -->
-							<ThingDef ParentName="ARL_Bullet_BullpupRifle_Bond">
-								<defName>ARL_Bullet_BullpupRifle_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_BullpupRifle_Bond -->
 							<ThingDef ParentName="ARL_BullpupRifle_Bond">
 								<defName>ARL_BullpupRifle_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_AssaultCarbine_Bond -->
-							<ThingDef ParentName="ARL_Bullet_AssaultCarbine_Bond">
-								<defName>ARL_Bullet_AssaultCarbine_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_AssaultCarbine_Bond -->
 							<ThingDef ParentName="ARL_AssaultCarbine_Bond">
 								<defName>ARL_AssaultCarbine_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_BattleRifle_Bond -->
-							<ThingDef ParentName="ARL_Bullet_BattleRifle_Bond">
-								<defName>ARL_Bullet_BattleRifle_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_BattleRifle_Bond -->
 							<ThingDef ParentName="ARL_BattleRifle_Bond">
 								<defName>ARL_BattleRifle_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_ChargeSniperRifle_Bond -->
-							<ThingDef ParentName="ARL_Bullet_ChargeSniperRifle_Bond">
-								<defName>ARL_Bullet_ChargeSniperRifle_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_ChargeSniperRifle_Bond -->
 							<ThingDef ParentName="ARL_ChargeSniperRifle_Bond">
 								<defName>ARL_ChargeSniperRifle_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_SemiautomaticRifle_Bond -->
-							<ThingDef ParentName="ARL_Bullet_SemiautomaticRifle_Bond">
-								<defName>ARL_Bullet_SemiautomaticRifle_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_SemiautomaticRifle_Bond -->
 							<ThingDef ParentName="ARL_SemiautomaticRifle_Bond">
 								<defName>ARL_SemiautomaticRifle_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_MarksmanRifle_Bond -->
-							<ThingDef ParentName="ARL_Bullet_MarksmanRifle_Bond">
-								<defName>ARL_Bullet_MarksmanRifle_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_MarksmanRifle_Bond -->
 							<ThingDef ParentName="ARL_MarksmanRifle_Bond">
 								<defName>ARL_MarksmanRifle_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_MechanoidSniperRifle_Bond -->
-							<ThingDef ParentName="ARL_Bullet_MechanoidSniperRifle_Bond">
-								<defName>ARL_Bullet_MechanoidSniperRifle_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_MechanoidSniperRifle_Bond -->
 							<ThingDef ParentName="ARL_MechanoidSniperRifle_Bond">
 								<defName>ARL_MechanoidSniperRifle_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_MechanoidRocketLauncher_Bond -->
-							<ThingDef ParentName="ARL_Bullet_MechanoidRocketLauncher_Bond">
-								<defName>ARL_Bullet_MechanoidRocketLauncher_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_MechanoidRocketLauncher_Bond -->
 							<ThingDef ParentName="ARL_MechanoidRocketLauncher_Bond">
 								<defName>ARL_MechanoidRocketLauncher_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_GrenadeLauncher_Bond -->
-							<ThingDef ParentName="ARL_Bullet_GrenadeLauncher_Bond">
-								<defName>ARL_Bullet_GrenadeLauncher_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_GrenadeLauncher_Bond -->
 							<ThingDef ParentName="ARL_GrenadeLauncher_Bond">
 								<defName>ARL_GrenadeLauncher_Bond</defName>
 							</ThingDef>
-
-							<!-- ARL_Bullet_ChargeMinigun_Bond -->
-							<ThingDef ParentName="ARL_Bullet_ChargeMinigun_Bond">
-								<defName>ARL_Bullet_ChargeMinigun_Bond</defName>
-							</ThingDef>
-
-							<!-- ARL_ChargeMinigun_Bond -->
 							<ThingDef ParentName="ARL_ChargeMinigun_Bond">
 								<defName>ARL_ChargeMinigun_Bond</defName>
 							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_CombatHandgun_Bond">
+								<defName>ARL_Bullet_CombatHandgun_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_ShotgunHandgun_Bond">
+								<defName>ARL_Bullet_ShotgunHandgun_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_ChargePistol_Bond">
+								<defName>ARL_Bullet_ChargePistol_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_HandCannon_Bond">
+								<defName>ARL_Bullet_HandCannon_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_LeverActionShotgun_Bond">
+								<defName>ARL_Bullet_LeverActionShotgun_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_SemiAutomaticShotgun_Bond">
+								<defName>ARL_Bullet_SemiAutomaticShotgun_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_ChargeShotgun_Bond">
+								<defName>ARL_Bullet_ChargeShotgun_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_LightSMG_Bond">
+								<defName>ARL_Bullet_LightSMG_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_ChargeSMG_Bond">
+								<defName>ARL_Bullet_ChargeSMG_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_CompactSMG_Bond">
+								<defName>ARL_Bullet_CompactSMG_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_ChargeLMG_Bond">
+								<defName>ARL_Bullet_ChargeLMG_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_HMG_Bond">
+								<defName>ARL_Bullet_HMG_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_MechanoidLMG_Bond">
+								<defName>ARL_Bullet_MechanoidLMG_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_MechanoidRifle_Bond">
+								<defName>ARL_Bullet_MechanoidRifle_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_BullpupRifle_Bond">
+								<defName>ARL_Bullet_BullpupRifle_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_AssaultCarbine_Bond">
+								<defName>ARL_Bullet_AssaultCarbine_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_BattleRifle_Bond">
+								<defName>ARL_Bullet_BattleRifle_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_ChargeSniperRifle_Bond">
+								<defName>ARL_Bullet_ChargeSniperRifle_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_SemiautomaticRifle_Bond">
+								<defName>ARL_Bullet_SemiautomaticRifle_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_MarksmanRifle_Bond">
+								<defName>ARL_Bullet_MarksmanRifle_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_MechanoidSniperRifle_Bond">
+								<defName>ARL_Bullet_MechanoidSniperRifle_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_MechanoidRocketLauncher_Bond">
+								<defName>ARL_Bullet_MechanoidRocketLauncher_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_GrenadeLauncher_Bond">
+								<defName>ARL_Bullet_GrenadeLauncher_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="ARL_Bullet_ChargeMinigun_Bond">
+								<defName>ARL_Bullet_ChargeMinigun_Bond</defName>
+							</ThingDef>
 						</value>
-					</nomatch>
-
-					<match Class="PatchOperationSequence">
-						<operations>
-							<li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-								<modId>Daria40K.MightyPersonaBondForgePatch</modId>
-								<key>Daria40K_MightyPersonaBondForgePatch_ApexRimworldLegendsContinued</key>
-								<defaultValue>true</defaultValue>
-
-								<caseTrue>
-									<Operation Class="XmlExtensions.PatchOperationAdd">
-										<xpath>Defs</xpath>
-										<value>
-											<!-- ARL_Bullet_CombatHandgun_Bond -->
-											<ThingDef ParentName="ARL_Bullet_CombatHandgun_Bond">
-												<defName>ARL_Bullet_CombatHandgun_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_CombatHandgun_Bond -->
-											<ThingDef ParentName="ARL_CombatHandgun_Bond">
-												<defName>ARL_CombatHandgun_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_ShotgunHandgun_Bond -->
-											<ThingDef ParentName="ARL_Bullet_ShotgunHandgun_Bond">
-												<defName>ARL_Bullet_ShotgunHandgun_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_ShotgunHandgun_Bond -->
-											<ThingDef ParentName="ARL_ShotgunHandgun_Bond">
-												<defName>ARL_ShotgunHandgun_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_ChargePistol_Bond -->
-											<ThingDef ParentName="ARL_Bullet_ChargePistol_Bond">
-												<defName>ARL_Bullet_ChargePistol_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_ChargePistol_Bond -->
-											<ThingDef ParentName="ARL_ChargePistol_Bond">
-												<defName>ARL_ChargePistol_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_HandCannon_Bond -->
-											<ThingDef ParentName="ARL_Bullet_HandCannon_Bond">
-												<defName>ARL_Bullet_HandCannon_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_HandCannon_Bond -->
-											<ThingDef ParentName="ARL_HandCannon_Bond">
-												<defName>ARL_HandCannon_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_LeverActionShotgun_Bond -->
-											<ThingDef ParentName="ARL_Bullet_LeverActionShotgun_Bond">
-												<defName>ARL_Bullet_LeverActionShotgun_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_LeverActionShotgun_Bond -->
-											<ThingDef ParentName="ARL_LeverActionShotgun_Bond">
-												<defName>ARL_LeverActionShotgun_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_SemiAutomaticShotgun_Bond -->
-											<ThingDef ParentName="ARL_Bullet_SemiAutomaticShotgun_Bond">
-												<defName>ARL_Bullet_SemiAutomaticShotgun_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_SemiAutomaticShotgun_Bond -->
-											<ThingDef ParentName="ARL_SemiAutomaticShotgun_Bond">
-												<defName>ARL_SemiAutomaticShotgun_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_ChargeShotgun_Bond -->
-											<ThingDef ParentName="ARL_Bullet_ChargeShotgun_Bond">
-												<defName>ARL_Bullet_ChargeShotgun_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_ChargeShotgun_Bond -->
-											<ThingDef ParentName="ARL_ChargeShotgun_Bond">
-												<defName>ARL_ChargeShotgun_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_LightSMG_Bond -->
-											<ThingDef ParentName="ARL_Bullet_LightSMG_Bond">
-												<defName>ARL_Bullet_LightSMG_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_LightSMG_Bond -->
-											<ThingDef ParentName="ARL_LightSMG_Bond">
-												<defName>ARL_LightSMG_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_ChargeSMG_Bond -->
-											<ThingDef ParentName="ARL_Bullet_ChargeSMG_Bond">
-												<defName>ARL_Bullet_ChargeSMG_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_ChargeSMG_Bond -->
-											<ThingDef ParentName="ARL_ChargeSMG_Bond">
-												<defName>ARL_ChargeSMG_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_CompactSMG_Bond -->
-											<ThingDef ParentName="ARL_Bullet_CompactSMG_Bond">
-												<defName>ARL_Bullet_CompactSMG_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_CompactSMG_Bond -->
-											<ThingDef ParentName="ARL_CompactSMG_Bond">
-												<defName>ARL_CompactSMG_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_ChargeLMG_Bond -->
-											<ThingDef ParentName="ARL_Bullet_ChargeLMG_Bond">
-												<defName>ARL_Bullet_ChargeLMG_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_ChargeLMG_Bond -->
-											<ThingDef ParentName="ARL_ChargeLMG_Bond">
-												<defName>ARL_ChargeLMG_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_HMG_Bond -->
-											<ThingDef ParentName="ARL_Bullet_HMG_Bond">
-												<defName>ARL_Bullet_HMG_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_HMG_Bond -->
-											<ThingDef ParentName="ARL_HMG_Bond">
-												<defName>ARL_HMG_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_MechanoidLMG_Bond -->
-											<ThingDef ParentName="ARL_Bullet_MechanoidLMG_Bond">
-												<defName>ARL_Bullet_MechanoidLMG_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_MechanoidLMG_Bond -->
-											<ThingDef ParentName="ARL_MechanoidLMG_Bond">
-												<defName>ARL_MechanoidLMG_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_MechanoidRifle_Bond -->
-											<ThingDef ParentName="ARL_Bullet_MechanoidRifle_Bond">
-												<defName>ARL_Bullet_MechanoidRifle_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_MechanoidRifle_Bond -->
-											<ThingDef ParentName="ARL_MechanoidRifle_Bond">
-												<defName>ARL_MechanoidRifle_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_BullpupRifle_Bond -->
-											<ThingDef ParentName="ARL_Bullet_BullpupRifle_Bond">
-												<defName>ARL_Bullet_BullpupRifle_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_BullpupRifle_Bond -->
-											<ThingDef ParentName="ARL_BullpupRifle_Bond">
-												<defName>ARL_BullpupRifle_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_AssaultCarbine_Bond -->
-											<ThingDef ParentName="ARL_Bullet_AssaultCarbine_Bond">
-												<defName>ARL_Bullet_AssaultCarbine_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_AssaultCarbine_Bond -->
-											<ThingDef ParentName="ARL_AssaultCarbine_Bond">
-												<defName>ARL_AssaultCarbine_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_BattleRifle_Bond -->
-											<ThingDef ParentName="ARL_Bullet_BattleRifle_Bond">
-												<defName>ARL_Bullet_BattleRifle_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_BattleRifle_Bond -->
-											<ThingDef ParentName="ARL_BattleRifle_Bond">
-												<defName>ARL_BattleRifle_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_ChargeSniperRifle_Bond -->
-											<ThingDef ParentName="ARL_Bullet_ChargeSniperRifle_Bond">
-												<defName>ARL_Bullet_ChargeSniperRifle_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_ChargeSniperRifle_Bond -->
-											<ThingDef ParentName="ARL_ChargeSniperRifle_Bond">
-												<defName>ARL_ChargeSniperRifle_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_SemiautomaticRifle_Bond -->
-											<ThingDef ParentName="ARL_Bullet_SemiautomaticRifle_Bond">
-												<defName>ARL_Bullet_SemiautomaticRifle_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_SemiautomaticRifle_Bond -->
-											<ThingDef ParentName="ARL_SemiautomaticRifle_Bond">
-												<defName>ARL_SemiautomaticRifle_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_MarksmanRifle_Bond -->
-											<ThingDef ParentName="ARL_Bullet_MarksmanRifle_Bond">
-												<defName>ARL_Bullet_MarksmanRifle_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_MarksmanRifle_Bond -->
-											<ThingDef ParentName="ARL_MarksmanRifle_Bond">
-												<defName>ARL_MarksmanRifle_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_MechanoidSniperRifle_Bond -->
-											<ThingDef ParentName="ARL_Bullet_MechanoidSniperRifle_Bond">
-												<defName>ARL_Bullet_MechanoidSniperRifle_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_MechanoidSniperRifle_Bond -->
-											<ThingDef ParentName="ARL_MechanoidSniperRifle_Bond">
-												<defName>ARL_MechanoidSniperRifle_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_MechanoidRocketLauncher_Bond -->
-											<ThingDef ParentName="ARL_Bullet_MechanoidRocketLauncher_Bond">
-												<defName>ARL_Bullet_MechanoidRocketLauncher_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_MechanoidRocketLauncher_Bond -->
-											<ThingDef ParentName="ARL_MechanoidRocketLauncher_Bond">
-												<defName>ARL_MechanoidRocketLauncher_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_GrenadeLauncher_Bond -->
-											<ThingDef ParentName="ARL_Bullet_GrenadeLauncher_Bond">
-												<defName>ARL_Bullet_GrenadeLauncher_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_GrenadeLauncher_Bond -->
-											<ThingDef ParentName="ARL_GrenadeLauncher_Bond">
-												<defName>ARL_GrenadeLauncher_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_Bullet_ChargeMinigun_Bond -->
-											<ThingDef ParentName="ARL_Bullet_ChargeMinigun_Bond">
-												<defName>ARL_Bullet_ChargeMinigun_Bond</defName>
-											</ThingDef>
-
-											<!-- ARL_ChargeMinigun_Bond -->
-											<ThingDef ParentName="ARL_ChargeMinigun_Bond">
-												<defName>ARL_ChargeMinigun_Bond</defName>
-											</ThingDef>
-										</value>
-									</Operation>
-								</caseTrue>
-							</li>
-						</operations>
-					</match>
-				</li>
-			</operations>
-		</match>
+					</Operation>
+				</caseTrue>
+			</Operation>
+		</caseTrue>
 	</Operation>
 </Patch>
