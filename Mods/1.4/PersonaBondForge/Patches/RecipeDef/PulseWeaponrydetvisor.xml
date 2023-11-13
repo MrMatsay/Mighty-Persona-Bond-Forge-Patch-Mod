@@ -1,0 +1,166 @@
+<!--
+    ===== Pulse Weaponry detvisor =====
+-->
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Pulse Weaponry</li>
+        </mods>
+
+        <match Class="PatchOperationSequence">
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>Defs</xpath>
+                    <value>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_DV_MeleeWeapon_Stunstick_Bond" Abstract="True">
+                            <label>bond stunstick</label>
+                            <description>Bond an stunstick.</description>
+                            <jobString>Bonding a stunstick.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>DV_MeleeWeapon_Stunstick</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>DV_MeleeWeapon_Stunstick</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <DV_MeleeWeapon_Stunstick_Bond>1</DV_MeleeWeapon_Stunstick_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_DV_PulseSMG_Bond" Abstract="True">
+                            <label>bond pulse SMG</label>
+                            <description>Bond an pulse SMG.</description>
+                            <jobString>Bonding a pulse SMG.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>DV_PulseSMG</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>DV_PulseSMG</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <DV_PulseSMG_Bond>1</DV_PulseSMG_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_DV_PulseRifle_Bond" Abstract="True">
+                            <label>bond pulse rifle</label>
+                            <description>Bond an pulse rifle.</description>
+                            <jobString>Bonding a pulse rifle.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>DV_PulseRifle</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>DV_PulseRifle</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <DV_PulseRifle_Bond>1</DV_PulseRifle_Bond>
+                            </products>
+                        </RecipeDef>
+                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_DV_PulseSuppressor_Bond" Abstract="True">
+                            <label>bond pulse suppressor</label>
+                            <description>Bond an pulse suppressor.</description>
+                            <jobString>Bonding a pulse suppressor.</jobString>
+                            <ingredients>
+                                <li>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>DV_PulseSuppressor</li>
+                                        </thingDefs>
+                                    </filter>
+                                    <count>1</count>
+                                </li>
+                            </ingredients>
+                            <fixedIngredientFilter>
+                                <thingDefs>
+                                    <li>DV_PulseSuppressor</li>
+                                </thingDefs>
+                            </fixedIngredientFilter>
+                            <products>
+                                <DV_PulseSuppressor_Bond>1</DV_PulseSuppressor_Bond>
+                            </products>
+                        </RecipeDef>
+                    </value>
+                </li>
+
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>XML Extensions</li>
+                    </mods>
+
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <RecipeDef ParentName="Make_DV_MeleeWeapon_Stunstick_Bond">
+                                <defName>Make_DV_MeleeWeapon_Stunstick_Bond</defName>
+                            </RecipeDef>
+                            <RecipeDef ParentName="Make_DV_PulseSMG_Bond">
+                                <defName>Make_DV_PulseSMG_Bond</defName>
+                            </RecipeDef>
+                            <RecipeDef ParentName="Make_DV_PulseRifle_Bond">
+                                <defName>Make_DV_PulseRifle_Bond</defName>
+                            </RecipeDef>
+                            <RecipeDef ParentName="Make_DV_PulseSuppressor_Bond">
+                                <defName>Make_DV_PulseSuppressor_Bond</defName>
+                            </RecipeDef>
+                        </value>
+                    </nomatch>
+
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_PulseWeaponrydetvisor</key>
+                                <defaultValue>true</defaultValue>
+
+                                <caseTrue>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <RecipeDef ParentName="Make_DV_MeleeWeapon_Stunstick_Bond">
+                                                <defName>Make_DV_MeleeWeapon_Stunstick_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_DV_PulseSMG_Bond">
+                                                <defName>Make_DV_PulseSMG_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_DV_PulseRifle_Bond">
+                                                <defName>Make_DV_PulseRifle_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_DV_PulseSuppressor_Bond">
+                                                <defName>Make_DV_PulseSuppressor_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseTrue>
+                            </li>
+                        </operations>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>
