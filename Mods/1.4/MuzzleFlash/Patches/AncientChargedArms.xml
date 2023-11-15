@@ -1,0 +1,77 @@
+<!--
+    ===== Ancient Charged Arms =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>aw.charged.arms</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_AncientChargedArms</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <!-- AW_ChargeSMG_Bond -->
+                    <Operation Class="XmlExtensions.PatchOperationAddModExtension">
+                        <xpath>Defs/ThingDef[defName="AW_ChargeSMG_Bond"]</xpath>
+                        <value>
+                            <li Class="MuzzleFlash.MuzzleFlashProps">
+                                <def>MF_ChargedMuzzleFalsh</def>
+                                <drawSize>(1,1)</drawSize>
+                                <offsets>
+                                    <li>(0.4,0)</li>
+                                </offsets>
+                            </li>
+                        </value>
+                    </Operation>
+
+                    <!-- AW_ChargeBR_Bond -->
+                    <Operation Class="XmlExtensions.PatchOperationAddModExtension">
+                        <xpath>Defs/ThingDef[defName="AW_ChargeBR_Bond"]</xpath>
+                        <value>
+                            <li Class="MuzzleFlash.MuzzleFlashProps">
+                                <def>MF_ChargedMuzzleFalsh</def>
+                                <drawSize>(1,1)</drawSize>
+                                <offsets>
+                                    <li>(0.5,0)</li>
+                                </offsets>
+                            </li>
+                        </value>
+                    </Operation>
+
+                    <!-- AW_ChargeLMG_Bond -->
+                    <Operation Class="XmlExtensions.PatchOperationAddModExtension">
+                        <xpath>Defs/ThingDef[defName="AW_ChargeLMG_Bond"]</xpath>
+                        <value>
+                            <li Class="MuzzleFlash.MuzzleFlashProps">
+                                <def>MF_ChargedMuzzleFalsh</def>
+                                <drawSize>(2,1)</drawSize>
+                                <offsets>
+                                    <li>(0.8,0)</li>
+                                </offsets>
+                            </li>
+                        </value>
+                    </Operation>
+
+                    <!-- AW_ChargeSR_Bond -->
+                    <Operation Class="XmlExtensions.PatchOperationAddModExtension">
+                        <xpath>Defs/ThingDef[defName="AW_ChargeSR_Bond"]</xpath>
+                        <value>
+                            <li Class="MuzzleFlash.MuzzleFlashProps">
+                                <def>MF_ChargedMuzzleFalsh</def>
+                                <drawSize>(3,1)</drawSize>
+                                <offsets>
+                                    <li>(0.7,0)</li>
+                                </offsets>
+                            </li>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>
