@@ -1,888 +1,717 @@
-<?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Apex: Rimworld Legends (Continued) =====
 -->
 <Patch>
-	<Operation Class="PatchOperationFindMod">
+	<Operation Class="XmlExtensions.FindMod">
 		<mods>
-			<li>Apex: Rimworld Legends (Continued)</li>
+			<li>mlie.apexrimworldlegends</li>
 		</mods>
+		<packageId>true</packageId>
 
-		<match Class="PatchOperationSequence">
-			<operations>
-				<li Class="PatchOperationAdd">
-					<xpath>Defs</xpath>
-					<value>
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_CombatHandgun_Bond" Abstract="True">
-							<label>bond combat handgun</label>
-							<description>Bond an combat handgun.</description>
-							<jobString>Bonding a combat handgun.</jobString>
-							<researchPrerequisite>BlowbackOperation</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_CombatHandgun</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_CombatHandgun</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_CombatHandgun_Bond>1</ARL_CombatHandgun_Bond>
-							</products>
-						</RecipeDef>
+		<caseTrue>
+			<Operation Class="XmlExtensions.PatchOperationAdd">
+				<xpath>Defs</xpath>
+				<value>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_CombatHandgun_Bond" Abstract="True">
+						<label>bond combat handgun</label>
+						<description>Bond an combat handgun.</description>
+						<jobString>Bonding a combat handgun.</jobString>
+						<researchPrerequisites>
+							<li>BlowbackOperation</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_CombatHandgun</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_CombatHandgun</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_CombatHandgun_Bond>1</ARL_CombatHandgun_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_ShotgunHandgun_Bond" Abstract="True">
+						<label>bond shotgun handgun</label>
+						<description>Bond an shotgun handgun.</description>
+						<jobString>Bonding a shotgun handgun.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_ShotgunHandgun</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_ShotgunHandgun</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_ShotgunHandgun_Bond>1</ARL_ShotgunHandgun_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_ChargePistol_Bond" Abstract="True">
+						<label>bond charge pistol</label>
+						<description>Bond an charge pistol.</description>
+						<jobString>Bonding a charge pistol.</jobString>
+						<researchPrerequisites>
+							<li>ChargedShot</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_ChargePistol</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_ChargePistol</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_ChargePistol_Bond>1</ARL_ChargePistol_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_HandCannon_Bond" Abstract="True">
+						<label>bond hand cannon</label>
+						<description>Bond an hand cannon.</description>
+						<jobString>Bonding a hand cannon.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_HandCannon</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_HandCannon</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_HandCannon_Bond>1</ARL_HandCannon_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_LeverActionShotgun_Bond" Abstract="True">
+						<label>bond lever-action shotgun</label>
+						<description>Bond an lever-action shotgun.</description>
+						<jobString>Bonding a lever-action shotgun.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_LeverActionShotgun</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_LeverActionShotgun</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_LeverActionShotgun_Bond>1</ARL_LeverActionShotgun_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_SemiAutomaticShotgun_Bond" Abstract="True">
+						<label>bond semi-automatic shotgun</label>
+						<description>Bond an semi-automatic shotgun.</description>
+						<jobString>Bonding a semi-automatic shotgun.</jobString>
+						<researchPrerequisites>
+							<li>GasOperation</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_SemiAutomaticShotgun</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_SemiAutomaticShotgun</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_SemiAutomaticShotgun_Bond>1</ARL_SemiAutomaticShotgun_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_ChargeShotgun_Bond" Abstract="True">
+						<label>bond charge shotgun</label>
+						<description>Bond an charge shotgun.</description>
+						<jobString>Bonding a charge shotgun.</jobString>
+						<researchPrerequisites>
+							<li>ChargedShot</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_ChargeShotgun</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_ChargeShotgun</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_ChargeShotgun_Bond>1</ARL_ChargeShotgun_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_LightSMG_Bond" Abstract="True">
+						<label>bond light SMG</label>
+						<description>Bond an light SMG.</description>
+						<jobString>Bonding a light SMG.</jobString>
+						<researchPrerequisites>
+							<li>BlowbackOperation</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_LightSMG</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_LightSMG</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_LightSMG_Bond>1</ARL_LightSMG_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_ChargeSMG_Bond" Abstract="True">
+						<label>bond charge SMG</label>
+						<description>Bond an charge SMG.</description>
+						<jobString>Bonding a charge SMG.</jobString>
+						<researchPrerequisites>
+							<li>ChargedShot</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_ChargeSMG</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_ChargeSMG</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_ChargeSMG_Bond>1</ARL_ChargeSMG_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_CompactSMG_Bond" Abstract="True">
+						<label>bond compact SMG</label>
+						<description>Bond an compact SMG.</description>
+						<jobString>Bonding a compact SMG.</jobString>
+						<researchPrerequisites>
+							<li>GasOperation</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_CompactSMG</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_CompactSMG</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_CompactSMG_Bond>1</ARL_CompactSMG_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_ChargeLMG_Bond" Abstract="True">
+						<label>bond charge LMG</label>
+						<description>Bond an charge LMG.</description>
+						<jobString>Bonding a charge LMG.</jobString>
+						<researchPrerequisites>
+							<li>ChargedShot</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_ChargeLMG</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_ChargeLMG</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_ChargeLMG_Bond>1</ARL_ChargeLMG_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_HMG_Bond" Abstract="True">
+						<label>bond HMG</label>
+						<description>Bond an HMG.</description>
+						<jobString>Bonding a HMG.</jobString>
+						<researchPrerequisites>
+							<li>MultibarrelWeapons</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_HMG</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_HMG</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_HMG_Bond>1</ARL_HMG_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_MechanoidLMG_Bond" Abstract="True">
+						<label>bond mechanoid LMG</label>
+						<description>Bond an mechanoid LMG.</description>
+						<jobString>Bonding a mechanoid LMG.</jobString>
+						<researchPrerequisites>
+							<li>ShipEngine</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_MechanoidLMG</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_MechanoidLMG</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_MechanoidLMG_Bond>1</ARL_MechanoidLMG_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_MechanoidRifle_Bond" Abstract="True">
+						<label>bond mechanoid rifle</label>
+						<description>Bond an mechanoid rifle.</description>
+						<jobString>Bonding a mechanoid rifle.</jobString>
+						<researchPrerequisites>
+							<li>ShipEngine</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_MechanoidRifle</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_MechanoidRifle</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_MechanoidRifle_Bond>1</ARL_MechanoidRifle_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_BullpupRifle_Bond" Abstract="True">
+						<label>bond bullpup rifle</label>
+						<description>Bond an bullpup rifle.</description>
+						<jobString>Bonding a bullpup rifle.</jobString>
+						<researchPrerequisites>
+							<li>PrecisionRifling</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_BullpupRifle</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_BullpupRifle</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_BullpupRifle_Bond>1</ARL_BullpupRifle_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_AssaultCarbine_Bond" Abstract="True">
+						<label>bond assault carbine</label>
+						<description>Bond an assault carbine.</description>
+						<jobString>Bonding a assault carbine.</jobString>
+						<researchPrerequisites>
+							<li>PrecisionRifling</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_AssaultCarbine</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_AssaultCarbine</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_AssaultCarbine_Bond>1</ARL_AssaultCarbine_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_BattleRifle_Bond" Abstract="True">
+						<label>bond battle rifle</label>
+						<description>Bond an battle rifle.</description>
+						<jobString>Bonding a battle rifle.</jobString>
+						<researchPrerequisites>
+							<li>PrecisionRifling</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_BattleRifle</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_BattleRifle</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_BattleRifle_Bond>1</ARL_BattleRifle_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_ChargeSniperRifle_Bond" Abstract="True">
+						<label>bond charge sniper rifle</label>
+						<description>Bond an charge sniper rifle.</description>
+						<jobString>Bonding a charge sniper rifle.</jobString>
+						<researchPrerequisites>
+							<li>ChargedShot</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_ChargeSniperRifle</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_ChargeSniperRifle</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_ChargeSniperRifle_Bond>1</ARL_ChargeSniperRifle_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_SemiautomaticRifle_Bond" Abstract="True">
+						<label>bond semi-automatic rifle</label>
+						<description>Bond an semi-automatic rifle.</description>
+						<jobString>Bonding a semi-automatic rifle.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_SemiautomaticRifle</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_SemiautomaticRifle</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_SemiautomaticRifle_Bond>1</ARL_SemiautomaticRifle_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_MarksmanRifle_Bond" Abstract="True">
+						<label>bond marksman rifle</label>
+						<description>Bond an marksman rifle.</description>
+						<jobString>Bonding a marksman rifle.</jobString>
+						<researchPrerequisites>
+							<li>PrecisionRifling</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_MarksmanRifle</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_MarksmanRifle</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_MarksmanRifle_Bond>1</ARL_MarksmanRifle_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_MechanoidSniperRifle_Bond" Abstract="True">
+						<label>bond mechanoid sniper rifle</label>
+						<description>Bond an mechanoid sniper rifle.</description>
+						<jobString>Bonding a mechanoid sniper rifle.</jobString>
+						<researchPrerequisites>
+							<li>ShipEngine</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_MechanoidSniperRifle</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_MechanoidSniperRifle</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_MechanoidSniperRifle_Bond>1</ARL_MechanoidSniperRifle_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_MechanoidRocketLauncher_Bond" Abstract="True">
+						<label>bond mechanoid inferno launcher</label>
+						<description>Bond an mechanoid inferno launcher.</description>
+						<jobString>Bonding a mechanoid inferno launcher.</jobString>
+						<researchPrerequisites>
+							<li>ShipEngine</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_MechanoidRocketLauncher</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_MechanoidRocketLauncher</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_MechanoidRocketLauncher_Bond>1</ARL_MechanoidRocketLauncher_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_GrenadeLauncher_Bond" Abstract="True">
+						<label>bond grenade launcher</label>
+						<description>Bond an grenade launcher.</description>
+						<jobString>Bonding a grenade launcher.</jobString>
+						<researchPrerequisites>
+							<li>Mortars</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_GrenadeLauncher</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_GrenadeLauncher</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_GrenadeLauncher_Bond>1</ARL_GrenadeLauncher_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_ChargeMinigun_Bond" Abstract="True">
+						<label>bond charge minigun</label>
+						<description>Bond an charge minigun.</description>
+						<jobString>Bonding a charge minigun.</jobString>
+						<researchPrerequisites>
+							<li>ShipBasics</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>ARL_ChargeMinigun</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>ARL_ChargeMinigun</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<ARL_ChargeMinigun_Bond>1</ARL_ChargeMinigun_Bond>
+						</products>
+					</RecipeDef>
+				</value>
+			</Operation>
 
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_ShotgunHandgun_Bond" Abstract="True">
-							<label>bond shotgun handgun</label>
-							<description>Bond an shotgun handgun.</description>
-							<jobString>Bonding a shotgun handgun.</jobString>
-							<researchPrerequisite>Bound_Research</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_ShotgunHandgun</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_ShotgunHandgun</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_ShotgunHandgun_Bond>1</ARL_ShotgunHandgun_Bond>
-							</products>
-						</RecipeDef>
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+				<key>Daria40K_MightyPersonaBondForgePatch_ApexRimworldLegendsContinued</key>
+				<defaultValue>true</defaultValue>
 
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_ChargePistol_Bond" Abstract="True">
-							<label>bond charge pistol</label>
-							<description>Bond an charge pistol.</description>
-							<jobString>Bonding a charge pistol.</jobString>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_ChargePistol</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_ChargePistol</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_ChargePistol_Bond>1</ARL_ChargePistol_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_HandCannon_Bond" Abstract="True">
-							<label>bond hand cannon</label>
-							<description>Bond an hand cannon.</description>
-							<jobString>Bonding a hand cannon.</jobString>
-							<researchPrerequisite>Bound_Research</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_HandCannon</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_HandCannon</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_HandCannon_Bond>1</ARL_HandCannon_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_LeverActionShotgun_Bond" Abstract="True">
-							<label>bond lever-action shotgun</label>
-							<description>Bond an lever-action shotgun.</description>
-							<jobString>Bonding a lever-action shotgun.</jobString>
-							<researchPrerequisite>Bound_Research</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_LeverActionShotgun</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_LeverActionShotgun</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_LeverActionShotgun_Bond>1</ARL_LeverActionShotgun_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_SemiAutomaticShotgun_Bond" Abstract="True">
-							<label>bond semi-automatic shotgun</label>
-							<description>Bond an semi-automatic shotgun.</description>
-							<jobString>Bonding a semi-automatic shotgun.</jobString>
-							<researchPrerequisite>GasOperation</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_SemiAutomaticShotgun</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_SemiAutomaticShotgun</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_SemiAutomaticShotgun_Bond>1</ARL_SemiAutomaticShotgun_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_ChargeShotgun_Bond" Abstract="True">
-							<label>bond charge shotgun</label>
-							<description>Bond an charge shotgun.</description>
-							<jobString>Bonding a charge shotgun.</jobString>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_ChargeShotgun</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_ChargeShotgun</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_ChargeShotgun_Bond>1</ARL_ChargeShotgun_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_LightSMG_Bond" Abstract="True">
-							<label>bond light SMG</label>
-							<description>Bond an light SMG.</description>
-							<jobString>Bonding a light SMG.</jobString>
-							<researchPrerequisite>BlowbackOperation</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_LightSMG</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_LightSMG</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_LightSMG_Bond>1</ARL_LightSMG_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_ChargeSMG_Bond" Abstract="True">
-							<label>bond charge SMG</label>
-							<description>Bond an charge SMG.</description>
-							<jobString>Bonding a charge SMG.</jobString>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_ChargeSMG</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_ChargeSMG</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_ChargeSMG_Bond>1</ARL_ChargeSMG_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_CompactSMG_Bond" Abstract="True">
-							<label>bond compact SMG</label>
-							<description>Bond an compact SMG.</description>
-							<jobString>Bonding a compact SMG.</jobString>
-							<researchPrerequisite>GasOperation</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_CompactSMG</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_CompactSMG</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_CompactSMG_Bond>1</ARL_CompactSMG_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_ChargeLMG_Bond" Abstract="True">
-							<label>bond charge LMG</label>
-							<description>Bond an charge LMG.</description>
-							<jobString>Bonding a charge LMG.</jobString>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_ChargeLMG</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_ChargeLMG</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_ChargeLMG_Bond>1</ARL_ChargeLMG_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_HMG_Bond" Abstract="True">
-							<label>bond HMG</label>
-							<description>Bond an HMG.</description>
-							<jobString>Bonding a HMG.</jobString>
-							<researchPrerequisite>MultibarrelWeapons</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_HMG</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_HMG</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_HMG_Bond>1</ARL_HMG_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_MechanoidLMG_Bond" Abstract="True">
-							<label>bond mechanoid LMG</label>
-							<description>Bond an mechanoid LMG.</description>
-							<jobString>Bonding a mechanoid LMG.</jobString>
-							<researchPrerequisite>ShipEngine</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_MechanoidLMG</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_MechanoidLMG</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_MechanoidLMG_Bond>1</ARL_MechanoidLMG_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_MechanoidRifle_Bond" Abstract="True">
-							<label>bond mechanoid rifle</label>
-							<description>Bond an mechanoid rifle.</description>
-							<jobString>Bonding a mechanoid rifle.</jobString>
-							<researchPrerequisite>ShipEngine</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_MechanoidRifle</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_MechanoidRifle</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_MechanoidRifle_Bond>1</ARL_MechanoidRifle_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_BullpupRifle_Bond" Abstract="True">
-							<label>bond bullpup rifle</label>
-							<description>Bond an bullpup rifle.</description>
-							<jobString>Bonding a bullpup rifle.</jobString>
-							<researchPrerequisite>PrecisionRifling</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_BullpupRifle</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_BullpupRifle</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_BullpupRifle_Bond>1</ARL_BullpupRifle_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_AssaultCarbine_Bond" Abstract="True">
-							<label>bond assault carbine</label>
-							<description>Bond an assault carbine.</description>
-							<jobString>Bonding a assault carbine.</jobString>
-							<researchPrerequisite>PrecisionRifling</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_AssaultCarbine</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_AssaultCarbine</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_AssaultCarbine_Bond>1</ARL_AssaultCarbine_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_BattleRifle_Bond" Abstract="True">
-							<label>bond battle rifle</label>
-							<description>Bond an battle rifle.</description>
-							<jobString>Bonding a battle rifle.</jobString>
-							<researchPrerequisite>PrecisionRifling</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_BattleRifle</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_BattleRifle</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_BattleRifle_Bond>1</ARL_BattleRifle_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_ChargeSniperRifle_Bond" Abstract="True">
-							<label>bond charge sniper rifle</label>
-							<description>Bond an charge sniper rifle.</description>
-							<jobString>Bonding a charge sniper rifle.</jobString>
-							<researchPrerequisite>ChargedShot</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_ChargeSniperRifle</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_ChargeSniperRifle</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_ChargeSniperRifle_Bond>1</ARL_ChargeSniperRifle_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_SemiautomaticRifle_Bond" Abstract="True">
-							<label>bond semi-automatic rifle</label>
-							<description>Bond an semi-automatic rifle.</description>
-							<jobString>Bonding a semi-automatic rifle.</jobString>
-							<researchPrerequisite>Bound_Research</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_SemiautomaticRifle</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_SemiautomaticRifle</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_SemiautomaticRifle_Bond>1</ARL_SemiautomaticRifle_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_MarksmanRifle_Bond" Abstract="True">
-							<label>bond marksman rifle</label>
-							<description>Bond an marksman rifle.</description>
-							<jobString>Bonding a marksman rifle.</jobString>
-							<researchPrerequisite>PrecisionRifling</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_MarksmanRifle</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_MarksmanRifle</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_MarksmanRifle_Bond>1</ARL_MarksmanRifle_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_MechanoidSniperRifle_Bond" Abstract="True">
-							<label>bond mechanoid sniper rifle</label>
-							<description>Bond an mechanoid sniper rifle.</description>
-							<jobString>Bonding a mechanoid sniper rifle.</jobString>
-							<researchPrerequisite>ShipEngine</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_MechanoidSniperRifle</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_MechanoidSniperRifle</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_MechanoidSniperRifle_Bond>1</ARL_MechanoidSniperRifle_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_MechanoidRocketLauncher_Bond" Abstract="True">
-							<label>bond mechanoid inferno launcher</label>
-							<description>Bond an mechanoid inferno launcher.</description>
-							<jobString>Bonding a mechanoid inferno launcher.</jobString>
-							<researchPrerequisite>ShipEngine</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_MechanoidRocketLauncher</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_MechanoidRocketLauncher</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_MechanoidRocketLauncher_Bond>1</ARL_MechanoidRocketLauncher_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_GrenadeLauncher_Bond" Abstract="True">
-							<label>bond grenade launcher</label>
-							<description>Bond an grenade launcher.</description>
-							<jobString>Bonding a grenade launcher.</jobString>
-							<researchPrerequisite>Mortars</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_GrenadeLauncher</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_GrenadeLauncher</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_GrenadeLauncher_Bond>1</ARL_GrenadeLauncher_Bond>
-							</products>
-						</RecipeDef>
-
-						<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_ARL_ChargeMinigun_Bond" Abstract="True">
-							<label>bond charge minigun</label>
-							<description>Bond an charge minigun.</description>
-							<jobString>Bonding a charge minigun.</jobString>
-							<researchPrerequisite>ShipBasics</researchPrerequisite>
-							<ingredients>
-								<li>
-									<filter>
-										<thingDefs>
-											<li>ARL_ChargeMinigun</li>
-										</thingDefs>
-									</filter>
-									<count>1</count>
-								</li>
-							</ingredients>
-							<fixedIngredientFilter>
-								<thingDefs>
-									<li>ARL_ChargeMinigun</li>
-								</thingDefs>
-							</fixedIngredientFilter>
-							<products>
-								<ARL_ChargeMinigun_Bond>1</ARL_ChargeMinigun_Bond>
-							</products>
-						</RecipeDef>
-					</value>
-				</li>
-
-				<li Class="PatchOperationFindMod">
-					<mods>
-						<li>XML Extensions</li>
-					</mods>
-
-					<nomatch Class="PatchOperationAdd">
+				<caseTrue>
+					<Operation Class="XmlExtensions.PatchOperationAdd">
 						<xpath>Defs</xpath>
 						<value>
-							<!-- Make_ARL_CombatHandgun_Bond -->
 							<RecipeDef ParentName="Make_ARL_CombatHandgun_Bond">
 								<defName>Make_ARL_CombatHandgun_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_ShotgunHandgun_Bond -->
 							<RecipeDef ParentName="Make_ARL_ShotgunHandgun_Bond">
 								<defName>Make_ARL_ShotgunHandgun_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_ChargePistol_Bond -->
 							<RecipeDef ParentName="Make_ARL_ChargePistol_Bond">
 								<defName>Make_ARL_ChargePistol_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_HandCannon_Bond -->
 							<RecipeDef ParentName="Make_ARL_HandCannon_Bond">
 								<defName>Make_ARL_HandCannon_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_LeverActionShotgun_Bond -->
 							<RecipeDef ParentName="Make_ARL_LeverActionShotgun_Bond">
 								<defName>Make_ARL_LeverActionShotgun_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_SemiAutomaticShotgun_Bond -->
 							<RecipeDef ParentName="Make_ARL_SemiAutomaticShotgun_Bond">
 								<defName>Make_ARL_SemiAutomaticShotgun_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_ChargeShotgun_Bond -->
 							<RecipeDef ParentName="Make_ARL_ChargeShotgun_Bond">
 								<defName>Make_ARL_ChargeShotgun_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_LightSMG_Bond -->
 							<RecipeDef ParentName="Make_ARL_LightSMG_Bond">
 								<defName>Make_ARL_LightSMG_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_ChargeSMG_Bond -->
 							<RecipeDef ParentName="Make_ARL_ChargeSMG_Bond">
 								<defName>Make_ARL_ChargeSMG_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_CompactSMG_Bond -->
 							<RecipeDef ParentName="Make_ARL_CompactSMG_Bond">
 								<defName>Make_ARL_CompactSMG_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_ChargeLMG_Bond -->
 							<RecipeDef ParentName="Make_ARL_ChargeLMG_Bond">
 								<defName>Make_ARL_ChargeLMG_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_HMG_Bond -->
 							<RecipeDef ParentName="Make_ARL_HMG_Bond">
 								<defName>Make_ARL_HMG_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_MechanoidLMG_Bond -->
 							<RecipeDef ParentName="Make_ARL_MechanoidLMG_Bond">
 								<defName>Make_ARL_MechanoidLMG_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_MechanoidRifle_Bond -->
 							<RecipeDef ParentName="Make_ARL_MechanoidRifle_Bond">
 								<defName>Make_ARL_MechanoidRifle_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_BullpupRifle_Bond -->
 							<RecipeDef ParentName="Make_ARL_BullpupRifle_Bond">
 								<defName>Make_ARL_BullpupRifle_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_AssaultCarbine_Bond -->
 							<RecipeDef ParentName="Make_ARL_AssaultCarbine_Bond">
 								<defName>Make_ARL_AssaultCarbine_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_BattleRifle_Bond -->
 							<RecipeDef ParentName="Make_ARL_BattleRifle_Bond">
 								<defName>Make_ARL_BattleRifle_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_ChargeSniperRifle_Bond -->
 							<RecipeDef ParentName="Make_ARL_ChargeSniperRifle_Bond">
 								<defName>Make_ARL_ChargeSniperRifle_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_SemiautomaticRifle_Bond -->
 							<RecipeDef ParentName="Make_ARL_SemiautomaticRifle_Bond">
 								<defName>Make_ARL_SemiautomaticRifle_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_MarksmanRifle_Bond -->
 							<RecipeDef ParentName="Make_ARL_MarksmanRifle_Bond">
 								<defName>Make_ARL_MarksmanRifle_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_MechanoidSniperRifle_Bond -->
 							<RecipeDef ParentName="Make_ARL_MechanoidSniperRifle_Bond">
 								<defName>Make_ARL_MechanoidSniperRifle_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_MechanoidRocketLauncher_Bond -->
 							<RecipeDef ParentName="Make_ARL_MechanoidRocketLauncher_Bond">
 								<defName>Make_ARL_MechanoidRocketLauncher_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_GrenadeLauncher_Bond -->
 							<RecipeDef ParentName="Make_ARL_GrenadeLauncher_Bond">
 								<defName>Make_ARL_GrenadeLauncher_Bond</defName>
 							</RecipeDef>
-
-							<!-- Make_ARL_ChargeMinigun_Bond -->
 							<RecipeDef ParentName="Make_ARL_ChargeMinigun_Bond">
 								<defName>Make_ARL_ChargeMinigun_Bond</defName>
 							</RecipeDef>
 						</value>
-					</nomatch>
-
-					<match Class="PatchOperationSequence">
-						<operations>
-							<li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-								<modId>Daria40K.MightyPersonaBondForgePatch</modId>
-								<key>Daria40K_MightyPersonaBondForgePatch_ApexRimworldLegendsContinued</key>
-								<defaultValue>true</defaultValue>
-
-								<caseTrue>
-									<Operation Class="XmlExtensions.PatchOperationAdd">
-										<xpath>Defs</xpath>
-										<value>
-											<!-- Make_ARL_CombatHandgun_Bond -->
-											<RecipeDef ParentName="Make_ARL_CombatHandgun_Bond">
-												<defName>Make_ARL_CombatHandgun_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_ShotgunHandgun_Bond -->
-											<RecipeDef ParentName="Make_ARL_ShotgunHandgun_Bond">
-												<defName>Make_ARL_ShotgunHandgun_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_ChargePistol_Bond -->
-											<RecipeDef ParentName="Make_ARL_ChargePistol_Bond">
-												<defName>Make_ARL_ChargePistol_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_HandCannon_Bond -->
-											<RecipeDef ParentName="Make_ARL_HandCannon_Bond">
-												<defName>Make_ARL_HandCannon_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_LeverActionShotgun_Bond -->
-											<RecipeDef ParentName="Make_ARL_LeverActionShotgun_Bond">
-												<defName>Make_ARL_LeverActionShotgun_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_SemiAutomaticShotgun_Bond -->
-											<RecipeDef ParentName="Make_ARL_SemiAutomaticShotgun_Bond">
-												<defName>Make_ARL_SemiAutomaticShotgun_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_ChargeShotgun_Bond -->
-											<RecipeDef ParentName="Make_ARL_ChargeShotgun_Bond">
-												<defName>Make_ARL_ChargeShotgun_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_LightSMG_Bond -->
-											<RecipeDef ParentName="Make_ARL_LightSMG_Bond">
-												<defName>Make_ARL_LightSMG_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_ChargeSMG_Bond -->
-											<RecipeDef ParentName="Make_ARL_ChargeSMG_Bond">
-												<defName>Make_ARL_ChargeSMG_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_CompactSMG_Bond -->
-											<RecipeDef ParentName="Make_ARL_CompactSMG_Bond">
-												<defName>Make_ARL_CompactSMG_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_ChargeLMG_Bond -->
-											<RecipeDef ParentName="Make_ARL_ChargeLMG_Bond">
-												<defName>Make_ARL_ChargeLMG_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_HMG_Bond -->
-											<RecipeDef ParentName="Make_ARL_HMG_Bond">
-												<defName>Make_ARL_HMG_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_MechanoidLMG_Bond -->
-											<RecipeDef ParentName="Make_ARL_MechanoidLMG_Bond">
-												<defName>Make_ARL_MechanoidLMG_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_MechanoidRifle_Bond -->
-											<RecipeDef ParentName="Make_ARL_MechanoidRifle_Bond">
-												<defName>Make_ARL_MechanoidRifle_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_BullpupRifle_Bond -->
-											<RecipeDef ParentName="Make_ARL_BullpupRifle_Bond">
-												<defName>Make_ARL_BullpupRifle_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_AssaultCarbine_Bond -->
-											<RecipeDef ParentName="Make_ARL_AssaultCarbine_Bond">
-												<defName>Make_ARL_AssaultCarbine_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_BattleRifle_Bond -->
-											<RecipeDef ParentName="Make_ARL_BattleRifle_Bond">
-												<defName>Make_ARL_BattleRifle_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_ChargeSniperRifle_Bond -->
-											<RecipeDef ParentName="Make_ARL_ChargeSniperRifle_Bond">
-												<defName>Make_ARL_ChargeSniperRifle_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_SemiautomaticRifle_Bond -->
-											<RecipeDef ParentName="Make_ARL_SemiautomaticRifle_Bond">
-												<defName>Make_ARL_SemiautomaticRifle_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_MarksmanRifle_Bond -->
-											<RecipeDef ParentName="Make_ARL_MarksmanRifle_Bond">
-												<defName>Make_ARL_MarksmanRifle_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_MechanoidSniperRifle_Bond -->
-											<RecipeDef ParentName="Make_ARL_MechanoidSniperRifle_Bond">
-												<defName>Make_ARL_MechanoidSniperRifle_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_MechanoidRocketLauncher_Bond -->
-											<RecipeDef ParentName="Make_ARL_MechanoidRocketLauncher_Bond">
-												<defName>Make_ARL_MechanoidRocketLauncher_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_GrenadeLauncher_Bond -->
-											<RecipeDef ParentName="Make_ARL_GrenadeLauncher_Bond">
-												<defName>Make_ARL_GrenadeLauncher_Bond</defName>
-											</RecipeDef>
-
-											<!-- Make_ARL_ChargeMinigun_Bond -->
-											<RecipeDef ParentName="Make_ARL_ChargeMinigun_Bond">
-												<defName>Make_ARL_ChargeMinigun_Bond</defName>
-											</RecipeDef>
-										</value>
-									</Operation>
-								</caseTrue>
-							</li>
-						</operations>
-					</match>
-				</li>
-			</operations>
-		</match>
+					</Operation>
+				</caseTrue>
+			</Operation>
+		</caseTrue>
 	</Operation>
 </Patch>
