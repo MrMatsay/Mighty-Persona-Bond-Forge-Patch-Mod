@@ -3,74 +3,75 @@
     ===== Bill Doors' Luxury Guns =====
 -->
 <Patch>
-    <Operation Class="PatchOperationFindMod">
+    <Operation Class="XmlExtensions.FindMod">
         <mods>
-            <li>Bill Doors' Luxury Guns</li>
+            <li>3hstltd.goldenguns</li>
         </mods>
+        <packageId>true</packageId>
 
-        <match Class="PatchOperationSequence">
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>Defs</xpath>
-                    <value>
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_BDLG_GoldenDE_Bond" Abstract="True">
-                            <label>bond golden desert eagle</label>
-                            <description>Bond an golden desert eagle.</description>
-                            <jobString>Bonding a golden desert eagle.</jobString>
-                            <researchPrerequisite>Bound_Research</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BDLG_GoldenDE</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>BDLG_GoldenDE</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <BDLG_GoldenDE_Bond>1</BDLG_GoldenDE_Bond>
-                            </products>
-                        </RecipeDef>
+        <caseTrue>
+            <li Class="PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_BDLG_GoldenDE_Bond" Abstract="True">
+                        <label>bond golden desert eagle</label>
+                        <description>Bond an golden desert eagle.</description>
+                        <jobString>Bonding a golden desert eagle.</jobString>
+                        <researchPrerequisite>Bound_Research</researchPrerequisite>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>BDLG_GoldenDE</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>BDLG_GoldenDE</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <BDLG_GoldenDE_Bond>1</BDLG_GoldenDE_Bond>
+                        </products>
+                    </RecipeDef>
 
-                        <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_BDLG_GoldenAK_Bond" Abstract="True">
-                            <label>bond golden AK-47</label>
-                            <description>Bond an golden AK-47.</description>
-                            <jobString>Bonding a golden AK-47.</jobString>
-                            <researchPrerequisite>PrecisionRifling</researchPrerequisite>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>BDLG_GoldenAK</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>BDLG_GoldenAK</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <BDLG_GoldenAK_Bond>1</BDLG_GoldenAK_Bond>
-                            </products>
-                        </RecipeDef>
-                    </value>
-                </li>
+                    <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_BDLG_GoldenAK_Bond" Abstract="True">
+                        <label>bond golden AK-47</label>
+                        <description>Bond an golden AK-47.</description>
+                        <jobString>Bonding a golden AK-47.</jobString>
+                        <researchPrerequisite>PrecisionRifling</researchPrerequisite>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>BDLG_GoldenAK</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>BDLG_GoldenAK</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <BDLG_GoldenAK_Bond>1</BDLG_GoldenAK_Bond>
+                        </products>
+                    </RecipeDef>
+                </value>
+            </li>
 
-                <li Class="PatchOperationFindMod">
-                    <mods>
-                        <li>XML Extensions</li>
-                    </mods>
+            <li Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_BillDoorsLuxuryGuns</key>
+                <defaultValue>true</defaultValue>
 
-                    <nomatch Class="PatchOperationAdd">
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
                         <xpath>Defs</xpath>
                         <value>
                             <!-- Make_BDLG_GoldenDE_Bond -->
@@ -83,36 +84,9 @@
                                 <defName>Make_BDLG_GoldenAK_Bond</defName>
                             </RecipeDef>
                         </value>
-                    </nomatch>
-
-                    <match Class="PatchOperationSequence">
-                        <operations>
-                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                                <key>Daria40K_MightyPersonaBondForgePatch_BillDoorsLuxuryGuns</key>
-                                <defaultValue>true</defaultValue>
-
-                                <caseTrue>
-                                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                                        <xpath>Defs</xpath>
-                                        <value>
-                                            <!-- Make_BDLG_GoldenDE_Bond -->
-                                            <RecipeDef ParentName="Make_BDLG_GoldenDE_Bond">
-                                                <defName>Make_BDLG_GoldenDE_Bond</defName>
-                                            </RecipeDef>
-
-                                            <!-- Make_BDLG_GoldenAK_Bond -->
-                                            <RecipeDef ParentName="Make_BDLG_GoldenAK_Bond">
-                                                <defName>Make_BDLG_GoldenAK_Bond</defName>
-                                            </RecipeDef>
-                                        </value>
-                                    </Operation>
-                                </caseTrue>
-                            </li>
-                        </operations>
-                    </match>
-                </li>
-            </operations>
-        </match>
+                    </Operation>
+                </caseTrue>
+            </li>
+        </caseTrue>
     </Operation>
 </Patch>

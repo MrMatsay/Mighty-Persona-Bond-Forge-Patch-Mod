@@ -1,0 +1,49 @@
+<!--
+    ===== Ancient Charged Arms =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>3hstltd.weapons.base</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_AncientChargedArms</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <li Class="XmlExtensions.PatchOperationAddModExtension">
+                        <xpath>Defs/ThingDef[defName="Gun_3HST_Light_Machine_Railgun_Bond"]</xpath>
+                        <value>
+                            <li Class="MuzzleFlash.MuzzleFlashProps" MayRequire="issaczhuang.muzzleflash">
+                                <def>BDRG_RailgunMF_small</def>
+                                <drawSize>(1.2,1.2)</drawSize>
+                                <offsets>
+                                    <li>(0.8,0.05)</li>
+                                    <li>(0.8,-0.05)</li>
+                                </offsets>
+                                <isAlternately>true</isAlternately>
+                            </li>
+                        </value>
+                    </li>
+
+                    <li Class="XmlExtensions.PatchOperationAddModExtension">
+                        <xpath>Defs/ThingDef[defName="Gun_3HST_5mmDMR_Bond"]</xpath>
+                        <value>
+                            <li Class="MuzzleFlash.MuzzleFlashProps" MayRequire="issaczhuang.muzzleflash">
+                                <def>BDRG_RailgunMF_small</def>
+                                <drawSize>(1.2,1.2)</drawSize>
+                                <offsets>
+                                    <li>(0.81,-0.05)</li>
+                                </offsets>
+                            </li>
+                        </value>
+                    </li>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>
