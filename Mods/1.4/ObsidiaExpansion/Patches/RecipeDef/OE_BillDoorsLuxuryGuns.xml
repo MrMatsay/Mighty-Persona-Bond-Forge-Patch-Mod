@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- ===== Bill Doors' Luxury Guns ===== -->
+<!--
+    ===== Bill Doors' Luxury Guns =====
+-->
 <Patch>
     <Operation Class="XmlExtensions.FindMod">
         <mods>
@@ -8,14 +10,14 @@
         <packageId>true</packageId>
 
         <caseTrue>
-            <li Class="PatchOperationAdd">
+            <Operation Class="XmlExtensions.PatchOperationAdd">
                 <xpath>Defs</xpath>
                 <value>
                     <RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_BDLG_GoldenDE_Bond" Abstract="True">
                         <label>Persona bond golden desert eagle</label>
                         <description>Persona bond an golden desert eagle.</description>
                         <jobString>Persona bonding a golden desert eagle.</jobString>
-                        <researchPrerequisites></researchPrerequisites>
+                        <researchPrerequisites />
                         <ingredients>
                             <li>
                                 <filter>
@@ -39,7 +41,7 @@
                         <label>Reset Persona golden desert eagle</label>
                         <description>Reset an Persona golden desert eagle.\n\nWarning! Item Quality and Persona traits will be changed.</description>
                         <jobString>Resetting a Persona golden desert eagle.</jobString>
-                        <researchPrerequisites></researchPrerequisites>
+                        <researchPrerequisites />
                         <ingredients>
                             <li>
                                 <filter>
@@ -63,7 +65,7 @@
                         <label>Persona bond golden AK-47</label>
                         <description>Persona bond an golden AK-47.</description>
                         <jobString>Persona bonding a golden AK-47.</jobString>
-                        <researchPrerequisites></researchPrerequisites>
+                        <researchPrerequisites />
                         <ingredients>
                             <li>
                                 <filter>
@@ -87,7 +89,7 @@
                         <label>Reset Persona golden AK-47</label>
                         <description>Reset an Persona golden AK-47.\n\nWarning! Item Quality and Persona traits will be changed.</description>
                         <jobString>Resetting a Persona golden AK-47.</jobString>
-                        <researchPrerequisites></researchPrerequisites>
+                        <researchPrerequisites />
                         <ingredients>
                             <li>
                                 <filter>
@@ -108,34 +110,49 @@
                         </products>
                     </RecipeDef>
                 </value>
-            </li>
+            </Operation>
 
-            <li Class="XmlExtensions.OptionalPatch">
+            <Operation Class="XmlExtensions.OptionalPatch">
                 <modId>Daria40K.MightyPersonaBondForgePatch</modId>
                 <key>Daria40K_MightyPersonaBondForgePatch_BillDoorsLuxuryGuns</key>
                 <defaultValue>true</defaultValue>
 
                 <caseTrue>
-                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                        <xpath>Defs</xpath>
-                        <value>
-                            <!-- Make_OE_BDLG_GoldenDE_Bond -->
-                            <RecipeDef ParentName="Make_OE_BDLG_GoldenDE_Bond">
-                                <defName>Make_OE_BDLG_GoldenDE_Bond</defName>
-                            </RecipeDef>                                            <!-- Make_OE_BDLG_GoldenDE_Bond_Reset -->
-                            <RecipeDef ParentName="Make_OE_BDLG_GoldenDE_Bond_Reset">
-                                <defName>Make_OE_BDLG_GoldenDE_Bond_Reset</defName>
-                            </RecipeDef>                                            <!-- Make_OE_BDLG_GoldenAK_Bond -->
-                            <RecipeDef ParentName="Make_OE_BDLG_GoldenAK_Bond">
-                                <defName>Make_OE_BDLG_GoldenAK_Bond</defName>
-                            </RecipeDef>                                            <!-- Make_OE_BDLG_GoldenAK_Bond_Reset -->
-                            <RecipeDef ParentName="Make_OE_BDLG_GoldenAK_Bond_Reset">
-                                <defName>Make_OE_BDLG_GoldenAK_Bond_Reset</defName>
-                            </RecipeDef>
-                        </value>
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_OE_BillDoorsLuxuryGuns</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.OptionalPatch">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DisableObsidiaExpansion</key>
+                                <defaultValue>false</defaultValue>
+
+                                <caseFalse>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <RecipeDef ParentName="Make_OE_BDLG_GoldenDE_Bond">
+                                                <defName>Make_OE_BDLG_GoldenDE_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_BDLG_GoldenDE_Bond_Reset">
+                                                <defName>Make_OE_BDLG_GoldenDE_Bond_Reset</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_BDLG_GoldenAK_Bond">
+                                                <defName>Make_OE_BDLG_GoldenAK_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_BDLG_GoldenAK_Bond_Reset">
+                                                <defName>Make_OE_BDLG_GoldenAK_Bond_Reset</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseFalse>
+                            </Operation>
+                        </caseTrue>
                     </Operation>
                 </caseTrue>
-            </li>
+            </Operation>
         </caseTrue>
     </Operation>
 </Patch>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
     ===== Ancient Charged Arms =====
 -->
@@ -11,8 +12,7 @@
         <caseTrue>
             <Operation Class="XmlExtensions.PatchOperationAdd">
                 <xpath>Defs</xpath>
-                <value>
-                    <RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_AW_ChargeSMG_Bond" Abstract="True">
+                <value><RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_AW_ChargeSMG_Bond" Abstract="True">
                         <label>bond Ancient Charged PDW</label>
                         <description>Bond an Ancient Charged PDW.</description>
                         <jobString>Bonding a Ancient Charged PDW.</jobString>
@@ -229,10 +229,21 @@
                 <defaultValue>true</defaultValue>
 
                 <caseTrue>
-                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                        <xpath>Defs</xpath>
-                        <value>
-                            <RecipeDef ParentName="Make_OE_AW_ChargeSMG_Bond">
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_OE_AncientChargedArms</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.OptionalPatch">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DisableObsidiaExpansion</key>
+                                <defaultValue>false</defaultValue>
+
+                                <caseFalse>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value><RecipeDef ParentName="Make_OE_AW_ChargeSMG_Bond">
                                 <defName>Make_OE_AW_ChargeSMG_Bond</defName>
                             </RecipeDef>
                             <RecipeDef ParentName="Make_OE_AW_ChargeSMG_Bond_Reset">
@@ -257,9 +268,13 @@
                                 <defName>Make_OE_AW_ChargeSR_Bond_Reset</defName>
                             </RecipeDef>
                         </value>
+                                    </Operation>
+                                </caseFalse>
+                            </Operation>
+                        </caseTrue>
                     </Operation>
                 </caseTrue>
-            </Operation>
+            </Operation>      
         </caseTrue>
     </Operation>
 </Patch>

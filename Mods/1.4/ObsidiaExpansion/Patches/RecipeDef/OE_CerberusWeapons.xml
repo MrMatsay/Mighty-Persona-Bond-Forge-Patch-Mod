@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Cerberus Weapons =====
 -->
@@ -281,40 +282,56 @@
                 <defaultValue>true</defaultValue>
 
                 <caseTrue>
-                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                        <xpath>Defs</xpath>
-                        <value>
-                            <RecipeDef ParentName="Make_OE_Cerberus_sword_phantom_Bond">
-                                <defName>Make_OE_Cerberus_sword_phantom_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_Cerberus_sword_phantom_Bond_Reset">
-                                <defName>Make_OE_Cerberus_sword_phantom_Bond_Reset</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_GS_Gun_CerberusSMG_Bond">
-                                <defName>Make_OE_GS_Gun_CerberusSMG_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_GS_Gun_CerberusSMG_Bond_Reset">
-                                <defName>Make_OE_GS_Gun_CerberusSMG_Bond_Reset</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_Gs_Cerberus_rifle_Bond">
-                                <defName>Make_OE_Gs_Cerberus_rifle_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_Gs_Cerberus_rifle_Bond_Reset">
-                                <defName>Make_OE_Gs_Cerberus_rifle_Bond_Reset</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_Cerberus_Sniper_Rifle_Bond">
-                                <defName>Make_OE_Cerberus_Sniper_Rifle_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_Cerberus_Sniper_Rifle_Bond_Reset">
-                                <defName>Make_OE_Cerberus_Sniper_Rifle_Bond_Reset</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_Cerberus_Talon_Bond">
-                                <defName>Make_OE_Cerberus_Talon_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_Cerberus_Talon_Bond_Reset">
-                                <defName>Make_OE_Cerberus_Talon_Bond_Reset</defName>
-                            </RecipeDef>
-                        </value>
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_OE_CerberusWeapons</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.OptionalPatch">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DisableObsidiaExpansion</key>
+                                <defaultValue>false</defaultValue>
+
+                                <caseFalse>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <RecipeDef ParentName="Make_OE_Cerberus_sword_phantom_Bond">
+                                                <defName>Make_OE_Cerberus_sword_phantom_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_Cerberus_sword_phantom_Bond_Reset">
+                                                <defName>Make_OE_Cerberus_sword_phantom_Bond_Reset</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_GS_Gun_CerberusSMG_Bond">
+                                                <defName>Make_OE_GS_Gun_CerberusSMG_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_GS_Gun_CerberusSMG_Bond_Reset">
+                                                <defName>Make_OE_GS_Gun_CerberusSMG_Bond_Reset</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_Gs_Cerberus_rifle_Bond">
+                                                <defName>Make_OE_Gs_Cerberus_rifle_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_Gs_Cerberus_rifle_Bond_Reset">
+                                                <defName>Make_OE_Gs_Cerberus_rifle_Bond_Reset</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_Cerberus_Sniper_Rifle_Bond">
+                                                <defName>Make_OE_Cerberus_Sniper_Rifle_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_Cerberus_Sniper_Rifle_Bond_Reset">
+                                                <defName>Make_OE_Cerberus_Sniper_Rifle_Bond_Reset</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_Cerberus_Talon_Bond">
+                                                <defName>Make_OE_Cerberus_Talon_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_Cerberus_Talon_Bond_Reset">
+                                                <defName>Make_OE_Cerberus_Talon_Bond_Reset</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseFalse>
+                            </Operation>
+                        </caseTrue>
                     </Operation>
                 </caseTrue>
             </Operation>

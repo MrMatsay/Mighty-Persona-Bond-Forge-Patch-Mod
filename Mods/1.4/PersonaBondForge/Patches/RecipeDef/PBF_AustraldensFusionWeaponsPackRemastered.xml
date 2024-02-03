@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Australden's Fusion Weapons Pack Remastered =====
 -->
@@ -151,25 +152,41 @@
                 <defaultValue>true</defaultValue>
 
                 <caseTrue>
-                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                        <xpath>Defs</xpath>
-                        <value>
-                            <RecipeDef ParentName="Make_Gun_FusionPistol_Bond">
-                                <defName>Make_Gun_FusionPistol_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_Gun_FusionRifle_Bond">
-                                <defName>Make_Gun_FusionRifle_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_Gun_FusionShotgun_Bond">
-                                <defName>Make_Gun_FusionShotgun_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_Gun_FusionSniper_Bond">
-                                <defName>Make_Gun_FusionSniper_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_Gun_FusionLMG_Bond">
-                                <defName>Make_Gun_FusionLMG_Bond</defName>
-                            </RecipeDef>
-                        </value>
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_PBF_AustraldensFusionWeaponsPackRemastered</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.OptionalPatch">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DisablePersonaBondForge</key>
+                                <defaultValue>false</defaultValue>
+
+                                <caseFalse>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <RecipeDef ParentName="Make_Gun_FusionPistol_Bond">
+                                                <defName>Make_Gun_FusionPistol_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_Gun_FusionRifle_Bond">
+                                                <defName>Make_Gun_FusionRifle_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_Gun_FusionShotgun_Bond">
+                                                <defName>Make_Gun_FusionShotgun_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_Gun_FusionSniper_Bond">
+                                                <defName>Make_Gun_FusionSniper_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_Gun_FusionLMG_Bond">
+                                                <defName>Make_Gun_FusionLMG_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseFalse>
+                            </Operation>
+                        </caseTrue>
                     </Operation>
                 </caseTrue>
             </Operation>

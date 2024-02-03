@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Plasma Lance (Continued) =====
+-->
+<Patch>
+  <Operation Class="XmlExtensions.FindMod">
+    <mods>
+      <li>zal.plasmalance</li>
+    </mods>
+    <packageId>true</packageId>
+
+    <caseTrue>
+      <Operation Class="XmlExtensions.PatchOperationAdd">
+        <xpath>Defs</xpath>
+        <value>
+          <ThingDef Name="MPBFPM_BaseLanceGun" Abstract="True" ParentName="MPBFPM_BaseGun">
+            <techLevel>Ultra</techLevel>
+            <statBases>
+              <Flammability>1</Flammability>
+            </statBases>
+          </ThingDef>
+          <ThingDef ParentName="MPBFPM_BaseLanceGun" Name="Gun_PFlongrifle_Bond" Abstract="True">
+            <label>persona plasma lance</label>
+            <description>An ultra-tech lance weapon. Fires a single shot of extremaly unstable plasma, dealing deadly damage and causing a small explosion around the impact point. Has long recharge time due to possible overheating.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+            <techLevel>Ultra</techLevel>
+            <graphicData>
+              <texPath>Things/PFlongrifle</texPath>
+              <graphicClass>Graphic_Single</graphicClass>
+              <drawSize>1.42</drawSize>
+            </graphicData>
+            <equippedAngleOffset>45</equippedAngleOffset>
+            <soundInteract>Interact_ChargeRifle</soundInteract>
+            <tickerType>Normal</tickerType>
+            <statBases>
+              <Mass>5.4</Mass>
+              <MarketValue>2783.0</MarketValue>
+              <AccuracyTouch>0.423</AccuracyTouch>
+              <AccuracyShort>0.423</AccuracyShort>
+              <AccuracyMedium>0.847</AccuracyMedium>
+              <AccuracyLong>1.089</AccuracyLong>
+              <RangedWeapon_Cooldown>5.419</RangedWeapon_Cooldown>
+            </statBases>
+            <weaponTags>
+              <li>UltratechGun</li>
+            </weaponTags>
+            <weaponClasses>
+              <li>RangedHeavy</li>
+            </weaponClasses>
+            <verbs>
+              <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_PFLongRifle_Bond</defaultProjectile>
+                <warmupTime>5.0</warmupTime>
+                <forcedMissRadius>0.9</forcedMissRadius>
+                <range>50</range>
+                <ticksBetweenBurstShots>35</ticksBetweenBurstShots>
+                <targetParams>
+                  <canTargetLocations>true</canTargetLocations>
+                  <canTargetPawns>true</canTargetPawns>
+                </targetParams>
+                <burstShotCount>1</burstShotCount>
+                <soundCast>PFsound</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+              </li>
+            </verbs>
+            <comps>
+              <li Class="CompProperties_Explosive">
+                <explosiveRadius>3</explosiveRadius>
+                <explosiveDamageType>Flame</explosiveDamageType>
+                <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+              </li>
+            </comps>
+            <tools>
+              <li>
+                <label>stock</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>9.75</power>
+                <cooldownTime>1.7</cooldownTime>
+              </li>
+              <li>
+                <label>barrel</label>
+                <capacities>
+                  <li>Blunt</li>
+                  <li>Poke</li>
+                </capacities>
+                <power>9.75</power>
+                <cooldownTime>1.7</cooldownTime>
+              </li>
+            </tools>
+          </ThingDef>
+          <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_PFLongRifle_Bond" Abstract="True">
+            <label>pulsefire shot</label>
+            <graphicData>
+              <texPath>Things/Pulsefire</texPath>
+              <drawSize>1.22</drawSize>
+            </graphicData>
+            <thingClass>Projectile_Explosive</thingClass>
+            <projectile>
+              <damageDef>Flame</damageDef>
+              <damageAmountBase>78</damageAmountBase>
+              <explosionRadius>3</explosionRadius>
+              <speed>40</speed>
+            </projectile>
+          </ThingDef>
+        </value>
+      </Operation>
+
+      <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+        <key>Daria40K_MightyPersonaBondForgePatch_PlasmaLanceContinued</key>
+        <defaultValue>true</defaultValue>
+
+        <caseTrue>
+          <Operation Class="XmlExtensions.PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <ThingDef ParentName="Gun_PFlongrifle_Bond">
+                <defName>Gun_PFlongrifle_Bond</defName>
+              </ThingDef>
+              <ThingDef ParentName="Bullet_PFLongRifle_Bond">
+                <defName>Bullet_PFLongRifle_Bond</defName>
+              </ThingDef>
+            </value>
+          </Operation>
+        </caseTrue>
+      </Operation>
+    </caseTrue>
+  </Operation>
+</Patch>
