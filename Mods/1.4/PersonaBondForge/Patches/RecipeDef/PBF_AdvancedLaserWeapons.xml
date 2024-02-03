@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Advanced Laser Weapons =====
 -->
@@ -151,25 +152,41 @@
                 <defaultValue>true</defaultValue>
 
                 <caseTrue>
-                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                        <xpath>Defs</xpath>
-                        <value>
-                            <RecipeDef ParentName="Make_ALW_LaserBlaster_Bond">
-                                <defName>Make_ALW_LaserBlaster_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_ALW_ChainBeam_Bond">
-                                <defName>Make_ALW_ChainBeam_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_ALW_ChainBoomer_Bond">
-                                <defName>Make_ALW_ChainBoomer_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_ALW_SolarScorchCannon_Bond">
-                                <defName>Make_ALW_SolarScorchCannon_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_ALW_PhotonModulator_Bond">
-                                <defName>Make_ALW_PhotonModulator_Bond</defName>
-                            </RecipeDef>
-                        </value>
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_PBF_AdvancedLaserWeapons</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.OptionalPatch">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DisablePersonaBondForge</key>
+                                <defaultValue>false</defaultValue>
+
+                                <caseFalse>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <RecipeDef ParentName="Make_ALW_LaserBlaster_Bond">
+                                                <defName>Make_ALW_LaserBlaster_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_ALW_ChainBeam_Bond">
+                                                <defName>Make_ALW_ChainBeam_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_ALW_ChainBoomer_Bond">
+                                                <defName>Make_ALW_ChainBoomer_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_ALW_SolarScorchCannon_Bond">
+                                                <defName>Make_ALW_SolarScorchCannon_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_ALW_PhotonModulator_Bond">
+                                                <defName>Make_ALW_PhotonModulator_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseFalse>
+                            </Operation>
+                        </caseTrue>
                     </Operation>
                 </caseTrue>
             </Operation>

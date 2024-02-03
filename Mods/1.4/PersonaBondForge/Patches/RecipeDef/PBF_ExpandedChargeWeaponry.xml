@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Expanded Charge Weaponry =====
 -->
@@ -90,19 +91,35 @@
                 <defaultValue>true</defaultValue>
 
                 <caseTrue>
-                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                        <xpath>Defs</xpath>
-                        <value>
-                            <RecipeDef ParentName="Make_Gun_HvyCharge_Bond">
-                                <defName>Make_Gun_HvyCharge_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_Gun_SnpCharge_Bond">
-                                <defName>Make_Gun_SnpCharge_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_Gun_SMGCharge_Bond">
-                                <defName>Make_Gun_SMGCharge_Bond</defName>
-                            </RecipeDef>
-                        </value>
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_PBF_ExpandedChargeWeaponry</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.OptionalPatch">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DisablePersonaBondForge</key>
+                                <defaultValue>false</defaultValue>
+
+                                <caseFalse>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <RecipeDef ParentName="Make_Gun_HvyCharge_Bond">
+                                                <defName>Make_Gun_HvyCharge_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_Gun_SnpCharge_Bond">
+                                                <defName>Make_Gun_SnpCharge_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_Gun_SMGCharge_Bond">
+                                                <defName>Make_Gun_SMGCharge_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseFalse>
+                            </Operation>
+                        </caseTrue>
                     </Operation>
                 </caseTrue>
             </Operation>

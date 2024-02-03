@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
     ===== Ancient Arsenal: Warcaskets =====
 -->
@@ -11,8 +12,7 @@
         <caseTrue>
             <Operation Class="XmlExtensions.PatchOperationAdd">
                 <xpath>Defs</xpath>
-                <value>
-                    <RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_AAWarcasketMelee_Cleaver_Bond" Abstract="True">
+                <value><RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_AAWarcasketMelee_Cleaver_Bond" Abstract="True">
                         <label>bond Ancient Cleaver</label>
                         <description>Bond an Ancient Cleaver.</description>
                         <jobString>Bonding a Ancient Cleaver.</jobString>
@@ -343,10 +343,21 @@
                 <defaultValue>true</defaultValue>
 
                 <caseTrue>
-                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                        <xpath>Defs</xpath>
-                        <value>
-                            <RecipeDef ParentName="Make_OE_AAWarcasketMelee_Cleaver_Bond">
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_OE_AncientArsenalWarcaskets</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.OptionalPatch">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DisableObsidiaExpansion</key>
+                                <defaultValue>false</defaultValue>
+
+                                <caseFalse>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value><RecipeDef ParentName="Make_OE_AAWarcasketMelee_Cleaver_Bond">
                                 <defName>Make_OE_AAWarcasketMelee_Cleaver_Bond</defName>
                             </RecipeDef>
                             <RecipeDef ParentName="Make_OE_AAWarcasketMelee_Cleaver_Bond_Reset">
@@ -389,9 +400,13 @@
                                 <defName>Make_OE_AA_CAS_Bond_Reset</defName>
                             </RecipeDef>
                         </value>
+                                    </Operation>
+                                </caseFalse>
+                            </Operation>
+                        </caseTrue>
                     </Operation>
                 </caseTrue>
-            </Operation>
+            </Operation>      
         </caseTrue>
     </Operation>
 </Patch>

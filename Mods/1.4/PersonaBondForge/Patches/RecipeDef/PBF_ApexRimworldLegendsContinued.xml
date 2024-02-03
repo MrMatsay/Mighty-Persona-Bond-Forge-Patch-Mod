@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Apex: Rimworld Legends (Continued) =====
 -->
@@ -633,82 +634,98 @@
 				<defaultValue>true</defaultValue>
 
 				<caseTrue>
-					<Operation Class="XmlExtensions.PatchOperationAdd">
-						<xpath>Defs</xpath>
-						<value>
-							<RecipeDef ParentName="Make_ARL_CombatHandgun_Bond">
-								<defName>Make_ARL_CombatHandgun_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_ShotgunHandgun_Bond">
-								<defName>Make_ARL_ShotgunHandgun_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_ChargePistol_Bond">
-								<defName>Make_ARL_ChargePistol_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_HandCannon_Bond">
-								<defName>Make_ARL_HandCannon_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_LeverActionShotgun_Bond">
-								<defName>Make_ARL_LeverActionShotgun_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_SemiAutomaticShotgun_Bond">
-								<defName>Make_ARL_SemiAutomaticShotgun_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_ChargeShotgun_Bond">
-								<defName>Make_ARL_ChargeShotgun_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_LightSMG_Bond">
-								<defName>Make_ARL_LightSMG_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_ChargeSMG_Bond">
-								<defName>Make_ARL_ChargeSMG_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_CompactSMG_Bond">
-								<defName>Make_ARL_CompactSMG_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_ChargeLMG_Bond">
-								<defName>Make_ARL_ChargeLMG_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_HMG_Bond">
-								<defName>Make_ARL_HMG_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_MechanoidLMG_Bond">
-								<defName>Make_ARL_MechanoidLMG_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_MechanoidRifle_Bond">
-								<defName>Make_ARL_MechanoidRifle_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_BullpupRifle_Bond">
-								<defName>Make_ARL_BullpupRifle_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_AssaultCarbine_Bond">
-								<defName>Make_ARL_AssaultCarbine_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_BattleRifle_Bond">
-								<defName>Make_ARL_BattleRifle_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_ChargeSniperRifle_Bond">
-								<defName>Make_ARL_ChargeSniperRifle_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_SemiautomaticRifle_Bond">
-								<defName>Make_ARL_SemiautomaticRifle_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_MarksmanRifle_Bond">
-								<defName>Make_ARL_MarksmanRifle_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_MechanoidSniperRifle_Bond">
-								<defName>Make_ARL_MechanoidSniperRifle_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_MechanoidRocketLauncher_Bond">
-								<defName>Make_ARL_MechanoidRocketLauncher_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_GrenadeLauncher_Bond">
-								<defName>Make_ARL_GrenadeLauncher_Bond</defName>
-							</RecipeDef>
-							<RecipeDef ParentName="Make_ARL_ChargeMinigun_Bond">
-								<defName>Make_ARL_ChargeMinigun_Bond</defName>
-							</RecipeDef>
-						</value>
+					<Operation Class="XmlExtensions.OptionalPatch">
+						<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+						<key>Daria40K_MightyPersonaBondForgePatch_PBF_ApexRimworldLegendsContinued</key>
+						<defaultValue>true</defaultValue>
+
+						<caseTrue>
+							<Operation Class="XmlExtensions.OptionalPatch">
+								<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+								<key>Daria40K_MightyPersonaBondForgePatch_DisablePersonaBondForge</key>
+								<defaultValue>false</defaultValue>
+
+								<caseFalse>
+									<Operation Class="XmlExtensions.PatchOperationAdd">
+										<xpath>Defs</xpath>
+										<value>
+											<RecipeDef ParentName="Make_ARL_CombatHandgun_Bond">
+												<defName>Make_ARL_CombatHandgun_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_ShotgunHandgun_Bond">
+												<defName>Make_ARL_ShotgunHandgun_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_ChargePistol_Bond">
+												<defName>Make_ARL_ChargePistol_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_HandCannon_Bond">
+												<defName>Make_ARL_HandCannon_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_LeverActionShotgun_Bond">
+												<defName>Make_ARL_LeverActionShotgun_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_SemiAutomaticShotgun_Bond">
+												<defName>Make_ARL_SemiAutomaticShotgun_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_ChargeShotgun_Bond">
+												<defName>Make_ARL_ChargeShotgun_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_LightSMG_Bond">
+												<defName>Make_ARL_LightSMG_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_ChargeSMG_Bond">
+												<defName>Make_ARL_ChargeSMG_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_CompactSMG_Bond">
+												<defName>Make_ARL_CompactSMG_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_ChargeLMG_Bond">
+												<defName>Make_ARL_ChargeLMG_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_HMG_Bond">
+												<defName>Make_ARL_HMG_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_MechanoidLMG_Bond">
+												<defName>Make_ARL_MechanoidLMG_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_MechanoidRifle_Bond">
+												<defName>Make_ARL_MechanoidRifle_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_BullpupRifle_Bond">
+												<defName>Make_ARL_BullpupRifle_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_AssaultCarbine_Bond">
+												<defName>Make_ARL_AssaultCarbine_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_BattleRifle_Bond">
+												<defName>Make_ARL_BattleRifle_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_ChargeSniperRifle_Bond">
+												<defName>Make_ARL_ChargeSniperRifle_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_SemiautomaticRifle_Bond">
+												<defName>Make_ARL_SemiautomaticRifle_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_MarksmanRifle_Bond">
+												<defName>Make_ARL_MarksmanRifle_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_MechanoidSniperRifle_Bond">
+												<defName>Make_ARL_MechanoidSniperRifle_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_MechanoidRocketLauncher_Bond">
+												<defName>Make_ARL_MechanoidRocketLauncher_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_GrenadeLauncher_Bond">
+												<defName>Make_ARL_GrenadeLauncher_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_ARL_ChargeMinigun_Bond">
+												<defName>Make_ARL_ChargeMinigun_Bond</defName>
+											</RecipeDef>
+										</value>
+									</Operation>
+								</caseFalse>
+							</Operation>
+						</caseTrue>
 					</Operation>
 				</caseTrue>
 			</Operation>

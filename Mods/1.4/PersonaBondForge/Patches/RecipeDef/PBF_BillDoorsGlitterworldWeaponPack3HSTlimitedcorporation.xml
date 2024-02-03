@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
     ===== Bill Doors' Glitterworld Weapon Pack: 3HST limited corporation =====
 -->
@@ -9,10 +10,9 @@
         <packageId>true</packageId>
 
         <caseTrue>
-            <Operation Class="PatchOperationAdd">
+            <Operation Class="XmlExtensions.PatchOperationAdd">
                 <xpath>Defs</xpath>
-                <value>
-                    <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_3HST_4mm_AutoRailPistol_Bond" Abstract="True">
+                <value><RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_3HST_4mm_AutoRailPistol_Bond" Abstract="True">
                         <label>bond rail autopistol</label>
                         <description>Bond an rail autopistol.</description>
                         <jobString>Bonding a rail autopistol.</jobString>
@@ -407,82 +407,83 @@
                 <defaultValue>true</defaultValue>
 
                 <caseTrue>
-                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                        <xpath>Defs</xpath>
-                        <value>
-                            <!-- Make_Gun_3HST_4mm_AutoRailPistol_Bond -->
-                            <RecipeDef ParentName="Make_Gun_3HST_4mm_AutoRailPistol_Bond">
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_PBF_BillDoorsGlitterworldWeaponPack3HSTlimitedcorporation</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.OptionalPatch">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DisablePersonaBondForge</key>
+                                <defaultValue>false</defaultValue>
+
+                                <caseFalse>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value><RecipeDef ParentName="Make_Gun_3HST_4mm_AutoRailPistol_Bond">
                                 <defName>Make_Gun_3HST_4mm_AutoRailPistol_Bond</defName>
                             </RecipeDef>
 
-                            <!-- Make_Gun_3HST_4mm_TriRailPistol_Bond -->
                             <RecipeDef ParentName="Make_Gun_3HST_4mm_TriRailPistol_Bond">
                                 <defName>Make_Gun_3HST_4mm_TriRailPistol_Bond</defName>
                             </RecipeDef>
 
-                            <!-- Make_Gun_3HST_4mm_SMG_Bond -->
                             <RecipeDef ParentName="Make_Gun_3HST_4mm_SMG_Bond">
                                 <defName>Make_Gun_3HST_4mm_SMG_Bond</defName>
                             </RecipeDef>
 
-                            <!-- Make_Gun_3HST_Assault_Railgun_Bond -->
                             <RecipeDef ParentName="Make_Gun_3HST_Assault_Railgun_Bond">
                                 <defName>Make_Gun_3HST_Assault_Railgun_Bond</defName>
                             </RecipeDef>
 
-                            <!-- Make_Gun_3HST_Light_Machine_Railgun_Bond -->
                             <RecipeDef ParentName="Make_Gun_3HST_Light_Machine_Railgun_Bond">
                                 <defName>Make_Gun_3HST_Light_Machine_Railgun_Bond</defName>
                             </RecipeDef>
 
-                            <!-- Make_Gun_3HST_5mmDMR_Bond -->
                             <RecipeDef ParentName="Make_Gun_3HST_5mmDMR_Bond">
                                 <defName>Make_Gun_3HST_5mmDMR_Bond</defName>
                             </RecipeDef>
 
-                            <!-- Make_Gun_3HST_9mmDMR_Bond -->
                             <RecipeDef ParentName="Make_Gun_3HST_9mmDMR_Bond">
                                 <defName>Make_Gun_3HST_9mmDMR_Bond</defName>
                             </RecipeDef>
 
-                            <!-- Make_Gun_3HST_9mmHMG_Bond -->
                             <RecipeDef ParentName="Make_Gun_3HST_9mmHMG_Bond">
                                 <defName>Make_Gun_3HST_9mmHMG_Bond</defName>
                             </RecipeDef>
 
-                            <!-- Make_Gun_3HST_20mmAutocannon_Bond -->
                             <RecipeDef ParentName="Make_Gun_3HST_20mmAutocannon_Bond">
                                 <defName>Make_Gun_3HST_20mmAutocannon_Bond</defName>
                             </RecipeDef>
 
-                            <!-- Make_Gun_3HST_76mm_Cannon_Bond -->
                             <RecipeDef ParentName="Make_Gun_3HST_76mm_Cannon_Bond">
                                 <defName>Make_Gun_3HST_76mm_Cannon_Bond</defName>
                             </RecipeDef>
 
-                            <!-- Make_Gun_3HST_AutoGrenade_Bond -->
                             <RecipeDef ParentName="Make_Gun_3HST_AutoGrenade_Bond">
                                 <defName>Make_Gun_3HST_AutoGrenade_Bond</defName>
                             </RecipeDef>
 
-                            <!-- Make_Gun_3HST_Scatter_Railgun_Bond -->
                             <RecipeDef ParentName="Make_Gun_3HST_Scatter_Railgun_Bond">
                                 <defName>Make_Gun_3HST_Scatter_Railgun_Bond</defName>
                             </RecipeDef>
 
-                            <!-- Make_Gun_3HST_Scatter_Railgun_Heavy_Bond -->
                             <RecipeDef ParentName="Make_Gun_3HST_Scatter_Railgun_Heavy_Bond">
                                 <defName>Make_Gun_3HST_Scatter_Railgun_Heavy_Bond</defName>
                             </RecipeDef>
 
-                            <!-- Make_Gun_3HST_Scatter_Railgun_Pump_Bond -->
                             <RecipeDef ParentName="Make_Gun_3HST_Scatter_Railgun_Pump_Bond">
                                 <defName>Make_Gun_3HST_Scatter_Railgun_Pump_Bond</defName>
                             </RecipeDef>
                         </value>
+                                    </Operation>
+                                </caseFalse>
+                            </Operation>
+                        </caseTrue>
                     </Operation>
                 </caseTrue>
-            </Operation>
+            </Operation>      
         </caseTrue>
     </Operation>
 </Patch>

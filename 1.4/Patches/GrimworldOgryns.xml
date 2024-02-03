@@ -1,190 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Grimworld: Ogryns =====
 -->
 <Patch>
-    <Operation Class="PatchOperationFindMod">
+    <Operation Class="XmlExtensions.FindMod">
         <mods>
-            <li>Grimworld: Ogryns</li>
+            <li>grimworld.ogryns</li>
         </mods>
+        <packageId>true</packageId>
 
-        <match Class="PatchOperationSequence">
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>Defs</xpath>
-                    <value>
-                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_Rippershell_Bond" Abstract="True">
-                            <label>Rippershell</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Shotgun</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageAmountBase>24</damageAmountBase>
-                                <stoppingPower>4</stoppingPower>
-                                <armorPenetrationBase>0.14</armorPenetrationBase>
-                                <speed>55</speed>
-                            </projectile>
-                        </ThingDef>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Blunt_Quality" Name="MeleeWeapon_PowerMaul_Bond" Abstract="True">
+                        <label>persona Power Maul</label>
+                        <description>test\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <possessionCount>1</possessionCount>
+                        <graphicData>
+                            <drawSize>1.4</drawSize>
+                            <texPath>Weapons/Power Maul</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                        </graphicData>
+                        <uiIconScale>1.2</uiIconScale>
+                        <techLevel>Industrial</techLevel>
+                        <statBases>
+                            <Mass>6.2</Mass>
+                        </statBases>
+                        <equippedAngleOffset>-65</equippedAngleOffset>
+                        <weaponTags>
+                            <li>SpacerMeleeDecent</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>Melee</li>
+                        </weaponClasses>
+                        <tools>
+                            <li>
+                                <label>handle</label>
+                                <capacities>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>14.317</power>
+                                <cooldownTime>2.04</cooldownTime>
+                            </li>
+                            <li>
+                                <label>head</label>
+                                <labelUsedInLogging>false</labelUsedInLogging>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>25.361</power>
+                                <cooldownTime>3.06</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_Rippergun_Bond" Abstract="True">
+                        <label>persona Rippergun</label>
+                        <description>test\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <possessionCount>1</possessionCount>
+                        <graphicData>
+                            <drawSize>1.4</drawSize>
+                            <texPath>Weapons/Rippergun</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Shotgun</soundInteract>
+                        <weaponClasses>
+                            <li>ShortShots</li>
+                        </weaponClasses>
+                        <weaponTags>
+                            <li>ShortShots</li>
+                        </weaponTags>
+                        <statBases>
+                            <Mass>8</Mass>
+                            <AccuracyTouch>0.75</AccuracyTouch>
+                            <AccuracyShort>0.823</AccuracyShort>
+                            <AccuracyMedium>0.399</AccuracyMedium>
+                            <AccuracyLong>0.145</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.734</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_Rippershell_Bond</defaultProjectile>
+                                <warmupTime>2.4</warmupTime>
+                                <range>18</range>
+                                <burstShotCount>4</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>Shot_Shotgun</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_Rippershell_Bond" Abstract="True">
+                        <label>Rippershell</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>24</damageAmountBase>
+                            <stoppingPower>4</stoppingPower>
+                            <armorPenetrationBase>0.14</armorPenetrationBase>
+                            <speed>55</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
 
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_Rippergun_Bond" Abstract="True">
-                            <label>persona Rippergun</label>
-                            <description>test\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <possessionCount>1</possessionCount>
-                            <graphicData>
-                                <drawSize>1.4</drawSize>
-                                <texPath>Weapons/Rippergun</texPath>
-                            </graphicData>
-                            <soundInteract>Interact_Shotgun</soundInteract>
-                            <weaponClasses>
-                                <li>ShortShots</li>
-                            </weaponClasses>
-                            <weaponTags>
-                                <li>ShortShots</li>
-                            </weaponTags>
-                            <statBases>
-                                <Mass>8</Mass>
-                                <AccuracyTouch>0.682</AccuracyTouch>
-                                <AccuracyShort>0.748</AccuracyShort>
-                                <AccuracyMedium>0.363</AccuracyMedium>
-                                <AccuracyLong>0.132</AccuracyLong>
-                                <RangedWeapon_Cooldown>2.04</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_Rippershell_Bond</defaultProjectile>
-                                    <warmupTime>2.04</warmupTime>
-                                    <range>18</range>
-                                    <burstShotCount>4</burstShotCount>
-                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-                                    <soundCast>Shot_Shotgun</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <tools>
-                                <li>
-                                    <label>stock</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_GrimworldOgryns</key>
+                <defaultValue>true</defaultValue>
 
-                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Blunt_Quality" Name="MeleeWeapon_PowerMaul_Bond" Abstract="True">
-                            <label>persona Power Maul</label>
-                            <description>test\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <possessionCount>1</possessionCount>
-                            <graphicData>
-                                <drawSize>1.4</drawSize>
-                                <texPath>Weapons/Power Maul</texPath>
-                                <shaderType>CutoutComplex</shaderType>
-                            </graphicData>
-                            <uiIconScale>1.2</uiIconScale>
-                            <techLevel>Industrial</techLevel>
-                            <statBases>
-                                <Mass>6.2</Mass>
-                            </statBases>
-                            <equippedAngleOffset>-65</equippedAngleOffset>
-                            <weaponTags>
-                                <li>SpacerMeleeDecent</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>Melee</li>
-                            </weaponClasses>
-                            <tools>
-                                <li>
-                                    <label>handle</label>
-                                    <capacities>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>14.317</power>
-                                    <cooldownTime>2.04</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>head</label>
-                                    <labelUsedInLogging>false</labelUsedInLogging>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>25.361</power>
-                                    <cooldownTime>3.06</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
-                    </value>
-                </li>
-
-                <li Class="PatchOperationFindMod">
-                    <mods>
-                        <li>XML Extensions</li>
-                    </mods>
-
-                    <nomatch Class="PatchOperationAdd">
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
                         <xpath>Defs</xpath>
                         <value>
-                            <!-- Bullet_Rippershell_Bond -->
-                            <ThingDef ParentName="Bullet_Rippershell_Bond">
-                                <defName>Bullet_Rippershell_Bond</defName>
-                            </ThingDef>
-
-                            <!-- Gun_Rippergun_Bond -->
-                            <ThingDef ParentName="Gun_Rippergun_Bond">
-                                <defName>Gun_Rippergun_Bond</defName>
-                            </ThingDef>
-
-                            <!-- MeleeWeapon_PowerMaul_Bond -->
                             <ThingDef ParentName="MeleeWeapon_PowerMaul_Bond">
                                 <defName>MeleeWeapon_PowerMaul_Bond</defName>
                             </ThingDef>
+                            <ThingDef ParentName="Gun_Rippergun_Bond">
+                                <defName>Gun_Rippergun_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_Rippershell_Bond">
+                                <defName>Bullet_Rippershell_Bond</defName>
+                            </ThingDef>
                         </value>
-                    </nomatch>
-
-                    <match Class="PatchOperationSequence">
-                        <operations>
-                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                                <key>Daria40K_MightyPersonaBondForgePatch_GrimworldOgryns</key>
-                                <defaultValue>true</defaultValue>
-
-                                <caseTrue>
-                                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                                        <xpath>Defs</xpath>
-                                        <value>
-                                            <!-- Bullet_Rippershell_Bond -->
-                                            <ThingDef ParentName="Bullet_Rippershell_Bond">
-                                                <defName>Bullet_Rippershell_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Gun_Rippergun_Bond -->
-                                            <ThingDef ParentName="Gun_Rippergun_Bond">
-                                                <defName>Gun_Rippergun_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- MeleeWeapon_PowerMaul_Bond -->
-                                            <ThingDef ParentName="MeleeWeapon_PowerMaul_Bond">
-                                                <defName>MeleeWeapon_PowerMaul_Bond</defName>
-                                            </ThingDef>
-                                        </value>
-                                    </Operation>
-                                </caseTrue>
-                            </li>
-                        </operations>
-                    </match>
-                </li>
-            </operations>
-        </match>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
     </Operation>
 </Patch>

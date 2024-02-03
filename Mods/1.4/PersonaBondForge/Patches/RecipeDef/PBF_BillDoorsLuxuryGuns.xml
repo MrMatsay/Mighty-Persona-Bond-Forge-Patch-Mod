@@ -10,7 +10,7 @@
         <packageId>true</packageId>
 
         <caseTrue>
-            <li Class="PatchOperationAdd">
+            <Operation Class="XmlExtensions.PatchOperationAdd">
                 <xpath>Defs</xpath>
                 <value>
                     <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_BDLG_GoldenDE_Bond" Abstract="True">
@@ -63,30 +63,44 @@
                         </products>
                     </RecipeDef>
                 </value>
-            </li>
+            </Operation>
 
-            <li Class="XmlExtensions.OptionalPatch">
+            <Operation Class="XmlExtensions.OptionalPatch">
                 <modId>Daria40K.MightyPersonaBondForgePatch</modId>
                 <key>Daria40K_MightyPersonaBondForgePatch_BillDoorsLuxuryGuns</key>
                 <defaultValue>true</defaultValue>
 
                 <caseTrue>
-                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                        <xpath>Defs</xpath>
-                        <value>
-                            <!-- Make_BDLG_GoldenDE_Bond -->
-                            <RecipeDef ParentName="Make_BDLG_GoldenDE_Bond">
-                                <defName>Make_BDLG_GoldenDE_Bond</defName>
-                            </RecipeDef>
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_PBF_BillDoorsLuxuryGuns</key>
+                        <defaultValue>true</defaultValue>
 
-                            <!-- Make_BDLG_GoldenAK_Bond -->
-                            <RecipeDef ParentName="Make_BDLG_GoldenAK_Bond">
-                                <defName>Make_BDLG_GoldenAK_Bond</defName>
-                            </RecipeDef>
-                        </value>
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.OptionalPatch">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DisablePersonaBondForge</key>
+                                <defaultValue>false</defaultValue>
+
+                                <caseFalse>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <RecipeDef ParentName="Make_BDLG_GoldenDE_Bond">
+                                                <defName>Make_BDLG_GoldenDE_Bond</defName>
+                                            </RecipeDef>
+
+                                            <RecipeDef ParentName="Make_BDLG_GoldenAK_Bond">
+                                                <defName>Make_BDLG_GoldenAK_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseFalse>
+                            </Operation>
+                        </caseTrue>
                     </Operation>
                 </caseTrue>
-            </li>
+            </Operation>
         </caseTrue>
     </Operation>
 </Patch>

@@ -3,1145 +3,985 @@
     ===== Borderlands: The Rim =====
 -->
 <Patch>
-    <Operation Class="PatchOperationFindMod">
+    <Operation Class="XmlExtensions.FindMod">
         <mods>
-            <li>Borderlands: The Rim</li>
+            <li>deon.borderlands14</li>
         </mods>
+        <packageId>true</packageId>
 
-        <match Class="PatchOperationSequence">
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>Defs</xpath>
-                    <value>
-                        <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_AtlasPistol_Bond" Abstract="True">
-                            <label>persona atlas pistol</label>
-                            <description>[ ATLAS weapons typically have higher damage ] A standard sidearm of Atlas and Crimson Lance troops.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Weapons/AtlasPistol</texPath>
-                            </graphicData>
-                            <soundInteract>Interact_Revolver</soundInteract>
-                            <statBases>
-                                <MarketValue>330.0</MarketValue>
-                                <Mass>1.2</Mass>
-                                <AccuracyTouch>0.88</AccuracyTouch>
-                                <AccuracyShort>0.825</AccuracyShort>
-                                <AccuracyMedium>0.495</AccuracyMedium>
-                                <AccuracyLong>0.385</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
-                            </statBases>
-                            <weaponTags>
-                                <li>AtlasPistol</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                                <li>ShortShots</li>
-                            </weaponClasses>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_AtlasPistol_Bond</defaultProjectile>
-                                    <warmupTime>0.255</warmupTime>
-                                    <range>26</range>
-                                    <soundCast>Shot_LowChargedShot</soundCast>
-                                    <soundCastTail>GunTail_Light</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <tools>
-                                <li>
-                                    <label>grip</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_AtlasPistol_Bond" Abstract="True">
+                        <label>persona atlas pistol</label>
+                        <description>[ ATLAS weapons typically have higher damage ] A standard sidearm of Atlas and Crimson Lance troops.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Weapons/AtlasPistol</texPath>
+                        </graphicData>
+                        <soundInteract>Interact_Revolver</soundInteract>
+                        <statBases>
+                            <MarketValue>330.0</MarketValue>
+                            <Mass>1.2</Mass>
+                            <AccuracyTouch>0.88</AccuracyTouch>
+                            <AccuracyShort>0.825</AccuracyShort>
+                            <AccuracyMedium>0.495</AccuracyMedium>
+                            <AccuracyLong>0.385</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>AtlasPistol</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                            <li>ShortShots</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_AtlasPistol_Bond</defaultProjectile>
+                                <warmupTime>0.255</warmupTime>
+                                <range>26</range>
+                                <soundCast>Shot_LowChargedShot</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_AtlasPistol_Bond" Abstract="True">
-                            <label>atlas pistol bullet</label>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Small</texPath>
-                            </graphicData>
-                            <projectile>
-                                <flyOverhead>false</flyOverhead>
-                                <damageAmountBase>22</damageAmountBase>
-                                <stoppingPower>1</stoppingPower>
-                                <armorPenetrationBase>0.2</armorPenetrationBase>
-                                <speed>75</speed>
-                            </projectile>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_AtlasPistol_Bond" Abstract="True">
+                        <label>atlas pistol bullet</label>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <flyOverhead>false</flyOverhead>
+                            <damageAmountBase>22</damageAmountBase>
+                            <stoppingPower>1</stoppingPower>
+                            <armorPenetrationBase>0.2</armorPenetrationBase>
+                            <speed>75</speed>
+                        </projectile>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_AtlasMachinePistol_Bond" Abstract="True">
-                            <label>persona atlas machine pistol</label>
-                            <description>[ ATLAS weapons typically have higher damage ] A micro-submachine gun. It is short-ranged, but very light in the hands. Its rate of fire tends to make up for its weakness.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Weapons/AtlasSMG</texPath>
-                            </graphicData>
-                            <soundInteract>Interact_SMG</soundInteract>
-                            <statBases>
-                                <Mass>2.2</Mass>
-                                <MarketValue>550.0</MarketValue>
-                                <AccuracyTouch>0.99</AccuracyTouch>
-                                <AccuracyShort>0.715</AccuracyShort>
-                                <AccuracyMedium>0.385</AccuracyMedium>
-                                <AccuracyLong>0.165</AccuracyLong>
-                                <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_AtlasMachinePistol_Bond</defaultProjectile>
-                                    <warmupTime>0.425</warmupTime>
-                                    <range>22</range>
-                                    <burstShotCount>3</burstShotCount>
-                                    <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
-                                    <soundCast>Shot_LowChargedShot</soundCast>
-                                    <soundCastTail>GunTail_Light</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>AtlasSMG</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                                <li>ShortShots</li>
-                            </weaponClasses>
-                            <tools>
-                                <li>
-                                    <label>grip</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_AtlasMachinePistol_Bond" Abstract="True">
+                        <label>persona atlas machine pistol</label>
+                        <description>[ ATLAS weapons typically have higher damage ] A micro-submachine gun. It is short-ranged, but very light in the hands. Its rate of fire tends to make up for its weakness.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Weapons/AtlasSMG</texPath>
+                        </graphicData>
+                        <soundInteract>Interact_SMG</soundInteract>
+                        <statBases>
+                            <Mass>2.2</Mass>
+                            <MarketValue>550.0</MarketValue>
+                            <AccuracyTouch>0.99</AccuracyTouch>
+                            <AccuracyShort>0.715</AccuracyShort>
+                            <AccuracyMedium>0.385</AccuracyMedium>
+                            <AccuracyLong>0.165</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_AtlasMachinePistol_Bond</defaultProjectile>
+                                <warmupTime>0.425</warmupTime>
+                                <range>22</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                                <soundCast>Shot_LowChargedShot</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>AtlasSMG</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                            <li>ShortShots</li>
+                        </weaponClasses>
+                        <tools>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_AtlasMachinePistol_Bond" Abstract="True">
-                            <label>atlas machine pistol bullet</label>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Small</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageAmountBase>15</damageAmountBase>
-                                <armorPenetrationBase>0.15</armorPenetrationBase>
-                                <speed>55</speed>
-                            </projectile>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_AtlasMachinePistol_Bond" Abstract="True">
+                        <label>atlas machine pistol bullet</label>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>15</damageAmountBase>
+                            <armorPenetrationBase>0.15</armorPenetrationBase>
+                            <speed>55</speed>
+                        </projectile>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_AtlasCombatShotgun_Bond" Abstract="True">
-                            <label>persona Atlas combat shotgun</label>
-                            <description>[ ATLAS weapons typically have higher damage ] A magazine-fed fully automatic shotgun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Weapons/AtlasShotgun</texPath>
-                            </graphicData>
-                            <soundInteract>Interact_Shotgun</soundInteract>
-                            <statBases>
-                                <Mass>5</Mass>
-                                <MarketValue>660.0</MarketValue>
-                                <AccuracyTouch>0.627</AccuracyTouch>
-                                <AccuracyShort>0.704</AccuracyShort>
-                                <AccuracyMedium>0.605</AccuracyMedium>
-                                <AccuracyLong>0.495</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.147</RangedWeapon_Cooldown>
-                            </statBases>
-                            <techLevel>Industrial</techLevel>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_AtlasShotgun_Bond</defaultProjectile>
-                                    <warmupTime>1.02</warmupTime>
-                                    <range>15</range>
-                                    <burstShotCount>3</burstShotCount>
-                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-                                    <soundCast>Shot_Shotgun</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>AtlasCombatShotgun</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedHeavy</li>
-                                <li>ShortShots</li>
-                            </weaponClasses>
-                            <tools>
-                                <li>
-                                    <label>stock</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_AtlasCombatShotgun_Bond" Abstract="True">
+                        <label>persona Atlas combat shotgun</label>
+                        <description>[ ATLAS weapons typically have higher damage ] A magazine-fed fully automatic shotgun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Weapons/AtlasShotgun</texPath>
+                        </graphicData>
+                        <soundInteract>Interact_Shotgun</soundInteract>
+                        <statBases>
+                            <Mass>5</Mass>
+                            <MarketValue>660.0</MarketValue>
+                            <AccuracyTouch>0.627</AccuracyTouch>
+                            <AccuracyShort>0.704</AccuracyShort>
+                            <AccuracyMedium>0.605</AccuracyMedium>
+                            <AccuracyLong>0.495</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.147</RangedWeapon_Cooldown>
+                        </statBases>
+                        <techLevel>Industrial</techLevel>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_AtlasShotgun_Bond</defaultProjectile>
+                                <warmupTime>1.02</warmupTime>
+                                <range>15</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>Shot_Shotgun</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>AtlasCombatShotgun</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>RangedHeavy</li>
+                            <li>ShortShots</li>
+                        </weaponClasses>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_AtlasShotgun_Bond" Abstract="True">
-                            <label>shotgun blast</label>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Shotgun</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageAmountBase>27</damageAmountBase>
-                                <stoppingPower>3</stoppingPower>
-                                <armorPenetrationBase>0.25</armorPenetrationBase>
-                                <speed>55</speed>
-                            </projectile>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_AtlasShotgun_Bond" Abstract="True">
+                        <label>shotgun blast</label>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>27</damageAmountBase>
+                            <stoppingPower>3</stoppingPower>
+                            <armorPenetrationBase>0.25</armorPenetrationBase>
+                            <speed>55</speed>
+                        </projectile>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_AtlasRifle_Bond" Abstract="True">
-                            <label>persona Atlas pulse rifle</label>
-                            <description>[ ATLAS weapons typically have higher damage ] Pulse-charge technology charges each shot with unstable energy as it leaves the barrel. Released on impact, the charged energy greatly increases the damage done.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <techLevel>Spacer</techLevel>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Weapons/AtlasRifle</texPath>
-                            </graphicData>
-                            <soundInteract>Interact_ChargeRifle</soundInteract>
-                            <statBases>
-                                <Mass>4.6</Mass>
-                                <MarketValue>880.0</MarketValue>
-                                <AccuracyTouch>0.605</AccuracyTouch>
-                                <AccuracyShort>0.704</AccuracyShort>
-                                <AccuracyMedium>0.605</AccuracyMedium>
-                                <AccuracyLong>0.495</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
-                            </statBases>
-                            <weaponTags>
-                                <li>AtlasRifle</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                            </weaponClasses>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_AtlasPulseRifle_Bond</defaultProjectile>
-                                    <warmupTime>0.85</warmupTime>
-                                    <range>26</range>
-                                    <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-                                    <burstShotCount>3</burstShotCount>
-                                    <soundCast>Shot_ChargeRifle</soundCast>
-                                    <soundCastTail>GunTail_Medium</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <tools>
-                                <li>
-                                    <label>stock</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_AtlasRifle_Bond" Abstract="True">
+                        <label>persona Atlas pulse rifle</label>
+                        <description>[ ATLAS weapons typically have higher damage ] Pulse-charge technology charges each shot with unstable energy as it leaves the barrel. Released on impact, the charged energy greatly increases the damage done.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Weapons/AtlasRifle</texPath>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeRifle</soundInteract>
+                        <statBases>
+                            <Mass>4.6</Mass>
+                            <MarketValue>880.0</MarketValue>
+                            <AccuracyTouch>0.605</AccuracyTouch>
+                            <AccuracyShort>0.704</AccuracyShort>
+                            <AccuracyMedium>0.605</AccuracyMedium>
+                            <AccuracyLong>0.495</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>AtlasRifle</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_AtlasPulseRifle_Bond</defaultProjectile>
+                                <warmupTime>0.85</warmupTime>
+                                <range>26</range>
+                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                <burstShotCount>3</burstShotCount>
+                                <soundCast>Shot_ChargeRifle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_AtlasPulseRifle_Bond" Abstract="True">
-                            <label>atlas pulse rifle shot</label>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Things/Projectile/Charge_Small</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageAmountBase>24</damageAmountBase>
-                                <armorPenetrationBase>0.35</armorPenetrationBase>
-                                <speed>70</speed>
-                            </projectile>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_AtlasPulseRifle_Bond" Abstract="True">
+                        <label>atlas pulse rifle shot</label>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Things/Projectile/Charge_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>24</damageAmountBase>
+                            <armorPenetrationBase>0.35</armorPenetrationBase>
+                            <speed>70</speed>
+                        </projectile>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_AtlasSniperRifle_Bond" Abstract="True">
-                            <label>persona Atlas sniper rifle</label>
-                            <description>[ ATLAS weapons typically have higher damage ] A precision rifle manufactured by Atlas. It has an exceptionally long range, great accuracy and good power. Because it's so unwieldy, other weapons outclass it at close range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Weapons/AtlasSniper</texPath>
-                            </graphicData>
-                            <soundInteract>Interact_Rifle</soundInteract>
-                            <statBases>
-                                <Mass>4</Mass>
-                                <MarketValue>990.0</MarketValue>
-                                <AccuracyTouch>0.55</AccuracyTouch>
-                                <AccuracyShort>0.77</AccuracyShort>
-                                <AccuracyMedium>0.946</AccuracyMedium>
-                                <AccuracyLong>0.968</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.955</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_AtlasSniperRifle_Bond</defaultProjectile>
-                                    <warmupTime>2.975</warmupTime>
-                                    <range>45</range>
-                                    <soundCast>ChargeLance_Fire</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <tools>
-                                <li>
-                                    <label>stock</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                            <weaponTags>
-                                <li>AtlasSniperRifle</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>LongShots</li>
-                            </weaponClasses>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_AtlasSniperRifle_Bond" Abstract="True">
+                        <label>persona Atlas sniper rifle</label>
+                        <description>[ ATLAS weapons typically have higher damage ] A precision rifle manufactured by Atlas. It has an exceptionally long range, great accuracy and good power. Because it's so unwieldy, other weapons outclass it at close range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Weapons/AtlasSniper</texPath>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <Mass>4</Mass>
+                            <MarketValue>990.0</MarketValue>
+                            <AccuracyTouch>0.55</AccuracyTouch>
+                            <AccuracyShort>0.77</AccuracyShort>
+                            <AccuracyMedium>0.946</AccuracyMedium>
+                            <AccuracyLong>0.968</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.955</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_AtlasSniperRifle_Bond</defaultProjectile>
+                                <warmupTime>2.975</warmupTime>
+                                <range>45</range>
+                                <soundCast>ChargeLance_Fire</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                        <weaponTags>
+                            <li>AtlasSniperRifle</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>LongShots</li>
+                        </weaponClasses>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_AtlasSniperRifle_Bond" Abstract="True">
-                            <label>Atlas sniper rifle bullet</label>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Big</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageAmountBase>35</damageAmountBase>
-                                <armorPenetrationBase>0.35</armorPenetrationBase>
-                                <stoppingPower>1.5</stoppingPower>
-                                <speed>100</speed>
-                            </projectile>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_AtlasSniperRifle_Bond" Abstract="True">
+                        <label>Atlas sniper rifle bullet</label>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Big</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>35</damageAmountBase>
+                            <armorPenetrationBase>0.35</armorPenetrationBase>
+                            <stoppingPower>1.5</stoppingPower>
+                            <speed>100</speed>
+                        </projectile>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_DahlPistol_Bond" Abstract="True">
-                            <label>persona DAHL pistol</label>
-                            <description>[ DAHL weapons typically have less recoil. ] A standard issue DAHL marine pistol.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Weapons/DahlPistol</texPath>
-                            </graphicData>
-                            <soundInteract>Interact_Revolver</soundInteract>
-                            <statBases>
-                                <MarketValue>330.0</MarketValue>
-                                <Mass>1.2</Mass>
-                                <AccuracyTouch>0.935</AccuracyTouch>
-                                <AccuracyShort>0.858</AccuracyShort>
-                                <AccuracyMedium>0.605</AccuracyMedium>
-                                <AccuracyLong>0.495</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
-                            </statBases>
-                            <weaponTags>
-                                <li>DahlPistol</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                                <li>ShortShots</li>
-                            </weaponClasses>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_DahlPistol_Bond</defaultProjectile>
-                                    <warmupTime>0.212</warmupTime>
-                                    <range>28</range>
-                                    <soundCast>Shot_Revolver</soundCast>
-                                    <soundCastTail>GunTail_Light</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <tools>
-                                <li>
-                                    <label>grip</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_DahlPistol_Bond" Abstract="True">
+                        <label>persona DAHL pistol</label>
+                        <description>[ DAHL weapons typically have less recoil. ] A standard issue DAHL marine pistol.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Weapons/DahlPistol</texPath>
+                        </graphicData>
+                        <soundInteract>Interact_Revolver</soundInteract>
+                        <statBases>
+                            <MarketValue>330.0</MarketValue>
+                            <Mass>1.2</Mass>
+                            <AccuracyTouch>0.935</AccuracyTouch>
+                            <AccuracyShort>0.858</AccuracyShort>
+                            <AccuracyMedium>0.605</AccuracyMedium>
+                            <AccuracyLong>0.495</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>DahlPistol</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                            <li>ShortShots</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_DahlPistol_Bond</defaultProjectile>
+                                <warmupTime>0.212</warmupTime>
+                                <range>28</range>
+                                <soundCast>Shot_Revolver</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_DahlPistol_Bond" Abstract="True">
-                            <label>DAHL pistol bullet</label>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Small</texPath>
-                            </graphicData>
-                            <projectile>
-                                <flyOverhead>false</flyOverhead>
-                                <damageAmountBase>19</damageAmountBase>
-                                <stoppingPower>1</stoppingPower>
-                                <speed>70</speed>
-                            </projectile>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_DahlPistol_Bond" Abstract="True">
+                        <label>DAHL pistol bullet</label>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <flyOverhead>false</flyOverhead>
+                            <damageAmountBase>19</damageAmountBase>
+                            <stoppingPower>1</stoppingPower>
+                            <speed>70</speed>
+                        </projectile>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_DahlMachinePistol_Bond" Abstract="True">
-                            <label>persona DAHL machine pistol</label>
-                            <description>[ DAHL weapons typically have less recoil. ]  A micro-submachine gun. It is short-ranged, but very light in the hands. Its rate of fire tends to make up for its weakness.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Weapons/DahlSMG</texPath>
-                            </graphicData>
-                            <soundInteract>Interact_SMG</soundInteract>
-                            <statBases>
-                                <Mass>2.5</Mass>
-                                <MarketValue>550.0</MarketValue>
-                                <AccuracyTouch>1.012</AccuracyTouch>
-                                <AccuracyShort>0.792</AccuracyShort>
-                                <AccuracyMedium>0.462</AccuracyMedium>
-                                <AccuracyLong>0.242</AccuracyLong>
-                                <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_DahlMachinePistol_Bond</defaultProjectile>
-                                    <warmupTime>0.425</warmupTime>
-                                    <range>22</range>
-                                    <burstShotCount>3</burstShotCount>
-                                    <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
-                                    <soundCast>Shot_MachinePistol</soundCast>
-                                    <soundCastTail>GunTail_Light</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>DahlSMG</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                                <li>ShortShots</li>
-                            </weaponClasses>
-                            <tools>
-                                <li>
-                                    <label>grip</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_DahlMachinePistol_Bond" Abstract="True">
+                        <label>persona DAHL machine pistol</label>
+                        <description>[ DAHL weapons typically have less recoil. ] A micro-submachine gun. It is short-ranged, but very light in the hands. Its rate of fire tends to make up for its weakness.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Weapons/DahlSMG</texPath>
+                        </graphicData>
+                        <soundInteract>Interact_SMG</soundInteract>
+                        <statBases>
+                            <Mass>2.5</Mass>
+                            <MarketValue>550.0</MarketValue>
+                            <AccuracyTouch>1.012</AccuracyTouch>
+                            <AccuracyShort>0.792</AccuracyShort>
+                            <AccuracyMedium>0.462</AccuracyMedium>
+                            <AccuracyLong>0.242</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_DahlMachinePistol_Bond</defaultProjectile>
+                                <warmupTime>0.425</warmupTime>
+                                <range>22</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                                <soundCast>Shot_MachinePistol</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>DahlSMG</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                            <li>ShortShots</li>
+                        </weaponClasses>
+                        <tools>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_DahlMachinePistol_Bond" Abstract="True">
-                            <label>DAHL machine pistol bullet</label>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Small</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageAmountBase>10</damageAmountBase>
-                                <speed>55</speed>
-                            </projectile>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_DahlMachinePistol_Bond" Abstract="True">
+                        <label>DAHL machine pistol bullet</label>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>10</damageAmountBase>
+                            <speed>55</speed>
+                        </projectile>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_DahlAssaultRifle_Bond" Abstract="True">
-                            <label>persona DAHL assault rifle</label>
-                            <description>[ DAHL weapons typically have less recoil. ] A general-purpose gas-operated assault rifle for field or urban combat.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Weapons/DahlAssaultRifle</texPath>
-                            </graphicData>
-                            <soundInteract>Interact_Rifle</soundInteract>
-                            <statBases>
-                                <Mass>4</Mass>
-                                <MarketValue>770.0</MarketValue>
-                                <AccuracyTouch>0.77</AccuracyTouch>
-                                <AccuracyShort>0.902</AccuracyShort>
-                                <AccuracyMedium>0.825</AccuracyMedium>
-                                <AccuracyLong>0.792</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
-                            </statBases>
-                            <techLevel>Industrial</techLevel>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_DahlAssaultRifle_Bond</defaultProjectile>
-                                    <warmupTime>0.85</warmupTime>
-                                    <range>30</range>
-                                    <burstShotCount>3</burstShotCount>
-                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-                                    <soundCast>Shot_AssaultRifle</soundCast>
-                                    <soundCastTail>GunTail_Medium</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>DahlAssaultRifle</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                            </weaponClasses>
-                            <tools>
-                                <li>
-                                    <label>stock</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_DahlAssaultRifle_Bond" Abstract="True">
+                        <label>persona DAHL assault rifle</label>
+                        <description>[ DAHL weapons typically have less recoil. ] A general-purpose gas-operated assault rifle for field or urban combat.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Weapons/DahlAssaultRifle</texPath>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <Mass>4</Mass>
+                            <MarketValue>770.0</MarketValue>
+                            <AccuracyTouch>0.77</AccuracyTouch>
+                            <AccuracyShort>0.902</AccuracyShort>
+                            <AccuracyMedium>0.825</AccuracyMedium>
+                            <AccuracyLong>0.792</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                        </statBases>
+                        <techLevel>Industrial</techLevel>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_DahlAssaultRifle_Bond</defaultProjectile>
+                                <warmupTime>0.85</warmupTime>
+                                <range>30</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>Shot_AssaultRifle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>DahlAssaultRifle</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                        </weaponClasses>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_DahlAssaultRifle_Bond" Abstract="True">
-                            <label>DAHL assault rifle bullet</label>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Small</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageAmountBase>14</damageAmountBase>
-                                <speed>70</speed>
-                            </projectile>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_DahlAssaultRifle_Bond" Abstract="True">
+                        <label>DAHL assault rifle bullet</label>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>14</damageAmountBase>
+                            <speed>70</speed>
+                        </projectile>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_HyperionPistol_Bond" Abstract="True">
-                            <label>persona hyperion pistol</label>
-                            <description>[ Hyperion weapons are typically more accurate than other brands. ] A high caliber handgun, capable of piercing armor and knocking brains out.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Weapons/HyperionPistol</texPath>
-                            </graphicData>
-                            <soundInteract>Interact_Revolver</soundInteract>
-                            <statBases>
-                                <MarketValue>330.0</MarketValue>
-                                <Mass>1.2</Mass>
-                                <AccuracyTouch>0.935</AccuracyTouch>
-                                <AccuracyShort>0.858</AccuracyShort>
-                                <AccuracyMedium>0.605</AccuracyMedium>
-                                <AccuracyLong>0.495</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
-                            </statBases>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_HyperionPistol_Bond" Abstract="True">
+                        <label>persona hyperion pistol</label>
+                        <description>[ Hyperion weapons are typically more accurate than other brands. ] A high caliber handgun, capable of piercing armor and knocking brains out.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Weapons/HyperionPistol</texPath>
+                        </graphicData>
+                        <soundInteract>Interact_Revolver</soundInteract>
+                        <statBases>
+                            <MarketValue>330.0</MarketValue>
+                            <Mass>1.2</Mass>
+                            <AccuracyTouch>0.935</AccuracyTouch>
+                            <AccuracyShort>0.858</AccuracyShort>
+                            <AccuracyMedium>0.605</AccuracyMedium>
+                            <AccuracyLong>0.495</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                        </statBases>
 
-                            <weaponTags>
-                                <li>HyperionPistol</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                            </weaponClasses>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_HyperionPistol_Bond</defaultProjectile>
-                                    <warmupTime>0.212</warmupTime>
-                                    <range>28</range>
-                                    <soundCast>Shot_Revolver</soundCast>
-                                    <soundCastTail>GunTail_Light</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <tools>
-                                <li>
-                                    <label>grip</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+                        <weaponTags>
+                            <li>HyperionPistol</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_HyperionPistol_Bond</defaultProjectile>
+                                <warmupTime>0.212</warmupTime>
+                                <range>28</range>
+                                <soundCast>Shot_Revolver</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_HyperionPistol_Bond" Abstract="True">
-                            <label>hyperion pistol bullet</label>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Small</texPath>
-                            </graphicData>
-                            <projectile>
-                                <flyOverhead>false</flyOverhead>
-                                <damageAmountBase>19</damageAmountBase>
-                                <stoppingPower>2</stoppingPower>
-                                <speed>70</speed>
-                            </projectile>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_HyperionPistol_Bond" Abstract="True">
+                        <label>hyperion pistol bullet</label>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <flyOverhead>false</flyOverhead>
+                            <damageAmountBase>19</damageAmountBase>
+                            <stoppingPower>2</stoppingPower>
+                            <speed>70</speed>
+                        </projectile>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_HyperionMachinePistol_Bond" Abstract="True">
-                            <label>persona hyperion machine pistol</label>
-                            <description>[ Hyperion weapons are typically more accurate than other brands. ] A micro-submachine gun. It is short-ranged, but very light in the hands. Its rate of fire tends to make up for its weakness.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Weapons/HyperionSMG</texPath>
-                            </graphicData>
-                            <soundInteract>Interact_SMG</soundInteract>
-                            <statBases>
-                                <Mass>2.5</Mass>
-                                <MarketValue>550.0</MarketValue>
-                                <AccuracyTouch>1.012</AccuracyTouch>
-                                <AccuracyShort>0.792</AccuracyShort>
-                                <AccuracyMedium>0.462</AccuracyMedium>
-                                <AccuracyLong>0.242</AccuracyLong>
-                                <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_HyperionMachinePistol_Bond</defaultProjectile>
-                                    <warmupTime>0.425</warmupTime>
-                                    <range>22</range>
-                                    <burstShotCount>3</burstShotCount>
-                                    <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
-                                    <soundCast>Shot_MachinePistol</soundCast>
-                                    <soundCastTail>GunTail_Light</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>HyperionSMG</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                            </weaponClasses>
-                            <tools>
-                                <li>
-                                    <label>grip</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_HyperionMachinePistol_Bond" Abstract="True">
+                        <label>persona hyperion machine pistol</label>
+                        <description>[ Hyperion weapons are typically more accurate than other brands. ] A micro-submachine gun. It is short-ranged, but very light in the hands. Its rate of fire tends to make up for its weakness.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Weapons/HyperionSMG</texPath>
+                        </graphicData>
+                        <soundInteract>Interact_SMG</soundInteract>
+                        <statBases>
+                            <Mass>2.5</Mass>
+                            <MarketValue>550.0</MarketValue>
+                            <AccuracyTouch>1.012</AccuracyTouch>
+                            <AccuracyShort>0.792</AccuracyShort>
+                            <AccuracyMedium>0.462</AccuracyMedium>
+                            <AccuracyLong>0.242</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_HyperionMachinePistol_Bond</defaultProjectile>
+                                <warmupTime>0.425</warmupTime>
+                                <range>22</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                                <soundCast>Shot_MachinePistol</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>HyperionSMG</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                        </weaponClasses>
+                        <tools>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_HyperionMachinePistol_Bond" Abstract="True">
-                            <label>hyperion machine pistol bullet</label>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Small</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageAmountBase>10</damageAmountBase>
-                                <speed>55</speed>
-                            </projectile>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_HyperionMachinePistol_Bond" Abstract="True">
+                        <label>hyperion machine pistol bullet</label>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>10</damageAmountBase>
+                            <speed>55</speed>
+                        </projectile>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_HyperionCombatShotgun_Bond" Abstract="True">
-                            <label>persona hyperion combat shotgun</label>
-                            <description>[ Hyperion weapons are typically more accurate than other brands. ]A magazine-fed fully automatic shotgun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Weapons/HyperionCombatShotgun</texPath>
-                            </graphicData>
-                            <soundInteract>Interact_Shotgun</soundInteract>
-                            <statBases>
-                                <Mass>5</Mass>
-                                <MarketValue>660.0</MarketValue>
-                                <AccuracyTouch>0.572</AccuracyTouch>
-                                <AccuracyShort>0.77</AccuracyShort>
-                                <AccuracyMedium>0.682</AccuracyMedium>
-                                <AccuracyLong>0.55</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.147</RangedWeapon_Cooldown>
-                            </statBases>
-                            <techLevel>Industrial</techLevel>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_HyperionShotgun_Bond</defaultProjectile>
-                                    <warmupTime>1.02</warmupTime>
-                                    <range>15</range>
-                                    <burstShotCount>3</burstShotCount>
-                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-                                    <soundCast>Shot_Shotgun</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>HyperionShotgun</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedHeavy</li>
-                                <li>ShortShots</li>
-                            </weaponClasses>
-                            <tools>
-                                <li>
-                                    <label>stock</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_HyperionCombatShotgun_Bond" Abstract="True">
+                        <label>persona hyperion combat shotgun</label>
+                        <description>[ Hyperion weapons are typically more accurate than other brands. ]A magazine-fed fully automatic shotgun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Weapons/HyperionCombatShotgun</texPath>
+                        </graphicData>
+                        <soundInteract>Interact_Shotgun</soundInteract>
+                        <statBases>
+                            <Mass>5</Mass>
+                            <MarketValue>660.0</MarketValue>
+                            <AccuracyTouch>0.572</AccuracyTouch>
+                            <AccuracyShort>0.77</AccuracyShort>
+                            <AccuracyMedium>0.682</AccuracyMedium>
+                            <AccuracyLong>0.55</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.147</RangedWeapon_Cooldown>
+                        </statBases>
+                        <techLevel>Industrial</techLevel>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_HyperionShotgun_Bond</defaultProjectile>
+                                <warmupTime>1.02</warmupTime>
+                                <range>15</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>Shot_Shotgun</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>HyperionShotgun</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>RangedHeavy</li>
+                            <li>ShortShots</li>
+                        </weaponClasses>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_HyperionShotgun_Bond" Abstract="True">
-                            <label>shotgun blast</label>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Shotgun</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageAmountBase>22</damageAmountBase>
-                                <stoppingPower>3</stoppingPower>
-                                <armorPenetrationBase>0.14</armorPenetrationBase>
-                                <speed>55</speed>
-                            </projectile>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_HyperionShotgun_Bond" Abstract="True">
+                        <label>shotgun blast</label>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>22</damageAmountBase>
+                            <stoppingPower>3</stoppingPower>
+                            <armorPenetrationBase>0.14</armorPenetrationBase>
+                            <speed>55</speed>
+                        </projectile>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_HyperionAssaultRifle_Bond" Abstract="True">
-                            <label>persona hyperion assault rifle</label>
-                            <description>[ Hyperion weapons are typically more accurate than other brands. ] A general-purpose gas-operated assault rifle for field or urban combat.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Weapons/HyperionAssaultRifle</texPath>
-                            </graphicData>
-                            <soundInteract>Interact_Rifle</soundInteract>
-                            <statBases>
-                                <Mass>4</Mass>
-                                <MarketValue>770.0</MarketValue>
-                                <AccuracyTouch>0.77</AccuracyTouch>
-                                <AccuracyShort>0.902</AccuracyShort>
-                                <AccuracyMedium>0.825</AccuracyMedium>
-                                <AccuracyLong>0.792</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
-                            </statBases>
-                            <techLevel>Industrial</techLevel>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_HyperionAssaultRifle_Bond</defaultProjectile>
-                                    <warmupTime>0.85</warmupTime>
-                                    <range>30</range>
-                                    <burstShotCount>3</burstShotCount>
-                                    <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
-                                    <soundCast>Shot_AssaultRifle</soundCast>
-                                    <soundCastTail>GunTail_Medium</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>HyperionAssault</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                            </weaponClasses>
-                            <tools>
-                                <li>
-                                    <label>stock</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="Gun_HyperionAssaultRifle_Bond" Abstract="True">
+                        <label>persona hyperion assault rifle</label>
+                        <description>[ Hyperion weapons are typically more accurate than other brands. ] A general-purpose gas-operated assault rifle for field or urban combat.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Weapons/HyperionAssaultRifle</texPath>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <Mass>4</Mass>
+                            <MarketValue>770.0</MarketValue>
+                            <AccuracyTouch>0.77</AccuracyTouch>
+                            <AccuracyShort>0.902</AccuracyShort>
+                            <AccuracyMedium>0.825</AccuracyMedium>
+                            <AccuracyLong>0.792</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                        </statBases>
+                        <techLevel>Industrial</techLevel>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_HyperionAssaultRifle_Bond</defaultProjectile>
+                                <warmupTime>0.85</warmupTime>
+                                <range>30</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>Shot_AssaultRifle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>HyperionAssault</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                        </weaponClasses>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_HyperionAssaultRifle_Bond" Abstract="True">
-                            <label>hyperion assault rifle bullet</label>
-                            <smeltable>false</smeltable>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Small</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageAmountBase>14</damageAmountBase>
-                                <speed>70</speed>
-                            </projectile>
-                        </ThingDef>
-                    </value>
-                </li>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_HyperionAssaultRifle_Bond" Abstract="True">
+                        <label>hyperion assault rifle bullet</label>
+                        <smeltable>false</smeltable>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>14</damageAmountBase>
+                            <speed>70</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
 
-                <li Class="PatchOperationFindMod">
-                    <mods>
-                        <li>XML Extensions</li>
-                    </mods>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_BorderlandsTheRim</key>
+                <defaultValue>true</defaultValue>
 
-                    <nomatch Class="PatchOperationAdd">
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
                         <xpath>Defs</xpath>
                         <value>
-                            <!-- Gun_AtlasPistol_Bond -->
                             <ThingDef ParentName="Gun_AtlasPistol_Bond">
                                 <defName>Gun_AtlasPistol_Bond</defName>
                             </ThingDef>
 
-                            <!-- Bullet_AtlasPistol_Bond -->
                             <ThingDef ParentName="Bullet_AtlasPistol_Bond">
                                 <defName>Bullet_AtlasPistol_Bond</defName>
                             </ThingDef>
 
-                            <!-- Gun_AtlasMachinePistol_Bond -->
                             <ThingDef ParentName="Gun_AtlasMachinePistol_Bond">
                                 <defName>Gun_AtlasMachinePistol_Bond</defName>
                             </ThingDef>
 
-                            <!-- Bullet_AtlasMachinePistol_Bond -->
                             <ThingDef ParentName="Bullet_AtlasMachinePistol_Bond">
                                 <defName>Bullet_AtlasMachinePistol_Bond</defName>
                             </ThingDef>
 
-                            <!-- Gun_AtlasCombatShotgun_Bond -->
                             <ThingDef ParentName="Gun_AtlasCombatShotgun_Bond">
                                 <defName>Gun_AtlasCombatShotgun_Bond</defName>
                             </ThingDef>
 
-                            <!-- Bullet_AtlasShotgun_Bond -->
                             <ThingDef ParentName="Bullet_AtlasShotgun_Bond">
                                 <defName>Bullet_AtlasShotgun_Bond</defName>
                             </ThingDef>
 
-                            <!-- Gun_AtlasRifle_Bond -->
                             <ThingDef ParentName="Gun_AtlasRifle_Bond">
                                 <defName>Gun_AtlasRifle_Bond</defName>
                             </ThingDef>
 
-                            <!-- Bullet_AtlasPulseRifle_Bond -->
                             <ThingDef ParentName="Bullet_AtlasPulseRifle_Bond">
                                 <defName>Bullet_AtlasPulseRifle_Bond</defName>
                             </ThingDef>
 
-                            <!-- Gun_AtlasSniperRifle_Bond -->
                             <ThingDef ParentName="Gun_AtlasSniperRifle_Bond">
                                 <defName>Gun_AtlasSniperRifle_Bond</defName>
                             </ThingDef>
 
-                            <!-- Bullet_AtlasSniperRifle_Bond -->
                             <ThingDef ParentName="Bullet_AtlasSniperRifle_Bond">
                                 <defName>Bullet_AtlasSniperRifle_Bond</defName>
                             </ThingDef>
 
-                            <!-- Gun_DahlPistol_Bond -->
                             <ThingDef ParentName="Gun_DahlPistol_Bond">
                                 <defName>Gun_DahlPistol_Bond</defName>
                             </ThingDef>
 
-                            <!-- Bullet_DahlPistol_Bond -->
                             <ThingDef ParentName="Bullet_DahlPistol_Bond">
                                 <defName>Bullet_DahlPistol_Bond</defName>
                             </ThingDef>
 
-                            <!-- Gun_DahlMachinePistol_Bond -->
                             <ThingDef ParentName="Gun_DahlMachinePistol_Bond">
                                 <defName>Gun_DahlMachinePistol_Bond</defName>
                             </ThingDef>
 
-                            <!-- Bullet_DahlMachinePistol_Bond -->
                             <ThingDef ParentName="Bullet_DahlMachinePistol_Bond">
                                 <defName>Bullet_DahlMachinePistol_Bond</defName>
                             </ThingDef>
 
-                            <!-- Gun_DahlAssaultRifle_Bond -->
                             <ThingDef ParentName="Gun_DahlAssaultRifle_Bond">
                                 <defName>Gun_DahlAssaultRifle_Bond</defName>
                             </ThingDef>
 
-                            <!-- Bullet_DahlAssaultRifle_Bond -->
                             <ThingDef ParentName="Bullet_DahlAssaultRifle_Bond">
                                 <defName>Bullet_DahlAssaultRifle_Bond</defName>
                             </ThingDef>
 
-                            <!-- Gun_HyperionPistol_Bond -->
                             <ThingDef ParentName="Gun_HyperionPistol_Bond">
                                 <defName>Gun_HyperionPistol_Bond</defName>
                             </ThingDef>
 
-                            <!-- Bullet_HyperionPistol_Bond -->
                             <ThingDef ParentName="Bullet_HyperionPistol_Bond">
                                 <defName>Bullet_HyperionPistol_Bond</defName>
                             </ThingDef>
 
-                            <!-- Gun_HyperionMachinePistol_Bond -->
                             <ThingDef ParentName="Gun_HyperionMachinePistol_Bond">
                                 <defName>Gun_HyperionMachinePistol_Bond</defName>
                             </ThingDef>
 
-                            <!-- Bullet_HyperionMachinePistol_Bond -->
                             <ThingDef ParentName="Bullet_HyperionMachinePistol_Bond">
                                 <defName>Bullet_HyperionMachinePistol_Bond</defName>
                             </ThingDef>
 
-                            <!-- Gun_HyperionCombatShotgun_Bond -->
                             <ThingDef ParentName="Gun_HyperionCombatShotgun_Bond">
                                 <defName>Gun_HyperionCombatShotgun_Bond</defName>
                             </ThingDef>
 
-                            <!-- Bullet_HyperionShotgun_Bond -->
                             <ThingDef ParentName="Bullet_HyperionShotgun_Bond">
                                 <defName>Bullet_HyperionShotgun_Bond</defName>
                             </ThingDef>
 
-                            <!-- Gun_HyperionAssaultRifle_Bond -->
                             <ThingDef ParentName="Gun_HyperionAssaultRifle_Bond">
                                 <defName>Gun_HyperionAssaultRifle_Bond</defName>
                             </ThingDef>
 
-                            <!-- Bullet_HyperionAssaultRifle_Bond -->
                             <ThingDef ParentName="Bullet_HyperionAssaultRifle_Bond">
                                 <defName>Bullet_HyperionAssaultRifle_Bond</defName>
                             </ThingDef>
                         </value>
-                    </nomatch>
-
-                    <match Class="PatchOperationSequence">
-                        <operations>
-                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                                <key>Daria40K_MightyPersonaBondForgePatch_BorderlandsTheRim</key>
-                                <defaultValue>true</defaultValue>
-
-                                <caseTrue>
-                                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                                        <xpath>Defs</xpath>
-                                        <value>
-                                            <!-- Gun_AtlasPistol_Bond -->
-                                            <ThingDef ParentName="Gun_AtlasPistol_Bond">
-                                                <defName>Gun_AtlasPistol_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_AtlasPistol_Bond -->
-                                            <ThingDef ParentName="Bullet_AtlasPistol_Bond">
-                                                <defName>Bullet_AtlasPistol_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Gun_AtlasMachinePistol_Bond -->
-                                            <ThingDef ParentName="Gun_AtlasMachinePistol_Bond">
-                                                <defName>Gun_AtlasMachinePistol_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_AtlasMachinePistol_Bond -->
-                                            <ThingDef ParentName="Bullet_AtlasMachinePistol_Bond">
-                                                <defName>Bullet_AtlasMachinePistol_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Gun_AtlasCombatShotgun_Bond -->
-                                            <ThingDef ParentName="Gun_AtlasCombatShotgun_Bond">
-                                                <defName>Gun_AtlasCombatShotgun_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_AtlasShotgun_Bond -->
-                                            <ThingDef ParentName="Bullet_AtlasShotgun_Bond">
-                                                <defName>Bullet_AtlasShotgun_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Gun_AtlasRifle_Bond -->
-                                            <ThingDef ParentName="Gun_AtlasRifle_Bond">
-                                                <defName>Gun_AtlasRifle_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_AtlasPulseRifle_Bond -->
-                                            <ThingDef ParentName="Bullet_AtlasPulseRifle_Bond">
-                                                <defName>Bullet_AtlasPulseRifle_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Gun_AtlasSniperRifle_Bond -->
-                                            <ThingDef ParentName="Gun_AtlasSniperRifle_Bond">
-                                                <defName>Gun_AtlasSniperRifle_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_AtlasSniperRifle_Bond -->
-                                            <ThingDef ParentName="Bullet_AtlasSniperRifle_Bond">
-                                                <defName>Bullet_AtlasSniperRifle_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Gun_DahlPistol_Bond -->
-                                            <ThingDef ParentName="Gun_DahlPistol_Bond">
-                                                <defName>Gun_DahlPistol_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_DahlPistol_Bond -->
-                                            <ThingDef ParentName="Bullet_DahlPistol_Bond">
-                                                <defName>Bullet_DahlPistol_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Gun_DahlMachinePistol_Bond -->
-                                            <ThingDef ParentName="Gun_DahlMachinePistol_Bond">
-                                                <defName>Gun_DahlMachinePistol_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_DahlMachinePistol_Bond -->
-                                            <ThingDef ParentName="Bullet_DahlMachinePistol_Bond">
-                                                <defName>Bullet_DahlMachinePistol_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Gun_DahlAssaultRifle_Bond -->
-                                            <ThingDef ParentName="Gun_DahlAssaultRifle_Bond">
-                                                <defName>Gun_DahlAssaultRifle_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_DahlAssaultRifle_Bond -->
-                                            <ThingDef ParentName="Bullet_DahlAssaultRifle_Bond">
-                                                <defName>Bullet_DahlAssaultRifle_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Gun_HyperionPistol_Bond -->
-                                            <ThingDef ParentName="Gun_HyperionPistol_Bond">
-                                                <defName>Gun_HyperionPistol_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_HyperionPistol_Bond -->
-                                            <ThingDef ParentName="Bullet_HyperionPistol_Bond">
-                                                <defName>Bullet_HyperionPistol_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Gun_HyperionMachinePistol_Bond -->
-                                            <ThingDef ParentName="Gun_HyperionMachinePistol_Bond">
-                                                <defName>Gun_HyperionMachinePistol_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_HyperionMachinePistol_Bond -->
-                                            <ThingDef ParentName="Bullet_HyperionMachinePistol_Bond">
-                                                <defName>Bullet_HyperionMachinePistol_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Gun_HyperionCombatShotgun_Bond -->
-                                            <ThingDef ParentName="Gun_HyperionCombatShotgun_Bond">
-                                                <defName>Gun_HyperionCombatShotgun_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_HyperionShotgun_Bond -->
-                                            <ThingDef ParentName="Bullet_HyperionShotgun_Bond">
-                                                <defName>Bullet_HyperionShotgun_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Gun_HyperionAssaultRifle_Bond -->
-                                            <ThingDef ParentName="Gun_HyperionAssaultRifle_Bond">
-                                                <defName>Gun_HyperionAssaultRifle_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_HyperionAssaultRifle_Bond -->
-                                            <ThingDef ParentName="Bullet_HyperionAssaultRifle_Bond">
-                                                <defName>Bullet_HyperionAssaultRifle_Bond</defName>
-                                            </ThingDef>
-                                        </value>
-                                    </Operation>
-                                </caseTrue>
-                            </li>
-                        </operations>
-                    </match>
-                </li>
-            </operations>
-        </match>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
     </Operation>
 </Patch>

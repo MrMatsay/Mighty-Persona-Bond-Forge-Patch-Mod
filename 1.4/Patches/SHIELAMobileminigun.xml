@@ -1,98 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== SHIELA, Mobile minigun =====
 -->
 <Patch>
-    <Operation Class="PatchOperationFindMod">
+    <Operation Class="XmlExtensions.FindMod">
         <mods>
-            <li>SHIELA, Mobile minigun</li>
+            <li>shiela.mobileminigun</li>
         </mods>
+        <packageId>true</packageId>
 
-        <match Class="PatchOperationSequence">
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>Defs</xpath>
-                    <value>
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="SHIELA_Bond" Abstract="True">
-                            <label>persona SHIELA, mobile minigun</label>
-                            <description>The SHIELA is well known as one of the apex legend Ramya "Rampart" Parekh's perfectly forged Mobile minigun, Loaded with Massive caliber ammunition.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <techLevel>Industrial</techLevel>
-                            <graphicData>
-                                <texPath>Things/Weapons/SHIELA</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                                <drawSize>1.35</drawSize>
-                                <drawOffsetNorth>0.1, 0.0, -0.1</drawOffsetNorth>
-                                <drawOffsetEast>0.1, 0.0, -0.1</drawOffsetEast>
-                                <drawOffsetSouth>-0.1, 0.0, -0.1</drawOffsetSouth>
-                                <drawOffsetWest>-0.1, 0.0, -0.1</drawOffsetWest>
-                            </graphicData>
-                            <soundInteract>Interact_Rifle</soundInteract>
-                            <statBases>
-                                <Mass>12</Mass>
-                                <AccuracyTouch>0.169</AccuracyTouch>
-                                <AccuracyShort>0.242</AccuracyShort>
-                                <AccuracyMedium>0.254</AccuracyMedium>
-                                <AccuracyLong>0.194</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.806</RangedWeapon_Cooldown>
-                            </statBases>
-                            <equippedAngleOffset>45</equippedAngleOffset>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>SHIELA_projectile_Bond</defaultProjectile>
-                                    <warmupTime>3.5</warmupTime>
-                                    <range>35</range>
-                                    <burstShotCount>50</burstShotCount>
-                                    <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
-                                    <soundAiming>Aim_ShielaMG</soundAiming>
-                                    <soundCast>Shot_Shiela</soundCast>
-                                    <soundCastTail>GunTail_Medium</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                    <targetParams>
-                                        <canTargetLocations>true</canTargetLocations>
-                                    </targetParams>
-                                </li>
-                            </verbs>
-                            <tools>
-                                <li>
-                                    <label>barrels</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>15.659</power>
-                                    <cooldownTime>2.465</cooldownTime>
-                                </li>
-                            </tools>
-                            <weaponTags>
-                                <li>SimpleGun</li>
-                            </weaponTags>
-                            <equippedStatOffsets>
-                                <MoveSpeed>-0.35</MoveSpeed>
-                            </equippedStatOffsets>
-                        </ThingDef>
-                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="SHIELA_projectile_Bond" Abstract="True">
-                            <label>SHIELA projectile</label>
-                            <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>10</damageAmountBase>
-                                <armorPenetrationBase>0.35</armorPenetrationBase>
-                                <stoppingPower>1.0</stoppingPower>
-                                <speed>120</speed>
-                            </projectile>
-                            <graphicData>
-                                <texPath>Things/Projectile/shiela_projectile2</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                        </ThingDef>
-                    </value>
-                </li>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="SHIELA_Bond" Abstract="True">
+                        <label>persona SHIELA, mobile minigun</label>
+                        <description>The SHIELA is well known as one of the apex legend Ramya "Rampart" Parekh's perfectly forged Mobile minigun, Loaded with Massive caliber ammunition.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Industrial</techLevel>
+                        <graphicData>
+                            <texPath>Things/Weapons/SHIELA</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.35</drawSize>
+                            <drawOffsetNorth>0.1, 0.0, -0.1</drawOffsetNorth>
+                            <drawOffsetEast>0.1, 0.0, -0.1</drawOffsetEast>
+                            <drawOffsetSouth>-0.1, 0.0, -0.1</drawOffsetSouth>
+                            <drawOffsetWest>-0.1, 0.0, -0.1</drawOffsetWest>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <Mass>12</Mass>
+                            <AccuracyTouch>0.169</AccuracyTouch>
+                            <AccuracyShort>0.242</AccuracyShort>
+                            <AccuracyMedium>0.254</AccuracyMedium>
+                            <AccuracyLong>0.194</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.806</RangedWeapon_Cooldown>
+                        </statBases>
+                        <equippedAngleOffset>45</equippedAngleOffset>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>SHIELA_projectile_Bond</defaultProjectile>
+                                <warmupTime>3.5</warmupTime>
+                                <range>35</range>
+                                <burstShotCount>50</burstShotCount>
+                                <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                <soundAiming>Aim_ShielaMG</soundAiming>
+                                <soundCast>Shot_Shiela</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <targetParams>
+                                    <canTargetLocations>true</canTargetLocations>
+                                </targetParams>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>barrels</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>15.659</power>
+                                <cooldownTime>2.465</cooldownTime>
+                            </li>
+                        </tools>
+                        <weaponTags>
+                            <li>SimpleGun</li>
+                        </weaponTags>
+                        <equippedStatOffsets>
+                            <MoveSpeed>-0.35</MoveSpeed>
+                        </equippedStatOffsets>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="SHIELA_projectile_Bond" Abstract="True">
+                        <label>SHIELA projectile</label>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>10</damageAmountBase>
+                            <armorPenetrationBase>0.35</armorPenetrationBase>
+                            <stoppingPower>1.0</stoppingPower>
+                            <speed>120</speed>
+                        </projectile>
+                        <graphicData>
+                            <texPath>Things/Projectile/shiela_projectile2</texPath>
+                        </graphicData>
+                    </ThingDef>
+                </value>
+            </Operation>
 
-                <li Class="PatchOperationFindMod">
-                    <mods>
-                        <li>XML Extensions</li>
-                    </mods>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_SHIELAMobileminigun</key>
+                <defaultValue>true</defaultValue>
 
-                    <nomatch Class="PatchOperationAdd">
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
                         <xpath>Defs</xpath>
                         <value>
                             <ThingDef ParentName="SHIELA_Bond">
@@ -102,33 +103,9 @@
                                 <defName>SHIELA_projectile_Bond</defName>
                             </ThingDef>
                         </value>
-                    </nomatch>
-
-                    <match Class="PatchOperationSequence">
-                        <operations>
-                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                                <key>Daria40K_MightyPersonaBondForgePatch_SHIELAMobileminigun</key>
-                                <defaultValue>true</defaultValue>
-
-                                <caseTrue>
-                                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                                        <xpath>Defs</xpath>
-                                        <value>
-                                            <ThingDef ParentName="SHIELA_Bond">
-                                                <defName>SHIELA_Bond</defName>
-                                            </ThingDef>
-                                            <ThingDef ParentName="SHIELA_projectile_Bond">
-                                                <defName>SHIELA_projectile_Bond</defName>
-                                            </ThingDef>
-                                        </value>
-                                    </Operation>
-                                </caseTrue>
-                            </li>
-                        </operations>
-                    </match>
-                </li>
-            </operations>
-        </match>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
     </Operation>
 </Patch>

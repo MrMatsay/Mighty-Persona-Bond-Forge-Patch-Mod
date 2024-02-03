@@ -3,283 +3,231 @@
     ===== Destiny 2 Weapon Package - Fusion Rifle =====
 -->
 <Patch>
-    <Operation Class="PatchOperationFindMod">
+    <Operation Class="XmlExtensions.FindMod">
         <mods>
-            <li>Destiny 2 Weapon Package - Fusion Rifle</li>
+            <li>destiny2.weapon.fr</li>
         </mods>
+        <packageId>true</packageId>
 
-        <match Class="PatchOperationSequence">
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>Defs</xpath>
-                    <value>
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="FR_Jotunn_Bond" Abstract="True">
-                            <label>persona Jötunn</label>
-                            <description>"Untamed.Destructive.As forceful and chaotic as Ymir himself."--Ada-1\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <techLevel>Spacer</techLevel>
-                            <graphicData>
-                                <texPath>jotunn</texPath>
-                            </graphicData>
-                            <soundInteract>interact_jotunn</soundInteract>
-                            <statBases>
-                                <Mass>5.0</Mass>
-                                <AccuracyTouch>0.55</AccuracyTouch>
-                                <AccuracyShort>1.1</AccuracyShort>
-                                <AccuracyMedium>1.1</AccuracyMedium>
-                                <AccuracyLong>0.715</AccuracyLong>
-                                <RangedWeapon_Cooldown>2.55</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_Jotunn_Bond</defaultProjectile>
-                                    <warmupTime>1.275</warmupTime>
-                                    <range>40</range>
-                                    <soundCast>shot_jotunn</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>14</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>SpacerGun</li>
-                            </weaponTags>
-                            <tools>
-                                <li>
-                                    <label>Barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>10.791</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="FR_Jotunn_Bond" Abstract="True">
+                        <label>persona J&#246;tunn</label>
+                        <description>"Untamed.Destructive.As forceful and chaotic as Ymir himself."--Ada-1\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>jotunn</texPath>
+                        </graphicData>
+                        <soundInteract>interact_jotunn</soundInteract>
+                        <statBases>
+                            <Mass>5.0</Mass>
+                            <AccuracyTouch>0.55</AccuracyTouch>
+                            <AccuracyShort>1.1</AccuracyShort>
+                            <AccuracyMedium>1.1</AccuracyMedium>
+                            <AccuracyLong>0.715</AccuracyLong>
+                            <RangedWeapon_Cooldown>2.55</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_Jotunn_Bond</defaultProjectile>
+                                <warmupTime>1.275</warmupTime>
+                                <range>40</range>
+                                <soundCast>shot_jotunn</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>14</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>Barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>10.791</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_Jotunn_Bond" Abstract="True">
-                            <label>Solar Bomb</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/LauncherShot</texPath>
-                                <shaderType>MoteGlow</shaderType>
-                                <color>(224,114,41)</color>
-                            </graphicData>
-                            <projectile>
-                                <damageDef>Damage_Jotunn</damageDef>
-                                <damageAmountBase>52</damageAmountBase>
-                                <speed>75</speed>
-                                <stoppingPower>4.0</stoppingPower>
-                                <armorPenetrationBase>0.20</armorPenetrationBase>
-                            </projectile>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_Jotunn_Bond" Abstract="True">
+                        <label>Solar Bomb</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/LauncherShot</texPath>
+                            <shaderType>MoteGlow</shaderType>
+                            <color>(224,114,41)</color>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Damage_Jotunn</damageDef>
+                            <damageAmountBase>52</damageAmountBase>
+                            <speed>75</speed>
+                            <stoppingPower>4.0</stoppingPower>
+                            <armorPenetrationBase>0.20</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="FR_Ingredient_Bond" Abstract="True">
-                            <label>persona Main Ingredient</label>
-                            <description>"Now stir the sauce..."\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <techLevel>Spacer</techLevel>
-                            <graphicData>
-                                <texPath>main_ingredient</texPath>
-                            </graphicData>
-                            <soundInteract>interact_fusion</soundInteract>
-                            <statBases>
-                                <Mass>4.0</Mass>
-                                <AccuracyTouch>0.66</AccuracyTouch>
-                                <AccuracyShort>0.99</AccuracyShort>
-                                <AccuracyMedium>0.715</AccuracyMedium>
-                                <AccuracyLong>0.22</AccuracyLong>
-                                <RangedWeapon_Cooldown>3.4</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_Ingredient_Bond</defaultProjectile>
-                                    <burstShotCount>7</burstShotCount>
-                                    <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
-                                    <warmupTime>1.02</warmupTime>
-                                    <range>30</range>
-                                    <soundCast>shot_fusion</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>SpacerGun</li>
-                            </weaponTags>
-                            <tools>
-                                <li>
-                                    <label>Barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>10.791</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="FR_Ingredient_Bond" Abstract="True">
+                        <label>persona Main Ingredient</label>
+                        <description>"Now stir the sauce..."\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>main_ingredient</texPath>
+                        </graphicData>
+                        <soundInteract>interact_fusion</soundInteract>
+                        <statBases>
+                            <Mass>4.0</Mass>
+                            <AccuracyTouch>0.66</AccuracyTouch>
+                            <AccuracyShort>0.99</AccuracyShort>
+                            <AccuracyMedium>0.715</AccuracyMedium>
+                            <AccuracyLong>0.22</AccuracyLong>
+                            <RangedWeapon_Cooldown>3.4</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_Ingredient_Bond</defaultProjectile>
+                                <burstShotCount>7</burstShotCount>
+                                <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                                <warmupTime>1.02</warmupTime>
+                                <range>30</range>
+                                <soundCast>shot_fusion</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>Barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>10.791</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_Ingredient_Bond" Abstract="True">
-                            <label>fusion energy shot</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/ChargeLanceShot</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageDef>Burn</damageDef>
-                                <damageAmountBase>13</damageAmountBase>
-                                <speed>150</speed>
-                                <stoppingPower>1.0</stoppingPower>
-                                <armorPenetrationBase>0.50</armorPenetrationBase>
-                            </projectile>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_Ingredient_Bond" Abstract="True">
+                        <label>fusion energy shot</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/ChargeLanceShot</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Burn</damageDef>
+                            <damageAmountBase>13</damageAmountBase>
+                            <speed>150</speed>
+                            <stoppingPower>1.0</stoppingPower>
+                            <armorPenetrationBase>0.50</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="FR_Dynamo_Bond" Abstract="True">
-                            <label>persona Tempered Dynamo</label>
-                            <description>Reinforce the bonds of legacy.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <techLevel>Spacer</techLevel>
-                            <graphicData>
-                                <texPath>tempered_dynamo</texPath>
-                            </graphicData>
-                            <soundInteract>interact_fusion</soundInteract>
-                            <statBases>
-                                <Mass>4.0</Mass>
-                                <AccuracyTouch>0.77</AccuracyTouch>
-                                <AccuracyShort>0.88</AccuracyShort>
-                                <AccuracyMedium>0.715</AccuracyMedium>
-                                <AccuracyLong>0.22</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_Dynamo_Bond</defaultProjectile>
-                                    <burstShotCount>7</burstShotCount>
-                                    <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
-                                    <warmupTime>1.02</warmupTime>
-                                    <range>30</range>
-                                    <soundCast>shot_fusion</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>SpacerGun</li>
-                            </weaponTags>
-                            <tools>
-                                <li>
-                                    <label>Barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>10.791</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="FR_Dynamo_Bond" Abstract="True">
+                        <label>persona Tempered Dynamo</label>
+                        <description>Reinforce the bonds of legacy.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>tempered_dynamo</texPath>
+                        </graphicData>
+                        <soundInteract>interact_fusion</soundInteract>
+                        <statBases>
+                            <Mass>4.0</Mass>
+                            <AccuracyTouch>0.77</AccuracyTouch>
+                            <AccuracyShort>0.88</AccuracyShort>
+                            <AccuracyMedium>0.715</AccuracyMedium>
+                            <AccuracyLong>0.22</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_Dynamo_Bond</defaultProjectile>
+                                <burstShotCount>7</burstShotCount>
+                                <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                                <warmupTime>1.02</warmupTime>
+                                <range>30</range>
+                                <soundCast>shot_fusion</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>Barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>10.791</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
 
-                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_Dynamo_Bond" Abstract="True">
-                            <label>fusion energy shot</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/ChargeLanceShot</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageDef>Burn</damageDef>
-                                <damageAmountBase>10</damageAmountBase>
-                                <speed>150</speed>
-                                <stoppingPower>1.0</stoppingPower>
-                                <armorPenetrationBase>0.50</armorPenetrationBase>
-                            </projectile>
-                        </ThingDef>
-                    </value>
-                </li>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_Dynamo_Bond" Abstract="True">
+                        <label>fusion energy shot</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/ChargeLanceShot</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Burn</damageDef>
+                            <damageAmountBase>10</damageAmountBase>
+                            <speed>150</speed>
+                            <stoppingPower>1.0</stoppingPower>
+                            <armorPenetrationBase>0.50</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
 
-                <li Class="PatchOperationFindMod">
-                    <mods>
-                        <li>XML Extensions</li>
-                    </mods>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_Destiny2WeaponPackageFusionRifle</key>
+                <defaultValue>true</defaultValue>
 
-                    <nomatch Class="PatchOperationAdd">
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
                         <xpath>Defs</xpath>
                         <value>
-                            <!-- FR_Jotunn_Bond -->
                             <ThingDef ParentName="FR_Jotunn_Bond">
                                 <defName>FR_Jotunn_Bond</defName>
                             </ThingDef>
 
-                            <!-- Bullet_Jotunn_Bond -->
                             <ThingDef ParentName="Bullet_Jotunn_Bond">
                                 <defName>Bullet_Jotunn_Bond</defName>
                             </ThingDef>
 
-                            <!-- FR_Ingredient_Bond -->
                             <ThingDef ParentName="FR_Ingredient_Bond">
                                 <defName>FR_Ingredient_Bond</defName>
                             </ThingDef>
 
-                            <!-- Bullet_Ingredient_Bond -->
                             <ThingDef ParentName="Bullet_Ingredient_Bond">
                                 <defName>Bullet_Ingredient_Bond</defName>
                             </ThingDef>
 
-                            <!-- FR_Dynamo_Bond -->
                             <ThingDef ParentName="FR_Dynamo_Bond">
                                 <defName>FR_Dynamo_Bond</defName>
                             </ThingDef>
 
-                            <!-- Bullet_Dynamo_Bond -->
                             <ThingDef ParentName="Bullet_Dynamo_Bond">
                                 <defName>Bullet_Dynamo_Bond</defName>
                             </ThingDef>
                         </value>
-                    </nomatch>
-
-                    <match Class="PatchOperationSequence">
-                        <operations>
-                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                                <key>Daria40K_MightyPersonaBondForgePatch_Destiny2WeaponPackageFusionRifle</key>
-                                <defaultValue>true</defaultValue>
-
-                                <caseTrue>
-                                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                                        <xpath>Defs</xpath>
-                                        <value>
-                                            <!-- FR_Jotunn_Bond -->
-                                            <ThingDef ParentName="FR_Jotunn_Bond">
-                                                <defName>FR_Jotunn_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_Jotunn_Bond -->
-                                            <ThingDef ParentName="Bullet_Jotunn_Bond">
-                                                <defName>Bullet_Jotunn_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- FR_Ingredient_Bond -->
-                                            <ThingDef ParentName="FR_Ingredient_Bond">
-                                                <defName>FR_Ingredient_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_Ingredient_Bond -->
-                                            <ThingDef ParentName="Bullet_Ingredient_Bond">
-                                                <defName>Bullet_Ingredient_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- FR_Dynamo_Bond -->
-                                            <ThingDef ParentName="FR_Dynamo_Bond">
-                                                <defName>FR_Dynamo_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_Dynamo_Bond -->
-                                            <ThingDef ParentName="Bullet_Dynamo_Bond">
-                                                <defName>Bullet_Dynamo_Bond</defName>
-                                            </ThingDef>
-                                        </value>
-                                    </Operation>
-                                </caseTrue>
-                            </li>
-                        </operations>
-                    </match>
-                </li>
-            </operations>
-        </match>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
     </Operation>
 </Patch>

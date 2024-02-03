@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Charge Guns MKV =====
 -->
@@ -99,19 +100,35 @@
                 <defaultValue>true</defaultValue>
 
                 <caseTrue>
-                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                        <xpath>Defs</xpath>
-                        <value>
-                            <RecipeDef ParentName="Make_Gun_ChargeSniper_MKV_Bond">
-                                <defName>Make_Gun_ChargeSniper_MKV_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_Gun_ChargeRifle_MKV_Bond">
-                                <defName>Make_Gun_ChargeRifle_MKV_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_Gun_ChargePistol_MKV_Bond">
-                                <defName>Make_Gun_ChargePistol_MKV_Bond</defName>
-                            </RecipeDef>
-                        </value>
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_PBF_ChargeGunsMKV</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.OptionalPatch">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DisablePersonaBondForge</key>
+                                <defaultValue>false</defaultValue>
+
+                                <caseFalse>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <RecipeDef ParentName="Make_Gun_ChargeSniper_MKV_Bond">
+                                                <defName>Make_Gun_ChargeSniper_MKV_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_Gun_ChargeRifle_MKV_Bond">
+                                                <defName>Make_Gun_ChargeRifle_MKV_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_Gun_ChargePistol_MKV_Bond">
+                                                <defName>Make_Gun_ChargePistol_MKV_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseFalse>
+                            </Operation>
+                        </caseTrue>
                     </Operation>
                 </caseTrue>
             </Operation>
