@@ -3,152 +3,122 @@
     ===== Vanilla Weapons Expanded - Laser - Mark 2 Gyro-Stabled Hellgun =====
 -->
 <Patch>
-    <Operation Class="PatchOperationFindMod">
+    <Operation Class="XmlExtensions.FindMod">
         <mods>
-            <li>Vanilla Weapons Expanded - Laser - Mark 2 Gyro-Stabled Hellgun</li>
+            <li>vwel.laspackm2hg</li>
         </mods>
+        <packageId>true</packageId>
 
-        <match Class="PatchOperationSequence">
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>Defs</xpath>
-                    <value>
-                        <ThingDef ParentName="VWEL_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef" Name="VWEL_Bullet_M2HGLasRifle_Bond" Abstract="True">
-                            <label>las bolt</label>
-                            <description>A focused laser beam.</description>
-                            <textures>
-                                <li>Things/Projectile/Shot_Las</li>
-                            </textures>
-                            <seam>0</seam>
-                            <causefireChance>0.3</causefireChance>
-                            <projectile>
-                                <damageDef>Bullet</damageDef>
-                                <damageAmountBase>20</damageAmountBase>
-                                <armorPenetrationBase>0.60</armorPenetrationBase>
-                                <stoppingPower>1.6</stoppingPower>
-                            </projectile>
-                        </ThingDef>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef Name="MPBFPM_BaseM2HGLasGun" Abstract="True" ParentName="MPBFPM_BaseGun">
+                        <techLevel>Ultra</techLevel>
+                        <tradeability>All</tradeability>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseM2HGLasGun" Name="VWEL_Gun_M2HGLG_Bond" Abstract="True">
+                        <thingClass>VanillaWeaponsExpandedLaser.LaserGun</thingClass>
+                        <label>persona Mark 2 Gyro-Stabled Hellgun</label>
+                        <description>A Hellgun, also called a Hot-shot Lasgun, is a pattern of Imperial Lasgun that possesses a more advanced and powerful laser generation system intended to provide more potent laser fire on-target. This makes the Hellgun superior in both range and power output compared to the standard-issue Lasgun. However, the higher power output requires superior quality power cells or the use of a separate backpack power supply, and the more complex inner workings of the weapon require more time and resources to manufacture than the standard Lasgun. This makes it more costly to field and so it is not generally issued to the average soldier of most Astra Militarum regiments. However, Tempestus Scions and other Storm Trooper equivalents, including Cadian Kasrkin and Astra Militarum Grenadiers, are always equipped with a Hellgun as a standard weapon to take full advantage of their superior training and weapons expertise.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/WeaponRanged/Mark_2_GS_Hellgun_40deg</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>VWE_Interact_LaserGun</soundInteract>
+                        <statBases>
+                            <MarketValue>1210.0</MarketValue>
+                            <Mass>5.0</Mass>
+                            <AccuracyTouch>1.041</AccuracyTouch>
+                            <AccuracyShort>1.004</AccuracyShort>
+                            <AccuracyMedium>1.041</AccuracyMedium>
+                            <AccuracyLong>0.75</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.578</RangedWeapon_Cooldown>
+                        </statBases>
+                        <techLevel>Ultra</techLevel>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                            <li>LaserGun</li>
+                        </weaponTags>
+                        <generateCommonality>0.1</generateCommonality>
+                        <equippedStatOffsets>
+                        </equippedStatOffsets>
+                        <equippedAngleOffset>40</equippedAngleOffset>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <label>Standard</label>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>VWEL_Bullet_M2HGLasRifle_Bond</defaultProjectile>
+                                <warmupTime>1</warmupTime>
+                                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                <burstShotCount>10</burstShotCount>
+                                <range>45</range>
+                                <soundCast>VWE_LaserShot_Rifle</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>16</muzzleFlashScale>
+                                <targetParams>
+                                    <canTargetLocations>true</canTargetLocations>
+                                </targetParams>
+                            </li>
+                        </verbs>
 
-                        <ThingDef ParentName="MPBFPM_BaseWeapon" Name="VWEL_Gun_M2HGLG_Bond" Abstract="True">
-                            <thingClass>VanillaWeaponsExpandedLaser.LaserGun</thingClass>
-                            <label>persona Mark 2 Gyro-Stabled Hellgun</label>
-                            <description>A Hellgun, also called a Hot-shot Lasgun, is a pattern of Imperial Lasgun that possesses a more advanced and powerful laser generation system intended to provide more potent laser fire on-target. This makes the Hellgun superior in both range and power output compared to the standard-issue Lasgun. However, the higher power output requires superior quality power cells or the use of a separate backpack power supply, and the more complex inner workings of the weapon require more time and resources to manufacture than the standard Lasgun. This makes it more costly to field and so it is not generally issued to the average soldier of most Astra Militarum regiments. However, Tempestus Scions and other Storm Trooper equivalents, including Cadian Kasrkin and Astra Militarum Grenadiers, are always equipped with a Hellgun as a standard weapon to take full advantage of their superior training and weapons expertise.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <graphicData>
-                                <texPath>Things/WeaponRanged/Mark_2_GS_Hellgun_40deg</texPath>
-                                <graphicClass>Graphic_Single</graphicClass>
-                            </graphicData>
-                            <soundInteract>VWE_Interact_LaserGun</soundInteract>
-                            <statBases>
-                                <MarketValue>1100.0</MarketValue>
-                                <Mass>5.0</Mass>
-                                <AccuracyTouch>0.946</AccuracyTouch>
-                                <AccuracyShort>0.913</AccuracyShort>
-                                <AccuracyMedium>0.946</AccuracyMedium>
-                                <AccuracyLong>0.682</AccuracyLong>
-                                <RangedWeapon_Cooldown>0.68</RangedWeapon_Cooldown>
-                            </statBases>
-                            <techLevel>Ultra</techLevel>
-                            <tradeability>All</tradeability>
-                            <tradeTags>
-                                <li>SpacerGun</li>
-                            </tradeTags>
-                            <techLevel>Ultra</techLevel>
-                            <weaponTags>
-                                <li>SpacerGun</li>
-                                <li>LaserGun</li>
-                            </weaponTags>
-                            <generateCommonality>0.1</generateCommonality>
-                            <equippedStatOffsets>
-                            </equippedStatOffsets>
-                            <equippedAngleOffset>40</equippedAngleOffset>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <label>Standard</label>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>VWEL_Bullet_M2HGLasRifle_Bond</defaultProjectile>
-                                    <warmupTime>0.85</warmupTime>
-                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
-                                    <burstShotCount>10</burstShotCount>
-                                    <range>45</range>
-                                    <soundCast>VWE_LaserShot_Rifle</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>16</muzzleFlashScale>
-                                    <targetParams>
-                                        <canTargetLocations>true</canTargetLocations>
-                                    </targetParams>
-                                </li>
-                            </verbs>
-                            <tools>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>5.559</power>
-                                    <cooldownTime>1.53</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>grip</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>12.866</power>
-                                    <cooldownTime>1.615</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
-                    </value>
-                </li>
+                        <tools>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>5.559</power>
+                                <cooldownTime>1.53</cooldownTime>
+                            </li>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>12.866</power>
+                                <cooldownTime>1.615</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="VWEL_Bullet_LaserGeneric" Class="VanillaWeaponsExpandedLaser.LaserBeamDef" Name="VWEL_Bullet_M2HGLasRifle_Bond" Abstract="True">
+                        <label>las bolt</label>
+                        <description>A focused laser beam.</description>
+                        <textures>
+                            <li>Things/Projectile/Shot_Las</li>
+                        </textures>
+                        <seam>0</seam>
+                        <causefireChance>0.3</causefireChance>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>20</damageAmountBase>
+                            <armorPenetrationBase>0.60</armorPenetrationBase>
+                            <stoppingPower>1.6</stoppingPower>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
 
-                <li Class="PatchOperationFindMod">
-                    <mods>
-                        <li>XML Extensions</li>
-                    </mods>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_VanillaWeaponsExpandedLaserMark2GyroStabledHellgun</key>
+                <defaultValue>true</defaultValue>
 
-                    <nomatch Class="PatchOperationAdd">
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
                         <xpath>Defs</xpath>
                         <value>
-                            <!-- VWEL_Bullet_M2HGLasRifle_Bond -->
-                            <ThingDef ParentName="VWEL_Bullet_M2HGLasRifle_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
-                                <defName>VWEL_Bullet_M2HGLasRifle_Bond</defName>
-                            </ThingDef>
-
-                            <!-- VWEL_Gun_M2HGLG_Bond -->
                             <ThingDef ParentName="VWEL_Gun_M2HGLG_Bond">
                                 <defName>VWEL_Gun_M2HGLG_Bond</defName>
                             </ThingDef>
+                            <ThingDef ParentName="VWEL_Bullet_M2HGLasRifle_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                <defName>VWEL_Bullet_M2HGLasRifle_Bond</defName>
+                            </ThingDef>
                         </value>
-                    </nomatch>
-
-                    <match Class="PatchOperationSequence">
-                        <operations>
-                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                                <key>Daria40K_MightyPersonaBondForgePatch_VanillaWeaponsExpandedLaserMark2GyroStabledHellgun</key>
-                                <defaultValue>true</defaultValue>
-
-                                <caseTrue>
-                                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                                        <xpath>Defs</xpath>
-                                        <value>
-                                            <!-- VWEL_Bullet_M2HGLasRifle_Bond -->
-                                            <ThingDef ParentName="VWEL_Bullet_M2HGLasRifle_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
-                                                <defName>VWEL_Bullet_M2HGLasRifle_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- VWEL_Gun_M2HGLG_Bond -->
-                                            <ThingDef ParentName="VWEL_Gun_M2HGLG_Bond">
-                                                <defName>VWEL_Gun_M2HGLG_Bond</defName>
-                                            </ThingDef>
-                                        </value>
-                                    </Operation>
-                                </caseTrue>
-                            </li>
-                        </operations>
-                    </match>
-                </li>
-            </operations>
-        </match>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
     </Operation>
 </Patch>
