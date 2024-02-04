@@ -3,233 +3,191 @@
     ===== Vanilla Factions Expanded - Empire =====
 -->
 <Patch>
-    <Operation Class="PatchOperationFindMod">
+    <Operation Class="XmlExtensions.FindMod">
         <mods>
-            <li>Vanilla Factions Expanded - Empire</li>
+            <li>oskarpotocki.vfe.empire</li>
         </mods>
+        <packageId>true</packageId>
 
-        <match Class="PatchOperationSequence">
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>Defs</xpath>
-                    <value>
-                        <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="VEE_Gun_Fletcher_Bond" Abstract="True">
-                            <label>persona fletcher</label>
-                            <description>An ultra-long range sniper rifle which fires fin-stabilized flechettes with acidifier injectors. Due to their lethality and danger of falling into enemy hands, they are always biocoded and will self-destruct if their owner either dies or is disarmed. Lethal to organics and almost useless against non-organics, such as mechanoids.\n\nTargets hit by these flechettes will be inflicted with an unstable variant of acidifier fluids, designed to dissolve the target from the inside rather than destroy their equipment. The acid will rampage through the target’s body and usually results in vital organs being dissolved, however lethality isn’t guaranteed.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <techLevel>Spacer</techLevel>
-                            <graphicData>
-                                <texPath>Equipment/Fletcher/Fletcher</texPath>
-                            </graphicData>
-                            <soundInteract>Interact_ChargeLance</soundInteract>
-                            <statBases>
-                                <Mass>12</Mass>
-                                <AccuracyTouch>0.55</AccuracyTouch>
-                                <AccuracyShort>0.77</AccuracyShort>
-                                <AccuracyMedium>0.946</AccuracyMedium>
-                                <AccuracyLong>0.968</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
-                                <MarketValue>3025.0</MarketValue>
-                            </statBases>
-                            <weaponTags>
-                                <li>VFEE_Absolver</li>
-                            </weaponTags>
-                            <equippedAngleOffset>50</equippedAngleOffset>
-                            <weaponClasses>
-                                <li>RangedHeavy</li>
-                            </weaponClasses>
-                            <equippedStatOffsets>
-                                <MoveSpeed>-1</MoveSpeed>
-                            </equippedStatOffsets>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>VFEE_Bullet_FletcherDart_Bond</defaultProjectile>
-                                    <warmupTime>4.25</warmupTime>
-                                    <range>500</range>
-                                    <soundCast>VFEE_Shot_Fletcher</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <tools>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="VEE_Gun_Fletcher_Bond" Abstract="True">
+                        <label>persona fletcher</label>
+                        <description>An ultra-long range sniper rifle which fires fin-stabilized flechettes with acidifier injectors. Due to their lethality and danger of falling into enemy hands, they are always biocoded and will self-destruct if their owner either dies or is disarmed. Lethal to organics and almost useless against non-organics, such as mechanoids.\n\nTargets hit by these flechettes will be inflicted with an unstable variant of acidifier fluids, designed to dissolve the target from the inside rather than destroy their equipment. The acid will rampage through the target&#8217;s body and usually results in vital organs being dissolved, however lethality isn&#8217;t guaranteed.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Equipment/Fletcher/Fletcher</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeLance</soundInteract>
+                        <statBases>
+                            <Mass>12</Mass>
+                            <AccuracyTouch>0.605</AccuracyTouch>
+                            <AccuracyShort>0.847</AccuracyShort>
+                            <AccuracyMedium>1.041</AccuracyMedium>
+                            <AccuracyLong>1.065</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                            <MarketValue>3327.5</MarketValue>
+                        </statBases>
+                        <weaponTags>
+                            <li>VFEE_Absolver</li>
+                        </weaponTags>
+                        <equippedAngleOffset>50</equippedAngleOffset>
+                        <weaponClasses>
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <equippedStatOffsets>
+                            <MoveSpeed>-1</MoveSpeed>
+                        </equippedStatOffsets>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>VFEE_Bullet_FletcherDart_Bond</defaultProjectile>
+                                <warmupTime>5</warmupTime>
+                                <range>500</range>
+                                <soundCast>VFEE_Shot_Fletcher</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                        <comps>
+                        </comps>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VFEE_Gun_ChargeThumper_Bond" Abstract="True">
+                        <label>persona charge thumper</label>
+                        <description>A modified charged-shot assault shotgun that incorporates mechanoid technology. Recovered thump cannons have been reversed engineered to produce a portable ranged weapon capable of firing blunt projectiles. Quite powerful but short ranged, with high performance against structures and heavily armored targets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Equipment/ChargeThumper/ChargeThumper</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeRifle</soundInteract>
+                        <statBases>
+                            <MarketValue>1210.0</MarketValue>
+                            <Mass>4.4</Mass>
+                            <AccuracyTouch>0.665</AccuracyTouch>
+                            <AccuracyShort>0.774</AccuracyShort>
+                            <AccuracyMedium>0.665</AccuracyMedium>
+                            <AccuracyLong>0.544</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>VFEE_SpacerGunBreach</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>VFEE_Bullet_ChargeThumper_Bond</defaultProjectile>
+                                <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+                                <forcedMissRadius>0.9</forcedMissRadius>
+                                <warmupTime>1</warmupTime>
+                                <range>19.9</range>
+                                <burstShotCount>2</burstShotCount>
+                                <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+                                <targetParams>
+                                    <canTargetLocations>true</canTargetLocations>
+                                </targetParams>
+                                <soundCast>VFEE_Shot_ChargeThumper</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <noiseRadius>4</noiseRadius>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="VFEE_Bullet_FletcherDart_Bond" Abstract="True">
+                        <label>fletcher dart</label>
+                        <graphicData>
+                            <texPath>Projectile/Bullet_Fletcher</texPath>
+                            <shaderType>TransparentPostLight</shaderType>
+                            <drawSize>1.5</drawSize>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>VFEE_Fletcher</damageDef>
+                            <damageAmountBase>8</damageAmountBase>
+                            <stoppingPower>1.5</stoppingPower>
+                            <speed>90</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="VFEE_Bullet_ChargeThumper_Bond" Abstract="True">
+                        <label>thump charge</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Thump</texPath>
+                        </graphicData>
+                        <thingClass>Projectile_Explosive</thingClass>
+                        <projectile>
+                            <damageDef>Thump</damageDef>
+                            <damageAmountBase>13</damageAmountBase>
+                            <explosionRadius>0.9</explosionRadius>
+                            <stoppingPower>1.5</stoppingPower>
+                            <speed>62</speed>
+                            <soundExplode>ThumpCannon_Impact</soundExplode>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
 
-                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="VFEE_Bullet_FletcherDart_Bond" Abstract="True">
-                            <label>fletcher dart</label>
-                            <graphicData>
-                                <texPath>Projectile/Bullet_Fletcher</texPath>
-                                <shaderType>TransparentPostLight</shaderType>
-                                <drawSize>1.5</drawSize>
-                            </graphicData>
-                            <projectile>
-                                <damageDef>VFEE_Fletcher</damageDef>
-                                <damageAmountBase>8</damageAmountBase>
-                                <stoppingPower>1.5</stoppingPower>
-                                <speed>90</speed>
-                            </projectile>
-                        </ThingDef>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_VanillaFactionsExpandedEmpire</key>
+                <defaultValue>true</defaultValue>
 
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VFEE_Gun_ChargeThumper_Bond" Abstract="True">
-                            <label>persona charge thumper</label>
-                            <description>A modified charged-shot assault shotgun that incorporates mechanoid technology. Recovered thump cannons have been reversed engineered to produce a portable ranged weapon capable of firing blunt projectiles. Quite powerful but short ranged, with high performance against structures and heavily armored targets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <techLevel>Spacer</techLevel>
-                            <graphicData>
-                                <texPath>Equipment/ChargeThumper/ChargeThumper</texPath>
-                            </graphicData>
-                            <soundInteract>Interact_ChargeRifle</soundInteract>
-                            <statBases>
-                                <MarketValue>1100.0</MarketValue>
-                                <Mass>4.4</Mass>
-                                <AccuracyTouch>0.605</AccuracyTouch>
-                                <AccuracyShort>0.704</AccuracyShort>
-                                <AccuracyMedium>0.605</AccuracyMedium>
-                                <AccuracyLong>0.495</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
-                            </statBases>
-                            <weaponTags>
-                                <li>VFEE_SpacerGunBreach</li>
-                            </weaponTags>
-                            <weaponClasses>
-                                <li>RangedLight</li>
-                            </weaponClasses>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>VFEE_Bullet_ChargeThumper_Bond</defaultProjectile>
-                                    <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
-                                    <forcedMissRadius>0.9</forcedMissRadius>
-                                    <warmupTime>0.85</warmupTime>
-                                    <range>19.9</range>
-                                    <burstShotCount>2</burstShotCount>
-                                    <ticksBetweenBurstShots>20</ticksBetweenBurstShots>
-                                    <targetParams>
-                                        <canTargetLocations>true</canTargetLocations>
-                                    </targetParams>
-                                    <soundCast>VFEE_Shot_ChargeThumper</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>9</muzzleFlashScale>
-                                    <noiseRadius>4</noiseRadius>
-                                </li>
-                            </verbs>
-                            <tools>
-                                <li>
-                                    <label>stock</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
-
-                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="VFEE_Bullet_ChargeThumper_Bond" Abstract="True">
-                            <label>thump charge</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Thump</texPath>
-                            </graphicData>
-                            <thingClass>Projectile_Explosive</thingClass>
-                            <projectile>
-                                <damageDef>Thump</damageDef>
-                                <damageAmountBase>13</damageAmountBase>
-                                <explosionRadius>0.9</explosionRadius>
-                                <stoppingPower>1.5</stoppingPower>
-                                <speed>62</speed>
-                                <soundExplode>ThumpCannon_Impact</soundExplode>
-                            </projectile>
-                        </ThingDef>
-                    </value>
-                </li>
-
-                <li Class="PatchOperationFindMod">
-                    <mods>
-                        <li>XML Extensions</li>
-                    </mods>
-
-                    <nomatch Class="PatchOperationAdd">
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
                         <xpath>Defs</xpath>
                         <value>
-                            <!-- VEE_Gun_Fletcher_Bond -->
                             <ThingDef ParentName="VEE_Gun_Fletcher_Bond">
                                 <defName>VEE_Gun_Fletcher_Bond</defName>
                             </ThingDef>
-
-                            <!-- VFEE_Bullet_FletcherDart_Bond -->
-                            <ThingDef ParentName="VFEE_Bullet_FletcherDart_Bond">
-                                <defName>VFEE_Bullet_FletcherDart_Bond</defName>
-                            </ThingDef>
-
-                            <!-- VFEE_Gun_ChargeThumper_Bond -->
                             <ThingDef ParentName="VFEE_Gun_ChargeThumper_Bond">
                                 <defName>VFEE_Gun_ChargeThumper_Bond</defName>
                             </ThingDef>
-
-                            <!-- VFEE_Bullet_ChargeThumper_Bond -->
+                            <ThingDef ParentName="VFEE_Bullet_FletcherDart_Bond">
+                                <defName>VFEE_Bullet_FletcherDart_Bond</defName>
+                            </ThingDef>
                             <ThingDef ParentName="VFEE_Bullet_ChargeThumper_Bond">
                                 <defName>VFEE_Bullet_ChargeThumper_Bond</defName>
                             </ThingDef>
                         </value>
-                    </nomatch>
-
-                    <match Class="PatchOperationSequence">
-                        <operations>
-                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                                <key>Daria40K_MightyPersonaBondForgePatch_VanillaFactionsExpandedEmpire</key>
-                                <defaultValue>true</defaultValue>
-
-                                <caseTrue>
-                                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                                        <xpath>Defs</xpath>
-                                        <value>
-                                            <!-- VEE_Gun_Fletcher_Bond -->
-                                            <ThingDef ParentName="VEE_Gun_Fletcher_Bond">
-                                                <defName>VEE_Gun_Fletcher_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- VFEE_Bullet_FletcherDart_Bond -->
-                                            <ThingDef ParentName="VFEE_Bullet_FletcherDart_Bond">
-                                                <defName>VFEE_Bullet_FletcherDart_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- VFEE_Gun_ChargeThumper_Bond -->
-                                            <ThingDef ParentName="VFEE_Gun_ChargeThumper_Bond">
-                                                <defName>VFEE_Gun_ChargeThumper_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- VFEE_Bullet_ChargeThumper_Bond -->
-                                            <ThingDef ParentName="VFEE_Bullet_ChargeThumper_Bond">
-                                                <defName>VFEE_Bullet_ChargeThumper_Bond</defName>
-                                            </ThingDef>
-                                        </value>
-                                    </Operation>
-                                </caseTrue>
-                            </li>
-                        </operations>
-                    </match>
-                </li>
-            </operations>
-        </match>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
     </Operation>
 </Patch>
