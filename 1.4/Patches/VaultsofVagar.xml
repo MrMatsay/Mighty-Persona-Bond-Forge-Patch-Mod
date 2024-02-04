@@ -3,651 +3,642 @@
     ===== Vaults of Vagar =====
 -->
 <Patch>
-    <Operation Class="PatchOperationFindMod">
+    <Operation Class="XmlExtensions.FindMod">
         <mods>
-            <li>Vaults of Vagar</li>
+            <li>alexprotopopov.vaultsofvagar</li>
         </mods>
+        <packageId>true</packageId>
 
-        <match Class="PatchOperationSequence">
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>Defs</xpath>
-                    <value>
-                        <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality" Name="VOV_Chimera_CSword_Bond" Abstract="True">
-                            <label>persona Chimera chainsword</label>
-                            <description>Easily one of the most terrifying melee weapons on the Rim, the Chimera chainsword is a murder-maniac's dream come to life. Armed with dozens of razor-sharp titanium diboride teeth, it can chew through flesh, bone and even light armor. The drawback is that it is heavy and unbalanced, making it more of a machete than an actual sword.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <meleeHitSound>Swing_Chainsword</meleeHitSound>
-                            <graphicData>
-                                <texPath>Things/Weapons/Chimera_CSword</texPath>
-                                <drawSize>1</drawSize>
-                            </graphicData>
-                            <techLevel>Industrial</techLevel>
-                            <weaponTags>
-                                <li>MedievalMeleeAdvanced</li>
-                            </weaponTags>
-                            <statBases>
-                                <Mass>3.6</Mass>
-                                <MarketValue>869.0</MarketValue>
-                            </statBases>
-                            <equippedAngleOffset>-65</equippedAngleOffset>
-                            <tools>
-                                <li>
-                                    <label>handle</label>
-                                    <capacities>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>13.162</power>
-                                    <armorPenetration>0.143</armorPenetration>
-                                    <cooldownTime>1.87</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>edge</label>
-                                    <capacities>
-                                        <li>Cut</li>
-                                    </capacities>
-                                    <power>39.831</power>
-                                    <armorPenetration>0.374</armorPenetration>
-                                    <cooldownTime>2.465</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality" Name="VOV_Chimera_CSword_Bond" Abstract="True">
+                        <label>persona Chimera chainsword</label>
+                        <description>Easily one of the most terrifying melee weapons on the Rim, the Chimera chainsword is a murder-maniac's dream come to life. Armed with dozens of razor-sharp titanium diboride teeth, it can chew through flesh, bone and even light armor. The drawback is that it is heavy and unbalanced, making it more of a machete than an actual sword.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <meleeHitSound>Swing_Chainsword</meleeHitSound>
+                        <graphicData>
+                            <texPath>Things/Weapons/Chimera_CSword</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1</drawSize>
+                        </graphicData>
+                        <techLevel>Industrial</techLevel>
+                        <weaponTags>
+                            <li>UltratechMelee</li>
+                        </weaponTags>
+                        <comps>
+                        </comps>
+                        <statBases>
+                            <Mass>3.6</Mass>
+                            <MarketValue>955.9</MarketValue>
+                        </statBases>
+                        <equippedAngleOffset>-65</equippedAngleOffset>
+                        <tools>
+                            <li>
+                                <label>handle</label>
+                                <capacities>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>13.162</power>
+                                <armorPenetration>0.143</armorPenetration>
+                                <cooldownTime>1.87</cooldownTime>
+                            </li>
+                            <li>
+                                <label>edge</label>
+                                <capacities>
+                                    <li>VoV_Rend</li>
+                                </capacities>
+                                <power>39.831</power>
+                                <armorPenetration>0.374</armorPenetration>
+                                <cooldownTime>2.465</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef Name="MPBFPM_VOV_BaseGun" ParentName="MPBFPM_BaseGunWithQuality" Abstract="True">
+                        <weaponTags>
+                            <li>Gun</li>
+                        </weaponTags>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                        <comps>
+                        </comps>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_VOV_BaseGun" Name="VOV_Volkhv_mg_Bond" Abstract="True">
+                        <label>persona Volkhv machinegun</label>
+                        <description>The warsmiths of the Kalash clan have drawn upon their entire wealth of gunsmithing experience when they designed the Volkhv machinegun, resulting in a weapon that incorporates all of the best design decisions introduced over the three thousand years machineguns existed. Forced air cooling, self-cleaning gas piston, detachable barrel and a quick-load belt feed are among the many features of this exceptionally well-crafted weapon, making it a sought-after, but expensive firearm.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/Volkhv_mg</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.3</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <weaponClasses>
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <statBases>
+                            <MarketValue>665.5</MarketValue>
+                            <Mass>8.5</Mass>
+                            <AccuracyTouch>0.508</AccuracyTouch>
+                            <AccuracyShort>0.605</AccuracyShort>
+                            <AccuracyMedium>0.448</AccuracyMedium>
+                            <AccuracyLong>0.339</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.3</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_VolkhvMG_Bond</defaultProjectile>
+                                <warmupTime>1.8</warmupTime>
+                                <range>35</range>
+                                <burstShotCount>7</burstShotCount>
+                                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                <soundCast>Shot_Volkhv</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>12</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>IndustrialGunAdvanced</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_VOV_BaseGun" Name="VOV_Varta_Rifle_Bond" Abstract="True">
+                        <label>persona Varta rifle</label>
+                        <description>Designed by the warsmiths of the Kalash clan for export to passing traders, this assault rifle is of excellent craftsmanship and balance. Combined with its bullpup design, it makes it noticeably easier to wield than most other weapons of this category, leading to improved reaction time to new threats.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/Varta_Rifle</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <MarketValue>786.5</MarketValue>
+                            <Mass>4.3</Mass>
+                            <AccuracyTouch>0.847</AccuracyTouch>
+                            <AccuracyShort>0.968</AccuracyShort>
+                            <AccuracyMedium>0.907</AccuracyMedium>
+                            <AccuracyLong>0.605</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.373</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_VartaRifle_Bond</defaultProjectile>
+                                <warmupTime>0.7</warmupTime>
+                                <range>35</range>
+                                <burstShotCount>4</burstShotCount>
+                                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                <soundCast>Shot_Varta</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>11</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>IndustrialGunAdvanced</li>
+                            <li>AssaultRifle</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>10.791</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>10.791</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_VOV_BaseGun" Name="VOV_Gryphon_Bolter_Bond" Abstract="True">
+                        <label>persona Gryphon bolter</label>
+                        <description>The Gorgon's smaller cousin, the Gryphon fires smaller bolts, making it almost as wieldy as an assault rifle. The drawback is that in order to remain sufficiently light, this bolter sacrifices magazine capacity, making the wielder make every shot count.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/Gryphon_Bolter</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.2</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <MarketValue>1028.5</MarketValue>
+                            <Mass>6.3</Mass>
+                            <AccuracyTouch>1.028</AccuracyTouch>
+                            <AccuracyShort>1.089</AccuracyShort>
+                            <AccuracyMedium>0.968</AccuracyMedium>
+                            <AccuracyLong>0.726</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.228</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bolt_GryphonBolter_Bond</defaultProjectile>
+                                <warmupTime>0.7</warmupTime>
+                                <range>28</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                <soundCast>Shot_Gryphon</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>14</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                            <li>AssaultRifle</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>10.791</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>10.791</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_VOV_BaseGun" Name="VOV_Gorgon_Bolter_Bond" Abstract="True">
+                        <label>persona Gorgon bolter</label>
+                        <description>The Gorgon-pattern bolter perfectly represents the Vagar approach to engineering: a bulky, complex weapon that far outperforms most other industrial firearms. Firing fist-sized explosive rounds it packs enough punch to kill most people with a single hit, even if they are wearing powered armour.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/Gorgon_Bolter</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.1</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <MarketValue>1452.0</MarketValue>
+                            <Mass>6.5</Mass>
+                            <AccuracyTouch>1.028</AccuracyTouch>
+                            <AccuracyShort>1.089</AccuracyShort>
+                            <AccuracyMedium>0.968</AccuracyMedium>
+                            <AccuracyLong>0.726</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.228</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bolt_GorgonBolter_Bond</defaultProjectile>
+                                <warmupTime>0.9</warmupTime>
+                                <range>28</range>
+                                <burstShotCount>2</burstShotCount>
+                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                <soundCast>Shot_Gorgon</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>15</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                            <li>AssaultRifle</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>10.791</power>
+                                <cooldownTime>2.125</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>10.791</power>
+                                <cooldownTime>2.125</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_VOV_BaseGun" Name="VOV_Enceladus_BCaliver_Bond" Abstract="True">
+                        <label>persona Enceladus bolt caliver</label>
+                        <description>Most Vagar bolt weapons suffer from the same flaw: low accuracy at long ranges. The Enceladus bolt caliver is meant to overcome this. It has an extended barrel, which continues past the point of the bolt's engine ignition. This stabilises the projectile and drastically increases its accuracy. Vent holes were added along the extension to bleed off the exhausts gasses and prevent barrel rupture. Unfortunately the longer barrel made the weapon heavier, so magazine size and recoil compensation had to be sacrificed to make the weapon viable.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/Enceladus_BCaliver</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.2</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <MarketValue>1210.0</MarketValue>
+                            <Mass>5.2</Mass>
+                            <AccuracyTouch>0.786</AccuracyTouch>
+                            <AccuracyShort>0.968</AccuracyShort>
+                            <AccuracyMedium>1.089</AccuracyMedium>
+                            <AccuracyLong>0.968</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.156</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bolt_GorgonBolter_Bond</defaultProjectile>
+                                <warmupTime>1.1</warmupTime>
+                                <range>38</range>
+                                <burstShotCount>1</burstShotCount>
+                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                <soundCast>Shot_Enceladus</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>17</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                            <li>AssaultRifle</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>10.791</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>10.791</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_VOV_BaseGun" Name="VOV_Grendel_HBolter_Bond" Abstract="True">
+                        <label>persona Grendel heavy bolter</label>
+                        <description>When designing this weapon, Vagar engineers intended for it to be used from a mount, such as a tripod, so they cared little for it's mass, instead opting to maximise the damage output. The result was a brutish weapon with the firepower equivalent to an autocannon. Though technically it could be fired from the hip, it's tremendous mass means that only someone using powered armor or advanced cybernetics could attempt to do it in any meaningful way.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/Grendel_HBolter</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.3</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <MarketValue>2178.0</MarketValue>
+                            <Mass>33</Mass>
+                            <AccuracyTouch>0.436</AccuracyTouch>
+                            <AccuracyShort>0.617</AccuracyShort>
+                            <AccuracyMedium>0.508</AccuracyMedium>
+                            <AccuracyLong>0.363</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.517</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bolt_GrendelHBolter_Bond</defaultProjectile>
+                                <warmupTime>1.9</warmupTime>
+                                <range>40</range>
+                                <burstShotCount>10</burstShotCount>
+                                <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                <soundCast>Shot_Grendel</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>17</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                            <li>AssaultRifle</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>10.791</power>
+                                <cooldownTime>2.55</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>13.901</power>
+                                <cooldownTime>2.55</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_VOV_BaseGun" Name="VOV_Basilisk_BPistol_Bond" Abstract="True">
+                        <label>persona Basilisk bolt pistol</label>
+                        <description>Firing the same bolts as the mighty Gorgon bolter, this was intended to be a comparatively compact sidearm that had the firepower similar to its larger counterpart. While technically it is the pistol version of a bolter, the Basilisk is still too bulky to be used in one hand by most people without the assistance of powered armor or cybernetics.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/Basilisk_BPistol</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.0</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <MarketValue>1034.55</MarketValue>
+                            <Mass>2.5</Mass>
+                            <AccuracyTouch>1.028</AccuracyTouch>
+                            <AccuracyShort>0.726</AccuracyShort>
+                            <AccuracyMedium>0.423</AccuracyMedium>
+                            <AccuracyLong>0.363</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.722</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bolt_GorgonBolter_Bond</defaultProjectile>
+                                <warmupTime>0.7</warmupTime>
+                                <range>23</range>
+                                <burstShotCount>1</burstShotCount>
+                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                <soundCast>Shot_Basilisk</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>15</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                            <li>AssaultRifle</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>muzzle</label>
+                                <capacities>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_VOV_BaseGun" Name="VOV_Balor_BRevolver_Bond" Abstract="True">
+                        <label>persona Balor bolt revolver</label>
+                        <description>Since an automatic pistol firing 17.8mm bolts would be too bulky to use in one hand, the Vagar instead designed a revolver. While it holds only five rounds, it is more than enough for a sidearm, considering the sheer destructive potential of such bolts. In addition, the Balor is a much simpler design that other Vagar weapons, making it easy to produce in large numbers.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/Balor_BRevolver</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.0</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <MarketValue>266.2</MarketValue>
+                            <Mass>1.8</Mass>
+                            <AccuracyTouch>0.968</AccuracyTouch>
+                            <AccuracyShort>0.665</AccuracyShort>
+                            <AccuracyMedium>0.363</AccuracyMedium>
+                            <AccuracyLong>0.121</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.578</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bolt_GorgonBolter_Bond</defaultProjectile>
+                                <warmupTime>0.7</warmupTime>
+                                <range>20</range>
+                                <burstShotCount>1</burstShotCount>
+                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                <soundCast>Shot_Balor</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>14</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                            <li>AssaultRifle</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>5.559</power>
+                                <cooldownTime>1.275</cooldownTime>
+                            </li>
+                            <li>
+                                <label>muzzle</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>5.559</power>
+                                <cooldownTime>0.85</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_VolkhvMG_Bond" Abstract="True">
+                        <label>Volkhv bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>17</damageAmountBase>
+                            <speed>80</speed>
+                            <armorPenetrationBase>0.3</armorPenetrationBase>
+                            <stoppingPower>1</stoppingPower>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_VartaRifle_Bond" Abstract="True">
+                        <label>Varta bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>15</damageAmountBase>
+                            <speed>80</speed>
+                            <armorPenetrationBase>0.2</armorPenetrationBase>
+                            <stoppingPower>0.5</stoppingPower>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bolt_GryphonBolter_Bond" Abstract="True">
+                        <label>Gryphon bolt</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bolt_Medium</texPath>
+                            <shaderType>MoteGlow</shaderType>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>VOV_Bolt</damageDef>
+                            <damageAmountBase>24</damageAmountBase>
+                            <speed>70</speed>
+                            <armorPenetrationBase>0.35</armorPenetrationBase>
+                            <stoppingPower>1</stoppingPower>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bolt_GorgonBolter_Bond" Abstract="True">
+                        <label>Gorgon bolt</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bolt_Medium</texPath>
+                            <shaderType>MoteGlow</shaderType>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>VOV_Bolt</damageDef>
+                            <damageAmountBase>35</damageAmountBase>
+                            <speed>60</speed>
+                            <armorPenetrationBase>0.4</armorPenetrationBase>
+                            <stoppingPower>1</stoppingPower>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bolt_GrendelHBolter_Bond" Abstract="True">
+                        <label>Grendel bolt</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bolt_Medium</texPath>
+                            <shaderType>MoteGlow</shaderType>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>VOV_Bolt</damageDef>
+                            <damageAmountBase>46</damageAmountBase>
+                            <speed>70</speed>
+                            <armorPenetrationBase>0.6</armorPenetrationBase>
+                            <stoppingPower>2</stoppingPower>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
 
-                        <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_VartaRifle_Bond" Abstract="True">
-                            <label>Varta bullet</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bullet_Small</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageAmountBase>15</damageAmountBase>
-                                <speed>80</speed>
-                                <armorPenetrationBase>0.2</armorPenetrationBase>
-                                <stoppingPower>0</stoppingPower>
-                            </projectile>
-                        </ThingDef>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_VaultsofVagar</key>
+                <defaultValue>true</defaultValue>
 
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VOV_Varta_Rifle_Bond" Abstract="True">
-                            <label>persona Varta rifle</label>
-                            <description>Designed by the warsmiths of the Kalash clan for export to passing traders, this assault rifle is of excellent craftsmanship and balance. Combined with its bullpup design, it makes it noticeably easier to wield than most other weapons of this category, leading to improved reaction time to new threats.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <graphicData>
-                                <texPath>Things/Weapons/Varta_Rifle</texPath>
-                                <drawSize>1</drawSize>
-                            </graphicData>
-                            <soundInteract>Interact_Rifle</soundInteract>
-                            <statBases>
-                                <MarketValue>715.0</MarketValue>
-                                <Mass>4.3</Mass>
-                                <AccuracyTouch>0.77</AccuracyTouch>
-                                <AccuracyShort>0.88</AccuracyShort>
-                                <AccuracyMedium>0.825</AccuracyMedium>
-                                <AccuracyLong>0.55</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.615</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bullet_VartaRifle_Bond</defaultProjectile>
-                                    <warmupTime>0.595</warmupTime>
-                                    <range>35</range>
-                                    <burstShotCount>4</burstShotCount>
-                                    <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
-                                    <soundCast>Shot_Varta</soundCast>
-                                    <soundCastTail>GunTail_Medium</soundCastTail>
-                                    <muzzleFlashScale>11</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>IndustrialGunAdvanced</li>
-                                <li>AssaultRifle</li>
-                            </weaponTags>
-                            <tools>
-                                <li>
-                                    <label>stock</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>10.791</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>10.791</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
-
-                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bolt_GryphonBolter_Bond" Abstract="True">
-                            <label>Gryphon bolt</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bolt_Medium</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageDef>VOV_Bolt</damageDef>
-                                <damageAmountBase>24</damageAmountBase>
-                                <speed>70</speed>
-                                <armorPenetrationBase>0.35</armorPenetrationBase>
-                                <stoppingPower>1</stoppingPower>
-                            </projectile>
-                        </ThingDef>
-
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VOV_Gryphon_Bolter_Bond" Abstract="True">
-                            <label>persona Gryphon bolter</label>
-                            <description>The Gorgon's smaller cousin, the Gryphon fires smaller bolts, making it almost as wieldy as an assault rifle. The drawback is that in order to remain sufficiently light, this bolter sacrifices magazine capacity, making the wielder make every shot count.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <graphicData>
-                                <texPath>Things/Weapons/Gryphon_Bolter</texPath>
-                                <drawSize>1.2</drawSize>
-                            </graphicData>
-                            <soundInteract>Interact_Rifle</soundInteract>
-                            <statBases>
-                                <MarketValue>935.0</MarketValue>
-                                <Mass>5</Mass>
-                                <AccuracyTouch>0.935</AccuracyTouch>
-                                <AccuracyShort>0.99</AccuracyShort>
-                                <AccuracyMedium>0.88</AccuracyMedium>
-                                <AccuracyLong>0.66</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bolt_GryphonBolter_Bond</defaultProjectile>
-                                    <warmupTime>0.595</warmupTime>
-                                    <range>28</range>
-                                    <burstShotCount>3</burstShotCount>
-                                    <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-                                    <soundCast>Shot_Gryphon</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>14</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>IndustrialGunAdvanced</li>
-                                <li>AssaultRifle</li>
-                            </weaponTags>
-                            <tools>
-                                <li>
-                                    <label>stock</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>10.791</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>10.791</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
-
-                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bolt_GorgonBolter_Bond" Abstract="True">
-                            <label>Gorgon bolt</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bolt_Medium</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageDef>VOV_Bolt</damageDef>
-                                <damageAmountBase>35</damageAmountBase>
-                                <speed>60</speed>
-                                <armorPenetrationBase>0.4</armorPenetrationBase>
-                                <stoppingPower>1</stoppingPower>
-                            </projectile>
-                        </ThingDef>
-
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VOV_Gorgon_Bolter_Bond" Abstract="True">
-                            <label>persona Gorgon bolter</label>
-                            <description>The Gorgon-pattern bolter perfectly represents the Vagar approach to engineering: a bulky, complex weapon that far outperforms most other industrial firearms. Firing fist-sized explosive rounds it packs enough punch to kill most people with a single hit, even if they are wearing powered armour.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <graphicData>
-                                <texPath>Things/Weapons/Gorgon_Bolter</texPath>
-                                <drawSize>1.1</drawSize>
-                            </graphicData>
-                            <soundInteract>Interact_Rifle</soundInteract>
-                            <statBases>
-                                <MarketValue>1320.0</MarketValue>
-                                <Mass>6.5</Mass>
-                                <AccuracyTouch>0.935</AccuracyTouch>
-                                <AccuracyShort>0.99</AccuracyShort>
-                                <AccuracyMedium>0.88</AccuracyMedium>
-                                <AccuracyLong>0.66</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bolt_GorgonBolter_Bond</defaultProjectile>
-                                    <warmupTime>0.765</warmupTime>
-                                    <range>28</range>
-                                    <burstShotCount>2</burstShotCount>
-                                    <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-                                    <soundCast>Shot_Gorgon</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>15</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>IndustrialGunAdvanced</li>
-                                <li>AssaultRifle</li>
-                            </weaponTags>
-                            <tools>
-                                <li>
-                                    <label>stock</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>10.791</power>
-                                    <cooldownTime>2.125</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>10.791</power>
-                                    <cooldownTime>2.125</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
-
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VOV_Enceladus_BCaliver_Bond" Abstract="True">
-                            <label>persona Enceladus bolt caliver</label>
-                            <description>Most Vagar bolt weapons suffer from the same flaw: low accuracy at long ranges. The Enceladus bolt caliver is meant to overcome this. It has an extended barrel, which continues past the point of the bolt's engine ignition. This stabilises the projectile and drastically increases its accuracy. Vent holes were added along the extension to bleed off the exhausts gasses and prevent barrel rupture. Unfortunately the longer barrel made the weapon heavier, so magazine size and recoil compensation had to be sacrificed to make the weapon viable.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <graphicData>
-                                <texPath>Things/Weapons/Enceladus_BCaliver</texPath>
-                                <drawSize>1.2</drawSize>
-                            </graphicData>
-                            <soundInteract>Interact_Rifle</soundInteract>
-                            <statBases>
-                                <MarketValue>1100.0</MarketValue>
-                                <Mass>5.2</Mass>
-                                <AccuracyTouch>0.715</AccuracyTouch>
-                                <AccuracyShort>0.88</AccuracyShort>
-                                <AccuracyMedium>0.99</AccuracyMedium>
-                                <AccuracyLong>0.88</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.36</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bolt_GorgonBolter_Bond</defaultProjectile>
-                                    <warmupTime>0.935</warmupTime>
-                                    <range>38</range>
-                                    <burstShotCount>1</burstShotCount>
-                                    <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-                                    <soundCast>Shot_Enceladus</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>17</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>IndustrialGunAdvanced</li>
-                                <li>AssaultRifle</li>
-                            </weaponTags>
-                            <tools>
-                                <li>
-                                    <label>stock</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>10.791</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>10.791</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
-
-                        <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bolt_GrendelHBolter_Bond" Abstract="True">
-                            <label>Grendel bolt</label>
-                            <graphicData>
-                                <texPath>Things/Projectile/Bolt_Medium</texPath>
-                            </graphicData>
-                            <projectile>
-                                <damageDef>VOV_Bolt</damageDef>
-                                <damageAmountBase>46</damageAmountBase>
-                                <speed>70</speed>
-                                <armorPenetrationBase>0.6</armorPenetrationBase>
-                                <stoppingPower>2</stoppingPower>
-                            </projectile>
-                        </ThingDef>
-
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VOV_Grendel_HBolter_Bond" Abstract="True">
-                            <label>persona Grendel heavy bolter</label>
-                            <description>When designing this weapon, Vagar engineers intended for it to be used from a mount, such as a tripod, so they cared little for it's mass, instead opting to maximise the damage output. The result was a brutish weapon with the firepower equivalent to an autocannon. Though technically it could be fired from the hip, it's tremendous mass means that only someone using powered armor or advanced cybernetics could attempt to do it in any meaningful way.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <graphicData>
-                                <texPath>Things/Weapons/Grendel_HBolter</texPath>
-                                <drawSize>1.3</drawSize>
-                            </graphicData>
-                            <soundInteract>Interact_Rifle</soundInteract>
-                            <statBases>
-                                <MarketValue>1980.0</MarketValue>
-                                <Mass>33</Mass>
-                                <AccuracyTouch>0.396</AccuracyTouch>
-                                <AccuracyShort>0.561</AccuracyShort>
-                                <AccuracyMedium>0.462</AccuracyMedium>
-                                <AccuracyLong>0.33</AccuracyLong>
-                                <RangedWeapon_Cooldown>1.785</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bolt_GrendelHBolter_Bond</defaultProjectile>
-                                    <warmupTime>1.615</warmupTime>
-                                    <range>40</range>
-                                    <burstShotCount>10</burstShotCount>
-                                    <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
-                                    <soundCast>Shot_Grendel</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>17</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>IndustrialGunAdvanced</li>
-                                <li>AssaultRifle</li>
-                            </weaponTags>
-                            <tools>
-                                <li>
-                                    <label>stock</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>10.791</power>
-                                    <cooldownTime>2.55</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>barrel</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>13.901</power>
-                                    <cooldownTime>2.55</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
-
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VOV_Basilisk_BPistol_Bond" Abstract="True">
-                            <label>persona Basilisk bolt pistol</label>
-                            <description>Firing the same bolts as the mighty Gorgon bolter, this was intended to be a comparatively compact sidearm that had the firepower similar to its larger counterpart. While technically it is the pistol version of a bolter, the Basilisk is still too bulky to be used in one hand by most people without the assistance of powered armor or cybernetics.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <graphicData>
-                                <texPath>Things/Weapons/Basilisk_BPistol</texPath>
-                                <drawSize>0.8</drawSize>
-                            </graphicData>
-                            <soundInteract>Interact_Rifle</soundInteract>
-                            <statBases>
-                                <MarketValue>940.5</MarketValue>
-                                <Mass>2.5</Mass>
-                                <AccuracyTouch>0.935</AccuracyTouch>
-                                <AccuracyShort>0.66</AccuracyShort>
-                                <AccuracyMedium>0.385</AccuracyMedium>
-                                <AccuracyLong>0.33</AccuracyLong>
-                                <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bolt_GorgonBolter_Bond</defaultProjectile>
-                                    <warmupTime>0.595</warmupTime>
-                                    <range>23</range>
-                                    <burstShotCount>1</burstShotCount>
-                                    <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-                                    <soundCast>Shot_Basilisk</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>15</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>IndustrialGunAdvanced</li>
-                                <li>AssaultRifle</li>
-                            </weaponTags>
-                            <tools>
-                                <li>
-                                    <label>grip</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>muzzle</label>
-                                    <capacities>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>9.75</power>
-                                    <cooldownTime>1.7</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
-
-                        <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VOV_Balor_BRevolver_Bond" Abstract="True">
-                            <label>persona Balor bolt revolver</label>
-                            <description>Since an automatic pistol firing 17.8mm would be too bulky to use in one hand, the Vagar instead designed a revolver. While it holds only five rounds, it is more than enough for a sidearm, considering the sheer destructive potential of such bolts. In addition, the Balor is a much simpler desing that other Vagar weapons, making it easy to produce in large numbers.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-                            <graphicData>
-                                <texPath>Things/Weapons/Balor_BRevolver</texPath>
-                                <drawSize>0.7</drawSize>
-                            </graphicData>
-                            <soundInteract>Interact_Rifle</soundInteract>
-                            <statBases>
-                                <MarketValue>242.0</MarketValue>
-                                <Mass>1.8</Mass>
-                                <AccuracyTouch>0.88</AccuracyTouch>
-                                <AccuracyShort>0.605</AccuracyShort>
-                                <AccuracyMedium>0.33</AccuracyMedium>
-                                <AccuracyLong>0.11</AccuracyLong>
-                                <RangedWeapon_Cooldown>0.68</RangedWeapon_Cooldown>
-                            </statBases>
-                            <verbs>
-                                <li>
-                                    <verbClass>Verb_Shoot</verbClass>
-                                    <hasStandardCommand>true</hasStandardCommand>
-                                    <defaultProjectile>Bolt_GorgonBolter_Bond</defaultProjectile>
-                                    <warmupTime>0.595</warmupTime>
-                                    <range>20</range>
-                                    <burstShotCount>1</burstShotCount>
-                                    <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-                                    <soundCast>Shot_Balor</soundCast>
-                                    <soundCastTail>GunTail_Heavy</soundCastTail>
-                                    <muzzleFlashScale>14</muzzleFlashScale>
-                                </li>
-                            </verbs>
-                            <weaponTags>
-                                <li>IndustrialGunAdvanced</li>
-                                <li>AssaultRifle</li>
-                            </weaponTags>
-                            <tools>
-                                <li>
-                                    <label>stock</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                    </capacities>
-                                    <power>5.559</power>
-                                    <cooldownTime>1.275</cooldownTime>
-                                </li>
-                                <li>
-                                    <label>muzzle</label>
-                                    <capacities>
-                                        <li>Blunt</li>
-                                        <li>Poke</li>
-                                    </capacities>
-                                    <power>5.559</power>
-                                    <cooldownTime>0.85</cooldownTime>
-                                </li>
-                            </tools>
-                        </ThingDef>
-                    </value>
-                </li>
-
-                <li Class="PatchOperationFindMod">
-                    <mods>
-                        <li>XML Extensions</li>
-                    </mods>
-
-                    <nomatch Class="PatchOperationAdd">
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
                         <xpath>Defs</xpath>
                         <value>
-                            <!-- VOV_Chimera_CSword_Bond -->
                             <ThingDef ParentName="VOV_Chimera_CSword_Bond">
                                 <defName>VOV_Chimera_CSword_Bond</defName>
                             </ThingDef>
-
-                            <!-- Bullet_VartaRifle_Bond -->
-                            <ThingDef ParentName="Bullet_VartaRifle_Bond">
-                                <defName>Bullet_VartaRifle_Bond</defName>
+                            <ThingDef ParentName="VOV_Volkhv_mg_Bond">
+                                <defName>VOV_Volkhv_mg_Bond</defName>
                             </ThingDef>
-
-                            <!-- VOV_Varta_Rifle_Bond -->
                             <ThingDef ParentName="VOV_Varta_Rifle_Bond">
                                 <defName>VOV_Varta_Rifle_Bond</defName>
                             </ThingDef>
-
-                            <!-- Bolt_GryphonBolter_Bond -->
-                            <ThingDef ParentName="Bolt_GryphonBolter_Bond">
-                                <defName>Bolt_GryphonBolter_Bond</defName>
-                            </ThingDef>
-
-                            <!-- VOV_Gryphon_Bolter_Bond -->
                             <ThingDef ParentName="VOV_Gryphon_Bolter_Bond">
                                 <defName>VOV_Gryphon_Bolter_Bond</defName>
                             </ThingDef>
-
-                            <!-- Bolt_GorgonBolter_Bond -->
-                            <ThingDef ParentName="Bolt_GorgonBolter_Bond">
-                                <defName>Bolt_GorgonBolter_Bond</defName>
-                            </ThingDef>
-
-                            <!-- VOV_Gorgon_Bolter_Bond -->
                             <ThingDef ParentName="VOV_Gorgon_Bolter_Bond">
                                 <defName>VOV_Gorgon_Bolter_Bond</defName>
                             </ThingDef>
-
-                            <!-- VOV_Enceladus_BCaliver_Bond -->
                             <ThingDef ParentName="VOV_Enceladus_BCaliver_Bond">
                                 <defName>VOV_Enceladus_BCaliver_Bond</defName>
                             </ThingDef>
-
-                            <!-- Bolt_GrendelHBolter_Bond -->
-                            <ThingDef ParentName="Bolt_GrendelHBolter_Bond">
-                                <defName>Bolt_GrendelHBolter_Bond</defName>
-                            </ThingDef>
-
-                            <!-- VOV_Grendel_HBolter_Bond -->
                             <ThingDef ParentName="VOV_Grendel_HBolter_Bond">
                                 <defName>VOV_Grendel_HBolter_Bond</defName>
                             </ThingDef>
-
-                            <!-- VOV_Basilisk_BPistol_Bond -->
                             <ThingDef ParentName="VOV_Basilisk_BPistol_Bond">
                                 <defName>VOV_Basilisk_BPistol_Bond</defName>
                             </ThingDef>
-
-                            <!-- VOV_Balor_BRevolver_Bond -->
                             <ThingDef ParentName="VOV_Balor_BRevolver_Bond">
                                 <defName>VOV_Balor_BRevolver_Bond</defName>
                             </ThingDef>
+                            <ThingDef ParentName="Bullet_VolkhvMG_Bond">
+                                <defName>Bullet_VolkhvMG_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_VartaRifle_Bond">
+                                <defName>Bullet_VartaRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bolt_GryphonBolter_Bond">
+                                <defName>Bolt_GryphonBolter_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bolt_GorgonBolter_Bond">
+                                <defName>Bolt_GorgonBolter_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bolt_GrendelHBolter_Bond">
+                                <defName>Bolt_GrendelHBolter_Bond</defName>
+                            </ThingDef>
                         </value>
-                    </nomatch>
-
-                    <match Class="PatchOperationSequence">
-                        <operations>
-                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
-                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                                <key>Daria40K_MightyPersonaBondForgePatch_VaultsofVagar</key>
-                                <defaultValue>true</defaultValue>
-
-                                <caseTrue>
-                                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                                        <xpath>Defs</xpath>
-                                        <value>
-                                            <!-- VOV_Chimera_CSword_Bond -->
-                                            <ThingDef ParentName="VOV_Chimera_CSword_Bond">
-                                                <defName>VOV_Chimera_CSword_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bullet_VartaRifle_Bond -->
-                                            <ThingDef ParentName="Bullet_VartaRifle_Bond">
-                                                <defName>Bullet_VartaRifle_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- VOV_Varta_Rifle_Bond -->
-                                            <ThingDef ParentName="VOV_Varta_Rifle_Bond">
-                                                <defName>VOV_Varta_Rifle_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bolt_GryphonBolter_Bond -->
-                                            <ThingDef ParentName="Bolt_GryphonBolter_Bond">
-                                                <defName>Bolt_GryphonBolter_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- VOV_Gryphon_Bolter_Bond -->
-                                            <ThingDef ParentName="VOV_Gryphon_Bolter_Bond">
-                                                <defName>VOV_Gryphon_Bolter_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bolt_GorgonBolter_Bond -->
-                                            <ThingDef ParentName="Bolt_GorgonBolter_Bond">
-                                                <defName>Bolt_GorgonBolter_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- VOV_Gorgon_Bolter_Bond -->
-                                            <ThingDef ParentName="VOV_Gorgon_Bolter_Bond">
-                                                <defName>VOV_Gorgon_Bolter_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- VOV_Enceladus_BCaliver_Bond -->
-                                            <ThingDef ParentName="VOV_Enceladus_BCaliver_Bond">
-                                                <defName>VOV_Enceladus_BCaliver_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- Bolt_GrendelHBolter_Bond -->
-                                            <ThingDef ParentName="Bolt_GrendelHBolter_Bond">
-                                                <defName>Bolt_GrendelHBolter_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- VOV_Grendel_HBolter_Bond -->
-                                            <ThingDef ParentName="VOV_Grendel_HBolter_Bond">
-                                                <defName>VOV_Grendel_HBolter_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- VOV_Basilisk_BPistol_Bond -->
-                                            <ThingDef ParentName="VOV_Basilisk_BPistol_Bond">
-                                                <defName>VOV_Basilisk_BPistol_Bond</defName>
-                                            </ThingDef>
-
-                                            <!-- VOV_Balor_BRevolver_Bond -->
-                                            <ThingDef ParentName="VOV_Balor_BRevolver_Bond">
-                                                <defName>VOV_Balor_BRevolver_Bond</defName>
-                                            </ThingDef>
-                                        </value>
-                                    </Operation>
-                                </caseTrue>
-                            </li>
-                        </operations>
-                    </match>
-                </li>
-            </operations>
-        </match>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
     </Operation>
 </Patch>
