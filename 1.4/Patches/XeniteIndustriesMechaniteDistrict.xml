@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Xenite Industries: Mechanite District =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>xeros08.xeniteindustries.mechdistrict</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="MDGun_ChargedRailGun_Bond" Abstract="True">
+                        <label>persona charged railgun</label>
+                        <description>A pulse-munition rail-assisted gun. It fires a triple shot at high velocity, charging it with energy as it leaves the acceleration chamber.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Things/Gun/MDchargedRailGun</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeLance</soundInteract>
+                        <statBases>
+                            <Mass>8</Mass>
+                            <AccuracyTouch>0.907</AccuracyTouch>
+                            <AccuracyShort>0.968</AccuracyShort>
+                            <AccuracyMedium>1.089</AccuracyMedium>
+                            <AccuracyLong>1.149</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.662</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                            <li>RailGun</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>MDBullet_ChargedRailGun_Bond</defaultProjectile>
+                                <warmupTime>1.2</warmupTime>
+                                <range>50</range>
+                                <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                <burstShotCount>3</burstShotCount>
+                                <soundCast>ChargeLance_Fire</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>10.791</power>
+                                <cooldownTime>0.85</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="MDGun_CoilGun_Bond" Abstract="True">
+                        <label>persona coilgun</label>
+                        <description>A magnetically driven gun. It fires a double shot at high velocity, as it leaves the acceleration rail.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Industrial</techLevel>
+                        <graphicData>
+                            <texPath>Things/Gun/MDrailGun</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeLance</soundInteract>
+                        <statBases>
+                            <Mass>9</Mass>
+                            <AccuracyTouch>0.847</AccuracyTouch>
+                            <AccuracyShort>0.907</AccuracyShort>
+                            <AccuracyMedium>0.968</AccuracyMedium>
+                            <AccuracyLong>0.968</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.806</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                            <li>RailGun</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>MDBullet_CoilGun_Bond</defaultProjectile>
+                                <warmupTime>1.6</warmupTime>
+                                <range>40</range>
+                                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                <burstShotCount>2</burstShotCount>
+                                <soundCast>ChargeLance_Fire</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>10.791</power>
+                                <cooldownTime>1.19</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="MDGun_RailPistol_Bond" Abstract="True">
+                        <label>persona rail-pistol</label>
+                        <description>A modified autopistol capable of shoting bullets at a faster rate.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Gun/MDRailPistol</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Autopistol</soundInteract>
+                        <weaponTags>
+                            <li>RailGun</li>
+                        </weaponTags>
+                        <statBases>
+                            <Mass>1.6</Mass>
+                            <AccuracyTouch>0.98</AccuracyTouch>
+                            <AccuracyShort>0.871</AccuracyShort>
+                            <AccuracyMedium>0.605</AccuracyMedium>
+                            <AccuracyLong>0.472</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.867</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_Autopistol_Bond</defaultProjectile>
+                                <warmupTime>0.2</warmupTime>
+                                <range>30</range>
+                                <soundCast>Shot_Autopistol</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.275</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.275</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="MDGun_RailShotgun_Bond" Abstract="True">
+                        <label>persona rail-shotgun</label>
+                        <description>A moded shotgun, capable of fast burst shooting. Its slower, but more powerfull.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Gun/MDRailShotgun</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Shotgun</soundInteract>
+                        <statBases>
+                            <Mass>5</Mass>
+                            <AccuracyTouch>0.811</AccuracyTouch>
+                            <AccuracyShort>0.871</AccuracyShort>
+                            <AccuracyMedium>0.762</AccuracyMedium>
+                            <AccuracyLong>0.653</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.12</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>MDBullet_RailShotgun_Bond</defaultProjectile>
+                                <warmupTime>1.4</warmupTime>
+                                <range>15</range>
+                                <burstShotCount>4</burstShotCount>
+                                <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                                <soundCast>Shot_Shotgun</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="MDBullet_ChargedRailGun_Bond" Abstract="True">
+                        <label>charged railgun shot</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/MDchargedRailGun_Projectile</texPath>
+                            <shaderType>TransparentPostLight</shaderType>
+                            <drawSize>1.75</drawSize>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>46</damageAmountBase>
+                            <stoppingPower>20</stoppingPower>
+                            <speed>200</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="MDBullet_CoilGun_Bond" Abstract="True">
+                        <label>coilgun shot</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/MDRailGun_Projectile</texPath>
+                            <shaderType>TransparentPostLight</shaderType>
+                            <drawSize>1.5</drawSize>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>41</damageAmountBase>
+                            <stoppingPower>6</stoppingPower>
+                            <speed>150</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="MDBullet_RailPistol_Bond" Abstract="True">
+                        <label>rail-pistol bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/MDRailGun_Projectile</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>13</damageAmountBase>
+                            <stoppingPower>5</stoppingPower>
+                            <speed>85</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="MDBullet_RailShotgun_Bond" Abstract="True">
+                        <label>rail-shotgun bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/MDBullet_RailShotgun</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>18</damageAmountBase>
+                            <stoppingPower>5</stoppingPower>
+                            <speed>75</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_XeniteIndustriesMechaniteDistrict</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="MDGun_ChargedRailGun_Bond">
+                                <defName>MDGun_ChargedRailGun_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="MDGun_CoilGun_Bond">
+                                <defName>MDGun_CoilGun_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="MDGun_RailPistol_Bond">
+                                <defName>MDGun_RailPistol_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="MDGun_RailShotgun_Bond">
+                                <defName>MDGun_RailShotgun_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="MDBullet_ChargedRailGun_Bond">
+                                <defName>MDBullet_ChargedRailGun_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="MDBullet_CoilGun_Bond">
+                                <defName>MDBullet_CoilGun_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="MDBullet_RailPistol_Bond">
+                                <defName>MDBullet_RailPistol_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="MDBullet_RailShotgun_Bond">
+                                <defName>MDBullet_RailShotgun_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>
