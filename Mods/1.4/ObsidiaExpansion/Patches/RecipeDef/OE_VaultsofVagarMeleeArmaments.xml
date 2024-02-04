@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
     ===== Vaults of Vagar: Melee Armaments =====
 -->
@@ -541,70 +542,86 @@
                 <defaultValue>true</defaultValue>
 
                 <caseTrue>
-                    <Operation Class="XmlExtensions.PatchOperationAdd">
-                        <xpath>Defs</xpath>
-                        <value>
-                            <RecipeDef ParentName="Make_OE_VOV_Cerastes_CAxe_Bond">
-                                <defName>Make_OE_VOV_Cerastes_CAxe_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Cerastes_CAxe_Bond_Reset">
-                                <defName>Make_OE_VOV_Cerastes_CAxe_Bond_Reset</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Cercopes_CAxe_Bond">
-                                <defName>Make_OE_VOV_Cercopes_CAxe_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Cercopes_CAxe_Bond_Reset">
-                                <defName>Make_OE_VOV_Cercopes_CAxe_Bond_Reset</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Callitrix_CGlaive_Bond">
-                                <defName>Make_OE_VOV_Callitrix_CGlaive_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Callitrix_CGlaive_Bond_Reset">
-                                <defName>Make_OE_VOV_Callitrix_CGlaive_Bond_Reset</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Cleaver_Bond">
-                                <defName>Make_OE_VOV_Cleaver_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Cleaver_Bond_Reset">
-                                <defName>Make_OE_VOV_Cleaver_Bond_Reset</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Hulder_PHammer_Bond">
-                                <defName>Make_OE_VOV_Hulder_PHammer_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Hulder_PHammer_Bond_Reset">
-                                <defName>Make_OE_VOV_Hulder_PHammer_Bond_Reset</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Heracles_PHammer_Bond">
-                                <defName>Make_OE_VOV_Heracles_PHammer_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Heracles_PHammer_Bond_Reset">
-                                <defName>Make_OE_VOV_Heracles_PHammer_Bond_Reset</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Vielfras_VSword_Bond">
-                                <defName>Make_OE_VOV_Vielfras_VSword_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Vielfras_VSword_Bond_Reset">
-                                <defName>Make_OE_VOV_Vielfras_VSword_Bond_Reset</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Valravn_VSword_Bond">
-                                <defName>Make_OE_VOV_Valravn_VSword_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Valravn_VSword_Bond_Reset">
-                                <defName>Make_OE_VOV_Valravn_VSword_Bond_Reset</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Boarding_Axe_Bond">
-                                <defName>Make_OE_VOV_Boarding_Axe_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Boarding_Axe_Bond_Reset">
-                                <defName>Make_OE_VOV_Boarding_Axe_Bond_Reset</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Breacher_Axe_Bond">
-                                <defName>Make_OE_VOV_Breacher_Axe_Bond</defName>
-                            </RecipeDef>
-                            <RecipeDef ParentName="Make_OE_VOV_Breacher_Axe_Bond_Reset">
-                                <defName>Make_OE_VOV_Breacher_Axe_Bond_Reset</defName>
-                            </RecipeDef>
-                        </value>
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_OE_VaultsofVagarMeleeArmaments</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.OptionalPatch">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DisableObsidiaExpansion</key>
+                                <defaultValue>false</defaultValue>
+
+                                <caseFalse>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <RecipeDef ParentName="Make_OE_VOV_Cerastes_CAxe_Bond">
+                                                <defName>Make_OE_VOV_Cerastes_CAxe_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Cerastes_CAxe_Bond_Reset">
+                                                <defName>Make_OE_VOV_Cerastes_CAxe_Bond_Reset</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Cercopes_CAxe_Bond">
+                                                <defName>Make_OE_VOV_Cercopes_CAxe_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Cercopes_CAxe_Bond_Reset">
+                                                <defName>Make_OE_VOV_Cercopes_CAxe_Bond_Reset</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Callitrix_CGlaive_Bond">
+                                                <defName>Make_OE_VOV_Callitrix_CGlaive_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Callitrix_CGlaive_Bond_Reset">
+                                                <defName>Make_OE_VOV_Callitrix_CGlaive_Bond_Reset</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Cleaver_Bond">
+                                                <defName>Make_OE_VOV_Cleaver_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Cleaver_Bond_Reset">
+                                                <defName>Make_OE_VOV_Cleaver_Bond_Reset</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Hulder_PHammer_Bond">
+                                                <defName>Make_OE_VOV_Hulder_PHammer_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Hulder_PHammer_Bond_Reset">
+                                                <defName>Make_OE_VOV_Hulder_PHammer_Bond_Reset</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Heracles_PHammer_Bond">
+                                                <defName>Make_OE_VOV_Heracles_PHammer_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Heracles_PHammer_Bond_Reset">
+                                                <defName>Make_OE_VOV_Heracles_PHammer_Bond_Reset</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Vielfras_VSword_Bond">
+                                                <defName>Make_OE_VOV_Vielfras_VSword_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Vielfras_VSword_Bond_Reset">
+                                                <defName>Make_OE_VOV_Vielfras_VSword_Bond_Reset</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Valravn_VSword_Bond">
+                                                <defName>Make_OE_VOV_Valravn_VSword_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Valravn_VSword_Bond_Reset">
+                                                <defName>Make_OE_VOV_Valravn_VSword_Bond_Reset</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Boarding_Axe_Bond">
+                                                <defName>Make_OE_VOV_Boarding_Axe_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Boarding_Axe_Bond_Reset">
+                                                <defName>Make_OE_VOV_Boarding_Axe_Bond_Reset</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Breacher_Axe_Bond">
+                                                <defName>Make_OE_VOV_Breacher_Axe_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VOV_Breacher_Axe_Bond_Reset">
+                                                <defName>Make_OE_VOV_Breacher_Axe_Bond_Reset</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseFalse>
+                            </Operation>
+                        </caseTrue>
                     </Operation>
                 </caseTrue>
             </Operation>
