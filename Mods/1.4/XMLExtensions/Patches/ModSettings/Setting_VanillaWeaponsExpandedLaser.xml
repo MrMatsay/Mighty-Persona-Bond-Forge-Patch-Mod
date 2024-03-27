@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Vanilla Weapons Expanded - Laser =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>vanillaexpanded.vwel</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.FindMod">
+                <mods>
+                    <li>statistno1.personabond</li>
+                </mods>
+                <packageId>true</packageId>
+
+                <caseFalse>
+                    <Operation Class="XmlExtensions.PatchOperationInsert">
+                        <xpath>Defs/XmlExtensions.SettingsMenuDef[modId="Daria40K.MightyPersonaBondForgePatch"]/settings/li[@Class="XmlExtensions.Setting.TabView"]/tabs/li[tKey="Daria40K_MightyPersonaBondForgePatch_WeaponsTab"]/settings/li[@Class="XmlExtensions.Setting.Gap"]</xpath>
+                        <order>Prepend</order>
+                        <value>
+                            <li Class="XmlExtensions.Setting.Checkbox">
+                                <key>Daria40K_MightyPersonaBondForgePatch_VanillaWeaponsExpandedLaser</key>
+                                <label>Vanilla Weapons Expanded - Laser</label>
+                                <defaultValue>true</defaultValue>
+                            </li>
+                        </value>
+                    </Operation>
+
+                    <Operation Class="XmlExtensions.FindMod">
+                        <mods>
+                            <li>obsidiaexpansion.core</li>
+                        </mods>
+                        <packageId>true</packageId>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.PatchOperationInsert">
+                                <xpath>Defs/XmlExtensions.SettingsMenuDef[modId="Daria40K.MightyPersonaBondForgePatch"]/settings/li[@Class="XmlExtensions.Setting.TabView"]/tabs/li[tKey="Daria40K_MightyPersonaBondForgePatch_ObsidiaExpansionTab"]/settings/li[@Class="XmlExtensions.Setting.Gap"]</xpath>
+                                <order>Prepend</order>
+                                <value>
+                                    <li Class="XmlExtensions.Setting.Checkbox">
+                                        <key>Daria40K_MightyPersonaBondForgePatch_OE_VanillaWeaponsExpandedLaser</key>
+                                        <label>Vanilla Weapons Expanded - Laser</label>
+                                        <defaultValue>true</defaultValue>
+                                    </li>
+                                </value>
+                            </Operation>
+                        </caseTrue>
+                    </Operation>
+                </caseFalse>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>

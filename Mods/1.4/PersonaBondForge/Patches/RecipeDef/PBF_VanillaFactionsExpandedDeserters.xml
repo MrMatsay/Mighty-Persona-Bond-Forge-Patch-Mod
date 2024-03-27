@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Vanilla Factions Expanded - Deserters =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>oskarpotocki.vfe.deserters</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_VFED_Gun_ChargeCycler_Bond" Abstract="True">
+                        <label>bond charge cycler</label>
+                        <description>Bond an charge cycler.</description>
+                        <jobString>Bonding a charge cycler.</jobString>
+                        <researchPrerequisites>
+                            <li>ChargedShot</li>
+                        </researchPrerequisites>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>VFED_Gun_ChargeCycler</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>VFED_Gun_ChargeCycler</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <VFED_Gun_ChargeCycler_Bond>1</VFED_Gun_ChargeCycler_Bond>
+                        </products>
+                    </RecipeDef>
+                    <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_VFED_Gun_Fletchling_Bond" Abstract="True">
+                        <label>bond fletchling</label>
+                        <description>Bond an fletchling.</description>
+                        <jobString>Bonding a fletchling.</jobString>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>VFED_Gun_Fletchling</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>VFED_Gun_Fletchling</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <VFED_Gun_Fletchling_Bond>1</VFED_Gun_Fletchling_Bond>
+                        </products>
+                    </RecipeDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_VanillaFactionsExpandedDeserters</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_PBF_VanillaFactionsExpandedDeserters</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.OptionalPatch">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DisablePersonaBondForge</key>
+                                <defaultValue>false</defaultValue>
+
+                                <caseFalse>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <RecipeDef ParentName="Make_VFED_Gun_ChargeCycler_Bond">
+                                                <defName>Make_VFED_Gun_ChargeCycler_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_VFED_Gun_Fletchling_Bond">
+                                                <defName>Make_VFED_Gun_Fletchling_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseFalse>
+                            </Operation>
+                        </caseTrue>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Vanilla Factions Expanded - Deserters =====
+-->
+<Patch>
+  <Operation Class="XmlExtensions.FindMod">
+    <mods>
+      <li>oskarpotocki.vfe.deserters</li>
+    </mods>
+    <packageId>true</packageId>
+
+    <caseTrue>
+      <Operation Class="XmlExtensions.PatchOperationAdd">
+        <xpath>Defs</xpath>
+        <value>
+          <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VFED_Gun_ChargeCycler_Bond" Abstract="True">
+            <label>persona charge cycler</label>
+            <description>A modified charged-shot revolver that incorporates mechanoid technology. Recovered thump cannons have been reversed engineered to allow for a powerful charge revolver with two shooting modes to be created. Charged shot mode will eliminate any close targets with a powerful, armor-piercing blast, whilst a Thump shot mode allows users to incapacitate enemies and break any defenses they might be hiding behind. Modes can be changed with a press of a button.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+            <techLevel>Spacer</techLevel>
+            <graphicData>
+              <texPath>Things/Weapons/ChargeCycler</texPath>
+              <graphicClass>Graphic_Single</graphicClass>
+            </graphicData>
+            <soundInteract>Interact_ChargeRifle</soundInteract>
+            <statBases>
+              <Mass>1.6</Mass>
+            </statBases>
+            <weaponTags>
+              <li>SpacerGun</li>
+            </weaponTags>
+            <tradeTags>
+              <li>WeaponRanged</li>
+            </tradeTags>
+            <weaponClasses>
+              <li>RangedLight</li>
+            </weaponClasses>
+            <verbs>
+              <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <label>Single shot (Charged shot)</label>
+                <defaultProjectile>VFED_Bullet_ChargedShot_Bond</defaultProjectile>
+                <warmupTime>0.3</warmupTime>
+                <range>20.9</range>
+                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                <burstShotCount>1</burstShotCount>
+                <soundCast>VFED_Shot_ChargeCycler</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+                <accuracyTouch>0.8</accuracyTouch>
+                <accuracyShort>0.7</accuracyShort>
+                <accuracyMedium>0.55</accuracyMedium>
+                <accuracyLong>0.4</accuracyLong>
+                <defaultCooldownTime>1.6</defaultCooldownTime>
+              </li>
+              <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <label>Single shot (Thump shot)</label>
+                <defaultProjectile>VFEE_Bullet_ThumpShot_Bond</defaultProjectile>
+                <warmupTime>1</warmupTime>
+                <range>20.9</range>
+                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                <burstShotCount>1</burstShotCount>
+                <soundCast>ThumpCannon_Fire</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+                <forcedMissRadius>0.1</forcedMissRadius>
+                <accuracyTouch>0.8</accuracyTouch>
+                <accuracyShort>0.87</accuracyShort>
+                <accuracyMedium>0.77</accuracyMedium>
+                <accuracyLong>0.64</accuracyLong>
+                <defaultCooldownTime>2</defaultCooldownTime>
+              </li>
+            </verbs>
+            <tools>
+              <li>
+                <label>handle</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>9.75</power>
+                <cooldownTime>1.7</cooldownTime>
+              </li>
+              <li>
+                <label>barrel</label>
+                <capacities>
+                  <li>Blunt</li>
+                  <li>Poke</li>
+                </capacities>
+                <power>9.75</power>
+                <cooldownTime>1.7</cooldownTime>
+              </li>
+            </tools>
+            <comps>
+              <li Class="MVCF.Comps.CompProperties_VerbProps">
+                <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+                <verbProps>
+                  <li>
+                    <label>Single shot (Charged shot)</label>
+                    <canBeToggled>false</canBeToggled>
+                    <comps>
+                      <li Class="MVCF.VerbComps.VerbCompProperties_Switch">
+                        <switchIcon>UI/ChargeBlasterMode_ChargedShot</switchIcon>
+                        <startEnabled>true</startEnabled>
+                      </li>
+                    </comps>
+                  </li>
+                  <li>
+                    <label>Single shot (Thump shot)</label>
+                    <canBeToggled>false</canBeToggled>
+                    <comps>
+                      <li Class="MVCF.VerbComps.VerbCompProperties_Switch">
+                        <switchIcon>UI/ChargeBlasterMode_ThumpShot</switchIcon>
+                      </li>
+                    </comps>
+                  </li>
+                </verbProps>
+              </li>
+            </comps>
+            <modExtensions>
+              <li Class="VFED.ContrabandExtension">
+                <category>VFED_Deserter</category>
+                <intelCost>9</intelCost>
+              </li>
+            </modExtensions>
+          </ThingDef>
+          <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="VFED_Gun_Fletchling_Bond" Abstract="True">
+            <label>persona fletchling</label>
+            <description>A modification to the extremely rare fletcher rifle, fletchling is a shotgun commonly used by Imperial deserters. The mere possession of it can be seen as an act of war against the Shattered Empire. Each fletchling shot releases a number of small acidifier darts that may hit several targets, causing extreme amounts of pain and acid burns. Lethal to organics and almost useless against non-organics, such as mechanoids. \n\nTargets hit by these flechettes will be inflicted with an unstable variant of acidifier fluids, designed to dissolve the target from the inside rather than destroy their equipment. The acid will rampage through the target&#8217;s body and usually results in vital organs being dissolved, however lethality isn&#8217;t guaranteed.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+            <techLevel>Spacer</techLevel>
+            <graphicData>
+              <texPath>Things/Weapons/Fletchling</texPath>
+              <graphicClass>Graphic_Single</graphicClass>
+            </graphicData>
+            <soundInteract>Interact_ChargeLance</soundInteract>
+            <statBases>
+              <Mass>6.5</Mass>
+              <AccuracyTouch>0.303</AccuracyTouch>
+              <AccuracyShort>0.423</AccuracyShort>
+              <AccuracyMedium>0.423</AccuracyMedium>
+              <AccuracyLong>0.339</AccuracyLong>
+              <RangedWeapon_Cooldown>1.806</RangedWeapon_Cooldown>
+              <MarketValue>2541.0</MarketValue>
+            </statBases>
+            <weaponTags>
+              <li>VFEE_Fletchling</li>
+            </weaponTags>
+            <weaponClasses>
+              <li>RangedHeavy</li>
+            </weaponClasses>
+            <equippedStatOffsets>
+              <MoveSpeed>-1</MoveSpeed>
+            </equippedStatOffsets>
+            <verbs>
+              <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>VFEE_Bullet_FletchlingDart_Bond</defaultProjectile>
+                <warmupTime>0.9</warmupTime>
+                <range>14.9</range>
+                <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                <burstShotCount>5</burstShotCount>
+                <soundCast>VFED_Shot_Fletchling</soundCast>
+                <soundCastTail>GunTail_Light</soundCastTail>
+                <muzzleFlashScale>4</muzzleFlashScale>
+              </li>
+            </verbs>
+            <tools>
+              <li>
+                <label>barrel</label>
+                <capacities>
+                  <li>Blunt</li>
+                  <li>Poke</li>
+                </capacities>
+                <power>9.75</power>
+                <cooldownTime>1.7</cooldownTime>
+              </li>
+            </tools>
+            <comps>
+            </comps>
+            <modExtensions>
+              <li Class="VFED.ContrabandExtension">
+                <category>VFED_Deserter</category>
+                <intelCost>2</intelCost>
+                <useCriticalIntel>true</useCriticalIntel>
+              </li>
+            </modExtensions>
+          </ThingDef>
+          <ThingDef ParentName="MPBFPM_Bullet" Name="VFED_Bullet_ChargedShot_Bond" Abstract="True">
+            <label>charged shot</label>
+            <graphicData>
+              <texPath>Things/Projectile/Charge_Small</texPath>
+            </graphicData>
+            <projectile>
+              <damageDef>Bullet</damageDef>
+              <damageAmountBase>22</damageAmountBase>
+              <armorPenetrationBase>0.4</armorPenetrationBase>
+              <stoppingPower>1.5</stoppingPower>
+              <speed>62</speed>
+            </projectile>
+          </ThingDef>
+          <ThingDef ParentName="MPBFPM_BaseBullet" Name="VFEE_Bullet_ThumpShot_Bond" Abstract="True">
+            <label>thump shot</label>
+            <graphicData>
+              <texPath>Things/Projectile/Bullet_Thump</texPath>
+            </graphicData>
+            <thingClass>Projectile_Explosive</thingClass>
+            <projectile>
+              <damageDef>Thump</damageDef>
+              <damageAmountBase>8</damageAmountBase>
+              <explosionRadius>0.9</explosionRadius>
+              <stoppingPower>3.0</stoppingPower>
+              <speed>50</speed>
+              <soundExplode>ThumpCannon_Impact</soundExplode>
+            </projectile>
+          </ThingDef>
+          <ThingDef ParentName="MPBFPM_BaseBullet" Name="VFEE_Bullet_FletchlingDart_Bond" Abstract="True">
+            <label>fletcher dart</label>
+            <graphicData>
+              <texPath>Projectile/Bullet_Fletcher</texPath>
+              <shaderType>TransparentPostLight</shaderType>
+              <drawSize>1.0</drawSize>
+            </graphicData>
+            <projectile>
+              <damageDef>VFED_Fletchling</damageDef>
+              <damageAmountBase>6</damageAmountBase>
+              <stoppingPower>3</stoppingPower>
+              <armorPenetrationBase>0.16</armorPenetrationBase>
+              <speed>62</speed>
+            </projectile>
+          </ThingDef>
+        </value>
+      </Operation>
+
+      <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+        <key>Daria40K_MightyPersonaBondForgePatch_VanillaFactionsExpandedDeserters</key>
+        <defaultValue>true</defaultValue>
+
+        <caseTrue>
+          <Operation Class="XmlExtensions.PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <ThingDef ParentName="VFED_Gun_ChargeCycler_Bond">
+                <defName>VFED_Gun_ChargeCycler_Bond</defName>
+              </ThingDef>
+              <ThingDef ParentName="VFED_Gun_Fletchling_Bond">
+                <defName>VFED_Gun_Fletchling_Bond</defName>
+              </ThingDef>
+              <ThingDef ParentName="VFED_Bullet_ChargedShot_Bond">
+                <defName>VFED_Bullet_ChargedShot_Bond</defName>
+              </ThingDef>
+              <ThingDef ParentName="VFEE_Bullet_ThumpShot_Bond">
+                <defName>VFEE_Bullet_ThumpShot_Bond</defName>
+              </ThingDef>
+              <ThingDef ParentName="VFEE_Bullet_FletchlingDart_Bond">
+                <defName>VFEE_Bullet_FletchlingDart_Bond</defName>
+              </ThingDef>
+            </value>
+          </Operation>
+        </caseTrue>
+      </Operation>
+    </caseTrue>
+  </Operation>
+</Patch>

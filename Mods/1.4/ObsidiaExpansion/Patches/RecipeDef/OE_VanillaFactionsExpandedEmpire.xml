@@ -1,245 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- ===== Vanilla Factions Expanded - Empire ===== -->
+<!--
+    ===== Vanilla Factions Expanded - Empire =====
+-->
 <Patch>
-    <Operation Class="PatchOperationFindMod">
+    <Operation Class="XmlExtensions.FindMod">
         <mods>
-            <li>Vanilla Factions Expanded - Empire</li>
+            <li>oskarpotocki.vfe.empire</li>
         </mods>
+        <packageId>true</packageId>
 
-        <match Class="PatchOperationSequence">
-            <operations>
-                <li Class="PatchOperationAdd">
-                    <xpath>Defs</xpath>
-                    <value>
-                        <RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_VEE_Gun_Fletcher_Bond" Abstract="True">
-                            <label>Persona bond fletcher</label>
-                            <description>Persona bond an fletcher.</description>
-                            <jobString>Persona bonding a fletcher.</jobString>
-                            <researchPrerequisites></researchPrerequisites>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>VEE_Gun_Fletcher</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>VEE_Gun_Fletcher</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <VEE_Gun_Fletcher_Bond>1</VEE_Gun_Fletcher_Bond>
-                            </products>
-                        </RecipeDef>
-                        <RecipeDef ParentName="MPBFPM_OEResetRecipeDefBase" Name="Make_OE_VEE_Gun_Fletcher_Bond_Reset" Abstract="True">
-                            <label>Reset Persona fletcher</label>
-                            <description>Reset an Persona fletcher.\n\nWarning! Item Quality and Persona traits will be changed.</description>
-                            <jobString>Resetting a Persona fletcher.</jobString>
-                            <researchPrerequisites></researchPrerequisites>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>VEE_Gun_Fletcher_Bond</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>VEE_Gun_Fletcher_Bond</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <VEE_Gun_Fletcher_Bond>1</VEE_Gun_Fletcher_Bond>
-                            </products>
-                        </RecipeDef>
-                        
-                        <RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_VFEE_Gun_ChargeThumper_Bond" Abstract="True">
-                            <label>Persona bond charge thumper</label>
-                            <description>Persona bond an charge thumper.</description>
-                            <jobString>Persona bonding a charge thumper.</jobString>
-                            <researchPrerequisites></researchPrerequisites>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>VFEE_Gun_ChargeThumper</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>VFEE_Gun_ChargeThumper</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <VFEE_Gun_ChargeThumper_Bond>1</VFEE_Gun_ChargeThumper_Bond>
-                            </products>
-                        </RecipeDef>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_VEE_Gun_Fletcher_Bond" Abstract="True">
+                        <label>bond fletcher</label>
+                        <description>Bond an fletcher.</description>
+                        <jobString>Bonding a fletcher.</jobString>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>VEE_Gun_Fletcher</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>VEE_Gun_Fletcher</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <VEE_Gun_Fletcher_Bond>1</VEE_Gun_Fletcher_Bond>
+                        </products>
+                    </RecipeDef>
+                    <RecipeDef ParentName="MPBFPM_OEResetRecipeDefBase" Name="Make_OE_VEE_Gun_Fletcher_Bond_Reset" Abstract="True">
+                        <label>Reset fletcher</label>
+                        <description>Reset a fletcher.</description>
+                        <jobString>Resetting a fletcher.</jobString>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>VEE_Gun_Fletcher_Bond</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>VEE_Gun_Fletcher_Bond</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <VEE_Gun_Fletcher_Bond>1</VEE_Gun_Fletcher_Bond>
+                        </products>
+                    </RecipeDef>
+                    <RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_VFEE_Gun_ChargeThumper_Bond" Abstract="True">
+                        <label>bond charge thumper</label>
+                        <description>Bond an charge thumper.</description>
+                        <jobString>Bonding a charge thumper.</jobString>
+                        <researchPrerequisites>
+                            <li>ChargedShot</li>
+                        </researchPrerequisites>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>VFEE_Gun_ChargeThumper</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>VFEE_Gun_ChargeThumper</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <VFEE_Gun_ChargeThumper_Bond>1</VFEE_Gun_ChargeThumper_Bond>
+                        </products>
+                    </RecipeDef>
+                    <RecipeDef ParentName="MPBFPM_OEResetRecipeDefBase" Name="Make_OE_VFEE_Gun_ChargeThumper_Bond_Reset" Abstract="True">
+                        <label>Reset charge thumper</label>
+                        <description>Reset a charge thumper.</description>
+                        <jobString>Resetting a charge thumper.</jobString>
+                        <researchPrerequisites>
+                            <li>ChargedShot</li>
+                        </researchPrerequisites>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>VFEE_Gun_ChargeThumper_Bond</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>VFEE_Gun_ChargeThumper_Bond</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <VFEE_Gun_ChargeThumper_Bond>1</VFEE_Gun_ChargeThumper_Bond>
+                        </products>
+                    </RecipeDef>
+                    <RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_VFEE_MeleeWeapon_Toxblade_Bond" Abstract="True">
+                        <label>bond toxblade</label>
+                        <description>Bond an toxblade.</description>
+                        <jobString>Bonding a toxblade.</jobString>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>VFEE_MeleeWeapon_Toxblade</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>VFEE_MeleeWeapon_Toxblade</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <VFEE_MeleeWeapon_ToxbladeBladelink>1</VFEE_MeleeWeapon_ToxbladeBladelink>
+                        </products>
+                    </RecipeDef>
+                    <RecipeDef ParentName="MPBFPM_OEResetRecipeDefBase" Name="Make_OE_VFEE_MeleeWeapon_Toxblade_Bond_Reset" Abstract="True">
+                        <label>Reset toxblade</label>
+                        <description>Reset a toxblade.</description>
+                        <jobString>Resetting a toxblade.</jobString>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>VFEE_MeleeWeapon_ToxbladeBladelink</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>VFEE_MeleeWeapon_ToxbladeBladelink</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <VFEE_MeleeWeapon_ToxbladeBladelink>1</VFEE_MeleeWeapon_ToxbladeBladelink>
+                        </products>
+                    </RecipeDef>
+                </value>
+            </Operation>
 
-                        <RecipeDef ParentName="MPBFPM_OEResetRecipeDefBase" Name="Make_OE_VFEE_Gun_ChargeThumper_Bond_Reset" Abstract="True">
-                            <label>Reset Persona charge thumper</label>
-                            <description>Reset an Persona charge thumper.\n\nWarning! Item Quality and Persona traits will be changed.</description>
-                            <jobString>Resetting a Persona charge thumper.</jobString>
-                            <researchPrerequisites></researchPrerequisites>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>VFEE_Gun_ChargeThumper_Bond</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>VFEE_Gun_ChargeThumper_Bond</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <VFEE_Gun_ChargeThumper_Bond>1</VFEE_Gun_ChargeThumper_Bond>
-                            </products>
-                        </RecipeDef>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_VanillaFactionsExpandedEmpire</key>
+                <defaultValue>true</defaultValue>
 
-                        <RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_VFEE_MeleeWeapon_ToxbladeBladelink" Abstract="True">
-                            <label>Persona bond toxblade</label>
-                            <description>Persona bond an toxblade.</description>
-                            <jobString>Persona bonding a toxblade.</jobString>
-                            <researchPrerequisites></researchPrerequisites>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>VFEE_MeleeWeapon_Toxblade</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>VFEE_MeleeWeapon_Toxblade</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <VFEE_MeleeWeapon_ToxbladeBladelink>1</VFEE_MeleeWeapon_ToxbladeBladelink>
-                            </products>
-                        </RecipeDef>
+                <caseTrue>
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_OE_VanillaFactionsExpandedEmpire</key>
+                        <defaultValue>true</defaultValue>
 
-                        <RecipeDef ParentName="MPBFPM_OEResetRecipeDefBase" Name="Make_OE_VFEE_MeleeWeapon_ToxbladeBladelink_Reset" Abstract="True">
-                            <label>Reset Persona toxblade</label>
-                            <description>Reset an Persona toxblade.\n\nWarning! Item Quality and Persona traits will be changed.</description>
-                            <jobString>Resetting a Persona toxblade.</jobString>
-                            <researchPrerequisites></researchPrerequisites>
-                            <ingredients>
-                                <li>
-                                    <filter>
-                                        <thingDefs>
-                                            <li>VFEE_MeleeWeapon_Toxblade</li>
-                                        </thingDefs>
-                                    </filter>
-                                    <count>1</count>
-                                </li>
-                            </ingredients>
-                            <fixedIngredientFilter>
-                                <thingDefs>
-                                    <li>VFEE_MeleeWeapon_Toxblade</li>
-                                </thingDefs>
-                            </fixedIngredientFilter>
-                            <products>
-                                <VFEE_MeleeWeapon_ToxbladeBladelink>1</VFEE_MeleeWeapon_ToxbladeBladelink>
-                            </products>
-                        </RecipeDef>
-                    </value>
-                </li>
-
-                <li Class="PatchOperationFindMod">
-                    <mods>
-                        <li>XML Extensions</li>
-                    </mods>
-
-                    <nomatch Class="PatchOperationAdd">
-                        <xpath>Defs</xpath>
-                        <value>
-                            <!-- Make_OE_VEE_Gun_Fletcher_Bond -->
-                            <RecipeDef ParentName="Make_OE_VEE_Gun_Fletcher_Bond">
-                                <defName>Make_OE_VEE_Gun_Fletcher_Bond</defName>
-                            </RecipeDef>
-                            <!-- Make_OE_VEE_Gun_Fletcher_Bond_Reset -->
-                            <RecipeDef ParentName="Make_OE_VEE_Gun_Fletcher_Bond_Reset">
-                                <defName>Make_OE_VEE_Gun_Fletcher_Bond_Reset</defName>
-                            </RecipeDef>
-                            <!-- Make_OE_VFEE_Gun_ChargeThumper_Bond -->
-                            <RecipeDef ParentName="Make_OE_VFEE_Gun_ChargeThumper_Bond">
-                                <defName>Make_OE_VFEE_Gun_ChargeThumper_Bond</defName>
-                            </RecipeDef>
-                            <!-- Make_OE_VFEE_Gun_ChargeThumper_Bond_Reset -->
-                            <RecipeDef ParentName="Make_OE_VFEE_Gun_ChargeThumper_Bond_Reset">
-                                <defName>Make_OE_VFEE_Gun_ChargeThumper_Bond_Reset</defName>
-                            </RecipeDef>
-                            <!-- Make_OE_VFEE_MeleeWeapon_ToxbladeBladelink -->
-                            <RecipeDef ParentName="Make_OE_VFEE_MeleeWeapon_ToxbladeBladelink">
-                                <defName>Make_OE_VFEE_MeleeWeapon_ToxbladeBladelink</defName>
-                            </RecipeDef>
-                            <!-- Make_OE_VFEE_MeleeWeapon_ToxbladeBladelink_Reset -->
-                            <RecipeDef ParentName="Make_OE_VFEE_MeleeWeapon_ToxbladeBladelink_Reset">
-                                <defName>Make_OE_VFEE_MeleeWeapon_ToxbladeBladelink_Reset</defName>
-                            </RecipeDef>
-                        </value>
-                    </nomatch>
-
-                    <match Class="PatchOperationSequence">
-                        <operations>
-                            <li Class="XmlExtensions.OptionalPatch" MayRequire="imranfish.xmlextensions">
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.OptionalPatch">
                                 <modId>Daria40K.MightyPersonaBondForgePatch</modId>
-                                <key>Daria40K_MightyPersonaBondForgePatch_VanillaFactionsExpandedEmpire</key>
-                                <defaultValue>true</defaultValue>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DisableObsidiaExpansion</key>
+                                <defaultValue>false</defaultValue>
 
-                                <caseTrue>
+                                <caseFalse>
                                     <Operation Class="XmlExtensions.PatchOperationAdd">
                                         <xpath>Defs</xpath>
                                         <value>
-                                            <!-- Make_OE_VEE_Gun_Fletcher_Bond -->
                                             <RecipeDef ParentName="Make_OE_VEE_Gun_Fletcher_Bond">
                                                 <defName>Make_OE_VEE_Gun_Fletcher_Bond</defName>
                                             </RecipeDef>
-                                            <!-- Make_OE_VEE_Gun_Fletcher_Bond_Reset -->
                                             <RecipeDef ParentName="Make_OE_VEE_Gun_Fletcher_Bond_Reset">
                                                 <defName>Make_OE_VEE_Gun_Fletcher_Bond_Reset</defName>
                                             </RecipeDef>
-                                            <!-- Make_OE_VFEE_Gun_ChargeThumper_Bond -->
                                             <RecipeDef ParentName="Make_OE_VFEE_Gun_ChargeThumper_Bond">
                                                 <defName>Make_OE_VFEE_Gun_ChargeThumper_Bond</defName>
                                             </RecipeDef>
-                                            <!-- Make_OE_VFEE_Gun_ChargeThumper_Bond_Reset -->
                                             <RecipeDef ParentName="Make_OE_VFEE_Gun_ChargeThumper_Bond_Reset">
                                                 <defName>Make_OE_VFEE_Gun_ChargeThumper_Bond_Reset</defName>
                                             </RecipeDef>
-                                            <!-- Make_OE_VFEE_MeleeWeapon_ToxbladeBladelink -->
-                                            <RecipeDef ParentName="Make_OE_VFEE_MeleeWeapon_ToxbladeBladelink">
-                                                <defName>Make_OE_VFEE_MeleeWeapon_ToxbladeBladelink</defName>
+                                            <RecipeDef ParentName="Make_OE_VFEE_MeleeWeapon_Toxblade_Bond">
+                                                <defName>Make_OE_VFEE_MeleeWeapon_Toxblade_Bond</defName>
                                             </RecipeDef>
-                                            <!-- Make_OE_VFEE_MeleeWeapon_ToxbladeBladelink_Reset -->
-                                            <RecipeDef ParentName="Make_OE_VFEE_MeleeWeapon_ToxbladeBladelink_Reset">
-                                                <defName>Make_OE_VFEE_MeleeWeapon_ToxbladeBladelink_Reset</defName>
+                                            <RecipeDef ParentName="Make_OE_VFEE_MeleeWeapon_Toxblade_Bond_Reset">
+                                                <defName>Make_OE_VFEE_MeleeWeapon_Toxblade_Bond_Reset</defName>
                                             </RecipeDef>
                                         </value>
                                     </Operation>
-                                </caseTrue>
-                            </li>
-                        </operations>
-                    </match>
-                </li>
-            </operations>
-        </match>
+                                </caseFalse>
+                            </Operation>
+                        </caseTrue>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
     </Operation>
 </Patch>
