@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+	===== Blackhole Industries (Continued) =====
+-->
+<Patch>
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>zal.blackhole</li>
+		</mods>
+		<packageId>true</packageId>
+
+		<caseTrue>
+			<Operation Class="XmlExtensions.PatchOperationAdd">
+				<xpath>Defs</xpath>
+				<value><ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_BlackholeRifle_Bond" Abstract="True">
+    <label>persona blackhole-powered rifle</label>
+    <description>A Sci-Fi energy rifle that uses the heat and energy from a miniature blackhole to superheat plasteel bullets into plasma.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+    <graphicData>
+      <texPath>Things/BlackholeRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <researchPrerequisites>
+    <li>ShipReactor</li>
+  <li>ChargedShot</li>
+    </researchPrerequisites>
+    <statBases>
+      <Mass>3.5</Mass>
+      <AccuracyTouch>0.66</AccuracyTouch>
+      <AccuracyShort>0.77</AccuracyShort>
+      <AccuracyMedium>0.715</AccuracyMedium>
+      <AccuracyLong>0.605</AccuracyLong>
+      <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>BH_EnergyBlast_Bond</defaultProjectile>
+        <warmupTime>1.0</warmupTime>
+        <range>40.9</range>
+        <burstShotCount>2</burstShotCount>
+        <ticksBetweenBurstShots/>
+        <soundCast>Shot_BlackholeRifle</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <weaponTags>
+      <li>SpacerGunAdvanced</li>
+      <li>AssaultRifle</li>
+    </weaponTags>
+  <weaponClasses>
+  <li>LongShots</li>
+  <li>RangedHeavy</li>
+  </weaponClasses>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>     
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+    </tools>
+  <tradeTags>
+      <li>Zal</li>  
+    </tradeTags>
+  </ThingDef><ThingDef ParentName="MPBFPM_BaseBullet" Name="BH_EnergyBlast_Bond" Abstract="True">
+    <label>blackhole blast</label>
+    <graphicData>
+      <texPath>Things/EnergyBlastTexture</texPath>
+      </graphicData>
+    <projectile>
+      <damageDef>Burn</damageDef>
+      <damageAmountBase>99</damageAmountBase>
+      <speed>180</speed>
+    </projectile>
+  </ThingDef></value>
+			</Operation>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+				<key>Daria40K_MightyPersonaBondForgePatch_BlackholeIndustriesContinued</key>
+				<defaultValue>true</defaultValue>
+
+				<caseTrue>
+					<Operation Class="XmlExtensions.PatchOperationAdd">
+						<xpath>Defs</xpath>
+						<value><ThingDef ParentName="Gun_BlackholeRifle_Bond"><defName>Gun_BlackholeRifle_Bond</defName></ThingDef><ThingDef ParentName="BH_EnergyBlast_Bond"><defName>BH_EnergyBlast_Bond</defName></ThingDef></value>
+					</Operation>
+				</caseTrue>
+			</Operation>	  
+		</caseTrue>
+	</Operation>
+</Patch>

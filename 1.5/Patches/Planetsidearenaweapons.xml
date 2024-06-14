@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Planetside arena weapons =====
+-->
+<Patch>
+  <Operation Class="XmlExtensions.FindMod">
+    <mods>
+      <li>huhu.lions.paweapons</li>
+    </mods>
+    <packageId>true</packageId>
+
+    <caseTrue>
+      <Operation Class="XmlExtensions.PatchOperationAdd">
+        <xpath>Defs</xpath>
+        <value>
+          <ThingCategoryDef Name="MPBFPM_Planetside" Abstract="True">
+            <label>persona</label>
+            <parent>Planetside</parent>
+          </ThingCategoryDef>
+          <ThingDef Name="MPBFPM_BaseGunWithQuality_Planetside_paweapons" Abstract="True" ParentName="MPBFPM_BaseGun_Planetside_paweapons">
+          </ThingDef>
+          <ThingDef Name="MPBFPM_BaseMakeableGun_Planetside_paweapons" ParentName="MPBFPM_BaseGunWithQuality_Planetside_paweapons" Abstract="True">
+          </ThingDef>
+
+          <ThingDef Name="MPBFPM_BaseHumanMakeableGun_Planetside_paweapons" ParentName="MPBFPM_BaseMakeableGun_Planetside_paweapons" Abstract="True">
+            <weaponTags>
+              <li>Gun</li>
+            </weaponTags>
+          </ThingDef>
+
+
+          <ThingDef Name="MPBFPM_BaseGun_Planetside_paweapons" Abstract="True" ParentName="MPBFPM_BaseWeapon">
+            <techLevel>Industrial</techLevel>
+            <relicChance>1</relicChance>
+            <thingCategories>
+              <li>MPBFPM_Planetside</li>
+            </thingCategories>
+            <weaponClasses>
+              <li>Ranged</li>
+            </weaponClasses>
+            <inspectorTabs>
+              <li>ITab_Art</li>
+            </inspectorTabs>
+            <statBases>
+              <Flammability>0.5</Flammability>
+            </statBases>
+            <comps>
+              <li Class="CompProperties_Art">
+                <nameMaker>NamerArtWeaponGun</nameMaker>
+                <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+                <minQualityForArtistic>Excellent</minQualityForArtistic>
+              </li>
+            </comps>
+          </ThingDef>
+
+
+          <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun_Planetside_paweapons" Name="Lion_PSA02_Diamondback_Assault_Bond" Abstract="True">
+            <label>persona PSA-02 Diamondback</label>
+            <description>.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+            <graphicData>
+              <texPath>PSA-02_Diamondback</texPath>
+              <graphicClass>Graphic_Single</graphicClass>
+            </graphicData>
+            <techLevel>Spacer</techLevel>
+            <soundInteract>Interact_ChargeRifle</soundInteract>
+            <statBases>
+              <MaxHitPoints>150</MaxHitPoints>
+              <Mass>6.2</Mass>
+              <MarketValue>2200.0</MarketValue>
+              <AccuracyTouch>0.88</AccuracyTouch>
+              <AccuracyShort>0.99</AccuracyShort>
+              <AccuracyMedium>0.825</AccuracyMedium>
+              <AccuracyLong>0.66</AccuracyLong>
+              <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+            </statBases>
+            <weaponTags>
+              <li>SpacerGun</li>
+            </weaponTags>
+            <weaponClasses>
+              <li>RangedHeavy</li>
+            </weaponClasses>
+            <verbs>
+              <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_Diamondback_AssaultRifle_Bond</defaultProjectile>
+                <warmupTime>1.2</warmupTime>
+                <range>35</range>
+                <burstShotCount>3</burstShotCount>
+                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                <soundCast>Shot_AssaultRifle</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+              </li>
+            </verbs>
+            <tools>
+              <li>
+                <label>stock</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>9.75</power>
+                <cooldownTime>1.7</cooldownTime>
+              </li>
+              <li>
+                <label>barrel</label>
+                <capacities>
+                  <li>Blunt</li>
+                  <li>Poke</li>
+                </capacities>
+                <power>9.75</power>
+                <cooldownTime>1.7</cooldownTime>
+              </li>
+            </tools>
+          </ThingDef>
+          <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun_Planetside_paweapons" Name="Lion_PSA02_Diamondback_Bond" Abstract="True">
+            <label>persona PSA-02 Diamondback(Charged)</label>
+            <description>.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+            <graphicData>
+              <texPath>PSA_02_charge</texPath>
+              <graphicClass>Graphic_Single</graphicClass>
+            </graphicData>
+            <techLevel>Spacer</techLevel>
+            <soundInteract>Interact_ChargeRifle</soundInteract>
+            <statBases>
+              <MaxHitPoints>150</MaxHitPoints>
+              <Mass>5.8</Mass>
+              <MarketValue>3300.0</MarketValue>
+              <AccuracyTouch>0.88</AccuracyTouch>
+              <AccuracyShort>0.99</AccuracyShort>
+              <AccuracyMedium>0.825</AccuracyMedium>
+              <AccuracyLong>0.66</AccuracyLong>
+              <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+            </statBases>
+            <weaponTags>
+              <li>SpacerGun</li>
+            </weaponTags>
+            <weaponClasses>
+              <li>RangedHeavy</li>
+            </weaponClasses>
+            <verbs>
+              <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_Diamondback_ChargeRifle_Bond</defaultProjectile>
+                <warmupTime>1.2</warmupTime>
+                <range>35</range>
+                <burstShotCount>3</burstShotCount>
+                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                <soundCast>Shot_ChargeRifle</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+              </li>
+            </verbs>
+            <tools>
+              <li>
+                <label>stock</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>9.75</power>
+                <cooldownTime>1.7</cooldownTime>
+              </li>
+              <li>
+                <label>barrel</label>
+                <capacities>
+                  <li>Blunt</li>
+                  <li>Poke</li>
+                </capacities>
+                <power>9.75</power>
+                <cooldownTime>1.7</cooldownTime>
+              </li>
+            </tools>
+          </ThingDef>
+          <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun_Planetside_paweapons" Name="Lion_PSA01_Hammerhead_Bond" Abstract="True">
+            <label>persona PSA-01 Hammerhead</label>
+            <description>.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+            <graphicData>
+              <texPath>PSA-01_Hammerhead</texPath>
+              <graphicClass>Graphic_Single</graphicClass>
+            </graphicData>
+            <techLevel>Spacer</techLevel>
+            <equippedAngleOffset>43</equippedAngleOffset>
+            <soundInteract>Interact_Rifle</soundInteract>
+            <statBases>
+              <MaxHitPoints>150</MaxHitPoints>
+              <Mass>14.0</Mass>
+              <MarketValue>2200.0</MarketValue>
+              <AccuracyTouch>0.66</AccuracyTouch>
+              <AccuracyShort>0.935</AccuracyShort>
+              <AccuracyMedium>0.99</AccuracyMedium>
+              <AccuracyLong>0.88</AccuracyLong>
+              <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+            </statBases>
+            <weaponTags>
+              <li>SpacerGun</li>
+            </weaponTags>
+            <weaponClasses>
+              <li>LongShots</li>
+              <li>RangedHeavy</li>
+            </weaponClasses>
+            <verbs>
+              <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_Hammerhead_Rifle_Bond</defaultProjectile>
+                <warmupTime>2.8</warmupTime>
+                <range>55</range>
+                <soundCast>Shot_SniperRifle</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
+              </li>
+            </verbs>
+            <tools>
+              <li>
+                <label>stock</label>
+                <capacities>
+                  <li>Blunt</li>
+                </capacities>
+                <power>9.75</power>
+                <cooldownTime>1.7</cooldownTime>
+              </li>
+              <li>
+                <label>barrel</label>
+                <capacities>
+                  <li>Blunt</li>
+                  <li>Poke</li>
+                </capacities>
+                <power>9.75</power>
+                <cooldownTime>1.7</cooldownTime>
+              </li>
+            </tools>
+          </ThingDef>
+          <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_Diamondback_AssaultRifle_Bond" Abstract="True">
+            <label>Bullet Diamondback Assault Rifle</label>
+            <projectile>
+              <damageDef>Bullet</damageDef>
+              <damageAmountBase>14</damageAmountBase>
+              <armorPenetrationBase>0.25</armorPenetrationBase>
+              <stoppingPower>2</stoppingPower>
+              <speed>70</speed>
+            </projectile>
+            <graphicData>
+              <texPath>Things/Projectile/Bullet_Small</texPath>
+            </graphicData>
+          </ThingDef>
+          <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_Diamondback_ChargeRifle_Bond" Abstract="True">
+            <label>Bullet Diamondback Charge Rifle</label>
+            <projectile>
+              <damageDef>Bullet</damageDef>
+              <damageAmountBase>18</damageAmountBase>
+              <armorPenetrationBase>0.35</armorPenetrationBase>
+              <stoppingPower>1.5</stoppingPower>
+              <speed>80</speed>
+            </projectile>
+            <graphicData>
+              <texPath>Things/Projectile/Charge_Small</texPath>
+            </graphicData>
+          </ThingDef>
+          <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_Hammerhead_Rifle_Bond" Abstract="True">
+            <label>Bullet Hammerhead Rifle</label>
+            <projectile>
+              <damageDef>Bullet</damageDef>
+              <damageAmountBase>52</damageAmountBase>
+              <armorPenetrationBase>0.9</armorPenetrationBase>
+              <stoppingPower>3</stoppingPower>
+              <speed>110</speed>
+            </projectile>
+            <graphicData>
+              <texPath>Things/Projectile/Bullet_Big</texPath>
+            </graphicData>
+          </ThingDef>
+        </value>
+      </Operation>
+
+      <Operation Class="XmlExtensions.OptionalPatch">
+        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+        <key>Daria40K_MightyPersonaBondForgePatch_Planetsidearenaweapons</key>
+        <defaultValue>true</defaultValue>
+
+        <caseTrue>
+          <Operation Class="XmlExtensions.PatchOperationAdd">
+            <xpath>Defs</xpath>
+            <value>
+              <ThingCategoryDef ParentName="MPBFPM_Planetside">
+                <defName>MPBFPM_Planetside</defName>
+              </ThingCategoryDef>
+              <ThingDef ParentName="Lion_PSA02_Diamondback_Assault_Bond">
+                <defName>Lion_PSA02_Diamondback_Assault_Bond</defName>
+              </ThingDef>
+              <ThingDef ParentName="Lion_PSA02_Diamondback_Bond">
+                <defName>Lion_PSA02_Diamondback_Bond</defName>
+              </ThingDef>
+              <ThingDef ParentName="Lion_PSA01_Hammerhead_Bond">
+                <defName>Lion_PSA01_Hammerhead_Bond</defName>
+              </ThingDef>
+              <ThingDef ParentName="Bullet_Diamondback_AssaultRifle_Bond">
+                <defName>Bullet_Diamondback_AssaultRifle_Bond</defName>
+              </ThingDef>
+              <ThingDef ParentName="Bullet_Diamondback_ChargeRifle_Bond">
+                <defName>Bullet_Diamondback_ChargeRifle_Bond</defName>
+              </ThingDef>
+              <ThingDef ParentName="Bullet_Hammerhead_Rifle_Bond">
+                <defName>Bullet_Hammerhead_Rifle_Bond</defName>
+              </ThingDef>
+            </value>
+          </Operation>
+        </caseTrue>
+      </Operation>
+    </caseTrue>
+  </Operation>
+</Patch>

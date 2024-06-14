@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+	===== HALO: Rimworld Psychic Pulse Armory (Continued) =====
+-->
+<Patch>
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>mlie.halorimworldpsychicpulsearmory</li>
+		</mods>
+		<packageId>true</packageId>
+
+		<caseTrue>
+			<Operation Class="XmlExtensions.PatchOperationAdd">
+				<xpath>Defs</xpath>
+				<value><ThingCategoryDef Name="MPBFPM_HRPPA_WeaponsRanged" Abstract="True">
+	<label>persona</label>
+	<parent>HRPPA_WeaponsRanged</parent>
+</ThingCategoryDef><ThingCategoryDef Name="MPBFPM_Grenades" Abstract="True">
+	<label>persona</label>
+	<parent>Grenades</parent>
+</ThingCategoryDef><ThingDef Name="MPBFPM_BaseArchotechMeleeWeapon_Quality" Abstract="True" ParentName="MPBFPM_BaseArchotechMeleeWeapon">
+    <comps>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef ParentName="MPBFPM_BaseArchotechMeleeWeapon_Quality" Name="HRPPA_PsychicPulseBlade_Bond" Abstract="True">
+    <label>persona psychic pulse blade</label>
+    <description>An ancient pulse blade of unkown design, driving the target insane and disorients it.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponsMelee/HRPPW_blade</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <statBases>
+      <MarketValue>1595.0</MarketValue>
+      <Mass>1.6</Mass>
+    </statBases>
+    <equippedAngleOffset>-75</equippedAngleOffset>
+    <tools>
+      <li>
+        <label>handle</label>
+        <capacities>
+          <li>HRPPA_MeleePulse</li>
+        </capacities>
+        <power>13.162</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>point</label>
+        <capacities>
+          <li>HRPPA_MeleePulse</li>
+        </capacities>
+        <power>13.162</power>
+        <cooldownTime>2.21</cooldownTime>
+      </li>
+      <li>
+        <label>edge</label>
+        <capacities>
+          <li>HRPPA_MeleePulse</li>
+        </capacities>
+        <power>13.162</power>
+        <cooldownTime>2.21</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef><ThingDef Name="MPBFPM_BaseArchotechGunWithQuality" ParentName="MPBFPM_BaseGunWithQuality" Abstract="True">
+    <techLevel>Archotech</techLevel>
+    <thingCategories>
+      <li>MPBFPM_HRPPA_WeaponsRanged</li>
+    </thingCategories>
+    <weaponTags>
+      <li>ArchotechWeapons</li>
+      <li>HRPPAGun</li>
+    </weaponTags>
+    <tradeTags>
+      <li>Artifact</li>
+    </tradeTags>
+    </ThingDef>
+  <ThingDef Name="MPBFPM_BaseArchotechGun" ParentName="MPBFPM_BaseGun" Abstract="True">
+    <thingCategories>
+      <li>MPBFPM_HRPPA_WeaponsRanged</li>
+    </thingCategories>
+    <weaponTags>
+      <li>ArchotechWeapons</li>
+      <li>HRPPAGun</li>
+    </weaponTags>
+    <tradeTags>
+      <li>Artifact</li>
+    </tradeTags>
+    </ThingDef>
+  <ThingDef ParentName="MPBFPM_BaseArchotechGunWithQuality" Name="HRPPA_PsychicPulseCannon_Bond" Abstract="True">
+    <label>persona psychic pulse cannon</label>
+    <description>An ancient handgun of unkown design, firing a psychic pulse that disorients and downs the target or drive them insane.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponsRanged/HRPPW_pistol</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Autopistol</soundInteract>
+    <statBases>
+      <MarketValue>990.0</MarketValue>
+      <Mass>1.4</Mass>
+      <AccuracyTouch>0.935</AccuracyTouch>
+      <AccuracyShort>0.803</AccuracyShort>
+      <AccuracyMedium>0.484</AccuracyMedium>
+      <AccuracyLong>0.319</AccuracyLong>
+      <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>HRPPA_Bullet_PsychicPulseCannon_Bond</defaultProjectile>
+        <warmupTime>0.8</warmupTime>
+        <range>22.9</range>
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <burstShotCount>3</burstShotCount>
+        <soundCast>HRPPA_Shot_PsychicPulseCannon</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>12</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>grip</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef><ThingDef ParentName="MPBFPM_BaseArchotechGunWithQuality" Name="HRPPA_PsychicPulseRepeater_Bond" Abstract="True">
+    <label>persona psychic pulse repeater</label>
+    <description>An ancient rifle of unkown design, firing multiple psychic pulses that disorients and downs the target or drive them insane.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponsRanged/HRRPW_repeater</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_ChargeRifle</soundInteract>
+    <statBases>
+      <MarketValue>1320.0</MarketValue>
+      <Mass>2.6</Mass>
+      <AccuracyTouch>0.99</AccuracyTouch>
+      <AccuracyShort>0.726</AccuracyShort>
+      <AccuracyMedium>0.495</AccuracyMedium>
+      <AccuracyLong>0.385</AccuracyLong>
+      <RangedWeapon_Cooldown>1.19</RangedWeapon_Cooldown>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>HRPPA_Bullet_PsychicPulseRepeater_Bond</defaultProjectile>
+        <warmupTime>1</warmupTime>
+        <range>26.9</range>
+        <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+        <burstShotCount>4</burstShotCount>
+        <soundCast>HRPPA_Shot_PsychicPulseRepeater</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>grip</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef><ThingDef ParentName="MPBFPM_BaseArchotechGunWithQuality" Name="HRPPA_PsychicPulseSpinner_Bond" Abstract="True">
+    <label>persona psychic pulse spinner</label>
+    <description>An ancient rapid fire rifle of unkown design, firing multiple psychic pulses in a short time that disorients and downs the target or drive them insane.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponsRanged/HRPPW_lmg</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_ChargeRifle</soundInteract>
+    <statBases>
+      <MarketValue>3080.0</MarketValue>
+      <Mass>3.8</Mass>
+      <AccuracyTouch>0.935</AccuracyTouch>
+      <AccuracyShort>0.704</AccuracyShort>
+      <AccuracyMedium>0.605</AccuracyMedium>
+      <AccuracyLong>0.495</AccuracyLong>
+      <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+    </statBases>
+    <equippedAngleOffset>45</equippedAngleOffset>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>HRPPA_Bullet_PsychicPulseSpinner_Bond</defaultProjectile>
+        <warmupTime>1.0</warmupTime>
+        <range>19.9</range>
+        <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+        <burstShotCount>6</burstShotCount>
+        <soundCast>HRPPA_Shot_PsychicPulseSpinner</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>12</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>grip</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef><ThingDef ParentName="MPBFPM_BaseArchotechGunWithQuality" Name="HRPPA_PsychicPulseScatter_Bond" Abstract="True">
+    <label>persona psychic pulse scatter</label>
+    <description>An ancient shotgun of unkown design, firing multiple, small psychic pulses in one shot that disorients and downs the target or drive them insane.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponsRanged/HRPPW_scatter</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_ChargeRifle</soundInteract>
+    <statBases>
+      <MarketValue>1705.0</MarketValue>
+      <Mass>4.4</Mass>
+      <AccuracyTouch>0.88</AccuracyTouch>
+      <AccuracyShort>0.957</AccuracyShort>
+      <AccuracyMedium>0.605</AccuracyMedium>
+      <AccuracyLong>0.495</AccuracyLong>
+      <RangedWeapon_Cooldown>1.19</RangedWeapon_Cooldown>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>HRPPA_Bullet_PsychicPulseShotgun_Bond</defaultProjectile>
+        <warmupTime>1.0</warmupTime>
+        <range>20.9</range>
+        <soundCast>HRPPA_Shot_PsychicPulseScatter</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>grip</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef><ThingDef ParentName="MPBFPM_BaseArchotechGunWithQuality" Name="HRPPA_PsychicPulseReacher_Bond" Abstract="True">
+    <label>persona psychic pulse reacher</label>
+    <description>An ancient sniper of unkown design, firing a fast psychic pulse that disorients and downs the target or drive them insane.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponsRanged/HRPPW_reacher</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_ChargeLance</soundInteract>
+    <statBases>
+      <MarketValue>2145.0</MarketValue>
+      <Mass>4.8</Mass>
+      <AccuracyTouch>0.495</AccuracyTouch>
+      <AccuracyShort>0.77</AccuracyShort>
+      <AccuracyMedium>0.968</AccuracyMedium>
+      <AccuracyLong>0.99</AccuracyLong>
+      <RangedWeapon_Cooldown>2.125</RangedWeapon_Cooldown>
+    </statBases>
+    <equippedAngleOffset>45</equippedAngleOffset>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>HRPPA_Bullet_PsychicPulseReacher_Bond</defaultProjectile>
+        <warmupTime>3.2</warmupTime>
+        <range>40.9</range>
+        <soundCast>HRPPA_Shot_PsychicPulseReacher</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>grip</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef><ThingDef ParentName="MPBFPM_BaseArchotechGunWithQuality" Name="HRPPA_PsychicPulseLancer_Bond" Abstract="True">
+    <label>persona psychic pulse lancer</label>
+    <description>An ancient lancer of unkown design, firing a fast psychic pulse lance that disorients and downs the target or drive them insane.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponsRanged/HRPPW_lancer</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_ChargeLance</soundInteract>
+    <statBases>
+      <MarketValue>3960.0</MarketValue>
+      <Mass>5.2</Mass>
+      <AccuracyTouch>0.66</AccuracyTouch>
+      <AccuracyShort>0.858</AccuracyShort>
+      <AccuracyMedium>0.935</AccuracyMedium>
+      <AccuracyLong>0.77</AccuracyLong>
+      <RangedWeapon_Cooldown>3.825</RangedWeapon_Cooldown>
+    </statBases>
+    <equippedAngleOffset>45</equippedAngleOffset>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>HRPPA_Bullet_PsychicPulseLancer_Bond</defaultProjectile>
+        <warmupTime>4.2</warmupTime>
+        <range>47.9</range>
+        <soundCast>HRPPA_Shot_PsychicPulseLancer</soundCast>
+        <soundCastTail>GunTail_Heavy</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>grip</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>handel</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+    </tools>
+  </ThingDef><ThingDef ParentName="MPBFPM_BaseArchotechGun" Name="HRPPA_PsychicPulseGrenade_Bond" Abstract="True">
+    <label>persona psychic pulse detonator</label>
+    <description>An ancient grenade of unkown design, emitting a strong and rapid psychic pulse that disorients and downs the target or drive them insane.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+    <tickerType>Normal</tickerType>
+    <graphicData>
+      <texPath>Things/Item/Equipment/WeaponsRanged/HRPPW_grenade</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <soundInteract>Interact_Grenade</soundInteract>
+    <statBases>
+      <MarketValue>1760.0</MarketValue>
+      <Mass>1</Mass>
+      <RangedWeapon_Cooldown>2.261</RangedWeapon_Cooldown>
+    </statBases>
+    <thingCategories>
+      <li>MPBFPM_Grenades</li>
+    </thingCategories>
+    <verbs>
+      <li>
+        <label>throw psychic pusle grenade</label>
+        <verbClass>Verb_LaunchProjectile</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <range>14.9</range>
+        <forcedMissRadius>1.9</forcedMissRadius>
+        <warmupTime>1.5</warmupTime>
+        <noiseRadius>4</noiseRadius>
+        <ai_IsBuildingDestroyer>false</ai_IsBuildingDestroyer>
+        <soundCast>ThrowGrenade</soundCast>
+        <targetParams>
+          <canTargetLocations>true</canTargetLocations>
+        </targetParams>
+        <defaultProjectile>HRPPA_Proj_PsychicPulseGrenade_Bond</defaultProjectile>
+        <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+      </li>
+    </verbs>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>4.66</explosiveRadius>
+        <explosiveDamageType>PsychicPulseBomb</explosiveDamageType>
+        <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+      </li>
+    </comps>
+  </ThingDef><ThingDef Name="MPBFPM_BaseArchotechMeleeWeapon" Abstract="True" ParentName="MPBFPM_BaseWeapon">
+    <techLevel>Archotech</techLevel>
+    <thingCategories>
+      <li>PersonaWeaponsMelee</li>
+    </thingCategories>
+    <inspectorTabs>
+      <li>ITab_Art</li>
+    </inspectorTabs>
+    <tradeTags>
+      <li>Artifact</li>
+    </tradeTags>
+    <weaponTags>
+      <li>ArchotechMelee</li>
+      <li>HRPPAGun</li>
+    </weaponTags>
+    <comps>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtWeaponMelee</nameMaker>
+        <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+        <minQualityForArtistic>Excellent</minQualityForArtistic>
+      </li>
+    </comps>
+  </ThingDef>
+  <ThingDef Class="HRPPA.ThingDef_PsychicPulse" ParentName="MPBFPM_BaseBullet" Name="HRPPA_Bullet_PsychicPulseCannon_Bond" Abstract="True">
+    <thingClass>HRPPA.Projectile_PsychicPulse</thingClass>
+    <baseline>0.10</baseline>
+    <insanityChance>0.05</insanityChance>
+    <HediffToAdd>HRPPA_PsychicShock</HediffToAdd>
+    <!--============================================================-->
+    <label>charge shot</label>
+    <graphicData>
+      <texPath>Things/Projectile/HRPPW_PsychicPulse_Small</texPath>
+      </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>HRPPA_RangedPulse</damageDef>
+      <damageAmountBase>0</damageAmountBase>
+      <armorPenetrationBase>0</armorPenetrationBase>
+      <speed>55</speed>
+    </projectile>
+  </ThingDef><ThingDef Class="HRPPA.ThingDef_PsychicPulse" ParentName="MPBFPM_BaseBullet" Name="HRPPA_Bullet_PsychicPulseRepeater_Bond" Abstract="True">
+    <thingClass>HRPPA.Projectile_PsychicPulse</thingClass>
+    <baseline>0.18</baseline>
+    <insanityChance>0.05</insanityChance>
+    <HediffToAdd>HRPPA_PsychicShock</HediffToAdd>
+    <!--============================================================-->
+    <label>charge shot</label>
+    <graphicData>
+      <texPath>Things/Projectile/HRPPW_PsychicPulse_Small</texPath>
+      </graphicData>
+    <projectile>
+      <damageDef>HRPPA_RangedPulse</damageDef>
+      <damageAmountBase>0</damageAmountBase>
+      <armorPenetrationBase>0</armorPenetrationBase>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef><ThingDef Class="HRPPA.ThingDef_PsychicPulse" ParentName="MPBFPM_BaseBullet" Name="HRPPA_Bullet_PsychicPulseSpinner_Bond" Abstract="True">
+    <thingClass>HRPPA.Projectile_PsychicPulse</thingClass>
+    <baseline>0.09</baseline>
+    <insanityChance>0.05</insanityChance>
+    <HediffToAdd>HRPPA_PsychicShock</HediffToAdd>
+    <!--============================================================-->
+    <label>charge shot</label>
+    <graphicData>
+      <texPath>Things/Projectile/HRPPW_PsychicPulse_Small</texPath>
+      </graphicData>
+    <projectile>
+      <damageDef>HRPPA_RangedPulse</damageDef>
+      <damageAmountBase>0</damageAmountBase>
+      <armorPenetrationBase>0</armorPenetrationBase>
+      <speed>60</speed>
+    </projectile>
+  </ThingDef><ThingDef Class="HRPPA.ThingDef_PsychicPulse" ParentName="MPBFPM_BaseBullet" Name="HRPPA_Bullet_PsychicPulseShotgun_Bond" Abstract="True">
+    <thingClass>HRPPA.Projectile_PsychicPulse</thingClass>
+    <baseline>0.26</baseline>
+    <insanityChance>0.25</insanityChance>
+    <HediffToAdd>HRPPA_PsychicShock</HediffToAdd>
+    <!--============================================================-->
+    <label>charge shot</label>
+    <graphicData>
+      <texPath>Things/Projectile/HRPPW_PsychicPulse_Shotgun</texPath>
+      </graphicData>
+    <projectile>
+      <damageDef>HRPPA_RangedPulse</damageDef>
+      <damageAmountBase>0</damageAmountBase>
+      <armorPenetrationBase>0</armorPenetrationBase>
+      <speed>70</speed>
+    </projectile>
+  </ThingDef><ThingDef Class="HRPPA.ThingDef_PsychicPulse" ParentName="MPBFPM_BaseBullet" Name="HRPPA_Bullet_PsychicPulseReacher_Bond" Abstract="True">
+    <thingClass>HRPPA.Projectile_PsychicPulse</thingClass>
+    <baseline>0.30</baseline>
+    <insanityChance>0.12</insanityChance>
+    <HediffToAdd>HRPPA_PsychicShock</HediffToAdd>
+    <!--============================================================-->
+    <label>charge shot</label>
+    <graphicData>
+      <texPath>Things/Projectile/HRPPW_PsychicPulse_Small</texPath>
+      </graphicData>
+    <projectile>
+      <damageDef>HRPPA_RangedPulse</damageDef>
+      <damageAmountBase>0</damageAmountBase>
+      <armorPenetrationBase>0</armorPenetrationBase>
+      <speed>115</speed>
+    </projectile>
+  </ThingDef><ThingDef Class="HRPPA.ThingDef_PsychicPulse" ParentName="MPBFPM_BaseBullet" Name="HRPPA_Bullet_PsychicPulseLancer_Bond" Abstract="True">
+    <thingClass>HRPPA.Projectile_PsychicPulse</thingClass>
+    <baseline>0.50</baseline>
+    <insanityChance>0.28</insanityChance>
+    <HediffToAdd>HRPPA_PsychicShock</HediffToAdd>
+    <!--============================================================-->
+    <label>charge shot</label>
+    <graphicData>
+      <texPath>Things/Projectile/HRPPW_PsychicPulse_LanceShot</texPath>
+      </graphicData>
+    <projectile>
+      <damageDef>HRPPA_RangedPulse</damageDef>
+      <damageAmountBase>0</damageAmountBase>
+      <armorPenetrationBase>0</armorPenetrationBase>
+      <speed>130</speed>
+    </projectile>
+  </ThingDef><ThingDef ParentName="MPBFPM_BaseGrenadeProjectile" Name="HRPPA_Proj_PsychicPulseGrenade_Bond" Abstract="True">
+    <label>psychic pulse grenade</label>
+    <thingClass>HRPPA.Projectile_ExplosivePsychicPulse</thingClass>
+    <graphicData>
+      <texPath>Things/Projectile/HRPPW_grenade</texPath>
+      </graphicData>
+    <projectile>
+      <explosionRadius>4.9</explosionRadius>
+      <damageDef>PsychicPulseBomb</damageDef>
+      <!-- Use default damage from explosion def -->
+      <explosionDelay>100</explosionDelay>
+    </projectile>
+  </ThingDef></value>
+			</Operation>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+				<key>Daria40K_MightyPersonaBondForgePatch_HALORimworldPsychicPulseArmoryContinued</key>
+				<defaultValue>true</defaultValue>
+
+				<caseTrue>
+					<Operation Class="XmlExtensions.PatchOperationAdd">
+						<xpath>Defs</xpath>
+						<value><ThingCategoryDef ParentName="MPBFPM_HRPPA_WeaponsRanged">
+	<defName>MPBFPM_HRPPA_WeaponsRanged</defName>
+</ThingCategoryDef><ThingCategoryDef ParentName="MPBFPM_Grenades">
+	<defName>MPBFPM_Grenades</defName>
+</ThingCategoryDef><ThingDef ParentName="HRPPA_PsychicPulseBlade_Bond"><defName>HRPPA_PsychicPulseBlade_Bond</defName></ThingDef><ThingDef ParentName="HRPPA_PsychicPulseCannon_Bond"><defName>HRPPA_PsychicPulseCannon_Bond</defName></ThingDef><ThingDef ParentName="HRPPA_PsychicPulseRepeater_Bond"><defName>HRPPA_PsychicPulseRepeater_Bond</defName></ThingDef><ThingDef ParentName="HRPPA_PsychicPulseSpinner_Bond"><defName>HRPPA_PsychicPulseSpinner_Bond</defName></ThingDef><ThingDef ParentName="HRPPA_PsychicPulseScatter_Bond"><defName>HRPPA_PsychicPulseScatter_Bond</defName></ThingDef><ThingDef ParentName="HRPPA_PsychicPulseReacher_Bond"><defName>HRPPA_PsychicPulseReacher_Bond</defName></ThingDef><ThingDef ParentName="HRPPA_PsychicPulseLancer_Bond"><defName>HRPPA_PsychicPulseLancer_Bond</defName></ThingDef><ThingDef ParentName="HRPPA_PsychicPulseGrenade_Bond"><defName>HRPPA_PsychicPulseGrenade_Bond</defName></ThingDef><ThingDef ParentName="HRPPA_Bullet_PsychicPulseCannon_Bond" Class="HRPPA.ThingDef_PsychicPulse"><defName>HRPPA_Bullet_PsychicPulseCannon_Bond</defName></ThingDef><ThingDef ParentName="HRPPA_Bullet_PsychicPulseRepeater_Bond" Class="HRPPA.ThingDef_PsychicPulse"><defName>HRPPA_Bullet_PsychicPulseRepeater_Bond</defName></ThingDef><ThingDef ParentName="HRPPA_Bullet_PsychicPulseSpinner_Bond" Class="HRPPA.ThingDef_PsychicPulse"><defName>HRPPA_Bullet_PsychicPulseSpinner_Bond</defName></ThingDef><ThingDef ParentName="HRPPA_Bullet_PsychicPulseShotgun_Bond" Class="HRPPA.ThingDef_PsychicPulse"><defName>HRPPA_Bullet_PsychicPulseShotgun_Bond</defName></ThingDef><ThingDef ParentName="HRPPA_Bullet_PsychicPulseReacher_Bond" Class="HRPPA.ThingDef_PsychicPulse"><defName>HRPPA_Bullet_PsychicPulseReacher_Bond</defName></ThingDef><ThingDef ParentName="HRPPA_Bullet_PsychicPulseLancer_Bond" Class="HRPPA.ThingDef_PsychicPulse"><defName>HRPPA_Bullet_PsychicPulseLancer_Bond</defName></ThingDef><ThingDef ParentName="HRPPA_Proj_PsychicPulseGrenade_Bond"><defName>HRPPA_Proj_PsychicPulseGrenade_Bond</defName></ThingDef></value>
+					</Operation>
+				</caseTrue>
+			</Operation>	  
+		</caseTrue>
+	</Operation>
+</Patch>

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <!--
+    ===== BaseBullet =====
+    <ThingDef Name="BaseBullet" Abstract="True">
+        <category>Projectile</category>
+        <tickerType>Normal</tickerType>
+        <altitudeLayer>Projectile</altitudeLayer>
+        <thingClass>Bullet</thingClass>
+        <label>bullet</label>
+        <useHitPoints>False</useHitPoints>
+        <neverMultiSelect>True</neverMultiSelect>
+        <graphicData>
+            <shaderType>Transparent</shaderType>
+        </graphicData>
+    </ThingDef>
+    -->
+
+    <ThingDef Name="MPBFPM_BaseBullet" Abstract="True" ParentName="BaseBullet">
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef Name="MPBFPM_Bullet" Abstract="True" ParentName="MPBFPM_BaseBullet">
+        <projectile>
+            <damageDef>Bullet</damageDef>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef Name="MPBFPM_BaseProjectileNeolithic" Abstract="True" ParentName="BaseProjectileNeolithic">
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef Name="MPBFPM_BaseGrenadeProjectile" Abstract="True" ParentName="BaseGrenadeProjectile">
+        <graphicData>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef Name="MPBFPM_GrenadeProjectile" Abstract="True" ParentName="MPBFPM_BaseGrenadeProjectile">
+        <projectile>
+            <damageDef>Bomb</damageDef>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_MiniTurret_Bond</defName>
+        <label>mini-turret bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>13</damageAmountBase>
+            <speed>70</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_Bullet">
+        <defName>Bullet_Revolver_Bond</defName>
+        <label>revolver bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+        </graphicData>
+        <projectile>
+            <damageAmountBase>13</damageAmountBase>
+            <stoppingPower>1</stoppingPower>
+            <speed>55</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_Bullet">
+        <defName>Bullet_Autopistol_Bond</defName>
+        <label>autopistol bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+        </graphicData>
+        <projectile>
+            <damageAmountBase>11</damageAmountBase>
+            <speed>55</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_Bullet">
+        <defName>Bullet_MachinePistol_Bond</defName>
+        <label>machine pistol bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+        </graphicData>
+        <projectile>
+            <damageAmountBase>7</damageAmountBase>
+            <speed>55</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_BaseBullet">
+        <defName>Bullet_IncendiaryLauncher_Bond</defName>
+        <label>incendiary bolt</label>
+        <graphicData>
+            <texPath>Things/Projectile/LauncherShot</texPath>
+            <shaderType>TransparentPostLight</shaderType>
+            <color>(254,189,58)</color>
+        </graphicData>
+        <thingClass>Projectile_Explosive</thingClass>
+        <projectile>
+            <speed>40</speed>
+            <damageDef>Flame</damageDef>
+            <!-- Use default damage from explosion def -->
+            <explosionRadius>1.1</explosionRadius>
+            <preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+            <preExplosionSpawnChance>0.6</preExplosionSpawnChance>
+            <ai_IsIncendiary>true</ai_IsIncendiary>
+            <arcHeightFactor>0.2</arcHeightFactor>
+            <shadowSize>0.6</shadowSize>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_BaseBullet">
+        <defName>Bullet_SmokeLauncher_Bond</defName>
+        <label>smoke launcher shell</label>
+        <graphicData>
+            <texPath>Things/Projectile/LauncherShot</texPath>
+            <shaderType>TransparentPostLight</shaderType>
+            <color>(140,135,156)</color>
+        </graphicData>
+        <thingClass>Projectile_Explosive</thingClass>
+        <projectile>
+            <speed>40</speed>
+            <damageDef>Smoke</damageDef>
+            <!-- Use default damage from explosion def -->
+            <explosionRadius>2.4</explosionRadius>
+            <postExplosionGasType>BlindSmoke</postExplosionGasType>
+            <ai_IsIncendiary>true</ai_IsIncendiary>
+            <arcHeightFactor>0.2</arcHeightFactor>
+            <shadowSize>0.6</shadowSize>
+            <screenShakeFactor>0.5</screenShakeFactor>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_BaseBullet">
+        <defName>Bullet_EMPLauncher_Bond</defName>
+        <label>EMP launcher shell</label>
+        <graphicData>
+            <texPath>Things/Projectile/LauncherShot</texPath>
+            <shaderType>TransparentPostLight</shaderType>
+            <color>(68,150,215)</color>
+        </graphicData>
+        <thingClass>Projectile_Explosive</thingClass>
+        <projectile>
+            <speed>40</speed>
+            <damageDef>EMP</damageDef>
+            <!-- Use default damage from explosion def -->
+            <explosionRadius>1.1</explosionRadius>
+            <ai_IsIncendiary>true</ai_IsIncendiary>
+            <arcHeightFactor>0.2</arcHeightFactor>
+            <shadowSize>0.6</shadowSize>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_Bullet">
+        <defName>Bullet_BoltActionRifle_Bond</defName>
+        <label>bolt-action rifle bullet</label>
+        <projectile>
+            <damageAmountBase>20</damageAmountBase>
+            <stoppingPower>1.5</stoppingPower>
+            <speed>70</speed>
+        </projectile>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_big</texPath>
+        </graphicData>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_Bullet">
+        <defName>Bullet_Shotgun_Bond</defName>
+        <label>shotgun blast</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+        </graphicData>
+        <projectile>
+            <damageAmountBase>20</damageAmountBase>
+            <stoppingPower>3</stoppingPower>
+            <armorPenetrationBase>0.14</armorPenetrationBase>
+            <speed>55</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_Bullet">
+        <defName>Bullet_HeavySMG_Bond</defName>
+        <label>heavy SMG bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+        </graphicData>
+        <projectile>
+            <damageAmountBase>13</damageAmountBase>
+            <speed>48</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_Bullet">
+        <defName>Bullet_LMG_Bond</defName>
+        <label>LMG bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+        </graphicData>
+        <projectile>
+            <damageAmountBase>12</damageAmountBase>
+            <stoppingPower>1</stoppingPower>
+            <speed>46</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_Bullet">
+        <defName>Bullet_AssaultRifle_Bond</defName>
+        <label>assault rifle bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+        </graphicData>
+        <projectile>
+            <damageAmountBase>12</damageAmountBase>
+            <speed>70</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_Bullet">
+        <defName>Bullet_SniperRifle_Bond</defName>
+        <label>sniper rifle bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+        </graphicData>
+        <projectile>
+            <damageAmountBase>28</damageAmountBase>
+            <stoppingPower>1.5</stoppingPower>
+            <speed>100</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_Bullet">
+        <defName>Bullet_Minigun_Bond</defName>
+        <label>minigun bullet</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Small</texPath>
+        </graphicData>
+        <projectile>
+            <damageAmountBase>11</damageAmountBase>
+            <speed>70</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_Bullet">
+        <defName>Bullet_ChargeRifle_Bond</defName>
+        <label>charge shot</label>
+        <graphicData>
+            <texPath>Things/Projectile/Charge_Small</texPath>
+        </graphicData>
+        <projectile>
+            <damageAmountBase>16</damageAmountBase>
+            <armorPenetrationBase>0.35</armorPenetrationBase>
+            <speed>70</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_Bullet">
+        <defName>Bullet_ChargeLance_Bond</defName>
+        <label>charge lance shot</label>
+        <graphicData>
+            <texPath>Things/Projectile/ChargeLanceShot</texPath>
+            <shaderType>TransparentPostLight</shaderType>
+            <drawSize>1.5</drawSize>
+        </graphicData>
+        <projectile>
+            <damageAmountBase>33</damageAmountBase>
+            <stoppingPower>1.5</stoppingPower>
+            <speed>120</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="MPBFPM_Bullet">
+        <defName>Bullet_ChargeBlasterHeavy_Bond</defName>
+        <label>charge blaster shot</label>
+        <graphicData>
+            <texPath>Things/Projectile/Charge_Small</texPath>
+            <shaderType>TransparentPostLight</shaderType>
+        </graphicData>
+        <projectile>
+            <damageAmountBase>16</damageAmountBase>
+            <speed>90</speed>
+        </projectile>
+    </ThingDef>
+</Defs>

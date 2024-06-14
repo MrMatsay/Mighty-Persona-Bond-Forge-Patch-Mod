@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+	===== Vanilla XCOM Chosen Weapons =====
+-->
+<Patch>
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>flangopink.vanillaxcomchosenweapons</li>
+		</mods>
+		<packageId>true</packageId>
+
+		<caseTrue>
+			<Operation Class="XmlExtensions.PatchOperationAdd">
+				<xpath>Defs</xpath>
+				<value><RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_XCOM_MeleeWeapon_Katana_Bond" Abstract="True"><label>bond Katana</label><description>Bond an Katana.</description><jobString>Bonding a Katana.</jobString><researchPrerequisites><li>XCOM_ChosenWeapons</li></researchPrerequisites><ingredients><li><filter><thingDefs><li>XCOM_MeleeWeapon_Katana</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>XCOM_MeleeWeapon_Katana</li></thingDefs></fixedIngredientFilter><products><XCOM_MeleeWeapon_Katana_Bond>1</XCOM_MeleeWeapon_Katana_Bond></products></RecipeDef><RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_XCOM_Gun_DisruptorRifle_Bond" Abstract="True"><label>bond Disruptor rifle</label><description>Bond an Disruptor rifle.</description><jobString>Bonding a Disruptor rifle.</jobString><researchPrerequisites><li>ChargedShot</li></researchPrerequisites><ingredients><li><filter><thingDefs><li>XCOM_Gun_DisruptorRifle</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>XCOM_Gun_DisruptorRifle</li></thingDefs></fixedIngredientFilter><products><XCOM_Gun_DisruptorRifle_Bond>1</XCOM_Gun_DisruptorRifle_Bond></products></RecipeDef><RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_XCOM_Gun_ChosenPistol_Bond" Abstract="True"><label>bond Darkclaw</label><description>Bond an Darkclaw.</description><jobString>Bonding a Darkclaw.</jobString><researchPrerequisites><li>ChargedShot</li></researchPrerequisites><ingredients><li><filter><thingDefs><li>XCOM_Gun_ChosenPistol</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>XCOM_Gun_ChosenPistol</li></thingDefs></fixedIngredientFilter><products><XCOM_Gun_ChosenPistol_Bond>1</XCOM_Gun_ChosenPistol_Bond></products></RecipeDef><RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_XCOM_Gun_ChosenShotgun_Bond" Abstract="True"><label>bond Arashi</label><description>Bond an Arashi.</description><jobString>Bonding a Arashi.</jobString><researchPrerequisites><li>ChargedShot</li></researchPrerequisites><ingredients><li><filter><thingDefs><li>XCOM_Gun_ChosenShotgun</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>XCOM_Gun_ChosenShotgun</li></thingDefs></fixedIngredientFilter><products><XCOM_Gun_ChosenShotgun_Bond>1</XCOM_Gun_ChosenShotgun_Bond></products></RecipeDef><RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_XCOM_Gun_ChosenSniperRifle_Bond" Abstract="True"><label>bond Darklance</label><description>Bond an Darklance.</description><jobString>Bonding a Darklance.</jobString><researchPrerequisites><li>ChargedShot</li></researchPrerequisites><ingredients><li><filter><thingDefs><li>XCOM_Gun_ChosenSniperRifle</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>XCOM_Gun_ChosenSniperRifle</li></thingDefs></fixedIngredientFilter><products><XCOM_Gun_ChosenSniperRifle_Bond>1</XCOM_Gun_ChosenSniperRifle_Bond></products></RecipeDef></value>
+			</Operation>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+				<key>Daria40K_MightyPersonaBondForgePatch_VanillaXCOMChosenWeapons</key>
+				<defaultValue>true</defaultValue>
+
+				<caseTrue>
+					<Operation Class="XmlExtensions.OptionalPatch">
+						<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+						<key>Daria40K_MightyPersonaBondForgePatch_PBF_VanillaXCOMChosenWeapons</key>
+						<defaultValue>true</defaultValue>
+
+						<caseTrue>
+							<Operation Class="XmlExtensions.OptionalPatch">
+								<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+								<key>Daria40K_MightyPersonaBondForgePatch_DisablePersonaBondForge</key>
+								<defaultValue>false</defaultValue>
+
+								<caseFalse>
+									<Operation Class="XmlExtensions.PatchOperationAdd">
+										<xpath>Defs</xpath>
+										<value><RecipeDef ParentName="Make_XCOM_MeleeWeapon_Katana_Bond"><defName>Make_XCOM_MeleeWeapon_Katana_Bond</defName></RecipeDef><RecipeDef ParentName="Make_XCOM_Gun_DisruptorRifle_Bond"><defName>Make_XCOM_Gun_DisruptorRifle_Bond</defName></RecipeDef><RecipeDef ParentName="Make_XCOM_Gun_ChosenPistol_Bond"><defName>Make_XCOM_Gun_ChosenPistol_Bond</defName></RecipeDef><RecipeDef ParentName="Make_XCOM_Gun_ChosenShotgun_Bond"><defName>Make_XCOM_Gun_ChosenShotgun_Bond</defName></RecipeDef><RecipeDef ParentName="Make_XCOM_Gun_ChosenSniperRifle_Bond"><defName>Make_XCOM_Gun_ChosenSniperRifle_Bond</defName></RecipeDef></value>
+									</Operation>
+								</caseFalse>
+							</Operation>
+						</caseTrue>
+					</Operation>
+				</caseTrue>
+			</Operation>	  
+		</caseTrue>
+	</Operation>
+</Patch>
