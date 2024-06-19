@@ -1,0 +1,3525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Hellsing ARMS Ultimate =====
+-->
+<Patch>
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>baskerville.hellsingarmsultimate</li>
+		</mods>
+		<packageId>true</packageId>
+
+		<caseTrue>
+			<Operation Class="XmlExtensions.PatchOperationAdd">
+				<xpath>Defs</xpath>
+				<value>
+					<ThingDef Name="MPBFPM_HSAU_BaseHeavyEnchantedGun" ParentName="MPBFPM_HSAU_BaseEnchantedGun" Abstract="True">
+						<modExtensions>
+							<li Class="HeavyWeapons.HeavyWeapon">
+								<weaponHitPointsDeductionOnShot>0</weaponHitPointsDeductionOnShot>
+								<isHeavy>true</isHeavy>
+								<supportedArmors>
+									<li>VWE_Apparel_Exoframe</li>
+									<li>HSAU_HLS_CountTrappings</li>
+									<li>HSAU_HLS_UniformVampire</li>
+									<li>HSAU_HLS_HellDiverArmour</li>
+								</supportedArmors>
+								<supportedTraits>
+									<li>Tough</li>
+									<li>HSAU_Trait_NocturnalSupremacy</li>
+									<li MayRequire="OskarPotocki.VFE.Pirates">VFEP_WarcasketTrait</li>
+								</supportedTraits>
+							</li>
+						</modExtensions>
+					</ThingDef>
+
+
+					<ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality" Name="HSAU_HLS_HellsingSabre_Bond" Abstract="True">
+						<label>persona Hellsing Family Sabre</label>
+						<description>Hellsing Family Sabre\n\nA blessed silver-steel alloy sword based on the family heirloom blade of Sir Integra Fairbrook Wingates Hellsing.\n\nThis blade inflicts Searing Sanctification to the undead!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+						<tradeability>Sellable</tradeability>
+
+						<weaponTags>
+							<li>HSAU_HLS_HellsingSabre</li>
+						</weaponTags>
+						<generateCommonality>0.0000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+						<techLevel>Medieval</techLevel>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/HLS_HellsingSabre</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>0.9</drawSize>
+							<!--<drawOffsetNorth>(0.39,0,0.55)</drawOffsetNorth>
+      <drawOffsetSouth>(-0.39,0,0.55)</drawOffsetSouth>-->
+							<drawOffsetEast>(0.20,0,0)</drawOffsetEast>
+							<drawOffsetWest>(-0.20,0,0)</drawOffsetWest>
+						</graphicData>
+						<equippedAngleOffset>0</equippedAngleOffset>
+						<!--<uiIconPath>HSAU/Icons/HSAU_ICON_PS</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>-->
+
+						<equippedStatOffsets>
+						</equippedStatOffsets>
+
+						<statBases>
+							<MarketValue>1045.0</MarketValue>
+							<Flammability>0</Flammability>
+							<Beauty>2</Beauty>
+							<Mass>2</Mass>
+						</statBases>
+						<tools>
+							<li>
+								<label>pommel</label>
+								<capacities>
+									<li>Poke</li>
+								</capacities>
+								<power>12.0</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>point</label>
+								<capacities>
+									<!--<li>Stab</li>-->
+									<li>HSAU_SearingStab</li>
+								</capacities>
+								<power>31.099</power>
+								<armorPenetration>0.44</armorPenetration>
+								<cooldownTime>1.53</cooldownTime>
+							</li>
+							<li>
+								<label>edge</label>
+								<capacities>
+									<!--<li>Cut</li>-->
+									<li>HSAU_SearingSlash</li>
+								</capacities>
+								<power>34.385</power>
+								<armorPenetration>0.33</armorPenetration>
+								<cooldownTime>1.53</cooldownTime>
+							</li>
+						</tools>
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseWeapon" Name="HSAU_HLS_ImpalerGreatsword_Bond" Abstract="True">
+						<label>persona Impaler Greatsword</label>
+						<description>Impaler Greatsword\n\nThe favourite sword of the bloodsucking demon known as Dracula. After skewering countless souls it has developed a voracious appetite for them. This sword exists as an abstraction in a realm of shadow cast by the No Life King himself. An instantiation of it can be summoned in the material realm if the proper incantation is known.\n\nThis blades's stab attacks inflict Soul Rend!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SoulRend</HediffDef>
+						</descriptionHyperlinks>
+						<tradeability>Sellable</tradeability>
+
+						<weaponTags>
+							<li>HSAU_HLS_ImpalerGreatsword</li>
+						</weaponTags>
+						<generateCommonality>0</generateCommonality>
+						<generateAllowChance>0</generateAllowChance>
+						<techLevel>Medieval</techLevel>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/HLS_ImpalerGreatsword</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.15</drawSize>
+							<!--<drawOffsetNorth>(0.39,0,0.55)</drawOffsetNorth>
+      <drawOffsetSouth>(-0.39,0,0.55)</drawOffsetSouth>-->
+							<drawOffsetEast>(0.20,0,0)</drawOffsetEast>
+							<drawOffsetWest>(-0.20,0,0)</drawOffsetWest>
+						</graphicData>
+						<equippedAngleOffset>0</equippedAngleOffset>
+						<!--<uiIconPath>HSAU/Icons/HSAU_ICON_PS</uiIconPath>
+    <uiIconScale>1.0</uiIconScale>-->
+
+						<equippedStatOffsets>
+							<ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+							<ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+							<ArmorRating_Heat>0.00</ArmorRating_Heat>
+							<IncomingDamageFactor>-0.10</IncomingDamageFactor>
+						</equippedStatOffsets>
+
+						<statBases>
+							<MarketValue>2723.6</MarketValue>
+							<DeteriorationRate>0</DeteriorationRate>
+							<Flammability>0</Flammability>
+							<Beauty>1</Beauty>
+							<Mass>6</Mass>
+						</statBases>
+
+						<tools>
+							<li>
+								<label>pommel</label>
+								<capacities>
+									<li>Poke</li>
+								</capacities>
+								<power>12.0</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>HSAU_SoulStab</li>
+								</capacities>
+								<power>83.66</power>
+								<armorPenetration>1.43</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>edge</label>
+								<capacities>
+									<li>Cut</li>
+								</capacities>
+								<power>35.477</power>
+								<armorPenetration>0.484</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>false</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality" Name="HSAU_ISC_ConsecLongsword_Bond" Abstract="True">
+						<label>persona Consecrated Longsword</label>
+						<description>This silver-plasteel alloy longsword reflects the style of ancient Catholic vampire-hunting weaponry.\n\nThis blade inflicts Searing Sanctification to the undead!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+
+						<tradeability>All</tradeability>
+						<tradeTags Inherit="False" />
+						<weaponTags>
+							<li>HSAU_ISC_ConsecLongsword</li>
+						</weaponTags>
+						<generateCommonality>0.0000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+						<techLevel>Medieval</techLevel>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/ISC_ConsLongsword</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+							<!--<drawOffsetNorth>(0.39,0,0.55)</drawOffsetNorth>
+		  <drawOffsetSouth>(-0.39,0,0.55)</drawOffsetSouth>-->
+							<drawOffsetEast>(0.20,0,0)</drawOffsetEast>
+							<drawOffsetWest>(-0.20,0,0)</drawOffsetWest>
+						</graphicData>
+						<equippedAngleOffset>0</equippedAngleOffset>
+						<!--<uiIconPath>HSAU/Icons/HSAU_ICON_PS</uiIconPath>
+		<uiIconScale>1.0</uiIconScale>-->
+
+						<equippedStatOffsets>
+						</equippedStatOffsets>
+
+						<statBases>
+							<MarketValue>770.0</MarketValue>
+							<Flammability>0</Flammability>
+							<Beauty>1</Beauty>
+							<Mass>2</Mass>
+						</statBases>
+
+						<tools>
+							<li>
+								<label>pommel</label>
+								<capacities>
+									<li>HSAU_SearingStab</li>
+								</capacities>
+								<power>13.162</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>HSAU_SearingStab</li>
+								</capacities>
+								<power>38.745</power>
+								<armorPenetration>0.55</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>edge</label>
+								<capacities>
+									<li>HSAU_SearingSlash</li>
+								</capacities>
+								<power>38.745</power>
+								<armorPenetration>0.44</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality" Name="HSAU_ISC_Muramiesa_Bond" Abstract="True">
+						<label>persona Muramiesa</label>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+						<description>A blessed blade forged of plasteel and silver, and quenched in holy water. The metal is worked and folded many times over to produce the toughest edge. The archangel Michael's blessing stirs within its sacred steel, that it may dash evil to pieces.\n\nThis blade inflicts Searing Sanctification to the undead!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<tradeability>Sellable</tradeability>
+
+						<weaponTags>
+							<li>HSAU_ISC_Muramiesa</li>
+						</weaponTags>
+						<generateCommonality>0.0000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+						<techLevel>Medieval</techLevel>
+
+						<soundInteract>HSAU_KatanaUnsheath</soundInteract>
+						<meleeHitSound>HSAU_KatanaSlash</meleeHitSound>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/ISC_Murameisa</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+							<!--<drawOffsetNorth>(0.39,0,0.55)</drawOffsetNorth>
+			<drawOffsetSouth>(-0.39,0,0.55)</drawOffsetSouth>-->
+							<drawOffsetEast>(0.20,0,0)</drawOffsetEast>
+							<drawOffsetWest>(-0.20,0,0)</drawOffsetWest>
+						</graphicData>
+						<equippedAngleOffset>0</equippedAngleOffset>
+						<!--<uiIconPath>HSAU/Icons/HSAU_ICON_PS</uiIconPath>
+		  <uiIconScale>1.0</uiIconScale>-->
+
+						<equippedStatOffsets>
+							<MoveSpeed>1.0</MoveSpeed>
+						</equippedStatOffsets>
+
+						<statBases>
+							<MaxHitPoints>500</MaxHitPoints>
+							<MarketValue>1760.0</MarketValue>
+							<Flammability>0</Flammability>
+							<Beauty>2</Beauty>
+							<Mass>2</Mass>
+						</statBases>
+
+						<tools>
+							<li>
+								<label>pommel</label>
+								<capacities>
+									<li>Poke</li>
+								</capacities>
+								<power>12.0</power>
+								<cooldownTime>1.275</cooldownTime>
+							</li>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>HSAU_SearingStab</li>
+								</capacities>
+								<power>15.464</power>
+								<armorPenetration>0.33</armorPenetration>
+								<cooldownTime>1.275</cooldownTime>
+							</li>
+							<li>
+								<label>edge</label>
+								<capacities>
+									<li>HSAU_SearingSlash</li>
+								</capacities>
+								<power>32.196</power>
+								<armorPenetration>0.66</armorPenetration>
+								<cooldownTime>0.425</cooldownTime>
+							</li>
+						</tools>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseEnchantedMeleeWeapon" Name="HSAU_MLN_ValentineRazor_Bond" Abstract="True">
+						<label>persona Valentine Razor</label>
+						<description>A curved knife with a wicked curse laid upon it. Watch out for that EDGE!\n\nThis edgy weapon inflicts "Dirge of Decay" which nullifies regeneration!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<weaponTags>
+							<li>HSAU_MLN_ValentineRazor</li>
+						</weaponTags>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/MLN_ValentineRazor</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>0.65</drawSize>
+							<drawOffsetNorth>(0,0,0.1)</drawOffsetNorth>
+							<drawOffsetSouth>(0,0,0.1)</drawOffsetSouth>
+							<drawOffsetEast>(0,0,0.1)</drawOffsetEast>
+							<drawOffsetWest>(0,0,0.1)</drawOffsetWest>
+						</graphicData>
+						<equippedAngleOffset>-30</equippedAngleOffset>
+						<!--<uiIconPath>HSAU/Icons/HSAU_ICON_PS</uiIconPath>
+<uiIconScale>1.0</uiIconScale>-->
+
+						<equippedStatOffsets>
+						</equippedStatOffsets>
+
+						<statBases>
+							<MarketValue>1100.0</MarketValue>
+							<Beauty>1</Beauty>
+							<Mass>1</Mass>
+						</statBases>
+
+						<tools>
+							<li>
+								<label>handle</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>10.828</power>
+								<cooldownTime>1.53</cooldownTime>
+							</li>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>HSAU_DecayStab</li>
+								</capacities>
+								<power>17.742</power>
+								<armorPenetration>0.33</armorPenetration>
+								<cooldownTime>1.53</cooldownTime>
+							</li>
+							<li>
+								<label>edge</label>
+								<capacities>
+									<li>HSAU_DecayCut</li>
+								</capacities>
+								<power>37.657</power>
+								<armorPenetration>0.77</armorPenetration>
+								<cooldownTime>1.53</cooldownTime>
+							</li>
+						</tools>
+
+						<!-- Ability: Dash & Slash -->
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseEnchantedMeleeWeapon" Name="HSAU_MLN_PsychoScythe_Bond" Abstract="True">
+						<label>persona Psycho Scythe</label>
+						<description>A massive heap of compacted steel on a stick hexed with naughty black magick. If the wielder thoroughly concentrates their intent, they can psychically shock a distant target with horrifying illusions. It is a coin flip whether this harsh mental attack leaves the victim with brain damage.\n\nThis weapon is very heavy. It is wieldable by a vampire, a tough human, or a human equipped with power armour.\n\nThis cursed blade inflicts "Dirge of Decay" which nullifies regeneration!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<weaponTags>
+							<li>HSAU_MLN_PsychoScythe</li>
+						</weaponTags>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/MLN_PsychoScythe</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>2.5</drawSize> <!-- formerly 2.0 -->
+							<!--<drawOffsetNorth>(0.42,0,0.18)</drawOffsetNorth>
+	  <drawOffsetSouth>(0.42,0,0.18)</drawOffsetSouth>
+	  <drawOffsetEast>(0.34,0,0.18)</drawOffsetEast>
+	  <drawOffsetWest>(-0.34,0,0.18)</drawOffsetWest>-->
+						</graphicData>
+						<equippedAngleOffset>-45</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/MLN_PS</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<equippedStatOffsets>
+							<MoveSpeed>-1.0</MoveSpeed>
+						</equippedStatOffsets>
+
+						<statBases>
+							<MarketValue>2530.0</MarketValue>
+							<Beauty>1</Beauty>
+							<Mass>44</Mass>
+						</statBases>
+
+						<tools>
+							<li>
+								<label>handle</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>16.606</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>HSAU_DecayStab</li>
+								</capacities>
+								<power>141.402</power>
+								<armorPenetration>1.826</armorPenetration>
+								<cooldownTime>2.55</cooldownTime>
+							</li>
+							<li>
+								<label>edge</label>
+								<capacities>
+									<li>HSAU_DecayCut</li>
+								</capacities>
+								<power>95.274</power>
+								<armorPenetration>0.88</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<modExtensions>
+							<li Class="HeavyWeapons.HeavyWeapon">
+								<weaponHitPointsDeductionOnShot>0</weaponHitPointsDeductionOnShot>
+								<isHeavy>true</isHeavy>
+								<supportedArmors>
+									<li>VWE_Apparel_Exoframe</li>
+									<li>HSAU_HLS_HellDiverArmour</li>
+								</supportedArmors>
+								<supportedTraits>
+									<li>Tough</li>
+									<li>HSAU_Trait_NocturnalSupremacy</li>
+									<li MayRequire="OskarPotocki.VFE.Pirates">VFEP_WarcasketTrait</li>
+								</supportedTraits>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseEnchantedMeleeWeapon" Name="HSAU_MLN_Schrodagger_Bond" Abstract="True">
+						<label>persona Schrodagger</label>
+						<description>MEOW!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<ThingDef>Cat</ThingDef>
+						</descriptionHyperlinks>
+						<weaponTags>
+							<li>HSAU_MLN_Schrodagger</li>
+						</weaponTags>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/MLN_Schrodagger</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>0.7</drawSize>
+						</graphicData>
+						<equippedAngleOffset>-30</equippedAngleOffset>
+						<!--<uiIconPath>HSAU/Icons/HSAU_ICON_PS</uiIconPath>
+<uiIconScale>1.0</uiIconScale>-->
+
+						<equippedStatOffsets>
+						</equippedStatOffsets>
+
+						<statBases>
+							<MarketValue>990.0</MarketValue>
+							<Beauty>1</Beauty>
+							<Mass>1</Mass>
+						</statBases>
+
+						<!-- Ability: Teleport Local -->
+						<!-- Ability: Teleport World -->
+
+						<tools>
+							<li>
+								<label>handle</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>12.0</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>HSAU_CATastrophicStab</li>
+								</capacities>
+								<power>16.606</power>
+								<armorPenetration>0.44</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>edge</label>
+								<capacities>
+									<li>HSAU_DecayCut</li>
+								</capacities>
+								<power>14.317</power>
+								<armorPenetration>0.209</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseEnchantedMeleeWeapon" Name="HSAU_MLN_WarWaker_Bond" Abstract="True">
+						<label>persona The War Waker</label>
+						<description>Instruments, instruments, instruments!\nYe are all but howling instruments,\nwailing cacophonous notes of WAR!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<weaponTags>
+							<li>HSAU_MLN_WarWaker</li>
+						</weaponTags>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/MLN_WarWaker</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<equippedAngleOffset>0</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/MLN_WW</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<statBases>
+							<MarketValue>1100.0</MarketValue>
+							<Beauty>1</Beauty>
+							<Mass>0.5</Mass>
+						</statBases>
+
+						<tools>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>Poke</li>
+								</capacities>
+								<power>4.732</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseEnchantedMeleeWeapon" Name="HSAU_MSC_SoulReaver_Bond" Abstract="True">
+						<label>persona Soul Reaver</label>
+						<description>Soul Reaver\n\nAn ancient artifact of great destiny, forged long ago by a renowned vampire blacksmith.\n\n"The legends claimed that the blade was possessed and thrived by devouring the souls of its victims. For all our bravado, we knew what it meant when Kain drew the Soul Reaver in anger. It meant you were dead."\n\nThis blade inflicts Soul Rend!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<weaponTags>
+							<li>HSAU_MSC_SoulReaver</li>
+						</weaponTags>
+
+						<soundInteract>HSAU_SoulReaverInteract</soundInteract>
+						<meleeHitSound>HSAU_SoulReaverSwing</meleeHitSound>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/MSC_SoulReaver</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.15</drawSize>
+							<drawOffsetNorth>(0.1,0,0)</drawOffsetNorth>
+							<drawOffsetSouth>(0.1,0,0)</drawOffsetSouth>
+							<drawOffsetEast>(0.1,0,0)</drawOffsetEast>
+							<drawOffsetWest>(-0.1,0,0)</drawOffsetWest>
+						</graphicData>
+						<equippedAngleOffset>0</equippedAngleOffset>
+						<!--<uiIconPath>HSAU/Icons/MLN_PS</uiIconPath>-->
+						<uiIconScale>1.0</uiIconScale>
+
+						<equippedStatOffsets>
+							<HSAU_GhoulismSusceptibility>-1.0</HSAU_GhoulismSusceptibility>
+							<HSAU_SanctusSensitivity>-1.0</HSAU_SanctusSensitivity>
+							<MoveSpeed>0.5</MoveSpeed>
+							<InjuryHealingFactor>50</InjuryHealingFactor>
+							<ImmunityGainSpeed>3</ImmunityGainSpeed>
+							<ComfyTemperatureMin>-20</ComfyTemperatureMin>
+							<ComfyTemperatureMax>20</ComfyTemperatureMax>
+							<ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+							<ArmorRating_Blunt>0.20</ArmorRating_Blunt>
+							<ArmorRating_Heat>0.20</ArmorRating_Heat>
+							<IncomingDamageFactor>-0.50</IncomingDamageFactor>
+						</equippedStatOffsets>
+
+						<useHitPoints>False</useHitPoints>
+						<statBases>
+							<MarketValue>7700.0</MarketValue>
+							<Beauty>3</Beauty>
+							<Mass>7</Mass>
+						</statBases>
+
+						<tools>
+							<li>
+								<label>handle</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>12.0</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>HSAU_SoulStab</li>
+								</capacities>
+								<power>99.487</power>
+								<armorPenetration>0.99</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>edge</label>
+								<capacities>
+									<li>HSAU_SoulSlash</li>
+								</capacities>
+								<power>162.247</power>
+								<armorPenetration>0.66</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseWeapon" Name="HSAU_MSC_Stakenator_Bond" Abstract="True">
+						<label>persona The Stakenator</label>
+						<description>The Stakenator\n\nThis weapon is very heavy. It is wieldable by a vampire, a tough human, or a human equipped with power armour.\n\nThis giant hammer inflicts Searing Sanctification to the undead!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<tradeability>Sellable</tradeability>
+
+						<relicChance>1</relicChance>
+						<thingCategories>
+							<li>PersonaWeaponsMelee</li>
+						</thingCategories>
+						<weaponTags>
+							<li>HSAU_MSC_Stakenator</li>
+						</weaponTags>
+						<generateCommonality>0</generateCommonality>
+						<generateAllowChance>0</generateAllowChance>
+						<techLevel>Medieval</techLevel>
+
+						<soundInteract>Metal_Drop</soundInteract>
+						<meleeHitSound>Corpse_Drop</meleeHitSound>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/MSC_Stakenator</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>2.0</drawSize>
+							<drawOffsetNorth>(0.42,0,0.18)</drawOffsetNorth>
+							<drawOffsetSouth>(0.42,0,0.18)</drawOffsetSouth>
+							<drawOffsetEast>(0.34,0,0.18)</drawOffsetEast>
+							<drawOffsetWest>(-0.34,0,0.18)</drawOffsetWest>
+						</graphicData>
+						<equippedAngleOffset>-45</equippedAngleOffset>
+						<!--<uiIconPath>HSAU/Icons/MLN_PS</uiIconPath>-->
+						<uiIconScale>1.0</uiIconScale>
+
+						<equippedStatOffsets>
+							<MoveSpeed>-1.3</MoveSpeed>
+						</equippedStatOffsets>
+
+						<statBases>
+							<MaxHitPoints>500</MaxHitPoints>
+							<MarketValue>2420.0</MarketValue>
+							<Beauty>0</Beauty>
+							<Flammability>0</Flammability>
+							<DeteriorationRate>0</DeteriorationRate>
+							<Mass>64</Mass>
+						</statBases>
+
+						<!--<recipeMaker>
+		<recipeUsers Inherit="False">
+			<li>HSAU_IncantationCircle</li>
+		</recipeUsers>
+		<researchPrerequisite>HSAU_7_Main</researchPrerequisite>
+		<effectWorking>HSAU_Effecter_Enchantment</effectWorking>
+		<soundWorking>HSAU_Shadowmagick</soundWorking>
+		<skillRequirements>
+			<Intellectual>8</Intellectual>
+		</skillRequirements>
+	</recipeMaker>
+	<costList>
+		<HSAU_EnchantableWeaponPartsLarge>1</HSAU_EnchantableWeaponPartsLarge>
+		<HSAU_spirit_Raziel>1</HSAU_spirit_Raziel>
+	</costList>-->
+
+						<tools>
+							<li>
+								<label>rod</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>18.873</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>spike</label>
+								<capacities>
+									<li>HSAU_SearingStabII</li>
+								</capacities>
+								<power>172.649</power>
+								<armorPenetration>1.32</armorPenetration>
+								<cooldownTime>2.55</cooldownTime>
+							</li>
+							<li>
+								<label>face</label>
+								<capacities>
+									<li>Demolish</li>
+								</capacities>
+								<power>110.0</power>
+								<armorPenetration>0.77</armorPenetration>
+								<cooldownTime>2.55</cooldownTime>
+							</li>
+						</tools>
+						<modExtensions>
+							<li Class="HeavyWeapons.HeavyWeapon">
+								<weaponHitPointsDeductionOnShot>0</weaponHitPointsDeductionOnShot>
+								<isHeavy>true</isHeavy>
+								<supportedArmors>
+									<li>VWE_Apparel_Exoframe</li>
+									<li>HSAU_HLS_HellDiverArmour</li>
+								</supportedArmors>
+								<supportedTraits>
+									<li>Tough</li>
+									<li>HSAU_Trait_NocturnalSupremacy</li>
+									<li MayRequire="OskarPotocki.VFE.Pirates">VFEP_WarcasketTrait</li>
+								</supportedTraits>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef Name="MPBFPM_HSAU_BaseEnchantedMeleeWeapon" ParentName="MPBFPM_BaseWeapon" Abstract="True">
+						<generateCommonality>0.0000000000000000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+						<tradeability>Sellable</tradeability>
+						<techLevel>Medieval</techLevel>
+						<burnableByRecipe>true</burnableByRecipe>
+						<thingCategories>
+							<li>PersonaWeaponsMelee</li>
+						</thingCategories>
+						<weaponClasses>
+							<li>MeleePiercer</li> 	<!--sharp!-->
+						</weaponClasses>
+						<relicChance>1</relicChance>
+						<statBases>
+							<MaxHitPoints>1000</MaxHitPoints>
+							<Flammability>0</Flammability>
+							<DeteriorationRate>0</DeteriorationRate>
+						</statBases>
+					</ThingDef>
+					<ThingDef Name="MPBFPM_HSAU_BaseEnchantedGun" ParentName="MPBFPM_BaseGun" Abstract="True">
+						<generateCommonality>0.0000000000000000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+						<tradeability>Sellable</tradeability>
+						<burnableByRecipe>true</burnableByRecipe>
+						<statBases>
+							<MaxHitPoints>1000</MaxHitPoints>
+							<Flammability>0</Flammability>
+							<DeteriorationRate>0</DeteriorationRate>
+						</statBases>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="HSAU_HLS_mArmaliteRifle_Bond" Abstract="True">
+						<label>persona Modded AR-15</label>
+						<description>Hellsing ARMS Modded AR-15\n\nAn ArmaLite rifle specialized for fighting ghouls and vampires. Its silver bullets are not as powerful as traditional rounds, but inflict extreme damage to the undead. A silver-steel alloy bayonet gives the rifle's wielder a slim chance of fighting back against monsters should they ever find the misfortune of meeting them in melee combat.\n\nThis weapon's bayonet and bullets inflict Searing Sanctification to the undead!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+
+						<tradeability>All</tradeability>
+						<tradeTags Inherit="False" />
+						<weaponTags>
+							<li>HSAU_HLS_mArmaliteRifle</li>
+						</weaponTags>
+						<generateCommonality>0.0000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/HLS_mAR15</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<!--<uiIconPath>HSAU/Icons/HLS_CSL</uiIconPath>
+		<uiIconScale>1.0</uiIconScale>-->
+
+						<soundInteract>Interact_Rifle</soundInteract>
+
+						<tools>
+							<li>
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>bayonet tip</label>
+								<capacities>
+									<li>HSAU_SearingStab</li>
+								</capacities>
+								<power>18.031</power>
+								<armorPenetration>0.19</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<statBases>
+							<MarketValue>616.0</MarketValue>
+							<Beauty>0</Beauty>
+							<Mass>4.2</Mass>
+							<AccuracyTouch>0.66</AccuracyTouch>
+							<AccuracyShort>0.77</AccuracyShort>
+							<AccuracyMedium>0.715</AccuracyMedium>
+							<AccuracyLong>0.66</AccuracyLong>
+							<RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+						</statBases>
+
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_moddedArmaliteRifle_Bond</defaultProjectile>
+								<warmupTime>1.0</warmupTime>
+								<range>30.9</range>
+								<burstShotCount>5</burstShotCount>
+								<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+								<soundCast>Shot_AssaultRifle</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="HSAU_HLS_mAvtomatKalashnikova_Bond" Abstract="True">
+						<label>persona Modded AK-47</label>
+						<description>Hellsing ARMS Modded AK-47\n\nAn Avtomat Kalashnikova equipped with silver bullets and a silver-steel alloy bayonet.\n\nThis weapon's bayonet and bullets inflict Searing Sanctification to the undead!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+
+						<tradeability>All</tradeability>
+						<tradeTags Inherit="False" />
+
+						<weaponTags>
+							<li>HSAU_HLS_mAvtomatKalashnikova</li>
+						</weaponTags>
+						<generateCommonality>0.0000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/HLS_mAK47</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<!--<uiIconPath>HSAU/Icons/HLS_CSL</uiIconPath>
+		<uiIconScale>1.0</uiIconScale>-->
+
+						<soundInteract>Interact_Rifle</soundInteract>
+
+						<tools>
+							<li>
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>bayonet tip</label>
+								<capacities>
+									<li>HSAU_SearingStab</li>
+								</capacities>
+								<power>15.968</power>
+								<armorPenetration>0.22</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<statBases>
+							<MarketValue>616.0</MarketValue>
+							<Beauty>0</Beauty>
+							<Mass>3.4</Mass>
+							<AccuracyTouch>0.825</AccuracyTouch>
+							<AccuracyShort>0.77</AccuracyShort>
+							<AccuracyMedium>0.66</AccuracyMedium>
+							<AccuracyLong>0.495</AccuracyLong>
+							<RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+						</statBases>
+
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_mAK_Bond</defaultProjectile>
+								<warmupTime>1.0</warmupTime>
+								<range>30.9</range>
+								<burstShotCount>5</burstShotCount>
+								<ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+								<soundCast>Shot_AssaultRifle</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+							</li>
+						</verbs>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseHeavyEnchantedGun" Name="HSAU_HLS_Casull_Bond" Abstract="True">
+						<label>persona .454 Casull</label>
+						<description>Hellsing ARMS .454 Casull Auto.\n\nAn exceptional semi-automatic handgun which uses large, powerful, blessed cartridges. A titanium nitride coating gives its 10 inch barrel a distinctive golden hue. Its .454 inch steel bullets carry silver cores melted from the Christian cross of Manchester Cathedral. Designed for the use of an elite vampire, it will prove unwieldly in the hands of any average human.\n\n"Nothing I shoot ever gets back up again."\n\nThis weapon has very heavy recoil. It is wieldable by a vampire, a tough human, or a human equipped with power armour.\n\nThis weapon's bullets inflict Searing Sanctification to the undead!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+						<weaponTags>
+							<li>HSAU_HLS_Casull</li>
+						</weaponTags>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/HLS_Casull</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/HLS_CSL</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>HSAU_Casull_Interact</soundInteract>
+
+						<tools>
+							<li>
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>11.829</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<statBases>
+							<MarketValue>1210.0</MarketValue>
+							<Beauty>2</Beauty>
+							<Mass>6</Mass>
+							<AccuracyTouch>0.99</AccuracyTouch>
+							<AccuracyShort>0.88</AccuracyShort>
+							<AccuracyMedium>0.715</AccuracyMedium>
+							<AccuracyLong>0.66</AccuracyLong>
+							<RangedWeapon_Cooldown>0.595</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<MoveSpeed>-0.10</MoveSpeed>
+						</equippedStatOffsets>
+
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_Casull_Bond</defaultProjectile>
+								<warmupTime>0.3</warmupTime>
+								<range>26</range>
+								<soundCast>HSAU_Casull_Shot</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>12</muzzleFlashScale>
+							</li>
+						</verbs>
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseHeavyEnchantedGun" Name="HSAU_HLS_Jackal_Bond" Abstract="True">
+						<label>persona 13mm Jackal</label>
+						<description>Hellsing ARMS 13mm Auto Anti-Freak Combat Pistol 'Jackal'\n\nPure silver Macedonian processed mercury ammunition in Marvell's N.N.A.9 cartridges. 39 centimetres long, weighing 16 kilograms with 13 millimetre explosive rounds: THE JACKAL. Perfection in pistol form. More firepower than any human could be expected to handle.\n\n"A pistol... did THAT?!"\n\nThis weapon has very heavy recoil. It is wieldable by a vampire, a tough human, or a human equipped with power armour.\n\nThis weapon's bullets inflict Searing Sanctification to the undead!\n\nThis weapon can use multiple types of rounds!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+						<weaponTags>
+							<li>HSAU_HLS_Jackal</li>
+						</weaponTags>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/HLS_Jackal</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/HLS_JKL</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>HSAU_Casull_Interact</soundInteract>
+
+						<tools>
+							<li>
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>15.968</power>
+								<armorPenetration>0.25</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<statBases>
+							<MarketValue>1470.7</MarketValue>
+							<Beauty>2</Beauty>
+							<Mass>16</Mass>
+							<AccuracyTouch>0.99</AccuracyTouch>
+							<AccuracyShort>0.825</AccuracyShort>
+							<AccuracyMedium>0.605</AccuracyMedium>
+							<AccuracyLong>0.495</AccuracyLong>
+							<RangedWeapon_Cooldown>0.68</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<MoveSpeed>-0.35</MoveSpeed>
+						</equippedStatOffsets>
+
+						<verbs>
+							<li>
+								<label>JKL_AP</label>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_JackalAP_Bond</defaultProjectile>
+								<warmupTime>0.4</warmupTime>
+								<range>26</range>
+								<soundCast>HSAU_Jackal_Shot</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>15</muzzleFlashScale>
+							</li>
+							<li>
+								<label>JKL_HEAT</label>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_JackalHEAT_Bond</defaultProjectile>
+								<warmupTime>0.4</warmupTime>
+								<range>24</range>
+								<soundCast>HSAU_Jackal_Shot</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>15</muzzleFlashScale>
+								<forcedMissRadius>0.01</forcedMissRadius>
+							</li>
+						</verbs>
+
+						<comps>
+							<li Class="CompProperties_Styleable" />
+						</comps>
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="HSAU_HLS_AMR_Bond" Abstract="True">
+						<label>persona 13.7mm Anti-Midians Rifle</label>
+						<description>Hellsing ARMS 13.7mm Anti-Midians Rifle\n\nA large and heavy rifle with high firepower, range, and accuracy. It is capable of putting down most supernatural abominations.\n\n"Take aim. Just one shot and it's all over."\n\nThis weapon has very heavy recoil. It is wieldable by a vampire, a tough human, or a human equipped with power armour.\n\nThis weapon's bullets inflict Searing Sanctification to the undead!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+						<tradeability>Sellable</tradeability>
+
+						<weaponTags>
+							<li>HSAU_HLS_AMR</li>
+						</weaponTags>
+						<generateCommonality>0.0000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/HLS_AntiMidiansRifle</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.3</drawSize>
+							<drawOffsetNorth>0,0,-0.10</drawOffsetNorth>
+							<drawOffsetEast>0,0,-0.10</drawOffsetEast>
+							<drawOffsetWest>0,0,-0.10</drawOffsetWest>
+							<drawOffsetSouth>0,0,-0.10</drawOffsetSouth>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/HLS_AMR</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>Interact_AssaultRifle</soundInteract>
+
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>10.791</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>14.935</power>
+								<armorPenetration>0.20</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<statBases>
+							<MarketValue>1320.0</MarketValue>
+							<Beauty>1</Beauty>
+							<Mass>24</Mass>
+							<AccuracyTouch>0.44</AccuracyTouch>
+							<AccuracyShort>0.66</AccuracyShort>
+							<AccuracyMedium>0.77</AccuracyMedium>
+							<AccuracyLong>0.88</AccuracyLong>
+							<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<MoveSpeed>-0.80</MoveSpeed>
+						</equippedStatOffsets>
+
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_AMR_Bond</defaultProjectile>
+								<warmupTime>2.0</warmupTime>
+								<burstShotCount>5</burstShotCount>
+								<ticksBetweenBurstShots>30</ticksBetweenBurstShots>
+								<range>60</range>
+								<soundCast>Shot_SniperRifle</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>15</muzzleFlashScale>
+							</li>
+						</verbs>
+
+						<modExtensions>
+							<li Class="HeavyWeapons.HeavyWeapon">
+								<weaponHitPointsDeductionOnShot>0</weaponHitPointsDeductionOnShot>
+								<isHeavy>true</isHeavy>
+								<supportedArmors>
+									<li>VWE_Apparel_Exoframe</li>
+									<li>HSAU_HLS_UniformVampire</li>
+									<li>HSAU_HLS_HellDiverArmour</li>
+								</supportedArmors>
+								<supportedTraits>
+									<li>Tough</li>
+									<li>HSAU_Trait_NocturnalSupremacy</li>
+									<li MayRequire="OskarPotocki.VFE.Pirates">VFEP_WarcasketTrait</li>
+								</supportedTraits>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseHeavyEnchantedGun" Name="HSAU_HLS_Harkonnen_Bond" Abstract="True">
+						<label>persona 30mm Harkonnen</label>
+						<description>Hellsing ARMS 30mm Anti-Tank Cannon 'Harkonnen'\n\nA single-shot breech loader cannon with enough firepower to destroy almost anything other than a main battle tank. Any human who attempts to wield this ungainly weapon will be severely encumbered.\n\n"Get that bitch a cannon.\nBitches love cannons."\n\nThis weapon is very heavy. It is wieldable by a vampire, a tough human, or a human equipped with power armour.\n\nThis weapon's shells inflict Searing Sanctification to the undead!\n\nThis weapon can use multiple types of rounds!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+						<weaponTags>
+							<li>HSAU_HLS_Harkonnen</li>
+						</weaponTags>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/HLS_Harkonnen</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>2.3</drawSize>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/HLS_HK</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>HSAU_Harkonnen_Interact</soundInteract>
+
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>11.829</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>21.118</power>
+								<armorPenetration>0.30</armorPenetration>
+								<cooldownTime>2.125</cooldownTime>
+							</li>
+						</tools>
+
+						<statBases>
+							<MarketValue>1760.0</MarketValue>
+							<Beauty>1</Beauty>
+							<Mass>60</Mass>
+							<AccuracyTouch>0.77</AccuracyTouch>
+							<AccuracyShort>0.836</AccuracyShort>
+							<AccuracyMedium>0.924</AccuracyMedium>
+							<AccuracyLong>0.99</AccuracyLong>
+							<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<MoveSpeed>-1.20</MoveSpeed>
+						</equippedStatOffsets>
+
+						<verbs>
+							<li>
+								<label>HKN_DU</label>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_Harkonnen_DU_Bond</defaultProjectile>
+								<warmupTime>3.0</warmupTime>
+								<minRange>2.5</minRange>
+								<range>90</range>
+								<soundCast>HSAU_Harkonnen_Shot</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>20</muzzleFlashScale>
+								<targetParams>
+									<canTargetLocations>true</canTargetLocations>
+								</targetParams>
+								<requireLineOfSight>false</requireLineOfSight>
+							</li>
+							<li>
+								<label>HKN_HE</label>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_Harkonnen_HE_Bond</defaultProjectile>
+								<warmupTime>3.0</warmupTime>
+								<minRange>2.5</minRange>
+								<range>90</range>
+								<soundCast>HSAU_Harkonnen_Shot</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>20</muzzleFlashScale>
+								<ai_IsBuildingDestroyer>True</ai_IsBuildingDestroyer>
+								<targetParams>
+									<canTargetLocations>true</canTargetLocations>
+								</targetParams>
+								<forcedMissRadius>0.1</forcedMissRadius>
+							</li>
+							<li>
+								<label>HKN_ICDN</label>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_Harkonnen_ICDN_Bond</defaultProjectile>
+								<warmupTime>3.0</warmupTime>
+								<minRange>2.5</minRange>
+								<range>90</range>
+								<soundCast>HSAU_Harkonnen_Shot</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>20</muzzleFlashScale>
+								<targetParams>
+									<canTargetLocations>true</canTargetLocations>
+								</targetParams>
+								<forcedMissRadius>0.1</forcedMissRadius>
+							</li>
+							<li>
+								<label>HKN_EMP</label>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_Harkonnen_EMP_Bond</defaultProjectile>
+								<warmupTime>3.0</warmupTime>
+								<minRange>2.5</minRange>
+								<range>90</range>
+								<soundCast>HSAU_Harkonnen_Shot</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>20</muzzleFlashScale>
+								<targetParams>
+									<canTargetLocations>true</canTargetLocations>
+								</targetParams>
+								<forcedMissRadius>0.1</forcedMissRadius>
+							</li>
+						</verbs>
+
+						<comps>
+							<li Class="CompProperties_Styleable" />
+						</comps>
+
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseHeavyEnchantedGun" Name="HSAU_HLS_HarkonnenII_Bond" Abstract="True">
+						<label>persona 30mm Harkonnen II</label>
+						<description>Hellsing ARMS 30mm Anti-Zeppelin Autocannon 'Harkonnen II'\n\nThe incredible power of the original 30mm breech-loader Harkonnen refined into a belt-fed semi-automatic cannon. Several leather straps connect the barrel to a harness in a hopeless notion of helping its wielder cope with the weapon's overwhelming weight and recoil. Wielded like this, the autocannon's true potential does not shine...\n\nThis weapon is very heavy. It is wieldable by a vampire, a tough human, or a human equipped with power armour.\n\nThis weapon's shells inflict Searing Sanctification to the undead!\n\nThis weapon can use multiple types of rounds!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+						<weaponTags>
+							<li>HSAU_HLS_HarkonnenII</li>
+						</weaponTags>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/HLS_HarkonnenII</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>2.7</drawSize>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/HLS_HKII</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>Interact_AssaultRifle</soundInteract>
+
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>11.829</power>
+								<cooldownTime>1.87</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>21.118</power>
+								<armorPenetration>0.30</armorPenetration>
+								<cooldownTime>2.04</cooldownTime>
+							</li>
+						</tools>
+
+						<statBases>
+							<MarketValue>2750.0</MarketValue>
+							<Beauty>2</Beauty>
+							<Mass>70</Mass>
+							<AccuracyTouch>0.968</AccuracyTouch>
+							<AccuracyShort>0.99</AccuracyShort>
+							<AccuracyMedium>1.012</AccuracyMedium>
+							<AccuracyLong>1.034</AccuracyLong>
+							<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<MoveSpeed>-1.8</MoveSpeed>
+						</equippedStatOffsets>
+
+						<verbs>
+							<li>
+								<label>HKNII_FMJ</label>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_HarkonnenII_FMJ_Bond</defaultProjectile>
+								<warmupTime>2.5</warmupTime>
+								<burstShotCount>6</burstShotCount>
+								<ticksBetweenBurstShots>18</ticksBetweenBurstShots>
+								<minRange>2</minRange>
+								<range>450</range>
+								<soundCast>HSAU_Harkonnen_Shot</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>24</muzzleFlashScale>
+								<targetParams>
+									<canTargetLocations>true</canTargetLocations>
+								</targetParams>
+								<requireLineOfSight>false</requireLineOfSight>
+							</li>
+							<li>
+								<label>HKNII_HEAT</label>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_HarkonnenII_HEAT_Bond</defaultProjectile>
+								<warmupTime>2.5</warmupTime>
+								<burstShotCount>6</burstShotCount>
+								<ticksBetweenBurstShots>18</ticksBetweenBurstShots>
+								<minRange>2</minRange>
+								<range>450</range>
+								<soundCast>HSAU_Harkonnen_Shot</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>24</muzzleFlashScale>
+								<ai_IsBuildingDestroyer>True</ai_IsBuildingDestroyer>
+								<targetParams>
+									<canTargetLocations>true</canTargetLocations>
+								</targetParams>
+								<requireLineOfSight>false</requireLineOfSight>
+								<forcedMissRadius>0.1</forcedMissRadius>
+							</li>
+						</verbs>
+
+						<comps>
+							<li Class="CompProperties_Styleable" />
+						</comps>
+
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseGun" Name="HSAU_HLS_WDDF_Bond" Abstract="True">
+						<label>persona Walter's Deadly Dental Floss</label>
+						<description>Walter's Deadly Dental Floss\n\nThinly spun blessed monofilament wire of a proprietary alloy. Able to slice through flesh, armour, and even structures with ease. The idea that you floss your teeth with this razor wire is incredibly intimidating.\n\nFor that "killer clean" choose Walter's!\n\n"I highly recommend brushing your teeth, followed by a course of flossing after each and every meal!" - Angel of Dentistry\n\nThis weapon... just how in the world is someone supposed to wield this?! Only a vampire, an especially nimble human, or a human equipped with power armour could work this out!\n\nAggressive tooth flossing inflicts Searing Sanctification to the undead!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+
+						<tradeTags>
+							<li>ExoticMisc</li>
+						</tradeTags>
+						<weaponTags>
+							<li>HSAU_HLS_WDDF</li>
+						</weaponTags>
+						<generateCommonality>0.0000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+						<graphicData>
+							<texPath>HSAU/Weapons/HLS_WDDF</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<equippedAngleOffset>0</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/HLS_WDDF</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>HSAU_Interact_Wire</soundInteract>
+						<meleeHitSound>HSAU_Interact_Wire</meleeHitSound>
+
+						<statBases>
+							<MarketValue>2968.9</MarketValue>
+							<Beauty>0</Beauty>
+							<Mass>0.5</Mass>
+							<AccuracyTouch>1.045</AccuracyTouch>
+							<AccuracyShort>0.935</AccuracyShort>
+							<AccuracyMedium>0.935</AccuracyMedium>
+							<AccuracyLong>0.88</AccuracyLong>
+							<RangedWeapon_Cooldown>0.085</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<SocialImpact>0.5</SocialImpact>
+						</equippedStatOffsets>
+
+						<tools>
+							<li>
+								<label>Wire</label>
+								<capacities>
+									<li>HSAU_SearingSlash</li>
+								</capacities>
+								<power>46.677</power>
+								<armorPenetration>1.0</armorPenetration>
+								<cooldownTime>0.85</cooldownTime>
+							</li>
+						</tools>
+
+						<verbs>
+							<li>
+								<verbClass>Verb_LaunchProjectile</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_WDDF_Wire_Bond</defaultProjectile>
+								<warmupTime>0.8</warmupTime>
+								<range>22</range>
+								<!--<burstShotCount>2</burstShotCount>
+				<ticksBetweenBurstShots>40</ticksBetweenBurstShots>-->
+								<soundCast>HSAU_Shot_Wire</soundCast>
+								<rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+							</li>
+						</verbs>
+
+						<modExtensions>
+							<li Class="HeavyWeapons.HeavyWeapon">
+								<weaponHitPointsDeductionOnShot>0</weaponHitPointsDeductionOnShot>
+								<isHeavy>true</isHeavy>
+								<supportedArmors>
+									<li>HSAU_HLS_HellDiverArmour</li>
+								</supportedArmors>
+								<supportedTraits>
+									<li>Nimble</li>
+									<li>HSAU_Trait_NocturnalSupremacy</li>
+								</supportedTraits>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseEnchantedGun" Name="HSAU_HLS_BloodBlaster_Bond" Abstract="True">
+						<label>persona Blood Blaster</label>
+						<description>Hellsing ARMS Blood Blaster\n\nA magic power blaster that uses soul energy to launch silver bullets shrouded in a bloody mist.\n\nThis weapon's blasts inflict Searing Sanctification to the undead!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+						<weaponTags>
+							<li>HSAU_HLS_BloodBlaster</li>
+						</weaponTags>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/HLS_Blaster</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>0.8</drawSize>
+							<drawOffsetNorth>(0,0,-0.10)</drawOffsetNorth>
+							<drawOffsetSouth>(0,0,-0.10)</drawOffsetSouth>
+							<drawOffsetEast>(0,0,-0.10)</drawOffsetEast>
+							<drawOffsetWest>(0,0,-0.10)</drawOffsetWest>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<!--<uiIconPath>HSAU/Icons/HLS_CSL</uiIconPath>
+		<uiIconScale>1.0</uiIconScale>-->
+
+						<soundInteract>Interact_ChargeRifle</soundInteract>
+
+						<tools>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>edge</label>
+								<capacities>
+									<li>Poke</li>
+									<li>Cut</li>
+								</capacities>
+								<power>15.968</power>
+								<armorPenetration>0.20</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<statBases>
+							<MarketValue>1650.0</MarketValue>
+							<Beauty>1</Beauty>
+							<Mass>5</Mass>
+							<AccuracyTouch>0.99</AccuracyTouch>
+							<AccuracyShort>0.88</AccuracyShort>
+							<AccuracyMedium>0.715</AccuracyMedium>
+							<AccuracyLong>0.66</AccuracyLong>
+							<RangedWeapon_Cooldown>0.595</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<MoveSpeed>-0.10</MoveSpeed>
+						</equippedStatOffsets>
+
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_Blaster_Bond</defaultProjectile>
+								<warmupTime>2.0</warmupTime>
+								<burstShotCount>2</burstShotCount>
+								<ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+								<range>24</range>
+								<soundCast>Shot_Autocannon</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>12</muzzleFlashScale>
+							</li>
+						</verbs>
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="HSAU_ISC_mPTRS_Bond" Abstract="True">
+						<label>persona Modded PTRS-41</label>
+						<description>A large WWII-era anti-tank rifle which has been refitted for vampire hunting. Its barrel has been equipped with a blessed halberd ready to slash and pierce evil.\n\nThis weapon's halberd bayonet and bullets inflict Searing Sanctification to the undead!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+
+						<tradeability>All</tradeability>
+						<tradeTags Inherit="False" />
+						<weaponTags>
+							<li>HSAU_ISC_mPTRS</li>
+						</weaponTags>
+						<generateCommonality>0.0000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/ISC_mPTRS</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>3.0</drawSize>
+							<!--<drawOffsetNorth>0.3,0,-0.10</drawOffsetNorth>
+				<drawOffsetEast>0.3,0,-0.10</drawOffsetEast>
+				<drawOffsetWest>0.3,0,-0.10</drawOffsetWest>
+				<drawOffsetSouth>0.3,0,-0.10</drawOffsetSouth>-->
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/ISC_mPTRS</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>Interact_AssaultRifle</soundInteract>
+
+						<statBases>
+							<MarketValue>1320.0</MarketValue>
+							<Beauty>1</Beauty>
+							<Mass>24</Mass>
+							<AccuracyTouch>0.88</AccuracyTouch>
+							<AccuracyShort>0.847</AccuracyShort>
+							<AccuracyMedium>0.825</AccuracyMedium>
+							<AccuracyLong>0.803</AccuracyLong>
+							<RangedWeapon_Cooldown>1.105</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<MoveSpeed>-0.25</MoveSpeed>
+						</equippedStatOffsets>
+
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>10.791</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>halberd point</label>
+								<capacities>
+									<li>HSAU_SearingStab</li>
+								</capacities>
+								<power>28.299</power>
+								<armorPenetration>0.50</armorPenetration>
+								<cooldownTime>2.125</cooldownTime>
+							</li>
+							<li>
+								<label>halberd</label>
+								<capacities>
+									<li>HSAU_SearingSlash</li>
+								</capacities>
+								<power>22.146</power>
+								<armorPenetration>0.20</armorPenetration>
+								<cooldownTime>2.125</cooldownTime>
+							</li>
+						</tools>
+
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_PTRS_Bond</defaultProjectile>
+								<warmupTime>2.0</warmupTime>
+								<burstShotCount>1</burstShotCount>
+								<ticksBetweenBurstShots>30</ticksBetweenBurstShots>
+								<range>55</range>
+								<minRange>2.5</minRange>
+								<soundCast>Shot_SniperRifle</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>15</muzzleFlashScale>
+							</li>
+						</verbs>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="HSAU_ISC_PiousPistol_Bond" Abstract="True">
+						<label>persona Pious Pistol</label>
+						<description>The weapon of choice for Soldiers of Iscariot. With sanctified silver rounds the demons of the world shall be purged!\n\nThis weapon's bullets inflict Searing Sanctification to the undead!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+						<tradeability>All</tradeability>
+						<tradeTags Inherit="False" />
+
+						<weaponTags>
+							<li>HSAU_ISC_PiousPistol</li>
+						</weaponTags>
+						<generateCommonality>0.0000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/ISC_PiousPistol</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/ISC_PP</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>HSAU_Casull_Interact</soundInteract>
+
+						<tools>
+							<li>
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<statBases>
+							<MarketValue>220.0</MarketValue>
+							<Beauty>1</Beauty>
+							<Mass>2</Mass>
+							<AccuracyTouch>0.99</AccuracyTouch>
+							<AccuracyShort>0.88</AccuracyShort>
+							<AccuracyMedium>0.715</AccuracyMedium>
+							<AccuracyLong>0.66</AccuracyLong>
+							<RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
+						</statBases>
+
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_PiousPistol_Bond</defaultProjectile>
+								<warmupTime>0.5</warmupTime>
+								<range>20</range>
+								<soundCast>Shot_Autopistol</soundCast>
+								<soundCastTail>GunTail_Medium</soundCastTail>
+								<muzzleFlashScale>12</muzzleFlashScale>
+							</li>
+						</verbs>
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality" Name="HSAU_ISC_BlessedBayonet_Bond" Abstract="True">
+						<label>persona Blessed Bayonet</label>
+						<description>A sword-style bayonet made of a silver-plasteel alloy. This weapon wracks evil both in melee and at range!\n\nThis blade inflicts Searing Sanctification to the undead!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+						<tradeability>Sellable</tradeability>
+
+						<weaponTags>
+							<li>HSAU_ISC_BlessedBayonet</li>
+						</weaponTags>
+						<generateCommonality>0.0000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/ISC_BlessedBayonet</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/ISC_BBYN</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>HSAU_Bayonet_Interact</soundInteract>
+						<meleeHitSound>HSAU_Bayonet_Throw</meleeHitSound>
+
+						<statBases>
+							<MarketValue>880.0</MarketValue>
+							<Beauty>1</Beauty>
+							<Mass>1.1</Mass>
+							<AccuracyTouch>0.825</AccuracyTouch>
+							<AccuracyShort>0.715</AccuracyShort>
+							<AccuracyMedium>0.605</AccuracyMedium>
+							<AccuracyLong>0.44</AccuracyLong>
+							<RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<MoveSpeed>0.5</MoveSpeed>
+							<PainShockThreshold>0.11</PainShockThreshold>
+						</equippedStatOffsets>
+
+						<tools>
+							<li>
+								<label>handle</label>
+								<capacities>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<armorPenetration>0.16</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>HSAU_SearingStab</li>
+								</capacities>
+								<power>24.199</power>
+								<armorPenetration>0.77</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>edge</label>
+								<capacities>
+									<li>HSAU_SearingSlash</li>
+								</capacities>
+								<power>19.061</power>
+								<armorPenetration>0.33</armorPenetration>
+								<cooldownTime>0.425</cooldownTime>
+							</li>
+						</tools>
+
+						<verbs>
+							<li>
+								<label>rangedverb1</label>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bayonet_Thrown_Bond</defaultProjectile>
+								<warmupTime>0.7</warmupTime>
+								<range>20</range>
+								<burstShotCount>2</burstShotCount>
+								<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+								<soundCast>HSAU_Bayonet_Throw</soundCast>
+							</li>
+						</verbs>
+
+						<comps>
+							<li Class="CompProperties_Styleable" />
+						</comps>
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseEnchantedMeleeWeapon" Name="HSAU_ISC_BeatifiedBayonet_Bond" Abstract="True">
+						<label>persona Beatified Bayonet</label>
+						<description>A sword-style bayonet brimming with divine energy. The fervor of the LORD bolsters the wielder's pace and resolve.\n\n"AMEN!"\n\nThis blade inflicts Searing Sanctification to the undead!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+						<weaponTags>
+							<li>HSAU_ISC_BeatifiedBayonet</li>
+						</weaponTags>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/ISC_BeatifiedBayonet</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<equippedAngleOffset>0</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/ISC_BeaBYN</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>HSAU_Bayonet_Interact</soundInteract>
+						<meleeHitSound>HSAU_Bayonet_Throw</meleeHitSound>
+
+						<statBases>
+							<MarketValue>1100.0</MarketValue>
+							<Flammability>0</Flammability>
+							<Beauty>2</Beauty>
+							<Mass>1.1</Mass>
+							<AccuracyTouch>1.045</AccuracyTouch>
+							<AccuracyShort>0.935</AccuracyShort>
+							<AccuracyMedium>0.825</AccuracyMedium>
+							<AccuracyLong>0.715</AccuracyLong>
+							<RangedWeapon_Cooldown>0.34</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<MoveSpeed>1.0</MoveSpeed>
+							<PainShockThreshold>0.22</PainShockThreshold>
+						</equippedStatOffsets>
+
+						<tools>
+							<li>
+								<label>handle</label>
+								<capacities>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<armorPenetration>0.16</armorPenetration>
+								<cooldownTime>1.275</cooldownTime>
+							</li>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>HSAU_SearingStabII</li>
+								</capacities>
+								<power>29.323</power>
+								<armorPenetration>0.88</armorPenetration>
+								<cooldownTime>1.275</cooldownTime>
+							</li>
+							<li>
+								<label>edge</label>
+								<capacities>
+									<li>HSAU_SearingSlashII</li>
+								</capacities>
+								<power>25.225</power>
+								<armorPenetration>0.44</armorPenetration>
+								<cooldownTime>0.425</cooldownTime>
+							</li>
+						</tools>
+
+						<verbs>
+							<li>
+								<label>rangedverb2</label>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_BeatifiedBayonet_Thrown_Bond</defaultProjectile>
+								<warmupTime>0.7</warmupTime>
+								<range>25</range>
+								<burstShotCount>5</burstShotCount>
+								<ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+								<soundCast>HSAU_Bayonet_Throw</soundCast>
+							</li>
+						</verbs>
+
+						<comps>
+							<li Class="CompProperties_Styleable" />
+						</comps>
+
+						<!-- Ability: Bayonet Blitz (single target) -->
+						<!-- Ability: Bayonet Blitz (multi target) -->
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseEnchantedMeleeWeapon" Name="HSAU_ISC_ExplosiveBayonet_Bond" Abstract="True">
+						<label>persona Explosive Bayonet</label>
+						<description>A sword-style blessed bayonet with a special "surprise" packaged inside its handle.\n\nThis weapon's blade and explosives inflict Searing Sanctification to the undead!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<HediffDef>HSAU_SearingSanctification</HediffDef>
+						</descriptionHyperlinks>
+						<weaponTags>
+							<li>HSAU_ISC_ExplosiveBayonet</li>
+						</weaponTags>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/ISC_ExplosiveBayonet</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<equippedAngleOffset>0</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/ISC_ExBYN</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>HSAU_Bayonet_Interact</soundInteract>
+						<meleeHitSound>HSAU_Bayonet_Throw</meleeHitSound>
+
+						<statBases>
+							<MarketValue>1045.0</MarketValue>
+							<Beauty>1</Beauty>
+							<Mass>1.3</Mass>
+							<AccuracyTouch>0.825</AccuracyTouch>
+							<AccuracyShort>0.715</AccuracyShort>
+							<AccuracyMedium>0.605</AccuracyMedium>
+							<AccuracyLong>0.44</AccuracyLong>
+							<RangedWeapon_Cooldown>0.51</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<MoveSpeed>0.5</MoveSpeed>
+							<PainShockThreshold>0.22</PainShockThreshold>
+						</equippedStatOffsets>
+
+						<tools>
+							<li>
+								<label>handle</label>
+								<capacities>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<armorPenetration>0.16</armorPenetration>
+								<cooldownTime>1.275</cooldownTime>
+							</li>
+							<li>
+								<label>point</label>
+								<capacities>
+									<li>HSAU_SearingStab</li>
+								</capacities>
+								<power>26.25</power>
+								<armorPenetration>0.77</armorPenetration>
+								<cooldownTime>1.445</cooldownTime>
+							</li>
+							<li>
+								<label>edge</label>
+								<capacities>
+									<li>HSAU_SearingSlash</li>
+								</capacities>
+								<power>21.118</power>
+								<armorPenetration>0.33</armorPenetration>
+								<cooldownTime>0.425</cooldownTime>
+							</li>
+						</tools>
+
+						<verbs>
+							<li>
+								<label>rangedverb3</label>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_ExplosiveBayonet_Thrown_Bond</defaultProjectile>
+								<warmupTime>0.9</warmupTime>
+								<range>25</range>
+								<burstShotCount>2</burstShotCount>
+								<ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+								<ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+								<soundCast>HSAU_Bayonet_Throw</soundCast>
+								<noiseRadius>4</noiseRadius>
+								<targetParams>
+									<canTargetLocations>true</canTargetLocations>
+								</targetParams>
+								<forcedMissRadius>0.01</forcedMissRadius>
+							</li>
+						</verbs>
+
+						<comps>
+							<li Class="CompProperties_Styleable" />
+						</comps>
+
+						<!-- Ability: Exploding Chain -->
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="HSAU_MLN_Panzerfaust_Bond" Abstract="True">
+						<label>persona Panzerfaust</label>
+						<description>149mm Single-Use Rocket Launcher "Panzerfaust"\n\nA German WWII-era rocket launcher. Its design considerations resulted in an inexpensive and recoilless weapon that a single soldier could use to neutralize a tank.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+
+						<tradeability>All</tradeability>
+						<weaponTags>
+							<li>HSAU_MLN_Panzerfaust</li>
+						</weaponTags>
+						<generateCommonality>0.0000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+						<graphicData>
+							<texPath>HSAU/Weapons/MLN_Panzerfaust</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<!--<uiIconPath>HSAU/Icons/MLN_MMp</uiIconPath>
+		<uiIconScale>1.0</uiIconScale>-->
+
+						<soundInteract>Interact_Rifle</soundInteract>
+
+						<statBases>
+							<MarketValue>192.5</MarketValue>
+							<Beauty>0</Beauty>
+							<Mass>6.40</Mass>
+							<RangedWeapon_Cooldown>2.55</RangedWeapon_Cooldown>
+						</statBases>
+
+						<tools>
+							<li>
+								<label>Stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>Barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<armorPenetration>0.13</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<comps>
+							<li Class="CompProperties_Explosive">
+								<explosiveRadius>7.8</explosiveRadius>
+								<explosiveDamageType>Bomb</explosiveDamageType>
+								<requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+							</li>
+						</comps>
+
+						<tickerType>Normal</tickerType>
+						<verbs>
+							<li>
+								<verbClass>Verb_ShootOneUse</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_rocket_Panzerfaust_Bond</defaultProjectile>
+								<forcedMissRadius>1</forcedMissRadius>
+								<warmupTime>4.5</warmupTime>
+								<ai_AvoidFriendlyFireRadius>8</ai_AvoidFriendlyFireRadius>
+								<range>24</range> <!-- IRL 60m -->
+								<burstShotCount>1</burstShotCount>
+								<soundCast>InfernoCannon_Fire</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<onlyManualCast>true</onlyManualCast>
+								<targetParams>
+									<canTargetLocations>true</canTargetLocations>
+								</targetParams>
+								<muzzleFlashScale>14</muzzleFlashScale>
+							</li>
+						</verbs>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="HSAU_MLN_Panzerschreck_Bond" Abstract="True">
+						<label>persona Panzerschreck</label>
+						<description>88mm Anti-Tank Rocket Launcher "Panzerschreck"\n\nA German WWII-era reusable rocket launcher equipped with a shield that protects the user from the smokey blowback it generates.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+
+						<tradeability>All</tradeability>
+						<weaponTags>
+							<li>HSAU_MLN_Panzerschreck</li>
+						</weaponTags>
+						<generateCommonality>0.0000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/MLN_Panzerschreck</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.6</drawSize>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<!--<uiIconPath>HSAU/Icons/HLS_HK</uiIconPath>
+		<uiIconScale>1.0</uiIconScale>-->
+
+						<soundInteract>HSAU_Harkonnen_Interact</soundInteract>
+
+						<tools>
+							<li>
+								<label>stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>12.866</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>12.866</power>
+								<armorPenetration>0.20</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<comps>
+							<li Class="CompProperties_Explosive">
+								<explosiveRadius>7.8</explosiveRadius>
+								<explosiveDamageType>Bomb</explosiveDamageType>
+								<requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+							</li>
+						</comps>
+
+						<statBases>
+							<MarketValue>1540.0</MarketValue>
+							<Beauty>0</Beauty>
+							<Mass>11</Mass>
+							<AccuracyTouch>0.77</AccuracyTouch>
+							<AccuracyShort>0.836</AccuracyShort>
+							<AccuracyMedium>0.924</AccuracyMedium>
+							<AccuracyLong>0.99</AccuracyLong>
+							<RangedWeapon_Cooldown>5.1</RangedWeapon_Cooldown>
+						</statBases>
+
+						<equippedStatOffsets>
+							<MoveSpeed>-0.15</MoveSpeed>
+						</equippedStatOffsets>
+
+						<tickerType>Normal</tickerType>
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_rocket_Panzerschreck_Bond</defaultProjectile>
+								<warmupTime>4.5</warmupTime>
+								<minRange>2.5</minRange>
+								<range>28</range> <!-- IRL 150m -->
+								<soundCast>InfernoCannon_Fire</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>20</muzzleFlashScale>
+								<ai_IsBuildingDestroyer>True</ai_IsBuildingDestroyer>
+								<targetParams>
+									<canTargetLocations>true</canTargetLocations>
+								</targetParams>
+								<forcedMissRadius>0.1</forcedMissRadius>
+							</li>
+						</verbs>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="HSAU_MLN_FNP90m_Bond" Abstract="True">
+						<label>persona Modded FN P90</label>
+						<description>A compact submachine gun fitted with a large scope and various other modifications.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+
+						<tradeability>Sellable</tradeability>
+						<weaponTags>
+							<li>HSAU_MLN_FNP90m</li>
+						</weaponTags>
+						<generateCommonality>0.0000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/MLN_mFNP90</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+							<drawOffsetNorth>(0,0,0)</drawOffsetNorth>
+							<drawOffsetSouth>(-0.15,0,0)</drawOffsetSouth>
+							<drawOffsetEast>(0,0,0)</drawOffsetEast>
+							<drawOffsetWest>(0,0,0)</drawOffsetWest>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<!--<uiIconPath>HSAU/Icons/MLN_MMp</uiIconPath>
+		<uiIconScale>1.0</uiIconScale>-->
+
+						<soundInteract>Interact_Rifle</soundInteract>
+
+						<statBases>
+							<MarketValue>192.5</MarketValue>
+							<Beauty>1</Beauty>
+							<Mass>3.5</Mass>
+							<AccuracyTouch>0.88</AccuracyTouch>
+							<AccuracyShort>0.935</AccuracyShort>
+							<AccuracyMedium>0.935</AccuracyMedium>
+							<AccuracyLong>0.88</AccuracyLong>
+							<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<ShootingAccuracyPawn>5</ShootingAccuracyPawn>
+						</equippedStatOffsets>
+
+						<tools>
+							<li>
+								<label>Stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>Barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<armorPenetration>0.13</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_FNP90m_Bond</defaultProjectile>
+								<warmupTime>2.0</warmupTime>
+								<burstShotCount>5</burstShotCount>
+								<ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+								<range>30</range> <!-- 50 -->
+								<soundCast>Shot_BoltActionRifle</soundCast> <!-- da -->
+							</li>
+						</verbs>
+
+						<!-- Ability: Summon Armoured Ghoul -->
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseEnchantedGun" Name="HSAU_MLN_DandyDeck_Bond" Abstract="True">
+						<label>persona The Dandy Deck</label>
+						<description>A deck of magical playing cards which seem to have a thirst for blood. They chase madly after their targets when thrown, and easily slice through almost anything. Performing magic tricks is child's play. It is sure to impress spectators.\n\nThese playing cards inflict "Dirge of Decay" which nullifies regeneration!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<weaponTags>
+							<li>HSAU_MLN_DandyDeck</li>
+						</weaponTags>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/MLN_DandyDeck</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<equippedAngleOffset>0</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/MLN_DND</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>HSAU_Card_Shuffle</soundInteract>
+						<meleeHitSound>HSAU_Card_Throw</meleeHitSound>
+
+						<statBases>
+							<MarketValue>2807.2</MarketValue>
+							<Beauty>2</Beauty>
+							<Mass>0.5</Mass>
+							<AccuracyTouch>1.047</AccuracyTouch>
+							<AccuracyShort>1.047</AccuracyShort>
+							<AccuracyMedium>1.047</AccuracyMedium>
+							<AccuracyLong>1.047</AccuracyLong>
+							<RangedWeapon_Cooldown>0.51</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<SocialImpact>0.52</SocialImpact>
+						</equippedStatOffsets>
+
+						<tools>
+							<li>
+								<label>Card</label>
+								<capacities>
+									<li>HSAU_DecayCut</li>
+								</capacities>
+								<power>53.803</power>
+								<armorPenetration>1.2</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<verbs>
+							<li>
+								<verbClass>Verb_LaunchProjectile</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_DandyCard_Bond</defaultProjectile>
+								<warmupTime>1.1</warmupTime>
+								<range>25</range>
+								<soundCast>HSAU_Card_Throw</soundCast>
+								<rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+							</li>
+						</verbs>
+
+						<!-- Ability: Set Trap Card -->
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseEnchantedGun" Name="HSAU_MLN_MagicalMusket_Bond" Abstract="True">
+						<label>persona Magical Musket</label>
+						<description>A gilded jezail which uses a flintlock mechanism to fire magic bullets. These bullets have a spirit of their own and can breeze through heavily-armoured targets at very high speeds. They can rapidly change trajectory, perforating their targets again and again until everything is blasted into a perforated mess.\n\n"Tinker tailor soldier sailor, my bullet punishes all without distinction."\n\nThis weapon's cursed musketballs inflict "Dirge of Decay" which nullifies regeneration!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<weaponTags>
+							<li>HSAU_MLN_MagicalMusket</li>
+						</weaponTags>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/MLN_MagicalMusket</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.4</drawSize>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/MLN_MM</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>Interact_Rifle</soundInteract>
+
+						<statBases>
+							<MarketValue>2200.0</MarketValue>
+							<Beauty>2</Beauty>
+							<Mass>6.40</Mass>
+							<AccuracyTouch>1.1</AccuracyTouch>
+							<AccuracyShort>1.1</AccuracyShort>
+							<AccuracyMedium>1.1</AccuracyMedium>
+							<AccuracyLong>1.1</AccuracyLong>
+							<RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+						</statBases>
+						<equippedStatOffsets>
+							<ShootingAccuracyPawn>999</ShootingAccuracyPawn>
+						</equippedStatOffsets>
+
+						<tools>
+							<li>
+								<label>Stock</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>Barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<armorPenetration>0.17</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_MagicBullet_Bond</defaultProjectile>
+								<warmupTime>4.0</warmupTime>
+								<range>500</range>
+								<soundCast>HSAU_MagicBullet_NoChase</soundCast> <!-- da -->
+								<requireLineOfSight>false</requireLineOfSight>
+							</li>
+						</verbs>
+
+						<!-- Ability 1: Perforation Obliteration -->
+						<!-- Ability 2: Multi-target -->
+
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="HSAU_MLN_ExtendedMauser_Bond" Abstract="True">
+						<label>persona Extended Mauser C96</label>
+						<description>A Mauser C96 with an extended 1-metre-long barrel. This barrel, freakishly long for a pistol, confers an unusually high accuracy.\n\n"...!"\n\nThis weapon's cursed rounds inflict "Dirge of Decay" which nullifies regeneration!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<ThingDef>HSAU_spirit_Warwick</ThingDef>
+							<ThingDef>HSAU_MLN_ExtendedExtendedMauser</ThingDef>
+						</descriptionHyperlinks>
+
+						<tradeability>Sellable</tradeability>
+						<weaponTags>
+							<li>HSAU_MLN_ExtendedMauser</li>
+						</weaponTags>
+						<generateCommonality>0.0000000000000000000000000001</generateCommonality>
+						<generateAllowChance>1</generateAllowChance>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/MLN_ExtendedMauser</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.2, 1.2</drawSize>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/MLN_MSR</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>Interact_Autopistol</soundInteract>
+
+						<tools>
+							<li>
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>10.791</power>
+								<armorPenetration>0.20</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<statBases>
+							<MarketValue>242.0</MarketValue>
+							<Beauty>1</Beauty>
+							<Mass>1.6</Mass>
+							<AccuracyTouch>0.88</AccuracyTouch>
+							<AccuracyShort>0.935</AccuracyShort>
+							<AccuracyMedium>0.99</AccuracyMedium>
+							<AccuracyLong>0.935</AccuracyLong>
+							<RangedWeapon_Cooldown>0.68</RangedWeapon_Cooldown>
+						</statBases>
+
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_Extended_Mauser_Bond</defaultProjectile>
+								<warmupTime>0.5</warmupTime>
+								<range>29</range>
+								<soundCast>Shot_Revolver</soundCast>
+								<soundCastTail>GunTail_Light</soundCastTail>
+								<muzzleFlashScale>7</muzzleFlashScale>
+							</li>
+						</verbs>
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseEnchantedGun" Name="HSAU_MLN_ExtendedExtendedMauser_Bond" Abstract="True">
+						<label>persona Extended Extended Mauser C96</label>
+						<description>A Mauser C96 with an obscenely long barrel, extended magazine, and a stock extension added on for good measure. The spirit that was bound to this weapon holds its bizarre proportions in order like Atlas holds the world on his shoulders.\n\n"No! Stop it! It's impossible! How could something like that exist?!"\n\nThis weapon is very unwieldly. It is wieldable by a vampire, a tough human, or a human equipped with power armour.\n\nThis weapon's cursed rounds inflict "Dirge of Decay" which nullifies regeneration!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<weaponTags>
+							<li>HSAU_MLN_ExtendedExtendedMauser</li>
+						</weaponTags>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/MLN_ExtendedExtendedMauser</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>6</drawSize>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/MLN_eeMSR</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>Interact_Autopistol</soundInteract>
+
+						<tools>
+							<li>
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>10.791</power>
+								<armorPenetration>0.20</armorPenetration>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<statBases>
+							<MarketValue>880.0</MarketValue>
+							<Beauty>5</Beauty>
+							<Mass>14</Mass>
+							<AccuracyTouch>0.0</AccuracyTouch>
+							<AccuracyShort>0.99</AccuracyShort>
+							<AccuracyMedium>0.99</AccuracyMedium>
+							<AccuracyLong>0.99</AccuracyLong>
+							<RangedWeapon_Cooldown>0.34</RangedWeapon_Cooldown>
+						</statBases>
+
+						<!-- Ability: Extend Even More -->
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_Extended_Mauser_Bond</defaultProjectile>
+								<warmupTime>0.4</warmupTime>
+								<range>50</range>
+								<minRange>4.5</minRange>
+								<soundCast>Shot_Revolver</soundCast>
+								<soundCastTail>GunTail_Light</soundCastTail>
+								<muzzleFlashScale>7</muzzleFlashScale>
+							</li>
+						</verbs>
+
+						<modExtensions>
+							<li Class="HeavyWeapons.HeavyWeapon">
+								<weaponHitPointsDeductionOnShot>0</weaponHitPointsDeductionOnShot>
+								<isHeavy>true</isHeavy>
+								<supportedArmors>
+									<li>VWE_Apparel_Exoframe</li>
+									<li>HSAU_MLN_CaptainUniform</li>
+									<li>HSAU_HLS_HellDiverArmour</li>
+								</supportedArmors>
+								<supportedTraits>
+									<li>Tough</li>
+									<li>HSAU_Trait_NocturnalSupremacy</li>
+									<li MayRequire="OskarPotocki.VFE.Pirates">VFEP_WarcasketTrait</li>
+								</supportedTraits>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="HSAU_MSC_MGL_Bond" Abstract="True">
+						<label>persona 40mm ArmsCor MGL</label>
+						<description>A multiple grenade launcher with a capacity of eight grenades.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<descriptionHyperlinks>
+							<ThingDef>HSAU_spirit_Orlok</ThingDef>
+							<ThingDef>HSAU_MSC_mMGL</ThingDef>
+						</descriptionHyperlinks>
+
+						<tradeability>Sellable</tradeability>
+						<weaponTags>
+							<li>HSAU_MSC_MGL</li>
+						</weaponTags>
+						<generateCommonality>0</generateCommonality>
+						<generateAllowChance>0</generateAllowChance>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/MSC_MGL</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/MSC_MGL</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>Interact_Revolver</soundInteract>
+
+						<tools>
+							<li>
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+						</tools>
+
+						<statBases>
+							<MarketValue>726.0</MarketValue>
+							<Beauty>0</Beauty>
+							<Mass>6.6</Mass>
+							<AccuracyTouch>0.99</AccuracyTouch>
+							<AccuracyShort>0.88</AccuracyShort>
+							<AccuracyMedium>0.77</AccuracyMedium>
+							<AccuracyLong>0.726</AccuracyLong>
+							<RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+						</statBases>
+
+						<verbs>
+							<li>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_MGL_Bond</defaultProjectile>
+								<warmupTime>1.6</warmupTime>
+								<range>18</range>
+								<minRange>2</minRange>
+								<soundCast>Shot_Autocannon</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+								<ai_IsBuildingDestroyer>True</ai_IsBuildingDestroyer>
+								<targetParams>
+									<canTargetLocations>true</canTargetLocations>
+								</targetParams>
+								<forcedMissRadius>1.0</forcedMissRadius>
+							</li>
+						</verbs>
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_HSAU_BaseEnchantedGun" Name="HSAU_MSC_mMGL_Bond" Abstract="True">
+						<label>persona 40mm Modded MGL</label>
+						<description>40mm ArmsCor Modded Multiple Grenade Launcher\n\nA grenade launcher fitted with golden chains. If its wielder is feeling particularly adventurous, they may use the chains to swing the MGL in a wide arc like a deranged, improvised flail.\nThe launcher's modified ammunition shoots cursed crimson spines in a conical spread, which functionally makes this weapon a shotgun rather than a grenade launcher. These occult spikes penetrate even the toughest armour as if hot nails through butter.\n\n"Total destruction, I live for nothing else."\n\nThis weapon's cursed spines inflict "Dirge of Decay" which nullifies regeneration!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+						<weaponTags>
+							<li>HSAU_MSC_mMGL</li>
+						</weaponTags>
+
+						<graphicData>
+							<texPath>HSAU/Weapons/MSC_mMGL</texPath>
+							<graphicClass>Graphic_Single</graphicClass>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<equippedAngleOffset>45</equippedAngleOffset>
+						<uiIconPath>HSAU/Icons/MSC_mMGL</uiIconPath>
+						<uiIconScale>1.0</uiIconScale>
+
+						<soundInteract>Interact_Revolver</soundInteract>
+
+						<statBases>
+							<MarketValue>2566.3</MarketValue>
+							<Beauty>1</Beauty>
+							<Mass>6.6</Mass>
+							<AccuracyTouch>1.045</AccuracyTouch>
+							<AccuracyShort>0.935</AccuracyShort>
+							<AccuracyMedium>0.814</AccuracyMedium>
+							<AccuracyLong>0.726</AccuracyLong>
+							<RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+						</statBases>
+
+						<tools>
+							<li>
+								<label>grip</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>9.75</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>barrel</label>
+								<capacities>
+									<li>Blunt</li>
+									<li>Poke</li>
+								</capacities>
+								<power>11.829</power>
+								<cooldownTime>1.7</cooldownTime>
+							</li>
+							<li>
+								<label>"flail" head</label>
+								<capacities>
+									<li>Blunt</li>
+								</capacities>
+								<power>21.118</power>
+								<armorPenetration>0.25</armorPenetration>
+								<cooldownTime>2.55</cooldownTime>
+							</li>
+						</tools>
+						<verbs>
+							<!--<li>
+			<label>mMGL_Spines</label>
+			<verbClass>Verb_Shoot</verbClass>
+			<hasStandardCommand>true</hasStandardCommand>
+			<defaultProjectile>HSAU_Bullet_Modded_MGL</defaultProjectile>
+			<warmupTime>1.0</warmupTime>
+			<range>18</range>
+			<soundCast>Shot_Autocannon</soundCast>
+			<soundCastTail>GunTail_Heavy</soundCastTail>
+			<muzzleFlashScale>12</muzzleFlashScale>
+		</li>-->
+							<li>
+								<label>mMGL_Spines</label>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_Modded_MGL_small_Bond</defaultProjectile>
+								<warmupTime>1.0</warmupTime>
+								<range>18</range>
+								<burstShotCount>6</burstShotCount>
+								<ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+								<soundCast>Shot_Autocannon</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>12</muzzleFlashScale>
+							</li>
+							<li>
+								<label>mMGL_Grenade</label>
+								<verbClass>Verb_Shoot</verbClass>
+								<hasStandardCommand>true</hasStandardCommand>
+								<defaultProjectile>HSAU_Bullet_MGL_Bond</defaultProjectile>
+								<warmupTime>1.6</warmupTime>
+								<range>18</range>
+								<minRange>2</minRange>
+								<soundCast>Shot_Autocannon</soundCast>
+								<soundCastTail>GunTail_Heavy</soundCastTail>
+								<muzzleFlashScale>9</muzzleFlashScale>
+								<ai_IsBuildingDestroyer>True</ai_IsBuildingDestroyer>
+								<targetParams>
+									<canTargetLocations>true</canTargetLocations>
+								</targetParams>
+								<forcedMissRadius>1.0</forcedMissRadius>
+							</li>
+						</verbs>
+
+						<comps>
+							<li Class="CompProperties_Styleable" />
+						</comps>
+
+						<!-- Ability: Set Invocation -->
+
+						<modExtensions>
+							<li Class="VFECore.ThingDefExtension">
+								<usableWithShields>true</usableWithShields>
+							</li>
+						</modExtensions>
+
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_moddedArmaliteRifle_Bond" Abstract="True">
+						<label>silver 5.56x45mm round</label>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Small</texPath>
+						</graphicData>
+						<projectile>
+							<damageDef>HSAU_SearingShot</damageDef>
+							<damageAmountBase>13</damageAmountBase>
+							<stoppingPower>0.5</stoppingPower>
+							<armorPenetrationBase>0.13</armorPenetrationBase>
+							<speed>70</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_mAK_Bond" Abstract="True">
+						<label>silver 7.62x39mm round</label>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Small</texPath>
+						</graphicData>
+						<projectile>
+							<damageDef>HSAU_SearingShot</damageDef>
+							<damageAmountBase>14</damageAmountBase>
+							<stoppingPower>0.5</stoppingPower>
+							<armorPenetrationBase>0.14</armorPenetrationBase>
+							<speed>70</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_Casull_Bond" Abstract="True">
+						<label>blessed .454 round</label>
+						<projectile>
+							<damageDef>HSAU_SearingShotII</damageDef>
+							<damageAmountBase>30</damageAmountBase>
+							<stoppingPower>1.5</stoppingPower>
+							<armorPenetrationBase>0.45</armorPenetrationBase>
+							<speed>70</speed>
+						</projectile>
+						<graphicData>
+							<texPath>HSAU/Projectile/bullet_Casull</texPath>
+							<drawSize>2.0, 2.5</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_JackalAP_Bond" Abstract="True">
+						<label>blessed AP 13mm round</label>
+						<projectile>
+							<damageDef>HSAU_SearingShotII</damageDef>
+							<damageAmountBase>52</damageAmountBase>
+							<stoppingPower>2</stoppingPower>
+							<armorPenetrationBase>3</armorPenetrationBase>
+							<speed>100</speed>
+						</projectile>
+						<graphicData>
+							<texPath>HSAU/Projectile/bullet_Jackal</texPath>
+							<drawSize>2.0, 2.5</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_JackalHEAT_Bond" Abstract="True">
+						<label>blessed explosive 13mm round</label>
+						<thingClass>Projectile_Explosive</thingClass>
+						<projectile>
+							<damageDef>HSAU_SearingBlast</damageDef>
+							<explosionRadius>0.5</explosionRadius>
+							<damageAmountBase>68</damageAmountBase>
+							<stoppingPower>5</stoppingPower>
+							<armorPenetrationBase>2</armorPenetrationBase>
+							<speed>100</speed>
+						</projectile>
+						<graphicData>
+							<texPath>HSAU/Projectile/bullet_Jackal</texPath>
+							<drawSize>2.0, 2.5</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_AMR_Bond" Abstract="True">
+						<label>blessed 13.7mm round</label>
+						<projectile>
+							<damageDef>HSAU_SearingShot</damageDef>
+							<damageAmountBase>41</damageAmountBase>
+							<stoppingPower>3.0</stoppingPower>
+							<armorPenetrationBase>0.50</armorPenetrationBase>
+							<speed>110</speed>
+						</projectile>
+						<graphicData>
+							<texPath>HSAU/Projectile/bullet_AMR</texPath>
+							<drawSize>2.5, 3.5</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_Harkonnen_HE_Bond" Abstract="True">
+						<label>blessed 30mm HE shell</label>
+						<thingClass>Projectile_Explosive</thingClass>
+						<projectile>
+							<damageDef>HSAU_SearingBlast</damageDef>
+							<explosionRadius>2.0</explosionRadius>
+							<damageAmountBase>193</damageAmountBase>
+							<stoppingPower>5</stoppingPower>
+							<armorPenetrationBase>0.70</armorPenetrationBase>
+							<speed>140</speed>
+						</projectile>
+						<graphicData>
+							<texPath>HSAU/Projectile/bullet_Harkonnen</texPath>
+							<drawSize>3.0, 3.0</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_Harkonnen_ICDN_Bond" Abstract="True">
+						<label>30mm INCD shell</label>
+						<thingClass>Projectile_Explosive</thingClass>
+						<projectile>
+							<damageDef>Flame</damageDef>
+							<explosionRadius>3.0</explosionRadius>
+							<damageAmountBase>57</damageAmountBase>
+							<stoppingPower>5</stoppingPower>
+							<armorPenetrationBase>0.70</armorPenetrationBase>
+							<speed>140</speed>
+							<preExplosionSpawnThingDef>Filth_Fuel</preExplosionSpawnThingDef>
+							<preExplosionSpawnChance>0.8</preExplosionSpawnChance>
+							<postExplosionSpawnChance>1</postExplosionSpawnChance>
+							<ai_IsIncendiary>true</ai_IsIncendiary>
+						</projectile>
+						<graphicData>
+							<texPath>HSAU/Projectile/bullet_Harkonnen</texPath>
+							<drawSize>3.0, 3.0</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_Harkonnen_EMP_Bond" Abstract="True">
+						<label>30mm EMP shell</label>
+						<thingClass>Projectile_Explosive</thingClass>
+						<projectile>
+							<damageDef>EMP</damageDef>
+							<explosionRadius>1.5</explosionRadius>
+							<damageAmountBase>89</damageAmountBase>
+							<stoppingPower>1</stoppingPower>
+							<armorPenetrationBase>0.70</armorPenetrationBase>
+							<speed>140</speed>
+						</projectile>
+						<graphicData>
+							<texPath>HSAU/Projectile/bullet_Harkonnen</texPath>
+							<drawSize>3.0, 3.0</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_HarkonnenII_HEAT_Bond" Abstract="True">
+						<label>blessed 30mm HEAT shell</label>
+						<thingClass>Projectile_Explosive</thingClass>
+						<projectile>
+							<damageDef>HSAU_SearingBlast</damageDef>
+							<explosionRadius>1.0</explosionRadius>
+							<damageAmountBase>276</damageAmountBase>
+							<stoppingPower>5</stoppingPower>
+							<armorPenetrationBase>1.22</armorPenetrationBase>
+							<speed>175</speed>
+						</projectile>
+						<graphicData>
+							<texPath>HSAU/Projectile/bullet_HKII</texPath>
+							<drawSize>1.2, 1.2</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseProjectileNeolithic" Name="HSAU_WDDF_Wire_Bond" Abstract="True">
+						<label>Dental Floss</label>
+						<graphicData>
+							<texPath>HSAU/Projectile/thrown_floss</texPath>
+							<drawSize>1.5, 4.5</drawSize>
+						</graphicData>
+						<projectile>
+							<arcHeightFactor>0</arcHeightFactor>
+							<flyOverhead>false</flyOverhead>
+							<damageDef>HSAU_SearingSlash</damageDef>
+							<damageAmountBase>46</damageAmountBase>
+							<stoppingPower>0</stoppingPower>
+							<armorPenetrationBase>1.0</armorPenetrationBase>
+							<speed>35</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_Blaster_Bond" Abstract="True">
+						<label>Blessed Bloodly Blast</label>
+						<projectile>
+							<damageDef>HSAU_SearingShotII</damageDef> <!--HSAU_SoulShot-->
+							<damageAmountBase>41</damageAmountBase>
+							<stoppingPower>2</stoppingPower>
+							<armorPenetrationBase>0.40</armorPenetrationBase>
+							<speed>80</speed>
+						</projectile>
+						<graphicData>
+							<texPath>HSAU/Projectile/blaster_shot</texPath>
+							<drawSize>2.0, 2.5</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="HSAU_BaseBloodyBlast" Name="HSAU_Projectile_ChargeShot_Bond" Abstract="True">
+						<label>Charged Bloody Blast</label>
+						<thingClass>HellsingArmsUltimate.Projectile_ChargeShot</thingClass>
+						<projectile>
+							<damageDef>HSAU_SearingBlast</damageDef>
+							<explosionRadius>3.0</explosionRadius>
+							<damageAmountBase>214</damageAmountBase>
+							<armorPenetrationBase>1.3</armorPenetrationBase>
+							<stoppingPower>5</stoppingPower>
+							<speed>160</speed>
+						</projectile>
+						<graphicData>
+							<texPath>HSAU/Projectile/blaster_shot</texPath>
+							<drawSize>3.5, 4.0</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_PTRS_Bond" Abstract="True">
+						<label>silver 14.5x114mm round</label>
+						<projectile>
+							<damageDef>HSAU_SearingShot</damageDef>
+							<damageAmountBase>41</damageAmountBase>
+							<stoppingPower>3.0</stoppingPower>
+							<armorPenetrationBase>0.50</armorPenetrationBase>
+							<speed>110</speed>
+						</projectile>
+						<graphicData>
+							<texPath>HSAU/Projectile/bullet_AMR</texPath>
+							<drawSize>2.5, 3.5</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_PiousPistol_Bond" Abstract="True">
+						<label>blessed silver round</label>
+						<projectile>
+							<damageDef>HSAU_SearingShotII</damageDef>
+							<damageAmountBase>14</damageAmountBase>
+							<stoppingPower>0.5</stoppingPower>
+							<armorPenetrationBase>0.20</armorPenetrationBase>
+							<speed>50</speed>
+						</projectile>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Small</texPath>
+							<drawSize>0.9</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseProjectileNeolithic" Name="HSAU_Projectile_ShimabaraDash_Bond" Abstract="True">
+						<label>Shimbara Dash</label>
+						<thingClass>HellsingArmsUltimate.Projectile_ShimabaraDash</thingClass>
+						<altitudeLayer>MoteOverhead</altitudeLayer>
+						<graphicData>
+							<texPath>HSAU/Projectile/shimabaraDash</texPath>
+							<drawSize>5,9</drawSize>
+						</graphicData>
+						<projectile>
+							<arcHeightFactor>0</arcHeightFactor>
+							<flyOverhead>false</flyOverhead>
+							<damageDef>HSAU_SearingStab</damageDef>
+							<damageAmountBase>24</damageAmountBase>
+							<stoppingPower>5.0</stoppingPower>
+							<armorPenetrationBase>2.0</armorPenetrationBase>
+							<speed>80</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseProjectileNeolithic" Name="HSAU_Bayonet_Thrown_Bond" Abstract="True">
+						<label>Bayonet</label>
+						<graphicData>
+							<texPath>HSAU/Projectile/thrown_BBayonet</texPath>
+							<drawSize>1.2, 1.2</drawSize>
+						</graphicData>
+						<projectile>
+							<arcHeightFactor>0</arcHeightFactor>
+							<flyOverhead>false</flyOverhead>
+							<damageDef>HSAU_SearingShot</damageDef> <!-- HSAU_SearingStab -->
+							<damageAmountBase>24</damageAmountBase>
+							<stoppingPower>3.0</stoppingPower>
+							<armorPenetrationBase>0.20</armorPenetrationBase>
+							<speed>37</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseProjectileNeolithic" Name="HSAU_BeatifiedBayonet_Thrown_Bond" Abstract="True">
+						<label>Beatified Bayonet</label>
+						<graphicData>
+							<texPath>HSAU/Projectile/thrown_BeatifiedBayonet</texPath>
+							<drawSize>1.2, 1.2</drawSize>
+						</graphicData>
+						<projectile>
+							<arcHeightFactor>0</arcHeightFactor>
+							<flyOverhead>false</flyOverhead>
+							<damageDef>HSAU_SearingShotII</damageDef> <!-- Stab, HSAU_SearingShotII, HSAU_SearingStabII -->
+							<damageAmountBase>33</damageAmountBase>
+							<stoppingPower>3.0</stoppingPower>
+							<armorPenetrationBase>0.60</armorPenetrationBase>
+							<speed>47</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseProjectileNeolithic" Name="HSAU_ExplosiveBayonet_Thrown_Bond" Abstract="True">
+						<label>Explosive Bayonet</label>
+						<thingClass>Projectile_Explosive</thingClass>
+						<graphicData>
+							<texPath>HSAU/Projectile/thrown_ExplosiveBayonet</texPath>
+							<drawSize>1.2, 1.2</drawSize>
+						</graphicData>
+						<projectile>
+							<arcHeightFactor>0</arcHeightFactor>
+							<flyOverhead>false</flyOverhead>
+							<damageDef>HSAU_SearingBlast</damageDef>
+							<explosionRadius>1.0</explosionRadius>
+							<explosionDelay>45</explosionDelay>
+							<damageAmountBase>35</damageAmountBase>
+							<stoppingPower>3.0</stoppingPower>
+							<armorPenetrationBase>0.44</armorPenetrationBase>
+							<speed>47</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseProjectileNeolithic" Name="HSAU_rocket_Panzerfaust_Bond" Abstract="True">
+						<label>149mm HEAT Rocket</label>
+						<graphicData>
+							<texPath>HSAU/Projectile/rocket_Panzerfaust</texPath>
+							<shaderType>TransparentPostLight</shaderType>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<thingClass>Projectile_Explosive</thingClass>
+						<projectile>
+							<damageDef>Bomb</damageDef>
+							<explosionRadius>4.0</explosionRadius>
+							<speed>45</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_rocket_Panzerschreck_Bond" Abstract="True">
+						<label>88mm HEAT Rocket</label>
+						<thingClass>Projectile_Explosive</thingClass>
+						<projectile>
+							<damageDef>Bomb</damageDef>
+							<explosionRadius>3.0</explosionRadius>
+							<damageAmountBase>78</damageAmountBase>
+							<stoppingPower>5</stoppingPower>
+							<armorPenetrationBase>0.70</armorPenetrationBase>
+							<speed>60</speed>
+						</projectile>
+						<graphicData>
+							<texPath>HSAU/Projectile/rocket_Panzerschreck</texPath>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseProjectileNeolithic" Name="HSAU_Bullet_FNP90m_Bond" Abstract="True">
+						<label>5.7x28mm round</label>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Small</texPath>
+							<drawSize>1.0</drawSize>
+						</graphicData>
+						<projectile>
+							<arcHeightFactor>0</arcHeightFactor>
+							<flyOverhead>false</flyOverhead>
+							<damageDef>Bullet</damageDef>
+							<damageAmountBase>11</damageAmountBase>
+							<stoppingPower>0.5</stoppingPower>
+							<armorPenetrationBase>0.20</armorPenetrationBase>
+							<speed>40</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef Name="HSAU_DandyCard_Bond" ParentName="MPBFPM_BaseProjectileNeolithic" Abstract="True">
+						<label>Magic Playing Card</label>
+						<!--<tickerType>Normal</tickerType>
+	<drawerType>RealtimeOnly</drawerType>-->
+						<graphicData>
+							<!--<graphicClass>Graphic_Random</graphicClass>
+		<texPath>HSAU/Projectile/thrown_card</texPath>-->
+							<texPath>HSAU/Projectile/thrown_card/thrown_cardA</texPath>
+							<drawSize>0.9, 0.9</drawSize>
+						</graphicData>
+						<projectile>
+							<arcHeightFactor>0</arcHeightFactor>
+							<flyOverhead>false</flyOverhead>
+							<damageDef>HSAU_DecayCut</damageDef>
+							<damageAmountBase>59</damageAmountBase>
+							<stoppingPower>0.5</stoppingPower>
+							<armorPenetrationBase>1.2</armorPenetrationBase>
+							<speed>52</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseProjectileNeolithic" Name="HSAU_MagicBullet_Bond" Abstract="True">
+						<label>Magic Bullet</label>
+						<graphicData>
+							<texPath>HSAU/Projectile/bullet_MM</texPath>
+							<drawSize>3.0, 3.0</drawSize>
+						</graphicData>
+						<projectile>
+							<arcHeightFactor>2</arcHeightFactor>
+							<flyOverhead>false</flyOverhead>
+							<damageDef>HSAU_DecayShot</damageDef>
+							<damageAmountBase>68</damageAmountBase>
+							<stoppingPower>3</stoppingPower>
+							<armorPenetrationBase>1.30</armorPenetrationBase>
+							<speed>180</speed>
+						</projectile>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_Extended_Mauser_Bond" Abstract="True">
+						<label>cursed round</label>
+						<projectile>
+							<damageDef>HSAU_DecayShot</damageDef>
+							<damageAmountBase>13</damageAmountBase>
+							<stoppingPower>0.5</stoppingPower>
+							<armorPenetrationBase>0.20</armorPenetrationBase>
+							<speed>65</speed>
+						</projectile>
+						<graphicData>
+							<texPath>Things/Projectile/Bullet_Small</texPath>
+							<drawSize>1.0, 1.0</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_MGL_Bond" Abstract="True">
+						<label>40mm explosive grenade</label>
+						<thingClass>Projectile_Explosive</thingClass>
+						<projectile>
+							<damageDef>Bomb</damageDef>
+							<explosionRadius>1.5</explosionRadius>
+							<explosionDelay>30</explosionDelay>
+							<preExplosionSpawnThingDef>Filth_RubbleRock</preExplosionSpawnThingDef>
+							<preExplosionSpawnChance>0.3</preExplosionSpawnChance>
+							<ai_IsIncendiary>false</ai_IsIncendiary>
+							<damageAmountBase>41</damageAmountBase>
+							<stoppingPower>3.0</stoppingPower>
+							<arcHeightFactor>0.4</arcHeightFactor>
+							<shadowSize>0.6</shadowSize>
+							<speed>45</speed>
+						</projectile>
+						<graphicData>
+							<texPath>HSAU/Projectile/bullet_MGL</texPath>
+							<drawSize>0.7,0.7</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_Modded_MGL_Bond" Abstract="True">
+						<label>cursed scarlet spines</label>
+						<projectile>
+							<damageDef>HSAU_DecayShot</damageDef>
+							<damageAmountBase>74</damageAmountBase>
+							<stoppingPower>3.0</stoppingPower>
+							<armorPenetrationBase>6.67</armorPenetrationBase>
+							<speed>96</speed>
+						</projectile>
+						<graphicData>
+							<texPath>HSAU/Projectile/bullet_MGL_1</texPath>
+							<drawSize>1.7, 1.7</drawSize>
+						</graphicData>
+					</ThingDef>
+					<ThingDef ParentName="MPBFPM_BaseBullet" Name="HSAU_Bullet_Modded_MGL_small_Bond" Abstract="True">
+						<label>cursed scarlet spines</label>
+						<projectile>
+							<damageDef>HSAU_DecayShot</damageDef>
+							<damageAmountBase>19</damageAmountBase>
+							<stoppingPower>1.0</stoppingPower>
+							<armorPenetrationBase>6.67</armorPenetrationBase>
+							<speed>96</speed>
+						</projectile>
+						<graphicData>
+							<texPath>HSAU/Projectile/bullet_MGL_2</texPath>
+							<drawSize>1.1</drawSize>
+						</graphicData>
+					</ThingDef>
+					<VFECore.ExpandableProjectileDef ParentName="BaseBullet" Name="HSAU_Bullet_Harkonnen_DU_Bond" Abstract="True">
+						<label>blessed 30mm DU Sabot</label>
+						<projectile>
+							<damageDef>HSAU_SearingShot</damageDef>
+							<damageAmountBase>131</damageAmountBase>
+							<armorPenetrationBase>2.0</armorPenetrationBase>
+							<stoppingPower>1</stoppingPower>
+							<speed>160</speed>
+						</projectile>
+						<thingClass>VFECore.GaussProjectile</thingClass>
+						<graphicData>
+							<texPath>HSAU/Projectile/Hark_DU_FadeIn</texPath>
+							<texPathFadeOut>HSAU/Projectile/Hark_DU_FadeOut</texPathFadeOut>
+						</graphicData>
+						<reachMaxRangeAlways>true</reachMaxRangeAlways>
+						<minDistanceToAffect>1.9</minDistanceToAffect>
+						<drawOffscreen>true</drawOffscreen>
+						<lifeTimeDuration>50</lifeTimeDuration>
+						<widthScaleFactor>0.10</widthScaleFactor>
+						<heightScaleFactor>1</heightScaleFactor>
+						<startingPositionOffset>(0,0,-1)</startingPositionOffset>
+						<totalSizeScale>0.8</totalSizeScale>
+						<tickFrameRate>2</tickFrameRate>
+						<finalTickFrameRate>2</finalTickFrameRate>
+						<tickDamageRate>5</tickDamageRate>
+						<dealsDamageOnce>true</dealsDamageOnce>
+						<stopWhenHit>false</stopWhenHit>
+						<stopWhenHitAt>
+							<li>MineableSteel</li>
+							<li>CollapsedRocks</li>
+							<li>MineableSilver</li>
+							<li>MineableGold</li>
+							<li>MineableUranium</li>
+							<li>MineablePlasteel</li>
+							<li>MineableJade</li>
+							<li>MineableComponentsIndustrial</li>
+							<li>RaisedRocks</li>
+							<li>Sandstone</li>
+							<li>SmoothedSandstone</li>
+							<li>Granite</li>
+							<li>SmoothedGranite</li>
+							<li>Limestone</li>
+							<li>SmoothedLimestone</li>
+							<li>Slate</li>
+							<li>SmoothedSlate</li>
+							<li>Marble</li>
+							<li>SmoothedMarble</li>
+						</stopWhenHitAt>
+					</VFECore.ExpandableProjectileDef>
+					<VFECore.ExpandableProjectileDef ParentName="BaseBullet" Name="HSAU_Bullet_HarkonnenII_FMJ_Bond" Abstract="True">
+						<label>blessed 30mm FMJ shell</label>
+						<projectile>
+							<damageDef>HSAU_SearingShot</damageDef>
+							<damageAmountBase>214</damageAmountBase>
+							<armorPenetrationBase>5.0</armorPenetrationBase>
+							<stoppingPower>1</stoppingPower>
+							<speed>180</speed>
+						</projectile>
+						<thingClass>VFECore.GaussProjectile</thingClass>
+						<graphicData>
+							<texPath>HSAU/Projectile/HarkII_FMJ_FadeIn</texPath>
+							<texPathFadeOut>HSAU/Projectile/HarkII_FMJ_FadeOut</texPathFadeOut>
+						</graphicData>
+						<reachMaxRangeAlways>true</reachMaxRangeAlways>
+						<minDistanceToAffect>1.9</minDistanceToAffect>
+						<drawOffscreen>true</drawOffscreen>
+						<lifeTimeDuration>50</lifeTimeDuration>
+						<widthScaleFactor>0.10</widthScaleFactor>
+						<heightScaleFactor>1</heightScaleFactor>
+						<startingPositionOffset>(0,0,-1)</startingPositionOffset>
+						<totalSizeScale>0.8</totalSizeScale>
+						<tickFrameRate>2</tickFrameRate>
+						<finalTickFrameRate>2</finalTickFrameRate>
+						<tickDamageRate>5</tickDamageRate>
+						<dealsDamageOnce>true</dealsDamageOnce>
+						<stopWhenHit>false</stopWhenHit>
+						<stopWhenHitAt>
+							<li>MineableSteel</li>
+							<li>CollapsedRocks</li>
+							<li>MineableSilver</li>
+							<li>MineableGold</li>
+							<li>MineableUranium</li>
+							<li>MineablePlasteel</li>
+							<li>MineableJade</li>
+							<li>MineableComponentsIndustrial</li>
+							<li>RaisedRocks</li>
+							<li>Sandstone</li>
+							<li>SmoothedSandstone</li>
+							<li>Granite</li>
+							<li>SmoothedGranite</li>
+							<li>Limestone</li>
+							<li>SmoothedLimestone</li>
+							<li>Slate</li>
+							<li>SmoothedSlate</li>
+							<li>Marble</li>
+							<li>SmoothedMarble</li>
+						</stopWhenHitAt>
+					</VFECore.ExpandableProjectileDef>
+				</value>
+			</Operation>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+				<key>Daria40K_MightyPersonaBondForgePatch_HellsingARMSUltimate</key>
+				<defaultValue>true</defaultValue>
+
+				<caseTrue>
+					<Operation Class="XmlExtensions.PatchOperationAdd">
+						<xpath>Defs</xpath>
+						<value>
+							<ThingDef ParentName="HSAU_HLS_HellsingSabre_Bond">
+								<defName>HSAU_HLS_HellsingSabre_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_HLS_ImpalerGreatsword_Bond">
+								<defName>HSAU_HLS_ImpalerGreatsword_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_ISC_ConsecLongsword_Bond">
+								<defName>HSAU_ISC_ConsecLongsword_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_ISC_Muramiesa_Bond">
+								<defName>HSAU_ISC_Muramiesa_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MLN_ValentineRazor_Bond">
+								<defName>HSAU_MLN_ValentineRazor_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MLN_PsychoScythe_Bond">
+								<defName>HSAU_MLN_PsychoScythe_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MLN_Schrodagger_Bond">
+								<defName>HSAU_MLN_Schrodagger_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MLN_WarWaker_Bond">
+								<defName>HSAU_MLN_WarWaker_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MSC_SoulReaver_Bond">
+								<defName>HSAU_MSC_SoulReaver_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MSC_Stakenator_Bond">
+								<defName>HSAU_MSC_Stakenator_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_HLS_mArmaliteRifle_Bond">
+								<defName>HSAU_HLS_mArmaliteRifle_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_HLS_mAvtomatKalashnikova_Bond">
+								<defName>HSAU_HLS_mAvtomatKalashnikova_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_HLS_Casull_Bond">
+								<defName>HSAU_HLS_Casull_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_HLS_Jackal_Bond">
+								<defName>HSAU_HLS_Jackal_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_HLS_AMR_Bond">
+								<defName>HSAU_HLS_AMR_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_HLS_Harkonnen_Bond">
+								<defName>HSAU_HLS_Harkonnen_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_HLS_HarkonnenII_Bond">
+								<defName>HSAU_HLS_HarkonnenII_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_HLS_WDDF_Bond">
+								<defName>HSAU_HLS_WDDF_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_HLS_BloodBlaster_Bond">
+								<defName>HSAU_HLS_BloodBlaster_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_ISC_mPTRS_Bond">
+								<defName>HSAU_ISC_mPTRS_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_ISC_PiousPistol_Bond">
+								<defName>HSAU_ISC_PiousPistol_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_ISC_BlessedBayonet_Bond">
+								<defName>HSAU_ISC_BlessedBayonet_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_ISC_BeatifiedBayonet_Bond">
+								<defName>HSAU_ISC_BeatifiedBayonet_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_ISC_ExplosiveBayonet_Bond">
+								<defName>HSAU_ISC_ExplosiveBayonet_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MLN_Panzerfaust_Bond">
+								<defName>HSAU_MLN_Panzerfaust_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MLN_Panzerschreck_Bond">
+								<defName>HSAU_MLN_Panzerschreck_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MLN_FNP90m_Bond">
+								<defName>HSAU_MLN_FNP90m_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MLN_DandyDeck_Bond">
+								<defName>HSAU_MLN_DandyDeck_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MLN_MagicalMusket_Bond">
+								<defName>HSAU_MLN_MagicalMusket_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MLN_ExtendedMauser_Bond">
+								<defName>HSAU_MLN_ExtendedMauser_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MLN_ExtendedExtendedMauser_Bond">
+								<defName>HSAU_MLN_ExtendedExtendedMauser_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MSC_MGL_Bond">
+								<defName>HSAU_MSC_MGL_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MSC_mMGL_Bond">
+								<defName>HSAU_MSC_mMGL_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_moddedArmaliteRifle_Bond">
+								<defName>HSAU_Bullet_moddedArmaliteRifle_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_mAK_Bond">
+								<defName>HSAU_Bullet_mAK_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_Casull_Bond">
+								<defName>HSAU_Bullet_Casull_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_JackalAP_Bond">
+								<defName>HSAU_Bullet_JackalAP_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_JackalHEAT_Bond">
+								<defName>HSAU_Bullet_JackalHEAT_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_AMR_Bond">
+								<defName>HSAU_Bullet_AMR_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_Harkonnen_HE_Bond">
+								<defName>HSAU_Bullet_Harkonnen_HE_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_Harkonnen_ICDN_Bond">
+								<defName>HSAU_Bullet_Harkonnen_ICDN_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_Harkonnen_EMP_Bond">
+								<defName>HSAU_Bullet_Harkonnen_EMP_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_HarkonnenII_HEAT_Bond">
+								<defName>HSAU_Bullet_HarkonnenII_HEAT_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_WDDF_Wire_Bond">
+								<defName>HSAU_WDDF_Wire_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_Blaster_Bond">
+								<defName>HSAU_Bullet_Blaster_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Projectile_ChargeShot_Bond">
+								<defName>HSAU_Projectile_ChargeShot_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_PTRS_Bond">
+								<defName>HSAU_Bullet_PTRS_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_PiousPistol_Bond">
+								<defName>HSAU_Bullet_PiousPistol_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Projectile_ShimabaraDash_Bond">
+								<defName>HSAU_Projectile_ShimabaraDash_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bayonet_Thrown_Bond">
+								<defName>HSAU_Bayonet_Thrown_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_BeatifiedBayonet_Thrown_Bond">
+								<defName>HSAU_BeatifiedBayonet_Thrown_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_ExplosiveBayonet_Thrown_Bond">
+								<defName>HSAU_ExplosiveBayonet_Thrown_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_rocket_Panzerfaust_Bond">
+								<defName>HSAU_rocket_Panzerfaust_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_rocket_Panzerschreck_Bond">
+								<defName>HSAU_rocket_Panzerschreck_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_FNP90m_Bond">
+								<defName>HSAU_Bullet_FNP90m_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_DandyCard_Bond">
+								<defName>HSAU_DandyCard_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_MagicBullet_Bond">
+								<defName>HSAU_MagicBullet_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_Extended_Mauser_Bond">
+								<defName>HSAU_Bullet_Extended_Mauser_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_MGL_Bond">
+								<defName>HSAU_Bullet_MGL_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_Modded_MGL_Bond">
+								<defName>HSAU_Bullet_Modded_MGL_Bond</defName>
+							</ThingDef>
+							<ThingDef ParentName="HSAU_Bullet_Modded_MGL_small_Bond">
+								<defName>HSAU_Bullet_Modded_MGL_small_Bond</defName>
+							</ThingDef>
+							<VFECore.ExpandableProjectileDef ParentName="HSAU_Bullet_Harkonnen_DU_Bond">
+								<defName>HSAU_Bullet_Harkonnen_DU_Bond</defName>
+							</VFECore.ExpandableProjectileDef>
+							<VFECore.ExpandableProjectileDef ParentName="HSAU_Bullet_HarkonnenII_FMJ_Bond">
+								<defName>HSAU_Bullet_HarkonnenII_FMJ_Bond</defName>
+							</VFECore.ExpandableProjectileDef>
+						</value>
+					</Operation>
+				</caseTrue>
+			</Operation>
+		</caseTrue>
+	</Operation>
+</Patch>

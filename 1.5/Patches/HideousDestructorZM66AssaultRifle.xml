@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+	===== Hideous Destructor - ZM66 Assault Rifle =====
+-->
+<Patch>
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>killerbot.hidzm66</li>
+		</mods>
+		<packageId>true</packageId>
+
+		<caseTrue>
+			<Operation Class="XmlExtensions.PatchOperationAdd">
+				<xpath>Defs</xpath>
+				<value><ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="HIDGun_ZM66AssaultRifle_Bond" Abstract="True">
+    <label>persona ZM66</label>
+    <description>The basic infantryman's weapon of the 22nd century. A very lightweight select-fire weapon that fires up to 2100 rounds per minute, the Volt ZM66 represents the highest evolution of its state-of-the-art ammunition. As a refinement of the principles behind the old 5.56 NATO, the 4.26mm UAC Standard round packs an incredible amount of punch for its size. The 4.26mm UAC Standard round is protected by a special non-terminating legislative patent and a 99-year automatically renewed confidential exclusive contract with the militaries of all developed Western nations listed in the federal Officially Freedom-Loving Foreign Countries Trade Partnership Protocols, guaranteeing a safe and reliable supply.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+    <graphicData>
+      <texPath>Things/Equipment/Uacg/426mm/HIDGun_ZM66AssaultRifle</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1.16,1.16)</drawSize>
+    </graphicData>
+    <soundInteract>Interact_Rifle</soundInteract>
+    <statBases>
+      <Mass>3.2</Mass>
+      <AccuracyTouch>0.825</AccuracyTouch>
+      <AccuracyShort>0.88</AccuracyShort>
+      <AccuracyMedium>0.825</AccuracyMedium>
+      <AccuracyLong>0.77</AccuracyLong>
+      <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+    </statBases>
+    <verbs>
+      <li>
+        <verbClass>Verb_Shoot</verbClass>
+        <hasStandardCommand>true</hasStandardCommand>
+        <defaultProjectile>HIDBullet_426mm_Bond</defaultProjectile>
+        <warmupTime>0.9</warmupTime>
+        <range>36.9</range>
+        <burstShotCount>3</burstShotCount>
+        <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+        <soundCast>UACG426mm</soundCast>
+        <soundCastTail>GunTail_Medium</soundCastTail>
+        <muzzleFlashScale>9</muzzleFlashScale>
+      </li>
+    </verbs>
+    <weaponTags>
+      <li>IndustrialGunAdvanced</li>
+      <li>GTEK_ZM66</li>
+    </weaponTags>
+    <tools>
+      <li>
+        <label>stock</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+      <li>
+        <label>barrel</label>
+        <capacities>
+          <li>Blunt</li>
+          <li>Poke</li>
+        </capacities>
+        <power>9.75</power>
+        <cooldownTime>1.7</cooldownTime>
+      </li>
+    </tools>
+    <modExtensions>
+      <li Class="MuzzleFlash.MuzzleFlashProps" MayRequire="IssacZhuang.MuzzleFlash">
+        <def>MF_StandardMuzzleFalshThree</def>
+        <drawSize>(1,0.9)</drawSize>
+        <offsets>
+          <li>(0.6,0.01)</li>
+        </offsets>
+      </li>
+    </modExtensions>
+  </ThingDef><ThingDef ParentName="MPBFPM_Bullet" Name="HIDBullet_426mm_Bond" Abstract="True">
+    <label>4.26mm bullet</label>
+    <graphicData>
+      <texPath>Things/Projectile/Bullet_Small</texPath>
+      </graphicData>
+    <projectile>
+      <flyOverhead>false</flyOverhead>
+      <damageDef>Bullet</damageDef>
+      <damageAmountBase>13</damageAmountBase>
+      <stoppingPower>0.4</stoppingPower>
+      <armorPenetrationBase>0.15</armorPenetrationBase>
+      <speed>90</speed>
+    </projectile>
+  </ThingDef></value>
+			</Operation>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+				<key>Daria40K_MightyPersonaBondForgePatch_HideousDestructorZM66AssaultRifle</key>
+				<defaultValue>true</defaultValue>
+
+				<caseTrue>
+					<Operation Class="XmlExtensions.PatchOperationAdd">
+						<xpath>Defs</xpath>
+						<value><ThingDef ParentName="HIDGun_ZM66AssaultRifle_Bond"><defName>HIDGun_ZM66AssaultRifle_Bond</defName></ThingDef><ThingDef ParentName="HIDBullet_426mm_Bond"><defName>HIDBullet_426mm_Bond</defName></ThingDef></value>
+					</Operation>
+				</caseTrue>
+			</Operation>	  
+		</caseTrue>
+	</Operation>
+</Patch>

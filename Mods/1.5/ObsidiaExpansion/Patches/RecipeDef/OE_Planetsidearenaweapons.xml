@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+	===== Planetside arena weapons =====
+-->
+<Patch>
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>huhu.lions.paweapons</li>
+		</mods>
+		<packageId>true</packageId>
+
+		<caseTrue>
+			<Operation Class="XmlExtensions.PatchOperationAdd">
+				<xpath>Defs</xpath>
+				<value><RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_Lion_PSA02_Diamondback_Assault_Bond" Abstract="True"><label>bond PSA-02 Diamondback</label><description>Bond an PSA-02 Diamondback.</description><jobString>Bonding a PSA-02 Diamondback.</jobString><researchPrerequisites><li>PrecisionRifling</li></researchPrerequisites><ingredients><li><filter><thingDefs><li>Lion_PSA02_Diamondback_Assault</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>Lion_PSA02_Diamondback_Assault</li></thingDefs></fixedIngredientFilter><products><Lion_PSA02_Diamondback_Assault_Bond>1</Lion_PSA02_Diamondback_Assault_Bond></products></RecipeDef><RecipeDef ParentName="MPBFPM_OEResetRecipeDefBase" Name="Make_OE_Lion_PSA02_Diamondback_Assault_Bond_Reset" Abstract="True"><label>Reset PSA-02 Diamondback</label><description>Reset a PSA-02 Diamondback.</description><jobString>Resetting a PSA-02 Diamondback.</jobString><researchPrerequisites><li>PrecisionRifling</li></researchPrerequisites><ingredients><li><filter><thingDefs><li>Lion_PSA02_Diamondback_Assault_Bond</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>Lion_PSA02_Diamondback_Assault_Bond</li></thingDefs></fixedIngredientFilter><products><Lion_PSA02_Diamondback_Assault_Bond>1</Lion_PSA02_Diamondback_Assault_Bond></products></RecipeDef><RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_Lion_PSA02_Diamondback_Bond" Abstract="True"><label>bond PSA-02 Diamondback(Charged)</label><description>Bond an PSA-02 Diamondback(Charged).</description><jobString>Bonding a PSA-02 Diamondback(Charged).</jobString><researchPrerequisites><li>ChargedShot</li></researchPrerequisites><ingredients><li><filter><thingDefs><li>Lion_PSA02_Diamondback</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>Lion_PSA02_Diamondback</li></thingDefs></fixedIngredientFilter><products><Lion_PSA02_Diamondback_Bond>1</Lion_PSA02_Diamondback_Bond></products></RecipeDef><RecipeDef ParentName="MPBFPM_OEResetRecipeDefBase" Name="Make_OE_Lion_PSA02_Diamondback_Bond_Reset" Abstract="True"><label>Reset PSA-02 Diamondback(Charged)</label><description>Reset a PSA-02 Diamondback(Charged).</description><jobString>Resetting a PSA-02 Diamondback(Charged).</jobString><researchPrerequisites><li>ChargedShot</li></researchPrerequisites><ingredients><li><filter><thingDefs><li>Lion_PSA02_Diamondback_Bond</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>Lion_PSA02_Diamondback_Bond</li></thingDefs></fixedIngredientFilter><products><Lion_PSA02_Diamondback_Bond>1</Lion_PSA02_Diamondback_Bond></products></RecipeDef><RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_Lion_PSA01_Hammerhead_Bond" Abstract="True"><label>bond PSA-01 Hammerhead</label><description>Bond an PSA-01 Hammerhead.</description><jobString>Bonding a PSA-01 Hammerhead.</jobString><researchPrerequisites><li>PrecisionRifling</li></researchPrerequisites><ingredients><li><filter><thingDefs><li>Lion_PSA01_Hammerhead</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>Lion_PSA01_Hammerhead</li></thingDefs></fixedIngredientFilter><products><Lion_PSA01_Hammerhead_Bond>1</Lion_PSA01_Hammerhead_Bond></products></RecipeDef><RecipeDef ParentName="MPBFPM_OEResetRecipeDefBase" Name="Make_OE_Lion_PSA01_Hammerhead_Bond_Reset" Abstract="True"><label>Reset PSA-01 Hammerhead</label><description>Reset a PSA-01 Hammerhead.</description><jobString>Resetting a PSA-01 Hammerhead.</jobString><researchPrerequisites><li>PrecisionRifling</li></researchPrerequisites><ingredients><li><filter><thingDefs><li>Lion_PSA01_Hammerhead_Bond</li></thingDefs></filter><count>1</count></li></ingredients><fixedIngredientFilter><thingDefs><li>Lion_PSA01_Hammerhead_Bond</li></thingDefs></fixedIngredientFilter><products><Lion_PSA01_Hammerhead_Bond>1</Lion_PSA01_Hammerhead_Bond></products></RecipeDef></value>
+			</Operation>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+				<key>Daria40K_MightyPersonaBondForgePatch_Planetsidearenaweapons</key>
+				<defaultValue>true</defaultValue>
+
+				<caseTrue>
+					<Operation Class="XmlExtensions.OptionalPatch">
+						<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+						<key>Daria40K_MightyPersonaBondForgePatch_OE_Planetsidearenaweapons</key>
+						<defaultValue>true</defaultValue>
+
+						<caseTrue>
+							<Operation Class="XmlExtensions.OptionalPatch">
+								<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+								<key>Daria40K_MightyPersonaBondForgePatch_DisableObsidiaExpansion</key>
+								<defaultValue>false</defaultValue>
+
+								<caseFalse>
+									<Operation Class="XmlExtensions.PatchOperationAdd">
+										<xpath>Defs</xpath>
+										<value><RecipeDef ParentName="Make_OE_Lion_PSA02_Diamondback_Assault_Bond"><defName>Make_OE_Lion_PSA02_Diamondback_Assault_Bond</defName></RecipeDef><RecipeDef ParentName="Make_OE_Lion_PSA02_Diamondback_Assault_Bond_Reset"><defName>Make_OE_Lion_PSA02_Diamondback_Assault_Bond_Reset</defName></RecipeDef><RecipeDef ParentName="Make_OE_Lion_PSA02_Diamondback_Bond"><defName>Make_OE_Lion_PSA02_Diamondback_Bond</defName></RecipeDef><RecipeDef ParentName="Make_OE_Lion_PSA02_Diamondback_Bond_Reset"><defName>Make_OE_Lion_PSA02_Diamondback_Bond_Reset</defName></RecipeDef><RecipeDef ParentName="Make_OE_Lion_PSA01_Hammerhead_Bond"><defName>Make_OE_Lion_PSA01_Hammerhead_Bond</defName></RecipeDef><RecipeDef ParentName="Make_OE_Lion_PSA01_Hammerhead_Bond_Reset"><defName>Make_OE_Lion_PSA01_Hammerhead_Bond_Reset</defName></RecipeDef></value>
+									</Operation>
+								</caseFalse>
+							</Operation>
+						</caseTrue>
+					</Operation>
+				</caseTrue>
+			</Operation>	  
+		</caseTrue>
+	</Operation>
+</Patch>
