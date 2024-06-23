@@ -69,8 +69,10 @@
     </ThingDef>
     -->
 
-    <ThingDef Name="MPBFPM_BaseWeapon" Abstract="True" ParentName="BaseWeapon_Bladelink">
+    <ThingDef Name="MPBFPM_BaseWeapon" Abstract="True" ParentName="BaseWeapon">
         <smeltable>false</smeltable>
+        <techLevel>Ultra</techLevel>
+        <tradeNeverStack>true</tradeNeverStack>
         <graphicData>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
@@ -78,11 +80,25 @@
             <Flammability>0.5</Flammability>
             <MarketValue>3000</MarketValue>
         </statBases>
+        <weaponTags>
+            <li>Bladelink</li>
+        </weaponTags>
         <thingSetMakerTags>
             <!-- <li>RewardSpecial</li> -->
             <li>RewardStandardLowFreq</li>
             <li>RewardStandardQualitySuper</li>
         </thingSetMakerTags>
+        <comps>
+            <li>
+                <compClass>CompQuality</compClass>
+            </li>
+            <li Class="CompProperties_BladelinkWeapon">
+                <biocodeOnEquip>true</biocodeOnEquip>
+            </li>
+            <li Class="CompProperties_GeneratedName">
+                <nameMaker>NamerWeaponBladelink</nameMaker>
+            </li>
+        </comps>
         <tradeTags Inherit="False" />
     </ThingDef>
 
