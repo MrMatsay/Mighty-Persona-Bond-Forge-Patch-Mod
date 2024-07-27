@@ -1,349 +1,387 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 	===== Iconian Tech =====
 -->
 <Patch>
-	<Operation Class="XmlExtensions.FindMod">
-		<mods>
-			<li>heraldarms.aad</li>
-		</mods>
-		<packageId>true</packageId>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>heraldarms.aad</li>
+        </mods>
+        <packageId>true</packageId>
 
-		<caseTrue>
-			<Operation Class="XmlExtensions.PatchOperationAdd">
-				<xpath>Defs</xpath>
-				<value><ThingDef ParentName="MPBFPM_BaseMeleeWeapon" Name="AAD_Melee_Spear_Bond" Abstract="True">
-        <label>persona Spear of Vengeance</label>
-        <description>"Our masters will return and they will have their vengeance." is inscribed on the handle of the spear.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-        <techLevel>Ultra</techLevel>
-        <weaponClasses>
-            <li>MeleePiercer</li>
-        </weaponClasses>
-        <graphicData>
-            <texPath>Things/Item/WeaponsH/Melee_Spear</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(1.25,1.25)</drawSize>
-        </graphicData>
-        <statBases>
-            <Mass>2.5</Mass>
-        </statBases>
-        <equippedAngleOffset>45</equippedAngleOffset>
-        <generateCommonality>0.5</generateCommonality>
-        <weaponTags>
-            <li>AAD_SpacerMelee</li>
-        </weaponTags>
-        <tools>
-            <li>
-                <label>shaft</label>
-                <capacities>
-                    <li>Blunt</li>
-                    <li>Poke</li>
-                </capacities>
-                <power>24.472</power>
-                <cooldownTime>1.955</cooldownTime>
-            </li>
-            <li>
-                <label>point</label>
-                <capacities>
-                    <li>Stab</li>
-                </capacities>
-                <power>40.916</power>
-                <armorPenetration>1.155</armorPenetration>
-                <cooldownTime>1.955</cooldownTime>
-            </li>
-        </tools>
-        <relicChance>2</relicChance>
-        <comps>
-            <li Class="CompProperties_Art">
-                <nameMaker>NamerArtWeaponMelee</nameMaker>
-                <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
-                <minQualityForArtistic>Excellent</minQualityForArtistic>
-            </li>
-        </comps>
-    </ThingDef><ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="AAD_Gun_Mace_Bond" Abstract="True">
-        <label>persona Mace of Defiler</label>
-        <description>An elegant instrument of destruction, Looks heavy but can be lifted by a human child, with onboard spatial and graviometric manipulators to contain and direct large amount of anti-proton directionally, also Serves as an excellent melee weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-        <techLevel>Ultra</techLevel>
-        <graphicData>
-            <texPath>Things/Item/WeaponsH/Melee_Mace</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(1.25,1.25)</drawSize>
-        </graphicData>
-        <soundInteract>Interact_ChargeRifle</soundInteract>
-        <statBases>
-            <Mass>6.0</Mass>
-            <AccuracyTouch>0.88</AccuracyTouch>
-            <AccuracyShort>0.825</AccuracyShort>
-            <AccuracyMedium>0.715</AccuracyMedium>
-            <AccuracyLong>0.66</AccuracyLong>
-            <RangedWeapon_Cooldown>0.468</RangedWeapon_Cooldown>
-        </statBases>
-        <equippedAngleOffset>45</equippedAngleOffset>
-        <verbs>
-            <li>
-                <verbClass>Verb_Shoot</verbClass>
-                <hasStandardCommand>true</hasStandardCommand>
-                <defaultProjectile>AAD_Bullet_ShotgunBlast_Bond</defaultProjectile>
-                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-                <burstShotCount>3</burstShotCount>
-                <warmupTime>1.2</warmupTime>
-                <range>16.9</range>
-                <soundCast>AAD_ShotDC</soundCast>
-                <soundCastTail>GunTail_Heavy</soundCastTail>
-                <muzzleFlashScale>6</muzzleFlashScale>
-            </li>
-        </verbs>
-        <weaponTags>
-            <li>AAD_SpacerRanged</li>
-        </weaponTags>
-        <tools>
-            <li>
-                <label>handle</label>
-                <capacities>
-                    <li>Poke</li>
-                </capacities>
-                <power>9.75</power>
-                <cooldownTime>1.7</cooldownTime>
-            </li>
-            <li>
-                <label>head</label>
-                <capacities>
-                    <li>Blunt</li>
-                </capacities>
-                <power>51.768</power>
-                <cooldownTime>1.7</cooldownTime>
-            </li>
-        </tools>
-    </ThingDef><ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="AAD_Gun_AR_Bond" Abstract="True">
-        <label>persona Herald anti-proton Staff.</label>
-        <description>The basic Herald weapons, Usually welded by constructs.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-        <techLevel>Ultra</techLevel>
-        <graphicData>
-            <texPath>Things/Item/WeaponsH/Range_Base</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(1.25,1.25)</drawSize>
-        </graphicData>
-        <soundInteract>Interact_ChargeRifle</soundInteract>
-        <statBases>
-            <Mass>4.0</Mass>
-            <AccuracyTouch>0.66</AccuracyTouch>
-            <AccuracyShort>0.715</AccuracyShort>
-            <AccuracyMedium>0.66</AccuracyMedium>
-            <AccuracyLong>0.55</AccuracyLong>
-            <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
-        </statBases>
-        <equippedAngleOffset>45</equippedAngleOffset>
-        <verbs>
-            <li>
-                <verbClass>Verb_Shoot</verbClass>
-                <hasStandardCommand>true</hasStandardCommand>
-                <defaultProjectile>AAD_Bullet_ChargedBlast_Bond</defaultProjectile>
-                <warmupTime>1.2</warmupTime>
-                <range>26.9</range>
-                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-                <burstShotCount>3</burstShotCount>
-                <soundCast>AAD_ShotSMG</soundCast>
-                <soundCastTail>GunTail_Medium</soundCastTail>
-                <muzzleFlashScale>6</muzzleFlashScale>
-            </li>
-        </verbs>
-        <weaponTags>
-            <li>AAD_SpacerRanged</li>
-        </weaponTags>
-        <tools>
-            <li>
-                <label>handle</label>
-                <capacities>
-                    <li>Blunt</li>
-                </capacities>
-                <power>9.75</power>
-                <cooldownTime>1.7</cooldownTime>
-            </li>
-            <li>
-                <label>head</label>
-                <capacities>
-                    <li>Blunt</li>
-                    <li>Poke</li>
-                </capacities>
-                <power>9.75</power>
-                <cooldownTime>1.7</cooldownTime>
-            </li>
-        </tools>
-    </ThingDef><ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="AAD_Gun_BR_Bond" Abstract="True">
-        <label>persona Staff of Harbinger</label>
-        <description>Before the fall, only iconian warriors ever carries such a staff and few have seen one, far more people got to see it after the fall but not many ever get to tell the tale.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-        <techLevel>Ultra</techLevel>
-        <graphicData>
-            <texPath>Things/Item/WeaponsH/Range_Advanced</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(1.25,1.25)</drawSize>
-        </graphicData>
-        <soundInteract>Interact_ChargeRifle</soundInteract>
-        <statBases>
-            <Mass>5.0</Mass>
-            <AccuracyTouch>0.66</AccuracyTouch>
-            <AccuracyShort>0.77</AccuracyShort>
-            <AccuracyMedium>0.715</AccuracyMedium>
-            <AccuracyLong>0.605</AccuracyLong>
-            <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
-        </statBases>
-        <equippedAngleOffset>45</equippedAngleOffset>
-        <verbs>
-            <li>
-                <verbClass>Verb_Shoot</verbClass>
-                <hasStandardCommand>true</hasStandardCommand>
-                <defaultProjectile>AAD_Bullet_HeavyChargedBlast_Bond</defaultProjectile>
-                <warmupTime>1.4</warmupTime>
-                <range>30.9</range>
-                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-                <burstShotCount>2</burstShotCount>
-                <soundCast>AAD_ShotHMG</soundCast>
-                <soundCastTail>GunTail_Heavy</soundCastTail>
-                <muzzleFlashScale>6</muzzleFlashScale>
-            </li>
-        </verbs>
-        <weaponTags>
-            <li>AAD_SpacerRanged</li>
-        </weaponTags>
-        <tools>
-            <li>
-                <label>handle</label>
-                <capacities>
-                    <li>Blunt</li>
-                </capacities>
-                <power>15.968</power>
-                <cooldownTime>1.7</cooldownTime>
-            </li>
-            <li>
-                <label>head</label>
-                <capacities>
-                    <li>Blunt</li>
-                    <li>Poke</li>
-                </capacities>
-                <power>15.968</power>
-                <cooldownTime>1.7</cooldownTime>
-            </li>
-        </tools>
-    </ThingDef><ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="AAD_Gun_AMR_Bond" Abstract="True">
-        <label>persona Scepter of the Herald</label>
-        <description>This used to be a musical instrument, the Herald would play their master's favorite songs and entire choirs will perform with it, but now it only signals the ends of civilizations.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
-        <techLevel>Ultra</techLevel>
-        <graphicData>
-            <texPath>Things/Item/WeaponsH/Melee_StaffS</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(1.25,1.25)</drawSize>
-        </graphicData>
-        <soundInteract>Interact_ChargeLance</soundInteract>
-        <statBases>
-            <Mass>5.0</Mass>
-            <AccuracyTouch>0.77</AccuracyTouch>
-            <AccuracyShort>0.935</AccuracyShort>
-            <AccuracyMedium>0.935</AccuracyMedium>
-            <AccuracyLong>0.88</AccuracyLong>
-            <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
-        </statBases>
-        <equippedAngleOffset>45</equippedAngleOffset>
-        <verbs>
-            <li>
-                <verbClass>Verb_Shoot</verbClass>
-                <hasStandardCommand>true</hasStandardCommand>
-                <defaultProjectile>AAD_Bullet_SuperChargedBlast_Bond</defaultProjectile>
-                <warmupTime>1.7</warmupTime>
-                <range>35.9</range>
-                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-                <burstShotCount>2</burstShotCount>
-                <soundCast>AAD_ShotHMG</soundCast>
-                <soundCastTail>GunTail_Heavy</soundCastTail>
-                <muzzleFlashScale>6</muzzleFlashScale>
-            </li>
-        </verbs>
-        <weaponTags>
-            <li>AAD_SpacerRanged</li>
-        </weaponTags>
-        <tools>
-            <li>
-                <label>handle</label>
-                <capacities>
-                    <li>Blunt</li>
-                </capacities>
-                <power>9.75</power>
-                <cooldownTime>1.7</cooldownTime>
-            </li>
-            <li>
-                <label>head</label>
-                <capacities>
-                    <li>Blunt</li>
-                    <li>Poke</li>
-                </capacities>
-                <power>9.75</power>
-                <cooldownTime>1.7</cooldownTime>
-            </li>
-        </tools>
-    </ThingDef><ThingDef ParentName="MPBFPM_Bullet" Name="AAD_Bullet_ShotgunBlast_Bond" Abstract="True">
-        <label>Mace blast</label>
-        <graphicData>
-            <texPath>Things/Projectiles/Projectile_Shotgun</texPath>
-            <shaderType>MoteGlow</shaderType>
-        </graphicData>
-        <projectile>
-            <damageDef>Bullet</damageDef>
-            <damageAmountBase>24</damageAmountBase>
-            <armorPenetrationBase>0.5</armorPenetrationBase>
-            <speed>120</speed>
-            <stoppingPower>3</stoppingPower>
-        </projectile>
-    </ThingDef><ThingDef ParentName="MPBFPM_Bullet" Name="AAD_Bullet_ChargedBlast_Bond" Abstract="True">
-        <label>Staff blast</label>
-        <graphicData>
-            <texPath>Things/Projectiles/Projectile_Normal1</texPath>
-            <shaderType>MoteGlow</shaderType>
-        </graphicData>
-        <projectile>
-            <damageDef>Bullet</damageDef>
-            <damageAmountBase>20</damageAmountBase>
-            <armorPenetrationBase>0.36</armorPenetrationBase>
-            <speed>140</speed>
-        </projectile>
-    </ThingDef><ThingDef ParentName="MPBFPM_Bullet" Name="AAD_Bullet_HeavyChargedBlast_Bond" Abstract="True">
-        <label>Staff blast</label>
-        <graphicData>
-            <texPath>Things/Projectiles/Projectile_Normal2</texPath>
-            <shaderType>MoteGlow</shaderType>
-        </graphicData>
-        <projectile>
-            <damageDef>Bullet</damageDef>
-            <damageAmountBase>24</damageAmountBase>
-            <armorPenetrationBase>0.45</armorPenetrationBase>
-            <speed>140</speed>
-        </projectile>
-    </ThingDef><ThingDef ParentName="MPBFPM_Bullet" Name="AAD_Bullet_SuperChargedBlast_Bond" Abstract="True">
-        <label>Scepter blast</label>
-        <graphicData>
-            <texPath>Things/Projectiles/Projectile_Normal3</texPath>
-            <shaderType>MoteGlow</shaderType>
-        </graphicData>
-        <projectile>
-            <damageDef>Bullet</damageDef>
-            <damageAmountBase>35</damageAmountBase>
-            <armorPenetrationBase>0.65</armorPenetrationBase>
-            <stoppingPower>2.0</stoppingPower>
-            <speed>165</speed>
-        </projectile>
-    </ThingDef></value>
-			</Operation>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseMeleeWeapon" Name="AAD_Melee_Spear_Bond" Abstract="True">
+                        <label>persona Spear of Vengeance</label>
+                        <description>"Our masters will return and they will have their vengeance." is inscribed on the handle of the spear.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Ultra</techLevel>
+                        <weaponClasses>
+                            <li>MeleePiercer</li>
+                        </weaponClasses>
+                        <graphicData>
+                            <texPath>Things/Item/WeaponsH/Melee_Spear</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>(1.25,1.25)</drawSize>
+                        </graphicData>
+                        <statBases>
+                            <Mass>2.5</Mass>
+                        </statBases>
+                        <equippedAngleOffset>45</equippedAngleOffset>
+                        <generateCommonality>0.5</generateCommonality>
+                        <weaponTags>
+                            <li>AAD_SpacerMelee</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>shaft</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>24.472</power>
+                                <cooldownTime>1.955</cooldownTime>
+                            </li>
+                            <li>
+                                <label>point</label>
+                                <capacities>
+                                    <li>Stab</li>
+                                </capacities>
+                                <power>40.916</power>
+                                <armorPenetration>1.155</armorPenetration>
+                                <cooldownTime>1.955</cooldownTime>
+                            </li>
+                        </tools>
+                        <relicChance>2</relicChance>
+                        <comps>
+                            <li Class="CompProperties_Art">
+                                <nameMaker>NamerArtWeaponMelee</nameMaker>
+                                <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+                                <minQualityForArtistic>Excellent</minQualityForArtistic>
+                            </li>
+                        </comps>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="AAD_Gun_Mace_Bond" Abstract="True">
+                        <label>persona Mace of Defiler</label>
+                        <description>An elegant instrument of destruction, Looks heavy but can be lifted by a human child, with onboard spatial and graviometric manipulators to contain and direct large amount of anti-proton directionally, also Serves as an excellent melee weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Ultra</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/WeaponsH/Melee_Mace</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>(1.25,1.25)</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeRifle</soundInteract>
+                        <statBases>
+                            <Mass>6.0</Mass>
+                            <AccuracyTouch>0.88</AccuracyTouch>
+                            <AccuracyShort>0.825</AccuracyShort>
+                            <AccuracyMedium>0.715</AccuracyMedium>
+                            <AccuracyLong>0.66</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.468</RangedWeapon_Cooldown>
+                        </statBases>
+                        <equippedAngleOffset>45</equippedAngleOffset>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>AAD_Bullet_ShotgunBlast_Bond</defaultProjectile>
+                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                <burstShotCount>3</burstShotCount>
+                                <warmupTime>1.2</warmupTime>
+                                <range>16.9</range>
+                                <soundCast>AAD_ShotDC</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>6</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>AAD_SpacerRanged</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>handle</label>
+                                <capacities>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>head</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>51.768</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="AAD_Gun_AR_Bond" Abstract="True">
+                        <label>persona Herald anti-proton Staff.</label>
+                        <description>The basic Herald weapons, Usually welded by constructs.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Ultra</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/WeaponsH/Range_Base</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>(1.25,1.25)</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeRifle</soundInteract>
+                        <statBases>
+                            <Mass>4.0</Mass>
+                            <AccuracyTouch>0.66</AccuracyTouch>
+                            <AccuracyShort>0.715</AccuracyShort>
+                            <AccuracyMedium>0.66</AccuracyMedium>
+                            <AccuracyLong>0.55</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+                        </statBases>
+                        <equippedAngleOffset>45</equippedAngleOffset>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>AAD_Bullet_ChargedBlast_Bond</defaultProjectile>
+                                <warmupTime>1.2</warmupTime>
+                                <range>26.9</range>
+                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                <burstShotCount>3</burstShotCount>
+                                <soundCast>AAD_ShotSMG</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>6</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>AAD_SpacerRanged</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>handle</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>head</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="AAD_Gun_BR_Bond" Abstract="True">
+                        <label>persona Staff of Harbinger</label>
+                        <description>Before the fall, only iconian warriors ever carries such a staff and few have seen one, far more people got to see it after the fall but not many ever get to tell the tale.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Ultra</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/WeaponsH/Range_Advanced</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>(1.25,1.25)</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeRifle</soundInteract>
+                        <statBases>
+                            <Mass>5.0</Mass>
+                            <AccuracyTouch>0.66</AccuracyTouch>
+                            <AccuracyShort>0.77</AccuracyShort>
+                            <AccuracyMedium>0.715</AccuracyMedium>
+                            <AccuracyLong>0.605</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+                        </statBases>
+                        <equippedAngleOffset>45</equippedAngleOffset>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>AAD_Bullet_HeavyChargedBlast_Bond</defaultProjectile>
+                                <warmupTime>1.4</warmupTime>
+                                <range>30.9</range>
+                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                <burstShotCount>2</burstShotCount>
+                                <soundCast>AAD_ShotHMG</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>6</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>AAD_SpacerRanged</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>handle</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>15.968</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>head</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>15.968</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="AAD_Gun_AMR_Bond" Abstract="True">
+                        <label>persona Scepter of the Herald</label>
+                        <description>This used to be a musical instrument, the Herald would play their master's favorite songs and entire choirs will perform with it, but now it only signals the ends of civilizations.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Ultra</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/WeaponsH/Melee_StaffS</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>(1.25,1.25)</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeLance</soundInteract>
+                        <statBases>
+                            <Mass>5.0</Mass>
+                            <AccuracyTouch>0.77</AccuracyTouch>
+                            <AccuracyShort>0.935</AccuracyShort>
+                            <AccuracyMedium>0.935</AccuracyMedium>
+                            <AccuracyLong>0.88</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                        </statBases>
+                        <equippedAngleOffset>45</equippedAngleOffset>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>AAD_Bullet_SuperChargedBlast_Bond</defaultProjectile>
+                                <warmupTime>1.7</warmupTime>
+                                <range>35.9</range>
+                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                <burstShotCount>2</burstShotCount>
+                                <soundCast>AAD_ShotHMG</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>6</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>AAD_SpacerRanged</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>handle</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>head</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="AAD_Bullet_ShotgunBlast_Bond" Abstract="True">
+                        <label>Mace blast</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Projectile_Shotgun</texPath>
+                            <shaderType>MoteGlow</shaderType>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>24</damageAmountBase>
+                            <armorPenetrationBase>0.5</armorPenetrationBase>
+                            <speed>120</speed>
+                            <stoppingPower>3</stoppingPower>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="AAD_Bullet_ChargedBlast_Bond" Abstract="True">
+                        <label>Staff blast</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Projectile_Normal1</texPath>
+                            <shaderType>MoteGlow</shaderType>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>20</damageAmountBase>
+                            <armorPenetrationBase>0.36</armorPenetrationBase>
+                            <speed>140</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="AAD_Bullet_HeavyChargedBlast_Bond" Abstract="True">
+                        <label>Staff blast</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Projectile_Normal2</texPath>
+                            <shaderType>MoteGlow</shaderType>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>24</damageAmountBase>
+                            <armorPenetrationBase>0.45</armorPenetrationBase>
+                            <speed>140</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="AAD_Bullet_SuperChargedBlast_Bond" Abstract="True">
+                        <label>Scepter blast</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Projectile_Normal3</texPath>
+                            <shaderType>MoteGlow</shaderType>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>35</damageAmountBase>
+                            <armorPenetrationBase>0.65</armorPenetrationBase>
+                            <stoppingPower>2.0</stoppingPower>
+                            <speed>165</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
 
-			<Operation Class="XmlExtensions.OptionalPatch">
-				<modId>Daria40K.MightyPersonaBondForgePatch</modId>
-				<key>Daria40K_MightyPersonaBondForgePatch_IconianTech</key>
-				<defaultValue>true</defaultValue>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_IconianTech</key>
+                <defaultValue>true</defaultValue>
 
-				<caseTrue>
-					<Operation Class="XmlExtensions.PatchOperationAdd">
-						<xpath>Defs</xpath>
-						<value><ThingDef ParentName="AAD_Melee_Spear_Bond"><defName>AAD_Melee_Spear_Bond</defName></ThingDef><ThingDef ParentName="AAD_Gun_Mace_Bond"><defName>AAD_Gun_Mace_Bond</defName></ThingDef><ThingDef ParentName="AAD_Gun_AR_Bond"><defName>AAD_Gun_AR_Bond</defName></ThingDef><ThingDef ParentName="AAD_Gun_BR_Bond"><defName>AAD_Gun_BR_Bond</defName></ThingDef><ThingDef ParentName="AAD_Gun_AMR_Bond"><defName>AAD_Gun_AMR_Bond</defName></ThingDef><ThingDef ParentName="AAD_Bullet_ShotgunBlast_Bond"><defName>AAD_Bullet_ShotgunBlast_Bond</defName></ThingDef><ThingDef ParentName="AAD_Bullet_ChargedBlast_Bond"><defName>AAD_Bullet_ChargedBlast_Bond</defName></ThingDef><ThingDef ParentName="AAD_Bullet_HeavyChargedBlast_Bond"><defName>AAD_Bullet_HeavyChargedBlast_Bond</defName></ThingDef><ThingDef ParentName="AAD_Bullet_SuperChargedBlast_Bond"><defName>AAD_Bullet_SuperChargedBlast_Bond</defName></ThingDef></value>
-					</Operation>
-				</caseTrue>
-			</Operation>	  
-		</caseTrue>
-	</Operation>
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="AAD_Melee_Spear_Bond">
+                                <defName>AAD_Melee_Spear_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="AAD_Gun_Mace_Bond">
+                                <defName>AAD_Gun_Mace_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="AAD_Gun_AR_Bond">
+                                <defName>AAD_Gun_AR_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="AAD_Gun_BR_Bond">
+                                <defName>AAD_Gun_BR_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="AAD_Gun_AMR_Bond">
+                                <defName>AAD_Gun_AMR_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="AAD_Bullet_ShotgunBlast_Bond">
+                                <defName>AAD_Bullet_ShotgunBlast_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="AAD_Bullet_ChargedBlast_Bond">
+                                <defName>AAD_Bullet_ChargedBlast_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="AAD_Bullet_HeavyChargedBlast_Bond">
+                                <defName>AAD_Bullet_HeavyChargedBlast_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="AAD_Bullet_SuperChargedBlast_Bond">
+                                <defName>AAD_Bullet_SuperChargedBlast_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
 </Patch>
