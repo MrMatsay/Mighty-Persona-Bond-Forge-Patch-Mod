@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== District 9 Weapon Pack (Continued) =====
+-->
+<Patch>
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>zal.dcwp</li>
+		</mods>
+		<packageId>true</packageId>
+
+		<caseTrue>
+			<Operation Class="XmlExtensions.PatchOperationAdd">
+				<xpath>Defs</xpath>
+				<value>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_AMRRepeater_Bond" Abstract="True">
+						<label>bond AMR Repeater</label>
+						<description>Bond an AMR Repeater.</description>
+						<jobString>Bonding a AMR Repeater.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>Gun_AMRRepeater</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>Gun_AMRRepeater</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<Gun_AMRRepeater_Bond>1</Gun_AMRRepeater_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_AMRSmg_Bond" Abstract="True">
+						<label>bond AMR SMG</label>
+						<description>Bond an AMR SMG.</description>
+						<jobString>Bonding a AMR SMG.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>Gun_AMRSmg</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>Gun_AMRSmg</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<Gun_AMRSmg_Bond>1</Gun_AMRSmg_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_AMRBlaster_Bond" Abstract="True">
+						<label>bond AMR Blaster</label>
+						<description>Bond an AMR Blaster.</description>
+						<jobString>Bonding a AMR Blaster.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>Gun_AMRBlaster</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>Gun_AMRBlaster</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<Gun_AMRBlaster_Bond>1</Gun_AMRBlaster_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_AMRMicro_Bond" Abstract="True">
+						<label>bond AMR Micro</label>
+						<description>Bond an AMR Micro.</description>
+						<jobString>Bonding a AMR Micro.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>Gun_AMRMicro</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>Gun_AMRMicro</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<Gun_AMRMicro_Bond>1</Gun_AMRMicro_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_ArcGun_Bond" Abstract="True">
+						<label>bond AMR Arc Gun</label>
+						<description>Bond an AMR Arc Gun.</description>
+						<jobString>Bonding a AMR Arc Gun.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>Gun_ArcGun</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>Gun_ArcGun</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<Gun_ArcGun_Bond>1</Gun_ArcGun_Bond>
+						</products>
+					</RecipeDef>
+				</value>
+			</Operation>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+				<key>Daria40K_MightyPersonaBondForgePatch_District9WeaponPackContinued</key>
+				<defaultValue>true</defaultValue>
+
+				<caseTrue>
+					<Operation Class="XmlExtensions.OptionalPatch">
+						<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+						<key>Daria40K_MightyPersonaBondForgePatch_PBF_District9WeaponPackContinued</key>
+						<defaultValue>true</defaultValue>
+
+						<caseTrue>
+							<Operation Class="XmlExtensions.OptionalPatch">
+								<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+								<key>Daria40K_MightyPersonaBondForgePatch_DisablePersonaBondForge</key>
+								<defaultValue>false</defaultValue>
+
+								<caseFalse>
+									<Operation Class="XmlExtensions.PatchOperationAdd">
+										<xpath>Defs</xpath>
+										<value>
+											<RecipeDef ParentName="Make_Gun_AMRRepeater_Bond">
+												<defName>Make_Gun_AMRRepeater_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_Gun_AMRSmg_Bond">
+												<defName>Make_Gun_AMRSmg_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_Gun_AMRBlaster_Bond">
+												<defName>Make_Gun_AMRBlaster_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_Gun_AMRMicro_Bond">
+												<defName>Make_Gun_AMRMicro_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_Gun_ArcGun_Bond">
+												<defName>Make_Gun_ArcGun_Bond</defName>
+											</RecipeDef>
+										</value>
+									</Operation>
+								</caseFalse>
+							</Operation>
+						</caseTrue>
+					</Operation>
+				</caseTrue>
+			</Operation>
+		</caseTrue>
+	</Operation>
+</Patch>
