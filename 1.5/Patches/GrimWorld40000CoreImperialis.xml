@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== GrimWorld 40,000 - Core Imperialis =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>grimworld.core</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseWeapon" Name="GW_SS_Phaseblade_Bond" Abstract="True">
+                        <label>persona Xenophase Blade</label>
+                        <description>Xenophase Blade is a potent, Power Sword-like melee weapon derived from xenos technology used by select warriors of the Deathwatch Chapter who have earned by their deeds and time of service in the Long Vigil the special trust of their watch fortress' watch commander.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/GW_Phaseblade</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <shaderType>CutoutComplex</shaderType>
+                            <drawSize>1.5</drawSize>
+                            <onGroundRandomRotateAngle>45</onGroundRandomRotateAngle>
+                        </graphicData>
+                        <tradeability>Sellable</tradeability>
+                        <uiIconPath>Things/Weapons/GW_Phaseblade</uiIconPath>
+                        <techLevel>Spacer</techLevel>
+                        <weaponTags>
+                            <li>GW_PhaseBlade</li>
+                            <li>UltratechMelee</li>
+                        </weaponTags>
+                        <generateCommonality>0.01</generateCommonality>
+                        <statBases>
+                            <MaxHitPoints>1400</MaxHitPoints>
+                            <Mass>5</Mass>
+                            <MarketValue>11000.0</MarketValue>
+                        </statBases>
+                        <relicChance>1</relicChance>
+                        <equippedAngleOffset>0</equippedAngleOffset>
+                        <weaponClasses>
+                            <li>Melee</li>
+                            <li>Ultratech</li>
+                        </weaponClasses>
+                        <tools>
+                            <li>
+                                <label>handle</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>13.162</power>
+                                <cooldownTime>1.105</cooldownTime>
+                                <chanceFactor>0.07</chanceFactor>
+                            </li>
+                            <li>
+                                <label>point</label>
+                                <capacities>
+                                    <li>Stab</li>
+                                </capacities>
+                                <power>67.746</power>
+                                <cooldownTime>1.87</cooldownTime>
+                                <chanceFactor>0.5</chanceFactor>
+                                <armorPenetration>3.3</armorPenetration>
+                            </li>
+                            <li>
+                                <label>edge</label>
+                                <capacities>
+                                    <li>Cut</li>
+                                </capacities>
+                                <power>57.071</power>
+                                <cooldownTime>2.337</cooldownTime>
+                                <chanceFactor>0.8</chanceFactor>
+                                <armorPenetration>2.53</armorPenetration>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="GW_SS_VolkCulverin_Bond" Abstract="True">
+                        <label>persona volkite culverin</label>
+                        <description>The Volkite Culverin is a type of Volkite Weapon, and is the heaviest man-portable Volkite Weapon known to have been available to Imperial forces during the Great Crusade and Horus Heresy-eras.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/GW_VolkCulverin</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.1</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <tradeability>Sellable</tradeability>
+                        <statBases>
+                            <MarketValue>11000.0</MarketValue>
+                            <Mass>15</Mass>
+                            <AccuracyTouch>0.825</AccuracyTouch>
+                            <AccuracyShort>0.715</AccuracyShort>
+                            <AccuracyMedium>0.66</AccuracyMedium>
+                            <AccuracyLong>0.55</AccuracyLong>
+                            <RangedWeapon_Cooldown>3.4</RangedWeapon_Cooldown>
+                        </statBases>
+                        <equippedStatOffsets>
+                            <MoveSpeed>-0.50</MoveSpeed>
+                        </equippedStatOffsets>
+                        <weaponTags>
+                            <li>GW_SS_VolkCulverin</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>GW_SS_VolkCulverinBolt_Bond</defaultProjectile>
+                                <warmupTime>5</warmupTime>
+                                <range>50</range>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <burstShotCount>20</burstShotCount>
+                                <soundCast>GW_SS_VokiteLight</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>8</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>12.866</power>
+                                <cooldownTime>1.87</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>11.829</power>
+                                <cooldownTime>1.785</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="GW_SS_VolkCaliver_Bond" Abstract="True">
+                        <label>persona Volkite caliver</label>
+                        <description>The Volkite Caliver was a Volkite heavy weapon variant carried by Space Marine and Mechanicum infantry forces. A Volkite rifle with a devastating effect on flesh and bone.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/GW_VolkCaliver</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.1</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <tradeability>Sellable</tradeability>
+                        <statBases>
+                            <MarketValue>11000.0</MarketValue>
+                            <Mass>10</Mass>
+                            <AccuracyTouch>0.935</AccuracyTouch>
+                            <AccuracyShort>0.825</AccuracyShort>
+                            <AccuracyMedium>0.66</AccuracyMedium>
+                            <AccuracyLong>0.55</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>GW_SS_VolkCaliver</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>GW_SS_VolkCaliverBolt_Bond</defaultProjectile>
+                                <warmupTime>3</warmupTime>
+                                <range>39</range>
+                                <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+                                <burstShotCount>6</burstShotCount>
+                                <soundCast>GW_SS_VokiteMedium</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>8</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>12.866</power>
+                                <cooldownTime>1.87</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>11.829</power>
+                                <cooldownTime>1.785</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="GW_SM_VolkSerpenta_Bond" Abstract="True">
+                        <label>persona Volkite serpenta</label>
+                        <description>The pistol variant of a Volkite Weapon wielded single-handed, the Volkite Serpenta was sometimes carried by high-ranking soldiers of the Imperial Army and the Tech-priests of the ancient Mechanicum during the Great Crusade era.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/GW_VolkSerpenta</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.1</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <tradeability>Sellable</tradeability>
+                        <statBases>
+                            <MarketValue>11000.0</MarketValue>
+                            <Mass>5</Mass>
+                            <AccuracyTouch>0.935</AccuracyTouch>
+                            <AccuracyShort>0.825</AccuracyShort>
+                            <AccuracyMedium>0.66</AccuracyMedium>
+                            <AccuracyLong>0.55</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+                        </statBases>
+                        <equippedStatOffsets>
+                            <MoveSpeed>0.10</MoveSpeed>
+                        </equippedStatOffsets>
+                        <weaponTags>
+                            <li>GW_SM_VolkSerpenta</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>GW_SS_VolkSerpentaBolt_Bond</defaultProjectile>
+                                <warmupTime>1</warmupTime>
+                                <range>22</range>
+                                <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                <burstShotCount>1</burstShotCount>
+                                <soundCast>GW_SS_VokiteLight</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>8</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>5.559</power>
+                                <cooldownTime>1.87</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>5.559</power>
+                                <cooldownTime>1.785</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunWithQuality" Name="GW_SS_VolkBlast_Bond" Abstract="True">
+                        <label>persona Volkite blaster</label>
+                        <description>The Volkite Blaster is one of the few types of Volkite Weapon still used by the military forces of the Imperium in the 41st Millennium. Volkite Blasters are known to be wielded by Adeptus Mechanicus magi dominus.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/GW_VolkBlast</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.4</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <tradeability>Sellable</tradeability>
+                        <statBases>
+                            <MarketValue>11000.0</MarketValue>
+                            <Mass>7</Mass>
+                            <AccuracyTouch>0.385</AccuracyTouch>
+                            <AccuracyShort>0.495</AccuracyShort>
+                            <AccuracyMedium>0.88</AccuracyMedium>
+                            <AccuracyLong>0.825</AccuracyLong>
+                            <RangedWeapon_Cooldown>4.59</RangedWeapon_Cooldown>
+                        </statBases>
+                        <equippedStatOffsets>
+                            <MoveSpeed>-0.20</MoveSpeed>
+                        </equippedStatOffsets>
+                        <weaponTags>
+                            <li>GW_SS_VolkBlast</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>GW_SS_VolkBlastBolt_Bond</defaultProjectile>
+                                <warmupTime>3</warmupTime>
+                                <range>30</range>
+                                <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
+                                <burstShotCount>3</burstShotCount>
+                                <soundCast>GW_SS_VokiteHeavy</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>10</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>14.935</power>
+                                <cooldownTime>2.125</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef Abstract="True" Name="MPBFPM_GW_LaserBullet" ParentName="MPBFPM_BaseBullet">
+                        <thingClass>VanillaWeaponsExpandedLaser.LaserBeam</thingClass>
+                        <drawOffscreen>true</drawOffscreen>
+                        <beamGraphic>GW_BeamGraphic</beamGraphic>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Las_Bolt</texPath>
+                            <shaderType>TransparentPostLight</shaderType>
+                            <drawSize>1.5</drawSize>
+                        </graphicData>
+                        <explosionEffect>GW_LaserImpact</explosionEffect>
+                        <hitLivingEffect>GW_LaserLivingImpact</hitLivingEffect>
+                        <projectile>
+                            <damageDef>Bomb</damageDef>
+                            <speed>10000</speed>
+                        </projectile>
+                        <seam>0.25</seam>
+                    </ThingDef>
+                    <ThingDef ParentName="GW_LaserBullet" Class="VanillaWeaponsExpandedLaser.LaserBeamDef" Name="GW_SS_VolkCulverinBolt_Bond" Abstract="True">
+                        <label>volkite bolt</label>
+                        <description>Pew pew.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/GW_Volkite_Bolt</texPath>
+                            <drawSize>1.0</drawSize>
+                        </graphicData>
+                        <textures>
+                            <li>Things/Weapons/GW_Volkite_Bolt</li>
+                        </textures>
+                        <seam>0</seam>
+                        <causefireChance>0.08</causefireChance>
+                        <projectile>
+                            <damageDef>Burn</damageDef>
+                            <damageAmountBase>99</damageAmountBase>
+                            <armorPenetrationBase>3.0</armorPenetrationBase>
+                            <stoppingPower>3</stoppingPower>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="GW_LaserBullet" Class="VanillaWeaponsExpandedLaser.LaserBeamDef" Name="GW_SS_VolkCaliverBolt_Bond" Abstract="True">
+                        <label>volk bolt</label>
+                        <description>Pew pew.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/GW_Volkite_Bolt</texPath>
+                        </graphicData>
+                        <textures>
+                            <li>Things/Weapons/GW_Volkite_Bolt</li>
+                        </textures>
+                        <seam>0</seam>
+                        <causefireChance>0.08</causefireChance>
+                        <projectile>
+                            <damageDef>Burn</damageDef>
+                            <damageAmountBase>78</damageAmountBase>
+                            <armorPenetrationBase>2.4</armorPenetrationBase>
+                            <stoppingPower>2.3</stoppingPower>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="GW_LaserBullet" Class="VanillaWeaponsExpandedLaser.LaserBeamDef" Name="GW_SS_VolkSerpentaBolt_Bond" Abstract="True">
+                        <label>volk bolt</label>
+                        <description>Pew pew.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/GW_Volkite_Bolt</texPath>
+                            <drawSize>1</drawSize>
+                        </graphicData>
+                        <textures>
+                            <li>Things/Weapons/GW_Volkite_Bolt</li>
+                        </textures>
+                        <seam>0</seam>
+                        <causefireChance>0.08</causefireChance>
+                        <projectile>
+                            <damageDef>Burn</damageDef>
+                            <damageAmountBase>35</damageAmountBase>
+                            <armorPenetrationBase>1.9</armorPenetrationBase>
+                            <stoppingPower>1</stoppingPower>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="GW_LaserBullet" Class="VanillaWeaponsExpandedLaser.LaserBeamDef" Name="GW_SS_VolkBlastBolt_Bond" Abstract="True">
+                        <label>volk bolt</label>
+                        <description>Pew pew.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/GW_Volkite_Bolt</texPath>
+                            <drawSize>2.0</drawSize>
+                        </graphicData>
+                        <textures>
+                            <li>Things/Weapons/GW_Volkite_Bolt</li>
+                        </textures>
+                        <seam>0</seam>
+                        <causefireChance>0.08</causefireChance>
+                        <projectile>
+                            <damageDef>Burn</damageDef>
+                            <damageAmountBase>52</damageAmountBase>
+                            <armorPenetrationBase>1.5</armorPenetrationBase>
+                            <stoppingPower>1.8</stoppingPower>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="HP_Bullet_HeavyBolter_Bond" Abstract="True">
+                        <label>bolter round</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bolter_Projectile</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>52</damageAmountBase>
+                            <stoppingPower>1</stoppingPower>
+                            <speed>50</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_GrimWorld40000CoreImperialis</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="GW_SS_Phaseblade_Bond">
+                                <defName>GW_SS_Phaseblade_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="GW_SS_VolkCulverin_Bond">
+                                <defName>GW_SS_VolkCulverin_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="GW_SS_VolkCaliver_Bond">
+                                <defName>GW_SS_VolkCaliver_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="GW_SM_VolkSerpenta_Bond">
+                                <defName>GW_SM_VolkSerpenta_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="GW_SS_VolkBlast_Bond">
+                                <defName>GW_SS_VolkBlast_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="GW_SS_VolkCulverinBolt_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                <defName>GW_SS_VolkCulverinBolt_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="GW_SS_VolkCaliverBolt_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                <defName>GW_SS_VolkCaliverBolt_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="GW_SS_VolkSerpentaBolt_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                <defName>GW_SS_VolkSerpentaBolt_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="GW_SS_VolkBlastBolt_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                <defName>GW_SS_VolkBlastBolt_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="HP_Bullet_HeavyBolter_Bond">
+                                <defName>HP_Bullet_HeavyBolter_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>
