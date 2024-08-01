@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Glitter Tech Classic (No Surgery) =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>gt.sam.glittertechns</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef Name="MPBFPM_GTBaseGun_APB" Abstract="True" ParentName="MPBFPM_GTBaseGunMakeable" />
+                    <ThingDef Name="MPBFPM_GTBaseGun_MRG" Abstract="True" ParentName="MPBFPM_GTBaseGunMakeable">
+                        <weaponTags>
+                            <li>GlitterTechEM</li>
+                        </weaponTags>
+                    </ThingDef>
+                    <ThingDef Name="MPBFPM_GTBaseGun_OC" Abstract="True" ParentName="MPBFPM_GTBaseGun">
+                        <weaponTags>
+                            <li>OCDefense</li>
+                        </weaponTags>
+                    </ThingDef>
+                    <ThingDef Name="MPBFPM_GTBaseGun" Abstract="True" ParentName="MPBFPM_BaseGun">
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeRifle</soundInteract>
+                        <weaponTags>
+                            <li>GlitterTech</li>
+                        </weaponTags>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                        </weaponClasses>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef Name="MPBFPM_GTBaseGunMakeable" Abstract="True" ParentName="MPBFPM_BaseHumanMakeableGun">
+                        <possessionCount>1</possessionCount>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeRifle</soundInteract>
+                        <weaponTags>
+                            <li>GlitterTech</li>
+                        </weaponTags>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                        </weaponClasses>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_GTBaseGunMakeable" Name="Gun_EMRifle_Bond" Abstract="True">
+                        <label>persona EMRG-1</label>
+                        <description>Electromagnetic Rail Gun. The lastest thing in long range combat. Extremely powerful.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/misc/GT_EMRG-1</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Mass>6</Mass>
+                            <MarketValue>1540.0</MarketValue>
+                            <AccuracyTouch>0.55</AccuracyTouch>
+                            <AccuracyShort>0.946</AccuracyShort>
+                            <AccuracyMedium>0.946</AccuracyMedium>
+                            <AccuracyLong>0.968</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.981</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponClasses Inherit="False">
+                            <li>LongShots</li>
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <weaponTags>
+                            <li>GlitterTechEMRG</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_EMRifle_Bond</defaultProjectile>
+                                <warmupTime>1.1</warmupTime>
+                                <range>60</range>
+                                <soundCast>EM</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_GTBaseGun_APB" Name="Gun_APB-1Rifle_Bond" Abstract="True">
+                        <label>persona APB-1 Rifle</label>
+                        <description>Anion Particle Beam Rifle mark 1. The forefront of anti-personel weaponry, this rifle projects anions through Hydrogen, creating a neutrally charged kinetic projectile capable of disassembling matter on the atomic level. Accurate and powerful, this weapon will ignite most targets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/misc/APB-1Rifle</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Mass>4.8</Mass>
+                            <MarketValue>2090.0</MarketValue>
+                            <AccuracyTouch>0.66</AccuracyTouch>
+                            <AccuracyShort>0.495</AccuracyShort>
+                            <AccuracyMedium>0.275</AccuracyMedium>
+                            <AccuracyLong>0.165</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_APBRifle_Bond</defaultProjectile>
+                                <warmupTime>0.4</warmupTime>
+                                <range>35</range>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <burstShotCount>4</burstShotCount>
+                                <soundCast>PB</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_GTBaseGun_APB" Name="Gun_APB-1Pistol_Bond" Abstract="True">
+                        <label>persona APB-1 Pistol</label>
+                        <description>Anion Particle Beam Pistol mark 1. The compact counter part of the APB-1 Rifle, this pistol projects anions through Hydrogen, creating a neutrally charged kinetic projectile capable of disassembling matter on the atomic level. Accurate and powerful, this weapon will ignite most targets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/misc/APB-1Pistol</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Mass>1.2</Mass>
+                            <MarketValue>1980.0</MarketValue>
+                            <AccuracyTouch>0.495</AccuracyTouch>
+                            <AccuracyShort>0.385</AccuracyShort>
+                            <AccuracyMedium>0.22</AccuracyMedium>
+                            <AccuracyLong>0.11</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_APBPistol_Bond</defaultProjectile>
+                                <warmupTime>0.1</warmupTime>
+                                <range>30</range>
+                                <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                                <burstShotCount>2</burstShotCount>
+                                <soundCast>PB</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_GTBaseGun_APB" Name="Gun_APB-1Projector_Bond" Abstract="True">
+                        <label>persona APB-1 Projector</label>
+                        <description>Anion Particle Beam Projector mark 1. The latest thing in anti air and anti tank weaponry, this projector literally projects anions through Hydrogen, creating a neutrally charged kinetic projectile capable of disassembling matter on the atomic level. Accurate and powerful, this weapon will create a destructive blast.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/misc/APB-1Proj</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Mass>8</Mass>
+                            <MarketValue>2420.0</MarketValue>
+                            <AccuracyTouch>0.99</AccuracyTouch>
+                            <AccuracyShort>1.045</AccuracyShort>
+                            <AccuracyMedium>0.99</AccuracyMedium>
+                            <AccuracyLong>0.88</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
+                        </statBases>
+                        <tradeTags>
+                            <li>ExoticMisc</li>
+                        </tradeTags>
+                        <weaponClasses Inherit="False">
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_APBProjector_Bond</defaultProjectile>
+                                <forcedMissRadius>1.5</forcedMissRadius>
+                                <warmupTime>1.6</warmupTime>
+                                <ai_AvoidFriendlyFireRadius>3</ai_AvoidFriendlyFireRadius>
+                                <range>80</range>
+                                <soundCast>PBP</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_GTBaseGun_MRG" Name="Gun_MRGRifle_Bond" Abstract="True">
+                        <label>persona MRG-5 Rifle</label>
+                        <description>Micro rail gun mark 5. This Rifle is the fifth instalment of top of the line rail gun technologies. Very accurate and powerful, this weapon will make propellant weapons seem neolithic.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/misc/MRG-5Rifle</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Mass>4.8</Mass>
+                            <MarketValue>2860.0</MarketValue>
+                            <AccuracyTouch>0.99</AccuracyTouch>
+                            <AccuracyShort>1.045</AccuracyShort>
+                            <AccuracyMedium>0.99</AccuracyMedium>
+                            <AccuracyLong>0.88</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.561</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_MRGRifle_Bond</defaultProjectile>
+                                <warmupTime>0.15</warmupTime>
+                                <range>30</range>
+                                <soundCast>EM_small</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_GTBaseGun_MRG" Name="Gun_MRGPistol_Bond" Abstract="True">
+                        <label>persona MRG-5 Pistol</label>
+                        <description>Micro rail gun mark 5. The compact counter part of the MRG-5 Rifle, this pistol is the fifth instalment of top of the line rail gun technologies. Very accurate and powerful, this weapon will make propellant weapons seem neolithic.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/misc/MRG-5Pistol</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Mass>1.2</Mass>
+                            <MarketValue>2530.0</MarketValue>
+                            <AccuracyTouch>0.935</AccuracyTouch>
+                            <AccuracyShort>0.99</AccuracyShort>
+                            <AccuracyMedium>0.99</AccuracyMedium>
+                            <AccuracyLong>0.715</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.561</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_MRGPistol_Bond</defaultProjectile>
+                                <warmupTime>0.15</warmupTime>
+                                <range>18</range>
+                                <soundCast>EM_small</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_GTBaseGun_OC" Name="Gun_OCPDRifle_Bond" Abstract="True">
+                        <label>persona OC Defense Rifle</label>
+                        <description>Orion Corps line of personal defense weapons. This Rifle is light weight and perfect for personal defense in hostile environments.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/OrionCorp/OCDRifle</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Mass>3</Mass>
+                            <MarketValue>1100.0</MarketValue>
+                            <AccuracyTouch>1.045</AccuracyTouch>
+                            <AccuracyShort>0.88</AccuracyShort>
+                            <AccuracyMedium>0.715</AccuracyMedium>
+                            <AccuracyLong>0.165</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.34</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_OCRifle_Bond</defaultProjectile>
+                                <warmupTime>0.4</warmupTime>
+                                <range>35</range>
+                                <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                <burstShotCount>12</burstShotCount>
+                                <soundCast>OCDRifle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_GTBaseGun_OC" Name="Gun_OCPDPistol_Bond" Abstract="True">
+                        <label>persona OC Defense Pistol</label>
+                        <description>Orion Corps line of personal defense weapons. This pistol is light weight and perfect for personal defense in hostile environments.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/OrionCorp/OCDPistol</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Mass>3</Mass>
+                            <MarketValue>880.0</MarketValue>
+                            <AccuracyTouch>1.045</AccuracyTouch>
+                            <AccuracyShort>0.88</AccuracyShort>
+                            <AccuracyMedium>0.66</AccuracyMedium>
+                            <AccuracyLong>0.11</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.34</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_OCPistol_Bond</defaultProjectile>
+                                <warmupTime>0.19</warmupTime>
+                                <range>24</range>
+                                <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                <burstShotCount>2</burstShotCount>
+                                <soundCast>OCDRifle</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_GTBaseGun_OC" Name="Gun_OCRocket_Bond" Abstract="True">
+                        <label>persona Orion rocket launcher</label>
+                        <description>A standard issue Orion Corporation anti-tank weapon. Laser guided and much more accurate then standard rocket launchers\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/OrionCorp/GT_OCRocketLauncher</texPath>
+                        </graphicData>
+                        <statBases>
+                            <Mass>8</Mass>
+                            <MarketValue>990.0</MarketValue>
+                            <AccuracyTouch>0.99</AccuracyTouch>
+                            <AccuracyShort>0.99</AccuracyShort>
+                            <AccuracyMedium>1.012</AccuracyMedium>
+                            <AccuracyLong>0.968</AccuracyLong>
+                            <RangedWeapon_Cooldown>3.825</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>OCHeavy</li>
+                        </weaponTags>
+                        <weaponClasses Inherit="False">
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <tradeTags>
+                            <li>ExoticMisc</li>
+                        </tradeTags>
+                        <verbs>
+                            <li>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <verbClass>Verb_ShootOneUse</verbClass>
+                                <defaultProjectile>Bullet_Rocket</defaultProjectile>
+                                <forcedMissRadius>1.0</forcedMissRadius>
+                                <warmupTime>1.0</warmupTime>
+                                <range>60</range>
+                                <soundCast>InfernoCannon_Fire</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <targetParams>
+                                    <canTargetLocations>true</canTargetLocations>
+                                </targetParams>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_EMRifle_Bond" Abstract="True">
+                        <label>EM bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/EM_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>89</damageAmountBase>
+                            <speed>200</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef Name="MPBFPM_GTBaseBullet_APB" Abstract="True" ParentName="MPBFPM_BaseBullet">
+                        <label>APB bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/APBR</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Flame</damageDef>
+                            <speed>200</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="GTBaseBullet_APB" Name="Bullet_APBRifle_Bond" Abstract="True">
+                        <projectile>
+                            <damageAmountBase>22</damageAmountBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="GTBaseBullet_APB" Name="Bullet_APBPistol_Bond" Abstract="True">
+                        <projectile>
+                            <damageAmountBase>19</damageAmountBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="GTBaseBullet_APB" Name="Bullet_APBProjector_Bond" Abstract="True">
+                        <graphicData>
+                            <texPath>Things/Projectile/APBProj</texPath>
+                        </graphicData>
+                        <thingClass>Projectile_Explosive</thingClass>
+                        <projectile>
+                            <damageAmountBase>57</damageAmountBase>
+                            <explosionRadius>1.9</explosionRadius>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef Name="MPBFPM_GTBaseBullet_MRG" Abstract="True" ParentName="MPBFPM_Bullet">
+                        <label>MRG bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/MRGP</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <speed>200</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="GTBaseBullet_MRG" Name="Bullet_MRGRifle_Bond" Abstract="True">
+                        <projectile>
+                            <damageAmountBase>41</damageAmountBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="GTBaseBullet_MRG" Name="Bullet_MRGPistol_Bond" Abstract="True">
+                        <projectile>
+                            <damageAmountBase>24</damageAmountBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef Name="MPBFPM_GTBaseBullet_OC" Abstract="True" ParentName="MPBFPM_Bullet">
+                        <label>OC bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Big</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <speed>150</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="GTBaseBullet_OC" Name="Bullet_OCRifle_Bond" Abstract="True">
+                        <projectile>
+                            <damageAmountBase>13</damageAmountBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="GTBaseBullet_OC" Name="Bullet_OCPistol_Bond" Abstract="True">
+                        <projectile>
+                            <damageAmountBase>11</damageAmountBase>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_GlitterTechClassicNoSurgery</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="Gun_EMRifle_Bond">
+                                <defName>Gun_EMRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Gun_APB-1Rifle_Bond">
+                                <defName>Gun_APB-1Rifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Gun_APB-1Pistol_Bond">
+                                <defName>Gun_APB-1Pistol_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Gun_APB-1Projector_Bond">
+                                <defName>Gun_APB-1Projector_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Gun_MRGRifle_Bond">
+                                <defName>Gun_MRGRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Gun_MRGPistol_Bond">
+                                <defName>Gun_MRGPistol_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Gun_OCPDRifle_Bond">
+                                <defName>Gun_OCPDRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Gun_OCPDPistol_Bond">
+                                <defName>Gun_OCPDPistol_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Gun_OCRocket_Bond">
+                                <defName>Gun_OCRocket_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_EMRifle_Bond">
+                                <defName>Bullet_EMRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_APBRifle_Bond">
+                                <defName>Bullet_APBRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_APBPistol_Bond">
+                                <defName>Bullet_APBPistol_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_APBProjector_Bond">
+                                <defName>Bullet_APBProjector_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_MRGRifle_Bond">
+                                <defName>Bullet_MRGRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_MRGPistol_Bond">
+                                <defName>Bullet_MRGPistol_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_OCRifle_Bond">
+                                <defName>Bullet_OCRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_OCPistol_Bond">
+                                <defName>Bullet_OCPistol_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>
