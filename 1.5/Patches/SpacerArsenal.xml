@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Spacer Arsenal =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>det.spacerarsenal</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingCategoryDef Name="MPBFPM_Grenades" Abstract="True">
+                        <label>persona</label>
+                        <parent>Grenades</parent>
+                    </ThingCategoryDef>
+                    <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality" Name="DV_MeleeWeapon_SparkSabre_Bond" Abstract="True">
+                        <label>persona sparksabre</label>
+                        <description>An electrically charged plasteel-alloy cutlass. It's swift to swing and it's large blade easily slices flesh and cloth. Prolonged contact allows the blade to deliver shocks into targets which disrupts the nervous system, stunning them.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <soundInteract>Interact_ChargeLance</soundInteract>
+                        <equippedAngleOffset>-65</equippedAngleOffset>
+                        <statBases>
+                            <Mass>3</Mass>
+                        </statBases>
+                        <weaponClasses>
+                            <li>MeleePiercer</li>
+                        </weaponClasses>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponMelee/Sparksabre</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <tools>
+                            <li>
+                                <label>handle</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>13.162</power>
+                                <cooldownTime>1.53</cooldownTime>
+                            </li>
+                            <li>
+                                <label>point</label>
+                                <capacities>
+                                    <li>Stab</li>
+                                </capacities>
+                                <power>28.899</power>
+                                <cooldownTime>1.53</cooldownTime>
+                                <armorPenetration>0.275</armorPenetration>
+                                <extraMeleeDamages>
+                                    <li>
+                                        <def>Stun</def>
+                                        <amount>10</amount>
+                                        <chance>0.4</chance>
+                                    </li>
+                                </extraMeleeDamages>
+                            </li>
+                            <li>
+                                <label>edge</label>
+                                <capacities>
+                                    <li>Cut</li>
+                                </capacities>
+                                <power>28.899</power>
+                                <cooldownTime>1.615</cooldownTime>
+                                <armorPenetration>0.22</armorPenetration>
+                                <extraMeleeDamages>
+                                    <li>
+                                        <def>Stun</def>
+                                        <amount>10</amount>
+                                        <chance>0.4</chance>
+                                    </li>
+                                </extraMeleeDamages>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="DV_Gun_ClashHMG_Bond" Abstract="True">
+                        <label>persona clash HMG</label>
+                        <description>A portable heavy machine gun loaded with high-velocity ammunition. A deadly mix of accuracy and penetration, it fires fast bullets capable of piercing and shredding armor, but that do little damage by themselves\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/ClashHMG</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.2</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <weaponClasses>
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <statBases>
+                            <Mass>10</Mass>
+                            <AccuracyTouch>0.198</AccuracyTouch>
+                            <AccuracyShort>0.297</AccuracyShort>
+                            <AccuracyMedium>0.396</AccuracyMedium>
+                            <AccuracyLong>0.297</AccuracyLong>
+                            <RangedWeapon_Cooldown>2.125</RangedWeapon_Cooldown>
+                        </statBases>
+                        <generateCommonality>0.8</generateCommonality>
+                        <techLevel>Spacer</techLevel>
+                        <weaponTags>
+                            <li>GunHeavy</li>
+                        </weaponTags>
+                        <equippedStatOffsets>
+                            <MoveSpeed>-0.25</MoveSpeed>
+                        </equippedStatOffsets>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>DV_Bullet_ClashHMG_Bond</defaultProjectile>
+                                <warmupTime>2.8</warmupTime>
+                                <range>31.9</range>
+                                <burstShotCount>20</burstShotCount>
+                                <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                                <soundCast>Shot_Minigun</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>barrels</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>12.555</power>
+                                <cooldownTime>2.21</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="DV_Gun_SonicStunner_Bond" Abstract="True">
+                        <label>persona sonic stunner</label>
+                        <description>An ultra-sonic wave personal defense device. Utilizing an advanced high-power projector dish it creates an intense pulse of sound that disorients and stuns targets, rendering them unable to move for a short while. The sound pulses are ineffective against anything except humans, animals and mechanoids.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/SonicStunner</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <MarketValue>550.0</MarketValue>
+                            <Mass>5</Mass>
+                            <AccuracyTouch>1.1</AccuracyTouch>
+                            <AccuracyShort>1.1</AccuracyShort>
+                            <AccuracyMedium>0.66</AccuracyMedium>
+                            <AccuracyLong>0.44</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.53</RangedWeapon_Cooldown>
+                        </statBases>
+                        <generateCommonality>0</generateCommonality>
+                        <weaponClasses>
+                            <li>Ranged</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>DV_Bullet_SonicStunner_Bond</defaultProjectile>
+                                <warmupTime>0.3</warmupTime>
+                                <range>7.9</range>
+                                <targetParams>
+                                    <canTargetPawns>true</canTargetPawns>
+                                    <canTargetBuildings>false</canTargetBuildings>
+                                    <canTargetLocations>false</canTargetLocations>
+                                    <canTargetMechs>true</canTargetMechs>
+                                </targetParams>
+                                <ticksBetweenBurstShots>14</ticksBetweenBurstShots>
+                                <burstShotCount>1</burstShotCount>
+                                <soundCast>DV_Shot_SonicStunner</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="DV_Gun_BruteRifle_Bond" Abstract="True">
+                        <label>persona brute rifle</label>
+                        <description>A super-heavy assault weapon loaded with high-caliber ammunition. It exchanges speed with power, firing powerful tungsten carbide slugs that penetrate targets and destroy organs with ease. Its weight slows down the wielder.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/Slogger</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.2</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <MarketValue>550.0</MarketValue>
+                            <Mass>8</Mass>
+                            <AccuracyTouch>0.605</AccuracyTouch>
+                            <AccuracyShort>0.682</AccuracyShort>
+                            <AccuracyMedium>0.638</AccuracyMedium>
+                            <AccuracyLong>0.539</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.87</RangedWeapon_Cooldown>
+                        </statBases>
+                        <generateCommonality>1</generateCommonality>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                        </weaponTags>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                        <weaponClasses>
+                            <li>Ranged</li>
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <equippedStatOffsets>
+                            <MoveSpeed>-0.12</MoveSpeed>
+                        </equippedStatOffsets>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>DV_BruteProjectile_Bond</defaultProjectile>
+                                <warmupTime>1.1</warmupTime>
+                                <range>27.9</range>
+                                <ticksBetweenBurstShots>14</ticksBetweenBurstShots>
+                                <burstShotCount>3</burstShotCount>
+                                <soundCast>Shot_Autocannon</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="DV_Gun_PhotonSMG_Bond" Abstract="True">
+                        <label>persona photon SMG</label>
+                        <description>A compact photon-slingshot submachine gun. Using complex sets of micro-lenses, mirrors and magnets, it compresses photon particles into blindingly fast projectiles which sear and melt flesh, but that have a hard time getting through any kind of armor. The photon blasts dissipate quickly, lowering the range of the weapon.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/PhotonSMG</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <MarketValue>550.0</MarketValue>
+                            <Mass>8</Mass>
+                            <AccuracyTouch>0.55</AccuracyTouch>
+                            <AccuracyShort>0.748</AccuracyShort>
+                            <AccuracyMedium>0.66</AccuracyMedium>
+                            <AccuracyLong>0.638</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                        </statBases>
+                        <generateCommonality>1</generateCommonality>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                        </weaponTags>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                        <weaponClasses>
+                            <li>Ranged</li>
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>DV_Bullet_PhotonBlast_Bond</defaultProjectile>
+                                <warmupTime>0.9</warmupTime>
+                                <range>22.9</range>
+                                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                <burstShotCount>4</burstShotCount>
+                                <soundCast>DV_Shot_PhotonSMG</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="DV_Gun_PlasmaBlaster_Bond" Abstract="True">
+                        <label>persona plasma blaster</label>
+                        <description>A high-energy power pulse projector assault weapon. Its magnetized rails contain and accelerate plasma bolts, which can set targets aflame and deal high damage. However, each blazing shot slightly warps the rifle's barrel, reducing the blaster's precision.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/PlasmaBlaster</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.2</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <MarketValue>550.0</MarketValue>
+                            <Mass>8</Mass>
+                            <AccuracyTouch>0.528</AccuracyTouch>
+                            <AccuracyShort>0.638</AccuracyShort>
+                            <AccuracyMedium>0.704</AccuracyMedium>
+                            <AccuracyLong>0.638</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.87</RangedWeapon_Cooldown>
+                        </statBases>
+                        <generateCommonality>0.5</generateCommonality>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                        </weaponTags>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                        <weaponClasses>
+                            <li>Ranged</li>
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>DV_Bullet_PlasmaBolt_Bond</defaultProjectile>
+                                <warmupTime>1</warmupTime>
+                                <range>26.9</range>
+                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                <burstShotCount>6</burstShotCount>
+                                <soundCast>DV_Shot_PlasmaBlaster</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="DV_Gun_CoilgunLance_Bond" Abstract="True">
+                        <label>persona coil lance</label>
+                        <description>A powerful single-shot coilgun. Magnetically charged coils accelerate a metallic sabot to high speeds, turning it into a deadly and accurate long-range projectile that pierces through armor and flesh.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/Coilgun</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.2</drawSize>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <MarketValue>550.0</MarketValue>
+                            <Mass>8</Mass>
+                            <AccuracyTouch>0.616</AccuracyTouch>
+                            <AccuracyShort>0.704</AccuracyShort>
+                            <AccuracyMedium>0.781</AccuracyMedium>
+                            <AccuracyLong>0.682</AccuracyLong>
+                            <RangedWeapon_Cooldown>2.21</RangedWeapon_Cooldown>
+                        </statBases>
+                        <generateCommonality>0.4</generateCommonality>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                        </weaponTags>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                        <weaponClasses>
+                            <li>Ranged</li>
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>DV_CoilgunProjectile_Bond</defaultProjectile>
+                                <warmupTime>1</warmupTime>
+                                <range>35.9</range>
+                                <ticksBetweenBurstShots>14</ticksBetweenBurstShots>
+                                <burstShotCount>1</burstShotCount>
+                                <soundCast>Shot_TurretSniper</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGrenadeProjectile" Name="DV_Proj_GrenadeThump_Bond" Abstract="True">
+                        <label>thump grenade</label>
+                        <thingClass>Projectile_Explosive</thingClass>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_ThumpGrenade</texPath>
+                        </graphicData>
+                        <projectile>
+                            <explosionRadius>2.9</explosionRadius>
+                            <damageDef>Thump</damageDef>
+                            <!-- Use default damage from explosion def -->
+                            <explosionDelay>125</explosionDelay>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="DV_Bullet_SonicStunner_Bond" Abstract="True">
+                        <label>ultrasonic wave</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Sonic</texPath>
+                            <drawSize>1.2</drawSize>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Stun</damageDef>
+                            <damageAmountBase>5</damageAmountBase>
+                            <speed>80</speed>
+                            <armorPenetrationBase>0.12</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="DV_Bullet_ClashHMG_Bond" Abstract="True">
+                        <label>clash hmg bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>12</damageAmountBase>
+                            <speed>76</speed>
+                            <armorPenetrationBase>0.42</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="DV_CoilgunProjectile_Bond" Abstract="True">
+                        <label>coil sabot</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Coil</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>29</damageAmountBase>
+                            <stoppingPower>0.5</stoppingPower>
+                            <armorPenetrationBase>0.52</armorPenetrationBase>
+                            <speed>80</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="DV_Bullet_PhotonBlast_Bond" Abstract="True">
+                        <label>photon blast</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Photon</texPath>
+                            <shaderType>TransparentPostLight</shaderType>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>DV_PhotonDamage</damageDef>
+                            <damageAmountBase>12</damageAmountBase>
+                            <stoppingPower>0.2</stoppingPower>
+                            <armorPenetrationBase>-0.20</armorPenetrationBase>
+                            <speed>78</speed>
+                            <bulletChanceToStartFire>0.1</bulletChanceToStartFire>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="DV_Bullet_PlasmaBolt_Bond" Abstract="True">
+                        <label>plasma shot</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Plasma</texPath>
+                            <shaderType>TransparentPostLight</shaderType>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>DV_PlasmaDamage</damageDef>
+                            <damageAmountBase>15</damageAmountBase>
+                            <speed>72</speed>
+                            <bulletChanceToStartFire>0.5</bulletChanceToStartFire>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="DV_BruteProjectile_Bond" Abstract="True">
+                        <label>brute slug</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Brute</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>24</damageAmountBase>
+                            <stoppingPower>1.1</stoppingPower>
+                            <armorPenetrationBase>0.40</armorPenetrationBase>
+                            <speed>52</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_SpacerArsenal</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingCategoryDef ParentName="MPBFPM_Grenades">
+                                <defName>MPBFPM_Grenades</defName>
+                            </ThingCategoryDef>
+                            <ThingDef ParentName="DV_MeleeWeapon_SparkSabre_Bond">
+                                <defName>DV_MeleeWeapon_SparkSabre_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="DV_Gun_ClashHMG_Bond">
+                                <defName>DV_Gun_ClashHMG_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="DV_Gun_SonicStunner_Bond">
+                                <defName>DV_Gun_SonicStunner_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="DV_Gun_BruteRifle_Bond">
+                                <defName>DV_Gun_BruteRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="DV_Gun_PhotonSMG_Bond">
+                                <defName>DV_Gun_PhotonSMG_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="DV_Gun_PlasmaBlaster_Bond">
+                                <defName>DV_Gun_PlasmaBlaster_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="DV_Gun_CoilgunLance_Bond">
+                                <defName>DV_Gun_CoilgunLance_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="DV_Proj_GrenadeThump_Bond">
+                                <defName>DV_Proj_GrenadeThump_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="DV_Bullet_SonicStunner_Bond">
+                                <defName>DV_Bullet_SonicStunner_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="DV_Bullet_ClashHMG_Bond">
+                                <defName>DV_Bullet_ClashHMG_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="DV_CoilgunProjectile_Bond">
+                                <defName>DV_CoilgunProjectile_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="DV_Bullet_PhotonBlast_Bond">
+                                <defName>DV_Bullet_PhotonBlast_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="DV_Bullet_PlasmaBolt_Bond">
+                                <defName>DV_Bullet_PlasmaBolt_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="DV_BruteProjectile_Bond">
+                                <defName>DV_BruteProjectile_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>
