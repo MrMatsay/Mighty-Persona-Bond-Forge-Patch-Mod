@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== [LYN] Nanotech Overpower =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>lyn.nto</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef Name="MPBFPM_BaseNanoGun" ParentName="MPBFPM_BaseGunWithQuality" Abstract="True" />
+                    <ThingDef ParentName="MPBFPM_BaseNanoGun" Name="Nanoblaster_Bond" Abstract="True">
+                        <label>persona nanoblaster</label>
+                        <description>This small gun might not look very impressive, but its capable at firing many extremely powerful charged nanobullets, which can pierce through thick sheets of steel with ease.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/Resource/Nanoblaster</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeRifle</soundInteract>
+                        <statBases>
+                            <Flammability>0</Flammability>
+                            <MarketValue>5500.0</MarketValue>
+                            <Mass>0.1</Mass>
+                            <AccuracyTouch>2.2</AccuracyTouch>
+                            <AccuracyShort>2.2</AccuracyShort>
+                            <AccuracyMedium>2.2</AccuracyMedium>
+                            <AccuracyLong>2.2</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.17</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_ChargeNano_Bond</defaultProjectile>
+                                <warmupTime>0.2</warmupTime>
+                                <range>200.0</range>
+                                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                <burstShotCount>10</burstShotCount>
+                                <soundCast>Shot_ChargeRifle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>10</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>51.768</power>
+                                <cooldownTime>0.17</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>51.768</power>
+                                <cooldownTime>0.17</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_ChargeNano_Bond" Abstract="True">
+                        <label>charged nanoshot</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Charge_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>89</damageAmountBase>
+                            <armorPenetrationBase>100</armorPenetrationBase>
+                            <speed>200</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_LYNNanotechOverpower</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="Nanoblaster_Bond">
+                                <defName>Nanoblaster_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_ChargeNano_Bond">
+                                <defName>Bullet_ChargeNano_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>
