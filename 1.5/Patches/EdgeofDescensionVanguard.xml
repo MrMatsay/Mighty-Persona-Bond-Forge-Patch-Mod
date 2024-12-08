@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Edge of Descension - Vanguard =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>rabbit.eodvanguard</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="EoD_Gun_ChargeMagnum_Bond" Abstract="True">
+                        <label>persona charge magnum</label>
+                        <description>A charged-shot heavy pistol, resembling a revolver. Pulse-charge technology charges each shot with unstable energy as it leaves the barrel. Released on impact, the charged energy greatly increases the damage done.\n\nTakes quite a time to reload.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Things/Weapon/ChargeMagnum</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_SMG</soundInteract>
+                        <statBases>
+                            <Mass>1.8</Mass>
+                            <AccuracyTouch>0.88</AccuracyTouch>
+                            <AccuracyShort>0.825</AccuracyShort>
+                            <AccuracyMedium>0.77</AccuracyMedium>
+                            <AccuracyLong>0.44</AccuracyLong>
+                            <RangedWeapon_Cooldown>2.21</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>EoD_Bullet_ChargeMagnum_Bond</defaultProjectile>
+                                <warmupTime>1</warmupTime>
+                                <minRange>1.5</minRange>
+                                <range>25.9</range>
+                                <ticksBetweenBurstShots>0</ticksBetweenBurstShots>
+                                <burstShotCount>1</burstShotCount>
+                                <soundCast>EoD_Shot_ChargeMagnum</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>10.791</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="EoD_Bullet_ChargeMagnum_Bond" Abstract="True">
+                        <label>charge magnum shot</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/ChargeMagnumShot</texPath>
+                            <shaderType>TransparentPostLight</shaderType>
+                            <drawSize>1.05</drawSize>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>21</damageAmountBase>
+                            <armorPenetrationBase>0.5</armorPenetrationBase>
+                            <stoppingPower>2</stoppingPower>
+                            <speed>75</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_EdgeofDescensionVanguard</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="EoD_Gun_ChargeMagnum_Bond">
+                                <defName>EoD_Gun_ChargeMagnum_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="EoD_Bullet_ChargeMagnum_Bond">
+                                <defName>EoD_Bullet_ChargeMagnum_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>

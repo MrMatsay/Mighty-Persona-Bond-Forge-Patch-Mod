@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Pulse Rifle Test =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>nymcom.pulserifletest</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_PulseRifle_Bond" Abstract="True">
+                        <label>persona Pulse Rifle</label>
+                        <description>A charged-shot marksmen rifle. This pulse-charge weapon accelerates each shot with energy as it leaves the barrel. Unlike its brother, the pulse rifle provides a more consistent and a accurate single-shot ideal for hunting.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/PulseRifle</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeLance</soundInteract>
+                        <statBases>
+                            <Mass>7</Mass>
+                            <AccuracyTouch>0.737</AccuracyTouch>
+                            <AccuracyShort>0.792</AccuracyShort>
+                            <AccuracyMedium>0.88</AccuracyMedium>
+                            <AccuracyLong>0.968</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                        </weaponTags>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                        <weaponClasses>
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>PulseRifleShot_Bond</defaultProjectile>
+                                <warmupTime>1.5</warmupTime>
+                                <range>37.5</range>
+                                <soundCast>Shot_ChargeBlaster</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="PulseRifleShot_Bond" Abstract="True">
+                        <label>pulse shot</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/PulseRifleShot</texPath>
+                            <shaderType>TransparentPostLight</shaderType>
+                            <drawSize>1.5</drawSize>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <armorPenetrationBase>0.50</armorPenetrationBase>
+                            <damageAmountBase>48</damageAmountBase>
+                            <stoppingPower>2</stoppingPower>
+                            <speed>110</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_PulseRifleTest</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="Gun_PulseRifle_Bond">
+                                <defName>Gun_PulseRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="PulseRifleShot_Bond">
+                                <defName>PulseRifleShot_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Electromagic Weaponry - Railgun =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>negitive.electromagicweaponry.railgun</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="EMW_Railgun_Bond" Abstract="True">
+                        <label>persona railgun</label>
+                        <description>A Long range weapon which accelerates a projectile to incredible speeds using magnets. Can be overcharged to dump tremendous amounts of energy into the atmosphere surrounding the target, typically resulting in a lightning strike in the area, doing so burns out the capacitors.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/Railgun</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeLance</soundInteract>
+                        <statBases>
+                            <Flammability>0</Flammability>
+                            <AccuracyTouch>0.33</AccuracyTouch>
+                            <AccuracyShort>0.44</AccuracyShort>
+                            <AccuracyMedium>0.88</AccuracyMedium>
+                            <AccuracyLong>1.1</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                            <Mass>8</Mass>
+                        </statBases>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                        </weaponTags>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                        <weaponClasses>
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>EMW_Railgun.Verb_DoubleShot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>EMW_RailgunRail_Bond</defaultProjectile>
+                                <beamMoteDef>EMW_EMPRailgunRail</beamMoteDef>
+                                <burstShotCount>2</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <beamChanceToAttachFire>1</beamChanceToAttachFire>
+                                <warmupTime>6</warmupTime>
+                                <range>9999</range>
+                                <soundCast>ChargeLance_Fire</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>20</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                        <comps>
+                            <li Class="CompProperties_EquippableAbilityReloadable">
+                                <abilityDef>EMW_RailgunOvercharge</abilityDef>
+                                <maxCharges>1</maxCharges>
+                                <soundReload>Standard_Reload</soundReload>
+                                <chargeNoun>capacitor charge</chargeNoun>
+                                <ammoDef>EMW_Capacitor</ammoDef>
+                                <ammoCountPerCharge>1</ammoCountPerCharge>
+                                <baseReloadTicks>60</baseReloadTicks>
+                            </li>
+                            <li Class="CompProperties_Styleable" />
+                        </comps>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="EMW_RailgunRail_Bond" Abstract="True">
+                        <label>railgun rail</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Railgun_Rail</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>57</damageAmountBase>
+                            <stoppingPower>2</stoppingPower>
+                            <speed>300</speed>
+                            <armorPenetrationBase>0.8</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="EMW_EMPRailgunRail_Bond" Abstract="True">
+                        <label>emp rail</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Railgun_Rail</texPath>
+                        </graphicData>
+                        <thingClass>Projectile_Explosive</thingClass>
+                        <projectile>
+                            <damageDef>EMP</damageDef>
+                            <damageAmountBase>7</damageAmountBase>
+                            <speed>500</speed>
+                            <explosionRadius>1.5</explosionRadius>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_ElectromagicWeaponryRailgun</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="EMW_Railgun_Bond">
+                                <defName>EMW_Railgun_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="EMW_RailgunRail_Bond">
+                                <defName>EMW_RailgunRail_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="EMW_EMPRailgunRail_Bond">
+                                <defName>EMW_EMPRailgunRail_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>

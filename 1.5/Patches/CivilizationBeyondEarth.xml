@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Civilization Beyond Earth =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>paranautic.civilizationbeyondearth</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef Name="MPBFPM_CBE_WeaponBase" ParentName="MPBFPM_BaseHumanMakeableGun" Abstract="True">
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CBE_WeaponBase" Name="CBE_WeaponSoldier_Bond" Abstract="True">
+                        <label>persona CSMG</label>
+                        <description>A Weapon From the old World\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Tier1_Items/Carbine_Tier1_Soldier</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <statBases>
+                            <MarketValue>495.0</MarketValue>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>1.045</AccuracyTouch>
+                            <AccuracyShort>0.77</AccuracyShort>
+                            <AccuracyMedium>0.715</AccuracyMedium>
+                            <AccuracyLong>0.55</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.842</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>CBE_Bullet_WeaponSoldier_Bond</defaultProjectile>
+                                <warmupTime>0.866</warmupTime>
+                                <range>20.9</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
+                                <soundCast>CBE_Tier1_Weapon_Sound</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CBE_WeaponBase" Name="CBE_WeaponUpgrade_Bond" Abstract="True">
+                        <label>persona CSMG MK2</label>
+                        <description>A Weapon From the old World.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Tier1_Modded/Carbine_Modded_Soldier</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.4</drawSize>
+                        </graphicData>
+                        <statBases>
+                            <MarketValue>550.0</MarketValue>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>1.023</AccuracyTouch>
+                            <AccuracyShort>0.825</AccuracyShort>
+                            <AccuracyMedium>0.77</AccuracyMedium>
+                            <AccuracyLong>0.605</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.825</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>CBE_Bullet_Upgrade_Bond</defaultProjectile>
+                                <warmupTime>0.833</warmupTime>
+                                <range>28.9</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>11</ticksBetweenBurstShots>
+                                <soundCast>CBE_Tier1_Weapon_Sound</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CBE_WeaponBase" Name="CBE_WeaponMarine_Bond" Abstract="True">
+                        <label>persona marine weapon</label>
+                        <description>Soldier military forces concentrate mostly on mechanical exoskeletons, energy weapons, and amphibious attacks, thanks to their armadas of LEV vehicles.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Tier2_Soldier/Tier2_Soldier_Weapon</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <statBases>
+                            <MarketValue>770.0</MarketValue>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>0.99</AccuracyTouch>
+                            <AccuracyShort>0.935</AccuracyShort>
+                            <AccuracyMedium>0.825</AccuracyMedium>
+                            <AccuracyLong>0.66</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>CBE_Bullet_Marine_Bond</defaultProjectile>
+                                <warmupTime>0.916</warmupTime>
+                                <range>32.9</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>CBE_Tier2_Marine_Sound</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CBE_WeaponBase" Name="CBE_WeaponBrawler_Bond" Abstract="True">
+                        <label>persona brawler weapon</label>
+                        <description>Harmony appear to make heavy use of poison-like substances in their munitions, likely militarized variants of the chemically degrading biological clouds of fungal spores dubbed Miasma by the colonists, only of course on a far more concentrated and magnified scale.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Tier3_Harmony/Harmony_weapon</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <statBases>
+                            <MarketValue>990.0</MarketValue>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>1.034</AccuracyTouch>
+                            <AccuracyShort>0.99</AccuracyShort>
+                            <AccuracyMedium>0.88</AccuracyMedium>
+                            <AccuracyLong>0.825</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>CBE_Bullet_Brawler_Bond</defaultProjectile>
+                                <warmupTime>1.000</warmupTime>
+                                <range>35.9</range>
+                                <burstShotCount>2</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>CBE_Tier3_Brawler_Sound</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CBE_WeaponBase" Name="CBE_WeaponMarauder_Bond" Abstract="True">
+                        <label>persona marauder weapon</label>
+                        <description>Harmony appear to make heavy use of poison-like substances in their munitions, likely militarized variants of the chemically degrading biological clouds of fungal spores dubbed Miasma by the colonists, only of course on a far more concentrated and magnified scale.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Tier4_Harmony/Marauder_weapon</texPath>
+                            <drawSize>1.3</drawSize>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <statBases>
+                            <MarketValue>1650.0</MarketValue>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>1.034</AccuracyTouch>
+                            <AccuracyShort>0.99</AccuracyShort>
+                            <AccuracyMedium>0.825</AccuracyMedium>
+                            <AccuracyLong>0.88</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.977</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>CBE_Bullet_Marauder_Bond</defaultProjectile>
+                                <warmupTime>0.966</warmupTime>
+                                <range>40.9</range>
+                                <burstShotCount>2</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>CBE_Tier4_Marauder_Sound</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CBE_WeaponBase" Name="CBE_WeaponChampion_Bond" Abstract="True">
+                        <label>persona champion weapon</label>
+                        <description>Hybrid units blend elements from the primary Affinities together. As they do not excel primarily in one Affinity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Tier4_Champion/Tier4_Champion_Weapon</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <statBases>
+                            <MarketValue>2200.0</MarketValue>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>1.045</AccuracyTouch>
+                            <AccuracyShort>0.99</AccuracyShort>
+                            <AccuracyMedium>1.023</AccuracyMedium>
+                            <AccuracyLong>1.045</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>CBE_Bullet_Champion_Bond</defaultProjectile>
+                                <warmupTime>0.916</warmupTime>
+                                <range>41.9</range>
+                                <burstShotCount>4</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>CBE_Tier4_Champion_Sound</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CBE_WeaponBase" Name="CBE_WeaponSentinel_Bond" Abstract="True">
+                        <label>persona sentinel weapon</label>
+                        <description>Purity military forces concentrate mostly on mechanical exoskeletons, energy weapons, and amphibious attacks, thanks to their armadas of LEV vehicles.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Tier3_Purity/Tier3_Purity_Weapon</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <statBases>
+                            <MarketValue>990.0</MarketValue>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>1.067</AccuracyTouch>
+                            <AccuracyShort>1.045</AccuracyShort>
+                            <AccuracyMedium>0.913</AccuracyMedium>
+                            <AccuracyLong>0.88</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>CBE_Bullet_Sentinel_Bond</defaultProjectile>
+                                <warmupTime>1.000</warmupTime>
+                                <range>35.9</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>CBE_Tier3_Sentinel_Sound</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CBE_WeaponBase" Name="CBE_WeaponCenturion_Bond" Abstract="True">
+                        <label>persona centurion weapon</label>
+                        <description>Purity military forces concentrate mostly on mechanical exoskeletons, energy weapons, and amphibious attacks, thanks to their armadas of LEV vehicles.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Tier4_Purity/Tier4_Purity_Weapon</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <statBases>
+                            <MarketValue>1650.0</MarketValue>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>0.99</AccuracyTouch>
+                            <AccuracyShort>0.935</AccuracyShort>
+                            <AccuracyMedium>0.935</AccuracyMedium>
+                            <AccuracyLong>0.99</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.977</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>CBE_Bullet_Centurion_Bond</defaultProjectile>
+                                <warmupTime>0.966</warmupTime>
+                                <range>40.9</range>
+                                <burstShotCount>4</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>CBE_Tier4_Centurion_Sound</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CBE_WeaponBase" Name="CBE_WeaponEidolon_Bond" Abstract="True">
+                        <label>persona eidolon weapon</label>
+                        <description>Advanced energy weapons.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Tier4_Eidolon/Tier4_Eidolon_Weapon</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <statBases>
+                            <MarketValue>2200.0</MarketValue>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>1.045</AccuracyTouch>
+                            <AccuracyShort>0.99</AccuracyShort>
+                            <AccuracyMedium>1.023</AccuracyMedium>
+                            <AccuracyLong>1.045</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>CBE_Bullet_Eidolon_Bond</defaultProjectile>
+                                <warmupTime>0.916</warmupTime>
+                                <range>41.9</range>
+                                <burstShotCount>4</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>CBE_Tier4_Eidolon_Sound</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CBE_WeaponBase" Name="CBE_WeaponDisciple_Bond" Abstract="True">
+                        <label>persona disciple weapon</label>
+                        <description>Supremacy weapons appear fire- and explosive-based, with yellow and orange colors which give the impression of superheated blast shells.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Tier3_Supremacy/Supremacy_weapon</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <statBases>
+                            <MarketValue>990.0</MarketValue>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>0.88</AccuracyTouch>
+                            <AccuracyShort>0.99</AccuracyShort>
+                            <AccuracyMedium>1.012</AccuracyMedium>
+                            <AccuracyLong>1.045</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>CBE_Bullet_Disciple_Bond</defaultProjectile>
+                                <warmupTime>1.000</warmupTime>
+                                <range>35.9</range>
+                                <burstShotCount>1</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>CBE_Tier3_Disciple_Sound</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CBE_WeaponBase" Name="CBE_WeaponApostle_Bond" Abstract="True">
+                        <label>persona apostle weapon</label>
+                        <description>Supremacy weapons appear fire- and explosive-based, with yellow and orange colors which give the impression of superheated blast shells.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Tier4_Supermacy/Tier4_Supremacy_Weapon</texPath>
+                            <drawSize>1.3</drawSize>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <statBases>
+                            <MarketValue>1650.0</MarketValue>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>0.88</AccuracyTouch>
+                            <AccuracyShort>0.935</AccuracyShort>
+                            <AccuracyMedium>1.034</AccuracyMedium>
+                            <AccuracyLong>1.067</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.977</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>CBE_Bullet_Apostle_Bond</defaultProjectile>
+                                <warmupTime>0.966</warmupTime>
+                                <range>40.9</range>
+                                <burstShotCount>1</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>CBE_Tier4_Apostle_Sound</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CBE_WeaponBase" Name="CBE_WeaponHellion_Bond" Abstract="True">
+                        <label>persona hellion weapon</label>
+                        <description>Hybrid units blend elements from the primary Affinities together. As they do not excel primarily in one Affinity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Tier4_Hellion/Tier4_Hellion_Weapon</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <statBases>
+                            <MarketValue>2200.0</MarketValue>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>1.045</AccuracyTouch>
+                            <AccuracyShort>0.99</AccuracyShort>
+                            <AccuracyMedium>1.023</AccuracyMedium>
+                            <AccuracyLong>1.045</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>CBE_Bullet_Hellion_Bond</defaultProjectile>
+                                <warmupTime>0.916</warmupTime>
+                                <range>41.9</range>
+                                <burstShotCount>4</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>CBE_Tier4_Hellion_Sound</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="CBE_Bullet_WeaponSoldier_Bond" Abstract="True">
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>13</damageAmountBase>
+                            <speed>44</speed>
+                            <stoppingPower>0.4</stoppingPower>
+                            <armorPenetrationBase>0.18</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="CBE_Bullet_Upgrade_Bond" Abstract="True">
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>14</damageAmountBase>
+                            <speed>45</speed>
+                            <stoppingPower>0.5</stoppingPower>
+                            <armorPenetrationBase>0.19</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="CBE_Bullet_Marine_Bond" Abstract="True">
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>15</damageAmountBase>
+                            <speed>47</speed>
+                            <stoppingPower>0.6</stoppingPower>
+                            <armorPenetrationBase>0.20</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="CBE_Bullet_Brawler_Bond" Abstract="True">
+                        <graphicData>
+                            <texPath>Things/Tier3_Harmony/Harmony_Bullet</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>19</damageAmountBase>
+                            <speed>68</speed>
+                            <stoppingPower>1.0</stoppingPower>
+                            <armorPenetrationBase>0.32</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="CBE_Bullet_Marauder_Bond" Abstract="True">
+                        <graphicData>
+                            <texPath>Things/Tier3_Harmony/Harmony_Bullet</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>24</damageAmountBase>
+                            <speed>69</speed>
+                            <stoppingPower>1.5</stoppingPower>
+                            <armorPenetrationBase>0.33</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="CBE_Bullet_Champion_Bond" Abstract="True">
+                        <graphicData>
+                            <texPath>Things/Tier4_Champion/Champion_Bullet</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>27</damageAmountBase>
+                            <speed>72</speed>
+                            <stoppingPower>2.5</stoppingPower>
+                            <armorPenetrationBase>0.40</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="CBE_Bullet_Sentinel_Bond" Abstract="True">
+                        <graphicData>
+                            <texPath>Things/Tier3_Purity/Tier3_Purity_Bullet</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>19</damageAmountBase>
+                            <speed>68</speed>
+                            <stoppingPower>1.0</stoppingPower>
+                            <armorPenetrationBase>0.33</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="CBE_Bullet_Centurion_Bond" Abstract="True">
+                        <graphicData>
+                            <texPath>Things/Tier3_Purity/Tier3_Purity_Bullet</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>24</damageAmountBase>
+                            <speed>69</speed>
+                            <stoppingPower>1.5</stoppingPower>
+                            <armorPenetrationBase>0.34</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="CBE_Bullet_Eidolon_Bond" Abstract="True">
+                        <graphicData>
+                            <texPath>Things/Tier4_Eidolon/Eidolon_Bullet</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>27</damageAmountBase>
+                            <speed>72</speed>
+                            <stoppingPower>2.5</stoppingPower>
+                            <armorPenetrationBase>0.40</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="CBE_Bullet_Disciple_Bond" Abstract="True">
+                        <graphicData>
+                            <texPath>Things/Tier3_Supremacy/Supremacy_Bullet</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>19</damageAmountBase>
+                            <speed>70</speed>
+                            <stoppingPower>1.0</stoppingPower>
+                            <armorPenetrationBase>0.34</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="CBE_Bullet_Apostle_Bond" Abstract="True">
+                        <graphicData>
+                            <texPath>Things/Tier3_Supremacy/Supremacy_Bullet</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>24</damageAmountBase>
+                            <speed>71</speed>
+                            <stoppingPower>1.5</stoppingPower>
+                            <armorPenetrationBase>0.38</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="CBE_Bullet_Hellion_Bond" Abstract="True">
+                        <graphicData>
+                            <texPath>Things/Tier4_Hellion/Hellion_Bullet</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>27</damageAmountBase>
+                            <speed>72</speed>
+                            <stoppingPower>2.5</stoppingPower>
+                            <armorPenetrationBase>0.40</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_CivilizationBeyondEarth</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="CBE_WeaponSoldier_Bond">
+                                <defName>CBE_WeaponSoldier_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_WeaponUpgrade_Bond">
+                                <defName>CBE_WeaponUpgrade_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_WeaponMarine_Bond">
+                                <defName>CBE_WeaponMarine_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_WeaponBrawler_Bond">
+                                <defName>CBE_WeaponBrawler_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_WeaponMarauder_Bond">
+                                <defName>CBE_WeaponMarauder_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_WeaponChampion_Bond">
+                                <defName>CBE_WeaponChampion_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_WeaponSentinel_Bond">
+                                <defName>CBE_WeaponSentinel_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_WeaponCenturion_Bond">
+                                <defName>CBE_WeaponCenturion_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_WeaponEidolon_Bond">
+                                <defName>CBE_WeaponEidolon_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_WeaponDisciple_Bond">
+                                <defName>CBE_WeaponDisciple_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_WeaponApostle_Bond">
+                                <defName>CBE_WeaponApostle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_WeaponHellion_Bond">
+                                <defName>CBE_WeaponHellion_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_Bullet_WeaponSoldier_Bond">
+                                <defName>CBE_Bullet_WeaponSoldier_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_Bullet_Upgrade_Bond">
+                                <defName>CBE_Bullet_Upgrade_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_Bullet_Marine_Bond">
+                                <defName>CBE_Bullet_Marine_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_Bullet_Brawler_Bond">
+                                <defName>CBE_Bullet_Brawler_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_Bullet_Marauder_Bond">
+                                <defName>CBE_Bullet_Marauder_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_Bullet_Champion_Bond">
+                                <defName>CBE_Bullet_Champion_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_Bullet_Sentinel_Bond">
+                                <defName>CBE_Bullet_Sentinel_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_Bullet_Centurion_Bond">
+                                <defName>CBE_Bullet_Centurion_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_Bullet_Eidolon_Bond">
+                                <defName>CBE_Bullet_Eidolon_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_Bullet_Disciple_Bond">
+                                <defName>CBE_Bullet_Disciple_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_Bullet_Apostle_Bond">
+                                <defName>CBE_Bullet_Apostle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CBE_Bullet_Hellion_Bond">
+                                <defName>CBE_Bullet_Hellion_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>

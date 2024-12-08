@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Mechanoid Reusing 2 =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>romyashi.mechanoidreusing2</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality" Name="Romy_MeleeWeapon_MechanoidSword_Bond" Abstract="True">
+                        <label>persona mechanoid sword</label>
+                        <description>An energy sword very similar in function with plasma swords, but powered with a mechanoid core.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <equippedAngleOffset>-65</equippedAngleOffset>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponMelee/Romy_Longsword_Mechanoid</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <statBases>
+                            <Mass>2</Mass>
+                        </statBases>
+                        <tools>
+                            <li>
+                                <label>handle</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>15.464</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>point</label>
+                                <capacities>
+                                    <li>Stab</li>
+                                </capacities>
+                                <power>23.359</power>
+                                <cooldownTime>2.21</cooldownTime>
+                                <extraMeleeDamages>
+                                    <li>
+                                        <def>Flame</def>
+                                        <amount>10</amount>
+                                        <chance>0.5</chance>
+                                    </li>
+                                </extraMeleeDamages>
+                            </li>
+                            <li>
+                                <label>edge</label>
+                                <capacities>
+                                    <li>Cut</li>
+                                </capacities>
+                                <power>23.359</power>
+                                <cooldownTime>2.21</cooldownTime>
+                                <extraMeleeDamages>
+                                    <li>
+                                        <def>Flame</def>
+                                        <amount>10</amount>
+                                        <chance>0.5</chance>
+                                    </li>
+                                </extraMeleeDamages>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseMeleeWeapon_Sharp_Quality" Name="Romy_MeleeWeapon_ScytherSword_Bond" Abstract="True">
+                        <label>persona scyther sword</label>
+                        <description>A sword made to resemble a scyther blade and is almost as deadly.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <equippedAngleOffset>-65</equippedAngleOffset>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponMelee/Romy_Scyther_Sword_Mechanoid</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <statBases>
+                            <Mass>2</Mass>
+                        </statBases>
+                        <tools>
+                            <li>
+                                <label>handle</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>15.464</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>point</label>
+                                <capacities>
+                                    <li>Stab</li>
+                                </capacities>
+                                <power>21.123</power>
+                                <cooldownTime>1.955</cooldownTime>
+                            </li>
+                            <li>
+                                <label>edge</label>
+                                <capacities>
+                                    <li>Cut</li>
+                                </capacities>
+                                <power>21.123</power>
+                                <cooldownTime>1.955</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Romy_Gun_MechanoidPistol_Bond" Abstract="True">
+                        <label>persona mechanoid pistol</label>
+                        <description>A slug-thrower pistol made with mechanoid materials.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/Romy_Pistol_Mechanoid</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <uiIconScale>1.5</uiIconScale>
+                        <soundInteract>Interact_Autopistol</soundInteract>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                        </weaponClasses>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                        <statBases>
+                            <Mass>1.2</Mass>
+                            <AccuracyTouch>0.99</AccuracyTouch>
+                            <AccuracyShort>0.88</AccuracyShort>
+                            <AccuracyMedium>0.495</AccuracyMedium>
+                            <AccuracyLong>0.33</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.68</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Romy_Bullet_MechPistol_Bond</defaultProjectile>
+                                <warmupTime>0.3</warmupTime>
+                                <range>20</range>
+                                <soundCast>Shot_Autopistol</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Romy_Gun_MechanoidSMG_Bond" Abstract="True">
+                        <label>persona mechanoid SMG</label>
+                        <description>A compact slug-thrower SMG made with mechanoid materials.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/Romy_SMG_Mechanoid</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_SMG</soundInteract>
+                        <weaponClasses>
+                            <li>ShortShots</li>
+                            <li>RangedLight</li>
+                        </weaponClasses>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                        <statBases>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>1.045</AccuracyTouch>
+                            <AccuracyShort>0.825</AccuracyShort>
+                            <AccuracyMedium>0.44</AccuracyMedium>
+                            <AccuracyLong>0.253</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.105</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Romy_Bullet_MechanoidSMG_Bond</defaultProjectile>
+                                <warmupTime>0.9</warmupTime>
+                                <range>23.9</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <soundCast>Shot_HeavySMG</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Romy_Gun_MechanoidShotgun_Bond" Abstract="True">
+                        <label>persona mechanoid shotgun</label>
+                        <description>A slug-thrower shotgun made with mechanoid materials.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/Romy_Shotgun_Mechanoid</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Shotgun</soundInteract>
+                        <weaponClasses>
+                            <li>ShortShots</li>
+                        </weaponClasses>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                        <statBases>
+                            <Mass>3.4</Mass>
+                            <AccuracyTouch>0.88</AccuracyTouch>
+                            <AccuracyShort>0.957</AccuracyShort>
+                            <AccuracyMedium>0.847</AccuracyMedium>
+                            <AccuracyLong>0.704</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.062</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Romy_Bullet_MechanoidShotgun_Bond</defaultProjectile>
+                                <warmupTime>0.9</warmupTime>
+                                <range>16.9</range>
+                                <soundCast>Shot_Shotgun</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Romy_Gun_MechanoidRifle_Bond" Abstract="True">
+                        <label>persona mechanoid rifle</label>
+                        <description>A charged-shot rifle made with mechanoid materials.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/Romy_AssaultRifle_Mechanoid</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeRifle</soundInteract>
+                        <statBases>
+                            <Mass>4.6</Mass>
+                            <AccuracyTouch>0.715</AccuracyTouch>
+                            <AccuracyShort>0.77</AccuracyShort>
+                            <AccuracyMedium>0.715</AccuracyMedium>
+                            <AccuracyLong>0.495</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                        </statBases>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Romy_Bullet_MechanoidRifle_Bond</defaultProjectile>
+                                <warmupTime>1.0</warmupTime>
+                                <range>27.9</range>
+                                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                                <burstShotCount>3</burstShotCount>
+                                <soundCast>Shot_ChargeRifle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Romy_Gun_MechanoidSniperRifle_Bond" Abstract="True">
+                        <label>persona mechanoid sniper rifle</label>
+                        <description>An needle sniper rifle made with mechanoid materials.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/Romy_SniperRifle_Mechanoid</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <weaponClasses>
+                            <li>LongShots</li>
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                        <statBases>
+                            <Mass>4</Mass>
+                            <AccuracyTouch>0.55</AccuracyTouch>
+                            <AccuracyShort>0.77</AccuracyShort>
+                            <AccuracyMedium>0.946</AccuracyMedium>
+                            <AccuracyLong>0.99</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.53</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Romy_Bullet_MechanoidSniperRifle_Bond</defaultProjectile>
+                                <warmupTime>3.5</warmupTime>
+                                <range>45.9</range>
+                                <soundCast>Shot_NeedleGun</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Romy_Bullet_MechPistol_Bond" Abstract="True">
+                        <label>mechanoid pistol bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>15</damageAmountBase>
+                            <speed>70</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Romy_Bullet_MechanoidSMG_Bond" Abstract="True">
+                        <label>heavy SMG bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>17</damageAmountBase>
+                            <speed>48</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Romy_Bullet_MechanoidShotgun_Bond" Abstract="True">
+                        <label>mechanoid shotgun blast</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>24</damageAmountBase>
+                            <stoppingPower>4</stoppingPower>
+                            <armorPenetrationBase>0.25</armorPenetrationBase>
+                            <speed>55</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Romy_Bullet_MechanoidRifle_Bond" Abstract="True">
+                        <label>charge shot</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Charge_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>19</damageAmountBase>
+                            <armorPenetrationBase>0.35</armorPenetrationBase>
+                            <speed>70</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Romy_Bullet_MechanoidSniperRifle_Bond" Abstract="True">
+                        <label>mechanoid sniper rifle needle</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Needle</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>31</damageAmountBase>
+                            <stoppingPower>1.5</stoppingPower>
+                            <speed>100</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_MechanoidReusing2</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="Romy_MeleeWeapon_MechanoidSword_Bond">
+                                <defName>Romy_MeleeWeapon_MechanoidSword_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Romy_MeleeWeapon_ScytherSword_Bond">
+                                <defName>Romy_MeleeWeapon_ScytherSword_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Romy_Gun_MechanoidPistol_Bond">
+                                <defName>Romy_Gun_MechanoidPistol_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Romy_Gun_MechanoidSMG_Bond">
+                                <defName>Romy_Gun_MechanoidSMG_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Romy_Gun_MechanoidShotgun_Bond">
+                                <defName>Romy_Gun_MechanoidShotgun_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Romy_Gun_MechanoidRifle_Bond">
+                                <defName>Romy_Gun_MechanoidRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Romy_Gun_MechanoidSniperRifle_Bond">
+                                <defName>Romy_Gun_MechanoidSniperRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Romy_Bullet_MechPistol_Bond">
+                                <defName>Romy_Bullet_MechPistol_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Romy_Bullet_MechanoidSMG_Bond">
+                                <defName>Romy_Bullet_MechanoidSMG_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Romy_Bullet_MechanoidShotgun_Bond">
+                                <defName>Romy_Bullet_MechanoidShotgun_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Romy_Bullet_MechanoidRifle_Bond">
+                                <defName>Romy_Bullet_MechanoidRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Romy_Bullet_MechanoidSniperRifle_Bond">
+                                <defName>Romy_Bullet_MechanoidSniperRifle_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>

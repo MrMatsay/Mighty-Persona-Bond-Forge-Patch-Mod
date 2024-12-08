@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Phase Weaponry =====
+-->
+<Patch>
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>det.phaseweaponry</li>
+		</mods>
+		<packageId>true</packageId>
+
+		<caseTrue>
+			<Operation Class="XmlExtensions.PatchOperationAdd">
+				<xpath>Defs</xpath>
+				<value>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_DV_Gun_PhasePistol_Bond" Abstract="True">
+						<label>bond phase shank</label>
+						<description>Bond an phase shank.</description>
+						<jobString>Bonding a phase shank.</jobString>
+						<researchPrerequisites>
+							<li>DV_PhaseWeaponsResearch</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>DV_Gun_PhasePistol</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>DV_Gun_PhasePistol</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<DV_Gun_PhasePistol_Bond>1</DV_Gun_PhasePistol_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_DV_Gun_PhaseRifle_Bond" Abstract="True">
+						<label>bond phase saw</label>
+						<description>Bond an phase saw.</description>
+						<jobString>Bonding a phase saw.</jobString>
+						<researchPrerequisites>
+							<li>DV_PhaseWeaponsResearch</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>DV_Gun_PhaseRifle</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>DV_Gun_PhaseRifle</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<DV_Gun_PhaseRifle_Bond>1</DV_Gun_PhaseRifle_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_DV_Gun_PhasePrecisionRifle_Bond" Abstract="True">
+						<label>bond phase scalpel</label>
+						<description>Bond an phase scalpel.</description>
+						<jobString>Bonding a phase scalpel.</jobString>
+						<researchPrerequisites>
+							<li>DV_PhaseWeaponsResearch</li>
+						</researchPrerequisites>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>DV_Gun_PhasePrecisionRifle</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>DV_Gun_PhasePrecisionRifle</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<DV_Gun_PhasePrecisionRifle_Bond>1</DV_Gun_PhasePrecisionRifle_Bond>
+						</products>
+					</RecipeDef>
+				</value>
+			</Operation>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+				<key>Daria40K_MightyPersonaBondForgePatch_PhaseWeaponry</key>
+				<defaultValue>true</defaultValue>
+
+				<caseTrue>
+					<Operation Class="XmlExtensions.OptionalPatch">
+						<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+						<key>Daria40K_MightyPersonaBondForgePatch_PBF_PhaseWeaponry</key>
+						<defaultValue>true</defaultValue>
+
+						<caseTrue>
+							<Operation Class="XmlExtensions.OptionalPatch">
+								<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+								<key>Daria40K_MightyPersonaBondForgePatch_DisablePersonaBondForge</key>
+								<defaultValue>false</defaultValue>
+
+								<caseFalse>
+									<Operation Class="XmlExtensions.PatchOperationAdd">
+										<xpath>Defs</xpath>
+										<value>
+											<RecipeDef ParentName="Make_DV_Gun_PhasePistol_Bond">
+												<defName>Make_DV_Gun_PhasePistol_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_DV_Gun_PhaseRifle_Bond">
+												<defName>Make_DV_Gun_PhaseRifle_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_DV_Gun_PhasePrecisionRifle_Bond">
+												<defName>Make_DV_Gun_PhasePrecisionRifle_Bond</defName>
+											</RecipeDef>
+										</value>
+									</Operation>
+								</caseFalse>
+							</Operation>
+						</caseTrue>
+					</Operation>
+				</caseTrue>
+			</Operation>
+		</caseTrue>
+	</Operation>
+</Patch>
