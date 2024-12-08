@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Firearms of Tomorrow =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>exabrupto.fot</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_LPAssaultRifle_Bond" Abstract="True">
+                        <label>persona LP assault rifle</label>
+                        <description>An assault rifle that utilizes the liquid monopropellant instead of gunpowder. Has two fire modes: regular (3 shot burst, DMG = 11, AP = 35%, range = 32 c.) and high-power (1 shot, DMG=18, AP=45%, range = 37 c.)\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Weapons/LP_AR</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>0.77</AccuracyTouch>
+                            <AccuracyShort>0.88</AccuracyShort>
+                            <AccuracyMedium>0.825</AccuracyMedium>
+                            <AccuracyLong>0.715</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <label>LP AR (Burst)</label>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>LP_Bullet_AR_Std_Bond</defaultProjectile>
+                                <warmupTime>0.8</warmupTime>
+                                <range>30.9</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                <soundCast>Shot_AssaultRifle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                            <li>
+                                <label>LP AR (Single)</label>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>LP_Bullet_AR_Turbo_Bond</defaultProjectile>
+                                <warmupTime>1.25</warmupTime>
+                                <range>36.9</range>
+                                <burstShotCount>1</burstShotCount>
+                                <soundCast>Shot_AssaultRifle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>12</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <comps>
+                            <li Class="MVCF.Comps.CompProperties_VerbProps">
+                                <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+                                <verbProps>
+                                    <li>
+                                        <label>LP AR (Burst)</label>
+                                        <canBeToggled>false</canBeToggled>
+                                        <comps>
+                                            <li Class="MVCF.VerbComps.VerbCompProperties_Switch">
+                                                <switchIcon>UI/burst</switchIcon>
+                                                <startEnabled>true</startEnabled>
+                                            </li>
+                                        </comps>
+                                    </li>
+                                    <li>
+                                        <label>LP AR (Single)</label>
+                                        <canBeToggled>false</canBeToggled>
+                                        <comps>
+                                            <li Class="MVCF.VerbComps.VerbCompProperties_Switch">
+                                                <switchIcon>UI/single</switchIcon>
+                                            </li>
+                                        </comps>
+                                    </li>
+                                </verbProps>
+                            </li>
+                        </comps>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                            <li>AssaultRifle</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_LPSniperRifle_Bond" Abstract="True">
+                        <label>persona LP sniper rifle</label>
+                        <description>A sniper rifle that utilizes the liquid monopropellant instead of gunpowder. Has two fire modes: high-power and low power.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Weapons/LP_SR</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>0.66</AccuracyTouch>
+                            <AccuracyShort>0.88</AccuracyShort>
+                            <AccuracyMedium>1.045</AccuracyMedium>
+                            <AccuracyLong>0.99</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <label>LP SR (High power)</label>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>LP_Bullet_SR_High_Bond</defaultProjectile>
+                                <warmupTime>3</warmupTime>
+                                <range>54.9</range>
+                                <burstShotCount>1</burstShotCount>
+                                <soundCast>Shot_AssaultRifle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                            <li>
+                                <label>LP SR (Low power)</label>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>LP_Bullet_SR_Low_Bond</defaultProjectile>
+                                <warmupTime>1.5</warmupTime>
+                                <range>36.9</range>
+                                <burstShotCount>2</burstShotCount>
+                                <ticksBetweenBurstShots>30</ticksBetweenBurstShots>
+                                <soundCast>Shot_AssaultRifle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>12</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <comps>
+                            <li Class="MVCF.Comps.CompProperties_VerbProps">
+                                <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+                                <verbProps>
+                                    <li>
+                                        <label>LP SR (High power)</label>
+                                        <canBeToggled>false</canBeToggled>
+                                        <comps>
+                                            <li Class="MVCF.VerbComps.VerbCompProperties_Switch">
+                                                <switchIcon>UI/single</switchIcon>
+                                                <startEnabled>true</startEnabled>
+                                            </li>
+                                        </comps>
+                                    </li>
+                                    <li>
+                                        <label>LP SR (Low power)</label>
+                                        <canBeToggled>false</canBeToggled>
+                                        <comps>
+                                            <li Class="MVCF.VerbComps.VerbCompProperties_Switch">
+                                                <switchIcon>UI/burst</switchIcon>
+                                            </li>
+                                        </comps>
+                                    </li>
+                                </verbProps>
+                            </li>
+                        </comps>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_LPShotgun_Bond" Abstract="True">
+                        <label>persona LP shotgun</label>
+                        <description>An automatic shotgun that utilizes the liquid monopropellant instead of gunpowder. Two fire modes: buckshot and EMP shots.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Weapons/LP_Shotgun</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>0.737</AccuracyTouch>
+                            <AccuracyShort>0.814</AccuracyShort>
+                            <AccuracyMedium>0.715</AccuracyMedium>
+                            <AccuracyLong>0.605</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.977</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <label>LP Shotgun (buckshot)</label>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_LPShotgun_Bond</defaultProjectile>
+                                <warmupTime>1</warmupTime>
+                                <range>15</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>30</ticksBetweenBurstShots>
+                                <soundCast>Shot_AssaultRifle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>12</muzzleFlashScale>
+                            </li>
+                            <li>
+                                <label>LP Shotgun (EMP)</label>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_LPShotgun_EMP_Bond</defaultProjectile>
+                                <warmupTime>1</warmupTime>
+                                <range>15</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>30</ticksBetweenBurstShots>
+                                <soundCast>Shot_AssaultRifle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>12</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <comps>
+                            <li Class="MVCF.Comps.CompProperties_VerbProps">
+                                <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+                                <verbProps>
+                                    <li>
+                                        <label>LP Shotgun (buckshot)</label>
+                                        <canBeToggled>false</canBeToggled>
+                                        <comps>
+                                            <li Class="MVCF.VerbComps.VerbCompProperties_Switch">
+                                                <switchIcon>UI/buckshot</switchIcon>
+                                                <startEnabled>true</startEnabled>
+                                            </li>
+                                        </comps>
+                                    </li>
+                                    <li>
+                                        <label>LP Shotgun (EMP)</label>
+                                        <canBeToggled>false</canBeToggled>
+                                        <comps>
+                                            <li Class="MVCF.VerbComps.VerbCompProperties_Switch">
+                                                <switchIcon>UI/emp</switchIcon>
+                                            </li>
+                                        </comps>
+                                    </li>
+                                </verbProps>
+                            </li>
+                        </comps>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_LPPistol_Bond" Abstract="True">
+                        <label>persona LP pistol</label>
+                        <description>A pistol that utilizes the liquid monopropellant instead of gunpowder. Has two fire modes: burst (3 shot burst) and single-shot(1 shot, stronger and with longer range)\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Weapons/LP_Pistol</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_SMG</soundInteract>
+                        <statBases>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>0.99</AccuracyTouch>
+                            <AccuracyShort>0.825</AccuracyShort>
+                            <AccuracyMedium>0.605</AccuracyMedium>
+                            <AccuracyLong>0.495</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.68</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <label>LP pistol (Burst)</label>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>LP_Bullet_Pistol_Low_Bond</defaultProjectile>
+                                <warmupTime>0.5</warmupTime>
+                                <range>20.9</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                                <soundCast>Shot_MachinePistol</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                            <li>
+                                <label>LP pistol (Single)</label>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>LP_Bullet_Pistol_High_Bond</defaultProjectile>
+                                <warmupTime>0.4</warmupTime>
+                                <range>24.9</range>
+                                <burstShotCount>1</burstShotCount>
+                                <soundCast>Shot_Revolver</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>12</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <comps>
+                            <li Class="MVCF.Comps.CompProperties_VerbProps">
+                                <compClass>MVCF.Comps.Comp_VerbProps</compClass>
+                                <verbProps>
+                                    <li>
+                                        <label>LP pistol (Burst)</label>
+                                        <canBeToggled>false</canBeToggled>
+                                        <comps>
+                                            <li Class="MVCF.VerbComps.VerbCompProperties_Switch">
+                                                <switchIcon>UI/burst</switchIcon>
+                                                <startEnabled>true</startEnabled>
+                                            </li>
+                                        </comps>
+                                    </li>
+                                    <li>
+                                        <label>LP pistol (Single)</label>
+                                        <canBeToggled>false</canBeToggled>
+                                        <comps>
+                                            <li Class="MVCF.VerbComps.VerbCompProperties_Switch">
+                                                <switchIcon>UI/single</switchIcon>
+                                            </li>
+                                        </comps>
+                                    </li>
+                                </verbProps>
+                            </li>
+                        </comps>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                            <li>AssaultRifle</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="LP_Bullet_AR_Std_Bond" Abstract="True">
+                        <label>LP AR bullet (burst mode)</label>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>14</damageAmountBase>
+                            <armorPenetrationBase>0.35</armorPenetrationBase>
+                            <stoppingPower>0.75</stoppingPower>
+                            <speed>60</speed>
+                        </projectile>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_big</texPath>
+                        </graphicData>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="LP_Bullet_AR_Turbo_Bond" Abstract="True">
+                        <label>LP AR bullet (single mode)</label>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>18</damageAmountBase>
+                            <armorPenetrationBase>0.45</armorPenetrationBase>
+                            <stoppingPower>1.5</stoppingPower>
+                            <speed>120</speed>
+                        </projectile>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_big</texPath>
+                        </graphicData>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="LP_Bullet_SR_High_Bond" Abstract="True">
+                        <label>LP SR bullet (high power mode)</label>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>33</damageAmountBase>
+                            <armorPenetrationBase>0.6</armorPenetrationBase>
+                            <stoppingPower>2.5</stoppingPower>
+                            <speed>120</speed>
+                        </projectile>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_big</texPath>
+                        </graphicData>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="LP_Bullet_SR_Low_Bond" Abstract="True">
+                        <label>LP SR bullet (low power mode)</label>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>22</damageAmountBase>
+                            <armorPenetrationBase>0.35</armorPenetrationBase>
+                            <stoppingPower>1.75</stoppingPower>
+                            <speed>80</speed>
+                        </projectile>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_big</texPath>
+                        </graphicData>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_LPShotgun_Bond" Abstract="True">
+                        <label>LP shotgun blast (buckshot)</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_Shotgun</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>22</damageAmountBase>
+                            <stoppingPower>3</stoppingPower>
+                            <armorPenetrationBase>0.2</armorPenetrationBase>
+                            <speed>55</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="Bullet_LPShotgun_EMP_Bond" Abstract="True">
+                        <label>LP shotgun blast (EMP)</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/LauncherShot</texPath>
+                            <shaderType>TransparentPostLight</shaderType>
+                            <color>(68,150,215)</color>
+                        </graphicData>
+                        <thingClass>Projectile_Explosive</thingClass>
+                        <projectile>
+                            <speed>55</speed>
+                            <damageDef>EMP</damageDef>
+                            <!-- Use default damage from explosion def -->
+                            <explosionRadius>0.8</explosionRadius>
+                            <ai_IsIncendiary>true</ai_IsIncendiary>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="LP_Bullet_Pistol_Low_Bond" Abstract="True">
+                        <label>LP pistol bullet (burst mode)</label>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>10</damageAmountBase>
+                            <armorPenetrationBase>0.18</armorPenetrationBase>
+                            <stoppingPower>0.5</stoppingPower>
+                            <speed>60</speed>
+                        </projectile>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_big</texPath>
+                        </graphicData>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="LP_Bullet_Pistol_High_Bond" Abstract="True">
+                        <label>LP pistol bullet (single mode)</label>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>15</damageAmountBase>
+                            <armorPenetrationBase>0.35</armorPenetrationBase>
+                            <stoppingPower>0.75</stoppingPower>
+                            <speed>120</speed>
+                        </projectile>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bullet_big</texPath>
+                        </graphicData>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_firearmsoftomorrow</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="Gun_LPAssaultRifle_Bond">
+                                <defName>Gun_LPAssaultRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Gun_LPSniperRifle_Bond">
+                                <defName>Gun_LPSniperRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Gun_LPShotgun_Bond">
+                                <defName>Gun_LPShotgun_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Gun_LPPistol_Bond">
+                                <defName>Gun_LPPistol_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="LP_Bullet_AR_Std_Bond">
+                                <defName>LP_Bullet_AR_Std_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="LP_Bullet_AR_Turbo_Bond">
+                                <defName>LP_Bullet_AR_Turbo_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="LP_Bullet_SR_High_Bond">
+                                <defName>LP_Bullet_SR_High_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="LP_Bullet_SR_Low_Bond">
+                                <defName>LP_Bullet_SR_Low_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_LPShotgun_Bond">
+                                <defName>Bullet_LPShotgun_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_LPShotgun_EMP_Bond">
+                                <defName>Bullet_LPShotgun_EMP_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="LP_Bullet_Pistol_Low_Bond">
+                                <defName>LP_Bullet_Pistol_Low_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="LP_Bullet_Pistol_High_Bond">
+                                <defName>LP_Bullet_Pistol_High_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>
