@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Firearms of Tomorrow =====
+-->
+<Patch>
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>exabrupto.fot</li>
+		</mods>
+		<packageId>true</packageId>
+
+		<caseTrue>
+			<Operation Class="XmlExtensions.PatchOperationAdd">
+				<xpath>Defs</xpath>
+				<value>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_LPAssaultRifle_Bond" Abstract="True">
+						<label>bond LP assault rifle</label>
+						<description>Bond an LP assault rifle.</description>
+						<jobString>Bonding a LP assault rifle.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>Gun_LPAssaultRifle</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>Gun_LPAssaultRifle</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<Gun_LPAssaultRifle_Bond>1</Gun_LPAssaultRifle_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_LPSniperRifle_Bond" Abstract="True">
+						<label>bond LP sniper rifle</label>
+						<description>Bond an LP sniper rifle.</description>
+						<jobString>Bonding a LP sniper rifle.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>Gun_LPSniperRifle</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>Gun_LPSniperRifle</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<Gun_LPSniperRifle_Bond>1</Gun_LPSniperRifle_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_LPShotgun_Bond" Abstract="True">
+						<label>bond LP shotgun</label>
+						<description>Bond an LP shotgun.</description>
+						<jobString>Bonding a LP shotgun.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>Gun_LPShotgun</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>Gun_LPShotgun</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<Gun_LPShotgun_Bond>1</Gun_LPShotgun_Bond>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_Gun_LPPistol_Bond" Abstract="True">
+						<label>bond LP pistol</label>
+						<description>Bond an LP pistol.</description>
+						<jobString>Bonding a LP pistol.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>Gun_LPPistol</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>Gun_LPPistol</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<Gun_LPPistol_Bond>1</Gun_LPPistol_Bond>
+						</products>
+					</RecipeDef>
+				</value>
+			</Operation>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+				<key>Daria40K_MightyPersonaBondForgePatch_firearmsoftomorrow</key>
+				<defaultValue>true</defaultValue>
+
+				<caseTrue>
+					<Operation Class="XmlExtensions.OptionalPatch">
+						<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+						<key>Daria40K_MightyPersonaBondForgePatch_PBF_firearmsoftomorrow</key>
+						<defaultValue>true</defaultValue>
+
+						<caseTrue>
+							<Operation Class="XmlExtensions.OptionalPatch">
+								<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+								<key>Daria40K_MightyPersonaBondForgePatch_DisablePersonaBondForge</key>
+								<defaultValue>false</defaultValue>
+
+								<caseFalse>
+									<Operation Class="XmlExtensions.PatchOperationAdd">
+										<xpath>Defs</xpath>
+										<value>
+											<RecipeDef ParentName="Make_Gun_LPAssaultRifle_Bond">
+												<defName>Make_Gun_LPAssaultRifle_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_Gun_LPSniperRifle_Bond">
+												<defName>Make_Gun_LPSniperRifle_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_Gun_LPShotgun_Bond">
+												<defName>Make_Gun_LPShotgun_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_Gun_LPPistol_Bond">
+												<defName>Make_Gun_LPPistol_Bond</defName>
+											</RecipeDef>
+										</value>
+									</Operation>
+								</caseFalse>
+							</Operation>
+						</caseTrue>
+					</Operation>
+				</caseTrue>
+			</Operation>
+		</caseTrue>
+	</Operation>
+</Patch>

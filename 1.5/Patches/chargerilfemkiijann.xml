@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Charge Rilfe MKII Jann =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>rifle_copy</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="Gun_ChargeRifle_MKII_Bond" Abstract="True">
+                        <label>persona charge rifle MKII</label>
+                        <description>A highly advanced version of the charged-shot assault rifle. Pulse-charge technology charges each shot with unstable energy as it leaves the barrel. Released on impact, the charged energy greatly increases the damage done.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/ChargeRifleMKII</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_ChargeRifle</soundInteract>
+                        <statBases>
+                            <Mass>4.6</Mass>
+                            <AccuracyTouch>0.99</AccuracyTouch>
+                            <AccuracyShort>1.1</AccuracyShort>
+                            <AccuracyMedium>0.99</AccuracyMedium>
+                            <AccuracyLong>0.825</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_ChargeRifle_MKII_Bond</defaultProjectile>
+                                <warmupTime>0.50</warmupTime>
+                                <range>37</range>
+                                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                <burstShotCount>5</burstShotCount>
+                                <soundCast>Shot_ChargeRifle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>0.85</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_ChargeRifle_MKII_Bond" Abstract="True">
+                        <label>charge shot MKII</label>
+                        <graphicData>
+                            <texPath>Things/Projectile/Charge_MKII</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>21</damageAmountBase>
+                            <armorPenetrationBase>0.40</armorPenetrationBase>
+                            <speed>70</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_chargerilfemkiijann</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="Gun_ChargeRifle_MKII_Bond">
+                                <defName>Gun_ChargeRifle_MKII_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_ChargeRifle_MKII_Bond">
+                                <defName>Bullet_ChargeRifle_MKII_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>
