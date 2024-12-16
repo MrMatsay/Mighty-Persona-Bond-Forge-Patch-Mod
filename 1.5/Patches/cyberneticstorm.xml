@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Cybernetic Storm =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>elstrages.cyberneticstorm</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingCategoryDef Name="MPBFPM_WeaponsCS" Abstract="True">
+                        <label>persona</label>
+                        <parent>WeaponsCS</parent>
+                    </ThingCategoryDef>
+                    <ThingCategoryDef Name="MPBFPM_ApparelCS" Abstract="True">
+                        <label>persona</label>
+                        <parent>ApparelCS</parent>
+                    </ThingCategoryDef>
+                    <ThingDef Name="MPBFPM_BaseGunCSTier2" Abstract="True" ParentName="MPBFPM_BaseGunCS">
+                        <statBases>
+                            <MaxHitPoints>100</MaxHitPoints>
+                            <Flammability>0.9</Flammability>
+                            <DeteriorationRate>0.8</DeteriorationRate>
+                        </statBases>
+                        <thingCategories>
+                            <li>MPBFPM_WeaponsCS</li>
+                        </thingCategories>
+                        <weaponTags>
+                            <li>CSTier2</li>
+                        </weaponTags>
+                        <tradeTags>
+                            <li>CSTier2</li>
+                        </tradeTags>
+                    </ThingDef>
+
+                    <ThingDef Name="MPBFPM_BaseGunCSTier3" Abstract="True" ParentName="MPBFPM_BaseGunCS">
+                        <statBases>
+                            <MaxHitPoints>100</MaxHitPoints>
+                            <Flammability>0.7</Flammability>
+                            <DeteriorationRate>0.6</DeteriorationRate>
+                        </statBases>
+                        <thingCategories>
+                            <li>MPBFPM_WeaponsCS</li>
+                        </thingCategories>
+                        <weaponTags>
+                            <li>CSTier3</li>
+                        </weaponTags>
+                        <tradeTags>
+                            <li>CSTier3</li>
+                        </tradeTags>
+                    </ThingDef>
+
+                    <ThingDef Name="MPBFPM_BaseGunCSTier4" Abstract="True" ParentName="MPBFPM_BaseGunCS">
+                        <statBases>
+                            <MaxHitPoints>100</MaxHitPoints>
+                            <Flammability>0.7</Flammability>
+                            <DeteriorationRate>0.6</DeteriorationRate>
+                        </statBases>
+                        <thingCategories>
+                            <li>MPBFPM_ApparelCS</li>
+                        </thingCategories>
+                        <weaponTags>
+                            <li>CSTier3</li>
+                        </weaponTags>
+                        <tradeTags>
+                            <li>CSTier3</li>
+                        </tradeTags>
+                    </ThingDef>
+
+                    <ThingDef Name="MPBFPM_BaseGunCS" Abstract="True" ParentName="MPBFPM_BaseWeapon">
+                        <thingClass>ThingWithComps</thingClass>
+                        <category>Item</category>
+                        <equipmentType>Primary</equipmentType>
+                        <drawGUIOverlay>true</drawGUIOverlay>
+                        <pathCost>10</pathCost>
+                        <useHitPoints>True</useHitPoints>
+                        <selectable>True</selectable>
+                        <graphicData>
+                            <onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>
+                        </graphicData>
+                        <altitudeLayer>Item</altitudeLayer>
+                        <alwaysHaulable>True</alwaysHaulable>
+                        <tickerType>Never</tickerType>
+                        <techLevel>Spacer</techLevel>
+                        <comps>
+                            <li Class="CompProperties_Art">
+                                <nameMaker>NamerArtWeaponGun</nameMaker>
+                                <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+                                <minQualityForArtistic>Excellent</minQualityForArtistic>
+                            </li>
+                        </comps>
+                        <weaponTags>
+                            <li>Gun</li>
+                        </weaponTags>
+                    </ThingDef>
+
+                    <ThingDef ParentName="MPBFPM_BaseGunCSTier2" Name="Rifle_CS_Cutter_Bond" Abstract="True">
+                        <label>persona Cutter (AR)</label>
+                        <description>The Cutter AR has become a staple for Merceneries around the world.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapon/Cutter</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <Mass>3.2</Mass>
+                            <AccuracyTouch>0.825</AccuracyTouch>
+                            <AccuracyShort>0.99</AccuracyShort>
+                            <AccuracyMedium>0.88</AccuracyMedium>
+                            <AccuracyLong>0.704</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.935</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_CS_Cutter_Bond</defaultProjectile>
+                                <warmupTime>0.8</warmupTime>
+                                <range>28</range>
+                                <ticksBetweenBurstShots>7</ticksBetweenBurstShots>
+                                <burstShotCount>5</burstShotCount>
+                                <soundCast>SoundCutterShot</soundCast>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunCSTier2" Name="CS_Minimi_Bond" Abstract="True">
+                        <label>persona Minimi (LMG)</label>
+                        <description>An advanced light machine gun that will shread through your enemies like a hot knife on butter.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapon/Minimi</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <Mass>4.9</Mass>
+                            <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                            <AccuracyTouch>0.88</AccuracyTouch>
+                            <AccuracyShort>0.792</AccuracyShort>
+                            <AccuracyMedium>0.66</AccuracyMedium>
+                            <AccuracyLong>0.33</AccuracyLong>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_CS_Minimi_Bond</defaultProjectile>
+                                <warmupTime>1.1</warmupTime>
+                                <range>29</range>
+                                <ticksBetweenBurstShots>10</ticksBetweenBurstShots>
+                                <burstShotCount>10</burstShotCount>
+                                <soundCast>SoundMinimiShot</soundCast>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunCSTier2" Name="Pistol_CS_LittleOne_Bond" Abstract="True">
+                        <label>persona L1 (Pistol)</label>
+                        <description>The L1 pistol uses nanotechnology to microtise its components for stealth ops.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapon/LittleOne</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Autopistol</soundInteract>
+                        <statBases>
+                            <Mass>0.8</Mass>
+                            <AccuracyTouch>1.056</AccuracyTouch>
+                            <AccuracyShort>0.858</AccuracyShort>
+                            <AccuracyMedium>0.627</AccuracyMedium>
+                            <AccuracyLong>0.429</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_CS_LittleOne_Bond</defaultProjectile>
+                                <warmupTime>0.3</warmupTime>
+                                <range>29</range>
+                                <soundCast>SoundL1Shot</soundCast>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunCSTier2" Name="Shotgun_CS_Slugger_Bond" Abstract="True">
+                        <label>persona Slugger (Shotgun)</label>
+                        <description>The slugger does one thing, close range death.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapon/Slugger</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Shotgun</soundInteract>
+                        <statBases>
+                            <Mass>2.9</Mass>
+                            <AccuracyTouch>1.1</AccuracyTouch>
+                            <AccuracyShort>1.1</AccuracyShort>
+                            <AccuracyMedium>0.55</AccuracyMedium>
+                            <AccuracyLong>0.0</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_CS_Slugger_Bond</defaultProjectile>
+                                <warmupTime>0.9</warmupTime>
+                                <range>8</range>
+                                <soundCast>SoundSluggerShot</soundCast>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunCSTier2" Name="Sniper_CS_TheLong_Bond" Abstract="True">
+                        <label>persona The Long (Sniper)</label>
+                        <description>The Long is a highly accurate rifle, deadly in the right hands.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapon/TheLong</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <Mass>3.8</Mass>
+                            <AccuracyTouch>0.44</AccuracyTouch>
+                            <AccuracyShort>0.968</AccuracyShort>
+                            <AccuracyMedium>0.99</AccuracyMedium>
+                            <AccuracyLong>1.012</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.411</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_CS_TheLong_Bond</defaultProjectile>
+                                <warmupTime>2.9</warmupTime>
+                                <range>49</range>
+                                <soundCast>SoundTheLongShot</soundCast>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunCSTier2" Name="CS_OmniBlaster_Bond" Abstract="True">
+                        <label>persona Omn Blaster (Launcher)</label>
+                        <description>The OmniBlaster is a charged projectile weapon more devistating than a rocket launcher.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapon/OmniBlaster</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <techLevel>Spacer</techLevel>
+                        <destroyOnDrop>false</destroyOnDrop>
+                        <statBases>
+                            <Mass>10</Mass>
+                            <AccuracyTouch>0.825</AccuracyTouch>
+                            <AccuracyShort>0.935</AccuracyShort>
+                            <AccuracyMedium>1.045</AccuracyMedium>
+                            <AccuracyLong>0.99</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_CS_NanoSwarm_Bond</defaultProjectile>
+                                <forcedMissRadius>0.5</forcedMissRadius>
+                                <warmupTime>5</warmupTime>
+                                <range>42</range>
+                                <soundCast>SoundOmniBlasterShot</soundCast>
+                                <onlyManualCast>true</onlyManualCast>
+                                <targetParams>
+                                    <canTargetLocations>true</canTargetLocations>
+                                </targetParams>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunCSTier2" Name="Bow_CS_UltraBow_Bond" Abstract="True">
+                        <label>persona Ultra Bow</label>
+                        <description>A powerful Ultra Bow, for when you have to go all native on someone. Fires its arrows with deadly effect.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapon/UltraBow</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Bow_Recurve</soundInteract>
+                        <statBases>
+                            <Mass>0.8</Mass>
+                            <AccuracyTouch>1.078</AccuracyTouch>
+                            <AccuracyShort>0.924</AccuracyShort>
+                            <AccuracyMedium>0.803</AccuracyMedium>
+                            <AccuracyLong>0.682</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.02</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Arrow_CS_UltraBow_Bond</defaultProjectile>
+                                <warmupTime>1.5</warmupTime>
+                                <range>38</range>
+                                <soundCast>Bow_Recurve</soundCast>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>8.707</power>
+                                <cooldownTime>1.36</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunCSTier3" Name="Rifle_CS_FACER_Bond" Abstract="True">
+                        <label>persona FACER (AR)</label>
+                        <description>The FACER (Fully Automatic CyberTech Energy Rifle) for all your killing needs.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapon/FACER</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <Mass>2.8</Mass>
+                            <AccuracyTouch>0.88</AccuracyTouch>
+                            <AccuracyShort>1.012</AccuracyShort>
+                            <AccuracyMedium>0.902</AccuracyMedium>
+                            <AccuracyLong>0.77</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_CS_FACER_Bond</defaultProjectile>
+                                <warmupTime>0.8</warmupTime>
+                                <range>29</range>
+                                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                <burstShotCount>7</burstShotCount>
+                                <soundCast>SoundFACERShot</soundCast>
+                            </li>
+                        </verbs>
+                        <weaponTags>
+                            <li>WeaponCSRifle</li>
+                        </weaponTags>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunCSTier3" Name="Bow_CS_CyberTech_Bond" Abstract="True">
+                        <label>persona CyberTech Bow</label>
+                        <description>A powerful CyberTech Bow, for when you feel the need for hunting in the 28th century. Fires arrows made up of mostly kinetic energy.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapon/CyberTechBow</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Bow_Recurve</soundInteract>
+                        <statBases>
+                            <Mass>1</Mass>
+                            <AccuracyTouch>1.1</AccuracyTouch>
+                            <AccuracyShort>1.012</AccuracyShort>
+                            <AccuracyMedium>0.88</AccuracyMedium>
+                            <AccuracyLong>0.748</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.935</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Arrow_CS_CyberTech_Bond</defaultProjectile>
+                                <warmupTime>1.2</warmupTime>
+                                <range>45</range>
+                                <soundCast>Bow_Recurve</soundCast>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>8.707</power>
+                                <cooldownTime>1.36</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunCSTier3" Name="CS_Barrage_Bond" Abstract="True">
+                        <label>persona Barrage (LMG)</label>
+                        <description>A Cybertech light machine gun, it takes a while to set up but once it is can turn the tide of battle.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapon/Barrage</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <Mass>4</Mass>
+                            <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                            <AccuracyTouch>0.99</AccuracyTouch>
+                            <AccuracyShort>0.88</AccuracyShort>
+                            <AccuracyMedium>0.33</AccuracyMedium>
+                            <AccuracyLong>0.11</AccuracyLong>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_CS_Barrage_Bond</defaultProjectile>
+                                <warmupTime>4</warmupTime>
+                                <range>25</range>
+                                <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                                <burstShotCount>30</burstShotCount>
+                                <soundCast>SoundBarrageShot</soundCast>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunCSTier3" Name="Pistol_CS_Supremacy_Bond" Abstract="True">
+                        <label>persona Supremacy (Pistol)</label>
+                        <description>Supremacy is a high end pistol with CyberTech incorperated into its contruction.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapon/Supremacy</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Autopistol</soundInteract>
+                        <statBases>
+                            <Mass>1</Mass>
+                            <AccuracyTouch>1.1</AccuracyTouch>
+                            <AccuracyShort>0.88</AccuracyShort>
+                            <AccuracyMedium>0.66</AccuracyMedium>
+                            <AccuracyLong>0.495</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.765</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_CS_Supremacy_Bond</defaultProjectile>
+                                <warmupTime>0.25</warmupTime>
+                                <range>32</range>
+                                <soundCast>SoundSupremacyShot</soundCast>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunCSTier3" Name="Shotgun_CS_DevastatorTwelve_Bond" Abstract="True">
+                        <label>persona Devastator-12 (Shotgun)</label>
+                        <description>The Devastator-12 by name and nature, will clear a room of enemies with ease. Warning! dont use near friendlies.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapon/Devastator12</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Shotgun</soundInteract>
+                        <statBases>
+                            <Mass>5.0</Mass>
+                            <AccuracyTouch>0.605</AccuracyTouch>
+                            <AccuracyShort>0.605</AccuracyShort>
+                            <AccuracyMedium>0.495</AccuracyMedium>
+                            <AccuracyLong>0.0</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.85</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_CS_DevastatorTwelve_Bond</defaultProjectile>
+                                <warmupTime>0.9</warmupTime>
+                                <range>14</range>
+                                <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                <burstShotCount>12</burstShotCount>
+                                <soundCast>SoundDevastator12Shot</soundCast>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunCSTier3" Name="Sniper_CS_OneShot_Bond" Abstract="True">
+                        <label>persona One Shot (Sniper)</label>
+                        <description>The One Shot Sniper Rifle, deadly in the right hands, useless at short range.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapon/OneShot</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <Mass>3.2</Mass>
+                            <RangedWeapon_Cooldown>1.36</RangedWeapon_Cooldown>
+                            <AccuracyTouch>0.11</AccuracyTouch>
+                            <AccuracyShort>0.55</AccuracyShort>
+                            <AccuracyMedium>1.1</AccuracyMedium>
+                            <AccuracyLong>1.1</AccuracyLong>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_CS_OneShot_Bond</defaultProjectile>
+                                <warmupTime>3.2</warmupTime>
+                                <range>60</range>
+                                <soundCast>SoundOneShotShot</soundCast>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunCSTier3" Name="CS_NanoSwarm_Bond" Abstract="True">
+                        <label>persona Nano-Swarm&#8482;</label>
+                        <description>The Nano-Swarm&#8482; is a single shot weapon with a devastating bang, long range and large blasts area for good effect, have fun!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapon/NanoSwarm</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <techLevel>Spacer</techLevel>
+                        <destroyOnDrop>false</destroyOnDrop>
+                        <statBases>
+                            <Mass>10</Mass>
+                            <AccuracyTouch>1.089</AccuracyTouch>
+                            <AccuracyShort>1.078</AccuracyShort>
+                            <AccuracyMedium>1.067</AccuracyMedium>
+                            <AccuracyLong>1.045</AccuracyLong>
+                            <RangedWeapon_Cooldown>4.25</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_CS_NanoSwarm_Bond</defaultProjectile>
+                                <forcedMissRadius>1.0</forcedMissRadius>
+                                <warmupTime>4.5</warmupTime>
+                                <range>35</range>
+                                <soundCast>SoundNanoSwarmShot</soundCast>
+                                <onlyManualCast>true</onlyManualCast>
+                                <targetParams>
+                                    <canTargetLocations>true</canTargetLocations>
+                                </targetParams>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGunCSTier4" Name="CS_CyberStorm_Bond" Abstract="True">
+                        <label>persona Cyber-Storm&#8482;</label>
+                        <description>The Cyber-Storm&#8482; is a tripple burst weapon that fired a cybernetic plasma, exploding with great devastation!\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapon/CyberStorm</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <!-- <techLevel>Cybernetic</techLevel> -->
+                        <destroyOnDrop>false</destroyOnDrop>
+                        <statBases>
+                            <MarketValue>4290.0</MarketValue>
+                            <Mass>20</Mass>
+                            <AccuracyTouch>1.1</AccuracyTouch>
+                            <AccuracyShort>1.1</AccuracyShort>
+                            <AccuracyMedium>1.1</AccuracyMedium>
+                            <AccuracyLong>1.1</AccuracyLong>
+                            <RangedWeapon_Cooldown>8.5</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_CS_CyberStorm_Bond</defaultProjectile>
+                                <forcedMissRadius>3.0</forcedMissRadius>
+                                <warmupTime>10</warmupTime>
+                                <range>38</range>
+                                <ticksBetweenBurstShots>15</ticksBetweenBurstShots>
+                                <burstShotCount>3</burstShotCount>
+                                <soundCast>SoundCyberStormShot</soundCast>
+                                <onlyManualCast>true</onlyManualCast>
+                                <targetParams>
+                                    <canTargetLocations>true</canTargetLocations>
+                                </targetParams>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_CS_Cutter_Bond" Abstract="True">
+                        <label>cutter Bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>12</damageAmountBase>
+                            <speed>75</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_CS_Minimi_Bond" Abstract="True">
+                        <label>Minimi Bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>13</damageAmountBase>
+                            <speed>55</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_CS_LittleOne_Bond" Abstract="True">
+                        <label>nano pistol bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <flyOverhead>false</flyOverhead>
+                            <damageAmountBase>15</damageAmountBase>
+                            <speed>60</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_CS_Slugger_Bond" Abstract="True">
+                        <label>Slugger Cartridge</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Shotgun</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>57</damageAmountBase>
+                            <speed>50</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_CS_TheLong_Bond" Abstract="True">
+                        <label>the Long sniper Rifle Bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Big</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>59</damageAmountBase>
+                            <speed>110</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_GrenadeProjectile" Name="Bullet_CS_OmniBlaster_Bond" Abstract="True">
+                        <label>Omni Blaster Cartridge</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Big</texPath>
+                        </graphicData>
+                        <thingClass>Projectile_Explosive</thingClass>
+                        <projectile>
+                            <damageAmountBase>110</damageAmountBase>
+                            <explosionRadius>5</explosionRadius>
+                            <speed>65</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="Arrow_CS_UltraBow_Bond" Abstract="True">
+                        <label>ultra Bow</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Arrow_Nano</texPath>
+                        </graphicData>
+                        <projectile>
+                            <flyOverhead>false</flyOverhead>
+                            <damageDef>Arrow</damageDef>
+                            <damageAmountBase>30</damageAmountBase>
+                            <speed>65</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_CS_FACER_Bond" Abstract="True">
+                        <label>FACER Bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>13</damageAmountBase>
+                            <speed>75</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="Arrow_CS_CyberTech_Bond" Abstract="True">
+                        <label>Cybertech arrow</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Arrow_Cyber</texPath>
+                        </graphicData>
+                        <projectile>
+                            <flyOverhead>false</flyOverhead>
+                            <damageDef>Arrow</damageDef>
+                            <damageAmountBase>41</damageAmountBase>
+                            <speed>75</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_CS_Barrage_Bond" Abstract="True">
+                        <label>Barrage Bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>13</damageAmountBase>
+                            <speed>75</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_CS_Supremacy_Bond" Abstract="True">
+                        <label>Cyber pistol bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <flyOverhead>false</flyOverhead>
+                            <damageAmountBase>19</damageAmountBase>
+                            <speed>61</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_CS_DevastatorTwelve_Bond" Abstract="True">
+                        <label>Devastator12 Cartridge</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Shotgun</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>26</damageAmountBase>
+                            <speed>55</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_CS_OneShot_Bond" Abstract="True">
+                        <label>OneShot bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_Big</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>59</damageAmountBase>
+                            <speed>110</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_GrenadeProjectile" Name="Bullet_CS_NanoSwarm_Bond" Abstract="True">
+                        <label>Nano-Swarm&#8482; Nanomite Cartridge</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/NanoSwarm</texPath>
+                        </graphicData>
+                        <thingClass>Projectile_Explosive</thingClass>
+                        <projectile>
+                            <damageAmountBase>162</damageAmountBase>
+                            <explosionRadius>6.0</explosionRadius>
+                            <speed>75</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_GrenadeProjectile" Name="Bullet_CS_CyberStorm_Bond" Abstract="True">
+                        <label>Cyber-Storm&#8482; Cartridge</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/CyberStorm</texPath>
+                        </graphicData>
+                        <thingClass>Projectile_Explosive</thingClass>
+                        <projectile>
+                            <damageAmountBase>214</damageAmountBase>
+                            <explosionRadius>8.0</explosionRadius>
+                            <speed>80</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_cyberneticstorm</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingCategoryDef ParentName="MPBFPM_WeaponsCS">
+                                <defName>MPBFPM_WeaponsCS</defName>
+                            </ThingCategoryDef>
+                            <ThingCategoryDef ParentName="MPBFPM_ApparelCS">
+                                <defName>MPBFPM_ApparelCS</defName>
+                            </ThingCategoryDef>
+                            <ThingDef ParentName="Rifle_CS_Cutter_Bond">
+                                <defName>Rifle_CS_Cutter_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CS_Minimi_Bond">
+                                <defName>CS_Minimi_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Pistol_CS_LittleOne_Bond">
+                                <defName>Pistol_CS_LittleOne_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Shotgun_CS_Slugger_Bond">
+                                <defName>Shotgun_CS_Slugger_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Sniper_CS_TheLong_Bond">
+                                <defName>Sniper_CS_TheLong_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CS_OmniBlaster_Bond">
+                                <defName>CS_OmniBlaster_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bow_CS_UltraBow_Bond">
+                                <defName>Bow_CS_UltraBow_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Rifle_CS_FACER_Bond">
+                                <defName>Rifle_CS_FACER_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bow_CS_CyberTech_Bond">
+                                <defName>Bow_CS_CyberTech_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CS_Barrage_Bond">
+                                <defName>CS_Barrage_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Pistol_CS_Supremacy_Bond">
+                                <defName>Pistol_CS_Supremacy_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Shotgun_CS_DevastatorTwelve_Bond">
+                                <defName>Shotgun_CS_DevastatorTwelve_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Sniper_CS_OneShot_Bond">
+                                <defName>Sniper_CS_OneShot_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CS_NanoSwarm_Bond">
+                                <defName>CS_NanoSwarm_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="CS_CyberStorm_Bond">
+                                <defName>CS_CyberStorm_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_CS_Cutter_Bond">
+                                <defName>Bullet_CS_Cutter_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_CS_Minimi_Bond">
+                                <defName>Bullet_CS_Minimi_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_CS_LittleOne_Bond">
+                                <defName>Bullet_CS_LittleOne_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_CS_Slugger_Bond">
+                                <defName>Bullet_CS_Slugger_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_CS_TheLong_Bond">
+                                <defName>Bullet_CS_TheLong_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_CS_OmniBlaster_Bond">
+                                <defName>Bullet_CS_OmniBlaster_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Arrow_CS_UltraBow_Bond">
+                                <defName>Arrow_CS_UltraBow_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_CS_FACER_Bond">
+                                <defName>Bullet_CS_FACER_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Arrow_CS_CyberTech_Bond">
+                                <defName>Arrow_CS_CyberTech_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_CS_Barrage_Bond">
+                                <defName>Bullet_CS_Barrage_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_CS_Supremacy_Bond">
+                                <defName>Bullet_CS_Supremacy_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_CS_DevastatorTwelve_Bond">
+                                <defName>Bullet_CS_DevastatorTwelve_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_CS_OneShot_Bond">
+                                <defName>Bullet_CS_OneShot_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_CS_NanoSwarm_Bond">
+                                <defName>Bullet_CS_NanoSwarm_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_CS_CyberStorm_Bond">
+                                <defName>Bullet_CS_CyberStorm_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>
