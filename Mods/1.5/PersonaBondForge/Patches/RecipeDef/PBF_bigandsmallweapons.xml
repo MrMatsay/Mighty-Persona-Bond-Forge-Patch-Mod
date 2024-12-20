@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Big and Small - Weapons =====
+-->
+<Patch>
+	<Operation Class="XmlExtensions.FindMod">
+		<mods>
+			<li>redmattis.bigweapons</li>
+		</mods>
+		<packageId>true</packageId>
+
+		<caseTrue>
+			<Operation Class="XmlExtensions.PatchOperationAdd">
+				<xpath>Defs</xpath>
+				<value>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_BS_VaeSuis_Bond" Abstract="True">
+						<label>bond Vae Suis</label>
+						<description>Bond an Vae Suis.</description>
+						<jobString>Bonding a Vae Suis.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>BS_VaeSuis</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>BS_VaeSuis</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<BS_VaeSuis_Persona>1</BS_VaeSuis_Persona>
+						</products>
+					</RecipeDef>
+					<RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_BS_Skarstind_Bond" Abstract="True">
+						<label>bond Skarstind</label>
+						<description>Bond an Skarstind.</description>
+						<jobString>Bonding a Skarstind.</jobString>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>BS_Skarstind</li>
+									</thingDefs>
+								</filter>
+								<count>1</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>BS_Skarstind</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<BS_Skarstind_Persona>1</BS_Skarstind_Persona>
+						</products>
+					</RecipeDef>
+				</value>
+			</Operation>
+
+			<Operation Class="XmlExtensions.OptionalPatch">
+				<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+				<key>Daria40K_MightyPersonaBondForgePatch_bigandsmallweapons</key>
+				<defaultValue>true</defaultValue>
+
+				<caseTrue>
+					<Operation Class="XmlExtensions.OptionalPatch">
+						<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+						<key>Daria40K_MightyPersonaBondForgePatch_PBF_bigandsmallweapons</key>
+						<defaultValue>true</defaultValue>
+
+						<caseTrue>
+							<Operation Class="XmlExtensions.OptionalPatch">
+								<modId>Daria40K.MightyPersonaBondForgePatch</modId>
+								<key>Daria40K_MightyPersonaBondForgePatch_DisablePersonaBondForge</key>
+								<defaultValue>false</defaultValue>
+
+								<caseFalse>
+									<Operation Class="XmlExtensions.PatchOperationAdd">
+										<xpath>Defs</xpath>
+										<value>
+											<RecipeDef ParentName="Make_BS_VaeSuis_Bond">
+												<defName>Make_BS_VaeSuis_Bond</defName>
+											</RecipeDef>
+											<RecipeDef ParentName="Make_BS_Skarstind_Bond">
+												<defName>Make_BS_Skarstind_Bond</defName>
+											</RecipeDef>
+										</value>
+									</Operation>
+								</caseFalse>
+							</Operation>
+						</caseTrue>
+					</Operation>
+				</caseTrue>
+			</Operation>
+		</caseTrue>
+	</Operation>
+</Patch>

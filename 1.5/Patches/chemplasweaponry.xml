@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	===== Chemplas Weaponry =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>turbopickle.chemplasweaponry</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingCategoryDef Name="MPBFPM_WeaponsChemplas" Abstract="True">
+                        <label>persona</label>
+                        <parent>WeaponsChemplas</parent>
+                    </ThingCategoryDef>
+                    <ThingDef Name="MPBFPM_Gun_ChemPlas_Makable" Abstract="True" ParentName="MPBFPM_Gun_ChemPlas">
+                        <!--Tags-->
+                        <weaponTags>
+                            <li>Gun</li>
+                        </weaponTags>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                        <thingCategories>
+                            <li>MPBFPM_WeaponsChemplas</li>
+                        </thingCategories>
+                    </ThingDef>
+
+
+                    <ThingDef Name="MPBFPM_Gun_ChemPlas" Abstract="True" ParentName="MPBFPM_BaseMakeableGun">
+                        <description>Chemplas weapons are thermal weapons that utilize a combustion reaction not unlike that in a cutting torch, but highly focused for the same effect at range. These are often found on later industrial and early spacer worlds\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <destroyOnDrop>false</destroyOnDrop>
+                        <weaponTags>
+                            <li>ChemplasGun</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+
+
+                    <ThingDef ParentName="MPBFPM_Gun_ChemPlas_Makable" Name="Gun_ChemPlas_Pistol_Bond" Abstract="True">
+                        <label>persona Chemplas Pistol</label>
+                        <graphicData>
+                            <texPath>Things/Equipment/Chemplas_Pistol</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <!--Stats-->
+                        <statBases>
+                            <Mass>4</Mass>
+                            <AccuracyTouch>0.77</AccuracyTouch>
+                            <AccuracyShort>0.88</AccuracyShort>
+                            <AccuracyMedium>0.715</AccuracyMedium>
+                            <AccuracyLong>0.605</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                        </statBases>
+                        <!--Verbs-->
+                        <verbs>
+                            <li>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <warmupTime>1.0</warmupTime>
+                                <range>16.9</range>
+                                <burstShotCount>5</burstShotCount>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <verbClass>Verb_ShootBeam</verbClass>
+                                <minRange>0.9</minRange>
+                                <beamFullWidthRange>0</beamFullWidthRange>
+                                <showBurstShotStats>false</showBurstShotStats>
+                                <beamWidth>0</beamWidth>
+                                <ticksBetweenBurstShots>22</ticksBetweenBurstShots>
+                                <beamDamageDef>ChemPlas</beamDamageDef>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <soundCastBeam>BeamGraser_Shooting</soundCastBeam>
+                                <beamGroundFleckDef>Fleck_BeamBurn</beamGroundFleckDef>
+                                <beamFleckChancePerTick>0.32</beamFleckChancePerTick>
+                                <beamMaxDeviation>0.5</beamMaxDeviation>
+                                <beamCurvature>0.6</beamCurvature>
+                                <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
+                                <beamEndEffecterDef>GraserBeam_End</beamEndEffecterDef>
+                                <beamChanceToStartFire>0.35</beamChanceToStartFire>
+                                <beamChanceToAttachFire>0.35</beamChanceToAttachFire>
+                                <beamFireSizeRange>0.55~0.85</beamFireSizeRange>
+                                <beamLineFleckDef>Fleck_BeamSpark</beamLineFleckDef>
+                                <beamStartOffset>0.8</beamStartOffset>
+                                <beamLineFleckChanceCurve>
+                                    <points>
+                                        <li>(0, 0)</li>
+                                        <li>(0.65, 0.4)</li>
+                                        <li>(1, 0.75)</li>
+                                    </points>
+                                </beamLineFleckChanceCurve>
+                            </li>
+                        </verbs>
+                        <!--Recipe-->
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Gun_ChemPlas_Makable" Name="Gun_ChemPlas_SBR_Bond" Abstract="True">
+                        <label>persona Chemplas SBR</label>
+                        <graphicData>
+                            <texPath>Things/Equipment/Chemplas_SBR</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <!--Stats-->
+                        <statBases>
+                            <Mass>4</Mass>
+                            <AccuracyTouch>0.88</AccuracyTouch>
+                            <AccuracyShort>0.99</AccuracyShort>
+                            <AccuracyMedium>0.825</AccuracyMedium>
+                            <AccuracyLong>0.715</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                        </statBases>
+                        <!--Verbs-->
+                        <verbs>
+                            <li>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <warmupTime>1.0</warmupTime>
+                                <range>16.9</range>
+                                <burstShotCount>5</burstShotCount>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <verbClass>Verb_ShootBeam</verbClass>
+                                <minRange>0.9</minRange>
+                                <beamFullWidthRange>0</beamFullWidthRange>
+                                <showBurstShotStats>false</showBurstShotStats>
+                                <beamWidth>0</beamWidth>
+                                <ticksBetweenBurstShots>22</ticksBetweenBurstShots>
+                                <beamDamageDef>ChemPlas</beamDamageDef>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <soundCastBeam>BeamGraser_Shooting</soundCastBeam>
+                                <beamGroundFleckDef>Fleck_BeamBurn</beamGroundFleckDef>
+                                <beamFleckChancePerTick>0.32</beamFleckChancePerTick>
+                                <beamMaxDeviation>0.5</beamMaxDeviation>
+                                <beamCurvature>0.6</beamCurvature>
+                                <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
+                                <beamEndEffecterDef>GraserBeam_End</beamEndEffecterDef>
+                                <beamChanceToStartFire>0.35</beamChanceToStartFire>
+                                <beamChanceToAttachFire>0.35</beamChanceToAttachFire>
+                                <beamFireSizeRange>0.55~0.85</beamFireSizeRange>
+                                <beamLineFleckDef>Fleck_BeamSpark</beamLineFleckDef>
+                                <beamStartOffset>0.8</beamStartOffset>
+                                <beamLineFleckChanceCurve>
+                                    <points>
+                                        <li>(0, 0)</li>
+                                        <li>(0.65, 0.4)</li>
+                                        <li>(1, 0.75)</li>
+                                    </points>
+                                </beamLineFleckChanceCurve>
+                            </li>
+                        </verbs>
+                        <!--Recipe-->
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Gun_ChemPlas_Makable" Name="Gun_ChemPlas_Stormgun_Bond" Abstract="True">
+                        <label>persona Chemplas Stormgun</label>
+                        <graphicData>
+                            <texPath>Things/Equipment/Chemplas_Stormgun</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <!--Stats-->
+                        <statBases>
+                            <Mass>4</Mass>
+                            <AccuracyTouch>0.55</AccuracyTouch>
+                            <AccuracyShort>0.715</AccuracyShort>
+                            <AccuracyMedium>0.77</AccuracyMedium>
+                            <AccuracyLong>0.605</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                        </statBases>
+                        <!--Verbs-->
+                        <verbs>
+                            <li>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <warmupTime>1.0</warmupTime>
+                                <range>22.9</range>
+                                <burstShotCount>5</burstShotCount>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <verbClass>Verb_ShootBeam</verbClass>
+                                <minRange>0.9</minRange>
+                                <beamFullWidthRange>0</beamFullWidthRange>
+                                <showBurstShotStats>false</showBurstShotStats>
+                                <beamWidth>0</beamWidth>
+                                <ticksBetweenBurstShots>22</ticksBetweenBurstShots>
+                                <beamDamageDef>ChemPlas</beamDamageDef>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <soundCastBeam>BeamGraser_Shooting</soundCastBeam>
+                                <beamGroundFleckDef>Fleck_BeamBurn</beamGroundFleckDef>
+                                <beamFleckChancePerTick>0.32</beamFleckChancePerTick>
+                                <beamMaxDeviation>0.5</beamMaxDeviation>
+                                <beamCurvature>0.6</beamCurvature>
+                                <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
+                                <beamEndEffecterDef>GraserBeam_End</beamEndEffecterDef>
+                                <beamChanceToStartFire>0.35</beamChanceToStartFire>
+                                <beamChanceToAttachFire>0.35</beamChanceToAttachFire>
+                                <beamFireSizeRange>0.55~0.85</beamFireSizeRange>
+                                <beamLineFleckDef>Fleck_BeamSpark</beamLineFleckDef>
+                                <beamStartOffset>0.8</beamStartOffset>
+                                <beamLineFleckChanceCurve>
+                                    <points>
+                                        <li>(0, 0)</li>
+                                        <li>(0.65, 0.4)</li>
+                                        <li>(1, 0.75)</li>
+                                    </points>
+                                </beamLineFleckChanceCurve>
+                            </li>
+                        </verbs>
+                        <!--Recipe-->
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Gun_ChemPlas_Makable" Name="Gun_ChemPlas_Rifle_Bond" Abstract="True">
+                        <label>persona Chemplas Rifle</label>
+                        <graphicData>
+                            <texPath>Things/Equipment/Chemplas_Rifle</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <!--Stats-->
+                        <statBases>
+                            <Mass>4</Mass>
+                            <AccuracyTouch>0.55</AccuracyTouch>
+                            <AccuracyShort>0.99</AccuracyShort>
+                            <AccuracyMedium>0.825</AccuracyMedium>
+                            <AccuracyLong>0.715</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                        </statBases>
+                        <!--Verbs-->
+                        <verbs>
+                            <li>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <warmupTime>1.0</warmupTime>
+                                <range>22.9</range>
+                                <burstShotCount>5</burstShotCount>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <verbClass>Verb_ShootBeam</verbClass>
+                                <minRange>0.9</minRange>
+                                <beamFullWidthRange>0</beamFullWidthRange>
+                                <showBurstShotStats>false</showBurstShotStats>
+                                <beamWidth>0</beamWidth>
+                                <ticksBetweenBurstShots>22</ticksBetweenBurstShots>
+                                <beamDamageDef>ChemPlas</beamDamageDef>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <soundCastBeam>BeamGraser_Shooting</soundCastBeam>
+                                <beamGroundFleckDef>Fleck_BeamBurn</beamGroundFleckDef>
+                                <beamFleckChancePerTick>0.32</beamFleckChancePerTick>
+                                <beamMaxDeviation>0.5</beamMaxDeviation>
+                                <beamCurvature>0.6</beamCurvature>
+                                <beamMoteDef>Mote_GraserBeamBase</beamMoteDef>
+                                <beamEndEffecterDef>GraserBeam_End</beamEndEffecterDef>
+                                <beamChanceToStartFire>0.35</beamChanceToStartFire>
+                                <beamChanceToAttachFire>0.35</beamChanceToAttachFire>
+                                <beamFireSizeRange>0.55~0.85</beamFireSizeRange>
+                                <beamLineFleckDef>Fleck_BeamSpark</beamLineFleckDef>
+                                <beamStartOffset>0.8</beamStartOffset>
+                                <beamLineFleckChanceCurve>
+                                    <points>
+                                        <li>(0, 0)</li>
+                                        <li>(0.65, 0.4)</li>
+                                        <li>(1, 0.75)</li>
+                                    </points>
+                                </beamLineFleckChanceCurve>
+                            </li>
+                        </verbs>
+                        <!--Recipe-->
+                    </ThingDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_chemplasweaponry</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingCategoryDef ParentName="MPBFPM_WeaponsChemplas">
+                                <defName>MPBFPM_WeaponsChemplas</defName>
+                            </ThingCategoryDef>
+                            <ThingDef ParentName="Gun_ChemPlas_Pistol_Bond">
+                                <defName>Gun_ChemPlas_Pistol_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Gun_ChemPlas_SBR_Bond">
+                                <defName>Gun_ChemPlas_SBR_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Gun_ChemPlas_Stormgun_Bond">
+                                <defName>Gun_ChemPlas_Stormgun_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Gun_ChemPlas_Rifle_Bond">
+                                <defName>Gun_ChemPlas_Rifle_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>
