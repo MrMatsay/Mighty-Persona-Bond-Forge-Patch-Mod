@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== [1.5] Moyo - The Cartel Arrives =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>nemonian.mycartel</li>
+        </mods>
+        <packageId>true</packageId>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef Abstract="True" ParentName="MPBFPM_MoyoBaseGun" Name="MPBFPM_CartelBaseGun">
+                        <soundInteract>Cartel_WeaponInteractLight</soundInteract>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_MoyoBaseMelee" Name="Moyo_CombatKnife_Bond" Abstract="True">
+                        <label>persona Cartel combat knife</label>
+                        <techLevel>Spacer</techLevel>
+                        <description>A large combat knife forged with a cold, sharp edge. A handy tool and an effective weapon in one.\n\nDesigned with the intention to be used on the surface, this knife was made bigger and heavier than regular diving knife. It came with a bonus of menacing shape.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <soundInteract>Interact_MonoSword</soundInteract>
+                        <meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+                        <graphicData>
+                            <texPath>Things/Weapons/MoyoCKnife</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1</drawSize>
+                        </graphicData>
+                        <uiIconScale>1.5</uiIconScale>
+                        <weaponTags>
+                            <li>Moyo_CartelMelee</li>
+                        </weaponTags>
+                        <statBases>
+                            <Mass>0.5</Mass>
+                        </statBases>
+                        <equippedAngleOffset>0</equippedAngleOffset>
+                        <burnableByRecipe>false</burnableByRecipe>
+                        <tools>
+                            <li>
+                                <label>handle</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>12.0</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>blade</label>
+                                <capacities>
+                                    <li>Cut</li>
+                                </capacities>
+                                <power>21.123</power>
+                                <cooldownTime>1.445</cooldownTime>
+                            </li>
+                            <li>
+                                <label>point</label>
+                                <capacities>
+                                    <li>Stab</li>
+                                </capacities>
+                                <power>22.243</power>
+                                <cooldownTime>1.445</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef Abstract="True" ParentName="MPBFPM_CartelBaseGun" Name="MPBFPM_CartelUnmakeableGun">
+                        <techLevel>Spacer</techLevel>
+                        <soundInteract>Cartel_WeaponInteractLight</soundInteract>
+                        <weaponTags>
+                            <li>Moyo_TagToSell</li>
+                        </weaponTags>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CartelBaseGun" Name="Moyo_CartelPistol_Bond" Abstract="True">
+                        <label>persona Cartel sidearm</label>
+                        <description>A 2-round burst sidearm of the Cartel. Compared to other firearms designed by the Cartel, it lacks in firepower while being the cheapest and the most compact weapon to keep by your side.\n\nMembers of the Cartel are exposed to constant threat. These threats ranging from Cartel competitor to Elder's operatives.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/CartelSA1</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1</drawSize>
+                        </graphicData>
+                        <uiIconScale>1.5</uiIconScale>
+                        <weaponTags>
+                            <li>MoyoCartelBasicGun</li>
+                        </weaponTags>
+                        <statBases>
+                            <Mass>0.8</Mass>
+                            <AccuracyTouch>0.891</AccuracyTouch>
+                            <AccuracyShort>0.792</AccuracyShort>
+                            <AccuracyMedium>0.352</AccuracyMedium>
+                            <AccuracyLong>0.121</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.425</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_MoyoCartelPistol_Bond</defaultProjectile>
+                                <warmupTime>0.5</warmupTime>
+                                <burstShotCount>2</burstShotCount>
+                                <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                                <range>17.9</range>
+                                <soundCast>Cartel_FireLight</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>6</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CartelBaseGun" Name="Moyo_CartelRevolver_Bond" Abstract="True">
+                        <label>persona Cartel handcannon</label>
+                        <description>A handcannon manufactured by the cartel. while looking similar to a modern revolver, it has no similarities with its mechanism. Focused on delivering heavy payloads accurately, this weapon is deadly when used by skilled shooter.\n\nThe Cartel was more open to adopting goods of the surface. Soon this weapon was developed and became a popular choice among Cartel's high ranking officers.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/CartelHC1</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1</drawSize>
+                        </graphicData>
+                        <uiIconScale>1.5</uiIconScale>
+                        <weaponTags>
+                            <li>MoyoCartelLeaderGun</li>
+                        </weaponTags>
+                        <statBases>
+                            <Mass>2</Mass>
+                            <AccuracyTouch>1.001</AccuracyTouch>
+                            <AccuracyShort>0.902</AccuracyShort>
+                            <AccuracyMedium>0.902</AccuracyMedium>
+                            <AccuracyLong>0.561</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.87</RangedWeapon_Cooldown>
+                        </statBases>
+                        <equippedStatOffsets>
+                            <ShootingAccuracyPawn>3</ShootingAccuracyPawn>
+                        </equippedStatOffsets>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_MoyoCartelRevolver_Bond</defaultProjectile>
+                                <warmupTime>0.6</warmupTime>
+                                <range>22.9</range>
+                                <soundCast>Cartel_FireRevolver</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CartelBaseGun" Name="Moyo_CartelSMGa_Bond" Abstract="True">
+                        <label>persona Cartel SMG</label>
+                        <description>SMG manufactured by the cartel. A standard issue weapon of Cartel strikers. Rapidly firing small armor-penetrating rounds, this weapon is perfect for hit-and-run tactics.\n\nThe Cartel knew they had no chance to win the elder's forces on a face-to-face battle, hence the strike force was founded by the Cartel to strike them where they are weak.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/CartelSMG1</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1</drawSize>
+                        </graphicData>
+                        <statBases>
+                            <Mass>3.1</Mass>
+                            <AccuracyTouch>0.77</AccuracyTouch>
+                            <AccuracyShort>0.825</AccuracyShort>
+                            <AccuracyMedium>0.495</AccuracyMedium>
+                            <AccuracyLong>0.275</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                        </statBases>
+                        <equippedStatOffsets>
+                            <ShootingAccuracyPawn>2.5</ShootingAccuracyPawn>
+                        </equippedStatOffsets>
+                        <weaponTags>
+                            <li>MoyoCartelGun</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_MoyoCartelRifle_Bond</defaultProjectile>
+                                <warmupTime>1.2</warmupTime>
+                                <range>17.9</range>
+                                <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                                <burstShotCount>5</burstShotCount>
+                                <soundCast>Cartel_FireMiddle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CartelBaseGun" Name="Moyo_CarteCarbine_Bond" Abstract="True">
+                        <label>persona Cartel carbine</label>
+                        <description>One of the Cartel strike force's arsenal. With longer effective range, this weapon fires 2 rounds in a hyperburst. Providing excellent accuracy over long distance.\n\nThis weapon has not seen many use inside the Lighthouse, but soon became one of the most used weapon of the Cartel being selected the weapon of choice of many surface operating strike forces.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Weapons/CartelAR1</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1</drawSize>
+                        </graphicData>
+                        <statBases>
+                            <Mass>3.1</Mass>
+                            <AccuracyTouch>0.715</AccuracyTouch>
+                            <AccuracyShort>0.825</AccuracyShort>
+                            <AccuracyMedium>0.605</AccuracyMedium>
+                            <AccuracyLong>0.275</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.275</RangedWeapon_Cooldown>
+                        </statBases>
+                        <equippedStatOffsets>
+                            <ShootingAccuracyPawn>2.5</ShootingAccuracyPawn>
+                        </equippedStatOffsets>
+                        <weaponTags>
+                            <li>MoyoCartelGun</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_MoyoCartelRifle_Bond</defaultProjectile>
+                                <warmupTime>1.2</warmupTime>
+                                <range>26.5</range>
+                                <ticksBetweenBurstShots>2</ticksBetweenBurstShots>
+                                <burstShotCount>2</burstShotCount>
+                                <soundCast>Cartel_FireMiddle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_CartelBaseGun" Name="Moyo_CartelLongRifle_Bond" Abstract="True">
+                        <label>persona Cartel arbalest</label>
+                        <description>A large rifle of the Cartel developed solely for long range shooting. Equipped with various aiming assisters, its payload fired with a shattering boom strikes the target with a deadly accuracy.\n\nTraining dedicated snipers were a subject of debate even among the Cartel executives and snipers are not treated well in the Lighthouse 'til this day.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <soundInteract>Cartel_WeaponInteract</soundInteract>
+                        <graphicData>
+                            <texPath>Things/Weapons/CartelRF1</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1</drawSize>
+                        </graphicData>
+                        <statBases>
+                            <Mass>8.2</Mass>
+                            <AccuracyTouch>0.044</AccuracyTouch>
+                            <AccuracyShort>0.231</AccuracyShort>
+                            <AccuracyMedium>1.1</AccuracyMedium>
+                            <AccuracyLong>1.1</AccuracyLong>
+                            <RangedWeapon_Cooldown>6.8</RangedWeapon_Cooldown>
+                        </statBases>
+                        <equippedStatOffsets>
+                            <ShootingAccuracyPawn>20</ShootingAccuracyPawn>
+                        </equippedStatOffsets>
+                        <weaponTags>
+                            <li>MoyoCartelGunUnique</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_MoyoCartelLongRifle_Bond</defaultProjectile>
+                                <warmupTime>6.5</warmupTime>
+                                <range>70</range>
+                                <soundCast>Cartel_Lancefire</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>10</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                        <equippedAngleOffset>45</equippedAngleOffset>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_MoyoCartelPistol_Bond" Abstract="True">
+                        <label>Cartel chargebolt</label>
+                        <graphicData>
+                            <texPath>Things/Weapons/MoyoCNeedleshot</texPath>
+                            <shaderType>MoteGlow</shaderType>
+                            <drawSize>0.7</drawSize>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>6</damageAmountBase>
+                            <armorPenetrationBase>0.13</armorPenetrationBase>
+                            <speed>90</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_MoyoCartelRevolver_Bond" Abstract="True">
+                        <label>Cartel chargebolt</label>
+                        <graphicData>
+                            <texPath>Things/Weapons/MoyoCNeedleshot</texPath>
+                            <shaderType>MoteGlow</shaderType>
+                            <drawSize>0.7</drawSize>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>22</damageAmountBase>
+                            <armorPenetrationBase>0.42</armorPenetrationBase>
+                            <stoppingPower>2.5</stoppingPower>
+                            <speed>80</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_MoyoCartelSMG_Bond" Abstract="True">
+                        <label>Cartel chargebolt</label>
+                        <graphicData>
+                            <texPath>Things/Weapons/MoyoCNeedleshot</texPath>
+                            <shaderType>MoteGlow</shaderType>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>7</damageAmountBase>
+                            <armorPenetrationBase>0.40</armorPenetrationBase>
+                            <stoppingPower>0.5</stoppingPower>
+                            <speed>90</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_MoyoCartelRifle_Bond" Abstract="True">
+                        <label>Cartel chargebolt</label>
+                        <graphicData>
+                            <texPath>Things/Weapons/MoyoCNeedleshot</texPath>
+                            <shaderType>MoteGlow</shaderType>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>14</damageAmountBase>
+                            <armorPenetrationBase>0.40</armorPenetrationBase>
+                            <stoppingPower>0.7</stoppingPower>
+                            <speed>90</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_Bullet" Name="Bullet_MoyoCartelLongRifle_Bond" Abstract="True">
+                        <label>Cartel chargebolt</label>
+                        <graphicData>
+                            <texPath>Things/Weapons/MoyoCNeedleshot</texPath>
+                            <shaderType>MoteGlow</shaderType>
+                            <drawSize>1.5</drawSize>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>35</damageAmountBase>
+                            <armorPenetrationBase>0.42</armorPenetrationBase>
+                            <stoppingPower>1.8</stoppingPower>
+                            <speed>150</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_15moyofromthedepth</key>
+                <defaultValue>true</defaultValue>
+                <caseFalse>
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_15moyolightintheabyss</key>
+                        <defaultValue>true</defaultValue>
+                        <caseFalse>
+                            <Operation Class="XmlExtensions.PatchOperationAdd">
+                                <xpath>Defs</xpath>
+                                <value>
+                                    <ThingCategoryDef ParentName="MPBFPM_Moyo_WeaponsMelee">
+                                        <defName>MPBFPM_Moyo_WeaponsMelee</defName>
+                                    </ThingCategoryDef>
+                                    <ThingCategoryDef ParentName="MPBFPM_Moyo_WeaponsRanged">
+                                        <defName>MPBFPM_Moyo_WeaponsRanged</defName>
+                                    </ThingCategoryDef>
+                                </value>
+                            </Operation>
+                        </caseFalse>
+                    </Operation>
+                </caseFalse>
+            </Operation>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_15moyothecartelarrives</key>
+                <defaultValue>true</defaultValue>
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingCategoryDef ParentName="MPBFPM_Moyo_WeaponsRanged">
+                                <defName>MPBFPM_Moyo_WeaponsRanged</defName>
+                            </ThingCategoryDef>
+                            <ThingDef ParentName="Moyo_CombatKnife_Bond">
+                                <defName>Moyo_CombatKnife_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Moyo_CartelPistol_Bond">
+                                <defName>Moyo_CartelPistol_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Moyo_CartelRevolver_Bond">
+                                <defName>Moyo_CartelRevolver_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Moyo_CartelSMGa_Bond">
+                                <defName>Moyo_CartelSMGa_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Moyo_CarteCarbine_Bond">
+                                <defName>Moyo_CarteCarbine_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Moyo_CartelLongRifle_Bond">
+                                <defName>Moyo_CartelLongRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_MoyoCartelPistol_Bond">
+                                <defName>Bullet_MoyoCartelPistol_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_MoyoCartelRevolver_Bond">
+                                <defName>Bullet_MoyoCartelRevolver_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_MoyoCartelSMG_Bond">
+                                <defName>Bullet_MoyoCartelSMG_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_MoyoCartelRifle_Bond">
+                                <defName>Bullet_MoyoCartelRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_MoyoCartelLongRifle_Bond">
+                                <defName>Bullet_MoyoCartelLongRifle_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>

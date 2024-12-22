@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Tactical Wizard Breach =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>berserk.twb</li>
+        </mods>
+        <packageId>true</packageId>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="TWB_Gun_BR_Bond" Abstract="True">
+                        <label>persona BR-15</label>
+                        <description>A modernize Bolt rifle, rapidly shoot 3 arcance bolt.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <drawSize>1.4</drawSize>
+                            <texPath>Things/BR15</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Rifle</soundInteract>
+                        <statBases>
+                            <Mass>3.5</Mass>
+                            <AccuracyTouch>0.66</AccuracyTouch>
+                            <AccuracyShort>0.77</AccuracyShort>
+                            <AccuracyMedium>0.715</AccuracyMedium>
+                            <AccuracyLong>0.605</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.445</RangedWeapon_Cooldown>
+                        </statBases>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_TBW_ManaBolt_Bond</defaultProjectile>
+                                <warmupTime>1.0</warmupTime>
+                                <range>30.9</range>
+                                <burstShotCount>3</burstShotCount>
+                                <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                                <soundCast>TBW_BoltSound</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <modExtensions>
+                            <li Class="MuzzleFlash.MuzzleFlashProps" MayRequire="IssacZhuang.MuzzleFlash">
+                                <def>MF_ChargedMuzzleFalsh</def>
+                                <drawSize>(2.0,2.0)</drawSize>
+                                <offsets>
+                                    <li>(0.75,0)</li>
+                                </offsets>
+                                <isAlternately>true</isAlternately>
+                            </li>
+                        </modExtensions>
+                        <weaponTags>
+                            <li>Wizard</li>
+                        </weaponTags>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="TWB_Gun_wand_Bond" Abstract="True">
+                        <label>persona Wand-17</label>
+                        <description>A powerful wand with personalize modify equipment , once used by the most powerful time wizzard.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <equippedAngleOffset>45</equippedAngleOffset>
+                        <possessionCount>1</possessionCount>
+                        <graphicData>
+                            <drawSize>1.2</drawSize>
+                            <texPath>Things/Wand17</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <uiIconScale>1.4</uiIconScale>
+                        <soundInteract>Interact_Revolver</soundInteract>
+                        <statBases>
+                            <Mass>1.4</Mass>
+                            <AccuracyTouch>0.88</AccuracyTouch>
+                            <AccuracyShort>0.825</AccuracyShort>
+                            <AccuracyMedium>0.495</AccuracyMedium>
+                            <AccuracyLong>0.385</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.36</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>SimpleGun</li>
+                            <li>Revolver</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Bullet_TBW_wand_Bond</defaultProjectile>
+                                <warmupTime>0.3</warmupTime>
+                                <range>15.9</range>
+                                <soundCast>TBW_Wand17</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="TWB_Gun_StaticBlaster_Bond" Abstract="True">
+                        <thingClass>VanillaWeaponsExpandedLaser.LaserGun</thingClass>
+                        <label>persona static blaster</label>
+                        <description>A special weapon desgined for storm wizard ,shoot shocking lighting and only deal stun instead of any direct damage \nCan use Bioferrite to shoot a harmful bolt chain.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/StaticBlast</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>Interact_Autopistol</soundInteract>
+                        <statBases>
+                            <MarketValue>880.0</MarketValue>
+                            <Mass>1.2</Mass>
+                            <AccuracyTouch>1.1</AccuracyTouch>
+                            <AccuracyShort>0.979</AccuracyShort>
+                            <AccuracyMedium>0.858</AccuracyMedium>
+                            <AccuracyLong>0.66</AccuracyLong>
+                            <RangedWeapon_Cooldown>0.51</RangedWeapon_Cooldown>
+                        </statBases>
+                        <techLevel>Industrial</techLevel>
+                        <weaponTags>
+                            <li>Wizard</li>
+                        </weaponTags>
+                        <generateCommonality>0.0</generateCommonality>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <label>Standard</label>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>TWB_Bullet_blaster_Bond</defaultProjectile>
+                                <warmupTime>1.2</warmupTime>
+                                <range>16.9</range>
+                                <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                <burstShotCount>1</burstShotCount>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>14</muzzleFlashScale>
+                                <targetParams>
+                                    <canTargetLocations>false</canTargetLocations>
+                                </targetParams>
+                            </li>
+                        </verbs>
+                        <comps>
+                            <li Class="CompProperties_EquippableAbilityReloadable">
+                                <abilityDef>BoltChain</abilityDef>
+                                <maxCharges>3</maxCharges>
+                                <soundReload>Standard_Reload</soundReload>
+                                <chargeNoun>lighting charge</chargeNoun>
+                                <ammoDef>Bioferrite</ammoDef>
+                                <ammoCountPerCharge>10</ammoCountPerCharge>
+                                <baseReloadTicks>60</baseReloadTicks>
+                            </li>
+                            <li Class="CompProperties_Styleable" />
+                            <li Class="CompProperties_Art">
+                                <nameMaker>NamerArtWeaponGun</nameMaker>
+                                <descriptionMaker>ArtDescription_WeaponGun</descriptionMaker>
+                                <minQualityForArtistic>Excellent</minQualityForArtistic>
+                            </li>
+                        </comps>
+                        <tools>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>17.0</power>
+                                <cooldownTime>0.85</cooldownTime>
+                            </li>
+                            <li>
+                                <label>grip</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>6.612</power>
+                                <cooldownTime>1.615</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+                    <ThingDef Name="BoltBeamGraphic_Bond" Abstract="True">
+                        <thingClass>VanillaWeaponsExpandedLaser.LaserBeamGraphic</thingClass>
+                        <drawOffscreen>true</drawOffscreen>
+                        <label>lasgun beam</label>
+                        <category>Projectile</category>
+                        <tickerType>Normal</tickerType>
+                        <altitudeLayer>MoteOverhead</altitudeLayer>
+                        <useHitPoints>False</useHitPoints>
+                        <neverMultiSelect>True</neverMultiSelect>
+                    </ThingDef>
+                    <ThingDef Abstract="True" Name="MPBFPM_managun_Bolt" ParentName="MPBFPM_Bullet">
+                        <thingClass>VanillaWeaponsExpandedLaser.LaserBeam</thingClass>
+                        <drawOffscreen>true</drawOffscreen>
+                        <beamGraphic>BoltBeamGraphic</beamGraphic>
+                        <graphicData>
+                            <texPath>Things/Shot_LaserRifle</texPath>
+                            <shaderType>TransparentPostLight</shaderType>
+                            <drawSize>1.5</drawSize>
+                        </graphicData>
+                        <hitLivingEffect>Damage_HitMechanoid</hitLivingEffect>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <speed>10000</speed>
+                        </projectile>
+                        <seam>0.25</seam>
+                    </ThingDef>
+                    <ThingDef ParentName="managun_Bolt" Class="VanillaWeaponsExpandedLaser.LaserBeamDef" Name="Bullet_TBW_ManaBolt_Bond" Abstract="True">
+                        <label>Lasgun beam</label>
+                        <description>a focused laser beam</description>
+                        <textures>
+                            <li>Things/Shot_LaserRifle</li>
+                        </textures>
+                        <seam>0.1</seam>
+                        <canExplode>false</canExplode>
+                        <!-- set to false for non-explosion on impact -->
+                        <beamWidth>1</beamWidth>
+                        <lifetime>60</lifetime>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <!-- for when using non-explosive -->
+                            <damageAmountBase>30</damageAmountBase>
+                            <armorPenetrationBase>1.5</armorPenetrationBase>
+                            <stoppingPower>0.7</stoppingPower>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="managun_Bolt" Class="VanillaWeaponsExpandedLaser.LaserBeamDef" Name="Bullet_TBW_wand_Bond" Abstract="True">
+                        <label>Lasgun beam</label>
+                        <description>a focused laser beam</description>
+                        <textures>
+                            <li>Things/Shot_wizard</li>
+                        </textures>
+                        <seam>0.1</seam>
+                        <canExplode>false</canExplode>
+                        <!-- set to false for non-explosion on impact -->
+                        <beamWidth>3</beamWidth>
+                        <lifetime>60</lifetime>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <!-- for when using non-explosive -->
+                            <damageAmountBase>35</damageAmountBase>
+                            <armorPenetrationBase>1.5</armorPenetrationBase>
+                            <stoppingPower>0.7</stoppingPower>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseGrenadeProjectile" Name="Proj_toxicThrown_Bond" Abstract="True">
+                        <label>tox grenade</label>
+                        <thingClass>Projectile_Explosive</thingClass>
+                        <graphicData>
+                            <texPath>Things/Projectile/ToxGrenadeThrown</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>ToxGas</damageDef>
+                            <explosionDelay>1</explosionDelay>
+                            <explosionRadius>1.9</explosionRadius>
+                            <explosionRadiusDisplayPadding>2</explosionRadiusDisplayPadding>
+                            <postExplosionGasType>ToxGas</postExplosionGasType>
+                            <screenShakeFactor>0.5</screenShakeFactor>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="BaseBullet" Name="TWB_Bullet_blaster_Bond" Abstract="True">
+                        <label>lightning bolt</label>
+                        <thingClass>VFEMech.TeslaProjectile</thingClass>
+                        <graphicData>
+                            <texPath>Things/Projectile/Lancer_Lingting</texPath>
+                            <graphicClass>Graphic_Flicker</graphicClass>
+                            <shaderType>TransparentPostLight</shaderType>
+                            <drawSize>1.5</drawSize>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Stun</damageDef>
+                            <damageAmountBase>2</damageAmountBase>
+                            <speed>300</speed>
+                        </projectile>
+                        <modExtensions>
+                            <li Class="VFEMech.TeslaChainingProps">
+                                <maxBounceCount>1</maxBounceCount>
+                                <damageDef>Stun</damageDef>
+                                <explosionDamageDef>Stun</explosionDamageDef>
+                                <impactRadius>0.5</impactRadius>
+                                <targetFriendly>false</targetFriendly>
+                                <addFire>false</addFire>
+                                <bounceRange>2</bounceRange>
+                                <maxLifetime>15</maxLifetime>
+                            </li>
+                        </modExtensions>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_BaseBullet" Name="BoltChainBullet_Bond" Abstract="True">
+                        <label>BoltChain</label>
+                        <thingClass>Bullet_241002.BoltChainBullet</thingClass>
+                        <graphicData>
+                            <texPath>Fleck_df/BoltChain/empty</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>EMP</damageDef>
+                            <damageAmountBase>13</damageAmountBase>
+                            <armorPenetrationBase>1</armorPenetrationBase>
+                            <stoppingPower>3</stoppingPower>
+                            <speed>400</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_tacticalwizardbreach</key>
+                <defaultValue>true</defaultValue>
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="TWB_Gun_BR_Bond">
+                                <defName>TWB_Gun_BR_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="TWB_Gun_wand_Bond">
+                                <defName>TWB_Gun_wand_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="TWB_Gun_StaticBlaster_Bond">
+                                <defName>TWB_Gun_StaticBlaster_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="BoltBeamGraphic_Bond">
+                                <defName>BoltBeamGraphic_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_TBW_ManaBolt_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                <defName>Bullet_TBW_ManaBolt_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Bullet_TBW_wand_Bond" Class="VanillaWeaponsExpandedLaser.LaserBeamDef">
+                                <defName>Bullet_TBW_wand_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Proj_toxicThrown_Bond">
+                                <defName>Proj_toxicThrown_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="TWB_Bullet_blaster_Bond">
+                                <defName>TWB_Bullet_blaster_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="BoltChainBullet_Bond">
+                                <defName>BoltChainBullet_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>

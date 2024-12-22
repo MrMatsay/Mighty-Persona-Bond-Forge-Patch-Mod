@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== VWE Coilguns - Unnoficial Gauss Sniper =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>sari.gausssniper</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <RecipeDef ParentName="MPBFPM_OERecipeDefBase" Name="Make_OE_VWE_Gun_GaussSniper_Bond" Abstract="True">
+                        <label>bond gauss sniper</label>
+                        <description>Bond an gauss sniper.</description>
+                        <jobString>Bonding a gauss sniper.</jobString>
+                        <researchPrerequisites>
+                            <li>VWE_MassDrivers</li>
+                        </researchPrerequisites>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>VWE_Gun_GaussSniper</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>VWE_Gun_GaussSniper</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <VWE_Gun_GaussSniper_Bond>1</VWE_Gun_GaussSniper_Bond>
+                        </products>
+                    </RecipeDef>
+                    <RecipeDef ParentName="MPBFPM_OEResetRecipeDefBase" Name="Make_OE_VWE_Gun_GaussSniper_Bond_Reset" Abstract="True">
+                        <label>Reset gauss sniper</label>
+                        <description>Reset a gauss sniper.</description>
+                        <jobString>Resetting a gauss sniper.</jobString>
+                        <researchPrerequisites>
+                            <li>VWE_MassDrivers</li>
+                        </researchPrerequisites>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>VWE_Gun_GaussSniper_Bond</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>VWE_Gun_GaussSniper_Bond</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <VWE_Gun_GaussSniper_Bond>1</VWE_Gun_GaussSniper_Bond>
+                        </products>
+                    </RecipeDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_vwecoilgunsunnoficialgausssniper</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_OE_vwecoilgunsunnoficialgausssniper</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.OptionalPatch">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DisableObsidiaExpansion</key>
+                                <defaultValue>false</defaultValue>
+
+                                <caseFalse>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <RecipeDef ParentName="Make_OE_VWE_Gun_GaussSniper_Bond">
+                                                <defName>Make_OE_VWE_Gun_GaussSniper_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_OE_VWE_Gun_GaussSniper_Bond_Reset">
+                                                <defName>Make_OE_VWE_Gun_GaussSniper_Bond_Reset</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseFalse>
+                            </Operation>
+                        </caseTrue>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>

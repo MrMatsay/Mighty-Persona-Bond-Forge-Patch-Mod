@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Vanilla Spacer Weapons - Bounce Gun (Continued) =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>zal.vswbounce</li>
+        </mods>
+        <packageId>true</packageId>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <BounceGun.RicochetGunDef Name="MPBFPM_VSWBG_Gun" ParentName="MPBFPM_BaseHumanMakeableGun" Abstract="True">
+                        <thingClass>BounceGun.RicochetGun</thingClass>
+                        <techLevel>Spacer</techLevel>
+                        <soundInteract>VSWBG_Interact_BounceGun</soundInteract>
+                        <comps>
+                            <li Class="CompProperties_Art">
+                                <nameMaker>NamerArtWeaponMelee</nameMaker>
+                                <descriptionMaker>ArtDescription_WeaponMelee</descriptionMaker>
+                                <minQualityForArtistic>Excellent</minQualityForArtistic>
+                            </li>
+                        </comps>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                            <li>Ricochetgun</li>
+                            <li>Zal</li>
+                        </weaponTags>
+                        <tradeTags>
+                            <li>WeaponRanged</li>
+                        </tradeTags>
+                    </BounceGun.RicochetGunDef>
+                    <BounceGun.RicochetGunDef ParentName="MPBFPM_VSWBG_Gun" Name="VSWBG_Gun_RepulseRifle_Bond" Abstract="True">
+                        <label>persona Repulse Rifle</label>
+                        <description>ThisA bounce-charge weapon with a "Revolving Cylinder" equiped with a special rifled barrel that aids in producing a more stable projectile capable of more ricochets, in addition to its burst fire capability for firing a mesmerizing array of bouncing projectiles at gun shows.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/RepulseRifle</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <statBases>
+                            <MarketValue>2530.0</MarketValue>
+                            <Mass>4.6</Mass>
+                            <AccuracyTouch>0.605</AccuracyTouch>
+                            <AccuracyShort>0.704</AccuracyShort>
+                            <AccuracyMedium>0.77</AccuracyMedium>
+                            <AccuracyLong>0.55</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.53</RangedWeapon_Cooldown>
+                        </statBases>
+                        <generateCommonality>0.1</generateCommonality>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>VSWBG_Bullet_RepulseRifle_ParticlePulsebeam_Bond</defaultProjectile>
+                                <warmupTime>3.0</warmupTime>
+                                <range>30.9</range>
+                                <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                                <burstShotCount>3</burstShotCount>
+                                <soundCast>VSWBG_BounceGunShot_Light</soundCast>
+                                <!--Change with custom sound-->
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <targetParams>
+                                    <canTargetLocations>true</canTargetLocations>
+                                    <canTargetPawns>true</canTargetPawns>
+                                    <canTargetBuildings>true</canTargetBuildings>
+                                </targetParams>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </BounceGun.RicochetGunDef>
+                    <BounceGun.RicochetGunDef ParentName="MPBFPM_VSWBG_Gun" Name="VSWBG_Gun_RepulsePistol_Bond" Abstract="True">
+                        <label>persona Repulse Pistol</label>
+                        <description>A compact bounce-charge weapon whose "Revolving Cylinder" facilitates the use of special charge ammunition that only partially releases its energy on impact, allowing the projectile to ricochet multiple times. This variant is popular among trick shooters who attempt to maximize their ricochets with precision shots.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/RepulsePistol</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <statBases>
+                            <MarketValue>1980.0</MarketValue>
+                            <Mass>2.5</Mass>
+                            <AccuracyTouch>0.55</AccuracyTouch>
+                            <AccuracyShort>0.737</AccuracyShort>
+                            <AccuracyMedium>0.77</AccuracyMedium>
+                            <AccuracyLong>0.66</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.232</RangedWeapon_Cooldown>
+                        </statBases>
+                        <generateCommonality>0.1</generateCommonality>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                            <li>Revolver</li>
+                            <li>Ricochetgun</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>VSWBG_Bullet_RepulsePistol_ParticlePulsebeam_Bond</defaultProjectile>
+                                <warmupTime>2.0</warmupTime>
+                                <range>25.9</range>
+                                <soundCast>VSWBG_BounceGunShot_Light</soundCast>
+                                <!--Change with custom sound-->
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <targetParams>
+                                    <canTargetLocations>true</canTargetLocations>
+                                    <canTargetPawns>true</canTargetPawns>
+                                    <canTargetBuildings>true</canTargetBuildings>
+                                </targetParams>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </BounceGun.RicochetGunDef>
+                    <BounceGun.RicochetGunDef ParentName="MPBFPM_VSWBG_Gun" Name="VSWBG_Gun_RepulseSniper_Bond" Abstract="True">
+                        <label>persona Repulse sniper</label>
+                        <description>A sniper-based bounce-charge weapon with an extended "Revolving Cylinder" for firing special bounce-charge ammunition that is much more powerful and can travel further distances. However, this more powerful ammunition is much less stable, with only the most skilled sharpshooters capable of nailing multiple ricochets.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/RepulseSniper</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <equippedAngleOffset>45</equippedAngleOffset>
+                        <soundInteract>VSWBG_Interact_BounceGunHeavy</soundInteract>
+                        <!--Change with custom sound-->
+                        <statBases>
+                            <MarketValue>3080.0</MarketValue>
+                            <Mass>5.5</Mass>
+                            <AccuracyTouch>0.55</AccuracyTouch>
+                            <AccuracyShort>0.44</AccuracyShort>
+                            <AccuracyMedium>0.66</AccuracyMedium>
+                            <AccuracyLong>0.935</AccuracyLong>
+                            <RangedWeapon_Cooldown>5.525</RangedWeapon_Cooldown>
+                        </statBases>
+                        <generateCommonality>0.05</generateCommonality>
+                        <weaponClasses>
+                            <li>LongShots</li>
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>VSWBG_Bullet_RepulsePistol_ParticlePulsebeam_Bond</defaultProjectile>
+                                <warmupTime>7.0</warmupTime>
+                                <range>50.9</range>
+                                <soundCast>VSWBG_BounceGunShot_Heavy</soundCast>
+                                <!--Change with custom sound-->
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <targetParams>
+                                    <canTargetLocations>true</canTargetLocations>
+                                    <canTargetPawns>true</canTargetPawns>
+                                    <canTargetBuildings>true</canTargetBuildings>
+                                </targetParams>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </BounceGun.RicochetGunDef>
+                    <BounceGun.RicochetGunDef ParentName="MPBFPM_VSWBG_Gun" Name="VSWBG_Gun_RepulseRepeater_Bond" Abstract="True">
+                        <label>persona Repulse repeater</label>
+                        <description>A system of "Revolving Cylinders" paired with multiple barrels and a chain-fed bounce-charge ammo-cartridge system to maximize projectile output. This weapon was quickly banned from all gun competitions due to the uncontrollable destructive capabilities of its ricocheting hail of bounce-charge projectiles, making it a rarity.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/RepulseRepeater</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>VSWBG_Interact_BounceGunHeavy</soundInteract>
+                        <!--Change with custom sound-->
+                        <statBases>
+                            <MarketValue>3630.0</MarketValue>
+                            <Mass>8</Mass>
+                            <AccuracyTouch>0.55</AccuracyTouch>
+                            <AccuracyShort>0.44</AccuracyShort>
+                            <AccuracyMedium>0.55</AccuracyMedium>
+                            <AccuracyLong>0.143</AccuracyLong>
+                            <RangedWeapon_Cooldown>4.25</RangedWeapon_Cooldown>
+                        </statBases>
+                        <generateCommonality>0.06</generateCommonality>
+                        <weaponClasses>
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>VSWBG_Bullet_RepulseRepeater_ParticlePulsebeam_Bond</defaultProjectile>
+                                <warmupTime>7.0</warmupTime>
+                                <range>20.9</range>
+                                <ticksBetweenBurstShots>3</ticksBetweenBurstShots>
+                                <burstShotCount>10</burstShotCount>
+                                <soundCast>VSWBG_BounceGunShot_Heavy</soundCast>
+                                <!--Change with custom sound-->
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <targetParams>
+                                    <canTargetLocations>true</canTargetLocations>
+                                    <canTargetPawns>true</canTargetPawns>
+                                    <canTargetBuildings>true</canTargetBuildings>
+                                </targetParams>
+                            </li>
+                        </verbs>
+                        <equippedStatOffsets>
+                            <MoveSpeed>-0.05</MoveSpeed>
+                        </equippedStatOffsets>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </BounceGun.RicochetGunDef>
+                    <BounceGun.RicochetGunDef ParentName="MPBFPM_VSWBG_Gun" Name="VSWBG_Gun_RefractorScattergun_Bond" Abstract="True">
+                        <label>persona Refractor scattergun</label>
+                        <description>A bounce-charge weapon made with a layered "Revolving Cylinder" for firing a spread of smaller charge projectiles that bounce and recoil off of enemies and surfaces. The smaller charge projectiles from this weapon are less powerful, but were maximized to strike as many targets as possible in a single trigger pull.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/RefracterScattergun</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <soundInteract>VSWBG_Interact_BounceGunShotgun</soundInteract>
+                        <!--Change with custom sound-->
+                        <statBases>
+                            <MarketValue>2640.0</MarketValue>
+                            <Mass>4.6</Mass>
+                            <AccuracyTouch>0.88</AccuracyTouch>
+                            <AccuracyShort>0.825</AccuracyShort>
+                            <AccuracyMedium>0.33</AccuracyMedium>
+                            <AccuracyLong>0.11</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.87</RangedWeapon_Cooldown>
+                        </statBases>
+                        <generateCommonality>0.01</generateCommonality>
+                        <weaponClasses>
+                            <li>ShortShots</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>VSWBG_Bullet_RefractorScattergun_ParticlePulsebeam_Bond</defaultProjectile>
+                                <warmupTime>3.0</warmupTime>
+                                <range>25.9</range>
+                                <ticksBetweenBurstShots>1</ticksBetweenBurstShots>
+                                <burstShotCount>3</burstShotCount>
+                                <soundCast>VSWBG_BounceGunShot_Light</soundCast>
+                                <!--Change with custom sound-->
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <targetParams>
+                                    <canTargetLocations>true</canTargetLocations>
+                                    <canTargetPawns>true</canTargetPawns>
+                                    <canTargetBuildings>true</canTargetBuildings>
+                                </targetParams>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </BounceGun.RicochetGunDef>
+                    <BounceGun.RicochetGunDef ParentName="MPBFPM_VSWBG_Gun" Name="VSWBG_Gun_RefractorCannon_Bond" Abstract="True">
+                        <label>persona Repulse cannon</label>
+                        <description>An experimental, heavy, militarized variant of the bounce-charge weapon equipped with multiple oversized "Revolving Cylinders". Its storm of military-grade bounce charge projectiles are capable of ricocheting multiple times with each bounce, leaving a devastating charge impact.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Things/Item/Equipment/WeaponRanged/RefractorCannon</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                        </graphicData>
+                        <equippedAngleOffset>45</equippedAngleOffset>
+                        <soundInteract>VSWBG_Interact_BounceGunHeavy</soundInteract>
+                        <!--Change with custom sound-->
+                        <statBases>
+                            <MarketValue>4180.0</MarketValue>
+                            <Mass>10</Mass>
+                            <AccuracyTouch>0.55</AccuracyTouch>
+                            <AccuracyShort>0.385</AccuracyShort>
+                            <AccuracyMedium>0.275</AccuracyMedium>
+                            <AccuracyLong>0.22</AccuracyLong>
+                            <RangedWeapon_Cooldown>4.845</RangedWeapon_Cooldown>
+                        </statBases>
+                        <generateCommonality>0.1</generateCommonality>
+                        <weaponClasses>
+                            <li>RangedHeavy</li>
+                        </weaponClasses>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>VSWBG_Bullet_RefractorCannon_ParticlePulsebeam_Bond</defaultProjectile>
+                                <warmupTime>7.5</warmupTime>
+                                <range>30.9</range>
+                                <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                                <burstShotCount>10</burstShotCount>
+                                <soundCast>VSWBG_BounceGunShot_Heavy</soundCast>
+                                <!--Change with custom sound-->
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <targetParams>
+                                    <canTargetLocations>true</canTargetLocations>
+                                    <canTargetPawns>true</canTargetPawns>
+                                    <canTargetBuildings>true</canTargetBuildings>
+                                </targetParams>
+                            </li>
+                        </verbs>
+                        <equippedStatOffsets>
+                            <MoveSpeed>-0.5</MoveSpeed>
+                        </equippedStatOffsets>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </BounceGun.RicochetGunDef>
+                    <BounceGun.RicochetBulletDef Name="MPBFPM_VSWBG_BulletBase" ParentName="MPBFPM_BaseBullet" Abstract="true">
+                        <defName>VSWBG_BulletBase</defName>
+                        <thingClass>BounceGun.RicochetBullet</thingClass>
+                        <label>particle pulse shot</label>
+                        <MinRicochetHits>0</MinRicochetHits>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bounce_Projectile</texPath>
+                        </graphicData>
+                    </BounceGun.RicochetBulletDef>
+                    <BounceGun.RicochetBulletDef ParentName="MPBFPM_VSWBG_BulletBase" Name="VSWBG_Bullet_RepulseRifle_ParticlePulsebeam_Bond" Abstract="True">
+                        <AccuracyFactor>0.5</AccuracyFactor>
+                        <RicochetChance>0.40</RicochetChance>
+                        <RicochetDamageModifier>0.65</RicochetDamageModifier>
+                        <MinRicochetHits>0</MinRicochetHits>
+                        <BaseMaxRicochetHits>5</BaseMaxRicochetHits>
+                        <SkillMaxRicochetHits>8</SkillMaxRicochetHits>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>13</damageAmountBase>
+                            <speed>50</speed>
+                        </projectile>
+                    </BounceGun.RicochetBulletDef>
+                    <BounceGun.RicochetBulletDef ParentName="MPBFPM_VSWBG_BulletBase" Name="VSWBG_Bullet_RepulsePistol_ParticlePulsebeam_Bond" Abstract="True">
+                        <AccuracyFactor>0.5</AccuracyFactor>
+                        <RicochetChance>0.35</RicochetChance>
+                        <RicochetDamageModifier>0.8</RicochetDamageModifier>
+                        <MinRicochetHits>0</MinRicochetHits>
+                        <BaseMaxRicochetHits>5</BaseMaxRicochetHits>
+                        <SkillMaxRicochetHits>8</SkillMaxRicochetHits>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>15</damageAmountBase>
+                            <speed>50</speed>
+                        </projectile>
+                    </BounceGun.RicochetBulletDef>
+                    <BounceGun.RicochetBulletDef ParentName="MPBFPM_VSWBG_BulletBase" Name="VSWBG_Bullet_RepulseSniper_ParticlePulsebeam_Bond" Abstract="True">
+                        <AccuracyFactor>0.5</AccuracyFactor>
+                        <RicochetChance>0.30</RicochetChance>
+                        <RicochetDamageModifier>0.80</RicochetDamageModifier>
+                        <MinRicochetHits>0</MinRicochetHits>
+                        <BaseMaxRicochetHits>3</BaseMaxRicochetHits>
+                        <SkillMaxRicochetHits>5</SkillMaxRicochetHits>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bounce_Projectile_Large</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>41</damageAmountBase>
+                            <armorPenetrationBase>0.2</armorPenetrationBase>
+                            <stoppingPower>1</stoppingPower>
+                            <speed>80</speed>
+                        </projectile>
+                    </BounceGun.RicochetBulletDef>
+                    <BounceGun.RicochetBulletDef ParentName="MPBFPM_VSWBG_BulletBase" Name="VSWBG_Bullet_RepulseRepeater_ParticlePulsebeam_Bond" Abstract="True">
+                        <AccuracyFactor>0.5</AccuracyFactor>
+                        <RicochetChance>0.25</RicochetChance>
+                        <RicochetDamageModifier>0.40</RicochetDamageModifier>
+                        <MinRicochetHits>0</MinRicochetHits>
+                        <BaseMaxRicochetHits>3</BaseMaxRicochetHits>
+                        <SkillMaxRicochetHits>5</SkillMaxRicochetHits>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>8</damageAmountBase>
+                            <speed>50</speed>
+                        </projectile>
+                    </BounceGun.RicochetBulletDef>
+                    <BounceGun.RicochetBulletDef ParentName="MPBFPM_VSWBG_BulletBase" Name="VSWBG_Bullet_RefractorScattergun_ParticlePulsebeam_Bond" Abstract="True">
+                        <AccuracyFactor>0.5</AccuracyFactor>
+                        <RicochetChance>0.50</RicochetChance>
+                        <RicochetDamageModifier>0.40</RicochetDamageModifier>
+                        <MinRicochetHits>0</MinRicochetHits>
+                        <BaseMaxRicochetHits>5</BaseMaxRicochetHits>
+                        <SkillMaxRicochetHits>7</SkillMaxRicochetHits>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>15</damageAmountBase>
+                            <armorPenetrationBase>0.3</armorPenetrationBase>
+                            <stoppingPower>1</stoppingPower>
+                            <speed>50</speed>
+                        </projectile>
+                    </BounceGun.RicochetBulletDef>
+                    <BounceGun.RicochetBulletDef ParentName="MPBFPM_VSWBG_BulletBase" Name="VSWBG_Bullet_RefractorCannon_ParticlePulsebeam_Bond" Abstract="True">
+                        <AccuracyFactor>0.5</AccuracyFactor>
+                        <RicochetChance>0.40</RicochetChance>
+                        <RicochetDamageModifier>0.75</RicochetDamageModifier>
+                        <MinRicochetHits>0</MinRicochetHits>
+                        <BaseMaxRicochetHits>5</BaseMaxRicochetHits>
+                        <SkillMaxRicochetHits>5</SkillMaxRicochetHits>
+                        <graphicData>
+                            <texPath>Things/Projectile/Bounce_Projectile_Large</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>13</damageAmountBase>
+                            <armorPenetrationBase>0.1</armorPenetrationBase>
+                            <stoppingPower>0.5</stoppingPower>
+                            <speed>80</speed>
+                        </projectile>
+                    </BounceGun.RicochetBulletDef>
+                </value>
+            </Operation>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_vanillaspacerweaponsbounceguncontinued</key>
+                <defaultValue>true</defaultValue>
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="VSWBG_Gun_RepulseRifle_Bond">
+                                <defName>VSWBG_Gun_RepulseRifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="VSWBG_Gun_RepulsePistol_Bond">
+                                <defName>VSWBG_Gun_RepulsePistol_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="VSWBG_Gun_RepulseSniper_Bond">
+                                <defName>VSWBG_Gun_RepulseSniper_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="VSWBG_Gun_RepulseRepeater_Bond">
+                                <defName>VSWBG_Gun_RepulseRepeater_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="VSWBG_Gun_RefractorScattergun_Bond">
+                                <defName>VSWBG_Gun_RefractorScattergun_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="VSWBG_Gun_RefractorCannon_Bond">
+                                <defName>VSWBG_Gun_RefractorCannon_Bond</defName>
+                            </ThingDef>
+                            <BounceGun.RicochetBulletDef ParentName="VSWBG_Bullet_RepulseRifle_ParticlePulsebeam_Bond">
+                                <defName>VSWBG_Bullet_RepulseRifle_ParticlePulsebeam_Bond</defName>
+                            </BounceGun.RicochetBulletDef>
+                            <BounceGun.RicochetBulletDef ParentName="VSWBG_Bullet_RepulsePistol_ParticlePulsebeam_Bond">
+                                <defName>VSWBG_Bullet_RepulsePistol_ParticlePulsebeam_Bond</defName>
+                            </BounceGun.RicochetBulletDef>
+                            <BounceGun.RicochetBulletDef ParentName="VSWBG_Bullet_RepulseSniper_ParticlePulsebeam_Bond">
+                                <defName>VSWBG_Bullet_RepulseSniper_ParticlePulsebeam_Bond</defName>
+                            </BounceGun.RicochetBulletDef>
+                            <BounceGun.RicochetBulletDef ParentName="VSWBG_Bullet_RepulseRepeater_ParticlePulsebeam_Bond">
+                                <defName>VSWBG_Bullet_RepulseRepeater_ParticlePulsebeam_Bond</defName>
+                            </BounceGun.RicochetBulletDef>
+                            <BounceGun.RicochetBulletDef ParentName="VSWBG_Bullet_RefractorScattergun_ParticlePulsebeam_Bond">
+                                <defName>VSWBG_Bullet_RefractorScattergun_ParticlePulsebeam_Bond</defName>
+                            </BounceGun.RicochetBulletDef>
+                            <BounceGun.RicochetBulletDef ParentName="VSWBG_Bullet_RefractorCannon_ParticlePulsebeam_Bond">
+                                <defName>VSWBG_Bullet_RefractorCannon_ParticlePulsebeam_Bond</defName>
+                            </BounceGun.RicochetBulletDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>
