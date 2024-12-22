@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== XCOM ADVENT Weapons (Continued) =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>flangopink.xcomadventweaponscontinued</li>
+        </mods>
+        <packageId>true</packageId>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef Name="MPBFPM_AlienWeaponBase" ParentName="MPBFPM_BaseHumanMakeableGun" Abstract="True">
+                        <techLevel>Spacer</techLevel>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                        </weaponTags>
+                        <weaponClasses>
+                            <li>RangedLight</li>
+                        </weaponClasses>
+                        <tools>
+                            <li>
+                                <label>stock</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                    <li>Poke</li>
+                                </capacities>
+                                <power>9.75</power>
+                                <cooldownTime>1.7</cooldownTime>
+                            </li>
+                        </tools>
+                    </ThingDef>
+
+                    <ThingDef ParentName="MPBFPM_AlienWeaponBase" Name="Alien_Rifle_Bond" Abstract="True">
+                        <label>persona Magnetic alien rifle</label>
+                        <description>An alien version of the charged-shot assault rifle.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <soundInteract>Alien_Interact_Rifle</soundInteract>
+                        <graphicData>
+                            <texPath>Things/Items/Weapons/Rifle</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.1</drawSize>
+                        </graphicData>
+                        <statBases>
+                            <Mass>5</Mass>
+                            <AccuracyTouch>0.66</AccuracyTouch>
+                            <AccuracyShort>0.77</AccuracyShort>
+                            <AccuracyMedium>0.605</AccuracyMedium>
+                            <AccuracyLong>0.495</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.7</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>Range_Alien_Rifle</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Rifle_Alien_Bullet_Bond</defaultProjectile>
+                                <warmupTime>1.25</warmupTime>
+                                <range>24.9</range>
+                                <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                                <burstShotCount>4</burstShotCount>
+                                <soundCast>ADVENT_Rifle</soundCast>
+                                <soundCastTail>GunTail_Medium</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_AlienWeaponBase" Name="Alien_Pistol_Bond" Abstract="True">
+                        <label>persona Magnetic alien pistol</label>
+                        <description>An alien version of the charged-shot pistol.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <soundInteract>Alien_Interact_Pistol</soundInteract>
+                        <graphicData>
+                            <texPath>Things/Items/Weapons/Pistol</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.25</drawSize>
+                        </graphicData>
+                        <uiIconScale>1.25</uiIconScale>
+                        <statBases>
+                            <Mass>0.6</Mass>
+                            <AccuracyTouch>0.935</AccuracyTouch>
+                            <AccuracyShort>0.88</AccuracyShort>
+                            <AccuracyMedium>0.605</AccuracyMedium>
+                            <AccuracyLong>0.462</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.105</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>Range_Alien_Pistol</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Pistol_Alien_Bullet_Bond</defaultProjectile>
+                                <soundCast>ADVENT_Pistol</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                                <range>22.9</range>
+                                <warmupTime>1.10</warmupTime>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_AlienWeaponBase" Name="Alien_Shotgun_Bond" Abstract="True">
+                        <label>persona Magnetic alien shotgun</label>
+                        <description>An alien version of a shotgun.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <soundInteract>Alien_Interact_Shotgun</soundInteract>
+                        <graphicData>
+                            <texPath>Things/Items/Weapons/Shotgun</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.1</drawSize>
+                        </graphicData>
+                        <statBases>
+                            <Mass>4</Mass>
+                            <AccuracyTouch>1.034</AccuracyTouch>
+                            <AccuracyShort>0.968</AccuracyShort>
+                            <AccuracyMedium>0.935</AccuracyMedium>
+                            <AccuracyLong>0.495</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.488</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>Range_Alien_Shotgun</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Shotgun_Alien_Bullet_Bond</defaultProjectile>
+                                <warmupTime>0.9</warmupTime>
+                                <range>22.9</range>
+                                <soundCast>ADVENT_Shotgun</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_AlienWeaponBase" Name="Alien_Smg_Bond" Abstract="True">
+                        <label>persona Magnetic alien smg</label>
+                        <description>An alien version of a charge SMG.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <soundInteract>Alien_Interact_SMG</soundInteract>
+                        <graphicData>
+                            <texPath>Things/Items/Weapons/Smg</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.1</drawSize>
+                        </graphicData>
+                        <statBases>
+                            <Mass>4</Mass>
+                            <AccuracyTouch>0.935</AccuracyTouch>
+                            <AccuracyShort>0.77</AccuracyShort>
+                            <AccuracyMedium>0.462</AccuracyMedium>
+                            <AccuracyLong>0.242</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.232</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>Range_Alien_SMG</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Smg_Alien_Bullet_Bond</defaultProjectile>
+                                <warmupTime>1.1</warmupTime>
+                                <range>24.9</range>
+                                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                                <burstShotCount>6</burstShotCount>
+                                <soundCast>ADVENT_SMG</soundCast>
+                                <soundCastTail>GunTail_Light</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_AlienWeaponBase" Name="Alien_Sniper_Bond" Abstract="True">
+                        <label>persona Magnetic alien sniper</label>
+                        <description>An alien version of a charge sniper.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <soundInteract>Alien_Interact_Sniper</soundInteract>
+                        <graphicData>
+                            <texPath>Things/Items/Weapons/Sniper</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.13</drawSize>
+                            <drawOffsetSouth>(0.0, 0.0, -0.05)</drawOffsetSouth>
+                            <drawOffsetWest>(-0.10, 0.0, -0.1)</drawOffsetWest>
+                            <drawOffsetEast>(0.10, 0.0, -0.1)</drawOffsetEast>
+                        </graphicData>
+                        <statBases>
+                            <Mass>7</Mass>
+                            <AccuracyTouch>0.495</AccuracyTouch>
+                            <AccuracyShort>0.715</AccuracyShort>
+                            <AccuracyMedium>0.902</AccuracyMedium>
+                            <AccuracyLong>0.935</AccuracyLong>
+                            <RangedWeapon_Cooldown>1.955</RangedWeapon_Cooldown>
+                        </statBases>
+                        <equippedAngleOffset>45</equippedAngleOffset>
+                        <equippedStatOffsets>
+                            <MoveSpeed>-0.1</MoveSpeed> <!-- drawback -->
+                        </equippedStatOffsets>
+                        <weaponTags>
+                            <li>Range_Alien_Sniper</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>Sniper_Alien_Bullet_Bond</defaultProjectile>
+                                <warmupTime>2.8</warmupTime>
+                                <range>37.9</range>
+                                <soundCast>ADVENT_SniperRifle</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>9</muzzleFlashScale>
+                            </li>
+                        </verbs>
+                    </ThingDef>
+                    <ThingDef Name="MPBFPM_AlienBulletBase" ParentName="MPBFPM_Bullet" Abstract="True">
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_ADVENT_Big</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <speed>70</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_AlienBulletBase" Name="Rifle_Alien_Bullet_Bond" Abstract="True">
+                        <label>Magnetic Bullet</label>
+                        <projectile>
+                            <damageAmountBase>15</damageAmountBase>
+                            <armorPenetrationBase>0.35</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_AlienBulletBase" Name="Pistol_Alien_Bullet_Bond" Abstract="True">
+                        <label>Magnetic Bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_ADVENT_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>22</damageAmountBase>
+                            <armorPenetrationBase>0.40</armorPenetrationBase>
+                            <speed>70</speed>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_AlienBulletBase" Name="Shotgun_Alien_Bullet_Bond" Abstract="True">
+                        <label>Magnetic Bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_ADVENT_Shotgun</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>30</damageAmountBase>
+                            <armorPenetrationBase>0.45</armorPenetrationBase>
+                            <stoppingPower>3</stoppingPower>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_AlienBulletBase" Name="Smg_Alien_Bullet_Bond" Abstract="True">
+                        <label>Magnetic Bullet</label>
+                        <graphicData>
+                            <texPath>Things/Projectiles/Bullet_ADVENT_Small</texPath>
+                        </graphicData>
+                        <projectile>
+                            <damageAmountBase>12</damageAmountBase>
+                            <armorPenetrationBase>0.35</armorPenetrationBase>
+                        </projectile>
+                    </ThingDef>
+                    <ThingDef ParentName="MPBFPM_AlienBulletBase" Name="Sniper_Alien_Bullet_Bond" Abstract="True">
+                        <label>Magnetic Bullet</label>
+                        <projectile>
+                            <damageAmountBase>38</damageAmountBase>
+                            <armorPenetrationBase>0.55</armorPenetrationBase>
+                            <stoppingPower>1.5</stoppingPower>
+                            <speed>90</speed>
+                        </projectile>
+                    </ThingDef>
+                </value>
+            </Operation>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_xcomadventweaponscontinued</key>
+                <defaultValue>true</defaultValue>
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="Alien_Rifle_Bond">
+                                <defName>Alien_Rifle_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Alien_Pistol_Bond">
+                                <defName>Alien_Pistol_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Alien_Shotgun_Bond">
+                                <defName>Alien_Shotgun_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Alien_Smg_Bond">
+                                <defName>Alien_Smg_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Alien_Sniper_Bond">
+                                <defName>Alien_Sniper_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Rifle_Alien_Bullet_Bond">
+                                <defName>Rifle_Alien_Bullet_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Pistol_Alien_Bullet_Bond">
+                                <defName>Pistol_Alien_Bullet_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Shotgun_Alien_Bullet_Bond">
+                                <defName>Shotgun_Alien_Bullet_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Smg_Alien_Bullet_Bond">
+                                <defName>Smg_Alien_Bullet_Bond</defName>
+                            </ThingDef>
+                            <ThingDef ParentName="Sniper_Alien_Bullet_Bond">
+                                <defName>Sniper_Alien_Bullet_Bond</defName>
+                            </ThingDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>
