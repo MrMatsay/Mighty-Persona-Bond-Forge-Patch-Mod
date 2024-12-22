@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== VWE Coilguns - Unnoficial Gauss Sniper =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>sari.gausssniper</li>
+        </mods>
+        <packageId>true</packageId>
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <ThingDef ParentName="MPBFPM_BaseHumanMakeableGun" Name="VWE_Gun_GaussSniper_Bond" Abstract="True">
+                        <label>persona gauss sniper</label>
+                        <description>A spacer-tech gauss sniper. A series of electromagnetic coils catapult a single shot at hypervelocity, shredding armor and punching through any targets in its path.\n\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.</description>
+                        <techLevel>Spacer</techLevel>
+                        <graphicData>
+                            <texPath>Coilgun_01</texPath>
+                            <graphicClass>Graphic_Single</graphicClass>
+                            <drawSize>1.1</drawSize>
+                        </graphicData>
+                        <soundInteract>VWE_Interact_GaussRifle</soundInteract>
+                        <statBases>
+                            <Mass>7</Mass>
+                            <AccuracyTouch>0.33</AccuracyTouch>
+                            <AccuracyShort>0.605</AccuracyShort>
+                            <AccuracyMedium>0.935</AccuracyMedium>
+                            <AccuracyLong>1.045</AccuracyLong>
+                            <RangedWeapon_Cooldown>6.375</RangedWeapon_Cooldown>
+                        </statBases>
+                        <weaponTags>
+                            <li>SpacerGun</li>
+                            <!-- Unused, but available to modders -->
+                            <li>Coilgun</li>
+                        </weaponTags>
+                        <verbs>
+                            <li>
+                                <verbClass>Verb_Shoot</verbClass>
+                                <hasStandardCommand>true</hasStandardCommand>
+                                <defaultProjectile>VWE_Bullet_Gausssniper_Bond</defaultProjectile>
+                                <soundAiming>coilgun_charge</soundAiming>
+                                <warmupTime>0.9</warmupTime>
+                                <range>44.9</range>
+                                <soundCast>coilgun_fire</soundCast>
+                                <soundCastTail>GunTail_Heavy</soundCastTail>
+                                <muzzleFlashScale>14</muzzleFlashScale>
+                                <targetParams>
+                                    <canTargetLocations>true</canTargetLocations>
+                                    <canTargetPawns>true</canTargetPawns>
+                                    <canTargetBuildings>true</canTargetBuildings>
+                                </targetParams>
+                            </li>
+                        </verbs>
+                        <tools>
+                            <li>
+                                <label>barrel</label>
+                                <capacities>
+                                    <li>Blunt</li>
+                                </capacities>
+                                <power>12.555</power>
+                                <cooldownTime>2.21</cooldownTime>
+                            </li>
+                        </tools>
+                        <equippedAngleOffset>53</equippedAngleOffset>
+                        <equippedStatOffsets>
+                            <MoveSpeed>-0.25</MoveSpeed> <!-- drawback -->
+                        </equippedStatOffsets>
+                        <modExtensions>
+                            <li Class="VFECore.ThingDefExtension">
+                                <weaponCarryDrawOffsets>
+                                    <north>
+                                        <drawOffset>(0,0,-0.18)</drawOffset>
+                                    </north>
+                                    <east>
+                                        <drawOffset>(0,0,-0.18)</drawOffset>
+                                    </east>
+                                    <south>
+                                        <drawOffset>(0,0,-0.18)</drawOffset>
+                                    </south>
+                                    <west>
+                                        <drawOffset>(0,0,-0.18)</drawOffset>
+                                    </west>
+                                </weaponCarryDrawOffsets>
+                            </li>
+                        </modExtensions>
+                    </ThingDef>
+                    <VFECore.ExpandableProjectileDef ParentName="BaseBullet" Name="VWE_Bullet_Gausssniper_Bond" Abstract="True">
+                        <label>gauss sniper sabot</label>
+                        <projectile>
+                            <damageDef>Bullet</damageDef>
+                            <damageAmountBase>46</damageAmountBase>
+                            <armorPenetrationBase>0.70</armorPenetrationBase>
+                            <stoppingPower>1.0</stoppingPower>
+                            <speed>150</speed>
+                        </projectile>
+                        <thingClass>VFECore.GaussProjectile</thingClass>
+                        <graphicData>
+                            <texPath>Projectiles/Proj_CoilgunFadeIn</texPath>
+                            <texPathFadeOut>Projectiles/Proj_CoilgunFadeOut</texPathFadeOut>
+                        </graphicData>
+                        <reachMaxRangeAlways>true</reachMaxRangeAlways>
+                        <drawOffscreen>true</drawOffscreen>
+                        <lifeTimeDuration>50</lifeTimeDuration>
+                        <minDistanceToAffect>1.9</minDistanceToAffect>
+                        <widthScaleFactor>0.10</widthScaleFactor>
+                        <heightScaleFactor>1</heightScaleFactor>
+                        <startingPositionOffset>(0,0,-1)</startingPositionOffset>
+                        <totalSizeScale>0.8</totalSizeScale>
+                        <tickFrameRate>2</tickFrameRate>
+                        <finalTickFrameRate>2</finalTickFrameRate>
+                        <tickDamageRate>5</tickDamageRate>
+                        <dealsDamageOnce>true</dealsDamageOnce>
+                        <stopWhenHit>false</stopWhenHit>
+                        <stopWhenHitAt>
+                            <li>MineableSteel</li>
+                            <li>CollapsedRocks</li>
+                            <li>MineableSilver</li>
+                            <li>MineableGold</li>
+                            <li>MineableUranium</li>
+                            <li>MineablePlasteel</li>
+                            <li>MineableJade</li>
+                            <li>MineableComponentsIndustrial</li>
+                            <li>RaisedRocks</li>
+                            <li>Sandstone</li>
+                            <li>SmoothedSandstone</li>
+                            <li>Granite</li>
+                            <li>SmoothedGranite</li>
+                            <li>Limestone</li>
+                            <li>SmoothedLimestone</li>
+                            <li>Slate</li>
+                            <li>SmoothedSlate</li>
+                            <li>Marble</li>
+                            <li>SmoothedMarble</li>
+                        </stopWhenHitAt>
+                    </VFECore.ExpandableProjectileDef>
+                </value>
+            </Operation>
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_vwecoilgunsunnoficialgausssniper</key>
+                <defaultValue>true</defaultValue>
+                <caseTrue>
+                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                        <xpath>Defs</xpath>
+                        <value>
+                            <ThingDef ParentName="VWE_Gun_GaussSniper_Bond">
+                                <defName>VWE_Gun_GaussSniper_Bond</defName>
+                            </ThingDef>
+                            <VFECore.ExpandableProjectileDef ParentName="VWE_Bullet_Gausssniper_Bond">
+                                <defName>VWE_Bullet_Gausssniper_Bond</defName>
+                            </VFECore.ExpandableProjectileDef>
+                        </value>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>
