@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ===== Vanilla Spacer Weapons - Beam Gun (Continued) =====
+-->
+<Patch>
+    <Operation Class="XmlExtensions.FindMod">
+        <mods>
+            <li>zal.vswbeam</li>
+        </mods>
+        <packageId>true</packageId>
+
+        <caseTrue>
+            <Operation Class="XmlExtensions.PatchOperationAdd">
+                <xpath>Defs</xpath>
+                <value>
+                    <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_VSWBG_Gun_BeamDagger_Bond" Abstract="True">
+                        <label>bond beam dagger</label>
+                        <description>Bond an beam dagger.</description>
+                        <jobString>Bonding a beam dagger.</jobString>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>VSWBG_Gun_BeamDagger</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>VSWBG_Gun_BeamDagger</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <VSWBG_Gun_BeamDagger_Bond>1</VSWBG_Gun_BeamDagger_Bond>
+                        </products>
+                    </RecipeDef>
+                    <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_VSWBG_Gun_BeamEstoc_Bond" Abstract="True">
+                        <label>bond beam estoc</label>
+                        <description>Bond an beam estoc.</description>
+                        <jobString>Bonding a beam estoc.</jobString>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>VSWBG_Gun_BeamEstoc</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>VSWBG_Gun_BeamEstoc</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <VSWBG_Gun_BeamEstoc_Bond>1</VSWBG_Gun_BeamEstoc_Bond>
+                        </products>
+                    </RecipeDef>
+                    <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_VSWBG_Gun_BeamPike_Bond" Abstract="True">
+                        <label>bond beam pike</label>
+                        <description>Bond an beam pike.</description>
+                        <jobString>Bonding a beam pike.</jobString>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>VSWBG_Gun_BeamPike</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>VSWBG_Gun_BeamPike</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <VSWBG_Gun_BeamPike_Bond>1</VSWBG_Gun_BeamPike_Bond>
+                        </products>
+                    </RecipeDef>
+                    <RecipeDef ParentName="MPBFPM_RecipeDefBase" Name="Make_VSWBG_Gun_BeamGlaive_Bond" Abstract="True">
+                        <label>bond beam glaive</label>
+                        <description>Bond an beam glaive.</description>
+                        <jobString>Bonding a beam glaive.</jobString>
+                        <ingredients>
+                            <li>
+                                <filter>
+                                    <thingDefs>
+                                        <li>VSWBG_Gun_BeamGlaive</li>
+                                    </thingDefs>
+                                </filter>
+                                <count>1</count>
+                            </li>
+                        </ingredients>
+                        <fixedIngredientFilter>
+                            <thingDefs>
+                                <li>VSWBG_Gun_BeamGlaive</li>
+                            </thingDefs>
+                        </fixedIngredientFilter>
+                        <products>
+                            <VSWBG_Gun_BeamGlaive_Bond>1</VSWBG_Gun_BeamGlaive_Bond>
+                        </products>
+                    </RecipeDef>
+                </value>
+            </Operation>
+
+            <Operation Class="XmlExtensions.OptionalPatch">
+                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                <key>Daria40K_MightyPersonaBondForgePatch_vanillaspacerweaponsbeamguncontinued</key>
+                <defaultValue>true</defaultValue>
+
+                <caseTrue>
+                    <Operation Class="XmlExtensions.OptionalPatch">
+                        <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                        <key>Daria40K_MightyPersonaBondForgePatch_PBF_vanillaspacerweaponsbeamguncontinued</key>
+                        <defaultValue>true</defaultValue>
+
+                        <caseTrue>
+                            <Operation Class="XmlExtensions.OptionalPatch">
+                                <modId>Daria40K.MightyPersonaBondForgePatch</modId>
+                                <key>Daria40K_MightyPersonaBondForgePatch_DisablePersonaBondForge</key>
+                                <defaultValue>false</defaultValue>
+
+                                <caseFalse>
+                                    <Operation Class="XmlExtensions.PatchOperationAdd">
+                                        <xpath>Defs</xpath>
+                                        <value>
+                                            <RecipeDef ParentName="Make_VSWBG_Gun_BeamDagger_Bond">
+                                                <defName>Make_VSWBG_Gun_BeamDagger_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_VSWBG_Gun_BeamEstoc_Bond">
+                                                <defName>Make_VSWBG_Gun_BeamEstoc_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_VSWBG_Gun_BeamPike_Bond">
+                                                <defName>Make_VSWBG_Gun_BeamPike_Bond</defName>
+                                            </RecipeDef>
+                                            <RecipeDef ParentName="Make_VSWBG_Gun_BeamGlaive_Bond">
+                                                <defName>Make_VSWBG_Gun_BeamGlaive_Bond</defName>
+                                            </RecipeDef>
+                                        </value>
+                                    </Operation>
+                                </caseFalse>
+                            </Operation>
+                        </caseTrue>
+                    </Operation>
+                </caseTrue>
+            </Operation>
+        </caseTrue>
+    </Operation>
+</Patch>
